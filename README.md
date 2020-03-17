@@ -2,11 +2,11 @@
 
 ## Qué es Open Coronavirus
 
-Es una iniciativa open source para la colaboración ciudadana y la ayuda a luchar contra el virus COVID-19.
+Es una APP para Android e iOS en forma de iniciativa de código abierto para la colaboración ciudadana y la ayuda a luchar contra el virus COVID-19.
 
 Desarrollada por un grupo de ciudadanos e ingenieros informáticos bajo licencia open source MIT.
 
-La APP imita el modelo creado en otros países como South Korea que mediante tecnología y test médicos han conseguido controlar la pandemia.
+La APP imita el modelo creado en otros países como Corea del Sur que mediante tecnología y test médicos han conseguido controlar la pandemia.
 
 La aplicación permite:
 
@@ -40,7 +40,7 @@ Debe servir también para tener datos directamente del seguimiento de pacientes 
 
 <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif" width="250">
 
-## Roadmap y características en el futuro
+## Hoja de ruta y características en el futuro
 
 Sería interesante poder solicitar el test del COVID-19 a partir del mismo cuestionario de preguntas y tener los resultados en 24hrs directamente en la APP.
 
@@ -66,7 +66,7 @@ El proyecto está dividido de la siguiente forma:
 - `server` - Servidor NODE (Loopback)
 - `app` - Código de la App (Ionic)
 
-La app compila tanto para android como para iOS.
+La app compila tanto para Android como para iOS.
 
 ### El servidor
 
@@ -111,3 +111,15 @@ Esto permite ejecutar la app en un browser.
 ## Licencia
 
 [Licencia MIT](license.md)
+
+## Por qué
+
+No pretendemos publicar esta APP, puesto que ha de ser el Ministerio u organismo pertinente quien lo haga. Nos consta [que el gobierno está impulsado un desarrollo como éste](https://elpais.com/tecnologia/2020-03-16/el-gobierno-impulsa-una-aplicacion-inspirada-en-el-exito-de-corea-del-sur-para-combatir-el-coronavirus.html) pero dado que la velocidad es clave, ponemos este código a disposición de los organismos relevantes por si les fuera de utilidad.
+
+## Datos personales
+
+La APP no está publicada y una de las cosas que habría que hacer antes de publicarla es adecuarla a la regulación de tratamiento de datos personales.
+
+## Cómo colaborar
+
+PRs bienvenidos.
