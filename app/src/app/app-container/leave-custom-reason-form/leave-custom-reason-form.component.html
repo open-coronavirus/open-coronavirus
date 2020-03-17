@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar class="transparent-toolbar">
+        <ion-buttons slot="end">
+            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="request-leave-home">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h1>Quieres salir de casa?</h1>
+                Indica el motivo por el que vas a salir de casa
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-textarea [(ngModel)]="leaveRequestAdditionalInfo" placeholder="Escribe el motivo"></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button color="dark" (click)="requestLeaveHome()" expand="block">OK</ion-button>
+                <ion-button color="light" (click)="backToRequestReasons()" expand="block">Volver</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

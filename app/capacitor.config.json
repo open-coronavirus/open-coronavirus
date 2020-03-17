@@ -1,0 +1,8 @@
+{
+  "appId": "es.opencoronavirus",
+  "appName": "Open Coronavirus",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

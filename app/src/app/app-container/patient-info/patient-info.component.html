@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar class="header-app">
+        <ion-buttons slot="start">
+            <ion-icon size="large" (click)="goBack()" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Mis datos</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <patient-info-form #patientInfoFormComponent [patient]="patientService.patient"></patient-info-form>
+                <ion-button color="dark" (click)="update()" expand="block">Guardar</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

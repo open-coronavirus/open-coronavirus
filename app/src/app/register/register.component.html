@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar class="header-app">
+        <ion-title><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div class="form-row">
+                    <h1>Registro</h1>
+                </div>
+                <form [formGroup]="registerPatientForm" (ngSubmit)="onSubmit()">
+                    <patient-info-form #patientInfoFormComponent></patient-info-form>
+                    <div class="form-row">
+                        <div class="form-group form-check">
+                            <input formControlName="acceptterms" name="acceptterms" class="form-check-input" id="acceptterms" type="checkbox">
+                            <label for="acceptterms">Acepto las condiciones de uso y políticas de privacidad</label>
+                            <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
+                        </div>
+                    </div>
+                    <ion-button type="submit" color="dark" expand="block">REGISTRARSE</ion-button>
+                    <div class="d-none d-lg-block d-lg-flex justify-content-end">
+                        <div>
+                            <small class="error" *ngIf="(!patientInfoFormComponent.isValid || acceptterms.invalid) && formTriedToSubmit">
+                                Ups! Te faltan campos por rellenar <span class="emoji-thinking-face"></span>
+                            </small>
+                        </div>
+                    </div>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

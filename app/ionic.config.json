@@ -1,0 +1,7 @@
+{
+  "name": "Open Coronavirus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

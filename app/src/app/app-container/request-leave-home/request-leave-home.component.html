@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar class="transparent-toolbar">
+        <ion-buttons slot="end">
+            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="request-leave-home">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h1>Necesito salir</h1>
+                Estamos en estado de alerta.<br />
+                Selecciona el motivo por el que vas a salir:
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <gray-option *ngFor="let leaveReason of leaveRequestService.leaveReasons;" (click)="requestLeaveHome(leaveReason.id)" [icon]="leaveReason.icon != null?'/assets/icons/svg/' + leaveReason.icon:null" [text]="leaveReason.label"></gray-option>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

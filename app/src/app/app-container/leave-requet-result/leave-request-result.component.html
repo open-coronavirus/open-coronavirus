@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar class="transparent-toolbar">
+        <ion-buttons slot="end">
+            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="request-leave-home">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h1>Has salido de casa!</h1>
+                El motivo por el que has salido es:
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <gray-option [text]="leaveRequestReason.label" [icon]="leaveRequestReason.icon != null?'/assets/icons/svg/' + leaveRequestReason.icon:null"></gray-option>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <strong>Gracias por colaborar!</strong><br />
+                Juntos ganaremos al virus
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<div class="footer-buttons-container">
+    <ion-button color="dark" (click)="backToHome()" expand="block">OK</ion-button>
+</div>

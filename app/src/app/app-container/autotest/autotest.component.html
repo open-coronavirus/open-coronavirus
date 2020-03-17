@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar class="header-app">
+        <ion-buttons slot="start">
+            <ion-icon size="large" (click)="goBack()" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>{{title}}</ion-title>
+        <ion-buttons *ngIf="showExitButton" slot="end">
+            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row *ngIf="questionText">
+            <ion-col>
+                <h4>{{questionText}}</h4>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <span *ngIf="subtitle" [innerHTML]="subtitle"></span>
+                <ng-container *ngFor="let question of currentQuestion.children; let i = index">
+                    <gray-option (click)="answer(question)" [text]="question.option"></gray-option>
+                </ng-container>
+                <div *ngIf="showExitButton">
+                    <ion-button color="dark" (click)="backToHome()" expand="block">OK</ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
