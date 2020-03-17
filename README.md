@@ -22,14 +22,21 @@ Debe servir también para tener datos directamente del seguimiento de pacientes 
 
 ## Pantallas
 
-![Presentación](screenshots/screen1.png?raw=true "Presentación")
-![Registro](screenshots/screen2.png?raw=true "Registro")
-![Pantalla principal](screenshots/screen3.png?raw=true "Pantalla principal")
-![Test](screenshots/screen4.png?raw=true "Test")
-![Menú](screenshots/screen5.png?raw=true "Menú")
-![Permiso salir](screenshots/screen6.png?raw=true "Permiso salir")
-![Salir](screenshots/screen7.png?raw=true "Salir")
-![Información](screenshots/screen8.png?raw=true "Información")
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png" width="250">
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" width="250">
 
 ## Roadmap y características en el futuro
 
