@@ -48,17 +48,6 @@ Identificación del ciudadano si está verde (desinfectado) / amarillo (cuarente
 
 ![Identificación del ciudadano](screenshots/identificacion-ciudadanos.png?raw=true "Identificación del ciudadano")
 
-## Por qué hemos hecho Open Coronavirus
-
-Dada la urgencia de la situación actual toda ayuda es poco. Por eso hemos diseñado y programado el core básico de una App 100% funcional que pueda dar respuesta a algunas necesidades del ciudadano durante el periodo de cuarentena.
-
-El diseño es suficientemente flexible para que añadir o modificar funcionalidades sea fácil y rápido, que es lo que ahora necesitamos.
-
-Esta aplicación pretende ser de ayuda a los ciudadanos y poder hacer frente a la pandemia.
-
-Sé responsable. Entre todos, ¡venceremos al virus!
-\#yomequedoencasa
-
 ## Estructura del Proyecto
 
 El proyecto está dividido de la siguiente forma:
@@ -112,9 +101,18 @@ Esto permite ejecutar la app en un browser.
 
 [Licencia MIT](license.md)
 
-## Por qué
+## Por qué hemos hecho Open Coronavirus
 
 No pretendemos publicar esta APP, puesto que ha de ser el Ministerio u organismo pertinente quien lo haga. Nos consta [que el gobierno está impulsado un desarrollo como éste](https://elpais.com/tecnologia/2020-03-16/el-gobierno-impulsa-una-aplicacion-inspirada-en-el-exito-de-corea-del-sur-para-combatir-el-coronavirus.html) pero dado que la velocidad es clave, ponemos este código a disposición de los organismos relevantes por si les fuera de utilidad.
+
+Dada la urgencia de la situación actual toda ayuda es poco. Por eso hemos diseñado y programado el core básico de una App 100% funcional que pueda dar respuesta a algunas necesidades del ciudadano durante el periodo de cuarentena.
+
+El diseño es suficientemente flexible para que añadir o modificar funcionalidades sea fácil y rápido, que es lo que ahora necesitamos.
+
+Esta aplicación pretende ser de ayuda a los ciudadanos y poder hacer frente a la pandemia.
+
+Sé responsable. Entre todos, ¡venceremos al virus!
+\#yomequedoencasa
 
 ## Datos personales
 
