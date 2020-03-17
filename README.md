@@ -38,6 +38,8 @@ Debe servir también para tener datos directamente del seguimiento de pacientes 
 
 <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" width="250">
 
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif" width="250">
+
 ## Roadmap y características en el futuro
 
 Sería interesante poder solicitar el test del COVID-19 a partir del mismo cuestionario de preguntas y tener los resultados en 24hrs directamente en la APP.
