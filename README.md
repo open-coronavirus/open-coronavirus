@@ -10,13 +10,13 @@ La APP imita el modelo creado en otros países como South Korea que mediante tec
 
 La aplicación permite:
 
-- *Identificación del ciudadano mediante QR*.
+- **Identificación del ciudadano mediante QR**.
 
-- *Colaboración ciudadana* y autodeclaración de responsabilidad indicando cuando sales de casa y para qué. Así cuando vuelves a tu domicilio.
+- **Colaboración ciudadana** y autodeclaración de responsabilidad indicando cuando sales de casa y para qué. Así cuando vuelves a tu domicilio.
 
-- *Tracking de tu posición* para colaborar y ayudar a las autoridades a detectar dónde pueden estar los focos de contagio.
+- **Tracking de tu posición** para colaborar y ayudar a las autoridades a detectar dónde pueden estar los focos de contagio.
 
-- Autocuestionario para *descongestión del 112 o 061* o número de asistencia para el COVID-19.  Mediante un cuestionario permite determinar si necesita llamar o no a un número de emergencia.
+- Autocuestionario para **descongestión del 112 o 061** o número de asistencia para el COVID-19.  Mediante un cuestionario permite determinar si necesita llamar o no a un número de emergencia.
 
 Debe servir también para tener datos directamente del seguimiento de pacientes que han sido enviados a casa con síntomas leves pero con indicaciones de seguimiento por si empeoran.
 
