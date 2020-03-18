@@ -44,6 +44,8 @@ Debe servir también para tener datos directamente del seguimiento de pacientes 
 
 1. Cuando hayan test Dx poder **solicitar el test del COVID-19** a partir del mismo cuestionario de preguntas y tener los resultados en 24hrs directamente en la APP.
 
+![Flujo solicitud de test Dx](screenshots/flujo-solicitud-test.png)
+
 2. Identificación del ciudadano si está verde (desinfectado) / amarillo (cuarentena 7 días) / rojo (infectado o cuarentena 14 días) para **permitir una movilididad controlada de los ciudadanos** en un futuro y evitar contagios/brotes
 
 ![Identificación del ciudadano](screenshots/identificacion-ciudadanos.png?raw=true "Identificación del ciudadano")
