@@ -150,11 +150,11 @@ Se envían a estas aplicaciones notificaciones diarias cuando se ha detectado un
 Otra “app” simplemente alerta a funcionarios públicos cuando alguien que está en cuarentena por posible contagio sale de la zona de aislamiento.
 
 Noticias al respecto:
-https://www.bbc.com/mundo/noticias-internacional-51836302
-https://elpais.com/tecnologia/2020-03-13/corea-del-sur-contra-el-coronavirus-tecnologia.html
-https://www.lavanguardia.com/vida/20200316/474191370262/coronavirus-corea-del-sur-metodo.html
-https://www.libremercado.com/2020-03-13/el-milagro-de-corea-del-sur-la-estrategia-con-la-que-esta-acorralando-al-coronavirus-1276653794/
-https://gacetamedica.com/profesion/coronavirus-la-app-con-la-que-corea-del-sur-esta-consiguiendo-frenar-la-curva/
+- https://www.bbc.com/mundo/noticias-internacional-51836302
+- https://elpais.com/tecnologia/2020-03-13/corea-del-sur-contra-el-coronavirus-tecnologia.html
+- https://www.lavanguardia.com/vida/20200316/474191370262/coronavirus-corea-del-sur-metodo.html
+- https://www.libremercado.com/2020-03-13/el-milagro-de-corea-del-sur-la-estrategia-con-la-que-esta-acorralando-al-coronavirus-1276653794/
+- https://gacetamedica.com/profesion/coronavirus-la-app-con-la-que-corea-del-sur-esta-consiguiendo-frenar-la-curva/
 
 
 ### Israel
@@ -163,13 +163,13 @@ En Israel se están poniendo medidas de control mediante tecnología para vigila
 Identificación y geolocalización.
 
 Noticias al respecto:
-https://elpais.com/sociedad/2020-03-17/israel-recurre-al-espionaje-para-vigilar-los-movimientos-de-los-infectados-por-coronavirus.html
+- https://elpais.com/sociedad/2020-03-17/israel-recurre-al-espionaje-para-vigilar-los-movimientos-de-los-infectados-por-coronavirus.html
 
 ### Alemania
 En Alemania están consiguiendo también una tasa de mortalidad menor gracias a la preventiva y control con los test DX
 
 Noticias al respecto:
-https://www.abc.es/sociedad/abci-coronavirus-alemania-menos-mortalidad-202003171252_noticia.html
+- https://www.abc.es/sociedad/abci-coronavirus-alemania-menos-mortalidad-202003171252_noticia.html
 
 
 ### Italia
