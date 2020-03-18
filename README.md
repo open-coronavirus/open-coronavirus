@@ -135,7 +135,7 @@ Dichos test podrían ser solicitados desde la propia APP así como ver los resul
 A nivel de documentación podemos observar cómo las aplicaciones han ayudado a otros países a hacer frente a la pandemia.
 Recogemos enlaces y documentación de interés como base de la necesidad de contar con una aplicación con estas características/funcionalidades.
 
-**Corea del Sur**
+### Corea del Sur
 Es conocida la estrategia de Corea del Sur a luchar contra el COVID-19 y su gran éxito en la gestión de la pandemia.
 Siendo uno de los paises con más contagios con un índice de mortandad de **0,6%**.
 
@@ -157,7 +157,7 @@ https://www.libremercado.com/2020-03-13/el-milagro-de-corea-del-sur-la-estrategi
 https://gacetamedica.com/profesion/coronavirus-la-app-con-la-que-corea-del-sur-esta-consiguiendo-frenar-la-curva/
 
 
-**Israel**
+### Israel
 En Israel se están poniendo medidas de control mediante tecnología para vigilar el movimiento de los infectados e incluso están visitando casa por casa para controlar la pandemia.
 
 Identificación y geolocalización.
@@ -165,14 +165,14 @@ Identificación y geolocalización.
 Noticias al respecto:
 https://elpais.com/sociedad/2020-03-17/israel-recurre-al-espionaje-para-vigilar-los-movimientos-de-los-infectados-por-coronavirus.html
 
-**Alemania**
+### Alemania
 En Alemania están consiguiendo también una tasa de mortalidad menor gracias a la preventiva y control con los test DX
 
 Noticias al respecto:
 https://www.abc.es/sociedad/abci-coronavirus-alemania-menos-mortalidad-202003171252_noticia.html
 
 
-**Italia**
+### Italia
 En Italia han habilitado la autodeclaración para salir del domicilio aceptando y firmando que cumples con la normativa.
 Desde la web del gobierno italiano solicitas un el documento de autodeclaración
 https://www.interno.gov.it/it
@@ -190,7 +190,7 @@ Noticias al respecto:
 - https://www.larazon.es/internacional/20200313/rtyph6dtmvhitf7scd6lb4okhe.html
 
 
-**España**
+### España
 Además de todas las medidas anunciadas también se requiere de la identificación en situaciones para la vida diaria.
 
 En la frontera y otros controles se está solicitando la identificación a ciudadanos.
