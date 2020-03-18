@@ -22,6 +22,8 @@ Debe servir también para tener datos directamente del seguimiento de pacientes 
 
 ## Pantallas
 
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif" width="250">
+
 <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" width="250">
 
 <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png" width="250">
@@ -38,7 +40,6 @@ Debe servir también para tener datos directamente del seguimiento de pacientes 
 
 <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" width="250">
 
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif" width="250">
 
 ## Hoja de ruta y características en el futuro
 
