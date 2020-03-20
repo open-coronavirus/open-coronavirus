@@ -17,7 +17,7 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { PingResponse } from '../model/pingResponse';
+import { InlineResponse200 } from '../model/inlineResponse200';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -53,9 +53,40 @@ export class PingControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public pingControllerPing(observe?: 'body', reportProgress?: boolean): Observable<PingResponse>;
-    public pingControllerPing(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PingResponse>>;
-    public pingControllerPing(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PingResponse>>;
+    public pingControllerHeartbeat(observe?: 'body', reportProgress?: boolean): Observable<string>;
+    public pingControllerHeartbeat(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public pingControllerHeartbeat(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
+    public pingControllerHeartbeat(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        const httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        return this.httpClient.get<string>(`${this.configuration.basePath}/heartbeat`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public pingControllerPing(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
+    public pingControllerPing(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
+    public pingControllerPing(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
     public pingControllerPing(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -70,7 +101,7 @@ export class PingControllerService {
         }
 
 
-        return this.httpClient.get<PingResponse>(`${this.configuration.basePath}/ping`,
+        return this.httpClient.get<InlineResponse200>(`${this.configuration.basePath}/ping`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

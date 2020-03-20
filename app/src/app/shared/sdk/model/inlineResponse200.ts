@@ -11,21 +11,10 @@
  */
 
 
-/**
- * (Schema options: { partial: true })
- */
-export interface GeolocationPartial { 
-  [key: string]: object | any;
-
-
-    id?: string;
-    latitude?: number;
-    longitude?: number;
-    accuracy?: number;
-    altitude?: number;
-    bearing?: number;
-    speed?: number;
-    created?: Date;
-    userId?: string;
+export interface InlineResponse200 { 
+    greeting?: string;
+    date?: string;
+    url?: string;
+    headers?: { [key: string]: object; };
 }
 

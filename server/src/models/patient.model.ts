@@ -70,6 +70,17 @@ export class Patient extends Entity {
   })
   email: string;
 
+  /**
+   * 1: UNINFECTED
+   * 2: RESTRICTED
+   * 3: INFECTED
+   */
+  @property({
+    type: 'number',
+    required: true,
+  })
+  status: number;
+
   @property({
     type: 'string',
     required: true,

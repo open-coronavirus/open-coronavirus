@@ -18,14 +18,14 @@ export interface GeolocationWithRelations {
   [key: string]: object | any;
 
 
-    id: string;
-    latitude: number;
-    longitude: number;
-    accuracy: number;
-    altitude: number;
-    bearing: number;
-    speed: number;
-    updated: Date;
+    id?: string;
+    latitude?: number;
+    longitude?: number;
+    accuracy?: number;
+    altitude?: number;
+    bearing?: number;
+    speed?: number;
+    created?: Date;
     userId: string;
 }
 
