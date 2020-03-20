@@ -11,21 +11,12 @@
  */
 
 
-/**
- * (Schema options: { title: \'NewGeolocation\' })
- */
-export interface NewGeolocation { 
-  [key: string]: object | any;
-
-
-    id?: string;
-    latitude?: number;
-    longitude?: number;
-    accuracy?: number;
-    altitude?: number;
-    bearing?: number;
-    speed?: number;
-    created?: Date;
-    patientId: string;
+export interface HealthCenterFilter { 
+    where?: { [key: string]: object; };
+    fields?: { [key: string]: object; };
+    offset?: number;
+    limit?: number;
+    skip?: number;
+    order?: Array<string>;
 }
 

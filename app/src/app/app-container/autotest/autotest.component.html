@@ -19,7 +19,7 @@
         <ion-row>
             <ion-col>
                 <span *ngIf="subtitle" [innerHTML]="subtitle"></span>
-                <ng-container *ngFor="let question of currentQuestion.children; let i = index">
+                <ng-container *ngFor="let question of currentQuestion?.children; let i = index">
                     <gray-option (click)="answer(question)" [text]="question.option"></gray-option>
                 </ng-container>
                 <div *ngIf="showExitButton">

@@ -2,6 +2,7 @@ import {Entity, model, property} from '@loopback/repository';
 
 @model({settings: {strict: false}})
 export class Geolocation extends Entity {
+
   @property({
     type: 'string',
     id: true,
@@ -55,7 +56,7 @@ export class Geolocation extends Entity {
     type: 'string',
     required: true,
   })
-  userId: string;
+  patientId: string;
 
   // Define well-known properties here
 

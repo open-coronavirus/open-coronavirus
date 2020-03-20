@@ -23,6 +23,6 @@ export interface Geolocation {
     bearing?: number;
     speed?: number;
     created?: Date;
-    userId: string;
+    patientId: string;
 }
 

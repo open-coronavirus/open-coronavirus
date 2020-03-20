@@ -29,6 +29,7 @@ export interface PatientWithRelations {
     apartment?: string;
     postalCode: string;
     email: string;
+    status?: number;
     phone: string;
 }
 

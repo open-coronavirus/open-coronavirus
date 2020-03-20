@@ -18,7 +18,7 @@ import {ShareService} from './shared/services/share.service';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import {LeaveRequestService} from './shared/services/leave-request.service';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {CoronavirusScoreService} from './shared/services/coronavirus-score.service';
+import {AutotestAnswers} from './shared/services/autotest-answers.service';
 
 @NgModule({
     declarations: [AppComponent, AppContainerComponent],
@@ -37,7 +37,7 @@ import {CoronavirusScoreService} from './shared/services/coronavirus-score.servi
         LeaveRequestService,
         NativeStorage,
         ShareService,
-        CoronavirusScoreService,
+        AutotestAnswers,
         InAppBrowser,
         SocialSharing,
         {provide: 'environment', useValue: environment},

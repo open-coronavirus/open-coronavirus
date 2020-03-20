@@ -26,6 +26,6 @@ export interface GeolocationPartial {
     bearing?: number;
     speed?: number;
     created?: Date;
-    userId?: string;
+    patientId?: string;
 }
 

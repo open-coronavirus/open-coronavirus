@@ -77,9 +77,9 @@ export class Patient extends Entity {
    */
   @property({
     type: 'number',
-    required: true,
+    required: false,
   })
-  status: number;
+  status?: number;
 
   @property({
     type: 'string',

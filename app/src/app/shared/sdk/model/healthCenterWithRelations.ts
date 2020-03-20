@@ -12,23 +12,17 @@
 
 
 /**
- * (Schema options: { title: \'NewPatient\', exclude: [ \'id\' ] })
+ * (Schema options: { includeRelations: true })
  */
-export interface NewPatient { 
+export interface HealthCenterWithRelations { 
   [key: string]: object | any;
 
 
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
+    id?: string;
+    name: string;
+    address: string;
     postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
+    latitude?: number;
+    longitude?: number;
 }
 

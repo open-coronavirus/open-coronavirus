@@ -41,7 +41,7 @@ export class PatientService {
                 protected nativeStorage: NativeStorage) {
 
         platform.ready().then(() => {
-            if (1 == 1 || this.environment.production) {
+            if (this.environment.production) {
                 this.nativeStorage.getItem(PatientService.PATIENT_TOKEN_KEY)
                     .then(
                         data => {
@@ -165,10 +165,10 @@ export class PatientService {
                         longitude: number;
                         speed: number;
                         updated: Date;
-                        userId: string;
+                        patientId: string;
                     };
 
-                    geolocation.userId = this.patient.id;
+                    geolocation.patientId = this.patient.id;
                     geolocation.latitude = location.latitude;
                     geolocation.longitude = location.longitude;
                     geolocation.accuracy = location.accuracy;

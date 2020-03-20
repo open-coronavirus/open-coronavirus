@@ -1,9 +1,17 @@
 export * from './geolocationController.service';
 import { GeolocationControllerService } from './geolocationController.service';
+export * from './healthCenterController.service';
+import { HealthCenterControllerService } from './healthCenterController.service';
 export * from './leaveRequestController.service';
 import { LeaveRequestControllerService } from './leaveRequestController.service';
 export * from './patientController.service';
 import { PatientControllerService } from './patientController.service';
 export * from './pingController.service';
 import { PingControllerService } from './pingController.service';
-export const APIS = [GeolocationControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService];
+export * from './testAppointmentController.service';
+import { TestAppointmentControllerService } from './testAppointmentController.service';
+export * from './testQuestionController.service';
+import { TestQuestionControllerService } from './testQuestionController.service';
+export * from './testResultController.service';
+import { TestResultControllerService } from './testResultController.service';
+export const APIS = [GeolocationControllerService, HealthCenterControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService, TestAppointmentControllerService, TestQuestionControllerService, TestResultControllerService];

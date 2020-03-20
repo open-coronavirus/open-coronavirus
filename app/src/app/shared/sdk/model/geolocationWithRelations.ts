@@ -26,6 +26,6 @@ export interface GeolocationWithRelations {
     bearing?: number;
     speed?: number;
     created?: Date;
-    userId: string;
+    patientId: string;
 }
 

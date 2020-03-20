@@ -4,9 +4,13 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { GeolocationControllerService } from './api/geolocationController.service';
+import { HealthCenterControllerService } from './api/healthCenterController.service';
 import { LeaveRequestControllerService } from './api/leaveRequestController.service';
 import { PatientControllerService } from './api/patientController.service';
 import { PingControllerService } from './api/pingController.service';
+import { TestAppointmentControllerService } from './api/testAppointmentController.service';
+import { TestQuestionControllerService } from './api/testQuestionController.service';
+import { TestResultControllerService } from './api/testResultController.service';
 
 @NgModule({
   imports:      [],
@@ -14,9 +18,13 @@ import { PingControllerService } from './api/pingController.service';
   exports:      [],
   providers: [
     GeolocationControllerService,
+    HealthCenterControllerService,
     LeaveRequestControllerService,
     PatientControllerService,
-    PingControllerService ]
+    PingControllerService,
+    TestAppointmentControllerService,
+    TestQuestionControllerService,
+    TestResultControllerService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

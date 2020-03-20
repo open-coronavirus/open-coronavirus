@@ -12,23 +12,14 @@
 
 
 /**
- * (Schema options: { title: \'NewPatient\', exclude: [ \'id\' ] })
+ * (Schema options: { title: \'NewTestResult\', exclude: [ \'id\' ] })
  */
-export interface NewPatient { 
+export interface NewTestResult { 
   [key: string]: object | any;
 
 
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
+    answers?: Array<object>;
+    patientId: string;
+    result?: number;
 }
 

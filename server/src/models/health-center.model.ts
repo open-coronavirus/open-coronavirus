@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model({settings: {strict: false}})
-export class TestAppointment extends Entity {
+export class HealthCenter extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -10,33 +10,32 @@ export class TestAppointment extends Entity {
   id?: string;
 
   @property({
-    type: 'date',
+    type: 'string',
     required: true,
   })
-  date: Date;
+  name: string;
 
-  /**
-   * 1. At HOME
-   * 2. At HEALTH CENTER
-   *
-   */
+  @property({
+    type: 'string',
+    required: true,
+  })
+  address: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  postalCode: string;
+
+  @property({
+    type: 'number'
+  })
+  latitude?: number;
+
   @property({
     type: 'number',
-    required: true,
   })
-  type: number;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  patientId: string;
-
-  @property({
-    type: 'string',
-    required: false,
-  })
-  healthCenterId?: string;
+  longitude?: number;
 
   // Define well-known properties here
 
@@ -44,13 +43,13 @@ export class TestAppointment extends Entity {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [prop: string]: any;
 
-  constructor(data?: Partial<TestAppointment>) {
+  constructor(data?: Partial<HealthCenter>) {
     super(data);
   }
 }
 
-export interface TestAppointmentRelations {
+export interface HealthCenterRelations {
   // describe navigational properties here
 }
 
-export type TestAppointmentWithRelations = TestAppointment & TestAppointmentRelations;
+export type HealthCenterWithRelations = HealthCenter & HealthCenterRelations;

@@ -12,23 +12,15 @@
 
 
 /**
- * (Schema options: { title: \'NewPatient\', exclude: [ \'id\' ] })
+ * (Schema options: { partial: true })
  */
-export interface NewPatient { 
+export interface TestResultPartial { 
   [key: string]: object | any;
 
 
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
+    id?: string;
+    answers?: Array<object>;
+    patientId?: string;
+    result?: number;
 }
 

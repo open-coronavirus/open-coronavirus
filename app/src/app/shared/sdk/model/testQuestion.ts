@@ -11,24 +11,17 @@
  */
 
 
-/**
- * (Schema options: { title: \'NewPatient\', exclude: [ \'id\' ] })
- */
-export interface NewPatient { 
+export interface TestQuestion { 
   [key: string]: object | any;
 
 
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
+    id: string;
+    questionId: string;
+    title?: string;
+    subtitle?: string;
+    multicheck?: boolean;
+    question?: string;
+    target?: string;
+    children?: Array<object>;
 }
 
