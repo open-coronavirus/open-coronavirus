@@ -9,21 +9,21 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <h1>Quieres salir de casa?</h1>
-                Indica el motivo por el que vas a salir de casa
+                <h1 i18n="@@leaveCustomReasonFormTitle">Quieres salir de casa?</h1>
+                <ng-container i18n="@@leaveCustomReasonFormDescription">Indica el motivo por el que vas a salir de casa</ng-container>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col>
                 <ion-item>
-                    <ion-textarea [(ngModel)]="leaveRequestAdditionalInfo" placeholder="Escribe el motivo"></ion-textarea>
+                    <ion-textarea [(ngModel)]="leaveRequestAdditionalInfo" i18n-placeholder placeholder="Escribe el motivo"></ion-textarea>
                 </ion-item>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col>
-                <ion-button color="dark" (click)="requestLeaveHome()" expand="block">OK</ion-button>
-                <ion-button color="light" (click)="backToRequestReasons()" expand="block">Volver</ion-button>
+                <ion-button color="dark" (click)="requestLeaveHome()" expand="block" i18n="@@okButton">OK</ion-button>
+                <ion-button color="light" (click)="backToRequestReasons()" expand="block" i18n="@@backButton">Volver</ion-button>
             </ion-col>
         </ion-row>
     </ion-grid>

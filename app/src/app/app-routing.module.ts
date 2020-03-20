@@ -106,17 +106,7 @@ const routes: Routes = [
                             import('./app-container/patient-info/patient-info.module').then(m => m.PatientInfoModule)
                     }
                 ]
-            },
-            {
-                path: 'request-test',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () =>
-                            import('./app-container/request-test/request-test.module').then(m => m.RequestTestModule)
-                    }
-                ]
-            },
+            }
         ]
     },
     {

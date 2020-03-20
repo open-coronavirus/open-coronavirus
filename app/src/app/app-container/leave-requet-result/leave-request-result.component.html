@@ -9,8 +9,8 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <h1>Has salido de casa!</h1>
-                El motivo por el que has salido es:
+                <h1 i18n="@@leaveRequestSentTitle">Has salido de casa!</h1>
+                <ng-container i18n="@@leaveRequestSentDescription">El motivo por el que has salido es:</ng-container>
             </ion-col>
         </ion-row>
         <ion-row>
@@ -19,7 +19,7 @@
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col>
+            <ion-col i18n="@@gratitudeMessage">
                 <strong>Gracias por colaborar!</strong><br />
                 Juntos ganaremos al virus
             </ion-col>
@@ -27,5 +27,5 @@
     </ion-grid>
 </ion-content>
 <div class="footer-buttons-container">
-    <ion-button color="dark" (click)="backToHome()" expand="block">OK</ion-button>
+    <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</ion-button>
 </div>

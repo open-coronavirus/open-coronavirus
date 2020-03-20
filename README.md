@@ -64,14 +64,14 @@ La app compila tanto para Android como para iOS.
 
 Para ejecutar el servidor necesitas una base de datos mongoDB y ajustar la configuración de .env.dev o .env.production según.
 
-Luego tendrás que descargar todas las dependencias usando:
+Luego tendrás que descargar todas las dependencias usando
 
 ```
 cd server
 npm install
 ```
 
-Finalmente para ejecutar el servidor usa:
+Finalmente para ejecutar el servidor usa
 
 ```
 npm start
@@ -79,26 +79,43 @@ npm start
 
 ### La App
 
-La App está hecha con el framework ionic. Tendrás que instalar el cliente usando:
+La App está hecha con el framework ionic. Tendrás que instalar el cliente usando
 
 ```
 npm install -g @ionic/cli
 ```
 
-También tendrás que descargar todas las dependencias usando:
+También tendrás que descargar todas las dependencias usando
 
 ```
 cd app
 npm install
 ```
 
-Luego para ejecutarlo usa:
+Luego para ejecutarlo usa
 
 ```
 ionic serve
 ```
 
 Esto permite ejecutar la app en un browser. 
+
+## Internacionalización
+
+El código de la App ya está preparado para ser traducido a cualquier idioma.
+
+<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/i18n-ready.png" width="512">
+
+Para ello solo tienes que copiar el fichero de cadenas situado en ```/app/src/locale/message/messages.xlf``` y enviarlo a traducir. El formato en el que está es XLIFF (XML Localization Interchange File Format), un formato estandar usado por los traductores profesionales, lo que facilitará el intercambio de traducciones entre equipo técnico y traductor.
+
+A medida que evolucione la App podemos regenerar este fichero de cadenas para que incorpore las nuevas cadenas ejecutando el comando
+
+```
+ng xi18n --output-path src/locale
+```
+
+Se ha usado el propio estándar definido por Angular para internacionalizar la App. Para más información visite https://v8.angular.io/guide/i18n
+
 
 ## Licencia
 

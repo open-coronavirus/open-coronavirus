@@ -12,12 +12,12 @@ import {sdkConfigurationProvider} from './shared/sdkconfiguration.provider';
 import {environment} from '../environments/environment';
 import {PatientService} from './shared/services/patient.service';
 import {HttpClientModule} from '@angular/common/http';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import {AppContainerComponent} from './app-container/app-container.component';
 import {ShareService} from './shared/services/share.service';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import {LeaveRequestService} from './shared/services/leave-request.service';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {CoronavirusScoreService} from './shared/services/coronavirus-score.service';
 
 @NgModule({
