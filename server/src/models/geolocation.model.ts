@@ -50,7 +50,7 @@ export class Geolocation extends Entity {
     type: 'date',
     required: false,
   })
-  created: Date;
+  created?: Date;
 
   @property({
     type: 'string',

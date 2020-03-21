@@ -5,6 +5,7 @@
     "types": [],
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "rootDirs": ["src", "../common"],
     "allowSyntheticDefaultImports": true
   },
   "include": [

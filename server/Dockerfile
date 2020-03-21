@@ -7,21 +7,22 @@ MAINTAINER Antonio Párraga <antonio@parraga.es>
 ADD server/package.json /tmp/package.json
 ADD server/.npmrc /tmp/.npmrc
 RUN cd /tmp && yarn install --no-optional
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+RUN mkdir -p /opt/server && mkdir -p /opt/common && cp -a /tmp/node_modules /opt/server/
 
 # install pm2
 RUN npm install pm2 -g
 
 # From here we load our application's code in, therefore the previous docker
 # "layer" thats been cached will be used if possible
-WORKDIR /opt/app
-ADD server /opt/app
+WORKDIR /opt/server
+ADD server /opt/server
+ADD common /opt/common
 
 RUN npm run clean
 RUN npm run build
 
 #Copy .env files to deliverable dir
-ADD server/.env* /opt/app/
+ADD server/.env* /opt/server/
 
 # Bind to all network interfaces so that it can be mapped to the host OS
 ENV HOST=0.0.0.0 PORT=9050

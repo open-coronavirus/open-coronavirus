@@ -7,11 +7,11 @@ import {AutotestAnswers} from '../../shared/services/autotest-answers.service';
 import {
     TestQuestion,
     TestQuestionControllerService,
-    TestResult,
     TestResultControllerService,
     TestResultWithRelations
 } from "../../shared/sdk";
 import {PatientService} from "../../shared/services/patient.service";
+import {TestActionEnum, TestResultEnum} from "../../../../../common/utils/enums";
 
 
 @Component({
@@ -21,12 +21,6 @@ import {PatientService} from "../../shared/services/patient.service";
     encapsulation: ViewEncapsulation.None
 })
 export class AutotestComponent implements OnInit, OnDestroy {
-
-    public answersParamPrefix = "";
-
-    public currentLevel = 0;
-
-    public questionnaireLabel = "";
 
     public title: string;
     public subtitle: string;
@@ -122,7 +116,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
             let testResult: TestResultWithRelations = new class implements TestResultWithRelations {
                 [key: string]: object | any;
 
-                answers: object;
+                answers: Array<object>;
                 patientId: string;
             }
 
@@ -130,9 +124,21 @@ export class AutotestComponent implements OnInit, OnDestroy {
             testResult.patientId = this.patientService.patient.id;
 
             this.testResultControllerService.testResultControllerCreate(testResult).subscribe(testResultFromServer => {
-                if (this.autotestAnswers.getScore() > 0) {
-                    target = "recommendations_and_contact_phones";
-                } else {
+                if (testResultFromServer.result == TestResultEnum.CORONAVIRUS_SUSPICIOUS) { //SUSPICIOUS, SHOW PHONES
+                    switch(testResultFromServer.action) {
+                        case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
+                            target = "schedule_test_appointment_at_health_center";
+                            break;
+                        case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
+                            target = "schedule_test_appointment_at_home";
+                            break;
+                        case TestActionEnum.SHOW_PHONE_INFORMATION:
+                        default:
+                            target = "recommendations_and_contact_phones";
+                            break;
+                    }
+                }
+                else {
                     target = "result_ok";
                 }
             });
@@ -141,6 +147,12 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
         if(target.startsWith("http")) {
             window.open(target, "_system");
+        }
+        else if(target == 'schedule_test_appointment_at_health_center') {
+            this.router.navigate(['/app/schedule-appointment-at-health-center']);
+        }
+        else if(target == 'schedule_test_appointment_at_home') {
+            this.router.navigate(['/app/schedule-appointment-at-home']);
         }
         else {
             const nextLevel = +this.level + 1;

@@ -21,5 +21,6 @@ export interface NewTestResult {
     answers?: Array<object>;
     patientId: string;
     result?: number;
+    created?: Date;
 }
 

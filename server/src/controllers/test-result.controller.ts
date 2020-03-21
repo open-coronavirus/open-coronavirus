@@ -19,12 +19,15 @@ import {
 } from '@loopback/rest';
 import {TestResult} from '../models';
 import {TestResultRepository} from '../repositories';
+import {TestActionEnum, TestResultEnum} from "../../../common/utils/enums";
 
 export class TestResultController {
   constructor(
     @repository(TestResultRepository)
     public testResultRepository : TestResultRepository,
   ) {}
+
+  protected DEFAULT_TEST_ACTION = TestActionEnum.SCHEDULE_TEST_APPOINTMENT;
 
   @post('/test-results', {
     responses: {
@@ -47,8 +50,16 @@ export class TestResultController {
     })
     testResult: Omit<TestResult, 'id'>,
   ): Promise<TestResult> {
-
     testResult.result = 1;
+    testResult.created = new Date();
+    if(testResult.getScore() > 0) {
+      testResult.result = TestResultEnum.CORONAVIRUS_SUSPICIOUS;
+      testResult.action = this.DEFAULT_TEST_ACTION;
+    }
+    else {
+      testResult.result = TestResultEnum.OK;
+    }
+
     return this.testResultRepository.create(testResult);
   }
 

@@ -22,5 +22,6 @@ export interface TestResultWithRelations {
     answers?: Array<object>;
     patientId: string;
     result?: number;
+    created?: Date;
 }
 

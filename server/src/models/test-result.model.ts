@@ -23,14 +23,28 @@ export class TestResult extends Entity {
   patientId: string;
 
   /**
-   * 1. NO SUSPICIOUS
-   * 2. SUSPICIOUS OF CORONAVIRUS
+   * See TestResultEnum
    *
    */
   @property({
     type: 'number',
   })
   result?: number;
+
+  /**
+   * See TestActionEnum
+   *
+   */
+  @property({
+    type: 'number',
+  })
+  action?: number;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  created?: Date;
 
   // Define well-known properties here
 
@@ -41,6 +55,17 @@ export class TestResult extends Entity {
   constructor(data?: Partial<TestResult>) {
     super(data);
   }
+
+  public getScore() {
+    let returnValue = 0;
+    this.answers?.forEach((answer: any) => {
+      if(answer.answer.hasOwnProperty('value')) {
+        returnValue += answer.answer.value;
+      }
+    });
+    return returnValue;
+  }
+
 }
 
 export interface TestResultRelations {

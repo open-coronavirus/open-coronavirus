@@ -1750,16 +1750,16 @@
         "signature": "62022a4d6887ce56cb0767deae70b53402315129275abde228cdac96da0d9597"
       },
       "./src/models/geolocation.model.ts": {
-        "version": "2f9d64a93fda95ab2a063ae04b7505fe7b4118be28e8cb327ee29a22e7d9a789",
-        "signature": "aa1f78eb52bbc17fbdc79629653e61e8c5bdc1831419259afe64d87f361e4f8f"
+        "version": "c9a4152f44ccccb31dd89fd4cb592d8420cb056d5bddc86423d8b72239b51777",
+        "signature": "e63df24e3f8d71decabf2c86a5199a2b1da79170c3ff6cfd3573882881d5c8b4"
       },
       "./src/models/leave-request.model.ts": {
         "version": "3783f2740f61d995f48b78a57e9bf639110a9871c555f7407012478aed4704eb",
         "signature": "2ff3b9785bbdb0d25421d79566a46962f522c0a2aa8e6f24cde85ec54c03307c"
       },
       "./src/models/test-result.model.ts": {
-        "version": "3c8c671842cf24670dcd350b63833ae1468d61b5c6f970f8b8c3426f2d80fe67",
-        "signature": "ab90aac5830281331113fb67c8fc1404683322dee481d7c7d909b89f67932a35"
+        "version": "4babd356d7ad965199a8ecc74e83c46f29b30988f492e44a9de74b68f079e8a7",
+        "signature": "e11b038ce82c3700811f7e03e7860400f1b4e1422f0ec4c079ccb449d65b4eaf"
       },
       "./src/models/test-appointment.model.ts": {
         "version": "a8defe3c09886a7fd5c8b4e8551c93cb418ff239f4313eca697e05ad877c4247",
