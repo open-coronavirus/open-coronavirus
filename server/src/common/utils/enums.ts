@@ -9,3 +9,7 @@ export enum TestActionEnum {
     SCHEDULE_TEST_APPOINTMENT_AT_HOME = 3
 }
 
+export enum AppointmentType {
+    AT_HOME = 1,
+    AT_HEALTH_CENTER = 2
+}

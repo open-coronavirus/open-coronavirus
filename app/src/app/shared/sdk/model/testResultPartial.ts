@@ -22,6 +22,7 @@ export interface TestResultPartial {
     answers?: Array<object>;
     patientId?: string;
     result?: number;
+    action?: number;
     created?: Date;
 }
 

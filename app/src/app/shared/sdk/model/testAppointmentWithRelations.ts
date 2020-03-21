@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { HealthCenterWithRelations } from './healthCenterWithRelations';
 
 
 /**
@@ -19,9 +20,10 @@ export interface TestAppointmentWithRelations {
 
 
     id?: string;
-    date: Date;
-    type: number;
+    date?: Date;
+    type?: number;
     patientId: string;
     healthCenterId?: string;
+    healthCenter?: HealthCenterWithRelations;
 }
 

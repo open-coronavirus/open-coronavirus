@@ -9,18 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { TestAppointmentScopeFilter } from './testAppointmentScopeFilter';
 
 
-/**
- * (Schema options: { title: \'NewTestAppointment\', exclude: [ \'id\' ] })
- */
-export interface NewTestAppointment { 
-  [key: string]: object | any;
-
-
-    date?: Date;
-    type?: number;
-    patientId: string;
-    healthCenterId?: string;
+export interface TestAppointmentIncludeFilterItems { 
+    relation?: string;
+    scope?: TestAppointmentScopeFilter;
 }
 

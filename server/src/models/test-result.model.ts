@@ -56,16 +56,6 @@ export class TestResult extends Entity {
     super(data);
   }
 
-  public getScore() {
-    let returnValue = 0;
-    this.answers?.forEach((answer: any) => {
-      if(answer.answer.hasOwnProperty('value')) {
-        returnValue += answer.answer.value;
-      }
-    });
-    return returnValue;
-  }
-
 }
 
 export interface TestResultRelations {

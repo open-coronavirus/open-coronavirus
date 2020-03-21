@@ -6,15 +6,6 @@ import {
 } from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
-const config = {
-  "name": "mongo",
-  "connector": "mongodb",
-  "url": process.env.DB_URL,
-  "user": process.env.DB_USER,
-  "password": process.env.DB_PASSWORD,
-  "database": process.env.DB_NAME,
-  "useNewUrlParser": true
-}
 
 @lifeCycleObserver('datasource')
 export class MongoDataSource extends juggler.DataSource
@@ -23,8 +14,20 @@ export class MongoDataSource extends juggler.DataSource
 
   constructor(
     @inject('datasources.config.mongo', {optional: true})
-    dsConfig: object = config,
+    dsConfig: object = {
+      "name": "mongo",
+      "connector": "mongodb",
+      "url": process.env.DB_URL,
+      "user": process.env.DB_USER,
+      "password": process.env.DB_PASSWORD,
+      "database": process.env.DB_NAME,
+      "useNewUrlParser": true
+    },
   ) {
+
+    console.log("Datasource configuration:");
+    console.log(dsConfig);
+
     super(dsConfig);
   }
 

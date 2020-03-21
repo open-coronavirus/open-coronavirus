@@ -3,9 +3,12 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [],
+    "paths": { "tslib": ["node_modules/tslib"] },
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "rootDirs": ["src", "../common"],
+    "rootDirs": ["src",
+      "../server/src/common"
+    ],
     "allowSyntheticDefaultImports": true
   },
   "include": [

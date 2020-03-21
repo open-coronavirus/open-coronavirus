@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {AppContainerComponent} from './app-container/app-container.component';
+import {MainComponent} from './main/main.component';
 
 const routes: Routes = [
     {
@@ -35,7 +35,7 @@ const routes: Routes = [
     },
     {
         path: 'app',
-        component: AppContainerComponent,
+        component: MainComponent,
         children: [
             {
                 path: 'home',
@@ -43,7 +43,7 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/home/home.module').then(m => m.HomeModule)
+                            import('./main/home/home.module').then(m => m.HomeModule)
                     }
                 ]
             },
@@ -53,7 +53,7 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/autotest/autotest.module').then(m => m.AutotestModule)
+                            import('./main/autotest/autotest.module').then(m => m.AutotestModule)
                     }
                 ]
             },
@@ -63,7 +63,7 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/autotest/autotest.module').then(m => m.AutotestModule)
+                            import('./main/autotest/autotest.module').then(m => m.AutotestModule)
                     }
                 ]
             },
@@ -73,7 +73,7 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/request-leave-home/request-leave-home.module').then(m => m.RequestLeaveHomeModule)
+                            import('./main/request-leave-home/request-leave-home.module').then(m => m.RequestLeaveHomeModule)
                     }
                 ]
             },
@@ -83,7 +83,7 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/leave-custom-reason-form/leave-custom-reason-form.module').then(m => m.LeaveCustomReasonFormModule)
+                            import('./main/leave-custom-reason-form/leave-custom-reason-form.module').then(m => m.LeaveCustomReasonFormModule)
                     }
                 ]
             },
@@ -93,7 +93,7 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/leave-requet-result/leave-request-result.module').then(m => m.LeaveRequestResultModule)
+                            import('./main/leave-requet-result/leave-request-result.module').then(m => m.LeaveRequestResultModule)
                     }
                 ]
             },
@@ -103,7 +103,37 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./app-container/patient-info/patient-info.module').then(m => m.PatientInfoModule)
+                            import('./main/patient-info/patient-info.module').then(m => m.PatientInfoModule)
+                    }
+                ]
+            },
+            {
+                path: 'test-appointment/:appointment-type/confirm',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-appointment/confirm-test-appointment/confirm-test-appointment.module').then(m => m.ConfirmTestAppointmentModule)
+                    }
+                ]
+            },
+            {
+                path: 'test-appointment/:appointment-type/request',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-appointment/request-test-appointment/request-test-appointment.module').then(m => m.RequestTestAppointmentModule)
+                    }
+                ]
+            },
+            {
+                path: 'test-appointment/:appointment-type/schedule',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-appointment/test-appointment-result/test-appointment-result.module').then(m => m.TestAppointmentResultModule)
                     }
                 ]
             }

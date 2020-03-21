@@ -8,11 +8,11 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 @Component({
     selector: 'app-container',
-    templateUrl: 'app-container.component.html',
-    styleUrls: ['app-container.component.scss'],
+    templateUrl: 'main.component.html',
+    styleUrls: ['main.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class AppContainerComponent {
+export class MainComponent {
 
     public leaveStatus: number;
 

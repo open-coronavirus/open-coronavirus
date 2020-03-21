@@ -246,6 +246,41 @@ export class TestAppointmentControllerService {
     }
 
     /**
+     * @param patientId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public testAppointmentControllerFindLatestByPatientId(patientId: string, observe?: 'body', reportProgress?: boolean): Observable<TestAppointmentWithRelations>;
+    public testAppointmentControllerFindLatestByPatientId(patientId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TestAppointmentWithRelations>>;
+    public testAppointmentControllerFindLatestByPatientId(patientId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TestAppointmentWithRelations>>;
+    public testAppointmentControllerFindLatestByPatientId(patientId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (patientId === null || patientId === undefined) {
+            throw new Error('Required parameter patientId was null or undefined when calling testAppointmentControllerFindLatestByPatientId.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        const httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        return this.httpClient.get<TestAppointmentWithRelations>(`${this.configuration.basePath}/test-appointments/patient-id/${encodeURIComponent(String(patientId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * @param id 
      * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

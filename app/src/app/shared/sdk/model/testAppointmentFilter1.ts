@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { TestAppointmentIncludeFilterItems } from './testAppointmentIncludeFilterItems';
 
 
 export interface TestAppointmentFilter1 { 
@@ -18,5 +19,6 @@ export interface TestAppointmentFilter1 {
     limit?: number;
     skip?: number;
     order?: Array<string>;
+    include?: Array<TestAppointmentIncludeFilterItems>;
 }
 

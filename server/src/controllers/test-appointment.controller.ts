@@ -1,27 +1,28 @@
+import {Count, CountSchema, Filter, repository, Where,} from '@loopback/repository';
 import {
-  Count,
-  CountSchema,
-  Filter,
-  repository,
-  Where,
-} from '@loopback/repository';
-import {
-  post,
-  param,
+  del,
   get,
   getFilterSchemaFor,
   getModelSchemaRef,
   getWhereSchemaFor,
+  param,
   patch,
+  post,
   put,
-  del,
   requestBody,
 } from '@loopback/rest';
 import {TestAppointment} from '../models';
 import {TestAppointmentRepository} from '../repositories';
+import {AppointmentType} from "../common/utils/enums";
+import {service} from "@loopback/core";
+import {HealthCenterService} from "../services/health-center.service";
 
 export class TestAppointmentController {
+
+  protected DEFAULT_APPOINTMENT_TYPE = AppointmentType.AT_HEALTH_CENTER;
+
   constructor(
+    @service('HealthCenterService') protected healthCenterService: HealthCenterService,
     @repository(TestAppointmentRepository)
     public testAppointmentRepository : TestAppointmentRepository,
   ) {}
@@ -47,7 +48,29 @@ export class TestAppointmentController {
     })
     testAppointment: Omit<TestAppointment, 'id'>,
   ): Promise<TestAppointment> {
-    return this.testAppointmentRepository.create(testAppointment);
+
+    let returnValue: Promise<TestAppointment> = new Promise(resolve => {
+
+      testAppointment.date = new Date();
+      testAppointment.type = this.DEFAULT_APPOINTMENT_TYPE;
+      if(testAppointment.type == AppointmentType.AT_HEALTH_CENTER) {
+        this.healthCenterService.getPatientHealthCenter(testAppointment.patientId).then(healthCenter => {
+          testAppointment.healthCenterId = healthCenter?.id;
+          this.testAppointmentRepository.create(testAppointment).then(testAppointmentCreated => {
+            resolve(testAppointmentCreated);
+          })
+        })
+      }
+      else {
+        this.testAppointmentRepository.create(testAppointment).then(testAppointmentCreated => {
+          resolve(testAppointmentCreated);
+        });
+      }
+
+    });
+
+    return returnValue;
+
   }
 
   @get('/test-appointments/count', {
@@ -124,6 +147,26 @@ export class TestAppointmentController {
     @param.query.object('filter', getFilterSchemaFor(TestAppointment)) filter?: Filter<TestAppointment>
   ): Promise<TestAppointment> {
     return this.testAppointmentRepository.findById(id, filter);
+  }
+
+  @get('/test-appointments/patient-id/{patientId}', {
+    responses: {
+      '200': {
+        description: 'TestAppointment model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(TestAppointment, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async findLatestByPatientId(
+      @param.path.string('patientId') patientId: string
+  ): Promise<TestAppointment | null> {
+
+    return this.testAppointmentRepository.findOne({where: {patientId: {like: patientId}}, include: [{relation: 'healthCenter'}], order: ['date DESC']});
+
   }
 
   @patch('/test-appointments/{id}', {

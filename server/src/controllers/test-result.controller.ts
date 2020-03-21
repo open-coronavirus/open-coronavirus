@@ -19,7 +19,7 @@ import {
 } from '@loopback/rest';
 import {TestResult} from '../models';
 import {TestResultRepository} from '../repositories';
-import {TestActionEnum, TestResultEnum} from "../../../common/utils/enums";
+import {TestActionEnum, TestResultEnum} from "../common/utils/enums";
 
 export class TestResultController {
   constructor(
@@ -27,8 +27,14 @@ export class TestResultController {
     public testResultRepository : TestResultRepository,
   ) {}
 
-  protected DEFAULT_TEST_ACTION = TestActionEnum.SCHEDULE_TEST_APPOINTMENT;
+  protected DEFAULT_TEST_ACTION = TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME;
 
+  /**
+   * This is the service in charge of determine what to do with each patient
+   * meaning, if set an appointment for a coronavirus test, just show numbers to call to, ...
+   *
+   * @param testResult
+   */
   @post('/test-results', {
     responses: {
       '200': {
@@ -50,17 +56,27 @@ export class TestResultController {
     })
     testResult: Omit<TestResult, 'id'>,
   ): Promise<TestResult> {
+
     testResult.result = 1;
     testResult.created = new Date();
-    if(testResult.getScore() > 0) {
+
+    let score = 0;
+    testResult.answers?.forEach((answer: any) => {
+      if(answer.answer.hasOwnProperty('value')) {
+        score += answer.answer.value;
+      }
+    });
+
+    if(score > 0) {
       testResult.result = TestResultEnum.CORONAVIRUS_SUSPICIOUS;
-      testResult.action = this.DEFAULT_TEST_ACTION;
     }
     else {
       testResult.result = TestResultEnum.OK;
     }
+    testResult.action = this.DEFAULT_TEST_ACTION;
 
     return this.testResultRepository.create(testResult);
+
   }
 
   @get('/test-results/count', {

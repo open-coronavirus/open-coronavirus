@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {HealthCenter, HealthCenterWithRelations} from "./health-center.model";
 
 @model({settings: {strict: false}})
 export class TestAppointment extends Entity {
@@ -11,9 +12,9 @@ export class TestAppointment extends Entity {
 
   @property({
     type: 'date',
-    required: true,
+    required: false,
   })
-  date: Date;
+  date?: Date;
 
   /**
    * 1. At HOME
@@ -22,9 +23,9 @@ export class TestAppointment extends Entity {
    */
   @property({
     type: 'number',
-    required: true,
+    required: false,
   })
-  type: number;
+  type?: number;
 
   @property({
     type: 'string',
@@ -32,10 +33,7 @@ export class TestAppointment extends Entity {
   })
   patientId: string;
 
-  @property({
-    type: 'string',
-    required: false,
-  })
+  @belongsTo(() => HealthCenter, {keyFrom: 'healthCenterId', name: 'healthCenter'})
   healthCenterId?: string;
 
   // Define well-known properties here
@@ -50,7 +48,7 @@ export class TestAppointment extends Entity {
 }
 
 export interface TestAppointmentRelations {
-  // describe navigational properties here
+  healthCenter?: HealthCenterWithRelations;
 }
 
 export type TestAppointmentWithRelations = TestAppointment & TestAppointmentRelations;

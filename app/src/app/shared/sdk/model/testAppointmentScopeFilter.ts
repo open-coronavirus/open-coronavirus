@@ -11,16 +11,12 @@
  */
 
 
-/**
- * (Schema options: { title: \'NewTestAppointment\', exclude: [ \'id\' ] })
- */
-export interface NewTestAppointment { 
-  [key: string]: object | any;
-
-
-    date?: Date;
-    type?: number;
-    patientId: string;
-    healthCenterId?: string;
+export interface TestAppointmentScopeFilter { 
+    where?: { [key: string]: object; };
+    fields?: { [key: string]: object; };
+    offset?: number;
+    limit?: number;
+    skip?: number;
+    order?: Array<string>;
 }
 

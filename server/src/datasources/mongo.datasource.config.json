@@ -1,11 +1,11 @@
 {
   "name": "mongo",
   "connector": "mongodb",
-  "url": "mongodb://localhost:27017/coronavirus",
+  "url": "mongodb://localhost:27017/opencoronavirus",
   "host": "localhost",
   "port": 27017,
   "user": "",
   "password": "",
-  "database": "coronavirus",
+  "database": "opencoronavirus",
   "useNewUrlParser": true
 }
