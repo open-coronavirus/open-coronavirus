@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar class="header-app">
+        <ion-title><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="no-access">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h1 i18n="@@noAccessTitle">No acceso</h1>
+                <ng-container i18n="@@noAccessDescription">
+                <p>Parece que ya la estás utilizando en otro móvil.</p>
+                <p>Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</p>
+                </ng-container>
+                <ion-button (click)="callToTechnicalSupport()" class="light-button" expand="block"  i18n="callTechnicalServiceButtonLabel"><img class="button-icon filter-black" src="/assets/icons/svg/icon-telefono.svg">&nbsp;&nbsp;&nbsp;Servicio técnico&nbsp;&nbsp;<strong>999 888 777</strong></ion-button>
+                <ion-button color="light" (click)="backToRegisterForm()" i18n="tryAgainButtonLabel" expand="block">Volver a intentar</ion-button>
+
+                <p style="padding-top: 25px;" i18n="noAccessFootNote">Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
