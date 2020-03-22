@@ -58,10 +58,6 @@ Para más información puedes consultar la [wiki del proyecto](https://github.co
 
 * [06. Idiomas](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Idiomas)
 
-* 07. Tecnologías
-* 08. Necesidades para publicar
-* 09. Roadmap
-
 <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif" width="250">
 
 
