@@ -16,11 +16,10 @@
 }
 
 .home-footer-toolbar {
-  -webkit-box-shadow: 0px -11px 5px -11px rgba(0,0,0,0.34);
-  -moz-box-shadow: 0px -11px 5px -11px rgba(0,0,0,0.34);
-  box-shadow: 0px -11px 5px -11px rgba(0,0,0,0.34);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  -webkit-box-shadow: 0px 11px 9px 9px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 0px 11px 9px 9px rgba(0, 0, 0, 0.34);
+  box-shadow: 0px 11px 9px 9px rgba(0, 0, 0, 0.34);
+  padding: 10px;
 }
 
 .auth-code-label {
@@ -45,8 +44,8 @@
 
 .share-link {
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   img {
     vertical-align: middle;
@@ -57,5 +56,33 @@
     text-decoration: none;
   }
 
+}
+
+.appointment-info {
+  font-size: 14px;
+  display: flex;
+  align-items: start;
+  margin-left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  text-align: left !important;
+  vertical-align: middle;
+  word-break: keep-all;
+  white-space: normal;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  background-color: #f3f3f3;
+  border-radius: 15px;
+}
+
+.appointment-info-icon {
+  height: 25px;
+  width: auto;
+  padding-right: 10px;
 }
 

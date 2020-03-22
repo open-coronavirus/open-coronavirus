@@ -189,7 +189,7 @@ export class PatientService {
 
             BackgroundGeolocation.checkStatus().then(status => {
 
-                if (status.authorization !== BackgroundGeolocationAuthorizationStatus.AUTHORIZED) {
+                if (status.authorization === BackgroundGeolocationAuthorizationStatus.NOT_AUTHORIZED) {
                     // we need to set delay or otherwise alert may not be shown
                     setTimeout(() => {
                         var showSettings = confirm('Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?');

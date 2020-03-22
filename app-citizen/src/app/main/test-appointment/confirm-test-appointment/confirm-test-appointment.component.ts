@@ -35,7 +35,7 @@ export class ConfirmTestAppointmentComponent implements OnDestroy {
 
         this.testAppointmentService.requestTestAppointment().subscribe(requested => {
             if(requested) {
-                this.router.navigate(['/app/test-appointment/' + this.appointmentType + '/schedule']);
+                this.router.navigate(['/app/test-appointment/' + this.appointmentType + '/result']);
             }
             else {
                 //error?

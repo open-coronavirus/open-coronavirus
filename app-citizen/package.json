@@ -40,6 +40,7 @@
     "cordova-plugin-x-socialsharing": "^5.6.4",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
+    "leaflet": "^1.6.0",
     "ngx-qrcode2": "0.0.9",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",

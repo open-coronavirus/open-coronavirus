@@ -19,18 +19,26 @@ export class HealthCenterMockService implements HealthCenterService {
                 }
             })
             .catch(error => {
-                let healthCenter: HealthCenter = new HealthCenter();
 
-                healthCenter.id = "1";
-                healthCenter.name = "Hospital La Paz Valencia"
-                healthCenter.address = "Av. de Fernando Abril Martorell 106";
-                healthCenter.postalCode = "46026";
-                healthCenter.latitude = 38.8909943;
-                healthCenter.longitude = -0.9913938;
+                if(error.code == 'ENTITY_NOT_FOUND') {
 
-                this.healthCenterRepository.save(healthCenter).then(healthCenterSaved => {
-                    result(healthCenter);
-                });
+                    let healthCenter: HealthCenter = new HealthCenter();
+
+                    healthCenter.id = "1";
+                    healthCenter.name = "Hospital La Fé Valencia"
+                    healthCenter.address = "Av. de Fernando Abril Martorell 106";
+                    healthCenter.postalCode = "46026";
+                    healthCenter.latitude = 39.444043;
+                    healthCenter.longitude = -0.375940;
+
+                    this.healthCenterRepository.create(healthCenter).then(healthCenterSaved => {
+                        result(healthCenter);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+
+                }
             });
 
         })

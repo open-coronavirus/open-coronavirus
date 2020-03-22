@@ -128,12 +128,22 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'test-appointment/:appointment-type/schedule',
+                path: 'test-appointment/at-home/result',
                 children: [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./main/test-appointment/test-appointment-result/test-appointment-result.module').then(m => m.TestAppointmentResultModule)
+                            import('./main/test-appointment/appointment-at-home/appointment-at-home.module').then(m => m.AppointmentAtHomeModule)
+                    }
+                ]
+            },
+            {
+                path: 'test-appointment/at-health-center/result',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-appointment/appointment-health-center/appointment-health-center.module').then(m => m.AppointmentHealthCenterModule)
                     }
                 ]
             }

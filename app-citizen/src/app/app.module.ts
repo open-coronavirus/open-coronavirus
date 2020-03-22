@@ -20,6 +20,7 @@ import {LeaveRequestService} from './shared/services/leave-request.service';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {AutotestAnswers} from './shared/services/autotest-answers.service';
 import {TestAppointmentService} from "./shared/services/test-appointment.service";
+import {TestResultService} from "./shared/services/test-result.service";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -40,6 +41,7 @@ import {TestAppointmentService} from "./shared/services/test-appointment.service
         ShareService,
         AutotestAnswers,
         TestAppointmentService,
+        TestResultService,
         InAppBrowser,
         SocialSharing,
         {provide: 'environment', useValue: environment},

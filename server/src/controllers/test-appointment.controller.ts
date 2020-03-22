@@ -12,8 +12,8 @@ import {
   requestBody,
 } from '@loopback/rest';
 import {TestAppointment} from '../models';
-import {TestAppointmentRepository} from '../repositories';
-import {AppointmentType} from "../common/utils/enums";
+import {TestAppointmentRepository, TestResultRepository} from '../repositories';
+import {AppointmentType, TestActionEnum} from "../common/utils/enums";
 import {service} from "@loopback/core";
 import {HealthCenterService} from "../services/health-center.service";
 
@@ -23,8 +23,8 @@ export class TestAppointmentController {
 
   constructor(
     @service('HealthCenterService') protected healthCenterService: HealthCenterService,
-    @repository(TestAppointmentRepository)
-    public testAppointmentRepository : TestAppointmentRepository,
+    @repository(TestResultRepository) public testResultRepository: TestResultRepository,
+    @repository(TestAppointmentRepository) public testAppointmentRepository : TestAppointmentRepository,
   ) {}
 
   @post('/test-appointments', {
@@ -51,21 +51,40 @@ export class TestAppointmentController {
 
     let returnValue: Promise<TestAppointment> = new Promise(resolve => {
 
-      testAppointment.date = new Date();
-      testAppointment.type = this.DEFAULT_APPOINTMENT_TYPE;
-      if(testAppointment.type == AppointmentType.AT_HEALTH_CENTER) {
-        this.healthCenterService.getPatientHealthCenter(testAppointment.patientId).then(healthCenter => {
-          testAppointment.healthCenterId = healthCenter?.id;
+      this.testResultRepository.findOne({where: {patientId: {like: testAppointment.patientId}}, order: ['created DESC']}).then(testResult => {
+        switch(testResult?.action) {
+          case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
+            testAppointment.type = AppointmentType.AT_HEALTH_CENTER;
+            break;
+          case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
+            testAppointment.type = AppointmentType.AT_HOME;
+            break;
+          default:
+            testAppointment.type = this.DEFAULT_APPOINTMENT_TYPE;
+            break;
+        }
+      })
+      .catch(error => {
+        testAppointment.type = this.DEFAULT_APPOINTMENT_TYPE;
+      })
+      .finally(() => {
+
+        testAppointment.date = new Date();
+        if(testAppointment.type == AppointmentType.AT_HEALTH_CENTER) {
+          this.healthCenterService.getPatientHealthCenter(testAppointment.patientId).then(healthCenter => {
+            testAppointment.healthCenterId = healthCenter?.id;
+            this.testAppointmentRepository.create(testAppointment).then(testAppointmentCreated => {
+              resolve(testAppointmentCreated);
+            })
+          })
+        }
+        else {
           this.testAppointmentRepository.create(testAppointment).then(testAppointmentCreated => {
             resolve(testAppointmentCreated);
-          })
-        })
-      }
-      else {
-        this.testAppointmentRepository.create(testAppointment).then(testAppointmentCreated => {
-          resolve(testAppointmentCreated);
-        });
-      }
+          });
+        }
+
+      });
 
     });
 

@@ -12,6 +12,7 @@ import {
 } from "../../shared/sdk";
 import {PatientService} from "../../shared/services/patient.service";
 import {TestActionEnum, TestResultEnum} from "../../../../../server/src/common/utils/enums";
+import {TestResultService} from "../../shared/services/test-result.service";
 
 
 @Component({
@@ -38,6 +39,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
     constructor(protected activatedRoute: ActivatedRoute,
                 protected location: Location,
+                protected testResultService: TestResultService,
                 protected patientService: PatientService,
                 protected testQuestionControllerService: TestQuestionControllerService,
                 protected testResultControllerService: TestResultControllerService,
@@ -111,30 +113,23 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
         if(target == 'testresult') {
 
-            let testResult: TestResultWithRelations = new class implements TestResultWithRelations {
-                [key: string]: object | any;
+            this.testResultService.sendTestAnswers(this.autotestAnswers.getAnswers()).subscribe(success => {
 
-                answers: Array<object>;
-                patientId: string;
-            }
-
-            testResult.answers = this.autotestAnswers.getAnswers();
-            testResult.patientId = this.patientService.patient.id;
-
-            this.testResultControllerService.testResultControllerCreate(testResult).subscribe(testResultFromServer => {
-                switch(testResultFromServer.action) {
-                    case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
-                        this.router.navigate(['/app/test-appointment/at-health-center/request']);
-                        break;
-                    case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
-                        this.router.navigate(['/app/test-appointment/at-home/request']);
-                        break;
-                    case TestActionEnum.SHOW_PHONE_INFORMATION:
-                    default:
-                        target = "recommendations_and_contact_phones";
-                        const nextLevel = +this.level + 1;
-                        this.router.navigate(['/app/autotest/' + nextLevel + '/' + target]);
-                        break;
+                if(success) {
+                    switch (this.testResultService.testResult.action) {
+                        case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
+                            this.router.navigate(['/app/test-appointment/at-health-center/request']);
+                            break;
+                        case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
+                            this.router.navigate(['/app/test-appointment/at-home/request']);
+                            break;
+                        case TestActionEnum.SHOW_PHONE_INFORMATION:
+                        default:
+                            target = "recommendations_and_contact_phones";
+                            const nextLevel = +this.level + 1;
+                            this.router.navigate(['/app/autotest/' + nextLevel + '/' + target]);
+                            break;
+                    }
                 }
 
             });

@@ -17,7 +17,7 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {TestResult} from '../models';
+import {TestAppointment, TestResult} from '../models';
 import {TestResultRepository} from '../repositories';
 import {TestActionEnum, TestResultEnum} from "../common/utils/enums";
 
@@ -27,7 +27,7 @@ export class TestResultController {
     public testResultRepository : TestResultRepository,
   ) {}
 
-  protected DEFAULT_TEST_ACTION = TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME;
+  protected DEFAULT_TEST_ACTION = TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER;
 
   /**
    * This is the service in charge of determine what to do with each patient
@@ -153,6 +153,26 @@ export class TestResultController {
     @param.query.object('filter', getFilterSchemaFor(TestResult)) filter?: Filter<TestResult>
   ): Promise<TestResult> {
     return this.testResultRepository.findById(id, filter);
+  }
+
+  @get('/test-results/patient-id/{patientId}', {
+    responses: {
+      '200': {
+        description: 'TestResult model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(TestResult, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async findLatestByPatientId(
+      @param.path.string('patientId') patientId: string
+  ): Promise<TestResult | null> {
+
+    return this.testResultRepository.findOne({where: {patientId: {like: patientId}}, order: ['created DESC']});
+
   }
 
   @patch('/test-results/{id}', {

@@ -1,10 +1,11 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {ShareService} from '../shared/services/share.service';
 import {PatientService} from '../shared/services/patient.service';
 import {LeaveRequestService} from '../shared/services/leave-request.service';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {Subscription} from "rxjs";
+import {TestAppointmentService} from "../shared/services/test-appointment.service";
 
 @Component({
     selector: 'app-container',
@@ -12,30 +13,38 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
     styleUrls: ['main.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class MainComponent {
+export class MainComponent implements OnDestroy {
 
     public leaveStatus: number;
+    public patientHasTestAppointment = false;
 
     public patientName;
+    protected subscriptions: Array<Subscription> = new Array();
 
     constructor(protected menu: MenuController,
                 protected router: Router,
                 protected patientService: PatientService,
                 protected leaveRequestService: LeaveRequestService,
-                protected iab: InAppBrowser,
+                protected testAppointmentService: TestAppointmentService,
                 protected shareService: ShareService) {
 
-        this.leaveRequestService.loaded$.subscribe(loaded => {
+        this.subscriptions.push(this.leaveRequestService.loaded$.subscribe(loaded => {
             if(loaded && this.leaveRequestService.leaveRequest != null) {
                 this.leaveStatus = this.leaveRequestService.leaveRequest.status;
             }
-        })
+        }));
 
-        this.patientService.patientLoaded$.subscribe(loaded => {
+        this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
             }
-        })
+        }));
+
+        this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
+            if(loaded) {
+                this.patientHasTestAppointment = true;
+            }
+        }));
 
     }
 
@@ -82,5 +91,10 @@ export class MainComponent {
         this.shareService.share();
     }
 
+    public ngOnDestroy(): void {
+        this.subscriptions.forEach(subscription => {
+            subscription.unsubscribe();
+        })
+    }
 
 }
