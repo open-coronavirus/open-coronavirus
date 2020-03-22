@@ -1,8 +1,8 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-buttons slot="start">
+        <!-- <ion-buttons slot="start">
             <ion-icon size="large" (click)="goBack()" name="chevron-back-outline"></ion-icon>
-        </ion-buttons>
+        </ion-buttons> -->
         <ion-title i18n="@@patientInfoTitle">Resultado</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -10,9 +10,66 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <!-- <patient-info-form #patientInfoFormComponent [patient]="patientService.patient"></patient-info-form> -->
-                <!-- <ion-button color="dark" (click)="scanQR()" expand="block" i18n="@@scanButton">Escanear</ion-button> -->
+               <img [src]="'qr.png'">
+            </ion-col>
+            <ion-col>
+                <p>ciudadano</p>
+                <p>Marsisa García Pérez</p>
+                <h3>INFECTADO</h3>
             </ion-col>
         </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <p>DNI</p>
+          </ion-col>
+          <ion-col>
+            <p>734567849-F</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Edad</p>
+          </ion-col>
+          <ion-col>
+            <p>38 años</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Dirección</p>
+          </ion-col>
+          <ion-col>
+            <p>C/ Bailén 12 4A Alicante (04003)</p>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-col>
+                Ver mapa movilidad
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-col>
+               <div>
+                   <p>Se ha saltado la cuarentena y está fuera de casa <strong>durante 2h</strong></p>
+                   <span>15/02/2020 20.30h</span>
+               </div>
+               <div>
+                    <p>Se encuentra en casa</p>
+                    <span>15/02/2020 12.30h</span>
+                </div>
+                <div>
+                    <p>Solicitud salir a comprar alimentos</p>
+                    <span>15/02/2020 9.10h</span>
+                </div>
+            </ion-col>
+        </ion-row>
+
     </ion-grid>
+
+    <ion-button color="dark" (click)="goBack()" expand="block" i18n="@@okButton">OK</ion-button>
 </ion-content>
