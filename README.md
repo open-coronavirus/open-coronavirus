@@ -132,16 +132,12 @@ Esto permite ejecutar la app en un browser.
 ## Pantallas de la App del ciudadano (elemento principal del proyecto)
 
 
-|  | | |  
+| | | |  
 |:--:|:--:| :--:|  
-| ![Pantalla 1](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png)
-| ![Pantalla 2](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png)
-| ![Pantalla 3](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png)
-| ![Pantalla 4](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png)
-| ![Pantalla 5](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png)
-| ![Pantalla 6](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png)
-| ![Pantalla 7](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png)
-| ![Pantalla 8](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png)
+| ![Pantalla 1](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png =250x)| ![Pantalla 2](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png =250x)| ![Pantalla 3](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png =250x)
+| ![Pantalla 4](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png =250x)| ![Pantalla 5](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png =250x)| ![Pantalla 6](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png =250x)
+| ![Pantalla 7](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png =250x)
+| ![Pantalla 8](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png =250x)
 
 
 ## Licencia
