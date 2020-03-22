@@ -23,7 +23,7 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
     protected subscriptions: Array<Subscription> = new Array();
 
     protected testAppointment: TestAppointmentWithRelations;
-    protected appointmentDate: string;
+    public appointmentDate: string;
     public healthCenterAddress: string;
     public healthCenterName: string;
 

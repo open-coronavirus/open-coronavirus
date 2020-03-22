@@ -17,7 +17,7 @@ export class RequestTestAppointmentComponent implements OnDestroy {
 
     protected subscriptions: Array<Subscription> = new Array();
     protected appointmentType: string;
-    protected isCoronavirusSuspicious: boolean = false;
+    public isCoronavirusSuspicious: boolean = false;
 
     constructor(protected activatedRoute: ActivatedRoute,
                 protected location: Location,

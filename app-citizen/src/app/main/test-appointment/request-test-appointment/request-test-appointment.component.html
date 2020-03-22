@@ -10,11 +10,9 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <h4 *ngIf="isCoronavirusSuspicious" i18n="@@requestTestDescription">Según tus síntomas te recomendamos hacer un test para certificar si tienes la enfermedad</h4>
+                <h4 *ngIf="isCoronavirusSuspicious" i18n="@@requestTestDescription">Según tus síntomas te recomendamos hacer un test diagnóstico de COVID-19</h4>
                 <p i18n="@@requestTestDescription2">Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</p>
-                <ion-button (click)="requestTest()" color="dark" expand="block" i18n="requestTestButton"><img class="button-icon filter-white" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;Solicitar test médico</ion-button>
-                <p style="text-align: center;">o</p>
-                <ion-button class="light-button" expand="block"  i18n="callHealthServiceButton"><img class="button-icon filter-black" src="/assets/icons/svg/icon-telefono.svg">&nbsp;&nbsp;&nbsp;Llame al&nbsp;&nbsp;<strong>112</strong></ion-button>
+                <ion-button (click)="requestTest()" color="dark" expand="block" i18n="requestTestButton"><img class="button-icon filter-white" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;Solicitar test diagnóstico</ion-button>
             </ion-col>
         </ion-row>
     </ion-grid>

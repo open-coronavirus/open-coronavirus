@@ -5,42 +5,42 @@
       <trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
         <source>Voy a salir de casa</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/app-container.component.html</context>
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="IWentBackToHomeMenuLabel" datatype="html">
         <source>He vuelto a casa</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/app-container.component.html</context>
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autotestMenuLabel" datatype="html">
         <source>¿Tengo el coronavirus?</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/app-container.component.html</context>
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="coronavirusInfoMenuLabel" datatype="html">
         <source>Información sobre el coronavirus</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/app-container.component.html</context>
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myInfoMenuLabel" datatype="html">
         <source>Mis datos</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/app-container.component.html</context>
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareMenuLabel" datatype="html">
         <source>Compartir App<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>para luchar juntos</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/app-container.component.html</context>
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
@@ -66,6 +66,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/splash/splash.component.html</context>
           <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="personalInfoSectionTitle" datatype="html">
@@ -320,7 +328,7 @@
           <context context-type="linenumber">3</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
@@ -405,61 +413,61 @@
       <trans-unit id="authorizationCodeLabel" datatype="html">
         <source>Código de autorización</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ImGoingLeaveHomeButton" datatype="html">
         <source>Voy a salir de casa</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autotestButton" datatype="html">
         <source>¿Tengo el coronavirus?</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="coronavirusInfoButton" datatype="html">
         <source>Información sobre el coronavirus</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareButton" datatype="html">
         <source>Compartir App para luchar juntos</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/home/home.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="okButton" datatype="html">
         <source>OK</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/autotest/autotest.component.html</context>
+          <context context-type="sourcefile">src/app/main/autotest/autotest.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestLeaveHomeTitle" datatype="html">
         <source>Necesito salir</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/request-leave-home/request-leave-home.component.html</context>
+          <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
@@ -469,49 +477,53 @@
                 Selecciona el motivo por el que vas a salir:
                 </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/request-leave-home/request-leave-home.component.html</context>
+          <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveCustomReasonFormTitle" datatype="html">
         <source>Quieres salir de casa?</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveCustomReasonFormDescription" datatype="html">
         <source>Indica el motivo por el que vas a salir de casa</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="952a12ad39e6f1f4db07e66099d9c633f9833579" datatype="html">
         <source>Escribe el motivo</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="backButton" datatype="html">
         <source>Volver</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveRequestSentTitle" datatype="html">
         <source>Has salido de casa!</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveRequestSentDescription" datatype="html">
         <source>El motivo por el que has salido es:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
@@ -521,22 +533,129 @@
                 Juntos ganaremos al virus
             </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="patientInfoTitle" datatype="html">
         <source>Mis datos</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/patient-info/patient-info.component.html</context>
+          <context context-type="sourcefile">src/app/main/patient-info/patient-info.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="saveButton" datatype="html">
         <source>Guardar</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-container/patient-info/patient-info.component.html</context>
+          <context context-type="sourcefile">src/app/main/patient-info/patient-info.component.html</context>
           <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestConfirmationTitle" datatype="html">
+        <source>¿Estás seguro de pedir el test del coronavirus?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestConfirmationDescription" datatype="html">
+        <source>Te daremos cita para que vayas a realizar el test o enviaremos una ambulancia a tu domicilio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fef575e34d8ecad5f52fbe70155cc354b4c78e41" datatype="html">
+        <source>Si, solicitar test</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">requestTestButton</note>
+      </trans-unit>
+      <trans-unit id="requestTestTitle" datatype="html">
+        <source>Solicitar test</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestDescription" datatype="html">
+        <source>Según tus síntomas te recomendamos hacer un test para certificar si tienes la enfermedad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestDescription2" datatype="html">
+        <source>Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c449c201d9f6e9eaf7bffbe23d5cbc56ac75b87" datatype="html">
+        <source><x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/>   Solicitar test médico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">requestTestButton</note>
+      </trans-unit>
+      <trans-unit id="bbf77ae786ae3803d02c6b846bb280f1f2aa274f" datatype="html">
+        <source>Test solicitado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">testAppointmentResultTitle</note>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultSubtitle1" datatype="html">
+        <source>Gracias por la solicitud</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultSubtitle2" datatype="html">
+        <source>Estamos para ayudarte!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultDescription" datatype="html">
+        <source>Proximamente llegará una ambulancia a donde vives</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultDescription2" datatype="html">
+        <source>Y <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>en 24 horas tendrás los resultados del test<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> que te lo enviaremos directamente a tu móvil mediante esta APP.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
     </body>
