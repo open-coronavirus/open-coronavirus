@@ -36,7 +36,7 @@ export class AppointmentAtHomeComponent {
             if(loaded) {
                 let options = { weekday: 'long', month: 'long', day: 'numeric', hour: "2-digit", minute: '2-digit' };
                 this.testAppointment = this.testAppointmentService.testAppointment;
-                this.appointmentDate = new Date(this.testAppointmentService.testAppointment.date).toLocaleDateString("es-ES", options);
+                this.appointmentDate = new Date(this.testAppointmentService.testAppointment.appointmentDate).toLocaleDateString("es-ES", options);
             }
         });
 

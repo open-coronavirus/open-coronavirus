@@ -49,7 +49,7 @@ export class HomeComponent implements OnDestroy {
                     case AppointmentType.AT_HEALTH_CENTER:
                         this.icon = '/assets/icons/svg/icon-cita.svg';
                         let options = { weekday: 'long', month: 'long', day: 'numeric', hour: "2-digit", minute: '2-digit' };
-                        let appointmentDate = new Date(this.testAppointmentService.testAppointment.date).toLocaleDateString("es-ES", options);
+                        let appointmentDate = new Date(this.testAppointmentService.testAppointment.appointmentDate).toLocaleDateString("es-ES", options);
                         let healthCenterAddress = this.testAppointmentService.testAppointment.healthCenter.address;
                         let healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                         let googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + this.testAppointmentService.testAppointment.healthCenter.latitude + ',' + this.testAppointmentService.testAppointment.healthCenter.longitude;

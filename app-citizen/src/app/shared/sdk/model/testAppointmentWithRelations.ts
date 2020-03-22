@@ -20,7 +20,8 @@ export interface TestAppointmentWithRelations {
 
 
     id?: string;
-    date?: Date;
+    created?: Date;
+    appointmentDate?: Date;
     type?: number;
     patientId: string;
     healthCenterId?: string;

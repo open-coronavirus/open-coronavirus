@@ -25,8 +25,10 @@ export class TestAppointmentService {
             if (loaded) {
 
                 this.testAppointmentControllerService.testAppointmentControllerFindLatestByPatientId(this.patientService.patient.id).subscribe(testAppointment => {
-                    this.testAppointment = testAppointment;
-                    this.testAppointmentLoaded$.next(true);
+                    if(testAppointment != null) {
+                        this.testAppointment = testAppointment;
+                        this.testAppointmentLoaded$.next(true);
+                    }
                 })
 
             }

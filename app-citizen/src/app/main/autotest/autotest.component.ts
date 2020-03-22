@@ -4,14 +4,9 @@ import {Location} from '@angular/common';
 
 import {Subscription} from 'rxjs';
 import {AutotestAnswers} from '../../shared/services/autotest-answers.service';
-import {
-    TestQuestion,
-    TestQuestionControllerService,
-    TestResultControllerService,
-    TestResultWithRelations
-} from "../../shared/sdk";
+import {TestQuestion, TestQuestionControllerService, TestResultControllerService} from "../../shared/sdk";
 import {PatientService} from "../../shared/services/patient.service";
-import {TestActionEnum, TestResultEnum} from "../../../../../server/src/common/utils/enums";
+import {TestActionEnum} from "../../../../../server/src/common/utils/enums";
 import {TestResultService} from "../../shared/services/test-result.service";
 
 
@@ -55,7 +50,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
                 this.level = 0;
             }
 
-            this.testQuestionControllerService.testQuestionControllerFindByQuestionId(this.questionId).subscribe(question => {
+            this.subscriptions.push(this.testQuestionControllerService.testQuestionControllerFindByQuestionId(this.questionId).subscribe(question => {
                 this.currentQuestion = question;
 
                 if(this.currentQuestion.hasOwnProperty('target')) {
@@ -91,7 +86,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
                 else {
                     this.questionText = null;
                 }
-            });
+            }));
 
         }));
     }
@@ -113,26 +108,34 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
         if(target == 'testresult') {
 
-            this.testResultService.sendTestAnswers(this.autotestAnswers.getAnswers()).subscribe(success => {
+            this.subscriptions.push(this.testResultService.sendTestAnswers(this.autotestAnswers.getAnswers()).subscribe(success => {
 
                 if(success) {
-                    switch (this.testResultService.testResult.action) {
-                        case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
-                            this.router.navigate(['/app/test-appointment/at-health-center/request']);
-                            break;
-                        case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
-                            this.router.navigate(['/app/test-appointment/at-home/request']);
-                            break;
-                        case TestActionEnum.SHOW_PHONE_INFORMATION:
-                        default:
-                            target = "recommendations_and_contact_phones";
-                            const nextLevel = +this.level + 1;
-                            this.router.navigate(['/app/autotest/' + nextLevel + '/' + target]);
-                            break;
-                    }
+                    //even if we have send the test, wait until the result is loaded again (to ensure that
+                    //we are working with the server version of the object
+                    this.subscriptions.push(this.testResultService.testResultLoaded$.subscribe(loaded => {
+                        if(loaded) {
+
+                            switch (this.testResultService.testResult.action) {
+                                case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
+                                    this.router.navigate(['/app/test-appointment/at-health-center/request']);
+                                    break;
+                                case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
+                                    this.router.navigate(['/app/test-appointment/at-home/request']);
+                                    break;
+                                case TestActionEnum.SHOW_PHONE_INFORMATION:
+                                default:
+                                    target = "recommendations_and_contact_phones";
+                                    const nextLevel = +this.level + 1;
+                                    this.router.navigate(['/app/autotest/' + nextLevel + '/' + target]);
+                                    break;
+                            }
+                        }
+                    }));
+
                 }
 
-            });
+            }));
 
         }
         else {

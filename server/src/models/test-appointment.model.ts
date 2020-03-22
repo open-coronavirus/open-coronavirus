@@ -14,7 +14,13 @@ export class TestAppointment extends Entity {
     type: 'date',
     required: false,
   })
-  date?: Date;
+  created?: Date;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  appointmentDate?: Date;
 
   /**
    * 1. At HOME

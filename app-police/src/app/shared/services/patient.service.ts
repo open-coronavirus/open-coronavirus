@@ -147,8 +147,6 @@ export class PatientService {
 
             BackgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
 
-                console.log(location);
-
                 // handle your locations here
                 // to perform long running operation on iOS
                 // you need to create background task

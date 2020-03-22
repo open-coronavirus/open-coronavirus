@@ -6,8 +6,7 @@ import {HealthCenterRepository, TestAppointmentRepository} from "../../repositor
 
 export class HealthCenterMockService implements HealthCenterService {
 
-    constructor(@repository(HealthCenterRepository) public healthCenterRepository : HealthCenterRepository,) {
-    }
+    constructor(@repository(HealthCenterRepository) public healthCenterRepository : HealthCenterRepository,) {}
 
     public getPatientHealthCenter(patientId: string): Promise<HealthCenter | null> {
 

@@ -27,24 +27,22 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
     public healthCenterAddress: string;
     public healthCenterName: string;
 
-    constructor(protected activatedRoute: ActivatedRoute,
-                protected patientService: PatientService,
-                protected testResultService: TestResultService,
+    constructor(protected patientService: PatientService,
                 protected testAppointmentService: TestAppointmentService,
                 protected location: Location,
                 protected router: Router) {
 
-        this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
+        this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
             if(loaded) {
                 let options = { weekday: 'long', month: 'long', day: 'numeric', hour: "2-digit", minute: '2-digit' };
                 this.testAppointment = this.testAppointmentService.testAppointment;
-                this.appointmentDate = new Date(this.testAppointmentService.testAppointment.date).toLocaleDateString("es-ES", options);
+                this.appointmentDate = new Date(this.testAppointmentService.testAppointment.appointmentDate).toLocaleDateString("es-ES", options);
                 if(!!this.testAppointmentService.testAppointment.healthCenter) {
                     this.healthCenterAddress = this.testAppointmentService.testAppointment.healthCenter.address;
                     this.healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                 }
             }
-        });
+        }));
 
     }
 
@@ -54,7 +52,6 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
             if(loaded) {
                 setTimeout(() => {
                     this.map = L.map('map').setView([this.testAppointmentService.testAppointment.healthCenter.latitude, this.testAppointmentService.testAppointment.healthCenter.longitude], 15);
-                    console.log([this.testAppointmentService.testAppointment.healthCenter.latitude, this.testAppointmentService.testAppointment.healthCenter.longitude]);
 
                     L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
                         maxZoom: 20,
