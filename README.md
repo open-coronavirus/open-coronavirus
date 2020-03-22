@@ -78,6 +78,16 @@ Sé responsable. Entre todos, ¡venceremos al virus!
 \#yomequedoencasa
 
 
+## Consideraciones legales
+
+**El proyecto no está publicado** y una de las cosas que habría que hacer antes de publicarla es adecuarla a la regulación de tratamiento de datos personales.
+
+El Ministerio de Sanidad, o las administraciones autonómicas sanitarias competentes, se hicieran cargo de la difusión de la app y del tratamiento de los datos que se obtengan, el uso de la app sería de acuerdo a la Ley RGPD.
+
+Los datos que se recaben deberán gestionarse de conformidad con la ley en cuanto a la medidas de seguridad de su almacenamiento, plazo máximo de custodia y almacenamiento, e información al usuario de sus derechos (especialmente de finalidad y revocación del consentimiento).
+
+Así mismo, pese a que esta app solicita al usuario su consentimiento, también el RGPD contiene excepciones a la necesidad de recabar el consentimiento previo al tratamiento de datos, en el caso de epidemia o de protección de la salud de las personas en base al interés general, que es la situación en la que nos encontramos. El escenario en el que se centra este informe es el de que las autoridades sanitarias autonómicas adoptan medidas extraordinarias para la protección de la salud pública, pues es la única legitimada para adoptar este tipo de medidas.
+
 
 ## Estructura del Proyecto
 
@@ -134,27 +144,16 @@ Esto permite ejecutar la app en un browser.
 
 | | | |  
 |:--:|:--:| :--:|  
-| ![Pantalla 1](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png =250x)| ![Pantalla 2](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png =250x)| ![Pantalla 3](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png =250x)
-| ![Pantalla 4](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png =250x)| ![Pantalla 5](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png =250x)| ![Pantalla 6](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png =250x)
-| ![Pantalla 7](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png =250x)
-| ![Pantalla 8](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png =250x)
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/>
 
 
 ## Licencia
 
 [Licencia MIT](license.md)
 
-
-
-## Datos personales
-
-**El proyecto no está publicado** y una de las cosas que habría que hacer antes de publicarla es adecuarla a la regulación de tratamiento de datos personales.
-
-El Ministerio de Sanidad, o las administraciones autonómicas sanitarias competentes, se hicieran cargo de la difusión de la app y del tratamiento de los datos que se obtengan, el uso de la app sería de acuerdo a la Ley RGPD.
-
-Los datos que se recaben deberán gestionarse de conformidad con la ley en cuanto a la medidas de seguridad de su almacenamiento, plazo máximo de custodia y almacenamiento, e información al usuario de sus derechos (especialmente de finalidad y revocación del consentimiento).
-
-Así mismo, pese a que esta app solicita al usuario su consentimiento, también el RGPD contiene excepciones a la necesidad de recabar el consentimiento previo al tratamiento de datos, en el caso de epidemia o de protección de la salud de las personas en base al interés general, que es la situación en la que nos encontramos. El escenario en el que se centra este informe es el de que las autoridades sanitarias autonómicas adoptan medidas extraordinarias para la protección de la salud pública, pues es la única legitimada para adoptar este tipo de medidas.
 
 ## Cómo colaborar
 
