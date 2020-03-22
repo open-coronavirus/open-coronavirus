@@ -104,23 +104,6 @@ ionic serve
 
 Esto permite ejecutar la app en un browser. 
 
-## Internacionalización
-
-El código de la App ya está preparado para ser traducido a cualquier idioma.
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/i18n-ready.png" width="512">
-
-Para ello solo tienes que copiar el fichero de cadenas situado en ```/app/src/locale/message/messages.xlf``` y enviarlo a traducir. El formato en el que está es XLIFF (XML Localization Interchange File Format), un formato estandar usado por los traductores profesionales, lo que facilitará el intercambio de traducciones entre equipo técnico y traductor.
-
-A medida que evolucione la App podemos regenerar este fichero de cadenas para que incorpore las nuevas cadenas ejecutando el comando
-
-```
-ng xi18n --output-path src/locale
-```
-
-Se ha usado el propio estándar definido por Angular para internacionalizar la App. Para más información visite https://v8.angular.io/guide/i18n
-
-
 ## Licencia
 
 [Licencia MIT](license.md)
