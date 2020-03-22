@@ -64,7 +64,7 @@ Para más información puedes consultar la [wiki del proyecto](https://github.co
 | *Ejemplo funcionando de la APP del ciudadano* |
 
 
-## ¿Por qué hemos hecho Open Coronavirus¿
+## ¿Por qué hemos hecho Open Coronavirus?
 
 **No pretendemos publicar esta APP**, puesto que ha de ser el Ministerio u organismo pertinente quien lo haga. Nos consta [que el gobierno está impulsado un desarrollo como éste](https://elpais.com/tecnologia/2020-03-16/el-gobierno-impulsa-una-aplicacion-inspirada-en-el-exito-de-corea-del-sur-para-combatir-el-coronavirus.html) pero dado que la velocidad es clave, ponemos este código a disposición de los organismos relevantes por si les fuera de utilidad.
 
@@ -131,22 +131,17 @@ Esto permite ejecutar la app en un browser.
 
 ## Pantallas de la App del ciudadano (elemento principal del proyecto)
 
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" width="250">
 
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png" width="250">
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png" width="250">
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png" width="250">
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png" width="250">
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png" width="250">
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png" width="250">
-
-<img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" width="250">
-
+|  | | |  
+|:--:|:--:| :--:|  
+| ![Pantalla 1](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png)
+| ![Pantalla 2](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png)
+| ![Pantalla 3](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png)
+| ![Pantalla 4](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png)
+| ![Pantalla 5](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png)
+| ![Pantalla 6](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png)
+| ![Pantalla 7](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png)
+| ![Pantalla 8](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png)
 
 
 ## Licencia
