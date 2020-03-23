@@ -153,7 +153,8 @@ Esto permite ejecutar la app en un browser.
 |:--:|:--:| :--:|  
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png" alt="Pantalla 2" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png" alt="Pantalla 3" width="250"/>
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png" alt="Pantalla 4" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png" alt="Pantalla 5" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png" alt="Pantalla 6" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png" alt="Pantalla 7" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" alt="Pantalla 8" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png" alt="Pantalla 7" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen9.jpg" alt="Pantalla 9" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen10.jpg" alt="Pantalla 10" width="250"/>
 
 
 ## Licencia
