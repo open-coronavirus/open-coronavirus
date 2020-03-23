@@ -8,7 +8,7 @@ export class ShareService {
     }
 
     public share() {
-        this.socialSharing.shareViaWhatsApp('Estoy usando una app para luchar contra el coronavirus', null, 'https://download-coronapp.com');
+        this.socialSharing.share('Estoy usando Open Coronavirus, una app para luchar contra el coronavirus', null, 'https://open-coronavirus.com')
     }
 
 }

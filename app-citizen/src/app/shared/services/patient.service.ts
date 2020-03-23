@@ -41,7 +41,7 @@ export class PatientService {
                 protected nativeStorage: NativeStorage) {
 
         platform.ready().then(() => {
-            if (this.environment.production) {
+            if (1==1 || this.environment.production) {
                 this.nativeStorage.getItem(PatientService.PATIENT_TOKEN_KEY)
                     .then(
                         data => {
@@ -97,11 +97,13 @@ export class PatientService {
             } else {
 
                 this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
-                    this.loadPatient(newPatient.id);
-                    this.patientLoaded$.subscribe(loaded => {
-                        if(loaded) {
-                            returnValue.next(newPatient);
-                        }
+                    this.nativeStorage.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).then(result => {
+                        this.loadPatient(newPatient.id);
+                        this.patientLoaded$.subscribe(loaded => {
+                            if(loaded) {
+                                returnValue.next(newPatient);
+                            }
+                        })
                     })
                 });
             }
