@@ -56,6 +56,28 @@
   --color: white
 }
 
+.footer-app {
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --background: #fff;
+  --color: #000;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.16)
+}
+.footer-app{
+  &__title{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+  }
+  &__text{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;  
+    margin: 0;  
+  }
+}
+
 .filter-white {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(102%);
 }

@@ -34,6 +34,7 @@
         "@ionic-native/status-bar": "^5.0.0",
         "@ionic/angular": "^5.0.0",
         "@mauron85/cordova-plugin-background-geolocation": "^3.1.0",
+        "again": "0.0.1",
         "cordova-plugin-geolocation": "^4.0.2",
         "cordova-plugin-inappbrowser": "^3.2.0",
         "cordova-plugin-nativestorage": "^2.3.2",
@@ -65,6 +66,7 @@
         "karma-coverage-istanbul-reporter": "~2.0.1",
         "karma-jasmine": "~2.0.1",
         "karma-jasmine-html-reporter": "^1.4.0",
+        "npm-force-resolutions": "0.0.3",
         "protractor": "~5.4.0",
         "ts-node": "~7.0.0",
         "tslint": "~5.15.0",
@@ -75,5 +77,8 @@
         "plugins": {
             "phonegap-plugin-barcodescanner": {}
         }
+    },
+    "resolutions": {
+        "@babel/preset-env": "^7.8.7"
     }
 }

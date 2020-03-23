@@ -1,75 +1,84 @@
 <ion-header>
-    <ion-toolbar class="header-app">
-        <!-- <ion-buttons slot="start">
-            <ion-icon size="large" (click)="goBack()" name="chevron-back-outline"></ion-icon>
-        </ion-buttons> -->
-        <ion-title i18n="@@patientInfoTitle">Resultado</ion-title>
-    </ion-toolbar>
+  <ion-toolbar class="header-app">
+      <!--ion-buttons slot="start">
+          <ion-menu-button class="menu" (click)="openMenu()" autoHide="false"></ion-menu-button>
+      </ion-buttons-->
+      <ion-title i18n="@@headerTitle"><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+  </ion-toolbar>
 </ion-header>
-<ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-               <img [src]="'qr.png'">
-            </ion-col>
-            <ion-col>
-                <p>ciudadano</p>
-                <p>Marsisa García Pérez</p>
-                <h3>INFECTADO</h3>
-            </ion-col>
-        </ion-row>
+<ion-content class="result">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <img class="result__qr" [src]="'/assets/images/qr-fake-rojo.svg'">
+      </ion-col>
+      <ion-col size="9">
+        <p class="result__citizen">Ciudadano</p>
+        <p class="result__name">Marsisa García Pérez</p>
+        <h3 class="result__status result__status--quarentine">INFECTADO</h3>
+      </ion-col>
+    </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <p>DNI</p>
-          </ion-col>
-          <ion-col>
-            <p>734567849-F</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <p>Edad</p>
-          </ion-col>
-          <ion-col>
-            <p>38 años</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <p>Dirección</p>
-          </ion-col>
-          <ion-col>
-            <p>C/ Bailén 12 4A Alicante (04003)</p>
-          </ion-col>
-        </ion-row>
+    <!-- ion-row>
+      <ion-col size="3">
+        <img class="result__qr" [src]="'/assets/images/qr-fake-amarillo.svg'">
+      </ion-col>
+      <ion-col size="9">
+        <p class="result__citizen">Ciudadano</p>
+        <p class="result__name">Marsisa García Pérez</p>
+        <h3 class="result__status result__status--infected">CUARENTENA OBLIGATORIA</h3>
+      </ion-col>
+    </ion-row -->
 
-
-        <ion-row>
-            <ion-col>
-                Ver mapa movilidad
-            </ion-col>
-        </ion-row>
-
-
-        <ion-row>
-            <ion-col>
-               <div>
-                   <p>Se ha saltado la cuarentena y está fuera de casa <strong>durante 2h</strong></p>
-                   <span>15/02/2020 20.30h</span>
-               </div>
-               <div>
-                    <p>Se encuentra en casa</p>
-                    <span>15/02/2020 12.30h</span>
-                </div>
-                <div>
-                    <p>Solicitud salir a comprar alimentos</p>
-                    <span>15/02/2020 9.10h</span>
-                </div>
-            </ion-col>
-        </ion-row>
-
-    </ion-grid>
-
-    <ion-button color="dark" (click)="goBack()" expand="block" i18n="@@okButton">OK</ion-button>
+    <!-- ion-row>
+      <ion-col size="3">
+        <img class="result__qr" [src]="'/assets/images/qr-fake-verde.svg'">
+      </ion-col>
+      <ion-col size="9">
+        <p class="result__citizen">Ciudadano</p>
+        <p class="result__name">Marsisa García Pérez</p>
+        <h3 class="result__status result__status--ok">INFECTADO</h3>
+      </ion-col>
+    </ion-row -->
+  </ion-grid>
+  <div class="result__container">
+    <div class="result__box">
+      <div class="result__box-item">
+        <p class="result__box-title">DNI</p>
+        <p class="result__box-value">734567849-F</p>
+      </div>
+      <div class="result__box-item">
+        <p class="result__box-title">Edad</p>
+        <p class="result__box-value">38 años</p>
+      </div>
+      <div class="result__box-item">
+        <p class="result__box-title">Dirección</p>
+        <p class="result__box-value">C/ Bailén 12 4A Alicante (04003)</p>
+      </div>
+    </div>
+    <span class="result__map">Ver mapa movilidad</span>
+    <div class="result__timeline">
+      <div class="result__timeline-item">
+        <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante 2h</strong></p>
+        <p class="result__timeline-item-time">15/02/2020 20.30h</p>
+      </div>
+      <div class="result__timeline-item">
+        <p class="result__timeline-item-activity">Se encuentra en casa</p>
+        <p class="result__timeline-item-time">15/02/2020 12.30h</p>
+      </div>
+      <div class="result__timeline-item">
+        <p class="result__timeline-item-activity">Solicitud salir a comprar alimentos</p>
+        <p class="result__timeline-item-time">15/02/2020 9.30h</p>
+      </div>
+      <div class="result__timeline-item">
+        <p class="result__timeline-item-activity">Solicitud salir a comprar medicina</p>
+        <p class="result__timeline-item-time">14/02/2020 17.30h</p>
+      </div>
+    </div>    
+  </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button class="result__ok" (click)="goBack()" expand="block" i18n="@@okButton">OK</ion-button>
+  </ion-toolbar>
+</ion-footer>

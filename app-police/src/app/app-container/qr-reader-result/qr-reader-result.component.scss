@@ -1,0 +1,137 @@
+.result{
+  &__qr{
+    width: 100%;
+    height: auto;
+  }
+  &__citizen{
+    font-size: 16px;
+    color: #9b9b9b;
+    margin: 0;
+  }
+  &__name{
+    font-size: 16px;
+    color: #000;
+    margin: 0 0 6px 0 ;
+  }
+  &__status{  
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    
+    &--quarentine{
+      color: #c80f2e;
+      font-size: 28px;
+    }
+    &--infected{
+      color: #ffca08;
+      font-size: 20px;
+    }
+    &--ok{
+      color: #61bc7c;  
+      font-size: 24px;
+    }
+  }
+  &__container{
+    padding: 0 12px;
+
+  }
+  &__box{  
+    margin: 10px 0 20px 0;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    font-size: 12px;
+    color: #3d3d3d;
+
+    &-item{
+      display: flex;
+      margin-bottom: 8px;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    &-title{
+      margin: 0;  
+      font-weight: 300;
+    }
+    &-value{
+      margin: 0 0 0 8px;
+    }
+  }
+  &__map{  
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 14px;  
+    color: #000000;
+    padding: 12px 12px 12px 40px;
+    border-radius: 16px;
+    border: solid 2px #000000;
+    background: url(/assets/icons/svg/icon-ubicacion.svg) no-repeat 15px center;
+    background-size: 13px 17px;
+  }
+
+  &__timeline{
+    &-item{
+      position: relative;
+      display: block;
+      margin: 0;
+      padding: 0 0 24px 30px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.33;
+      
+
+      &:before{
+        content: '';
+        position: absolute;
+        display: block;
+        left: 7px;
+        top: 8px;
+        bottom: 0;
+        border-left: 1px solid #000;
+        z-index: 1;
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        border: 1px solid #000;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: #fff;
+        z-index: 2;
+      }
+
+      &:last-child{
+         &:before{
+           display: none;
+         }
+      }
+
+      &-activity{  
+        margin: 0;
+        
+        &--danger{
+          color: #c80f2e;
+        }
+      }
+      &-time{
+        margin: 0;
+        color: #919293;
+        
+      }
+      
+    }
+  }
+  
+  &__ok{
+    --background: #000;
+    --color: #fff;
+    --text-transform: uppercase;
+  }
+}
