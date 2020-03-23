@@ -99,7 +99,9 @@ Así mismo, pese a que esta app solicita al usuario su consentimiento, también 
 El proyecto está dividido de la siguiente forma:
 
 - `server` - Servidor NODE (Loopback)
-- `app` - Código de la App (Ionic)
+- `app-citizen` - Código de la App Ciudadanos (Ionic)
+- `dashboard` - Código del dashboard web donde hacer el análisis de datos (Angular) _(próximamente)_ 
+- `app-police` - Código de la App Autoridades (Ionic)
 
 La app compila tanto para Android como para iOS.
 
@@ -120,7 +122,7 @@ Finalmente para ejecutar el servidor usa
 npm start
 ```
 
-### La App
+### La App Ciudadano
 
 La App está hecha con el framework ionic. Tendrás que instalar el cliente usando
 
