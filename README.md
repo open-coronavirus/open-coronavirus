@@ -1,5 +1,7 @@
 # ¿Qué es Open Coronavirus?
 
+<img src="https://github.com/open-coronavirus/open-coronavirus/blob/master/screenshots/logo-opencoronavirus.png?raw=true" />
+
 La disponibilidad de una vacuna eficaz pueda demorarse de manera indefinida hasta
 posiblemente 18 meses, lo que obliga a medidas de cuarentena -a día de hoy de carácter
 general a toda la población. A su vez, las autoridades sanitarias están contemplando que
