@@ -1,4 +1,4 @@
-<img src="https://github.com/open-coronavirus/open-coronavirus/blob/master/screenshots/logo-opencoronavirus.png?raw=true" />
+<img src="https://github.com/open-coronavirus/open-coronavirus/blob/master/screenshots/logo-opencoronavirus.png?raw=true" width="350" />
 
 
 # ¿Qué es Open Coronavirus?
