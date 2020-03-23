@@ -82,11 +82,16 @@ Sé responsable. Entre todos, ¡venceremos al virus!
 
 **El proyecto no está publicado** y una de las cosas que habría que hacer antes de publicarla es adecuarla a la regulación de tratamiento de datos personales.
 
-El Ministerio de Sanidad, o las administraciones autonómicas sanitarias competentes, se hicieran cargo de la difusión de la app y del tratamiento de los datos que se obtengan, el uso de la app sería de acuerdo a la Ley RGPD.
+**El proyecto se ofrece a cualquier Ministerio de Sanidad, administración estatal o autonómica competente** para su puesta en marcha. Se harán cargo de la difusión de la app y del tratamiento de los datos que se obtengan, el uso de la app sería de acuerdo a la Ley RGPD.
 
 Los datos que se recaben deberán gestionarse de conformidad con la ley en cuanto a la medidas de seguridad de su almacenamiento, plazo máximo de custodia y almacenamiento, e información al usuario de sus derechos (especialmente de finalidad y revocación del consentimiento).
 
 Así mismo, pese a que esta app solicita al usuario su consentimiento, también el RGPD contiene excepciones a la necesidad de recabar el consentimiento previo al tratamiento de datos, en el caso de epidemia o de protección de la salud de las personas en base al interés general, que es la situación en la que nos encontramos. El escenario en el que se centra este informe es el de que las autoridades sanitarias autonómicas adoptan medidas extraordinarias para la protección de la salud pública, pues es la única legitimada para adoptar este tipo de medidas.
+
+
+> **Según la AEPD** Para cumplir las decisiones sobre la pandemia de coronavirus que adopten las autoridades competentes, en particular las sanitarias, la normativa de protección de datos no debería utilizarse para obstaculizar o limitar la efectividad de las medidas que adopten dichas autoridades, en la lucha contra la pandemia.
+> La normativa de protección de datos permite adoptar las medidas que sean necesarias para salvaguardar los intereses vitales de las personas físicas, el interés público esencial en el ámbito de la salud, la realización de diagnósticos médicos, o el cumplimiento de obligaciones legales en el ámbito laboral, incluido el tratamiento de datos de salud sin necesidad de contar con el consentimiento explícito el afectado.
+> En todo caso, el tratamiento de estos datos debe observar los principios establecidos en el RGPD, en particular los de minimización, limitación de la finalidad y minimización de la conservación.
 
 
 ## Estructura del Proyecto
