@@ -169,4 +169,4 @@ Esto permite ejecutar la app en un browser.
 
 PRs bienvenidos.
 
-Espacio de Slack: slack://opencoronavirus.slack.com
+Espacio de Slack: [opencoronavirus.slack.com](slack://opencoronavirus.slack.com)
