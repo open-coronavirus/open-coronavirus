@@ -5,7 +5,6 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "preinstall": "npx npm-force-resolutions",
     "generate-sdk": "openapi-generator generate -i http://localhost:3000/openapi.json -g typescript-angular -o src/app/shared/sdk --additional-properties=\\\"ngVersion=8.0.0\\\"",
     "start": "ng serve",
     "build": "ng build",
