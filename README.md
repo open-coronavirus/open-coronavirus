@@ -16,9 +16,11 @@ All citizen movements will be stored to control possible infection and to delimi
     From the software, they will be able to see focal points of infection, compliance of mandatory quarantine for those infected or potentially infected.
 - **Authorities’ App**. Mobile application that enables relevant authorities to read citizens’ QR identification codes in the locations where they have decided to monitor
 their movements in this way.
+
 | ![Open Coronavirus Apps](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-apps.jpg) | 
 |:--:| 
 | *Examples of the 3 applications for different types of users* |
+
 > **Important** A team of medical and bioethical research experts from Oxford University explains the need for such an application:
 http://www.ox.ac.uk/news/2020-03-17-infectious-disease-experts-provide-evidence-coronavirus-mobile-app-instant-contact
 For more information, you can consult [WikiProject](https://github.com/open-coronavirus/open-coronavirus/wiki):
