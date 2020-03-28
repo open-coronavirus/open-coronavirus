@@ -24,16 +24,17 @@ their movements in this way.
 > **Important** A team of medical and bioethical research experts from Oxford University explains the need for such an application:
 http://www.ox.ac.uk/news/2020-03-17-infectious-disease-experts-provide-evidence-coronavirus-mobile-app-instant-contact
 For more information, you can consult [WikiProject](https://github.com/open-coronavirus/open-coronavirus/wiki):
-* [01. Functional description](https://github.com/open-coronavirus/open-coronavirus/wiki/01.-Descripci%C3%B3n-funcional-de-procesos)
-  * [01.01. SARS CoV 2 diagnostic test](https://github.com/open-coronavirus/open-coronavirus/wiki/01.01.-Test-diagn%C3%B3stico-SARS-CoV-2)
-  * [01.02. Diagnostic test results](https://github.com/open-coronavirus/open-coronavirus/wiki/01.02.-Resultados-tests-diagn%C3%B3sticos)
-  * [01.03. SARS CoV 2 control](https://github.com/open-coronavirus/open-coronavirus/wiki/01.03.-Control-del-SARS-CoV-2)
-  * [01.04. Quarantine control](https://github.com/open-coronavirus/open-coronavirus/wiki/01.04.-Control-de-la-cuarentena)
-* [02. Legal considerations](https://github.com/open-coronavirus/open-coronavirus/wiki/02.-Consideraciones-legales)
-* [03. Citizen App](https://github.com/open-coronavirus/open-coronavirus/wiki/03.-App-Ciudadanos)
-* [04. Data center software](https://github.com/open-coronavirus/open-coronavirus/wiki/04.-Software-central-de-datos)
-* [05. Authorities’ App](https://github.com/open-coronavirus/open-coronavirus/wiki/05.-App-Autoridades)
-* [06. Languages](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Idiomas)
+* [01. Process functionality description](https://github.com/open-coronavirus/open-coronavirus/wiki/01.-Process-functionality-description)
+  * [01.01. SARS CoV 2 diagnostic test](https://github.com/open-coronavirus/open-coronavirus/wiki/01.01.-SARS-CoV-2-diagnostic-test)
+  * [01.02. Diagnostic test results](https://github.com/open-coronavirus/open-coronavirus/wiki/01.02.-Diagnostic-test-results)
+  * [01.03. SARS CoV 2 control](https://github.com/open-coronavirus/open-coronavirus/wiki/01.03.-SARS-CoV-2-control)
+  * [01.04. Quarantine control](https://github.com/open-coronavirus/open-coronavirus/wiki/01.04.-Quarantine-control)
+* [02. Legal Considerations](https://github.com/open-coronavirus/open-coronavirus/wiki/02.-Legal-Considerations)
+* [03. Citizen's App](https://github.com/open-coronavirus/open-coronavirus/wiki/03.-Citizen's-App)
+* [04. Centralised Data Management Software](https://github.com/open-coronavirus/open-coronavirus/wiki/04.-Centralised-Data-Management-Software)
+* [05. Authorities App](https://github.com/open-coronavirus/open-coronavirus/wiki/05.--Authorities-App)
+* [06. Languages](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Languages)
+
 | ! [Example of how the citizen APP works] (https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif) | 
 |:--:| 
 | *Example of how the citizen APP works* |
