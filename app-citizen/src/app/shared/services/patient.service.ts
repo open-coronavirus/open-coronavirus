@@ -98,6 +98,8 @@ export class PatientService {
 
                 this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
                     this.nativeStorage.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).then(result => {
+                    })
+                    .finally(() => {
                         this.loadPatient(newPatient.id);
                         this.patientLoaded$.subscribe(loaded => {
                             if(loaded) {

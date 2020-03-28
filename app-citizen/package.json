@@ -7,10 +7,13 @@
     "ng": "ng",
     "generate-sdk": "openapi-generator generate -i http://localhost:3000/openapi.json -g typescript-angular -o src/app/shared/sdk --additional-properties=\\\"ngVersion=8.0.0\\\"",
     "start": "ng serve",
+    "preinstall": "npx npm-force-resolutions",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "extract-i18n": "ng xi18n app --i18n-format xlf --output-path src/i18n --i18n-locale es && ng run app:xliffmerge",
+    "start-en": "ng serve --configuration=en"
   },
   "private": true,
   "resolutions": {
@@ -37,6 +40,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "@mauron85/cordova-plugin-background-geolocation": "^3.1.0",
+    "@ngx-i18nsupport/tooling": "^8.0.3",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.2.0",
     "cordova-plugin-nativestorage": "^2.3.2",
@@ -57,6 +61,7 @@
     "@angular/language-service": "~8.2.14",
     "@capacitor/cli": "1.5.1",
     "@ionic/angular-toolkit": "^2.1.1",
+    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -68,6 +73,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "npm-force-resolutions": "0.0.3",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",

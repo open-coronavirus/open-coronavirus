@@ -47,31 +47,10 @@
           "configurations": {
             "en": {
               "aot": true,
-              "outputPath": "dist/en/",
-              "i18nFile": "src/locale/messages.en.xlf",
+              "outputPath": "dist/app-en",
+              "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "en",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "i18nLocale": "en"
             },
             "production": {
               "fileReplacements": [
@@ -162,7 +141,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -201,6 +182,21 @@
             "production": {
               "cordovaBuildTarget": "app:ionic-cordova-build:production",
               "devServerTarget": "app:serve:production"
+            }
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "src/i18n",
+              "genDir": "src/i18n",
+              "defaultLanguage": "es",
+              "languages": [
+                "es",
+                "en"
+              ]
             }
           }
         }

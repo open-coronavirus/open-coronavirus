@@ -4,10 +4,10 @@ import {ShareService} from '../../shared/services/share.service';
 import {PatientService} from '../../shared/services/patient.service';
 import {MenuController} from '@ionic/angular';
 import {LeaveRequestService} from '../../shared/services/leave-request.service';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {TestAppointmentService} from "../../shared/services/test-appointment.service";
 import {Subscription} from "rxjs";
-import {AppointmentType, TestResultEnum} from "../../../../../server/src/common/utils/enums";
+import {AppointmentType} from "../../../../../server/src/common/utils/enums";
 
 @Component({
     selector: 'home',
