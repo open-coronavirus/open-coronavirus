@@ -95,8 +95,6 @@ This allows you to run the app in a browser.
 | <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen-10.jpg" alt="Pantalla 10" width="250"/>
 ## License
 [MIT License] (license.md)
-##How you can help
-PRs welcome.
 
 > Special thanks
 
@@ -104,4 +102,6 @@ PRs welcome.
 
 > Special thanks to **Alex Nogues** for translate to english the wiki
 
+## How you can help
+PRs welcome.
 
