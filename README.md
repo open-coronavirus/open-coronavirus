@@ -99,7 +99,9 @@ This allows you to run the app in a browser.
 PRs welcome.
 
 > Special thanks
+
 > Special thanks to **Trayma Traducciones** for the english translations
+
 > Special thanks to **Alex Nogues** for translate to english the wiki
 
 
