@@ -35,9 +35,12 @@ For more information, you can consult [WikiProject](https://github.com/open-coro
 * [05. Authorities App](https://github.com/open-coronavirus/open-coronavirus/wiki/05.--Authorities-App)
 * [06. Languages](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Languages)
 
-| ![Example of how the citizen APP works] (https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif) | 
+| ![Example of how the citizen APP works](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif) | 
 |:--:| 
 | *Example of how the citizen APP works* |
+
+
+
 ## Why did we create Open Coronavirus?
 **We do not intend to publish this APP**, since it must be the relevant Ministry or body that does so. We know [that the government is investing in an application like this one](https://elpais.com/tecnologia/2020-03-16/el-gobierno-impulsa-una-aplicacion-inspirada-en-el-exito-de-corea-del-sur-para-combatir-el-coronavirus.html) however since speed is key, we are making this code available to the relevant bodies in the event it may be of use.
 Given the urgency of the current situation, no amount of help is enough. That is why we have designed and programmed the basic core of a project with 100% functional apps that can respond to some citizens’ needs during the quarantine period.
