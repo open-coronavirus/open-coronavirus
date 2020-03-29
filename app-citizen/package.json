@@ -29,7 +29,7 @@
     "@angular/router": "~8.2.14",
     "@capacitor/android": "^1.5.1",
     "@capacitor/core": "1.5.1",
-    "@capacitor/ios": "^1.5.1",
+    "@capacitor/ios": "^2.0.0-beta.1",
     "@ionic-native/background-geolocation": "^5.22.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/geolocation": "^5.22.0",
