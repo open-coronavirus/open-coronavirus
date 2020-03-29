@@ -33,7 +33,7 @@ export class LeaveCustomReasonFormComponent {
             })
         }
         else {
-            alert('Por favor, escriba porque desea salir.');
+            alert('Please enter the reason you need to leave your home to');
         }
     }
 

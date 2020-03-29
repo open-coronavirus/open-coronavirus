@@ -89,7 +89,7 @@ export class LeaveRequestService {
 
     async setAtHome() {
         const alert = await this.alertController.create({
-            message: 'Ya ha llegado a casa?',
+            message: 'Did you already arrive home?',
             buttons: [
                 {
                     text: 'No',
@@ -98,7 +98,7 @@ export class LeaveRequestService {
                     handler: (blah) => {
                     }
                 }, {
-                    text: 'Si',
+                    text: 'Yes',
                     handler: () => {
                         if(this.leaveRequest != null) {
                             this.leaveRequestController.leaveRequestControllerSetAtHome(this.patientService.patient.id).subscribe(result => {

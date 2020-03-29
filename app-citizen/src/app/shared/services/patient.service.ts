@@ -143,8 +143,8 @@ export class PatientService {
                 interval: 60000,
                 fastestInterval: 60000,
                 activitiesInterval: 60000,
-                notificationTitle: 'Tu posición es importante',
-                notificationText: 'Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS',
+                notificationTitle: 'Your position is important',
+                notificationText: 'By sending your position you are helping us to fight the CORONAVIRUS',
                 debug: false,
                 stopOnTerminate: false, // enable this to clear background location settings when the app terminates
             });
@@ -196,7 +196,7 @@ export class PatientService {
                 if (status.authorization === BackgroundGeolocationAuthorizationStatus.NOT_AUTHORIZED) {
                     // we need to set delay or otherwise alert may not be shown
                     setTimeout(() => {
-                        var showSettings = confirm('Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?');
+                        var showSettings = confirm('By sending your position you are helping us to fight the CORONAVIRUS. Would you like to review your app config?');
                         if (showSettings) {
                             return BackgroundGeolocation.showAppSettings();
                         }

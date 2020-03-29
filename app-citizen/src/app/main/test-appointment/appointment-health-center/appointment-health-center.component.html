@@ -15,11 +15,11 @@
                 <p i18n="@@testAppointmentResultDescription">Tu cita es el próximo {{appointmentDate}}</p>
                 <div class="highlighted-area">
                     <div style="width: 100%;">
-                        Lugar de la cita
+                        <ng-container i18n="@@appointmentLocation">Lugar de la cita</ng-container>
                         <p><strong>{{healthCenterName}}</strong><br />
                         {{healthCenterAddress}}</p>
                         <div class="map" #map id="map"></div>
-                        <a (click)="showDirectionsToHealthCenter()" href="javascript:void(null);">Cómo llegar?</a>
+                        <a (click)="showDirectionsToHealthCenter()" href="javascript:void(null);" i18n="@@howToGetThereLink">Cómo llegar?</a>
                     </div>
                 </div>
                 <p i18n="@@testAppointmentResultDescription2">Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</p>
@@ -28,5 +28,5 @@
     </ion-grid>
 </ion-content>
 <div class="footer-buttons-container">
-    <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@enter">OK</ion-button>
+    <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</ion-button>
 </div>

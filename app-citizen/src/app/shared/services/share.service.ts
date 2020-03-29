@@ -8,7 +8,7 @@ export class ShareService {
     }
 
     public share() {
-        this.socialSharing.share('Estoy usando Open Coronavirus, una app para luchar contra el coronavirus', null, 'https://open-coronavirus.com')
+        this.socialSharing.share('I\'m using an app to help fighting the CORONAVIRUS. You can download it at http://example-app.com', null, 'https://open-coronavirus.com')
     }
 
 }
