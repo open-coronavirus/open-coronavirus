@@ -99,7 +99,7 @@ This allows you to run the app in a browser.
 ## License
 [MIT License] (license.md)
 
-> Special thanks
+## Special thanks
 
 > Special thanks to **Trayma Traducciones** for the english translations
 
