@@ -103,7 +103,7 @@ This allows you to run the app in a browser.
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7-en.png" alt="Pantalla 7" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8-en.png" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen9-en.png" alt="Pantalla 9" width="250"/>
 | <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen10-en.png" alt="Pantalla 10" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen11-en.png" alt="Pantalla 11" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen12-en.png" alt="Pantalla 12" width="250"/>
 ## License
-[MIT License] (license.md)
+[MIT License](license.md)
 
 ## Special thanks
 
