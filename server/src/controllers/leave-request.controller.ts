@@ -143,9 +143,9 @@ export class LeaveRequestController {
   })
   async findByToken(
     @param.path.string('token') token: string,
-  ): Promise<LeaveRequest[]> {
-    let filter: Filter<LeaveRequest> = {"where": {"patientId":{"like":token}}, order: ['outOfHomeTimestamp DESC'], limit: 1};
-    return this.leaveRequestRepository.find(filter);
+  ): Promise<LeaveRequest | null> {
+    let filter: Filter<LeaveRequest> = {"where": {"patientId":token}, order: ['outOfHomeTimestamp DESC']};
+    return this.leaveRequestRepository.findOne(filter, {strictObjectIDCoercion: true});
   }
 
   @put('/leave-requests/token/{token}/set-at-home', {
@@ -159,14 +159,14 @@ export class LeaveRequestController {
     @param.path.string('token') token: string
   ): Promise<void> {
 
-    let filter: Filter<LeaveRequest> =  {"where": {"patientId":{"like":token}}, order: ['outOfHomeTimestamp DESC'], limit: 1};
-    await this.leaveRequestRepository.find(filter).then(result => {
-      if(result.length > 0) {
-        let leaveRequest = result[0];
-        leaveRequest.status = 1;
-        this.leaveRequestRepository.save(leaveRequest);
-      }
-    });
+    let filter: Filter<LeaveRequest> =  {"where": {"patientId":token}, order: ['outOfHomeTimestamp DESC']};
+    await this.leaveRequestRepository.findOne(filter, {strictObjectIDCoercion: true})
+      .then(leaveRequest => {
+        if(leaveRequest) {
+          leaveRequest.status = 1;
+          this.leaveRequestRepository.save(leaveRequest);
+        }
+      });
 
   }
 
@@ -181,15 +181,15 @@ export class LeaveRequestController {
     @param.path.string('token') token: string
   ): Promise<void> {
 
-    let filter: Filter<LeaveRequest> = {"where": {"patientId":{"like":token}}, order: ['outOfHomeTimestamp DESC'], limit: 1};
-    await this.leaveRequestRepository.find(filter).then(result => {
-      if(result.length > 0) {
-        let leaveRequest = result[0];
-        leaveRequest.backToHomeTimestamp = new Date();
-        leaveRequest.status = 2;
-        this.leaveRequestRepository.save(leaveRequest);
-      }
-    });
+    let filter: Filter<LeaveRequest> = {"where": {"patientId":token}, order: ['outOfHomeTimestamp DESC']};
+    await this.leaveRequestRepository.findOne(filter, {strictObjectIDCoercion: true})
+      .then(leaveRequest => {
+        if(leaveRequest) {
+          leaveRequest.backToHomeTimestamp = new Date();
+          leaveRequest.status = 2;
+          this.leaveRequestRepository.save(leaveRequest);
+        }
+      });
 
   }
 

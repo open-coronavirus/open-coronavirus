@@ -53,11 +53,11 @@ export class TestAppointmentController {
     ): Promise<TestAppointment> {
 
         let returnValue: Promise<TestAppointment> = new Promise(resolve => {
-
-            this.testResultRepository.findOne({
-                where: {patientId: {like: testAppointment.patientId}},
-                order: ['created DESC']
-            }).then(testResult => {
+          this.testResultRepository.findOne({
+            where: {patientId: testAppointment.patientId},
+            order: ['created DESC']
+          }, {strictObjectIDCoercion: true})
+            .then(testResult => {
                 switch (testResult?.action) {
                     case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
                         testAppointment.type = AppointmentType.AT_HEALTH_CENTER;
@@ -196,12 +196,11 @@ export class TestAppointmentController {
     async findLatestByPatientId(
         @param.path.string('patientId') patientId: string
     ): Promise<TestAppointment | null> {
-
         return this.testAppointmentRepository.findOne({
-            where: {patientId: {like: patientId}},
+            where: {patientId: patientId},
             include: [{relation: 'healthCenter'}],
             order: ['created DESC']
-        });
+        }, {strictObjectIDCoercion: true});
 
     }
 

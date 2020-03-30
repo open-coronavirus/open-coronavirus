@@ -190,7 +190,9 @@ export class TestResultController {
         @param.path.string('patientId') patientId: string
     ): Promise<TestResult | null> {
 
-        return this.testResultRepository.findOne({where: {patientId: {like: patientId}}, order: ['created DESC']});
+        return this.testResultRepository.findOne(
+          {where: {patientId: patientId}, order: ['created DESC']},
+          {strictObjectIDCoercion: true});
 
     }
 
