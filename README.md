@@ -56,7 +56,7 @@ Likewise, although this app asks the user for their consent, the GDPR Law also c
 > **According to the Spanish Data Protection Authority (APED)** To comply with decisions about the coronavirus pandemic that are adopted by the competent authorities, particularly health authorities, data protection regulations should not be used to hinder or limit the effectiveness of the measures that these authorities adopt in the fight against the pandemic.
 > Data protection regulations allow the adoption of measures necessary to safeguard the vital interests of individuals, essential public interest in the healthcare field, the performance of medical diagnostics, or compliance with legal obligations in the work sphere, including the treatment of health data without the need for the explicit consent of the affected party.
 > In any case, the processing of this data must observe the principles established in the GDPR, in particular those of minimization, limitation of purpose and minimization of data retention.
-##Project Structure
+## Project Structure
 The project is organized as follows:
 - `server` - NODE server (Loopback)
 - `app-citizen` - Code of the CitizenApp (Ionic)
@@ -74,7 +74,7 @@ Finally, to run the server use
 ```
 npm start
 ```
-###Citizen App
+### Citizen App
 The App is made with the ionic framework. You will need to install the client using
 ```
 npm install -g @ionic/cli
