@@ -2,7 +2,7 @@
     <ion-header>
         <ion-list>
             <div class="menu-item-header menu-separator" (click)="goToHome()">
-                <div class="circle circle-gray">A</div>
+                <div class="circle circle-gray">{{patientInitials}}</div>
                 <div class="patient-name-in-menu">{{patientName}}</div>
             </div>
         </ion-list>
@@ -18,7 +18,7 @@
     <ion-toolbar>
         <ion-list>
             <div class="menu-item" (click)="goToMyInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container></div>
-            <div class="menu-item" (click)="share()"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@shareMenuLabel">Compartir App<br />para luchar juntos</ng-container></div>
+            <div class="menu-item" (click)="share()"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@shareMenuLabelLine1">Compartir App</ng-container><br /><ng-container i18n="@@shareMenuLabelLine2">para luchar juntos</ng-container></div>
         </ion-list>
     </ion-toolbar>
 </ion-menu>

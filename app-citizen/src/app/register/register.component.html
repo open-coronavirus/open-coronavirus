@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-title i18n="@@headerTitle"><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+        <ion-title><span class="supertitle" i18n="@@headerTitleLine1">Luchemos juntos contra el</span><br /> <ng-container i18n="@@headerTitleLine2">CORONAVIRUS</ng-container></ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -22,8 +22,8 @@
                     <ion-button type="submit" color="dark" expand="block" i18n="@@registerSubmitButton">REGISTRARSE</ion-button>
                     <div class="d-none d-lg-block d-lg-flex justify-content-end">
                         <div>
-                            <small class="error" *ngIf="(!patientInfoFormComponent.isValid || acceptterms.invalid) && formTriedToSubmit" i18n="@@registerFormError">
-                                Ups! Te faltan campos por rellenar <span class="emoji-thinking-face"></span>
+                            <small class="error" *ngIf="(!patientInfoFormComponent.isValid || acceptterms.invalid) && formTriedToSubmit">
+                                <ng-container i18n="@@registerFormError">Ups! Te faltan campos por rellenar</ng-container> <span class="emoji-thinking-face"></span>
                             </small>
                         </div>
                     </div>

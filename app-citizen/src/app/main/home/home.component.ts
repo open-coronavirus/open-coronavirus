@@ -4,10 +4,10 @@ import {ShareService} from '../../shared/services/share.service';
 import {PatientService} from '../../shared/services/patient.service';
 import {MenuController} from '@ionic/angular';
 import {LeaveRequestService} from '../../shared/services/leave-request.service';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {TestAppointmentService} from "../../shared/services/test-appointment.service";
 import {Subscription} from "rxjs";
-import {AppointmentType, TestResultEnum} from "../../../../../server/src/common/utils/enums";
+import {AppointmentType} from "../../../../../server/src/common/utils/enums";
 
 @Component({
     selector: 'home',
@@ -44,7 +44,7 @@ export class HomeComponent implements OnDestroy {
                 switch(this.testAppointmentService.testAppointment.type) {
                     case AppointmentType.AT_HOME:
                         this.icon = '/assets/icons/svg/icon-ambulancia.svg';
-                        this.appointmentDescription = "Le enviaremos una ambulancia para hacerle el test del coronavirus en breve";
+                        this.appointmentDescription = "We'll send an ambulance to your house to do the test soon";
                         break;
                     case AppointmentType.AT_HEALTH_CENTER:
                         this.icon = '/assets/icons/svg/icon-cita.svg';
@@ -53,8 +53,8 @@ export class HomeComponent implements OnDestroy {
                         let healthCenterAddress = this.testAppointmentService.testAppointment.healthCenter.address;
                         let healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                         let googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + this.testAppointmentService.testAppointment.healthCenter.latitude + ',' + this.testAppointmentService.testAppointment.healthCenter.longitude;
-                        this.appointmentDescription = "Cita para el test del coronavirus <strong>" + appointmentDate + "</strong> en " + healthCenterName + " (" + healthCenterAddress + ")<br />";
-                        this.appointmentDescription += "<a href='" + googleMapsUrl + "' target='_syste,'>Como llegar?</a>";
+                        this.appointmentDescription = "The appointment for the test has been scheduled on <strong>" + appointmentDate + "</strong> at " + healthCenterName + " (" + healthCenterAddress + ")<br />";
+                        this.appointmentDescription += "<a href='" + googleMapsUrl + "' target='_syste,'>How to get there?</a>";
                         break;
 
                 }

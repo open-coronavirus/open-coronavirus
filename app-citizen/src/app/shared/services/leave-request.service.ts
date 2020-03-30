@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {PatientService} from './patient.service';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {LeaveRequest, LeaveRequestControllerService} from '../sdk';
 import {AlertController} from '@ionic/angular';
+import {leaveReasonsEN, leaveReasonsES} from "./leavereasons";
 
 @Injectable()
 export class LeaveRequestService {
@@ -11,58 +12,25 @@ export class LeaveRequestService {
 
     public loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    public leaveReasons = [
-        {
-            id: 1,
-            label: "Comprar alimentos",
-            icon: "icon-salir-comida.svg"
-        },
-        {
-            id: 2,
-            label: "Comprar productos farmacéuticos y de primera necesidad",
-            icon: "icon-salir-medicamentos.svg"
-        },
-        {
-            id: 3,
-            label: "Ir al médico o al hospital",
-            icon: "icon-hospital.svg"
-        },
-        {
-            id: 4,
-            label: "Ir al trabajo",
-            icon: "icon-salir-trabajo.svg"
-        },
-        {
-            id: 5,
-            label: "Volver a casa",
-            icon: "icon-volver-casa.svg"
-        },
-        {
-            id: 6,
-            label: "Asistir a un mayor u otra persona dependiente",
-            icon: "icon-salir-asistencia.svg"
-        },
-        {
-            id: 7,
-            label: "Ir al banco",
-            icon: "icon-salir-dinero.svg"
-        },
-        {
-            id: 8,
-            label: "Por causa de fuerza mayor o situación de necesidad",
-            icon: "icon-salir-fuerza.svg"
-        },
-        {
-            id: 9,
-            label: "Otro motivo"
-        }
-    ];
+    public leaveReasons: Array<any>;
 
 
     constructor(protected patientService: PatientService,
+                @Inject(LOCALE_ID) locale: string,
                 public alertController: AlertController,
                 protected leaveRequestController: LeaveRequestControllerService
     ) {
+
+        switch(locale) {
+            case 'es':
+                this.leaveReasons = leaveReasonsES;
+                break;
+            case 'en':
+            default:
+                this.leaveReasons = leaveReasonsEN;
+                break;
+
+        }
 
         this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {
@@ -121,7 +89,7 @@ export class LeaveRequestService {
 
     async setAtHome() {
         const alert = await this.alertController.create({
-            message: 'Ya ha llegado a casa?',
+            message: 'Did you already arrive home?',
             buttons: [
                 {
                     text: 'No',
@@ -130,7 +98,7 @@ export class LeaveRequestService {
                     handler: (blah) => {
                     }
                 }, {
-                    text: 'Si',
+                    text: 'Yes',
                     handler: () => {
                         if(this.leaveRequest != null) {
                             this.leaveRequestController.leaveRequestControllerSetAtHome(this.patientService.patient.id).subscribe(result => {

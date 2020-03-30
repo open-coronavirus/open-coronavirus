@@ -38,7 +38,7 @@ export class PatientInfoComponent {
 
     async presentToast() {
         const toast = await this.toastController.create({
-            message: 'Tus cambios se han guardado',
+            message: 'Your changes has been saved',
             duration: 2000
         });
         toast.present();

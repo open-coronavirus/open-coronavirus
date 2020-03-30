@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Inject, LOCALE_ID, ViewChild} from '@angular/core';
 import {PatientInfoFormComponent} from '../shared/patient-info-form/patient-info-form.component';
 import {PatientService} from '../shared/services/patient.service';
 import {Router} from '@angular/router';
@@ -26,6 +26,7 @@ export class RegisterComponent {
 
     constructor(protected formBuilder: FormBuilder,
                 protected patientService: PatientService,
+                @Inject(LOCALE_ID) protected locale: string,
                 public loadingController: LoadingController,
                 protected router: Router) {
         this.registerPatientForm = this.formBuilder.group({
@@ -46,7 +47,7 @@ export class RegisterComponent {
         if(this.patientInfoFormComponent.isValid) {
 
             const loading = await this.loadingController.create({
-                message: 'Por favor, espere...'
+                message: this.locale=='es'?'Por favor, espere...':'Please wait ...'
             });
             await loading.present();
 
@@ -65,15 +66,5 @@ export class RegisterComponent {
         }
     }
 
-    async presentLoading() {
-        const loading = await this.loadingController.create({
-            message: 'Por favor, espere...',
-            duration: 2000
-        });
-        await loading.present();
-
-        const { role, data } = await loading.onDidDismiss();
-        console.log('Loading dismissed!');
-    }
 
 }

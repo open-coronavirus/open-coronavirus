@@ -41,11 +41,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>To Take Photos and Video</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</string>
+	<string>By sending your position you are helping us to fight the CORONAVIRUS</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</string>
+	<string>By sending your position you are helping us to fight the CORONAVIRUS</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</string>
+	<string>By sending your position you are helping us to fight the CORONAVIRUS</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To Record Audio With Video</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

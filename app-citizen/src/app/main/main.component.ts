@@ -19,6 +19,7 @@ export class MainComponent implements OnDestroy {
     public patientHasTestAppointment = false;
 
     public patientName;
+    public patientInitials;
     protected subscriptions: Array<Subscription> = new Array();
 
     constructor(protected menu: MenuController,
@@ -37,6 +38,7 @@ export class MainComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.patientInitials = this.patientService.patient.firstName.split(" ").map(elem => elem[0]).join("").toUpperCase();
             }
         }));
 
