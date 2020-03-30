@@ -56,7 +56,13 @@ Likewise, although this app asks the user for their consent, the GDPR Law also c
 > **According to the Spanish Data Protection Authority (APED)** To comply with decisions about the coronavirus pandemic that are adopted by the competent authorities, particularly health authorities, data protection regulations should not be used to hinder or limit the effectiveness of the measures that these authorities adopt in the fight against the pandemic.
 > Data protection regulations allow the adoption of measures necessary to safeguard the vital interests of individuals, essential public interest in the healthcare field, the performance of medical diagnostics, or compliance with legal obligations in the work sphere, including the treatment of health data without the need for the explicit consent of the affected party.
 > In any case, the processing of this data must observe the principles established in the GDPR, in particular those of minimization, limitation of purpose and minimization of data retention.
+
 ## Project Structure
+
+The project is built on top of an horizontal architecture of node servers running on dockers and being balanced against a mongoDB database. The design allow to replace the database by whatever data stores since repositories (classes in charge of comunicating with the data store) are decoupled from the rest of the code. The framework used is Loopback 4, which allow to define models, controllers, repositories and datasources completely decoupled.
+
+Apart from that, we know that this application should be integrated with health department databases, so we have define some services as interfaces allowing easily to integrate it with real databases by just implementing those interfaces.
+
 The project is organized as follows:
 - `server` - NODE server (Loopback)
 - `app-citizen` - Code of the CitizenApp (Ionic)
