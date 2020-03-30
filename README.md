@@ -6,8 +6,8 @@
 The availability of an effective vaccine may be delayed indefinitely for up to possibly 18 months. This requires quarantine measures - currently of a general nature - for the entire population. At the same time, health authorities are contemplating performing diagnostic tests at the population level, to ensure proper epidemiological control.
 
 The **Open Coronavirus** project offers, for this time interval, a digital solution
-for **monitoring, diagnosing and containing SARS-CoV-2 infection** that allows quarantine measures to be applied in a controlled manner at focal points or hotspots,
-thus minimizing the general quarantine of the population, reducing the overload of health systems, and at the same time facilitating the progressive resumption of daily activity in the shortest possible time.
+for **monitoring, diagnosing and containing SARS-CoV-2 infection** that allows quarantine measures to be applied in a controlled manner at focal points or hotspots, thus minimizing the general quarantine of the population, reducing the overload of health systems, and at the same time facilitating the progressive resumption of daily activity in the shortest possible time.
+
 The system will have 3 applications:
 - **Citizen App**. Mobile application for citizen collaboration and to control the spread of SARS-CoV-2.
     From the application **a diagnostic test will be requested, and the results of the test can be seen.**
