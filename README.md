@@ -84,9 +84,9 @@ You will also need to download all dependencies using
 cd app
 npm install
 ```
-Then, to run it use
+Then, to run it use (use configuration parameter to force english version)
 ```
-ionic serve
+ionic serve --configuration=en
 ```
 This allows you to run the app in a browser. 
 ## Citizen App displays (main element of the project)
