@@ -6,6 +6,10 @@
 
 }
 
+.leave-home-btn {
+  margin-top: 1em !important;
+}
+
 .supertitle {
   font-size: 14px;
   font-weight: 300;
@@ -25,6 +29,7 @@
 .auth-code-label {
   text-align: center;
   color: #848484;
+  padding-bottom: 1em;
 }
 
 .leave-status {
@@ -47,7 +52,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
 
-  img {
+  ion-icon {
+    margin-right: .5em;
     vertical-align: middle;
   }
 
@@ -86,3 +92,17 @@
   padding-right: 10px;
 }
 
+// Dark mode Sass changes
+
+@media (prefers-color-scheme: dark) {
+
+  .filter-white {
+    filter: invert(0) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(200%) !important;
+  }
+
+  .share-link {
+    a, a:hover {
+      color: white;
+    }
+  }
+}
