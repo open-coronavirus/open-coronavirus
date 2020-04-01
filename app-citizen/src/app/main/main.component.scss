@@ -12,15 +12,17 @@
 }
 
 .menu-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-left: 45px;
-  text-indent: -35px;
+  padding: 1em;
+  text-align: left;
 
-  img {
+  ion-icon {
+    margin-right: .5em;
     vertical-align: middle;
+    padding-right: .5em;
+  }
+
+  ng-container {
+    padding-left: .5em;
   }
 
 }
@@ -59,4 +61,17 @@
   height: 40px;
   vertical-align: middle;
   line-height: 40px;
+}
+
+
+// Dark mode Sass changes
+
+@media (prefers-color-scheme: dark) {
+  .patient-name-in-menu {
+    color: white;
+  }
+
+  .filter-black {
+    filter: invert(100) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(200%) !important;
+  }
 }
