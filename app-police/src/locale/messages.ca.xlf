@@ -408,7 +408,7 @@
                                 Ups! Te faltan campos por rellenar <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>
                             </source>
         <target state="translated">
-                                Ups! Et falten camps por emplenar <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
+                                Ups! Et falten camps per emplenar <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">25</context>
@@ -427,7 +427,7 @@
                 <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Parece que ya la estás utilizando en otro móvil.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
                 <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
                 </source>
-        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Sembla que ja l'estàs utilitzant en un alter mòbil.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Si no es així o vols canviar de terminal posa't en contacte amb el servei tècnic<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/></target>
+        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Sembla que ja l'estàs utilitzant en un altre mòbil.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Si no es així o vols canviar de terminal posa't en contacte amb el servei tècnic<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">11</context>
@@ -595,7 +595,7 @@
                 <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Gracias por colaborar!<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
                 Juntos ganaremos al virus
             </source>
-        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Grècies por col·laborar!<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Gràcies por col·laborar!<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
                 Junts guanyarem al virus
             </target>
         <context-group purpose="location">
