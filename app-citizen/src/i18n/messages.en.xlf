@@ -346,14 +346,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">18</context>
-        </context-group><target>I accept the terms of use and privacy policy</target>
+        </context-group><target>I accept the terms & conditions and privacy policy</target>
       </trans-unit>
       <trans-unit id="accepttermsError" datatype="html">
         <source>Por favor, debes aceptar las condiciones de uso y la política de privacidad.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">19</context>
-        </context-group><target state="translated">Please you have to accept the terms of use and the privacy policy.</target>
+        </context-group><target state="translated">Please accept the terms & conditions and the privacy policy.</target>
       </trans-unit>
       <trans-unit id="registerSubmitButton" datatype="html">
         <source>REGISTRARSE</source>
@@ -367,7 +367,7 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">26</context>
-        </context-group><target>Ups! There are fields to fulfill</target>
+        </context-group><target>Oops! There are some required fields.</target>
       </trans-unit>
       <trans-unit id="noAccessTitle" datatype="html">
         <source>No acceso</source>
@@ -381,7 +381,7 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">11</context>
-        </context-group><target state="translated">It seems like you are already using the app in other device.</target>
+        </context-group><target state="translated">It seems like you are already using the app on another device.</target>
       </trans-unit>
       <trans-unit id="noAccessDescriptionLine2" datatype="html">
         <source>Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</source>
@@ -473,7 +473,7 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit>
       <trans-unit id="requestLeaveHomeDescriptionLine1" datatype="html">
         <source>Estamos en estado de alerta.</source>
-        <target state="translated">We are under state of alarm.</target>
+        <target state="translated">We are under state of emergency.</target>
       <context-group purpose="location"><context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="requestLeaveHomeDescriptionLine2" datatype="html">
         <source>Selecciona el motivo por el que vas a salir:</source>
@@ -498,15 +498,15 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context><context context-type="linenumber">26</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit>
       <trans-unit id="leaveRequestSentTitle" datatype="html">
         <source>Has salido de casa!</source>
-        <target>You've leaved home!</target>
+        <target>You've left home!</target>
       <context-group purpose="location"><context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit>
       <trans-unit id="leaveRequestSentDescription" datatype="html">
         <source>El motivo por el que has salido es:</source>
-        <target>The reason you've leaved home is:</target>
+        <target>The reason you've left home is:</target>
       <context-group purpose="location"><context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="gratitudeMessageLine1" datatype="html">
         <source>Gracias por colaborar!</source>
-        <target>Thank you for your colaboration!</target>
+        <target>Thank you for your help!</target>
       <context-group purpose="location"><context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context><context context-type="linenumber">23</context></context-group></trans-unit>
       <trans-unit id="gratitudeMessageLine2" datatype="html">
         <source>Juntos ganaremos al virus</source>
