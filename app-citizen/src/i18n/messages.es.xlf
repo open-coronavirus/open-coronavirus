@@ -4,17 +4,11 @@
     <body>
       <trans-unit id="appointmentAtHomeDescription" datatype="html">
         <source>Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</source><target state="final">Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit><trans-unit id="appointmentAtHealthCenterDescription" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">3</context></context-group></trans-unit><trans-unit id="appointmentAtHealthCenterDescription" datatype="html">
         <source>Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</source><target state="final">Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit><trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">4</context></context-group></trans-unit><trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
         <source>Voy a salir de casa</source><target state="final">Voy a salir de casa</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
@@ -718,49 +712,28 @@
       <trans-unit id="howToGetThereLink" datatype="html">
         <source>Como llegar?</source><target state="final">Como llegar?</target>
         
-      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">3</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="enterCustomReasonToLeaveTo" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">5</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="enterCustomReasonToLeaveTo" datatype="html">
         <source>Por favor, escriba porque desea salir.</source><target state="final">Por favor, escriba porque desea salir.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit><trans-unit id="changesSavedAlert" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">6</context></context-group></trans-unit><trans-unit id="changesSavedAlert" datatype="html">
         <source>Tus cambios se han salvado</source><target state="final">Tus cambios se han salvado</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit><trans-unit id="pleaseWait" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">7</context></context-group></trans-unit><trans-unit id="pleaseWait" datatype="html">
         <source>Por favor, espere ...</source><target state="final">Por favor, espere ...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit><trans-unit id="geolocationNotificationTitle" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit><trans-unit id="geolocationNotificationTitle" datatype="html">
         <source>Tu posición es importante</source><target state="final">Tu posición es importante</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit><trans-unit id="geolocationNotificationText" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">9</context></context-group></trans-unit><trans-unit id="geolocationNotificationText" datatype="html">
         <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</source><target state="final">Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit><trans-unit id="backgroundGeopositionConfigReview" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">10</context></context-group></trans-unit><trans-unit id="backgroundGeopositionConfigReview" datatype="html">
         <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</source><target state="final">Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit><trans-unit id="shareText" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">11</context></context-group></trans-unit><trans-unit id="shareText" datatype="html">
         <source>Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</source><target state="final">Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit>
     </body>
   </file>
 </xliff>

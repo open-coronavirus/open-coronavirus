@@ -11,6 +11,30 @@
           "en": {
             "translation": "src/i18n/messages.en.xlf",
             "baseHref": ""
+          },
+          "gl": {
+            "translation": "src/i18n/messages.gl.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "src/i18n/messages.it.xlf",
+            "baseHref": ""
+          },
+          "fr": {
+            "translation": "src/i18n/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "src/i18n/messages.de.xlf",
+            "baseHref": ""
+          },
+          "sw": {
+            "translation": "src/i18n/messages.sw.xlf",
+            "baseHref": ""
+          },
+          "ca": {
+            "translation": "src/i18n/messages.ca.xlf",
+            "baseHref": ""
           }
         }
       },
@@ -58,6 +82,30 @@
             "en": {
               "localize": ["en"],
               "main": "src/main.en.ts"
+            },
+            "gl": {
+              "localize": ["gl"],
+              "main": "src/main.ts"
+            },
+            "it": {
+              "localize": ["it"],
+              "main": "src/main.ts"
+            },
+            "fr": {
+              "localize": ["fr"],
+              "main": "src/main.ts"
+            },
+            "de": {
+              "localize": ["de"],
+              "main": "src/main.ts"
+            },
+            "sw": {
+              "localize": ["sw"],
+              "main": "src/main.ts"
+            },
+            "ca": {
+              "localize": ["ca"],
+              "main": "src/main.ts"
             },
             "production": {
               "fileReplacements": [
@@ -112,6 +160,24 @@
             },
             "en": {
               "browserTarget": "app:build:en"
+            },
+            "gl": {
+              "browserTarget": "app:build:gl"
+            },
+            "it": {
+              "browserTarget": "app:build:it"
+            },
+            "fr": {
+              "browserTarget": "app:build:fr"
+            },
+            "de": {
+              "browserTarget": "app:build:de"
+            },
+            "sw": {
+              "browserTarget": "app:build:sw"
+            },
+            "ca": {
+              "browserTarget": "app:build:ca"
             }
           }
         },
@@ -212,7 +278,13 @@
               "defaultLanguage": "es",
               "languages": [
                 "es",
-                "en"
+                "en",
+                "ca",
+                "gl",
+                "it",
+                "fr",
+                "de",
+                "sw"
               ]
             }
           }
