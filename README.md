@@ -41,9 +41,10 @@ For more information, you can consult [WikiProject](https://github.com/open-coro
 * [05. Authorities App](https://github.com/open-coronavirus/open-coronavirus/wiki/05.--Authorities-App)
 * [06. Languages](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Languages)
 
-|<iframe width="560" height="315" src="https://www.youtube.com/embed/lcOi4bADrTY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>| 
+|[![Example of how the citizen APP works](https://img.youtube.com/vi/lcOi4bADrTY/0.jpg)](https://www.youtube.com/watch?v=lcOi4bADrTY)| 
 |:--:| 
 | *Example of how the citizen APP works* |
+
 
 
 
