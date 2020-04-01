@@ -5,6 +5,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "app": {
+      "i18n": {
+        "sourceLocale": "es",
+        "locales": {
+          "en": {
+            "translation": "src/i18n/messages.en.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -14,6 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -46,11 +56,8 @@
           },
           "configurations": {
             "en": {
-              "aot": true,
-              "outputPath": "dist",
-              "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "en"
+              "localize": ["en"],
+              "main": "src/main.en.ts"
             },
             "production": {
               "fileReplacements": [
@@ -73,10 +80,20 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
             "ci": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "progress": false
             }
           }
@@ -189,7 +206,7 @@
           "builder": "@ngx-i18nsupport/tooling:xliffmerge",
           "options": {
             "xliffmergeOptions": {
-              "i18nFormat": "xlf",
+              "format": "xlf",
               "srcDir": "src/i18n",
               "genDir": "src/i18n",
               "defaultLanguage": "es",

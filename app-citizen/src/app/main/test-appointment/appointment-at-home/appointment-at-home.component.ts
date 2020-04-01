@@ -1,14 +1,11 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from "@angular/core";
+import {Component, ViewEncapsulation} from "@angular/core";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TestAppointmentService} from "../../../shared/services/test-appointment.service";
 import {Location} from "@angular/common";
 import {TestAppointmentWithRelations} from "../../../shared/sdk";
 import {PatientService} from "../../../shared/services/patient.service";
-import {AppointmentType, TestResultEnum} from "../../../../../../server/src/common/utils/enums";
 import {TestResultService} from "../../../shared/services/test-result.service";
-
-import * as L from 'leaflet';
 
 @Component({
     selector: 'appointment-at-home',

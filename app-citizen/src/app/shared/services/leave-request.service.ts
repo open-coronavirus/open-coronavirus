@@ -37,8 +37,8 @@ export class LeaveRequestService {
 
                 this.leaveRequestController.leaveRequestControllerFindByToken(patientService.patient.id).subscribe(existingLeaveRequest => {
 
-                    if(existingLeaveRequest.length > 0) {
-                        this.leaveRequest = existingLeaveRequest[0];
+                    if(existingLeaveRequest != null) {
+                        this.leaveRequest = existingLeaveRequest;
                     }
                     this.loaded$.next(true);
 
@@ -75,8 +75,8 @@ export class LeaveRequestService {
 
         this.leaveRequestController.leaveRequestControllerCreate(request).subscribe(createdRequest => {
             this.leaveRequestController.leaveRequestControllerFindByToken(this.patientService.patient.id).subscribe(existingLeaveRequest => {
-                if(existingLeaveRequest.length > 0) {
-                    this.leaveRequest = existingLeaveRequest[0];
+                if(existingLeaveRequest != null) {
+                    this.leaveRequest = existingLeaveRequest;
                     returnValue.next(createdRequest);
                 }
                 this.loaded$.next(true);
@@ -103,8 +103,8 @@ export class LeaveRequestService {
                         if(this.leaveRequest != null) {
                             this.leaveRequestController.leaveRequestControllerSetAtHome(this.patientService.patient.id).subscribe(result => {
                                 this.leaveRequestController.leaveRequestControllerFindByToken(this.patientService.patient.id).subscribe(existingLeaveRequest => {
-                                    if(existingLeaveRequest.length > 0) {
-                                        this.leaveRequest = existingLeaveRequest[0];
+                                    if(existingLeaveRequest != null) {
+                                        this.leaveRequest = existingLeaveRequest;
                                     }
                                     this.loaded$.next(true);
                                 });

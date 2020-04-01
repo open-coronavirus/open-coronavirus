@@ -2,16 +2,16 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {GrayOptionComponent} from './gray-option.component';
+import {I18nStringsComponent} from "./i18n-strings.component";
 
 @NgModule({
     imports: [
         IonicModule,
         CommonModule,
         FormsModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ],
-    declarations: [GrayOptionComponent],
-    exports: [GrayOptionComponent]
+    declarations: [I18nStringsComponent],
+    exports: [I18nStringsComponent]
 })
-export class GrayOptionModule {}
+export class I18nStringsModule {}

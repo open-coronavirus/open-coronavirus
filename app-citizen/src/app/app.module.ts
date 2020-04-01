@@ -21,12 +21,14 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {AutotestAnswers} from './shared/services/autotest-answers.service';
 import {TestAppointmentService} from "./shared/services/test-appointment.service";
 import {TestResultService} from "./shared/services/test-result.service";
+import {I18nStringsModule} from "./shared/i18n-strings/i18n-strings.module";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
     entryComponents: [],
     imports: [BrowserModule,
         HttpClientModule,
+        I18nStringsModule,
         IonicModule.forRoot({
             mode: 'ios'
         }),
