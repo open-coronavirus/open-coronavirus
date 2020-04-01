@@ -24,6 +24,11 @@ their movements in this way.
 
 > **Important** A team of medical and bioethical research experts from Oxford University explains the need for such an application:
 http://www.ox.ac.uk/news/2020-03-17-infectious-disease-experts-provide-evidence-coronavirus-mobile-app-instant-contact
+
+
+> Should the Ministry of Health, or the regional health authorities decide to take on the dissemination of the app and the processing of its data, **the use of the app would be in line with General Data Protection Regulation (GPDR).**
+
+
 For more information, you can consult [WikiProject](https://github.com/open-coronavirus/open-coronavirus/wiki):
 * [01. Process functionality description](https://github.com/open-coronavirus/open-coronavirus/wiki/01.-Process-functionality-description)
   * [01.01. SARS CoV 2 diagnostic test](https://github.com/open-coronavirus/open-coronavirus/wiki/01.01.-SARS-CoV-2-diagnostic-test)
