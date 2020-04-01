@@ -47,7 +47,7 @@ export class RegisterComponent {
         if(this.patientInfoFormComponent.isValid) {
 
             const loading = await this.loadingController.create({
-                message: this.locale=='es'?'Por favor, espere...':'Please wait ...'
+                message: $localize`:@@pleaseWait:Por favor, espere`
             });
             await loading.present();
 

@@ -11,11 +11,12 @@
     ],
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/**/*.ts"
+  "files": [
+    "src/main.ts",
+    "src/main.en.ts",
+    "src/polyfills.ts"
   ],
-  "exclude": [
-    "src/test.ts",
-    "src/**/*.spec.ts"
+  "include": [
+    "src/**/*.d.ts"
   ]
 }

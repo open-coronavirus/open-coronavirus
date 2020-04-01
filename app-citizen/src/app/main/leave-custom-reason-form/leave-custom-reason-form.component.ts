@@ -33,7 +33,8 @@ export class LeaveCustomReasonFormComponent {
             })
         }
         else {
-            alert('Please enter the reason you need to leave your home to');
+            let enterCustomReasonToLeaveTo = $localize`:@@enterCustomReasonToLeaveTo:Por favor, escriba porque desea salir.`;
+            alert(enterCustomReasonToLeaveTo);
         }
     }
 

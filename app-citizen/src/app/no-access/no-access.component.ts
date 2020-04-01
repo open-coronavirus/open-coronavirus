@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, Inject, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,12 +9,15 @@ import {Router} from '@angular/router';
 })
 export class NoAccessComponent {
 
-    public constructor(protected router: Router) {
+    public techSupportPhone: string;
 
+    public constructor(protected router: Router,
+                       @Inject('environment') protected environment) {
+        this.techSupportPhone = this.environment.techSupportPhone;
     }
 
     public callToTechnicalSupport() {
-        window.location.href = 'tel:999888777';
+        window.location.href = 'tel:' + this.environment.techSupportPhone;
     }
 
     public backToRegisterForm() {

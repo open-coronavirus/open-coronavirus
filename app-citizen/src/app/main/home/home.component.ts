@@ -25,7 +25,9 @@ export class HomeComponent implements OnDestroy {
 
     public icon;
 
-    public appointmentDescription;
+    public appointmentDescriptionLine1: string;
+    public appointmentDescriptionLine2: string;
+
 
     protected subscriptions: Array<Subscription> = new Array();
 
@@ -44,7 +46,7 @@ export class HomeComponent implements OnDestroy {
                 switch(this.testAppointmentService.testAppointment.type) {
                     case AppointmentType.AT_HOME:
                         this.icon = '/assets/icons/svg/icon-ambulancia.svg';
-                        this.appointmentDescription = "We'll send an ambulance to your house to do the test soon";
+                        this.appointmentDescriptionLine1 = $localize`:@@appointmentAtHomeDescription:Le enviaremos una ambulancia para hacerle el test del coronavirus en breve`;
                         break;
                     case AppointmentType.AT_HEALTH_CENTER:
                         this.icon = '/assets/icons/svg/icon-cita.svg';
@@ -53,8 +55,14 @@ export class HomeComponent implements OnDestroy {
                         let healthCenterAddress = this.testAppointmentService.testAppointment.healthCenter.address;
                         let healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                         let googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + this.testAppointmentService.testAppointment.healthCenter.latitude + ',' + this.testAppointmentService.testAppointment.healthCenter.longitude;
-                        this.appointmentDescription = "The appointment for the test has been scheduled on <strong>" + appointmentDate + "</strong> at " + healthCenterName + " (" + healthCenterAddress + ")<br />";
-                        this.appointmentDescription += "<a href='" + googleMapsUrl + "' target='_syste,'>How to get there?</a>";
+
+                        let appointmentDescription = $localize`:@@appointmentAtHealthCenterDescription:Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]`;
+                        this.appointmentDescriptionLine1 = appointmentDescription
+                            .replace("\[appointmentDate\]", appointmentDate)
+                            .replace("\[healthCenterName\]", healthCenterName)
+                            .replace("\[healthCenterAddress\]", healthCenterAddress)
+                        let howToGetThereLink = $localize`:@@howToGetThereLink:Como llegar?`;
+                        this.appointmentDescriptionLine2 = "<a href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
                         break;
 
                 }

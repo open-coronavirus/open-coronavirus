@@ -41,7 +41,7 @@ export class PatientService {
                 protected nativeStorage: NativeStorage) {
 
         platform.ready().then(() => {
-            if (1==1 || this.environment.production) {
+            if (this.environment.production) {
                 this.nativeStorage.getItem(PatientService.PATIENT_TOKEN_KEY)
                     .then(
                         data => {
@@ -92,7 +92,7 @@ export class PatientService {
 
         this.patientController.patientControllerFind(new ApiFilter({where: {documentNumber: {'eq': patient.documentNumber}}})).subscribe(existingPatient => {
 
-            if (existingPatient.length > 0) {
+            if (existingPatient != null) {
                 returnValue.next(false);
             } else {
 
@@ -143,8 +143,8 @@ export class PatientService {
                 interval: 60000,
                 fastestInterval: 60000,
                 activitiesInterval: 60000,
-                notificationTitle: 'Your position is important',
-                notificationText: 'By sending your position you are helping us to fight the CORONAVIRUS',
+                notificationTitle: $localize`:@@geolocationNotificationTitle:Tu posición es importante`,
+                notificationText: $localize`:@@geolocationNotificationText:Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS`,
                 debug: false,
                 stopOnTerminate: false, // enable this to clear background location settings when the app terminates
             });
@@ -196,7 +196,7 @@ export class PatientService {
                 if (status.authorization === BackgroundGeolocationAuthorizationStatus.NOT_AUTHORIZED) {
                     // we need to set delay or otherwise alert may not be shown
                     setTimeout(() => {
-                        var showSettings = confirm('By sending your position you are helping us to fight the CORONAVIRUS. Would you like to review your app config?');
+                        var showSettings = confirm($localize`@@backgroundGeopositionConfigReview:Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?`);
                         if (showSettings) {
                             return BackgroundGeolocation.showAppSettings();
                         }

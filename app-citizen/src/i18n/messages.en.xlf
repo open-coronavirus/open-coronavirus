@@ -581,10 +581,59 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit><trans-unit id="howToGetThereLink" datatype="html">
-        <source>Cómo llegar?</source><target state="translated">How to get there?</target>
+        <source>Como llegar?</source><target state="translated">How to get there?</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">3</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="enterCustomReasonToLeaveTo" datatype="html">
+        <source>Por favor, escriba porque desea salir.</source><target state="translated">Please enter the reason you need to leave your home to</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="changesSavedAlert" datatype="html">
+        <source>Tus cambios se han salvado</source><target state="translated">Your changes have been saved</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="pleaseWait" datatype="html">
+        <source>Por favor, espere ...</source><target state="translated">Please wait …</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="geolocationNotificationTitle" datatype="html">
+        <source>Tu posición es importante</source><target state="translated">Your position is important</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="geolocationNotificationText" datatype="html">
+        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</source><target state="translated">By sending your position you are helping us to fight the CORONAVIRUS,</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="backgroundGeopositionConfigReview" datatype="html">
+        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</source><target state="translated">By sending your position you are helping us to fight the CORONAVIRUS. Would you like to review your app config?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="shareText" datatype="html">
+        <source>Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</source><target state="translated">I’m using an app to help fighting the CORONAVIRUS. You can download it at http://example-app.com</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointmentAtHomeDescription" datatype="html">
+        <source>Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</source>
+        <target>We'll send an ambulance to your house to do the test soon</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">1</context></context-group></trans-unit><trans-unit id="appointmentAtHealthCenterDescription" datatype="html">
+        <source>Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</source><target state="translated">The appointment for the test has been scheduled on [appointmentDate] at [healthCenterName] in [healthCenterAddress]</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
 </body></file></xliff>
