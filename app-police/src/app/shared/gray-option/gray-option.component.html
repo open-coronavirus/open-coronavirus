@@ -1,4 +1,6 @@
 <div (click)="onClick()" class="gray-option">
-    <div><img *ngIf="icon != null" [src]="icon" class="gray-option-icon filter-black"></div>
+    <div>
+        <ion-icon *ngIf="icon != null" [src]="icon" class="gray-option-icon filter-black"></ion-icon>
+    </div>
     <div>{{text}}</div>
 </div>

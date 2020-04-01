@@ -20,7 +20,7 @@
                     <ng-container i18n="@@ImGoingLeaveHomeButton">Voy a salir de casa</ng-container>
                 </ion-button>
                 <ion-button *ngIf="leaveStatus == 2" (click)="setAtHome()" class="light-button" expand="block">
-                    <ion-icon class="button-icon filter-black" class="button-icon filter-black" slot="start" src="/assets/icons/svg/icon-volver-casa.svg"></ion-icon>
+                    <ion-icon class="button-icon filter-black back-home-btn" slot="start" src="/assets/icons/svg/icon-volver-casa.svg"></ion-icon>
                     <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
                 </ion-button>
             </ion-col>
@@ -34,7 +34,7 @@
         <div style="width: 75%;"><span [innerHTML]="appointmentDescription"></span></div>
     </div>
     <ion-button *ngIf="!patientHasTestAppointment" (click)="goToAutotest()" color="dark" expand="block">
-        <ion-icon class="button-icon filter-white" slot="start" src="/assets/icons/svg/icon-test.svg"></ion-icon>
+        <ion-icon class="button-icon filter-white switch-color" slot="start" src="/assets/icons/svg/icon-test.svg"></ion-icon>
         <ng-container i18n="@@autotestButton">¿Tengo el coronavirus?</ng-container></ion-button>
     <ion-button (click)="goToCoronavirusInfo()" class="light-button" expand="block">
         <ion-icon class="button-icon filter-black" slot="start" src="/assets/icons/svg/icon-info.svg"></ion-icon>

@@ -10,19 +10,19 @@
     <ion-content>
         <ion-list>
             <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu-item menu-separator" (click)="goToRequestLeaveHome()">
-                <ion-icon class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg" slot="start"></ion-icon>
+                <ion-icon class="button-icon filter-black switch-color" src="/assets/icons/svg/icon-salir-casa.svg" slot="start"></ion-icon>
                 <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container>
             </div>
             <div *ngIf="leaveStatus == 2" class="menu-item menu-separator" (click)="setAtHome()">
-                <ion-icon class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg" slot="start"></ion-icon>
+                <ion-icon class="button-icon filter-black switch-color" src="/assets/icons/svg/icon-volver-casa.svg" slot="start"></ion-icon>
                 <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
             </div>
             <div class="menu-item" (click)="goToAutotest()">
-                <ion-icon class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg" slot="start"></ion-icon>
+                <ion-icon class="button-icon filter-black switch-color" src="/assets/icons/svg/icon-test.svg" slot="start"></ion-icon>
                 <ng-container i18n="@@autotestMenuLabel">¿Tengo el coronavirus?</ng-container>
             </div>
             <div class="menu-item" (click)="goToCoronavirusInfo()">
-                <ion-icon class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg" slot="start"></ion-icon>
+                <ion-icon class="button-icon filter-black switch-color" src="/assets/icons/svg/icon-info.svg" slot="start"></ion-icon>
                 <ng-container i18n="@@coronavirusInfoMenuLabel">Información sobre el coronavirus</ng-container>
             </div>
         </ion-list>
@@ -30,7 +30,7 @@
     <ion-toolbar>
         <ion-list>
             <div class="menu-item" (click)="goToMyInfo()">
-                <ion-icon class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg" slot="start"></ion-icon>
+                <ion-icon class="button-icon filter-black switch-color" src="/assets/icons/svg/icon-usuario.svg" slot="start"></ion-icon>
                 <ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container>
             </div>
             <div class="menu-item" (click)="share()">

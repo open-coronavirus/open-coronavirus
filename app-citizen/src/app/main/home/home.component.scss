@@ -6,7 +6,7 @@
 
 }
 
-.leave-home-btn {
+.leave-home-btn, .back-home-btn {
   margin-top: 1em !important;
 }
 
@@ -93,16 +93,14 @@
 }
 
 // Dark mode Sass changes
-
 @media (prefers-color-scheme: dark) {
-
-  .filter-white {
-    filter: invert(0) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(200%) !important;
-  }
-
-  .share-link {
-    a, a:hover {
-      color: white;
+    .filter-white.switch-color {
+      filter: invert(0) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(200%) !important;
     }
-  }
+
+    .share-link {
+      a, a:hover {
+        color: white;
+      }
+    }
 }

@@ -71,7 +71,7 @@
     color: white;
   }
 
-  .filter-black {
+  .filter-black.switch-color {
     filter: invert(100) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(200%) !important;
   }
 }
