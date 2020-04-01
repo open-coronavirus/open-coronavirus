@@ -62,7 +62,7 @@ Para más información puedes consultar la [wiki del proyecto](https://github.co
 * [06. Idiomas](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Idiomas)
 
 
-| ![Ejemplo funcionando de la APP del ciudadano](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/open-coronavirus.gif) | 
+| ![Ejemplo funcionando de la APP del ciudadano](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/opencoronavirus-workflow.gif) | 
 |:--:| 
 | *Ejemplo funcionando de la APP del ciudadano* |
 
