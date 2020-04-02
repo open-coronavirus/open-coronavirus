@@ -168,3 +168,5 @@ Esto permite ejecutar la app en un browser.
 ## Cómo colaborar
 
 PRs bienvenidos.
+
+Espacio de Slack: [slack://opencoronavirus.slack.com](slack://opencoronavirus.slack.com)

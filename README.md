@@ -119,6 +119,9 @@ This allows you to run the app in a browser.
 
 > Special thanks to **Alex Nogues** for translate to english the wiki
 
+> Special thanks to **Marc Mauri** for translate to catalan the app
+
 ## How you can help
 PRs welcome.
 
+Slack workspace: [slack://opencoronavirus.slack.com](slack://opencoronavirus.slack.com)
