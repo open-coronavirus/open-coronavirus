@@ -827,7 +827,61 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">11</context></context-group></trans-unit><trans-unit id="shareText" datatype="html">
         <source>Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</source><target state="new">Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</target>
         
-      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="groceryShoppingLeaveReason" datatype="html">
+        <source>Comprar alimento</source><target state="new">Comprar alimento</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit><trans-unit id="drugstoreShoppingLeaveReason" datatype="html">
+        <source>Comprar productos farmacéuticos y de primera necesidad</source><target state="new">Comprar productos farmacéuticos y de primera necesidad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit><trans-unit id="forMedicalAssitanceLeaveReason" datatype="html">
+        <source>Ir al médico o al hospital</source><target state="new">Ir al médico o al hospital</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit><trans-unit id="goToWorkLeaveReason" datatype="html">
+        <source>Ir al trabajo</source><target state="new">Ir al trabajo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit><trans-unit id="backToHomeLeaveReason" datatype="html">
+        <source>Volver a casa</source><target state="new">Volver a casa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit><trans-unit id="assistElderlyPersonLeaveReason" datatype="html">
+        <source>Asistir a un mayor u otra persona dependiente</source><target state="new">Asistir a un mayor u otra persona dependiente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit><trans-unit id="goToBankLeaveReason" datatype="html">
+        <source>Ir al banco</source><target state="new">Ir al banco</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="eventsOfForceMajeureLeaveReason" datatype="html">
+        <source>Por causa de fuerza mayor o situación de necesidad</source><target state="new">Por causa de fuerza mayor o situación de necesidad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit><trans-unit id="otherLeaveReason" datatype="html">
+        <source>Otro motivo</source><target state="new">Otro motivo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

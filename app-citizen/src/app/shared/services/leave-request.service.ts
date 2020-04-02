@@ -3,7 +3,6 @@ import {PatientService} from './patient.service';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {LeaveRequest, LeaveRequestControllerService} from '../sdk';
 import {AlertController} from '@ionic/angular';
-import {leaveReasonsEN, leaveReasonsES} from "./leavereasons";
 
 @Injectable()
 export class LeaveRequestService {
@@ -12,7 +11,52 @@ export class LeaveRequestService {
 
     public loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    public leaveReasons: Array<any>;
+    public leaveReasons = [
+        {
+            id: 1,
+            label: $localize`:@@groceryShoppingLeaveReason:Comprar alimentos`,
+            icon: "icon-salir-comida.svg"
+        },
+        {
+            id: 2,
+            label: $localize`:@@drugstoreShoppingLeaveReason:Comprar productos farmacéuticos y de primera necesidad`,
+            icon: "icon-salir-medicamentos.svg"
+        },
+        {
+            id: 3,
+            label: $localize`:@@forMedicalAssitanceLeaveReason:Ir al médico o al hospital`,
+            icon: "icon-hospital.svg"
+        },
+        {
+            id: 4,
+            label: $localize`:@@goToWorkLeaveReason:Ir al trabajo`,
+            icon: "icon-salir-trabajo.svg"
+        },
+        {
+            id: 5,
+            label: $localize`:@@backToHomeLeaveReason:Volver a casa`,
+            icon: "icon-volver-casa.svg"
+        },
+        {
+            id: 6,
+            label: $localize`:@@assistElderlyPersonLeaveReason:Asistir a un mayor u otra persona dependiente`,
+            icon: "icon-salir-asistencia.svg"
+        },
+        {
+            id: 7,
+            label: $localize`:@@goToBankLeaveReason:Ir al banco`,
+            icon: "icon-salir-dinero.svg"
+        },
+        {
+            id: 8,
+            label: $localize`:@@eventsOfForceMajeureLeaveReason:Por causa de fuerza mayor o situación de necesidad`,
+            icon: "icon-salir-fuerza.svg"
+        },
+        {
+            id: 9999,
+            label: $localize`:@@otherLeaveReason:Otro motivo`
+        }
+    ];
 
 
     constructor(protected patientService: PatientService,
@@ -20,17 +64,6 @@ export class LeaveRequestService {
                 public alertController: AlertController,
                 protected leaveRequestController: LeaveRequestControllerService
     ) {
-
-        switch(locale) {
-            case 'es':
-                this.leaveReasons = leaveReasonsES;
-                break;
-            case 'en':
-            default:
-                this.leaveReasons = leaveReasonsEN;
-                break;
-
-        }
 
         this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {

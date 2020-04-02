@@ -76,6 +76,69 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="groceryShoppingLeaveReason" datatype="html">
+        <source>Comprar alimento</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="drugstoreShoppingLeaveReason" datatype="html">
+        <source>Comprar productos farmacéuticos y de primera necesidad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forMedicalAssitanceLeaveReason" datatype="html">
+        <source>Ir al médico o al hospital</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="goToWorkLeaveReason" datatype="html">
+        <source>Ir al trabajo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="backToHomeLeaveReason" datatype="html">
+        <source>Volver a casa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="assistElderlyPersonLeaveReason" datatype="html">
+        <source>Asistir a un mayor u otra persona dependiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="goToBankLeaveReason" datatype="html">
+        <source>Ir al banco</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eventsOfForceMajeureLeaveReason" datatype="html">
+        <source>Por causa de fuerza mayor o situación de necesidad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="otherLeaveReason" datatype="html">
+        <source>Otro motivo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
         <source>Voy a salir de casa</source>
         <context-group purpose="location">
