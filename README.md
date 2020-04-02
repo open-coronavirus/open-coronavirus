@@ -65,6 +65,14 @@ Likewise, although this app asks the user for their consent, the GDPR Law also c
 > Data protection regulations allow the adoption of measures necessary to safeguard the vital interests of individuals, essential public interest in the healthcare field, the performance of medical diagnostics, or compliance with legal obligations in the work sphere, including the treatment of health data without the need for the explicit consent of the affected party.
 > In any case, the processing of this data must observe the principles established in the GDPR, in particular those of minimization, limitation of purpose and minimization of data retention.
 
+## Risk mitigation strategy to maximize both data privacy and data utility
+Open-coronavirus is being designed according to the following principles:
+- **Compliance with user privacy rigths:** We believe no one should be obligated to share their personal information. On the one hand, non-carriers (i.e. those tested negative) are not required to share any personal information with a third party. On the other hand, diagnosed carriers would be prompted to share information, only with prior user-consent and on a decentralized, encripted and temporary way so to help implement the geospatial risk trace module including user alerts, which are necessary to maintain an effective surveillance.
+- **Time limited storage of location trails further protects the privacy of diagnosed carriers.** On this regard, first only anonymized, redacted, and aggregated sensitive information should be stored. Also, the appropriate amount of time for data storage should equal and not exceed the time during which a diagnosed carrier could have possibly infected another individual which for Covid-19 is between 14 to 37 days.
+- **Use of a distributed network**, rather than a central server
+- **Use of an open-source approach** to create an app to fosters trust in the app’s privacy protection capabilities, as independent experts and media can access and evaluate the source code.
+The principles outlined above, while being technically compatible with current data privacy regulations are inspired in Apps Gone Rogue: Maintaining Personal Privacy in an Epidemic
+
 ## Project Structure
 
 The project is built on top of an horizontal architecture of node servers running on dockers and being balanced against a mongoDB database. The design allow to replace the database by whatever data stores since repositories (classes in charge of comunicating with the data store) are decoupled from the rest of the code. The framework used is Loopback 4, which allow to define models, controllers, repositories and datasources completely decoupled.
