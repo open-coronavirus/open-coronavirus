@@ -37,8 +37,9 @@ export class MainComponent implements OnDestroy {
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {
-                this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
-                this.patientInitials = this.patientService.patient.firstName.split(" ").map(elem => elem[0]).join("").toUpperCase();
+                const {firstName, lastName} = this.patientService.patient;
+                this.patientName = `${firstName} ${lastName}`;
+                this.patientInitials = firstName.split(" ").map(elem => elem[0]).join("").toUpperCase();
             }
         }));
 
@@ -86,7 +87,7 @@ export class MainComponent implements OnDestroy {
 
     public goToMyInfo() {
         this.closeMenu();
-        this.router.navigate(['/app/my-info'])
+        this.router.navigate(['/app/my-info']);
     }
 
     public share() {
@@ -96,7 +97,7 @@ export class MainComponent implements OnDestroy {
     public ngOnDestroy(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe();
-        })
+        });
     }
 
 }
