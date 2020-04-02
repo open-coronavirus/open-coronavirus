@@ -124,3 +124,4 @@ This allows you to run the app in a browser.
 ## How you can help
 PRs welcome.
 
+Slack workspace: [slack://opencoronavirus.slack.com](slack://opencoronavirus.slack.com)
