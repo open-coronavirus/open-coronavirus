@@ -74,6 +74,7 @@ Open-coronavirus is being designed according to the following principles:
 
 The principles outlined above, while being technically compatible with current data privacy regulations are inspired in Apps Gone Rogue: [Maintaining Personal Privacy in an Epidemic](https://arxiv.org/pdf/2003.08567.pdf){:target="_blank"}
 
+
 ## Project Structure
 
 The project is built on top of an horizontal architecture of node servers running on dockers and being balanced against a mongoDB database. The design allow to replace the database by whatever data stores since repositories (classes in charge of comunicating with the data store) are decoupled from the rest of the code. The framework used is Loopback 4, which allow to define models, controllers, repositories and datasources completely decoupled.
