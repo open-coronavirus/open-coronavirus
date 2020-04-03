@@ -73,7 +73,6 @@ Open-coronavirus is being designed according to the following principles:
 - **Use of an open-source approach** to create an app to fosters trust in the app’s privacy protection capabilities, as independent experts and media can access and evaluate the source code.
 
 The principles outlined above, while being technically compatible with current data privacy regulations are inspired in Apps Gone Rogue: <a href="https://arxiv.org/pdf/2003.08567.pdf" target="_blank">Maintaining Personal Privacy in an Epidemic</a>
-[Maintaining Personal Privacy in an Epidemic](https://arxiv.org/pdf/2003.08567.pdf){:target="_blank"}
 
 
 ## Project Structure
