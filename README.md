@@ -71,7 +71,8 @@ Open-coronavirus is being designed according to the following principles:
 - **Time limited storage of location trails further protects the privacy of diagnosed carriers.** On this regard, first only anonymized, redacted, and aggregated sensitive information should be stored. Also, the appropriate amount of time for data storage should equal and not exceed the time during which a diagnosed carrier could have possibly infected another individual which for Covid-19 is between 14 to 37 days.
 - **Use of a distributed network**, rather than a central server
 - **Use of an open-source approach** to create an app to fosters trust in the app’s privacy protection capabilities, as independent experts and media can access and evaluate the source code.
-The principles outlined above, while being technically compatible with current data privacy regulations are inspired in Apps Gone Rogue: Maintaining Personal Privacy in an Epidemic
+
+The principles outlined above, while being technically compatible with current data privacy regulations are inspired in Apps Gone Rogue: [!Maintaining Personal Privacy in an Epidemic](https://arxiv.org/pdf/2003.08567.pdf)
 
 ## Project Structure
 
