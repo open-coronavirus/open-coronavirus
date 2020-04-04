@@ -97,6 +97,18 @@ Así mismo, pese a que esta app solicita al usuario su consentimiento, también 
 > En todo caso, el tratamiento de estos datos debe observar los principios establecidos en el RGPD, en particular los de minimización, limitación de la finalidad y minimización de la conservación.
 
 
+
+## Estrategia de mitigación de riesgos para maximizar la privacidad y la utilidad de los datos
+Open Coronavirus se está diseñando de acuerdo con los siguientes principios:
+- ** Cumplimiento de los derechos de privacidad del usuario: ** Creemos que nadie debería estar obligado a compartir su información personal. Por un lado, los no contagiados (es decir, aquellos que resultaron negativos) no están obligados a compartir información personal con un tercero. Por otro lado, a los diagnosticados con el SARS-CoV-2 se les pedirá que compartan información, sólo con el consentimiento previo del usuario y de manera descentralizada, encriptada y temporal para ayudar a implementar el módulo de rastreo de riesgo geoespacial, incluidas las alertas del usuario, que son necesarias para mantener una vigilancia efectiva.
+
+- **El almacenamiento por tiempo limitado de los desplazamientos utilizados protege aún más la privacidad de los diagnósticos portadores del virus SARS-CoV-2.** En este sentido, primero sólo se debe almacenar información confidencial anónima y agregada. Además, la cantidad de tiempo adecuada para el almacenamiento de datos debe ser igual y no exceder el tiempo durante el cual un portador diagnosticado podría haber infectado a otro individuo, que para Covid-19 es entre 14 y 37 días.
+- **Uso de una red distribuida** en lugar de un servidor central
+- **Uso de un enfoque de código abierto** para crear una aplicación que fomente la confianza en las capacidades de protección de la privacidad de la aplicación, ya que los expertos y los medios independientes pueden acceder y evaluar el código fuente.
+
+Los principios descritos anteriormente, aunque son técnicamente compatibles con las regulaciones actuales de privacidad de datos, están inspirados en Apps Gone Rogue: <a href="https://arxiv.org/pdf/2003.08567.pdf" target="_blank">Mantener la privacidad personal en una epidemia </a>
+
+
 ## Estructura del Proyecto
 
 El proyecto está dividido de la siguiente forma:
