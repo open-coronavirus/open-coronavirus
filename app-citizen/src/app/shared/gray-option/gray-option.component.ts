@@ -18,7 +18,7 @@ export class GrayOptionComponent {
     @Input('value')
     public value;
 
-    @Output('click')
+    @Output()
     public click$: Subject<any> = new Subject<any>();
 
     public onClick() {
