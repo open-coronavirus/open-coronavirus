@@ -3,6 +3,8 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
+import { BluetoothLeAdvertisementControllerService } from './api/bluetoothLeAdvertisementController.service';
+import { DocumentControllerService } from './api/documentController.service';
 import { GeolocationControllerService } from './api/geolocationController.service';
 import { HealthCenterControllerService } from './api/healthCenterController.service';
 import { LeaveRequestControllerService } from './api/leaveRequestController.service';
@@ -16,18 +18,10 @@ import { TestResultControllerService } from './api/testResultController.service'
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [
-    GeolocationControllerService,
-    HealthCenterControllerService,
-    LeaveRequestControllerService,
-    PatientControllerService,
-    PingControllerService,
-    TestAppointmentControllerService,
-    TestQuestionControllerService,
-    TestResultControllerService ]
+  providers: []
 })
 export class ApiModule {
-    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {
+    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
         return {
             ngModule: ApiModule,
             providers: [ { provide: Configuration, useFactory: configurationFactory } ]

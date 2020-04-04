@@ -4,6 +4,18 @@ import {BehaviorSubject, Subject} from 'rxjs';
 import {LeaveRequest, LeaveRequestControllerService} from '../sdk';
 import {AlertController} from '@ionic/angular';
 
+export enum LeaveReasonEnum {
+    groceryShoppingLeaveReason = 1,
+    drugstoreShoppingLeaveReason = 2,
+    forMedicalAssitanceLeaveReason = 3,
+    goToWorkLeaveReason = 4,
+    backToHomeLeaveReason = 5,
+    assistElderlyPersonLeaveReason = 6,
+    goToBankLeaveReason = 7,
+    eventsOfForceMajeureLeaveReason = 8,
+    otherLeaveReason = 9999
+}
+
 @Injectable()
 export class LeaveRequestService {
 
@@ -13,47 +25,47 @@ export class LeaveRequestService {
 
     public leaveReasons = [
         {
-            id: 1,
+            id: LeaveReasonEnum.groceryShoppingLeaveReason,
             label: $localize`:@@groceryShoppingLeaveReason:Comprar alimentos`,
             icon: "icon-salir-comida.svg"
         },
         {
-            id: 2,
+            id: LeaveReasonEnum.drugstoreShoppingLeaveReason,
             label: $localize`:@@drugstoreShoppingLeaveReason:Comprar productos farmacéuticos y de primera necesidad`,
             icon: "icon-salir-medicamentos.svg"
         },
         {
-            id: 3,
+            id: LeaveReasonEnum.forMedicalAssitanceLeaveReason,
             label: $localize`:@@forMedicalAssitanceLeaveReason:Ir al médico o al hospital`,
             icon: "icon-hospital.svg"
         },
         {
-            id: 4,
+            id: LeaveReasonEnum.goToWorkLeaveReason,
             label: $localize`:@@goToWorkLeaveReason:Ir al trabajo`,
             icon: "icon-salir-trabajo.svg"
         },
         {
-            id: 5,
+            id: LeaveReasonEnum.backToHomeLeaveReason,
             label: $localize`:@@backToHomeLeaveReason:Volver a casa`,
             icon: "icon-volver-casa.svg"
         },
         {
-            id: 6,
+            id: LeaveReasonEnum.assistElderlyPersonLeaveReason,
             label: $localize`:@@assistElderlyPersonLeaveReason:Asistir a un mayor u otra persona dependiente`,
             icon: "icon-salir-asistencia.svg"
         },
         {
-            id: 7,
+            id: LeaveReasonEnum.goToBankLeaveReason,
             label: $localize`:@@goToBankLeaveReason:Ir al banco`,
             icon: "icon-salir-dinero.svg"
         },
         {
-            id: 8,
+            id: LeaveReasonEnum.eventsOfForceMajeureLeaveReason,
             label: $localize`:@@eventsOfForceMajeureLeaveReason:Por causa de fuerza mayor o situación de necesidad`,
             icon: "icon-salir-fuerza.svg"
         },
         {
-            id: 9999,
+            id: LeaveReasonEnum.otherLeaveReason,
             label: $localize`:@@otherLeaveReason:Otro motivo`
         }
     ];
@@ -94,10 +106,10 @@ export class LeaveRequestService {
             [key: string]: object | any;
 
             additionalInfo: string;
-            backToHomeTimestamp: Date;
+            backToHomeTimestamp: string;
             id: string;
             leaveReason: number;
-            outOfHomeTimestamp: Date;
+            outOfHomeTimestamp: string;
             patientId: string;
             status: number;
         }

@@ -12,12 +12,12 @@ export class NoAccessComponent {
     public techSupportPhone: string;
 
     public constructor(protected router: Router,
-                       @Inject('environment') protected environment) {
-        this.techSupportPhone = this.environment.techSupportPhone;
+                       @Inject('settings') protected settings) {
+        this.techSupportPhone = this.settings.techSupportPhone;
     }
 
     public callToTechnicalSupport() {
-        window.location.href = 'tel:' + this.environment.techSupportPhone;
+        window.location.href = 'tel:' + this.settings.techSupportPhone;
     }
 
     public backToRegisterForm() {

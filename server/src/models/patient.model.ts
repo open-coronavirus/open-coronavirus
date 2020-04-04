@@ -71,21 +71,40 @@ export class Patient extends Entity {
   email: string;
 
   /**
-   * 1: UNINFECTED
-   * 2: RESTRICTED
-   * 3: INFECTED
+   * 1: INITIAL
+   * 2: UNINFECTED
+   * 3: RESTRICTED
+   * 4: INFECTED
    */
   @property({
     type: 'number',
     required: false,
   })
-  status?: number;
+  status?: number = 1;
 
   @property({
     type: 'string',
     required: true,
   })
   phone: string;
+
+  @property({
+    type: 'string',
+    required: false,
+  })
+  serviceAdvertisementUUID?: string;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  created?: Date;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  updated?: Date;
 
   // Define well-known properties here
 
