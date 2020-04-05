@@ -45,6 +45,7 @@ export class AppContainerComponent {
 
     public goExit() {
         this.closeMenu();
+        this.userService.user = null;
         this.navCtrl.navigateRoot(['/']);
     }
 

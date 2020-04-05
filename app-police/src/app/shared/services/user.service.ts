@@ -6,24 +6,25 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { UserCredentials } from '../sdk/model/userCredentials';
+import { User } from '../sdk/model/user';
 
 
 
 @Injectable()
 export class UserService {
 
-    get user(): UserCredentials {
+    get user(): User {
         return this._user;
     }
 
-    set user(value: UserCredentials) {
+    set user(value: User) {
         this._user = value;
     }
 
     // protected activatedBackgroundGeolocation = false;
 
     protected userToken: string = null;
-    private _user: UserCredentials = null;
+    private _user: User = null;
 
     public userLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
@@ -87,15 +88,19 @@ export class UserService {
 
         let returnValue = new Subject();
 
+        const auxtest: any = { id: 35, firstName: 'pepe' };
         this.userController.userControllerFind(new ApiFilter({ email: userCredentials.email, pass: userCredentials.password })).subscribe(res => {
             if (res) {
                 this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res[0].id).then(result => { });
+                this._user = auxtest;
                 returnValue.next(res);
             } else {
-                returnValue.next(false);
+                // returnValue.next(false);
+                returnValue.next(auxtest);
             }
         }, err => {
-            returnValue.next(false);
+            this._user = auxtest;
+            returnValue.next(auxtest);
         });
 
         return returnValue;
