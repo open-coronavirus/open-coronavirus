@@ -15,6 +15,8 @@ export class WelcomeComponent implements OnInit {
 
     @ViewChild(IonSlides) slidesElement: IonSlides;
 
+    lastSlide: boolean;
+
     slideOpts: any;
     constructor(
         protected router: Router,
@@ -33,6 +35,7 @@ export class WelcomeComponent implements OnInit {
     goContinue() {
         this.slidesElement.getActiveIndex().then(index => {
             this.slidesElement.length().then(len => {
+                this.lastSlide = index < len-1;
                 if (index < len - 1) {
                     this.slidesElement.slideNext();
                 } else {

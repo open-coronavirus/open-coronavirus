@@ -12,5 +12,6 @@
       </ion-slides>
 </ion-content>
 <div class="footer-buttons-container">
-    <ion-button color="dark" (click)="goContinue()" expand="block" i18n="@@next">SIGUIENTE</ion-button>
+    <ion-button *ngIf="!lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@next">SIGUIENTE</ion-button>
+    <ion-button *ngIf="lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@enter">ENTRAR</ion-button>
 </div>
