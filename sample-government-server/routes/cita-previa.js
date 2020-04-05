@@ -4,12 +4,13 @@ var uuidv4 = require('uuid').v4;
 
 var router = express.Router();
 
-router.post('/', (_, res) => {
+router.post('/', ({ body }, res) => {
   res.json({
     codigoCita: uuidv4(),
     centro: {
       codigo: 'ALC:CESP:BBL',
       nombre: 'Centro de especialidades de Babel',
+      sipPaciente: body.sip,
       coordenadas: {
         latitud: 38.3546956,
         longitud: -0.4983639,
