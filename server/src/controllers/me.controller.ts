@@ -1,6 +1,7 @@
 import {get, param} from '@loopback/rest';
 import {LeaveRequest} from '../models';
 import {service} from '@loopback/core';
+import {getPatientLeaveRequestsSpec} from './specs/me.controller.specs';
 import {GetPatientLeaveRequests} from '../application/query/patient/GetPatientLeaveRequests';
 
 const BAD_REQUEST = 400;
@@ -11,7 +12,7 @@ export class MeController {
     private getPatientLeaveRequestsQuery: GetPatientLeaveRequests,
   ) {}
 
-  @get('/me/leave-requests')
+  @get('/me/leave-requests', getPatientLeaveRequestsSpec)
   async getPatientLeaveRequests(
     @param.header.string('X-User-Id') patientId: string,
   ): Promise<Partial<LeaveRequest>[]> {
