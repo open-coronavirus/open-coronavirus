@@ -15,8 +15,6 @@ export class WelcomeComponent implements OnInit {
 
     @ViewChild(IonSlides) slidesElement: IonSlides;
 
-    TOTAL_SLIDES = 3;
-
     slideOpts: any;
     constructor(
         protected router: Router,
@@ -33,13 +31,15 @@ export class WelcomeComponent implements OnInit {
     }
 
     goContinue() {
-        // console.log("his.slidesElement.pager: ", this.slidesElement.pager);
-        // if (this.slidesElement.length < this.TOTAL_SLIDES) {
-        //     this.slidesElement.slideNext();
-        // } else {
-        //     this.goToSplash();
-        // }
-        this.goContinue();
+        this.slidesElement.getActiveIndex().then(index => {
+            this.slidesElement.length().then(len => {
+                if (index < len - 1) {
+                    this.slidesElement.slideNext();
+                } else {
+                    this.goToSplash();
+                }
+            });
+        });
 
     }
 
