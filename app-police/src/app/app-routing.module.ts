@@ -14,22 +14,12 @@ const routes: Routes = [
       ]
     },
     {
-        path: 'register',
+        path: 'login',
         children: [
             {
                 path: '',
                 loadChildren: () =>
-                    import('./register/register.module').then(m => m.RegisterModule)
-            }
-        ]
-    },
-    {
-        path: 'no-access',
-        children: [
-            {
-                path: '',
-                loadChildren: () =>
-                    import('./no-access/no-access.module').then(m => m.NoAccessModule)
+                    import('./login/login.module').then(m => m.LoginModule)
             }
         ]
     },

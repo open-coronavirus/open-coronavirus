@@ -10,12 +10,13 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {sdkConfigurationProvider} from './shared/sdkconfiguration.provider';
 import {environment} from '../environments/environment';
-import {PatientService} from './shared/services/patient.service';
 import {HttpClientModule} from '@angular/common/http';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import {AppContainerComponent} from './app-container/app-container.component';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { UserService } from './shared/services/user.service';
+import { PatientService } from './shared/services/patient.service';
 
 @NgModule({
     declarations: [AppComponent, AppContainerComponent],
@@ -30,6 +31,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
         StatusBar,
         SplashScreen,
         sdkConfigurationProvider,
+        UserService,
         PatientService,
         NativeStorage,
         InAppBrowser,

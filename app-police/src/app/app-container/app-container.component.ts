@@ -1,8 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
-import {PatientService} from '../shared/services/patient.service';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
     selector: 'app-container',
@@ -18,10 +18,8 @@ export class AppContainerComponent {
 
     constructor(protected menu: MenuController,
                 protected router: Router,
-                protected patientService: PatientService,
+                protected userService: UserService,
                 protected iab: InAppBrowser) {
-
-
     }
 
     openMenu() {

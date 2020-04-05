@@ -1,9 +1,8 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { PatientService } from '../../shared/services/patient.service';
-import { PatientInfoFormComponent } from '../../shared/patient-info-form/patient-info-form.component';
 import { Location } from '@angular/common';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Router } from '@angular/router';
+import { PatientService } from '../../shared/services/patient.service';
 
 
 @Component({

@@ -7,3 +7,5 @@ export * from './test-appointment.controller';
 export * from './test-result.controller';
 export * from './test-question.controller';
 export * from './me.controller';
+export * from './document.controller';
+export * from './bluetooth-le-advertisement.controller';

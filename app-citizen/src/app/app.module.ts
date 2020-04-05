@@ -22,6 +22,11 @@ import {AutotestAnswers} from './shared/services/autotest-answers.service';
 import {TestAppointmentService} from "./shared/services/test-appointment.service";
 import {TestResultService} from "./shared/services/test-result.service";
 import {I18nStringsModule} from "./shared/i18n-strings/i18n-strings.module";
+import {settings} from "../environments/settings";
+import {StorageService} from "./shared/services/storage.service";
+import {BlueToothTrackingService} from "./shared/services/tracking/bluetoothtracking.service";
+import {GeolocationtrackingService} from "./shared/services/tracking/geolocationtracking.service";
+import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -36,17 +41,22 @@ import {I18nStringsModule} from "./shared/i18n-strings/i18n-strings.module";
     providers: [
         StatusBar,
         SplashScreen,
+        BluetoothLE,
         sdkConfigurationProvider,
         PatientService,
         LeaveRequestService,
+        StorageService,
         NativeStorage,
         ShareService,
+        BlueToothTrackingService,
+        GeolocationtrackingService,
         AutotestAnswers,
         TestAppointmentService,
         TestResultService,
         InAppBrowser,
         SocialSharing,
         {provide: 'environment', useValue: environment},
+        {provide: 'settings', useValue: settings},
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
