@@ -16,6 +16,7 @@ import {AppContainerComponent} from './app-container/app-container.component';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { UserService } from './shared/services/user.service';
+import { PatientService } from './shared/services/patient.service';
 
 @NgModule({
     declarations: [AppComponent, AppContainerComponent],
@@ -31,6 +32,7 @@ import { UserService } from './shared/services/user.service';
         SplashScreen,
         sdkConfigurationProvider,
         UserService,
+        PatientService,
         NativeStorage,
         InAppBrowser,
         BarcodeScanner,
