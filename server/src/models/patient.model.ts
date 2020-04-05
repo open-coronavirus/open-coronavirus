@@ -1,6 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import { Entity, model, property } from '@loopback/repository';
 
-@model({settings: {strict: false}})
+@model({ settings: { strict: false } })
 export class Patient extends Entity {
 
   @property({
@@ -79,8 +79,9 @@ export class Patient extends Entity {
   @property({
     type: 'number',
     required: false,
+    default: 1
   })
-  status?: number = 1;
+  status?: number;
 
   @property({
     type: 'string',
