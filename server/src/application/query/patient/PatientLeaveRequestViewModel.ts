@@ -3,6 +3,6 @@ export type PatientLeaveRequestViewModel = {
   leaveReason: number;
   additionalInfo: string | undefined;
   outOfHomeTimestamp: Date;
-  backToHomeTimestamp: Date;
+  backToHomeTimestamp: Date | null | undefined;
   status: number;
 };
