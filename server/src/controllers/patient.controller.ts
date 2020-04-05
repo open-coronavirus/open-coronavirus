@@ -16,22 +16,23 @@ import {
   put,
   del,
   requestBody,
+  HttpErrors,
 } from '@loopback/rest';
-import {Patient} from '../models';
-import {PatientRepository} from '../repositories';
-import {Guid} from "guid-typescript";
+import { Patient } from '../models';
+import { PatientRepository } from '../repositories';
+import { Guid } from "guid-typescript";
 
 export class PatientController {
   constructor(
     @repository(PatientRepository)
-    public patientRepository : PatientRepository,
-  ) {}
+    public patientRepository: PatientRepository,
+  ) { }
 
   @post('/patients', {
     responses: {
       '200': {
         description: 'Patient model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Patient)}},
+        content: { 'application/json': { schema: getModelSchemaRef(Patient) } },
       },
     },
   })
@@ -60,7 +61,7 @@ export class PatientController {
     responses: {
       '200': {
         description: 'Patient model count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -78,7 +79,7 @@ export class PatientController {
           'application/json': {
             schema: {
               type: 'array',
-              items: getModelSchemaRef(Patient, {includeRelations: true}),
+              items: getModelSchemaRef(Patient, { includeRelations: true }),
             },
           },
         },
@@ -95,7 +96,7 @@ export class PatientController {
     responses: {
       '200': {
         description: 'Patient PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -103,7 +104,7 @@ export class PatientController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Patient, {partial: true}),
+          schema: getModelSchemaRef(Patient, { partial: true }),
         },
       },
     })
@@ -119,7 +120,7 @@ export class PatientController {
         description: 'Patient model instance',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(Patient, {includeRelations: true}),
+            schema: getModelSchemaRef(Patient, { includeRelations: true }),
           },
         },
       },
@@ -144,7 +145,7 @@ export class PatientController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Patient, {partial: true}),
+          schema: getModelSchemaRef(Patient, { partial: true }),
         },
       },
     })
@@ -169,6 +170,37 @@ export class PatientController {
       if(patient != null) {
         patient.status = status;
         this.patientRepository.replaceById(id, patient);
+      }
+    });
+
+  }
+
+  @post('/patients/healthInsuranceCardNumber/{healthInsuranceCardNumber}/status', {
+    responses: {
+      '204': {
+        description: 'Update patient status success',
+      },
+      '404': {
+        description: 'Patient not found',
+      }
+    },
+  })
+  async updateStatusByHealthInsuranceCardNumber(
+    @param.path.string('healthInsuranceCardNumber') healthInsuranceCardNumber: string,
+    @requestBody() status: number,
+  ): Promise<void> {
+    let filter = {
+      "where": {
+        "healthInsuranceCardNumber": healthInsuranceCardNumber
+      }
+    };
+
+    await this.patientRepository.findOne(filter).then(patient => {
+      if (patient != null) {
+        patient.status = status;
+        this.patientRepository.update(patient);
+      } else {
+        throw new HttpErrors[404];
       }
     });
 
