@@ -5,9 +5,15 @@ export class PoliceOfficer extends Entity {
   @property({
     type: 'string',
     id: true,
-    generated: true,
+    // generated: true,
   })
   id?: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  uniqueId: string;
 
   @property({
     type: 'string',
@@ -45,6 +51,11 @@ export class PoliceOfficer extends Entity {
   })
   postalCode: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  position: string;
   // Define well-known properties here
 
   // Indexer property to allow additional data

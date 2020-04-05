@@ -1,13 +1,14 @@
-import {BootMixin} from '@loopback/boot';
-import {ApplicationConfig} from '@loopback/core';
-import {RestExplorerBindings, RestExplorerComponent,} from '@loopback/rest-explorer';
-import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
-import {ServiceMixin} from '@loopback/service-proxy';
-import {join} from 'path';
-import {MySequence} from './sequence';
-import {AppointmentMockService} from "./services/impl/appointment-mock.service";
-import {HealthCenterMockService} from "./services/impl/health-center-mock.service";
+import { BootMixin } from '@loopback/boot';
+import { ApplicationConfig } from '@loopback/core';
+import { RestExplorerBindings, RestExplorerComponent, } from '@loopback/rest-explorer';
+import { RepositoryMixin } from '@loopback/repository';
+import { RestApplication } from '@loopback/rest';
+import { ServiceMixin } from '@loopback/service-proxy';
+import { join } from 'path';
+import { MySequence } from './sequence';
+import { AppointmentMockService } from "./services/impl/appointment-mock.service";
+import { HealthCenterMockService } from "./services/impl/health-center-mock.service";
+import { AuthMockService } from "./services/impl/auth-mock.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -56,8 +57,9 @@ export class CoronavirusServerApplication extends BootMixin(
     this.component(RestExplorerComponent);
 
     //Define custom services at this point:
-    this.service(AppointmentMockService, {interface: 'AppointmentService'});
-    this.service(HealthCenterMockService, {interface: 'HealthCenterService'});
+    this.service(AppointmentMockService, { interface: 'AppointmentService' });
+    this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
+    this.service(AuthMockService, { interface: 'AuthService' });
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here
