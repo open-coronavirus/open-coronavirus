@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.jparkie:promise:1.0.3@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jparkie/promise/1.0.3/e30672423be509d86ff5f0e615de0d46dcd0f61c/promise-1.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jparkie/promise/1.0.3/e799c4560c57ca07155120ca0d9b7d144616100a/promise-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

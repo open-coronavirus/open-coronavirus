@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {PatientService} from '../services/patient.service';
+import { UserService } from '../services/user.service';
+
 
 @Component({
     selector: 'qr-code',
@@ -10,9 +11,9 @@ export class QrCodeComponent {
 
     public url = null;
 
-    constructor(protected patientService: PatientService) {
+    constructor(protected userService: UserService) {
 
-        this.url = patientService.getCheckStatusUrl();
+        // this.url = userService.getCheckStatusUrl();
 
     }
 

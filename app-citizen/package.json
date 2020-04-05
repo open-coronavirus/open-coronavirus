@@ -20,13 +20,13 @@
     "@babel/preset-env": "^7.8.7"
   },
   "dependencies": {
-    "@angular/common": "~9.1.0",
-    "@angular/core": "~9.1.0",
-    "@angular/forms": "~9.1.0",
+    "@angular/common": "9.1.0",
+    "@angular/core": "9.1.0",
+    "@angular/forms": "9.1.0",
     "@angular/localize": "^9.1.0",
-    "@angular/platform-browser": "~9.1.0",
-    "@angular/platform-browser-dynamic": "~9.1.0",
-    "@angular/router": "~9.1.0",
+    "@angular/platform-browser": "9.1.0",
+    "@angular/platform-browser-dynamic": "9.1.0",
+    "@angular/router": "9.1.0",
     "@capacitor/android": "^1.5.1",
     "@capacitor/core": "1.5.1",
     "@capacitor/ios": "^2.0.0-beta.1",
@@ -52,16 +52,16 @@
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
     "leaflet": "^1.6.0",
-    "rxjs": "~6.5.1",
+    "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.0",
-    "@angular/cli": "~9.1.0",
-    "@angular/compiler": "~9.1.0",
-    "@angular/compiler-cli": "~9.1.0",
-    "@angular/language-service": "~9.1.0",
+    "@angular/cli": "9.1.0",
+    "@angular/compiler": "9.1.0",
+    "@angular/compiler-cli": "9.1.0",
+    "@angular/language-service": "9.1.0",
     "@capacitor/cli": "1.5.1",
     "@ionic/angular-toolkit": "^2.1.1",
     "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
@@ -80,7 +80,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.8.3"
+    "typescript": "3.8.3"
   },
   "description": "An Ionic project"
 }

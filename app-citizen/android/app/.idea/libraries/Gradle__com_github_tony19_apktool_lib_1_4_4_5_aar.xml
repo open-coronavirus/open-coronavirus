@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.tony19:apktool-lib:1.4.4-5@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/apktool-lib-1.4.4-5.aar/e8022d2ecd40dcc87d935160cf5de4df/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/apktool-lib-1.4.4-5.aar/e8022d2ecd40dcc87d935160cf5de4df/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tony19/apktool-lib/1.4.4-5/e1d821903088aeaf97231380bb78b7e1e5c98a34/apktool-lib-1.4.4-5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

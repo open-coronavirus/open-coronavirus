@@ -3,21 +3,21 @@
   <file source-language="es" datatype="plaintext" original="ng2.template" target-language="fr">
     <body>
       <trans-unit id="appointmentAtHomeDescription" datatype="html">
-        <source>Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</source><target state="new">Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</target>
+        <source>Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</source><target state="translated">Nous vous enverrons une ambulance pour faire le test coronavirus dans les plus brefs délais</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="appointmentAtHealthCenterDescription" datatype="html">
-        <source>Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</source><target state="new">Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</target>
+        <source>Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</source><target state="translated">Rendez-vous pour le test coronavirus [appointmentDate] le [healthCenterName] [healthCenterAddress]</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="howToGetThereLink" datatype="html">
-        <source>Como llegar?</source><target state="new">Como llegar?</target>
+        <source>Como llegar?</source><target state="translated">Comment y aller?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">5</context>
@@ -28,117 +28,117 @@
         </context-group>
       </trans-unit>
       <trans-unit id="enterCustomReasonToLeaveTo" datatype="html">
-        <source>Por favor, escriba porque desea salir.</source><target state="new">Por favor, escriba porque desea salir.</target>
+        <source>Por favor, escriba porque desea salir.</source><target state="translated">S’il vous plait, écrivez ici le motif de votre sortie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="changesSavedAlert" datatype="html">
-        <source>Tus cambios se han salvado</source><target state="new">Tus cambios se han salvado</target>
+        <source>Tus cambios se han salvado</source><target state="translated">Vos changements ont été enregistrés</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pleaseWait" datatype="html">
-        <source>Por favor, espere ...</source><target state="new">Por favor, espere ...</target>
+        <source>Por favor, espere ...</source><target state="translated">Attendez quelques instants</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="geolocationNotificationTitle" datatype="html">
-        <source>Tu posición es importante</source><target state="new">Tu posición es importante</target>
+        <source>Tu posición es importante</source><target state="translated">Votre géolocalisation est importante</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="geolocationNotificationText" datatype="html">
-        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</source><target state="new">Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</target>
+        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</source><target state="translated">Lorsque vous informez sur votre géolocalisation vous aidez à combattre le CORONAVIRUS</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="backgroundGeopositionConfigReview" datatype="html">
-        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</source><target state="new">Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</target>
+        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</source><target state="translated">Lorsque vous informez sur votre géolocalisation vous aidez à combattre le CORONAVIRUS. Voulez vous changer la configuration de l’ app?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareText" datatype="html">
-        <source>Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</source><target state="new">Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</target>
+        <source>Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</source><target state="translated">J’utilise Open Coronavirus, una APP pour combattre la propagation du virus</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit><trans-unit id="groceryShoppingLeaveReason" datatype="html">
-        <source>Comprar alimento</source><target state="new">Comprar alimento</target>
+        <source>Comprar alimento</source><target state="translated">Acheter aliments</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit><trans-unit id="drugstoreShoppingLeaveReason" datatype="html">
-        <source>Comprar productos farmacéuticos y de primera necesidad</source><target state="new">Comprar productos farmacéuticos y de primera necesidad</target>
+        <source>Comprar productos farmacéuticos y de primera necesidad</source><target state="translated">Acheter des produits pharmaceutiques et de première nécessité</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit><trans-unit id="forMedicalAssitanceLeaveReason" datatype="html">
-        <source>Ir al médico o al hospital</source><target state="new">Ir al médico o al hospital</target>
+        <source>Ir al médico o al hospital</source><target state="translated">Aller chez le médecin ou à l’hôpital</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit><trans-unit id="goToWorkLeaveReason" datatype="html">
-        <source>Ir al trabajo</source><target state="new">Ir al trabajo</target>
+        <source>Ir al trabajo</source><target state="translated">Aller au travail</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit><trans-unit id="backToHomeLeaveReason" datatype="html">
-        <source>Volver a casa</source><target state="new">Volver a casa</target>
+        <source>Volver a casa</source><target state="translated">Retourner chez soi</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit><trans-unit id="assistElderlyPersonLeaveReason" datatype="html">
-        <source>Asistir a un mayor u otra persona dependiente</source><target state="new">Asistir a un mayor u otra persona dependiente</target>
+        <source>Asistir a un mayor u otra persona dependiente</source><target state="translated">Aider une personne dépendante ou âgée</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit><trans-unit id="goToBankLeaveReason" datatype="html">
-        <source>Ir al banco</source><target state="new">Ir al banco</target>
+        <source>Ir al banco</source><target state="translated">Aller à la banque</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit><trans-unit id="eventsOfForceMajeureLeaveReason" datatype="html">
-        <source>Por causa de fuerza mayor o situación de necesidad</source><target state="new">Por causa de fuerza mayor o situación de necesidad</target>
+        <source>Por causa de fuerza mayor o situación de necesidad</source><target state="translated">Déplacement pour motif impérieux ou nécessité majeure</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit><trans-unit id="otherLeaveReason" datatype="html">
-        <source>Otro motivo</source><target state="new">Otro motivo</target>
+        <source>Otro motivo</source><target state="translated">Autre motif</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
-        <source>Voy a salir de casa</source><target state="new">Voy a salir de casa</target>
+        <source>Voy a salir de casa</source><target state="translated">Je vais sortir de mon domicile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="IWentBackToHomeMenuLabel" datatype="html">
-        <source>He vuelto a casa</source><target state="new">He vuelto a casa</target>
+        <source>He vuelto a casa</source><target state="translated">Retour à mon domicile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">13</context>
@@ -149,63 +149,63 @@
         </context-group>
       </trans-unit>
       <trans-unit id="autotestMenuLabel" datatype="html">
-        <source>¿Tengo el coronavirus?</source><target state="new">¿Tengo el coronavirus?</target>
+        <source>¿Tengo el coronavirus?</source><target state="translated">Ai-je le coronavirus?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="coronavirusInfoMenuLabel" datatype="html">
-        <source>Información sobre el coronavirus</source><target state="new">Información sobre el coronavirus</target>
+        <source>Información sobre el coronavirus</source><target state="translated">Information sur le coronavirus</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myInfoMenuLabel" datatype="html">
-        <source>Mis datos</source><target state="new">Mis datos</target>
+        <source>Mis datos</source><target state="translated">Mes données personnelles</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareMenuLabelLine1" datatype="html">
-        <source>Compartir App</source><target state="new">Compartir App</target>
+        <source>Compartir App</source><target state="translated">Partager l’App</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareMenuLabelLine2" datatype="html">
-        <source>para luchar juntos</source><target state="new">para luchar juntos</target>
+        <source>para luchar juntos</source><target state="translated">pour combattre ensemble </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="introductionHeaderLine1" datatype="html">
-        <source>Luchemos juntos</source><target state="new">Luchemos juntos</target>
+        <source>Luchemos juntos</source><target state="translated">Combattons ensemble</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/splash/splash.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="introductionHeaderLine2" datatype="html">
-        <source>contra el</source><target state="new">contra el</target>
+        <source>contra el</source><target state="translated">contre le</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/splash/splash.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="introductionTip" datatype="html">
-        <source>Informate, avisa y si te encuentras mal pide que te hagan el test del coronavirus</source><target state="new">Informate, avisa y si te encuentras mal pide que te hagan el test del coronavirus</target>
+        <source>Informate, avisa y si te encuentras mal pide que te hagan el test del coronavirus</source><target state="translated">Informez-vous, prévenez et si votre étant de santé le nécessite demandez à faire le test coronavirus</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/splash/splash.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="enter" datatype="html">
-        <source>ENTRAR</source><target state="new">ENTRAR</target>
+        <source>ENTRAR</source><target state="translated">ENTRER</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/splash/splash.component.html</context>
           <context context-type="linenumber">15</context>
@@ -216,322 +216,322 @@
         </context-group>
       </trans-unit>
       <trans-unit id="personalInfoSectionTitle" datatype="html">
-        <source>Tus datos</source><target state="new">Tus datos</target>
+        <source>Tus datos</source><target state="translated">Vos données</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dd2a11ebc737589080ed400dacc33a8c8c84728b" datatype="html">
-        <source>Nombre</source><target state="new">Nombre</target>
+        <source>Nombre</source><target state="translated">Prénom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstNameLabel" datatype="html">
-        <source>Nombre</source><target state="new">Nombre</target>
+        <source>Nombre</source><target state="translated">Prénom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="firstNameError" datatype="html">
-        <source>Por favor, introduce tu nombre</source><target state="new">Por favor, introduce tu nombre</target>
+        <source>Por favor, introduce tu nombre</source><target state="translated">Veuillez indiquer votre prénom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7cc7d4e5b5cae80ca5d7c2d9227dc7fad54ce195" datatype="html">
-        <source>Apellidos</source><target state="new">Apellidos</target>
+        <source>Apellidos</source><target state="translated">Nom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lastNameLabel" datatype="html">
-        <source>Apellidos</source><target state="new">Apellidos</target>
+        <source>Apellidos</source><target state="translated">Nom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lastNameError" datatype="html">
-        <source>Por favor, introduce tus apellidos</source><target state="new">Por favor, introduce tus apellidos</target>
+        <source>Por favor, introduce tus apellidos</source><target state="translated">Veuillez écrire votre nom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="13bbbdcf41ff119078c6e74d436ee3233d6bd491" datatype="html">
-        <source>DNI/NIF/Tarjeta residencia</source><target state="new">DNI/NIF/Tarjeta residencia</target>
+        <source>DNI/NIF/Tarjeta residencia</source><target state="translated">Carte d’Identité Nationale/NIF/Carte de séjour</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documentNumberLabel" datatype="html">
-        <source>DNI/NIF/Tarjeta residencia</source><target state="new">DNI/NIF/Tarjeta residencia</target>
+        <source>DNI/NIF/Tarjeta residencia</source><target state="translated">Carte d’Identité Nationale/NIF/Carte de séjour</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documentNumberForm" datatype="html">
-        <source>Por favor, introduce tu número de documento</source><target state="new">Por favor, introduce tu número de documento</target>
+        <source>Por favor, introduce tu número de documento</source><target state="translated">Veuillez indiquer votre numéro d’identification</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="57dad0bdad29af82aa8cc734fcfe3abba21ea981" datatype="html">
-        <source>Número de tarjeta sanitaria</source><target state="new">Número de tarjeta sanitaria</target>
+        <source>Número de tarjeta sanitaria</source><target state="translated">Numéro de carte sanitaire</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="healthInsuranceCardNumberLabel" datatype="html">
-        <source>Número de tarjeta sanitaria</source><target state="new">Número de tarjeta sanitaria</target>
+        <source>Número de tarjeta sanitaria</source><target state="translated">Numéro de carte sanitaire</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="healthInsuranceCardNumberError" datatype="html">
-        <source>Por favor, introduce tu número de tarjeta sanitaria</source><target state="new">Por favor, introduce tu número de tarjeta sanitaria</target>
+        <source>Por favor, introduce tu número de tarjeta sanitaria</source><target state="translated">Veuillez indiquer votre numéro de carte sanitaire</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fd77d996d69141be45a1855ed448adb56717e35d" datatype="html">
-        <source>Edad</source><target state="new">Edad</target>
+        <source>Edad</source><target state="translated">Âge</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ageLabel" datatype="html">
-        <source>Edad</source><target state="new">Edad</target>
+        <source>Edad</source><target state="translated">Âge</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ageError" datatype="html">
-        <source>Por favor, introduce tu edad (por ejemplo 25)</source><target state="new">Por favor, introduce tu edad (por ejemplo 25)</target>
+        <source>Por favor, introduce tu edad (por ejemplo 25)</source><target state="translated">Veuillez indiquer votre âge (par exemple 25)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="genderFemaleLabel" datatype="html">
-        <source>Mujer</source><target state="new">Mujer</target>
+        <source>Mujer</source><target state="translated">Femme</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="genderMaleLabel" datatype="html">
-        <source>Hombre</source><target state="new">Hombre</target>
+        <source>Hombre</source><target state="translated">Homme</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="genderError" datatype="html">
-        <source>Por favor, indica tu género</source><target state="new">Por favor, indica tu género</target>
+        <source>Por favor, indica tu género</source><target state="translated">Veuillez indiquer votre genre</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addressSectionTitle" datatype="html">
-        <source>Dirección donde vives</source><target state="new">Dirección donde vives</target>
+        <source>Dirección donde vives</source><target state="translated">Votre adresse</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="b90cdd2c246f14152b225005dada8c805a8da487" datatype="html">
-        <source>Calle</source><target state="new">Calle</target>
+        <source>Calle</source><target state="translated">Rue</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="streetLabel" datatype="html">
-        <source>Calle</source><target state="new">Calle</target>
+        <source>Calle</source><target state="translated">Rue</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="streetError" datatype="html">
-        <source>Por favor, introduce tu dirección</source><target state="new">Por favor, introduce tu dirección</target>
+        <source>Por favor, introduce tu dirección</source><target state="translated">Veuillez indiquer votre adresse</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4f34fb1e4f061176565989e7f2340f906b9d5a3e" datatype="html">
-        <source>Número</source><target state="new">Número</target>
+        <source>Número</source><target state="translated">Numéro</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="apartmentLabel" datatype="html">
-        <source>Número</source><target state="new">Número</target>
+        <source>Número</source><target state="translated">Numéro</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="76476bb1c44d0d85777f75c9aad9b841e1b54754" datatype="html">
-        <source>Código postal</source><target state="new">Código postal</target>
+        <source>Código postal</source><target state="translated">Code postal</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="postalCodeLabel" datatype="html">
-        <source>Código postal</source><target state="new">Código postal</target>
+        <source>Código postal</source><target state="translated">Code postal</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="postalCodeError" datatype="html">
-        <source>Por favor, introduce un código postal válido</source><target state="new">Por favor, introduce un código postal válido</target>
+        <source>Por favor, introduce un código postal válido</source><target state="translated">Veuillez indiquer un code postal correct</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactInfoSectionTitle" datatype="html">
-        <source>Información de contacto</source><target state="new">Información de contacto</target>
+        <source>Información de contacto</source><target state="translated">Information de contact</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
-        <source>Email</source><target state="new">Email</target>
+        <source>Email</source><target state="translated">Email</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="emailLabel" datatype="html">
-        <source>Email</source><target state="new">Email</target>
+        <source>Email</source><target state="translated">Email</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="emailError" datatype="html">
-        <source>Por favor, introduce un email válido</source><target state="new">Por favor, introduce un email válido</target>
+        <source>Por favor, introduce un email válido</source><target state="translated">Veuillez indiquer un email correct</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6934d8edd276d59e050006fe91b695ebad0218f8" datatype="html">
-        <source>Phone</source><target state="new">Phone</target>
+        <source>Phone</source><target state="translated">Téléphone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="phoneLabel" datatype="html">
-        <source>Phone</source><target state="new">Phone</target>
+        <source>Phone</source><target state="translated">Téléphone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="phoneError" datatype="html">
-        <source>Por favor, introduce un número de teléfono válido</source><target state="new">Por favor, introduce un número de teléfono válido</target>
+        <source>Por favor, introduce un número de teléfono válido</source><target state="translated">Veuillez indiquer un numéro de téléphone correct</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
           <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="headerTitleLine1" datatype="html">
-        <source>Luchemos juntos contra el</source><target state="new">Luchemos juntos contra el</target>
+        <source>Luchemos juntos contra el</source><target state="translated">Combattons ensemble contre le</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="headerTitleLine2" datatype="html">
-        <source>CORONAVIRUS</source><target state="new">CORONAVIRUS</target>
+        <source>CORONAVIRUS</source><target state="translated">CORONAVIRUS</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="registerTitle" datatype="html">
-        <source>Registro</source><target state="new">Registro</target>
+        <source>Registro</source><target state="translated">Registre</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="accepttermsLabel" datatype="html">
-        <source>Acepto las condiciones de uso y políticas de privacidad</source><target state="new">Acepto las condiciones de uso y políticas de privacidad</target>
+        <source>Acepto las condiciones de uso y políticas de privacidad</source><target state="translated">J’accepte les conditions d’utilisation et la politique de confidentialité</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="accepttermsError" datatype="html">
-        <source>Por favor, debes aceptar las condiciones de uso y la política de privacidad.</source><target state="new">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</target>
+        <source>Por favor, debes aceptar las condiciones de uso y la política de privacidad.</source><target state="translated">Veuillez accepter les conditions d’utilisation et la politique de confidentialité</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="registerSubmitButton" datatype="html">
-        <source>REGISTRARSE</source><target state="new">REGISTRARSE</target>
+        <source>REGISTRARSE</source><target state="translated">S’ENREGISTRER</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="registerFormError" datatype="html">
-        <source>Ups! Te faltan campos por rellenar</source><target state="new">Ups! Te faltan campos por rellenar</target>
+        <source>Ups! Te faltan campos por rellenar</source><target state="translated">Ups! Certaines données n’ont pas été saisies</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="noAccessTitle" datatype="html">
-        <source>No acceso</source><target state="new">No acceso</target>
+        <source>No acceso</source><target state="translated">Pas d’accès</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="noAccessDescriptionLine1" datatype="html">
-        <source>Parece que ya la estás utilizando en otro móvil.</source><target state="new">Parece que ya la estás utilizando en otro móvil.</target>
+        <source>Parece que ya la estás utilizando en otro móvil.</source><target state="translated">Il semblerait que vous l’utilisez déjà sur un autre dispositif</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="noAccessDescriptionLine2" datatype="html">
-        <source>Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</source><target state="new">Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</target>
+        <source>Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</source><target state="translated">Si ce n’est pas le cas ou vous voulez changer le dispositif, contactez le service technique</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7b8f5d25d0ad607bd361394adbf269b8c71a7361" datatype="html">
-        <source>Servicio técnico  999 888 777</source><target state="new">Servicio técnico  999 888 777</target>
+        <source>Servicio técnico  999 888 777</source><target state="translated">Service technique  999 888 777</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">13</context>
@@ -539,7 +539,7 @@
         <note priority="1" from="description">callTechnicalServiceButtonLabel</note>
       </trans-unit>
       <trans-unit id="da3c8ae5c06251034a3e710759a972600878f438" datatype="html">
-        <source>Volver a intentar</source><target state="new">Volver a intentar</target>
+        <source>Volver a intentar</source><target state="translated">Réessayer</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">14</context>
@@ -547,7 +547,7 @@
         <note priority="1" from="description">tryAgainButtonLabel</note>
       </trans-unit>
       <trans-unit id="c8fbb584b4996d1494b10ae63994da02808c27cf" datatype="html">
-        <source>Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</source><target state="new">Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</target>
+        <source>Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</source><target state="translated">Si vous ne pouvez pas accéder et que vous avez des symptômes du coronavirus contactez l’attention sanitaire pour le processus habituel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
           <context context-type="linenumber">16</context>
@@ -555,56 +555,56 @@
         <note priority="1" from="description">noAccessFootNote</note>
       </trans-unit>
       <trans-unit id="headerTitle" datatype="html">
-        <source>Luchemos juntos contra el</source><target state="new">Luchemos juntos contra el</target>
+        <source>Luchemos juntos contra el</source><target state="translated">Luttons ensemble contre le</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="authorizationCodeLabel" datatype="html">
-        <source>Código de autorización</source><target state="new">Código de autorización</target>
+        <source>Código de autorización</source><target state="translated">Code d’autorisation</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveReasonLabel" datatype="html">
-        <source>Motivo</source><target state="new">Motivo</target>
+        <source>Motivo</source><target state="translated">Motif</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ImGoingLeaveHomeButton" datatype="html">
-        <source>Voy a salir de casa</source><target state="new">Voy a salir de casa</target>
+        <source>Voy a salir de casa</source><target state="translated">Je vais sortir de mon domicile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autotestButton" datatype="html">
-        <source>¿Tengo el coronavirus?</source><target state="new">¿Tengo el coronavirus?</target>
+        <source>¿Tengo el coronavirus?</source><target state="translated">Ai-je le coronavirus?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="coronavirusInfoButton" datatype="html">
-        <source>Información sobre el coronavirus</source><target state="new">Información sobre el coronavirus</target>
+        <source>Información sobre el coronavirus</source><target state="translated">Information sur le coronavirus</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareButton" datatype="html">
-        <source>Compartir App para luchar juntos</source><target state="new">Compartir App para luchar juntos</target>
+        <source>Compartir App para luchar juntos</source><target state="translated">Partagez l’App pour combattre ensemble </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="okButton" datatype="html">
-        <source>OK</source><target state="new">OK</target>
+        <source>OK</source><target state="translated">OK</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/autotest/autotest.component.html</context>
           <context context-type="linenumber">26</context>
@@ -623,49 +623,49 @@
         </context-group>
       </trans-unit>
       <trans-unit id="requestLeaveHomeTitle" datatype="html">
-        <source>Necesito salir</source><target state="new">Necesito salir</target>
+        <source>Necesito salir</source><target state="translated">J’ai besoin de sortir de mon domicile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestLeaveHomeDescriptionLine1" datatype="html">
-        <source>Estamos en estado de alerta.</source><target state="new">Estamos en estado de alerta.</target>
+        <source>Estamos en estado de alerta.</source><target state="translated">Nous sommes en état d’alerte</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestLeaveHomeDescriptionLine2" datatype="html">
-        <source>Selecciona el motivo por el que vas a salir:</source><target state="new">Selecciona el motivo por el que vas a salir:</target>
+        <source>Selecciona el motivo por el que vas a salir:</source><target state="translated">Indiquez le motif de votre sortie:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveCustomReasonFormTitle" datatype="html">
-        <source>Quieres salir de casa?</source><target state="new">Quieres salir de casa?</target>
+        <source>Quieres salir de casa?</source><target state="translated">Vous voulez quitter votre domicile?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveCustomReasonFormDescription" datatype="html">
-        <source>Indica el motivo por el que vas a salir de casa</source><target state="new">Indica el motivo por el que vas a salir de casa</target>
+        <source>Indica el motivo por el que vas a salir de casa</source><target state="translated">Indiquez le motif de votre sortie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="952a12ad39e6f1f4db07e66099d9c633f9833579" datatype="html">
-        <source>Escribe el motivo</source><target state="new">Escribe el motivo</target>
+        <source>Escribe el motivo</source><target state="translated">Indiquez le motif</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="backButton" datatype="html">
-        <source>Volver</source><target state="new">Volver</target>
+        <source>Volver</source><target state="translated">Retour</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
           <context context-type="linenumber">26</context>
@@ -676,63 +676,63 @@
         </context-group>
       </trans-unit>
       <trans-unit id="leaveRequestSentTitle" datatype="html">
-        <source>Has salido de casa!</source><target state="new">Has salido de casa!</target>
+        <source>Has salido de casa!</source><target state="translated">Vous avez quitté votre domicile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveRequestSentDescription" datatype="html">
-        <source>El motivo por el que has salido es:</source><target state="new">El motivo por el que has salido es:</target>
+        <source>El motivo por el que has salido es:</source><target state="translated">Le motif de votre sortie est:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="gratitudeMessageLine1" datatype="html">
-        <source>Gracias por colaborar!</source><target state="new">Gracias por colaborar!</target>
+        <source>Gracias por colaborar!</source><target state="translated">Merci pour votre collaboration</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="gratitudeMessageLine2" datatype="html">
-        <source>Juntos ganaremos al virus</source><target state="new">Juntos ganaremos al virus</target>
+        <source>Juntos ganaremos al virus</source><target state="translated">Ensemble nous combattrons le virus</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="patientInfoTitle" datatype="html">
-        <source>Mis datos</source><target state="new">Mis datos</target>
+        <source>Mis datos</source><target state="translated">Mes données personnelles</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/patient-info/patient-info.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="saveButton" datatype="html">
-        <source>Guardar</source><target state="new">Guardar</target>
+        <source>Guardar</source><target state="translated">Sauvegarder</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/patient-info/patient-info.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestTestConfirmationTitle" datatype="html">
-        <source>¿Estás seguro de pedir el test del coronavirus?</source><target state="new">¿Estás seguro de pedir el test del coronavirus?</target>
+        <source>¿Estás seguro de pedir el test del coronavirus?</source><target state="translated">Êtes-vous sûr de vouloir demander le test du coronavirus?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestTestConfirmationDescription" datatype="html">
-        <source>Te daremos cita para que vayas a realizar el test o enviaremos una ambulancia a tu domicilio</source><target state="new">Te daremos cita para que vayas a realizar el test o enviaremos una ambulancia a tu domicilio</target>
+        <source>Te daremos cita para que vayas a realizar el test o enviaremos una ambulancia a tu domicilio</source><target state="translated">Nous vous donnerons un rendez-vous pour aller réaliser votre test ou nous vous enverrons une ambulance chez vous</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fef575e34d8ecad5f52fbe70155cc354b4c78e41" datatype="html">
-        <source>Si, solicitar test</source><target state="new">Si, solicitar test</target>
+        <source>Si, solicitar test</source><target state="translated">Oui, demander le test</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
           <context context-type="linenumber">11</context>
@@ -740,28 +740,28 @@
         <note priority="1" from="description">requestTestButton</note>
       </trans-unit>
       <trans-unit id="requestTestTitle" datatype="html">
-        <source>Solicitar test</source><target state="new">Solicitar test</target>
+        <source>Solicitar test</source><target state="translated">Demander le test</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestTestDescription" datatype="html">
-        <source>Según tus síntomas te recomendamos hacer un test diagnóstico de COVID-19</source><target state="new">Según tus síntomas te recomendamos hacer un test diagnóstico de COVID-19</target>
+        <source>Según tus síntomas te recomendamos hacer un test diagnóstico de COVID-19</source><target state="translated">Avec vos symptômes, nous nous recommandons de réaliser un test de COVID-19</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestTestDescription2" datatype="html">
-        <source>Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</source><target state="new">Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</target>
+        <source>Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</source><target state="translated">Demandez le test et nous vous donnerons rendez-vous ou nous vous enverrons une ambulance chez vous.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="54e1f79133daf93229e08c207450efd98c315e59" datatype="html">
-        <source>Solicitar test diagnóstico</source><target state="new">Solicitar test diagnóstico</target>
+        <source>Solicitar test diagnóstico</source><target state="translated">Demandez le test</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
           <context context-type="linenumber">15</context>
@@ -769,7 +769,7 @@
         <note priority="1" from="description">requestTestButton</note>
       </trans-unit>
       <trans-unit id="bbf77ae786ae3803d02c6b846bb280f1f2aa274f" datatype="html">
-        <source>Test solicitado</source><target state="new">Test solicitado</target>
+        <source>Test solicitado</source><target state="translated">Test demandé</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
           <context context-type="linenumber">3</context>
@@ -781,7 +781,7 @@
         <note priority="1" from="description">testAppointmentResultTitle</note>
       </trans-unit>
       <trans-unit id="testAppointmentResultSubtitle1" datatype="html">
-        <source>Gracias por la solicitud</source><target state="new">Gracias por la solicitud</target>
+        <source>Gracias por la solicitud</source><target state="translated">Merci pour votre demande</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
           <context context-type="linenumber">13</context>
@@ -792,7 +792,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="testAppointmentResultSubtitle2" datatype="html">
-        <source>Estamos para ayudarte!</source><target state="new">Estamos para ayudarte!</target>
+        <source>Estamos para ayudarte!</source><target state="translated">Nous sommes là pour vous aider!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
           <context context-type="linenumber">14</context>
@@ -803,7 +803,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="testAppointmentResultDescription" datatype="html">
-        <source>Proximamente llegará una ambulancia a donde vives</source><target state="new">Proximamente llegará una ambulancia a donde vives</target>
+        <source>Proximamente llegará una ambulancia a donde vives</source><target state="translated">L’ambulance arrivera bientôt chez vous</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
           <context context-type="linenumber">15</context>
@@ -814,7 +814,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="testAppointmentResultDescription2" datatype="html">
-        <source>Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</source><target state="new">Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</target>
+        <source>Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</source><target state="translated">Les résultats du test seront disponibles sur votre dispositif mobile au travers de cette APP sous 24 heures</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
           <context context-type="linenumber">18</context>
@@ -825,7 +825,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="appointmentLocation" datatype="html">
-        <source>Lugar de la cita</source><target state="new">Lugar de la cita</target>
+        <source>Lugar de la cita</source><target state="translated">Lieu du rendez-vous</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
           <context context-type="linenumber">18</context>

@@ -1,8 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
-import {PatientService} from '../../shared/services/patient.service';
 import {MenuController} from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
     selector: 'home',
@@ -19,7 +19,7 @@ export class HomeComponent {
     public patientName: string;
 
     constructor(protected router: Router,
-                public patientService: PatientService,
+                public userService: UserService,
                 protected menu: MenuController,
                 protected inAppBrowser: InAppBrowser) {
     }
