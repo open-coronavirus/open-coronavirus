@@ -1,9 +1,8 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { PatientService } from '../../shared/services/patient.service';
-import { PatientInfoFormComponent } from '../../shared/patient-info-form/patient-info-form.component';
 import { Location } from '@angular/common';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Router } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -15,7 +14,7 @@ import { Router } from '@angular/router';
 export class QrReaderComponent {
 
     constructor(protected router: Router,
-                public patientService: PatientService,
+                public userService: UserService,
                 protected barcodeScanner: BarcodeScanner,
                 protected location: Location) { }
 

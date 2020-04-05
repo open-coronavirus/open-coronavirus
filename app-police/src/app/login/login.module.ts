@@ -3,18 +3,18 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {PatientInfoFormModule} from '../shared/patient-info-form/patient-info-form.module';
-import {NoAccessComponent} from './no-access.component';
+import {LoginComponent} from './login.component';
+import {LoginFormModule} from '../shared/login-form/login-form.module';
 
 @NgModule({
     imports: [
         IonicModule,
         CommonModule,
-        PatientInfoFormModule,
+        LoginFormModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forChild([{ path: '', component: NoAccessComponent }])
+        RouterModule.forChild([{ path: '', component: LoginComponent }])
     ],
-    declarations: [NoAccessComponent]
+    declarations: [LoginComponent]
 })
-export class NoAccessModule {}
+export class LoginModule {}

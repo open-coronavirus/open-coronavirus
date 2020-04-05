@@ -3,20 +3,15 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
-import { GeolocationControllerService } from './api/geolocationController.service';
-import { LeaveRequestControllerService } from './api/leaveRequestController.service';
-import { PatientControllerService } from './api/patientController.service';
-import { PingControllerService } from './api/pingController.service';
+import { UserControllerService } from './api/userController.service';
+
 
 @NgModule({
   imports:      [],
   declarations: [],
   exports:      [],
   providers: [
-    GeolocationControllerService,
-    LeaveRequestControllerService,
-    PatientControllerService,
-    PingControllerService ]
+    UserControllerService, ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

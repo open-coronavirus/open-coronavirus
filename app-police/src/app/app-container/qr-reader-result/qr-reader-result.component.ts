@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { PatientService } from '../../shared/services/patient.service';
 import { Location } from '@angular/common';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class QrReaderResultComponent {
 
-    constructor(public patientService: PatientService,
+    constructor(public userService: UserService,
                 protected location: Location) { }
 
 

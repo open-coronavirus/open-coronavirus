@@ -2,7 +2,7 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {PatientInfoFormComponent} from './patient-info-form.component';
+import {LoginFormComponent} from './login-form.component';
 
 @NgModule({
     imports: [
@@ -11,7 +11,7 @@ import {PatientInfoFormComponent} from './patient-info-form.component';
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [PatientInfoFormComponent],
-    exports: [PatientInfoFormComponent]
+    declarations: [LoginFormComponent],
+    exports: [LoginFormComponent]
 })
-export class PatientInfoFormModule {}
+export class LoginFormModule {}
