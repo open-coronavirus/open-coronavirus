@@ -1,37 +1,35 @@
-import {
-  Count,
-  CountSchema,
-  Filter,
-  repository,
-  Where,
-} from '@loopback/repository';
-import {get, getModelSchemaRef} from '@loopback/rest';
+import {get, param} from '@loopback/rest';
 import {LeaveRequest} from '../models';
-import {PatientRepository} from '../repositories';
+import {service} from '@loopback/core';
+import {GetPatientLeaveRequests} from '../application/query/patient/GetPatientLeaveRequests';
+
+const BAD_REQUEST = 400;
 
 export class MeController {
   constructor(
-    @repository(PatientRepository)
-    private patientRepository: PatientRepository,
+    @service('GetPatientLeaveRequests')
+    private getPatientLeaveRequestsQuery: GetPatientLeaveRequests,
   ) {}
 
-  @get('/me/leave-requests', {
-    responses: {
-      '200': {
-        description: 'Returns patient',
-        content: {
-          'application/json': {
-            schema: getModelSchemaRef(LeaveRequest, {includeRelations: false}),
-          },
-        },
-      },
-    },
-  })
-  async getPatientLeaveRequests(): Promise<LeaveRequest[]> {
-    // TODO: this should be get from JWT token or session
-    const patientId = '5e88a64aae35be2a1faca20f';
+  @get('/me/leave-requests')
+  async getPatientLeaveRequests(
+    @param.header.string('X-User-Id') patientId: string,
+  ): Promise<Partial<LeaveRequest>[]> {
+    // TODO: patient ID  should be gotten from JWT token or session or whatever
+    if (!patientId) {
+      this.throwError('No patient id provided', BAD_REQUEST);
+    }
 
-    const patient = await this.patientRepository.ofId(patientId);
-    return patient?.leaveRequests || [];
+    const leaveRequests = await this.getPatientLeaveRequestsQuery.apply(
+      patientId,
+    );
+
+    return leaveRequests;
+  }
+
+  private throwError(message: string, code: number): void {
+    const error = new Error(message);
+    (<any>error).status = code;
+    throw error;
   }
 }
