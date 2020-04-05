@@ -1,7 +1,7 @@
 import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {PatientService} from '../../shared/services/patient.service';
 import {PatientInfoFormComponent} from '../../shared/patient-info-form/patient-info-form.component';
-import {LeaveRequestService} from '../../shared/services/leave-request.service';
+import {LeaveRequestService, LeaveReasonEnum} from '../../shared/services/leave-request.service';
 import {Router} from '@angular/router';
 import {LeaveRequestWithRelations} from '../../shared/sdk';
 
@@ -19,7 +19,7 @@ export class LeaveRequestResultComponent {
                 protected router: Router) {
         this.leaveRequestService.loaded$.subscribe(loaded => {
             if(loaded) {
-                if(this.leaveRequestService.leaveRequest.leaveReason < 9) {
+                if(this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                     this.leaveRequestService.leaveReasons.forEach(leaveReason => {
                         if(leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
                             this.leaveRequestReason = leaveReason;
@@ -28,7 +28,7 @@ export class LeaveRequestResultComponent {
                 }
                 else {
                     this.leaveRequestReason = {
-                        id: 9,
+                        id: LeaveReasonEnum.otherLeaveReason,
                         label: this.leaveRequestService.leaveRequest.additionalInfo
                     }
                 }

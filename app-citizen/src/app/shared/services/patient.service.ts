@@ -1,16 +1,19 @@
 import {Inject, Injectable} from '@angular/core';
-import {GeolocationControllerService, GeolocationWithRelations, PatientControllerService, PatientWithRelations} from '../sdk';
+import {
+    GeolocationControllerService,
+    GeolocationWithRelations,
+    PatientControllerService,
+    PatientWithRelations
+} from '../sdk';
 import {ApiFilter} from '../utils/apifilter';
 import {BehaviorSubject, Subject, Subscribable} from 'rxjs';
-import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import {Router} from '@angular/router';
 import {BackgroundGeolocation} from '@ionic-native/background-geolocation';
-import {
-    BackgroundGeolocationAuthorizationStatus,
-    BackgroundGeolocationEvents,
-    BackgroundGeolocationResponse
-} from '@ionic-native/background-geolocation/ngx';
+import {BackgroundGeolocationEvents, BackgroundGeolocationResponse} from '@ionic-native/background-geolocation/ngx';
 import {Platform} from '@ionic/angular';
+import {StorageService} from "./storage.service";
+import {BlueToothTrackingService} from "./tracking/bluetoothtracking.service";
+import {GeolocationtrackingService} from "./tracking/geolocationtracking.service";
 
 
 @Injectable()
@@ -24,7 +27,6 @@ export class PatientService {
         this._patient = value;
     }
 
-    protected activatedBackgroundGeolocation = false;
 
     protected patientToken: string = null;
     private _patient: PatientWithRelations = null;
@@ -35,22 +37,14 @@ export class PatientService {
 
     constructor(protected patientController: PatientControllerService,
                 @Inject('environment') protected environment,
-                protected geolocationControllerService: GeolocationControllerService,
                 protected router: Router,
+                protected geolocationtrackingService: GeolocationtrackingService,
+                protected blueToothTrackingService: BlueToothTrackingService,
                 public platform: Platform,
-                protected nativeStorage: NativeStorage) {
+                protected storageService: StorageService) {
 
-        platform.ready().then(() => {
-            if (this.environment.production) {
-                this.nativeStorage.getItem(PatientService.PATIENT_TOKEN_KEY)
-                    .then(
-                        data => {
-                            this.loadPatient(data);
-                        }
-                    );
-            } else {
-                this.loadPatient('5e7497828d970a10056ef022');
-            }
+        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(data => {
+            this.loadPatient(data);
         });
 
     }
@@ -75,7 +69,7 @@ export class PatientService {
                 this._patient = existingPatient;
                 this.patientToken = patientToken;
                 returnValue.next(true);
-                this.activateBackgroundGeolocation();
+                this.startTracking(existingPatient);
             } else {
                 returnValue.next(false);
             }
@@ -86,20 +80,34 @@ export class PatientService {
 
     }
 
+    protected startTracking(patient) {
+        //start geolocation tracking
+        this.geolocationtrackingService.activateBackgroundGeolocation(patient);
+        //start bluetooth tracking
+        this.blueToothTrackingService.btEnabled$.subscribe(enabled => {
+            if(enabled) {
+                this.blueToothTrackingService.startAdvertising(patient);
+                this.blueToothTrackingService.startScan();
+            }
+        });
+    }
+
+    public changeStatus(newStatus: number) {
+        //todo
+    }
+
     public register(patient: PatientWithRelations): Subscribable<any> {
 
         let returnValue = new Subject();
 
         this.patientController.patientControllerFind(new ApiFilter({where: {documentNumber: {'eq': patient.documentNumber}}})).subscribe(existingPatient => {
 
-            if (existingPatient != null) {
+            if (existingPatient.length > 0) {
                 returnValue.next(false);
             } else {
 
                 this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
-                    this.nativeStorage.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).then(result => {
-                    })
-                    .finally(() => {
+                    this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
                         this.loadPatient(newPatient.id);
                         this.patientLoaded$.subscribe(loaded => {
                             if(loaded) {
@@ -114,10 +122,6 @@ export class PatientService {
         return returnValue;
     }
 
-    public getCheckStatusUrl() {
-        return 'https://api.coronapp.es/check-status/' + this.patientToken;
-    }
-
     public update(patient: PatientWithRelations): Subscribable<any> {
 
         let returnValue = new Subject();
@@ -130,88 +134,7 @@ export class PatientService {
         return returnValue;
     }
 
-    public activateBackgroundGeolocation() {
 
-        if(!this.activatedBackgroundGeolocation && this.patient != null && this.patient.id != null) {
-
-            this.activatedBackgroundGeolocation = true;
-
-            BackgroundGeolocation.configure({
-                desiredAccuracy: 10, //10 means MEDIUM
-                stationaryRadius: 50,
-                distanceFilter: 50,
-                interval: 60000,
-                fastestInterval: 60000,
-                activitiesInterval: 60000,
-                notificationTitle: $localize`:@@geolocationNotificationTitle:Tu posición es importante`,
-                notificationText: $localize`:@@geolocationNotificationText:Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS`,
-                debug: false,
-                stopOnTerminate: false, // enable this to clear background location settings when the app terminates
-            });
-
-            BackgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
-
-                console.log(location);
-
-                // handle your locations here
-                // to perform long running operation on iOS
-                // you need to create background task
-                BackgroundGeolocation.startTask().then(taskKey => {
-
-                    let geolocation: GeolocationWithRelations = new class implements GeolocationWithRelations {
-                        [key: string]: object | any;
-
-                        accuracy: number;
-                        altitude: number;
-                        bearing: number;
-                        id: string;
-                        latitude: number;
-                        longitude: number;
-                        speed: number;
-                        updated: Date;
-                        patientId: string;
-                    };
-
-                    geolocation.patientId = this.patient.id;
-                    geolocation.latitude = location.latitude;
-                    geolocation.longitude = location.longitude;
-                    geolocation.accuracy = location.accuracy;
-                    geolocation.speed = location.speed;
-                    geolocation.bearing = location.bearing;
-                    geolocation.altitude = location.altitude;
-
-                    this.geolocationControllerService.geolocationControllerCreate(geolocation).subscribe(createdGeolocation => {
-                        //nothing to do
-                    });
-
-                    // execute long running task
-                    // eg. ajax post location
-                    // IMPORTANT: task has to be ended by endTask
-                    BackgroundGeolocation.endTask(taskKey);
-                });
-            });
-
-            BackgroundGeolocation.checkStatus().then(status => {
-
-                if (status.authorization === BackgroundGeolocationAuthorizationStatus.NOT_AUTHORIZED) {
-                    // we need to set delay or otherwise alert may not be shown
-                    setTimeout(() => {
-                        var showSettings = confirm($localize`@@backgroundGeopositionConfigReview:Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?`);
-                        if (showSettings) {
-                            return BackgroundGeolocation.showAppSettings();
-                        }
-                    }, 1000);
-                }
-
-                // you don't need to check status before start (this is just the example)
-                if (!status.isRunning) {
-                    BackgroundGeolocation.start(); //triggers start on start event
-                }
-            });
-
-        }
-
-    }
 
 
 }

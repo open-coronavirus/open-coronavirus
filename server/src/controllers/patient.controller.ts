@@ -19,6 +19,7 @@ import {
 } from '@loopback/rest';
 import {Patient} from '../models';
 import {PatientRepository} from '../repositories';
+import {Guid} from "guid-typescript";
 
 export class PatientController {
   constructor(
@@ -47,6 +48,11 @@ export class PatientController {
     })
     patient: Omit<Patient, 'id'>,
   ): Promise<Patient> {
+
+    //generate an unique uuid for each patient
+    patient.serviceAdvertisementUUID = Guid.create();
+    patient.created = new Date();
+
     return this.patientRepository.create(patient);
   }
 
@@ -145,6 +151,27 @@ export class PatientController {
     patient: Patient,
   ): Promise<void> {
     await this.patientRepository.updateById(id, patient);
+  }
+
+  @post('/patients/{id}/status', {
+    responses: {
+      '204': {
+        description: 'Update patient status success',
+      },
+    },
+  })
+  async updateStatus(
+      @param.path.string('id') id: string,
+      @requestBody() status: number,
+  ): Promise<void> {
+
+    await this.patientRepository.findById(id).then(patient => {
+      if(patient != null) {
+        patient.status = status;
+        this.patientRepository.replaceById(id, patient);
+      }
+    });
+
   }
 
   @put('/patients/{id}', {

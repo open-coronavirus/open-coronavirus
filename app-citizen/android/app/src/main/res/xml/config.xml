@@ -6,8 +6,20 @@
     <param name="android-package" value="com.tenforwardconsulting.bgloc.cordova.BackgroundGeolocationPlugin"/>
   </feature>
 
+  <feature name="BluetoothLePlugin">
+    <param name="android-package" value="com.randdusing.bluetoothle.BluetoothLePlugin"/>
+  </feature>
+
+  <feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+
   <feature name="Geolocation">
     <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
+  </feature>
+
+  <feature name="LocationManager">
+    <param name="android-package" value="com.unarin.cordova.beacon.LocationManager"/>
   </feature>
 
   <feature name="InAppBrowser">

@@ -1,3 +1,7 @@
+export * from './bluetoothLeAdvertisementController.service';
+import { BluetoothLeAdvertisementControllerService } from './bluetoothLeAdvertisementController.service';
+export * from './documentController.service';
+import { DocumentControllerService } from './documentController.service';
 export * from './geolocationController.service';
 import { GeolocationControllerService } from './geolocationController.service';
 export * from './healthCenterController.service';
@@ -14,4 +18,4 @@ export * from './testQuestionController.service';
 import { TestQuestionControllerService } from './testQuestionController.service';
 export * from './testResultController.service';
 import { TestResultControllerService } from './testResultController.service';
-export const APIS = [GeolocationControllerService, HealthCenterControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService, TestAppointmentControllerService, TestQuestionControllerService, TestResultControllerService];
+export const APIS = [BluetoothLeAdvertisementControllerService, DocumentControllerService, GeolocationControllerService, HealthCenterControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService, TestAppointmentControllerService, TestQuestionControllerService, TestResultControllerService];

@@ -12,6 +12,10 @@
             "translation": "src/i18n/messages.en.xlf",
             "baseHref": ""
           },
+          "ru": {
+            "translation": "src/i18n/messages.ru.xlf",
+            "baseHref": ""
+          },
           "gl": {
             "translation": "src/i18n/messages.gl.xlf",
             "baseHref": ""
@@ -81,7 +85,11 @@
           "configurations": {
             "en": {
               "localize": ["en"],
-              "main": "src/main.en.ts"
+              "main": "src/main.ts"
+            },
+            "ru": {
+              "localize": ["ru"],
+              "main": "src/main.ts"
             },
             "gl": {
               "localize": ["gl"],
@@ -160,6 +168,9 @@
             },
             "en": {
               "browserTarget": "app:build:en"
+            },
+            "ru": {
+              "browserTarget": "app:build:ru"
             },
             "gl": {
               "browserTarget": "app:build:gl"
@@ -279,6 +290,7 @@
               "languages": [
                 "es",
                 "en",
+                "ru",
                 "ca",
                 "gl",
                 "it",

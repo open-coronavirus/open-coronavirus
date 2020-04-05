@@ -98,57 +98,56 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
             firstName: new FormControl(this.patient.firstName, [
                 Validators.required,
                 Validators.minLength(2),
-                Validators.pattern('^.*[AEIOUYaeiouy]+.*$')]),
+                Validators.pattern(/^.*[AEIOUYaeiouy]+.*$/)]),
             lastName: new FormControl(this.patient.lastName, [,
                 Validators.required,
                 Validators.minLength(2),
-                Validators.pattern('^.*[AEIOUYaeiouy]+.*$')]),
+                Validators.pattern(/^.*[AEIOUYaeiouy]+.*$/)]),
             documentNumber: new FormControl(this.patient.documentNumber, [Validators.required]),
             healthInsuranceCardNumber: new FormControl(this.patient.healthInsuranceCardNumber, [Validators.required]),
-            age: new FormControl(this.patient.age, [Validators.required, Validators.pattern("\\d+" )]),
+            age: new FormControl(this.patient.age, [Validators.required, Validators.pattern(/^\s*\d+\s*$/ )]),
             gender: new FormControl(this.patient.gender, [Validators.required]),
             street: new FormControl(this.patient.street, [Validators.required]),
             apartment: new FormControl(this.patient.apartment),
             postalCode: new FormControl(this.patient.postalCode, [
                 Validators.required,
-                Validators.minLength(5),
-                Validators.maxLength(5),
-                Validators.pattern("\\d+" )]),
+                Validators.pattern(/^\s*\d{5}\s*$/ )]),
             phone: new FormControl(this.patient.phone, [
                 Validators.required,
                 Validators.minLength(9),
-                Validators.pattern("[\\d\\s\\(\\)\\-]+" )]),
+                Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/ )]),
             email: new FormControl(this.patient.email, [
                 Validators.required,
-                Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
+                Validators.pattern(/^\s*[a-zA-Z0-9._-]+@[a-zA-Z0-9\.-]+?\.[a-zA-Z]{2,}\s*$/i)]),
         });
 
         this.subscriptions.push(this.patientInfoForm.get('firstName').valueChanges
-            .subscribe(value => {
-                this.patient.firstName = value;
+            .subscribe((value: string) => {
+                this.patient.firstName = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('lastName').valueChanges
-            .subscribe(value => {
-                this.patient.lastName = value;
+            .subscribe((value: string) => {
+                this.patient.lastName = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('documentNumber').valueChanges
-            .subscribe(value => {
-                this.patient.documentNumber = value;
+            .subscribe((value: string) => {
+                this.patient.documentNumber = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('healthInsuranceCardNumber').valueChanges
-            .subscribe(value => {
-                this.patient.healthInsuranceCardNumber = value;
+            .subscribe((value: string) => {
+                this.patient.healthInsuranceCardNumber = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('age').valueChanges
-            .subscribe(value => {
+            .subscribe((value: string) => {
+                value = value.trim();
                 this.patient.age = +value;
                 this.onChange.next(this.patient);
             }));
@@ -160,38 +159,32 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('street').valueChanges
-            .subscribe(value => {
-                this.patient.street = value;
+            .subscribe((value: string) => {
+                this.patient.street = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('apartment').valueChanges
-            .subscribe(value => {
-                this.patient.apartment = value;
+            .subscribe((value: string) => {
+                this.patient.apartment = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('postalCode').valueChanges
-            .subscribe(value => {
-                this.patient.postalCode = value;
-                this.onChange.next(this.patient);
-            }));
-
-        this.subscriptions.push(this.patientInfoForm.get('firstName').valueChanges
-            .subscribe(value => {
-                this.patient.firstName = value;
+            .subscribe((value: string) => {
+                this.patient.postalCode = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('email').valueChanges
-            .subscribe(value => {
-                this.patient.email = value;
+            .subscribe((value: string) => {
+                this.patient.email = value.trim();
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('phone').valueChanges
-            .subscribe(value => {
-                this.patient.phone = value;
+            .subscribe((value: string) => {
+                this.patient.phone = value.trim();
                 this.onChange.next(this.patient);
             }));
 
