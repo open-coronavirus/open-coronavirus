@@ -58,7 +58,9 @@
     "@loopback/rest-explorer": "^2.0.2",
     "@loopback/service-proxy": "^2.0.2",
     "dotenv": "^8.2.0",
-    "loopback-connector-mongodb": "^4.2.0"
+    "guid-typescript": "^1.0.9",
+    "loopback-connector-mongodb": "^4.2.0",
+    "loopback-connector-rest": "^3.6.0"
   },
   "devDependencies": {
     "@loopback/build": "^5.0.0",

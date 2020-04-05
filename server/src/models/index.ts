@@ -8,3 +8,5 @@ export * from './test-question.model';
 export * from './police-officer.model';
 export * from './sanitarian.model';
 export * from './auth.model';
+export * from './document.model';
+export * from './bluetooth-le-advertisement.model';

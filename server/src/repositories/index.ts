@@ -7,3 +7,5 @@ export * from './test-result.repository';
 export * from './test-question.repository';
 export * from './police-officer.repository';
 export * from './sanitarian.repository';
+export * from './document.repository';
+export * from './bluetooth-le-advertisement.repository';

@@ -1,0 +1,16 @@
+<form [formGroup]="loginInfoForm">
+    <div class="form-row">
+        <div class="form-group form-label-group">
+            <input type="text" class="form-control" id="email" name="email" formControlName="email" i18n-placeholder placeholder="Email">
+            <label for="email" i18n="@@emailLabel">Email</label>
+            <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group form-label-group">
+            <input type="text" class="form-control" id="phone" name="password" formControlName="password" i18n-placeholder placeholder="Password">
+            <label for="password" i18n="@@passwordLabel">Password</label>
+            <small class="error" *ngIf="password.invalid && password.touched" i18n="@@phoneError">Por favor, introduce un password válido</small>
+        </div>
+    </div>
+</form>

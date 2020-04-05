@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
-import {LeaveRequestService} from '../../shared/services/leave-request.service';
+import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
 
 @Component({
     selector: 'leave-custom-reason-form',
@@ -26,7 +26,7 @@ export class LeaveCustomReasonFormComponent {
 
     public requestLeaveHome() {
         if(this.leaveRequestAdditionalInfo != null && this.leaveRequestAdditionalInfo.length > 3) {
-            this.leaveRequestService.request(9, this.leaveRequestAdditionalInfo).subscribe(result => {
+            this.leaveRequestService.request(LeaveReasonEnum.otherLeaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
                 if (result != null) {
                     this.router.navigate(['/app/leave-request-result']);
                 }

@@ -9,3 +9,5 @@ export * from './test-question.controller';
 export * from './police-officer.controller';
 export * from './sanitarian.controller';
 export * from './auth.controller';
+export * from './document.controller';
+export * from './bluetooth-le-advertisement.controller';

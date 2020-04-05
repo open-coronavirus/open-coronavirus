@@ -7,8 +7,20 @@
     <param name="onload" value="true"/>
   </feature>
 
+  <feature name="BluetoothLePlugin">
+    <param name="ios-package" value="BluetoothLePlugin"/>
+  </feature>
+
+  <feature name="Device">
+    <param name="ios-package" value="CDVDevice"/>
+  </feature>
+
   <feature name="Geolocation">
     <param name="ios-package" value="CDVLocation"/>
+  </feature>
+
+  <feature name="LocationManager">
+    <param name="ios-package" value="CDVLocationManager"/>
   </feature>
 
   <feature name="InAppBrowser">

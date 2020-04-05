@@ -1,4 +1,4 @@
-import {Component, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {ShareService} from '../shared/services/share.service';
@@ -24,6 +24,7 @@ export class MainComponent implements OnDestroy {
 
     constructor(protected menu: MenuController,
                 protected router: Router,
+                @Inject('settings') protected settings,
                 protected patientService: PatientService,
                 protected leaveRequestService: LeaveRequestService,
                 protected testAppointmentService: TestAppointmentService,
@@ -82,7 +83,7 @@ export class MainComponent implements OnDestroy {
 
     public goToCoronavirusInfo() {
         this.closeMenu();
-        window.open("https://coronavirus.epidemixs.org/#/opening", '_system');
+        window.open(this.settings.moreInfoUrl, '_system');
     }
 
     public goToMyInfo() {

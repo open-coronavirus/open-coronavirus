@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
-import {PatientService} from '../shared/services/patient.service';
+import { UserService } from '../shared/services/user.service';
 
 
 @Component({
@@ -13,13 +13,13 @@ import {PatientService} from '../shared/services/patient.service';
 export class SplashComponent implements OnInit {
 
     constructor(protected router: Router,
-                protected patientService: PatientService,
+                protected userService: UserService,
                 protected nativeStorage: NativeStorage) {
     }
 
     public ngOnInit(): void {
 
-        this.patientService.patientLoaded$.subscribe(loaded => {
+        this.userService.userLoaded$.subscribe(loaded => {
             if(loaded) {
                 this.router.navigate(['app/home']);
             }
@@ -28,7 +28,8 @@ export class SplashComponent implements OnInit {
     }
 
     public enter() {
-        this.router.navigate(['app/qr-reader']);
+        this.router.navigate(['login']);
+        // this.router.navigate(['app/qr-reader']);
     }
 
 }
