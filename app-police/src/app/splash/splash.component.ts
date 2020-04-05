@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {NativeStorage} from '@ionic-native/native-storage/ngx';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { UserService } from '../shared/services/user.service';
 
 
@@ -12,16 +12,17 @@ import { UserService } from '../shared/services/user.service';
 })
 export class SplashComponent implements OnInit {
 
-    constructor(protected router: Router,
-                protected userService: UserService,
-                protected nativeStorage: NativeStorage) {
+    constructor(
+        protected router: Router,
+        protected userService: UserService,
+        protected nativeStorage: NativeStorage) {
     }
 
     public ngOnInit(): void {
 
         this.userService.userLoaded$.subscribe(loaded => {
-            if(loaded) {
-                this.router.navigate(['app/home']);
+            if (loaded) {
+                this.router.navigate(['app/qr-reader']);
             }
         });
 

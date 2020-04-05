@@ -9,7 +9,7 @@ export class ApiFilter {
     }
 
     public toString = () : string => {
-        console.log(JSON.stringify(this.filter));
+        // console.log(JSON.stringify(this.filter));
         return JSON.stringify(this.filter);
 
     }

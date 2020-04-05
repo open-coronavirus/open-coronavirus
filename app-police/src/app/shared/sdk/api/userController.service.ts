@@ -170,9 +170,9 @@ export class UserControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean): Observable<Array<UserCredentials>>;
-    public userControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<UserCredentials>>>;
-    public userControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<UserCredentials>>>;
+    public userControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean): Observable<Array<User>>;
+    public userControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<User>>>;
+    public userControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<User>>>;
     public userControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
@@ -214,7 +214,7 @@ export class UserControllerService {
     public userControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserCredentials>>;
     public userControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientControllerFindById.');
+            throw new Error('Required parameter id was null or undefined when calling userControllerFindById.');
         }
 
         let queryParameters = new HttpParams({encoder: this.encoder});
@@ -234,7 +234,7 @@ export class UserControllerService {
         }
 
 
-        return this.httpClient.get<UserCredentials>(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<UserCredentials>(`${this.configuration.basePath}/users/${encodeURIComponent(String(id))}`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

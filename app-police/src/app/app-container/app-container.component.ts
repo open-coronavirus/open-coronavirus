@@ -1,7 +1,7 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {MenuController} from '@ionic/angular';
-import {Router} from '@angular/router';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { MenuController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -16,10 +16,12 @@ export class AppContainerComponent {
 
     public patientName;
 
-    constructor(protected menu: MenuController,
-                protected router: Router,
-                protected userService: UserService,
-                protected iab: InAppBrowser) {
+    constructor(
+        protected menu: MenuController,
+        protected router: Router,
+        private navCtrl: NavController,
+        protected userService: UserService,
+        protected iab: InAppBrowser) {
     }
 
     openMenu() {
@@ -31,28 +33,19 @@ export class AppContainerComponent {
         this.menu.close('menu');
     }
 
-    public goToHome() {
+    public goToIdentity() {
         this.closeMenu();
-        this.router.navigate(['/app/home']);
-    }
-
-    public goToRequestLeaveHome() {
-        this.closeMenu();
-        this.router.navigate(['/app/request-leave-home']);
-    }
-    public goToAutotest() {
-        this.closeMenu();
-        this.router.navigate(['/app/autotest']);
-    }
-
-    public goToCoronavirusInfo() {
-        this.closeMenu();
-        window.open("https://coronavirus.epidemixs.org/#/opening", '_system');
+        this.router.navigate(['/app/qr-reader']);
     }
 
     public goToMyInfo() {
         this.closeMenu();
-        this.router.navigate(['/app/my-info'])
+        this.router.navigate(['/app/my-info']);
+    }
+
+    public goExit() {
+        this.closeMenu();
+        this.navCtrl.navigateRoot(['/']);
     }
 
 }

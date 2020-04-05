@@ -1,8 +1,9 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Location } from '@angular/common';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { PatientService } from '../../shared/services/patient.service';
+import { MenuController, LoadingController, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -13,21 +14,65 @@ import { PatientService } from '../../shared/services/patient.service';
 })
 export class QrReaderComponent {
 
-    constructor(protected router: Router,
-                public patientService: PatientService,
-                protected barcodeScanner: BarcodeScanner,
-                protected location: Location) { }
+    constructor(
+        // protected router: Router,
+        public navCtrl: NavController,
+        public patientService: PatientService,
+        protected barcodeScanner: BarcodeScanner,
+        public loadingController: LoadingController,
+        protected menu: MenuController,
+        protected location: Location) { }
 
     scanQR() {
         this.barcodeScanner.scan().then(barcodeData => {
             console.log('Barcode data: ', barcodeData);
             if (barcodeData && barcodeData.text) {
-                // this.serialNumber = barcodeData.text;
+                // this.idPatient = barcodeData.text;
+                this.getPatient(barcodeData.text);
             }
         }).catch(err => {
             console.error('Error scanQR: ', err);
-            this.router.navigate(['app/qr-reader-result']);
+            // Test
+            this.getPatient('33');
         });
+    }
+
+    async getPatient(idPatient: string) {
+        const loading = await this.loadingController.create({
+            message: $localize`:@@pleaseWait:Por favor, espere`
+        });
+        await loading.present();
+
+        this.patientService.getPatient(idPatient).subscribe(patient => {
+            loading.dismiss();
+            if (patient != null && patient != false) {
+                loading.dismiss();
+                this.goDetail(patient);
+            } else {
+                // no patient foundit
+                loading.dismiss();
+                // this.router.navigate(['/no-access']);
+            }
+        }, err => {
+            console.log("getPatient errr: ", err);
+            loading.dismiss();
+            this.goDetail({ id: '33', name: 'federico' });
+        });
+    }
+
+
+    goDetail(patient) {
+        const navigationExtras: NavigationExtras = {
+            queryParams: {
+                patient: JSON.stringify(patient)
+            }
+        };
+        this.navCtrl.navigateForward(['app/qr-reader-result'], navigationExtras);
+    }
+
+    openMenu() {
+        this.menu.enable(true, 'menu');
+        this.menu.open('menu');
     }
 
     public goBack() {

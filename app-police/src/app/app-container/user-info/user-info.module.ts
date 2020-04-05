@@ -2,10 +2,10 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {HomeComponent} from './home.component';
 import {QrCodeModule} from '../../shared/qr-code/qr-code.module';
 import {RouterModule} from '@angular/router';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {  UserInfoComponent } from './user-info.component';
+
 
 @NgModule({
     imports: [
@@ -13,8 +13,8 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
         CommonModule,
         FormsModule,
         QrCodeModule,
-        RouterModule.forChild([{ path: '', component: HomeComponent }])
+        RouterModule.forChild([{path: '', component: UserInfoComponent}])
     ],
-    declarations: [HomeComponent]
+    declarations: [UserInfoComponent]
 })
-export class HomeModule {}
+export class UserInfoModule {}

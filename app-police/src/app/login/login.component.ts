@@ -23,6 +23,7 @@ export class LoginComponent {
 
     // protected accepttermsValuer: boolean;
 
+    public error: string;
     public formTriedToSubmit = false;
 
     constructor(
@@ -53,12 +54,20 @@ export class LoginComponent {
             this.userCredentials = this.loginFormComponent.user;
             this.userService.login(this.userCredentials).subscribe(res => {
                 loading.dismiss();
-                if (res != null && res != false) {
-                    this.router.navigate(['/app/home']);
+                if (res != null && res !== false) {
+                    this.router.navigate(['/app/qr-reader']);
                 } else {
                     // go to error page
                     // this.error = ;
+                    console.error("error login");
+                    // test
+                    this.router.navigate(['/app/qr-reader']);
                 }
+            }, err => {
+                // console.log("login: ", err);
+                loading.dismiss();
+                this.error = err.message;
+
             });
 
         }

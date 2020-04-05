@@ -28,16 +28,6 @@ const routes: Routes = [
         component: AppContainerComponent,
         children: [
             {
-                path: 'home',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () =>
-                            import('./app-container/home/home.module').then(m => m.HomeModule)
-                    }
-                ]
-            },
-            {
                 path: 'qr-reader',
                 children: [
                     {
@@ -56,7 +46,17 @@ const routes: Routes = [
                             import('./app-container/qr-reader-result/qr-reader-result.module').then(m => m.QrReaderResultModule)
                     }
                 ]
-            }
+            },
+            {
+                path: 'my-info',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./app-container/user-info/user-info.module').then(m => m.UserInfoModule)
+                    }
+                ]
+            },
         ]
     },
     {

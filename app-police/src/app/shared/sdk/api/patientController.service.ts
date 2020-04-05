@@ -245,6 +245,48 @@ export class PatientControllerService {
         );
     }
 
+     /**
+     * @param id
+     * @param filter
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public patientControllerFindDetailById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean): Observable<PatientWithRelations>;
+    public patientControllerFindDetailById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PatientWithRelations>>;
+    public patientControllerFindDetailById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PatientWithRelations>>;
+    public patientControllerFindDetailById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patientControllerFindDetailById.');
+        }
+
+        let queryParameters = new HttpParams({encoder: this.encoder});
+        if (filter !== undefined && filter !== null) {
+            queryParameters = queryParameters.set('filter', <any>filter);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        const httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        return this.httpClient.get<PatientWithRelations>(`${this.configuration.basePath}/patients-detail/${encodeURIComponent(String(id))}`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
     /**
      * @param id
      * @param requestBody

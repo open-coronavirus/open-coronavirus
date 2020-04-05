@@ -9,16 +9,20 @@
     </ion-header>
     <ion-content>
         <ion-list>
-            <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu-item menu-separator" (click)="goToRequestLeaveHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container></div>
-            <div *ngIf="leaveStatus == 2" class="menu-item menu-separator" (click)="setAtHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container></div>
-            <div class="menu-item" (click)="goToAutotest()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@autotestMenuLabel">¿Tengo el coronavirus?</ng-container></div>
-            <div class="menu-item" (click)="goToCoronavirusInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@coronavirusInfoMenuLabel">Información sobre el coronavirus</ng-container></div>
+
+            <!-- <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu-item menu-separator" (click)="goToRequestLeaveHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container></div>
+
+            <div *ngIf="leaveStatus == 2" class="menu-item menu-separator" (click)="setAtHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container></div> -->
+
+            <!-- <div class="menu-item" (click)="goToAutotest()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@autotestMenuLabel">¿Tengo el coronavirus?</ng-container></div> -->
+
+            <div class="menu-item" (click)="goToIdentity()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@coronavirusIdentityUserMenuLabel">Identificar a un usuario</ng-container></div>
         </ion-list>
     </ion-content>
     <ion-toolbar>
         <ion-list>
             <div class="menu-item" (click)="goToMyInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container></div>
-            <div class="menu-item" (click)="share()"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@shareMenuLabel">Compartir App<br />para luchar juntos</ng-container></div>
+            <div class="menu-item" (click)="goExit()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@exitMenuLabel">Salir</ng-container></div>
         </ion-list>
     </ion-toolbar>
 </ion-menu>
