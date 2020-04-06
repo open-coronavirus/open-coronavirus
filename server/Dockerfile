@@ -4,8 +4,8 @@ MAINTAINER Antonio Párraga <antonio@parraga.es>
 
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
-ADD server/package.json /tmp/package.json
-ADD server/.npmrc /tmp/.npmrc
+ADD ./package.json /tmp/package.json
+ADD .npmrc /tmp/.npmrc
 RUN cd /tmp && yarn install --no-optional
 RUN mkdir -p /opt/server && mkdir -p /opt/common && cp -a /tmp/node_modules /opt/server/
 
@@ -15,14 +15,14 @@ RUN npm install pm2 -g
 # From here we load our application's code in, therefore the previous docker
 # "layer" thats been cached will be used if possible
 WORKDIR /opt/server
-ADD server /opt/server
-ADD common /opt/common
+ADD . /opt/server
+ADD src/common /opt/common
 
 RUN npm run clean
 RUN npm run build
 
 #Copy .env files to deliverable dir
-ADD server/.env* /opt/server/
+ADD .env* /opt/server/
 
 # Bind to all network interfaces so that it can be mapped to the host OS
 ENV HOST=0.0.0.0 PORT=9050
