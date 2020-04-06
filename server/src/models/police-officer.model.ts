@@ -19,13 +19,25 @@ export class PoliceOfficer extends Entity {
     type: 'string',
     required: true,
   })
-  name: string;
+  firstName: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  dni: string;
+  lastName: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  hash: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  documentNumber: string;
 
   @property({
     type: 'number',
@@ -38,6 +50,12 @@ export class PoliceOfficer extends Entity {
     required: true,
   })
   street: string;
+
+  @property({
+    type: 'string',
+    required: false,
+  })
+  apartment: string;
 
   @property({
     type: 'string',
@@ -56,6 +74,18 @@ export class PoliceOfficer extends Entity {
     required: true,
   })
   position: string;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  created?: Date;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  updated?: Date;
   // Define well-known properties here
 
   // Indexer property to allow additional data

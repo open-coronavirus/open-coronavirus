@@ -25,8 +25,10 @@ export class AuthMockService implements AuthService {
 
                     policeOfficer.id = '1';
                     policeOfficer.uniqueId = '244124';
-                    policeOfficer.name = 'Pedro Garrido Jiménez';
-                    policeOfficer.dni = '123456789B';
+                    policeOfficer.firstName = 'Pedro';
+                    policeOfficer.lastName = 'Garrido Jiménez';
+                    policeOfficer.documentNumber = '123456789B';
+                    policeOfficer.hash = 'asdfasdf';
                     policeOfficer.position = 'Policía Nacional';
                     policeOfficer.age = 25;
                     policeOfficer.street = 'San Juan nº 33';
@@ -58,8 +60,10 @@ export class AuthMockService implements AuthService {
 
                     sanitarian.id = '1';
                     sanitarian.uniqueId = '146211';
-                    sanitarian.name = 'Amparo Suárez García';
-                    sanitarian.dni = '987654321B';
+                    sanitarian.firstName = 'Amparo';
+                    sanitarian.lastName = 'Suárez García';
+                    sanitarian.documentNumber = '987654321B';
+                    sanitarian.hash = 'asdfasdf';
                     sanitarian.position = 'Doctor';
                     sanitarian.age = 42;
                     sanitarian.street = 'San Pablo nº 1';
