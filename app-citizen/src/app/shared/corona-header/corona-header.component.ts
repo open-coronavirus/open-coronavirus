@@ -18,7 +18,7 @@ export class CoronaHeaderComponent implements OnInit {
     }
 
     public ngOnInit() {
-        console.log("init: ", this.showMenu);
+
     }
 
 
