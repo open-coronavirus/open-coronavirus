@@ -20,12 +20,17 @@ export interface PoliceOfficerPartial {
 
     id?: string;
     uniqueId?: string;
-    name?: string;
-    dni?: string;
+    firstName?: string;
+    lastName?: string;
+    hash?: string;
+    documentNumber?: string;
     age?: number;
     street?: string;
+    apartment?: string;
     city?: string;
     postalCode?: string;
     position?: string;
+    created?: string;
+    updated?: string;
 }
 
