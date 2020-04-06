@@ -54,7 +54,7 @@ export class LoginComponent {
             this.userCredentials = this.loginFormComponent.user;
             this.userService.login(this.userCredentials).subscribe(res => {
                 loading.dismiss();
-                console.error("res login, ", res);
+                console.log("res login, ", res);
                 if (res != null && res !== false) {
                     this.router.navigate(['/app/qr-reader']);
                 } else {

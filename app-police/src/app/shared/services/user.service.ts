@@ -89,9 +89,8 @@ export class UserService {
     public login(userCredentials: PoliceOfficerLogin): Subscribable<any> {
         let returnValue = new Subject();
         this.authController.authControllerPoliceOfficerLogin({ uniqueId: userCredentials.uniqueId, password: userCredentials.password }).subscribe(res => {
-            console.log("res login service: ", res);
             if (res) {
-                this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res[0].id).then(result => { });
+                this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res.id).then(result => { });
                 returnValue.next(res);
             } else {
                 returnValue.next(false);
