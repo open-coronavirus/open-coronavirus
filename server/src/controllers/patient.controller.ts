@@ -141,7 +141,6 @@ export class PatientController {
     })
     body: any,
   ): Promise<Patient> {
-    console.log(body)
     let filter = {
       "where": {
         "id": body.qrcode
