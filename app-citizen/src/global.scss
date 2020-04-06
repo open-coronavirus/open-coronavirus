@@ -51,6 +51,25 @@
   height: 25px;
 }
 
+.header-app {
+  --background: #c80f2e url(/assets/icons/svg/solo-icono.svg) no-repeat right center;
+
+  &__title{
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+
+    strong{
+      font-weight: 700;
+    }
+  }
+  
+}
+.menu {
+  --color: white;
+  position: absolute;
+}
 
 .filter-white {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(102%);

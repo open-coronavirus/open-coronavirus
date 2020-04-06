@@ -1,9 +1,9 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-buttons slot="start">
+        <ion-buttons class="header__menu" slot="start">
             <ion-menu-button class="menu" (click)="openMenu()" autoHide="false"></ion-menu-button>
         </ion-buttons>
-        <ion-title><span class="supertitle" i18n="@@headerTitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+        <div i18n="@@headerTitleLine" class="header-app__title"><strong>OPEN</strong> CORONAVIRUS</div>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -26,8 +26,6 @@
             <ion-col></ion-col>
         </ion-row>
     </ion-grid>
-</ion-content>
-<ion-toolbar class="home-footer-toolbar">
     <div *ngIf="patientHasTestAppointment" class="appointment-info">
         <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
         <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
@@ -37,4 +35,4 @@
     <ion-button (click)="goToCoronavirusInfo()" class="light-button" expand="block"><div slot="start"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;</div>
         <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container></ion-button>
     <div class="share-link"><a href="javascrip:void(null);" (click)="share()"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@shareButton">Compartir App para luchar juntos</ng-container></a></div>
-</ion-toolbar>
+</ion-content>
