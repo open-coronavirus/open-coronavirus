@@ -114,6 +114,49 @@ export class PatientController {
     return this.patientRepository.updateAll(patient, where);
   }
 
+  @post('/patients/scan/', {
+    responses: {
+      '204': {
+        description: 'Get patient by qr-code scan',
+      },
+      '404': {
+        description: 'Patient not found',
+      },
+    },
+  })
+  async getByQrCode(
+    @requestBody({
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              qrcode: { type: 'string' }
+            },
+            required: ['qrcode']
+          }
+        }
+      },
+    })
+    body: any,
+  ): Promise<Patient> {
+    console.log(body)
+    let filter = {
+      "where": {
+        "id": body.qrcode
+      }
+    };
+
+    return await this.patientRepository.findOne(filter).then(patient => {
+      if (patient != null) {
+        return patient;
+      } else {
+        throw new HttpErrors[404];
+      }
+    });
+  }
+
   @get('/patients/{id}', {
     responses: {
       '200': {
@@ -162,12 +205,12 @@ export class PatientController {
     },
   })
   async updateStatus(
-      @param.path.string('id') id: string,
-      @requestBody() status: number,
+    @param.path.string('id') id: string,
+    @requestBody() status: number,
   ): Promise<void> {
 
     await this.patientRepository.findById(id).then(patient => {
-      if(patient != null) {
+      if (patient != null) {
         patient.status = status;
         this.patientRepository.replaceById(id, patient);
       }
