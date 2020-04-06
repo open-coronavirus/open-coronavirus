@@ -1,15 +1,29 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Input } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
     selector: 'corona-header',
-    templateUrl: 'corona-header.component.html',  
+    templateUrl: 'corona-header.component.html',
     styleUrls: ['corona-header.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class CoronaHeaderComponent {
+export class CoronaHeaderComponent implements OnInit {
 
-    constructor() {
-       
+    @Input() showMenu: any;
+
+    constructor(
+        protected menu: MenuController,
+    ) {
+
     }
 
+    public ngOnInit() {
+        console.log("init: ", this.showMenu);
+    }
+
+
+    openMenu() {
+        this.menu.enable(true, 'menu');
+        this.menu.open('menu');
+    }
 }

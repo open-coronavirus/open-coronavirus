@@ -1,11 +1,4 @@
-<ion-header>
-    <ion-toolbar class="header-app">
-        <ion-buttons class="header__menu" slot="start">
-            <ion-menu-button class="menu" (click)="openMenu()" autoHide="false"></ion-menu-button>
-        </ion-buttons>
-        <div i18n="@@headerTitleLine" class="header-app__title"><strong>OPEN</strong> CORONAVIRUS</div>
-    </ion-toolbar>
-</ion-header>
+<corona-header [showMenu]="true"></corona-header>
 <ion-content>
     <ion-grid>
         <ion-row>
