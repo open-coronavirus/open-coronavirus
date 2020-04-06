@@ -1,14 +1,14 @@
-import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {ShareService} from '../../shared/services/share.service';
-import {PatientService} from '../../shared/services/patient.service';
-import {MenuController} from '@ionic/angular';
-import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {TestAppointmentService} from "../../shared/services/test-appointment.service";
-import {Subscription} from "rxjs";
-import {AppointmentType} from "../../../../../server/src/common/utils/enums";
-import {DocumentControllerService} from "../../shared/sdk";
+import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { ShareService } from '../../shared/services/share.service';
+import { PatientService } from '../../shared/services/patient.service';
+import { MenuController } from '@ionic/angular';
+import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { TestAppointmentService } from "../../shared/services/test-appointment.service";
+import { Subscription } from "rxjs";
+import { AppointmentType } from "../../../../../server/src/common/utils/enums";
+import { DocumentControllerService } from "../../shared/sdk";
 
 @Component({
     selector: 'home',
@@ -37,17 +37,17 @@ export class HomeComponent implements OnDestroy {
     public patientName: string;
 
     constructor(protected router: Router,
-                public patientService: PatientService,
-                protected leaveRequestService: LeaveRequestService,
-                protected testAppointmentService: TestAppointmentService,
-                protected menu: MenuController,
-                @Inject('settings') protected settings,
-                protected inAppBrowser: InAppBrowser,
-                protected shareService: ShareService) {
+        public patientService: PatientService,
+        protected leaveRequestService: LeaveRequestService,
+        protected testAppointmentService: TestAppointmentService,
+        protected menu: MenuController,
+        @Inject('settings') protected settings,
+        protected inAppBrowser: InAppBrowser,
+        protected shareService: ShareService) {
 
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
-            if(loaded) {
-                switch(this.testAppointmentService.testAppointment.type) {
+            if (loaded) {
+                switch (this.testAppointmentService.testAppointment.type) {
                     case AppointmentType.AT_HOME:
                         this.icon = '/assets/icons/svg/icon-ambulancia.svg';
                         this.appointmentDescriptionLine1 = $localize`:@@appointmentAtHomeDescription:Le enviaremos una ambulancia para hacerle el test del coronavirus en breve`;
@@ -75,11 +75,18 @@ export class HomeComponent implements OnDestroy {
         }));
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
-            if(patientLoaded) {
+            // console.log("patientLoaded: ", patientLoaded);
+            // console.log("this.patientService.patient: ", this.patientService.patient);
+            if (patientLoaded) {
+                // this.patientService.patient.status = 4;
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
+                    // console.log("this.leaveRequestService.leaveRequest: ", this.leaveRequestService.leaveRequest);
+                    // console.log("this.leaveRequestService.leaveReasons: ", this.leaveRequestService.leaveReasons);
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
+
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;
+                        // console.log("leaveStatus: ", this.leaveStatus);
                         if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestService.leaveReasons.forEach(leaveReason => {
                                 if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
@@ -121,10 +128,65 @@ export class HomeComponent implements OnDestroy {
         this.shareService.share();
     }
 
+    getTextStatus() {
+        if (!this.patientService.patient) {
+            return;
+        }
+        switch (this.patientService.patient.status) {
+            case 4:
+                return 'Positivo';
+
+            case 3:
+                return 'Cuarentena obligatoria';
+
+            case 2:
+                return 'Negativo';
+
+            default:
+                return 'No se ha realizado el test de COVID-19';
+        }
+    }
+
+    getClassStatus() {
+        if (!this.patientService.patient) {
+            return;
+        }
+        switch (this.patientService.patient.status) {
+            case 4:
+                return 'result__status--infected';
+
+            case 3:
+                return 'result__status--quarentine';
+
+            case 2:
+                return 'result__status--ok';
+
+        }
+    }
+
+    getIconStatus() {
+        if (!this.patientService.patient) {
+            return;
+        }
+        switch (this.patientService.patient.status) {
+            case 4:
+                return 'qr-fake-rojo';
+
+            case 3:
+                return 'qr-fake-amarillo';
+
+            case 2:
+                return 'qr-fake-verde';
+
+            default:
+                return 'qr-fake-negro';
+        }
+    }
+
     public ngOnDestroy(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe();
-        })
+        });
     }
 
 }
