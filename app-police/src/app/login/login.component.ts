@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { LoginFormComponent } from '../shared/login-form/login-form.component';
-import { UserService } from '../shared/services/user.service';
-import { UserCredentials } from '../shared/sdk/model/userCredentials';
+import { UserService } from '../shared/services/user.service';;
+import { PoliceOfficerLogin } from '../shared/sdk/model/policeOfficerLogin';
 
 @Component({
     selector: 'login',
@@ -16,7 +16,7 @@ export class LoginComponent {
 
     @ViewChild('loginFormComponent', { static: true }) protected loginFormComponent: LoginFormComponent;
 
-    protected userCredentials: UserCredentials;
+    protected userCredentials: PoliceOfficerLogin;
     public loginForm: FormGroup;
 
     // get acceptterms() { return this.loginForm.get('acceptterms'); }
@@ -59,10 +59,7 @@ export class LoginComponent {
                     this.router.navigate(['/app/qr-reader']);
                 } else {
                     // go to error page
-                    // this.error = ;
-                    console.error("error login");
-                    // test
-                    this.router.navigate(['/app/qr-reader']);
+                    this.error = 'Usuario no válido';
                 }
             }, err => {
                 // console.log("login: ", err);
