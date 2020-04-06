@@ -4,7 +4,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Router, NavigationExtras } from '@angular/router';
 import { PatientService } from '../../shared/services/patient.service';
 import { MenuController, LoadingController, NavController } from '@ionic/angular';
-
+import { PatientControllerService } from 'src/app/shared/sdk/api/patientController.service';
 
 @Component({
     selector: 'qr-reader',
@@ -18,6 +18,7 @@ export class QrReaderComponent {
         // protected router: Router,
         public navCtrl: NavController,
         public patientService: PatientService,
+        public patientControllerService: PatientControllerService,
         protected barcodeScanner: BarcodeScanner,
         public loadingController: LoadingController,
         protected menu: MenuController,
@@ -42,15 +43,12 @@ export class QrReaderComponent {
             message: $localize`:@@pleaseWait:Por favor, espere`
         });
         await loading.present();
-
-        this.patientService.getPatient(idPatient).subscribe(patient => {
+        this.patientControllerService.patientControllerGetByQrCode(idPatient).subscribe(patient => {
             loading.dismiss();
             if (patient != null && patient != false) {
-                loading.dismiss();
                 this.goDetail(patient);
             } else {
                 // no patient foundit
-                loading.dismiss();
                 // this.router.navigate(['/no-access']);
             }
         }, err => {

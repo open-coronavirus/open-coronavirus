@@ -32,11 +32,13 @@ export class QrReaderResultComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getPatient(this.patient.id);
+        // this.getTracking(this.patient.id);
     }
 
 
-    async getPatient(idPatient: string) {
+    async getTracking(idPatient: string) {
+
+        // todo
         const loading = await this.loadingController.create({
             message: $localize`:@@pleaseWait:Por favor, espere`
         });
