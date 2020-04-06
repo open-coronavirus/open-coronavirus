@@ -47,7 +47,7 @@ export class WelcomeComponent implements OnInit {
     }
 
     public goToSplash() {
-        this.router.navigate(['splash']);
+        this.router.navigate(['register']);
     }
 
 }
