@@ -18,7 +18,7 @@ All citizen movements will be stored to control possible infection and to delimi
 - **Authorities’ App**. Mobile application that enables relevant authorities to read citizens’ QR identification codes in the locations where they have decided to monitor
 their movements in this way.
 
-| ![Open Coronavirus Apps](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-apps.jpg) | 
+| ![Open Coronavirus Apps](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-apps-2.jpg) | 
 |:--:| 
 | *Examples of the 3 applications for different types of users* |
 
@@ -40,12 +40,6 @@ For more information, you can consult [WikiProject](https://github.com/open-coro
 * [04. Centralised Data Management Software](https://github.com/open-coronavirus/open-coronavirus/wiki/04.-Centralised-Data-Management-Software)
 * [05. Authorities App](https://github.com/open-coronavirus/open-coronavirus/wiki/05.--Authorities-App)
 * [06. Languages](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Languages)
-
-
-| ![Example of how the citizen APP works](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/opencoronavirus-workflow.gif) | 
-|:--:| 
-| *Example of how the citizen APP works* |
-
 
 
 
@@ -121,7 +115,7 @@ This allows you to run the app in a browser.
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7-es-2.jpg" alt="Pantalla 7" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8-es-2.jpg" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen9-es-2.jpg" alt="Pantalla 9" width="250"/>
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen10-es-2.jpg" alt="Pantalla 10" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen11-es-2.jpg" alt="Pantalla 11" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen12-es-2.jpg" alt="Pantalla 12" width="250"/>
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen13-es-2.jpg" alt="Pantalla 13" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen14-es-2.jpg" alt="Pantalla 14" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen15-es-2.jpg" alt="Pantalla 15" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-2.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-2.jpg" alt="Pantalla 17" width="250"/>| 
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-2.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-2.jpg" alt="Pantalla 17" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen18-es-2.jpg" alt="Pantalla 18" width="250"/>
 
 
 
