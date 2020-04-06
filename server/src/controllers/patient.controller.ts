@@ -114,7 +114,7 @@ export class PatientController {
     return this.patientRepository.updateAll(patient, where);
   }
 
-  @post('/patients/scan/', {
+  @get('/patients/scan/{qrcode}', {
     responses: {
       '204': {
         description: 'Get patient by qr-code scan',
@@ -125,25 +125,11 @@ export class PatientController {
     },
   })
   async getByQrCode(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-              qrcode: { type: 'string' }
-            },
-            required: ['qrcode']
-          }
-        }
-      },
-    })
-    body: any,
+    @param.path.string('qrcode') qrcode: string,
   ): Promise<Patient> {
     let filter = {
       "where": {
-        "id": body.qrcode
+        "id": qrcode
       }
     };
 
@@ -217,7 +203,7 @@ export class PatientController {
 
   }
 
-  @post('/patients/healthInsuranceCardNumber/{healthInsuranceCardNumber}/status', {
+  @post('/patients/status', {
     responses: {
       '204': {
         description: 'Update patient status success',
@@ -228,18 +214,32 @@ export class PatientController {
     },
   })
   async updateStatusByHealthInsuranceCardNumber(
-    @param.path.string('healthInsuranceCardNumber') healthInsuranceCardNumber: string,
-    @requestBody() status: number,
+    @requestBody({
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              healthInsuranceCardNumber: { type: 'string' },
+              status: { type: 'number' }
+            },
+            required: ['healthInsuranceCardNumber', 'status']
+          }
+        }
+      },
+    })
+    body: any,
   ): Promise<void> {
     let filter = {
       "where": {
-        "healthInsuranceCardNumber": healthInsuranceCardNumber
+        "healthInsuranceCardNumber": body.healthInsuranceCardNumber
       }
     };
 
     await this.patientRepository.findOne(filter).then(patient => {
       if (patient != null) {
-        patient.status = status;
+        patient.status = body.status;
         this.patientRepository.update(patient);
       } else {
         throw new HttpErrors[404];

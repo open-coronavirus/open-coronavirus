@@ -17,6 +17,7 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
+import { InlineObject } from '../model/models';
 import { LoopbackCount } from '../model/models';
 import { Patient } from '../model/models';
 import { PatientWithRelations } from '../model/models';
@@ -330,6 +331,49 @@ export class PatientControllerService {
     }
 
     /**
+     * @param qrcode 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public patientControllerGetByQrCode(qrcode: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public patientControllerGetByQrCode(qrcode: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public patientControllerGetByQrCode(qrcode: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public patientControllerGetByQrCode(qrcode: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+        if (qrcode === null || qrcode === undefined) {
+            throw new Error('Required parameter qrcode was null or undefined when calling patientControllerGetByQrCode.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
+        return this.httpClient.get<any>(`${this.configuration.basePath}/patients/scan/${encodeURIComponent(String(qrcode))}`,
+            {
+                responseType: <any>responseType,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * @param id 
      * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -551,18 +595,14 @@ export class PatientControllerService {
     }
 
     /**
-     * @param healthInsuranceCardNumber 
-     * @param body 
+     * @param inlineObject 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
-        if (healthInsuranceCardNumber === null || healthInsuranceCardNumber === undefined) {
-            throw new Error('Required parameter healthInsuranceCardNumber was null or undefined when calling patientControllerUpdateStatusByHealthInsuranceCardNumber.');
-        }
+    public patientControllerUpdateStatusByHealthInsuranceCardNumber(inlineObject?: InlineObject, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public patientControllerUpdateStatusByHealthInsuranceCardNumber(inlineObject?: InlineObject, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public patientControllerUpdateStatusByHealthInsuranceCardNumber(inlineObject?: InlineObject, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public patientControllerUpdateStatusByHealthInsuranceCardNumber(inlineObject?: InlineObject, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -592,8 +632,8 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.post<any>(`${this.configuration.basePath}/patients/healthInsuranceCardNumber/${encodeURIComponent(String(healthInsuranceCardNumber))}/status`,
-            body,
+        return this.httpClient.post<any>(`${this.configuration.basePath}/patients/status`,
+            inlineObject,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
