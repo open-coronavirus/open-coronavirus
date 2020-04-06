@@ -123,26 +123,6 @@
         </ion-row>
     </ion-grid>
 
-    <!-- <ion-grid *ngIf="false">
-        <ion-row>
-            <ion-col></ion-col>
-            <ion-col size="8">
-                <div class="auth-code-label" i18n="@@authorizationCodeLabel">Código de autorización</div>
-                <div class="patient-name">{{patientName}}</div>
-                <qr-code></qr-code>
-                <div *ngIf="leaveStatus == 2" class="leave-status"><ng-container i18n="@@leaveReasonLabel">Motivo</ng-container>: <span class="leave-reason">{{leaveReason}}</span></div>
-                <ion-button *ngIf="leaveStatus == null || leaveStatus == 1" (click)="goToRequestLeaveHome()" class="light-button" expand="block">
-                    <div slot="start"><img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">&nbsp;&nbsp;&nbsp;</div>
-                    <ng-container i18n="@@ImGoingLeaveHomeButton">Voy a salir de casa</ng-container></ion-button>
-                <ion-button *ngIf="leaveStatus == 2" (click)="setAtHome()" class="light-button" expand="block">
-                    <div slot="start"><img class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg">&nbsp;&nbsp;&nbsp;</div>
-                    <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
-                </ion-button>
-            </ion-col>
-            <ion-col></ion-col>
-        </ion-row>
-    </ion-grid> -->
-
     <div *ngIf="patientHasTestAppointment" class="appointment-info">
         <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
         <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
