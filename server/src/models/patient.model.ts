@@ -1,7 +1,8 @@
+
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {LeaveRequest} from './leave-request.model';
 
-@model({settings: {strict: false}})
+@model({ settings: { strict: false } })
 export class Patient extends Entity {
   @property({
     type: 'string',
@@ -79,8 +80,9 @@ export class Patient extends Entity {
   @property({
     type: 'number',
     required: false,
+    default: 1
   })
-  status?: number = 1;
+  status?: number;
 
   @property({
     type: 'string',
