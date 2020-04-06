@@ -7,6 +7,9 @@ import { Platform } from '@ionic/angular';
 import { UserCredentials } from '../sdk/model/userCredentials';
 import { User } from '../sdk/model/user';
 import { UserControllerService } from '../sdk/api/userController.service';
+import { AuthControllerService } from '../sdk/api/authController.service';
+import { PoliceOfficerLogin } from '../sdk/model/policeOfficerLogin';
+
 
 
 
@@ -30,7 +33,9 @@ export class UserService {
 
     public static USER_TOKEN_KEY = 'userToken';
 
-    constructor(protected userController: UserControllerService,
+    constructor(
+        protected authController: AuthControllerService,
+        protected userController: UserControllerService,
         @Inject('environment') protected environment,
         protected router: Router,
         public platform: Platform,
@@ -81,26 +86,19 @@ export class UserService {
 
     }
 
-    public login(userCredentials: UserCredentials): Subscribable<any> {
-
-        // return  this.userController.userControllerFind(new ApiFilter({ where: { email: { 'eq': userCredentials.email } } }));
-        // return this.userController.userControllerFind(new ApiFilter({ email: userCredentials.email, pass: userCredentials.password }));
-
+    public login(userCredentials: PoliceOfficerLogin): Subscribable<any> {
         let returnValue = new Subject();
-
-        const auxtest: any = { id: 35, firstName: 'pepe' };
-        this.userController.userControllerFind(new ApiFilter({ identifier: userCredentials.email, pass: userCredentials.password })).subscribe(res => {
+        this.authController.authControllerPoliceOfficerLogin({ uniqueId: userCredentials.uniqueId, password: userCredentials.password }).subscribe(res => {
+            console.log("res login service: ", res);
             if (res) {
                 this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res[0].id).then(result => { });
-                this._user = auxtest;
                 returnValue.next(res);
             } else {
-                // returnValue.next(false);
-                returnValue.next(auxtest);
+                returnValue.next(false);
             }
         }, err => {
-            this._user = auxtest;
-            returnValue.next(auxtest);
+            // this._user = auxtest;
+            returnValue.next(false);
         });
 
         return returnValue;
