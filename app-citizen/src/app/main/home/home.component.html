@@ -6,8 +6,55 @@
         <div i18n="@@headerTitleLine" class="header-app__title"><strong>OPEN</strong> CORONAVIRUS</div>
     </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="result">
     <ion-grid>
+        <ion-row *ngIf="true">
+            <ion-col size="3">
+                <img class="result__qr" src="/assets/images/qr-fake-rojo.svg">
+            </ion-col>
+            <ion-col size="9">
+                <p class="result__title">Identificación</p>
+                <p class="result__name">Marisa García Pérez</p>
+                <p class="result__title">Resultado COVID-19</p>
+                <h3 class="result__status result__status--ok">INFECTADO</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="true">
+            <ion-col size="3">
+                <img class="result__qr" src="/assets/images/qr-fake-amarillo.svg">
+            </ion-col>
+            <ion-col size="9">
+                <p class="result__title">Identificación</p>
+                <p class="result__name">Marisa García Pérez</p>
+                <p class="result__title">Resultado COVID-19</p>
+                <h3 class="result__status result__status--ok">CUARENTENA OBLIGATORIA</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="true">
+            <ion-col size="3">
+                <img class="result__qr" src="/assets/images/qr-fake-negro.svg">
+            </ion-col>
+            <ion-col size="9">
+                <p class="result__title">Identificación</p>
+                <p class="result__name">Marisa García Pérez</p>
+                <p class="result__title">Resultado COVID-19</p>
+                <h3 class="result__status result__status--ok">Negativo</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="true">
+            <ion-col size="3">
+                <img class="result__qr" src="/assets/images/qr-fake-verde.svg">
+            </ion-col>
+            <ion-col size="9">
+                <p class="result__title">Identificación</p>
+                <p class="result__name">Marisa García Pérez</p>
+                <p class="result__title">Resultado COVID-19</p>
+                <h3 class="result__status result__status--ok">Negativo</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="false">
         <ion-row>
             <ion-col></ion-col>
             <ion-col size="8">
@@ -26,6 +73,7 @@
             <ion-col></ion-col>
         </ion-row>
     </ion-grid>
+
     <div *ngIf="patientHasTestAppointment" class="appointment-info">
         <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
         <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
