@@ -9,6 +9,7 @@ import { User } from '../sdk/model/user';
 import { UserControllerService } from '../sdk/api/userController.service';
 import { AuthControllerService } from '../sdk/api/authController.service';
 import { PoliceOfficerLogin } from '../sdk/model/policeOfficerLogin';
+import { PoliceOfficerControllerService } from '../sdk/api/policeOfficerController.service';
 
 
 
@@ -35,6 +36,7 @@ export class UserService {
 
     constructor(
         protected authController: AuthControllerService,
+        protected policeController: PoliceOfficerControllerService,
         protected userController: UserControllerService,
         @Inject('environment') protected environment,
         protected router: Router,
@@ -69,9 +71,9 @@ export class UserService {
     public setUserToken(userToken: string) {
 
         let returnValue = new Subject();
-
-        this.userController.userControllerFindById(userToken).subscribe(user => {
-
+        console.log("setUserToken init");
+        this.policeController.policeOfficerControllerFindById(userToken).subscribe(user => {
+            console.log("userToken init: ", userToken);
             if (user != null) {
                 this._user = user;
                 this.userToken = userToken;
