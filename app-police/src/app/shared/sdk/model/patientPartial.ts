@@ -11,23 +11,26 @@
  */
 
 
-export interface Patient { 
+/**
+ * (Schema options: { partial: true })
+ */
+export interface PatientPartial { 
   [key: string]: object | any;
 
 
     id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
+    firstName?: string;
+    lastName?: string;
+    documentNumber?: string;
+    healthInsuranceCardNumber?: string;
+    age?: number;
+    gender?: number;
+    street?: string;
     apartment?: string;
-    postalCode: string;
-    email: string;
+    postalCode?: string;
+    email?: string;
     status?: number;
-    phone: string;
+    phone?: string;
     serviceAdvertisementUUID?: string;
     created?: string;
     updated?: string;

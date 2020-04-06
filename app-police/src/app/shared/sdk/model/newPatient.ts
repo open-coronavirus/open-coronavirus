@@ -11,11 +11,13 @@
  */
 
 
-export interface Patient { 
+/**
+ * (Schema options: { title: \'NewPatient\', exclude: [ \'id\' ] })
+ */
+export interface NewPatient { 
   [key: string]: object | any;
 
 
-    id?: string;
     firstName: string;
     lastName: string;
     documentNumber: string;

@@ -11,7 +11,11 @@
  */
 
 
-export interface LoopbackCount { 
-    count?: number;
+/**
+ * (Schema options: { title: \'SanitarianLogin\' })
+ */
+export interface SanitarianLogin { 
+    uniqueId: string;
+    password: string;
 }
 

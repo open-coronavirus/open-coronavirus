@@ -11,25 +11,18 @@
  */
 
 
-export interface Patient { 
+export interface Geolocation { 
   [key: string]: object | any;
 
 
     id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
-    serviceAdvertisementUUID?: string;
+    latitude?: number;
+    longitude?: number;
+    accuracy?: number;
+    altitude?: number;
+    bearing?: number;
+    speed?: number;
     created?: string;
-    updated?: string;
+    patientId: string;
 }
 

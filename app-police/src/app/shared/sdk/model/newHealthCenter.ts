@@ -11,25 +11,17 @@
  */
 
 
-export interface Patient { 
+/**
+ * (Schema options: { title: \'NewHealthCenter\', exclude: [ \'id\' ] })
+ */
+export interface NewHealthCenter { 
   [key: string]: object | any;
 
 
-    id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
+    name: string;
+    address: string;
     postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
-    serviceAdvertisementUUID?: string;
-    created?: string;
-    updated?: string;
+    latitude?: number;
+    longitude?: number;
 }
 

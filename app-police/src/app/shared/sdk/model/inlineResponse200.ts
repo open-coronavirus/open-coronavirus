@@ -11,7 +11,10 @@
  */
 
 
-export interface LoopbackCount { 
-    count?: number;
+export interface InlineResponse200 { 
+    greeting?: string;
+    date?: string;
+    url?: string;
+    headers?: { [key: string]: object; };
 }
 

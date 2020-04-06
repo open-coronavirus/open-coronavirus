@@ -11,25 +11,16 @@
  */
 
 
-export interface Patient { 
+/**
+ * (Schema options: { title: \'NewDocument\', exclude: [ \'id\' ] })
+ */
+export interface NewDocument { 
   [key: string]: object | any;
 
 
-    id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
-    serviceAdvertisementUUID?: string;
-    created?: string;
+    name: string;
+    content: string;
+    created: string;
     updated?: string;
 }
 

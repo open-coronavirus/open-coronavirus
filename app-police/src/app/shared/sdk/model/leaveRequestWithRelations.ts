@@ -11,25 +11,19 @@
  */
 
 
-export interface Patient { 
+/**
+ * (Schema options: { includeRelations: true })
+ */
+export interface LeaveRequestWithRelations { 
   [key: string]: object | any;
 
 
     id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
+    leaveReason: number;
+    additionalInfo?: string;
+    outOfHomeTimestamp?: string;
+    backToHomeTimestamp?: string;
+    patientId: string;
     status?: number;
-    phone: string;
-    serviceAdvertisementUUID?: string;
-    created?: string;
-    updated?: string;
 }
 

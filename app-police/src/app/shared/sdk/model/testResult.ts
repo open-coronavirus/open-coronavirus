@@ -11,25 +11,15 @@
  */
 
 
-export interface Patient { 
+export interface TestResult { 
   [key: string]: object | any;
 
 
     id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
-    street: string;
-    apartment?: string;
-    postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
-    serviceAdvertisementUUID?: string;
+    answers?: Array<object>;
+    patientId: string;
+    result?: number;
+    action?: number;
     created?: string;
-    updated?: string;
 }
 

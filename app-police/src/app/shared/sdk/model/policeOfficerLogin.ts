@@ -11,7 +11,11 @@
  */
 
 
-export interface LoopbackCount { 
-    count?: number;
+/**
+ * (Schema options: { title: \'PoliceOfficerLogin\' })
+ */
+export interface PoliceOfficerLogin { 
+    uniqueId: string;
+    password: string;
 }
 

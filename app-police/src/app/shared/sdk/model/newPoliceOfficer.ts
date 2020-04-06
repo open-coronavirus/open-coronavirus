@@ -11,25 +11,20 @@
  */
 
 
-export interface Patient { 
+/**
+ * (Schema options: { title: \'NewPoliceOfficer\', exclude: [ \'id\' ] })
+ */
+export interface NewPoliceOfficer { 
   [key: string]: object | any;
 
 
-    id?: string;
-    firstName: string;
-    lastName: string;
-    documentNumber: string;
-    healthInsuranceCardNumber: string;
+    uniqueId: string;
+    name: string;
+    dni: string;
     age: number;
-    gender: number;
     street: string;
-    apartment?: string;
+    city: string;
     postalCode: string;
-    email: string;
-    status?: number;
-    phone: string;
-    serviceAdvertisementUUID?: string;
-    created?: string;
-    updated?: string;
+    position: string;
 }
 

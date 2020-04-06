@@ -11,7 +11,8 @@
  */
 
 
-export interface LoopbackCount { 
-    count?: number;
+export interface Auth { 
+    uniqueId: string;
+    password: string;
 }
 

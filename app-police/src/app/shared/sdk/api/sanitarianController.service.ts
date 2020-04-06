@@ -18,8 +18,8 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { LoopbackCount } from '../model/models';
-import { Patient } from '../model/models';
-import { PatientWithRelations } from '../model/models';
+import { Sanitarian } from '../model/models';
+import { SanitarianWithRelations } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class PatientControllerService {
+export class SanitarianControllerService {
 
     protected basePath = 'http://localhost:3000';
     public defaultHeaders = new HttpHeaders();
@@ -92,10 +92,10 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerCount(where?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
-    public patientControllerCount(where?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
-    public patientControllerCount(where?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
-    public patientControllerCount(where?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public sanitarianControllerCount(where?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
+    public sanitarianControllerCount(where?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
+    public sanitarianControllerCount(where?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
+    public sanitarianControllerCount(where?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (where !== undefined && where !== null) {
@@ -123,7 +123,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<LoopbackCount>(`${this.configuration.basePath}/patients/count`,
+        return this.httpClient.get<LoopbackCount>(`${this.configuration.basePath}/sanitarians/count`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,
@@ -140,10 +140,10 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerCreate(requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Patient>;
-    public patientControllerCreate(requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Patient>>;
-    public patientControllerCreate(requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Patient>>;
-    public patientControllerCreate(requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public sanitarianControllerCreate(requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Sanitarian>;
+    public sanitarianControllerCreate(requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Sanitarian>>;
+    public sanitarianControllerCreate(requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Sanitarian>>;
+    public sanitarianControllerCreate(requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -174,7 +174,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.post<Patient>(`${this.configuration.basePath}/patients`,
+        return this.httpClient.post<Sanitarian>(`${this.configuration.basePath}/sanitarians`,
             requestBody,
             {
                 responseType: <any>responseType,
@@ -191,12 +191,12 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerDeleteById(id: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public patientControllerDeleteById(id: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public patientControllerDeleteById(id: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public patientControllerDeleteById(id: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public sanitarianControllerDeleteById(id: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public sanitarianControllerDeleteById(id: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public sanitarianControllerDeleteById(id: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public sanitarianControllerDeleteById(id: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientControllerDeleteById.');
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerDeleteById.');
         }
 
         let headers = this.defaultHeaders;
@@ -218,7 +218,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.delete<any>(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.delete<any>(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
@@ -234,10 +234,10 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<PatientWithRelations>>;
-    public patientControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<PatientWithRelations>>>;
-    public patientControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<PatientWithRelations>>>;
-    public patientControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public sanitarianControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<SanitarianWithRelations>>;
+    public sanitarianControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<SanitarianWithRelations>>>;
+    public sanitarianControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<SanitarianWithRelations>>>;
+    public sanitarianControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (filter !== undefined && filter !== null) {
@@ -265,7 +265,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Array<PatientWithRelations>>(`${this.configuration.basePath}/patients`,
+        return this.httpClient.get<Array<SanitarianWithRelations>>(`${this.configuration.basePath}/sanitarians`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,
@@ -283,12 +283,12 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<PatientWithRelations>;
-    public patientControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<PatientWithRelations>>;
-    public patientControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<PatientWithRelations>>;
-    public patientControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public sanitarianControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<SanitarianWithRelations>;
+    public sanitarianControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<SanitarianWithRelations>>;
+    public sanitarianControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<SanitarianWithRelations>>;
+    public sanitarianControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientControllerFindById.');
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerFindById.');
         }
 
         let queryParameters = new HttpParams({encoder: this.encoder});
@@ -317,7 +317,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<PatientWithRelations>(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<SanitarianWithRelations>(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,
@@ -335,12 +335,12 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public patientControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public patientControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public patientControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public sanitarianControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public sanitarianControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public sanitarianControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public sanitarianControllerReplaceById(id: string, requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientControllerReplaceById.');
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerReplaceById.');
         }
 
         let headers = this.defaultHeaders;
@@ -371,7 +371,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.put<any>(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.put<any>(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`,
             requestBody,
             {
                 responseType: <any>responseType,
@@ -389,10 +389,10 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
-    public patientControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
-    public patientControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
-    public patientControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public sanitarianControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
+    public sanitarianControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
+    public sanitarianControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
+    public sanitarianControllerUpdateAll(where?: { [key: string]: object; }, requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (where !== undefined && where !== null) {
@@ -429,7 +429,7 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.patch<LoopbackCount>(`${this.configuration.basePath}/patients`,
+        return this.httpClient.patch<LoopbackCount>(`${this.configuration.basePath}/sanitarians`,
             requestBody,
             {
                 params: queryParameters,
@@ -448,12 +448,12 @@ export class PatientControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public patientControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public patientControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public patientControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public patientControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public sanitarianControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public sanitarianControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public sanitarianControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public sanitarianControllerUpdateById(id: string, requestBody?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientControllerUpdateById.');
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerUpdateById.');
         }
 
         let headers = this.defaultHeaders;
@@ -484,116 +484,8 @@ export class PatientControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.patch<any>(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`,
+        return this.httpClient.patch<any>(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`,
             requestBody,
-            {
-                responseType: <any>responseType,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param id 
-     * @param body 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public patientControllerUpdateStatus(id: string, body?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public patientControllerUpdateStatus(id: string, body?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public patientControllerUpdateStatus(id: string, body?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public patientControllerUpdateStatus(id: string, body?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientControllerUpdateStatus.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType = 'text';
-        }
-
-        return this.httpClient.post<any>(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}/status`,
-            body,
-            {
-                responseType: <any>responseType,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param healthInsuranceCardNumber 
-     * @param body 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public patientControllerUpdateStatusByHealthInsuranceCardNumber(healthInsuranceCardNumber: string, body?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
-        if (healthInsuranceCardNumber === null || healthInsuranceCardNumber === undefined) {
-            throw new Error('Required parameter healthInsuranceCardNumber was null or undefined when calling patientControllerUpdateStatusByHealthInsuranceCardNumber.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType = 'text';
-        }
-
-        return this.httpClient.post<any>(`${this.configuration.basePath}/patients/healthInsuranceCardNumber/${encodeURIComponent(String(healthInsuranceCardNumber))}/status`,
-            body,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
