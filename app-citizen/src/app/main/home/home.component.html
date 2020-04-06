@@ -90,20 +90,18 @@
     </ion-grid>
     <ion-grid class="main-options" *ngIf="patientService.patient?.status === 2"> <!-- este caso es cuando es un NEGATIVO -->
         <ion-row class="ion-align-items-center">
-            <ion-col size="12" class="ion-text-center">
-                <div class="main-options__btn main-options__btn--wide">
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn main-options__btn--no-link">
                     <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
                     <p class="main-options__text" i18n="@@canGoHome">Puedes salir de casa</p>
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn">
+                <div class="main-options__btn main-options__btn--small">
                     <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
                     <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
                 </div>
-            </ion-col>
-            <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn">
+                <div class="main-options__btn main-options__btn--small">
                     <img class="main-options__image" src="/assets/icons/svg/icon-test-new.svg">
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>

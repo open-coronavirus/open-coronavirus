@@ -1,25 +1,30 @@
 .result{
   
   &__qr{
-    width: 100%;
+    display: block;
+    width: 80%;
     height: auto;
+    margin: 0 auto;
   }
   &__title{
     font-size: 12px;
+    line-height: 16px;
     color: #9b9b9b;
     font-weight: 300;
     margin: 0;
   }
   &__name{
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 20px;
     color: #000;
-    margin: 0 0 14px 0 ;
+    margin: 0 0 12px 0 ;
   }
   &__status{  
     font-weight: bold;
     margin: 0;
     line-height: 1;
     font-size: 12px;
+    line-height: 16px;
     
     &--quarentine{
       color: #ffca08;
@@ -44,25 +49,38 @@
     border-radius: 8px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
 
-    &--wide{
+    &--no-link{
+      border-radius: 0;
+      box-shadow: none;
+    }
+    &--small{
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 4px;
+      &:nth-child(n+2){
+        margin-top: 12px;
+      }
       .main-options__image{
-        width: 16%;
-        max-width: 60px;
+        width: 24%;
+        max-width: 30px;
         margin-right: 8px;
         height: auto;
+      }
+      .main-options__text{
+        font-size: 12px;
+        line-height: 16px;
       }
     }
   }
   &__text{
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 20px;
     color: #000;
     margin: 4px 0 0 0;
   }
   &__image{
-    width: 50%;
+    width: 60%;
     max-width: 120px;
     height: auto;
   }
@@ -76,13 +94,13 @@
   display: flex;
   align-items: flex-start;
   &__icon{
-    width: 16px;
-    margin: 0 8px 0 0;
+    width: 24px;
+    margin: 0 12px 0 0;
   }
   &__text{
     font-size: 14px;  
-    font-weight: 300;
     line-height: 16px;   
+    font-weight: 300;
     margin: 0; 
   }
   &__link, &__link:hover{
@@ -114,7 +132,6 @@
   }
 }
 
-
 .appointment-info {
   font-size: 14px;
   display: flex;
@@ -141,7 +158,6 @@
   width: auto;
   padding-right: 10px;
 }
-
 
 .auth-code-label {
   text-align: center;
