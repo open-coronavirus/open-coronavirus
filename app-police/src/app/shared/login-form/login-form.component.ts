@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subject, Subscription} from 'rxjs';
-import {User, UserCredentials} from '../sdk';
+import { UserCredentials } from '../sdk/model/userCredentials';
 
 @Component({
     selector: 'login-form',
@@ -50,8 +50,8 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
         this.loginInfoForm = this.formBuilder.group({
             password: new FormControl(this.user.password, [Validators.required]),
             email: new FormControl(this.user.email, [
-                Validators.required,
-                Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
+                Validators.required])
+                // Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
         });
 
         this.subscriptions.push(this.loginInfoForm.get('email').valueChanges

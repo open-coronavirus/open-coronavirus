@@ -129,16 +129,16 @@ export class PatientService {
 
     public getPatientDetail(idPatient: string): Subscribable<any> {
 
-        return  this.patientController.patientControllerFindDetailById(idPatient);
+        // return  this.patientController.patientControllerFindDetailById(idPatient);
 
-        // let returnValue = new Subject();
+        let returnValue = new Subject();
 
-        // this.patientController.patientControllerUpdateById(idPatient).subscribe(exitingPatient => {
-        //     // this._patient = patient;
-        //     returnValue.next(true);
-        // });
+        this.patientController.patientControllerUpdateById(idPatient).subscribe(exitingPatient => {
+            // this._patient = patient;
+            returnValue.next(true);
+        });
 
-        // return returnValue;
+        return returnValue;
     }
 
 

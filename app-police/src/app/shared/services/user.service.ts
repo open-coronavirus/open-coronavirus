@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@angular/core';
-import { UserControllerService } from '../sdk';
 import { ApiFilter } from '../utils/apifilter';
 import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
@@ -7,6 +6,7 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { UserCredentials } from '../sdk/model/userCredentials';
 import { User } from '../sdk/model/user';
+import { UserControllerService } from '../sdk/api/userController.service';
 
 
 
@@ -89,7 +89,7 @@ export class UserService {
         let returnValue = new Subject();
 
         const auxtest: any = { id: 35, firstName: 'pepe' };
-        this.userController.userControllerFind(new ApiFilter({ email: userCredentials.email, pass: userCredentials.password })).subscribe(res => {
+        this.userController.userControllerFind(new ApiFilter({ identifier: userCredentials.email, pass: userCredentials.password })).subscribe(res => {
             if (res) {
                 this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res[0].id).then(result => { });
                 this._user = auxtest;
