@@ -89,7 +89,7 @@ export class UserService {
         let returnValue = new Subject();
 
         const auxtest: any = { id: 35, firstName: 'pepe' };
-        this.userController.userControllerFind(new ApiFilter({ email: userCredentials.email, pass: userCredentials.password })).subscribe(res => {
+        this.userController.userControllerFind(new ApiFilter({ identifier: userCredentials.email, pass: userCredentials.password })).subscribe(res => {
             if (res) {
                 this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res[0].id).then(result => { });
                 this._user = auxtest;
