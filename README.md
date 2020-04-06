@@ -18,7 +18,7 @@ All citizen movements will be stored to control possible infection and to delimi
 - **Authorities’ App**. Mobile application that enables relevant authorities to read citizens’ QR identification codes in the locations where they have decided to monitor
 their movements in this way.
 
-| ![Open Coronavirus Apps](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-apps-2.jpg) | 
+| ![Open Coronavirus Apps](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-app-3.jpg) | 
 |:--:| 
 | *Examples of the 3 applications for different types of users* |
 
