@@ -29,24 +29,30 @@ export class WelcomeComponent implements OnInit {
             initialSlide: 0,
             speed: 400
         };
+    }
 
+    onChangeSlide(ev) {
+        this.slidesElement.getActiveIndex().then(index => {
+            this.slidesElement.length().then(len => {
+                this.lastSlide = index === len - 1;
+            });
+        });
     }
 
     goContinue() {
         this.slidesElement.getActiveIndex().then(index => {
             this.slidesElement.length().then(len => {
-                this.lastSlide = index < len - 1;
                 if (index < len - 1) {
                     this.slidesElement.slideNext();
                 } else {
-                    this.goToSplash();
+                    this.goToRegister();
                 }
             });
         });
 
     }
 
-    public goToSplash() {
+    public goToRegister() {
         this.router.navigate(['register']);
     }
 

@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-slides class="ion-slides" pager="true" [options]="slideOpts">
+  <ion-slides class="ion-slides" pager="true" [options]="slideOpts" (ionSlideWillChange)="onChangeSlide($event)">
     <ion-slide class="slide">
       <h2 class="slide__title" i18n="@@introSlideTogether">Luchemos juntos<br>contra el <strong class="slide__title-strong">COVID-19</strong></h2>
       <div class="slide__image-container">

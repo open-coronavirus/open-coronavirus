@@ -22,16 +22,28 @@ export class SplashComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        // this.patientService.patientLoaded$.subscribe(loaded => {
-        //     if (loaded) {
-        //         this.router.navigate(['app/home']);
-        //     }
-        // });
-
+        this.patientService.patientLoaded$.subscribe(loaded => {
+            if (loaded) {
+                this.router.navigate(['app/home']);
+            }
+        });
     }
 
-    public goToRegister() {
-        this.router.navigate(['register']);
+
+    clickEnter() {
+        console.log("xx: ", this.nativeStorage);
+        try {
+            this.nativeStorage.getItem('WELCOME_VISIT').then(welcomeVisit => {
+                if (welcomeVisit) {
+                    this.navCtrl.navigateRoot(['register']);
+                } else {
+                    this.navCtrl.navigateRoot(['welcome']);
+                }
+            });
+        } catch (e) {
+            this.navCtrl.navigateRoot(['welcome']);
+        }
+
     }
 
 }
