@@ -1,9 +1,86 @@
-.qrcode {
-
-  img {
-    width: 100% !important;
+.result{
+  
+  &__qr{
+    width: 100%;
+    height: auto;
   }
+  &__title{
+    font-size: 12px;
+    color: #9b9b9b;
+    font-weight: 300;
+    margin: 0;
+  }
+  &__name{
+    font-size: 14px;
+    color: #000;
+    margin: 0 0 14px 0 ;
+  }
+  &__status{  
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    font-size: 12px;
+    
+    &--quarentine{
+      color: #ffca08;
+      font-size: 16px;
+    }
+    &--infected{
+      color: #c80f2e;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    &--ok{
+      color: #61bc7c;  
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
+}
 
+.main-options{
+  &__btn{
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+  }
+  &__text{
+    font-size: 14px;
+    color: #000;
+    margin: 4px 0 0 0;
+  }
+  &__image{
+    width: 50%;
+    max-width: 120px;
+    height: auto;
+  }
+}
+
+.appointment-info {
+  font-size: 14px;
+  display: flex;
+  align-items: start;
+  margin-left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  text-align: left !important;
+  vertical-align: middle;
+  word-break: keep-all;
+  white-space: normal;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  background-color: #f3f3f3;
+}
+
+.appointment-info-icon {
+  height: 25px;
+  width: auto;
+  padding-right: 10px;
 }
 
 
@@ -41,32 +118,5 @@
     text-decoration: none;
   }
 
-}
-
-.appointment-info {
-  font-size: 14px;
-  display: flex;
-  align-items: start;
-  margin-left: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: black;
-  text-align: left !important;
-  vertical-align: middle;
-  word-break: keep-all;
-  white-space: normal;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  background-color: #f3f3f3;
-}
-
-.appointment-info-icon {
-  height: 25px;
-  width: auto;
-  padding-right: 10px;
 }
 
