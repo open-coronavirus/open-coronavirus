@@ -15,7 +15,6 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private navCtrl: NavController,
     protected nativeStorage: NativeStorage
   ) {
     this.initializeApp();
@@ -26,16 +25,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.checkWelcome();
     });
   }
 
-  checkWelcome() {
-    this.nativeStorage.getItem('WELCOME_VISIT').then(welcomeVisit => {
-      if (welcomeVisit) {
-        this.navCtrl.navigateRoot(['welcome']);
-      }
-    });
 
-  }
 }
