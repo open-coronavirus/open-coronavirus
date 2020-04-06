@@ -11,6 +11,7 @@ export * from './geolocationWithRelations';
 export * from './healthCenter';
 export * from './healthCenterPartial';
 export * from './healthCenterWithRelations';
+export * from './inlineObject';
 export * from './inlineResponse200';
 export * from './leaveRequest';
 export * from './leaveRequestPartial';
