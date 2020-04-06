@@ -96,10 +96,10 @@ export class HomeComponent implements OnDestroy {
 
     }
 
-    openMenu() {
-        this.menu.enable(true, 'menu');
-        this.menu.open('menu');
-    }
+    // openMenu() {
+    //     this.menu.enable(true, 'menu');
+    //     this.menu.open('menu');
+    // }
 
     public goToRequestLeaveHome() {
         this.router.navigate(['/app/request-leave-home'])

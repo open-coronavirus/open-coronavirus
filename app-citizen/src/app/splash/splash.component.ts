@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { PatientService } from '../shared/services/patient.service';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 
 
 @Component({
@@ -17,6 +17,7 @@ export class SplashComponent implements OnInit {
         protected router: Router,
         private navCtrl: NavController,
         protected patientService: PatientService,
+        public platform: Platform,
         protected nativeStorage: NativeStorage) {
 
     }
@@ -31,8 +32,8 @@ export class SplashComponent implements OnInit {
 
 
     clickEnter() {
-        console.log("xx: ", this.nativeStorage);
-        try {
+        console.log("this.platform.is('cordova'): ", this.platform.is('cordova'));
+        if (this.platform.is('cordova')) {
             this.nativeStorage.getItem('WELCOME_VISIT').then(welcomeVisit => {
                 if (welcomeVisit) {
                     this.navCtrl.navigateRoot(['register']);
@@ -40,7 +41,7 @@ export class SplashComponent implements OnInit {
                     this.navCtrl.navigateRoot(['welcome']);
                 }
             });
-        } catch (e) {
+        } else {
             this.navCtrl.navigateRoot(['welcome']);
         }
 
