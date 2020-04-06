@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@angular/core';
-import { UserControllerService } from '../sdk';
 import { ApiFilter } from '../utils/apifilter';
 import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
@@ -7,6 +6,7 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { UserCredentials } from '../sdk/model/userCredentials';
 import { User } from '../sdk/model/user';
+import { UserControllerService } from '../sdk/api/userController.service';
 
 
 

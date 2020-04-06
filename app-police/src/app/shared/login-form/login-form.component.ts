@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subject, Subscription} from 'rxjs';
-import {User, UserCredentials} from '../sdk';
+import { UserCredentials } from '../sdk/model/userCredentials';
+
 
 @Component({
     selector: 'login-form',
@@ -24,15 +25,15 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
     @Input('user')
     public user: UserCredentials = new class implements UserCredentials {
         [key: string]: object | any;
-        email: string;
+        identifier: string;
         password: string;
     };
 
     @Output('onChange')
     public onChange: Subject<any> = new Subject();
 
-    get email() {
-        return this.loginInfoForm.get('email');
+    get identifier() {
+        return this.loginInfoForm.get('identifier');
     }
 
     get password() {
@@ -49,14 +50,14 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.loginInfoForm = this.formBuilder.group({
             password: new FormControl(this.user.password, [Validators.required]),
-            email: new FormControl(this.user.email, [
-                Validators.required,
-                Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
+            identifier: new FormControl(this.user.identifier, [
+                Validators.required])
+                // Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
         });
 
-        this.subscriptions.push(this.loginInfoForm.get('email').valueChanges
+        this.subscriptions.push(this.loginInfoForm.get('identifier').valueChanges
             .subscribe(value => {
-                this.user.email = value;
+                this.user.identifier = value;
                 this.onChange.next(this.user);
             }));
 

@@ -1,9 +1,9 @@
 <form [formGroup]="loginInfoForm">
     <div class="form-row">
         <div class="form-group form-label-group">
-            <input type="text" class="form-control" id="email" name="email" formControlName="email" i18n-placeholder placeholder="Email">
-            <label for="email" i18n="@@emailLabel">Email</label>
-            <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
+            <input type="text" class="form-control" id="identifier" name="identifier" formControlName="identifier" i18n-placeholder placeholder="Identificador">
+            <label for="identifier" i18n="@@identifierLabel">Identificador</label>
+            <small class="error" *ngIf="identifier.invalid && identifier.touched" i18n="@@identifierError">Por favor, introduce un Identificador válido</small>
         </div>
     </div>
     <div class="form-row">
