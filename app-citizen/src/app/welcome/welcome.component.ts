@@ -24,7 +24,7 @@ export class WelcomeComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-
+        this.nativeStorage.setItem('WELCOME_VISIT', true).then(result => { });
         this.slideOpts = {
             initialSlide: 0,
             speed: 400
@@ -35,7 +35,7 @@ export class WelcomeComponent implements OnInit {
     goContinue() {
         this.slidesElement.getActiveIndex().then(index => {
             this.slidesElement.length().then(len => {
-                this.lastSlide = index < len-1;
+                this.lastSlide = index < len - 1;
                 if (index < len - 1) {
                     this.slidesElement.slideNext();
                 } else {
