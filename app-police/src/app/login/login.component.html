@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-title i18n="@@headerTitle"><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+        <ion-title i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -8,7 +8,8 @@
         <ion-row>
             <ion-col>
                 <div class="form-row">
-                    <h1 i18n="@@logiTitle">Login</h1>
+                    <h1 i18n="@@loginTitle">Identifícate</h1>
+                    <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada de la policía.</strong></p>
                 </div>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <login-form #loginFormComponent></login-form>

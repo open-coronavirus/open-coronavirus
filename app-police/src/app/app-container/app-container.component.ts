@@ -56,7 +56,7 @@ export class AppContainerComponent implements OnInit {
     public goExit() {
         this.closeMenu();
         this.userService.user = null;
-        this.navCtrl.navigateRoot(['/']);
+        this.navCtrl.navigateRoot(['login']);
     }
 
 }

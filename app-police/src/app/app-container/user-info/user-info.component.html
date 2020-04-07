@@ -10,10 +10,10 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <avatar [userName]="userName"></avatar>
-                <p>Identificador: {{ user.documentNumber }}</p>
+                <avatar [userName]="userName"></avatar><br>
+                <p>Identificador: {{ user?.documentNumber }}</p>
                 <p>Nombre: {{ userName }}</p>
-                <p>Cargo: {{ user.position }}</p>
+                <p>Cargo: {{ user?.position }}</p>
 
             </ion-col>
         </ion-row>
