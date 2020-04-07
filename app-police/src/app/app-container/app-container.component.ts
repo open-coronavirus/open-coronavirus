@@ -13,11 +13,8 @@ import { PoliceOfficerWithRelations } from '../shared/sdk/model/policeOfficerWit
 })
 export class AppContainerComponent implements OnInit {
 
-
     public user: PoliceOfficerWithRelations;
-
-    userName: string;
-
+    public userName: string;
 
     constructor(
         protected menu: MenuController,

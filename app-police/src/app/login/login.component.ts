@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Patient, PatientWithRelations } from '../shared/sdk';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { LoginFormComponent } from '../shared/login-form/login-form.component';
-import { UserService } from '../shared/services/user.service';;
+import { UserService } from '../shared/services/user.service';
 import { PoliceOfficerLogin } from '../shared/sdk/model/policeOfficerLogin';
 
 @Component({
@@ -19,10 +18,6 @@ export class LoginComponent {
     protected userCredentials: PoliceOfficerLogin;
     public loginForm: FormGroup;
 
-    // get acceptterms() { return this.loginForm.get('acceptterms'); }
-
-    // protected accepttermsValuer: boolean;
-
     public error: string;
     public formTriedToSubmit = false;
 
@@ -31,9 +26,7 @@ export class LoginComponent {
         protected userService: UserService,
         public loadingController: LoadingController,
         protected router: Router) {
-        this.loginForm = this.formBuilder.group({
-            // acceptterms: new FormControl(this.accepttermsValuer, [Validators.requiredTrue ])
-        });
+        this.loginForm = this.formBuilder.group({});
     }
 
     public onSubmit() {
@@ -54,7 +47,6 @@ export class LoginComponent {
             this.userCredentials = this.loginFormComponent.user;
             this.userService.login(this.userCredentials).subscribe(res => {
                 loading.dismiss();
-                console.log("res login, ", res);
                 if (res != null && res !== false) {
                     this.router.navigate(['/app/qr-reader']);
                 } else {

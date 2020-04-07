@@ -82,5 +82,4 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
         // todo
     }
 
-
 }

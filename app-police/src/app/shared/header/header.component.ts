@@ -11,18 +11,15 @@ import { UserService } from '../services/user.service';
 })
 export class CoronaHeaderComponent implements OnInit {
 
-    user: PoliceOfficerWithRelations;
-
-    userName: string;
+    private user: PoliceOfficerWithRelations;
+    private userName: string;
 
     constructor(
         protected menu: MenuController,
         protected userService: UserService,
     ) {
 
-
     }
-
 
     ngOnInit() {
         this.user = this.userService.user;
@@ -35,7 +32,5 @@ export class CoronaHeaderComponent implements OnInit {
         this.menu.enable(true, 'menu');
         this.menu.open('menu');
     }
-
-
 
 }

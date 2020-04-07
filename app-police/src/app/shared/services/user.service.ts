@@ -1,19 +1,13 @@
 import { Inject, Injectable } from '@angular/core';
-import { ApiFilter } from '../utils/apifilter';
 import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { UserCredentials } from '../sdk/model/userCredentials';
-import { User } from '../sdk/model/user';
 import { UserControllerService } from '../sdk/api/userController.service';
 import { AuthControllerService } from '../sdk/api/authController.service';
 import { PoliceOfficerLogin } from '../sdk/model/policeOfficerLogin';
 import { PoliceOfficerControllerService } from '../sdk/api/policeOfficerController.service';
 import { PoliceOfficerWithRelations } from '../sdk/model/policeOfficerWithRelations';
-
-
-
 
 
 @Injectable()
@@ -26,8 +20,6 @@ export class UserService {
     set user(value: PoliceOfficerWithRelations) {
         this._user = value;
     }
-
-    // protected activatedBackgroundGeolocation = false;
 
     protected userToken: string = null;
     private _user: PoliceOfficerWithRelations = null;
@@ -96,13 +88,11 @@ export class UserService {
                 returnValue.next(false);
             }
         }, err => {
-            // this._user = auxtest;
             returnValue.next(false);
         });
 
         return returnValue;
 
     }
-
 
 }

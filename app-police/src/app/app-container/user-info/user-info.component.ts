@@ -1,7 +1,6 @@
-import { Component, ViewChild, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ToastController, NavController } from '@ionic/angular';
 import { UserService } from '../../shared/services/user.service';
-import { User } from '../../shared/sdk/model/user';
 import { PoliceOfficerWithRelations } from '../../shared/sdk/model/policeOfficerWithRelations';
 
 @Component({
@@ -12,9 +11,8 @@ import { PoliceOfficerWithRelations } from '../../shared/sdk/model/policeOfficer
 })
 export class UserInfoComponent implements OnInit {
 
-    user: PoliceOfficerWithRelations;
-
-    userName: string;
+    public user: PoliceOfficerWithRelations;
+    public userName: string;
 
     constructor(
         public userService: UserService,
@@ -28,8 +26,6 @@ export class UserInfoComponent implements OnInit {
             this.userName = this.user.firstName + ' ' + this.user.lastName;
         }
     }
-
-
 
     public goBack() {
         this.navCtrl.back();

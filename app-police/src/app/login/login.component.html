@@ -13,24 +13,10 @@
                 </div>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <login-form #loginFormComponent></login-form>
-                    <!-- <div class="form-row">
-                        <div class="form-group form-check">
-                            <input formControlName="acceptterms" name="acceptterms" class="form-check-input" id="acceptterms" type="checkbox">
-                            <label for="acceptterms" i18n="@@accepttermsLabel">Acepto las condiciones de uso y políticas de privacidad</label>
-                            <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit" i18n="@@accepttermsError">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
-                        </div>
-                    </div> -->
                     <div class="form-row">
                         <small class="error" *ngIf="error"> {{ error }}</small>
                     </div>
                     <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</ion-button>
-                    <!-- <div class="d-none d-lg-block d-lg-flex justify-content-end">
-                        <div>
-                            <small class="error" *ngIf="(!loginPatientForm.isValid || acceptterms.invalid) && formTriedToSubmit" i18n="@@registerFormError">
-                                Ups! Te faltan campos por rellenar <span class="emoji-thinking-face"></span>
-                            </small>
-                        </div>
-                    </div> -->
                 </form>
             </ion-col>
         </ion-row>
