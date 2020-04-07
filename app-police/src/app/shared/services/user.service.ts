@@ -71,11 +71,8 @@ export class UserService {
     }
 
     public setUserToken(userToken: string) {
-
         let returnValue = new Subject();
-        console.log("setUserToken init");
         this.policeController.policeOfficerControllerFindById(userToken).subscribe(user => {
-            console.log("userToken init: ", userToken);
             if (user != null) {
                 this._user = user;
                 this.userToken = userToken;
@@ -87,7 +84,6 @@ export class UserService {
         });
 
         return returnValue;
-
     }
 
     public login(userCredentials: PoliceOfficerLogin): Subscribable<any> {

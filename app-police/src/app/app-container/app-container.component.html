@@ -2,20 +2,13 @@
     <ion-header>
         <ion-list>
             <div class="menu-item-header menu-separator" (click)="goToHome()">
-                <div class="circle circle-gray">A</div>
-                <div class="patient-name-in-menu">{{patientName}}</div>
+                <avatar [userName]="userName"></avatar>
+                <div class="patient-name-in-menu">{{ userName }}</div>
             </div>
         </ion-list>
     </ion-header>
     <ion-content>
         <ion-list>
-
-            <!-- <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu-item menu-separator" (click)="goToRequestLeaveHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container></div>
-
-            <div *ngIf="leaveStatus == 2" class="menu-item menu-separator" (click)="setAtHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container></div> -->
-
-            <!-- <div class="menu-item" (click)="goToAutotest()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@autotestMenuLabel">¿Tengo el coronavirus?</ng-container></div> -->
-
             <div class="menu-item" (click)="goToIdentity()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@coronavirusIdentityUserMenuLabel">Identificar a un usuario</ng-container></div>
         </ion-list>
     </ion-content>

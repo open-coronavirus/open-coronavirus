@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { UserService } from '../shared/services/user.service';
+import { PoliceOfficerWithRelations } from '../shared/sdk/model/policeOfficerWithRelations';
 
 @Component({
     selector: 'app-container',
@@ -10,11 +11,13 @@ import { UserService } from '../shared/services/user.service';
     styleUrls: ['app-container.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class AppContainerComponent {
+export class AppContainerComponent implements OnInit {
 
-    public leaveStatus: number;
 
-    public patientName;
+    public user: PoliceOfficerWithRelations;
+
+    userName: string;
+
 
     constructor(
         protected menu: MenuController,
@@ -22,6 +25,13 @@ export class AppContainerComponent {
         private navCtrl: NavController,
         protected userService: UserService,
         protected iab: InAppBrowser) {
+    }
+
+    ngOnInit() {
+        this.user = this.userService.user;
+        if (this.user) {
+            this.userName = this.user.firstName + ' ' + this.user.lastName;
+        }
     }
 
     openMenu() {

@@ -14,6 +14,8 @@ export class UserInfoComponent implements OnInit {
 
     user: PoliceOfficerWithRelations;
 
+    userName: string;
+
     constructor(
         public userService: UserService,
         public toastController: ToastController,
@@ -22,7 +24,9 @@ export class UserInfoComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.userService.user;
-        console.log("user profile: ", this.user);
+        if (this.user) {
+            this.userName = this.user.firstName + ' ' + this.user.lastName;
+        }
     }
 
 

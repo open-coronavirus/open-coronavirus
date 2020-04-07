@@ -68,10 +68,7 @@ export class QrReaderComponent {
         this.navCtrl.navigateForward(['app/qr-reader-result'], navigationExtras);
     }
 
-    openMenu() {
-        this.menu.enable(true, 'menu');
-        this.menu.open('menu');
-    }
+
 
     public goBack() {
         this.location.back();
