@@ -52,8 +52,23 @@
 }
 
 .header-app {
-  --background: #c80f2e;
-  --color: white
+  --background: #c80f2e ;
+
+  &__title{
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+
+    strong{
+      font-weight: 700;
+    }
+  }
+  
+}
+.menu {
+  --color: white;
+  position: absolute;
 }
 
 .filter-white {
@@ -85,4 +100,8 @@
 
 .emoji-thinking-face::before  {
   content: "\01F914";
+}
+
+.ion-slides { 
+  --bullet-background-active: #000; 
 }

@@ -5,6 +5,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './register.component';
 import {PatientInfoFormModule} from '../shared/patient-info-form/patient-info-form.module';
+import { CoronaHeaderModule } from '../shared/corona-header/corona-header.module';
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import {PatientInfoFormModule} from '../shared/patient-info-form/patient-info-fo
         PatientInfoFormModule,
         FormsModule,
         ReactiveFormsModule,
+        CoronaHeaderModule,
         RouterModule.forChild([{ path: '', component: RegisterComponent }])
     ],
     declarations: [RegisterComponent]

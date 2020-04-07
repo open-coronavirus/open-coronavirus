@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-slides class="ion-slides" pager="true" [options]="slideOpts" (ionSlideWillChange)="onChangeSlide($event)">
+    <ion-slide class="slide">
+      <h2 class="slide__title" i18n="@@introSlideTogether">Luchemos juntos<br>contra el <strong class="slide__title-strong">COVID-19</strong></h2>
+      <div class="slide__image-container">
+        <img class="slide__image" src="/assets/icons/svg/icon-test-new.svg">
+      </div>
+      <p class="slide__text" i18n="@@introSlideTest"><strong>Solicitar un test</strong> de COVID-19<br>y según su resultado<br>poder salir de casa</p>
+    </ion-slide>
+    <ion-slide class="slide">
+      <h2 class="slide__title" i18n="@@introSlideTogether">Luchemos juntos<br>contra el <strong class="slide__title-strong">COVID-19</strong></h2>
+      <div class="slide__image-container">
+        <img class="slide__image" src="/assets/icons/svg/icon-autotest.svg">
+      </div>
+      <p class="slide__text" i18n="@@introSlideHealth"><strong>Evalúa tu situación de salud</strong> <br>en función de tus síntomas</p>
+    </ion-slide>
+    <ion-slide class="slide">
+      <h2 class="slide__title" i18n="@@introSlideTogether">Luchemos juntos<br>contra el <strong class="slide__title-strong">COVID-19</strong></h2>
+      <div class="slide__image-container">
+        <img class="slide__image" src="/assets/icons/svg/icon-seguimiento.svg">
+      </div>
+      <p class="slide__text" i18n="@@introSlideFollos"><strong>Haz seguimiento de tu estado</strong> <br>de salud y evalúate <br>cada cierto tiempo</p>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <p class="footer-app__text" i18n="@@ageFootNote">Para utilizar esta aplicación debes ser mayor de edad</p>
+    <ion-button *ngIf="!lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@next">SIGUIENTE</ion-button>
+    <ion-button *ngIf="lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@enter">COMENZAR</ion-button>
+  </ion-toolbar>
+</ion-footer>

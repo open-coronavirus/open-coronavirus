@@ -1,40 +1,141 @@
-<ion-header>
-    <ion-toolbar class="header-app">
-        <ion-buttons slot="start">
-            <ion-menu-button class="menu" (click)="openMenu()" autoHide="false"></ion-menu-button>
-        </ion-buttons>
-        <ion-title><span class="supertitle" i18n="@@headerTitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
-    </ion-toolbar>
-</ion-header>
+<corona-header [showMenu]="true"></corona-header>
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col></ion-col>
-            <ion-col size="8">
-                <div class="auth-code-label" i18n="@@authorizationCodeLabel">Código de autorización</div>
-                <div class="patient-name">{{patientName}}</div>
-                <qr-code></qr-code>
-                <div *ngIf="leaveStatus == 2" class="leave-status"><ng-container i18n="@@leaveReasonLabel">Motivo</ng-container>: <span class="leave-reason">{{leaveReason}}</span></div>
-                <ion-button *ngIf="leaveStatus == null || leaveStatus == 1" (click)="goToRequestLeaveHome()" class="light-button" expand="block">
-                    <div slot="start"><img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">&nbsp;&nbsp;&nbsp;</div>
-                    <ng-container i18n="@@ImGoingLeaveHomeButton">Voy a salir de casa</ng-container></ion-button>
-                <ion-button *ngIf="leaveStatus == 2" (click)="setAtHome()" class="light-button" expand="block">
-                    <div slot="start"><img class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg">&nbsp;&nbsp;&nbsp;</div>
-                    <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
-                </ion-button>
+    <ion-grid class="result">
+        <ion-row class="ion-align-items-center" *ngIf="true">
+            <ion-col size="6">
+                <img class="result__qr" [src]="'/assets/images/' + getIconStatus() + '.svg'">
             </ion-col>
-            <ion-col></ion-col>
+            <ion-col size="6">
+                <p class="result__title" i18n="@@identity">Identificación</p>
+                <p class="result__name">{{ patientName }}</p>
+                <p class="result__title" i18n="@@results">Resultado COVID-19</p>
+                <h3 class="result__status" [ngClass]="getClassStatus()">{{ getTextStatus() }}</h3>
+            </ion-col>
         </ion-row>
     </ion-grid>
-</ion-content>
-<ion-toolbar class="home-footer-toolbar">
+
+    <ion-grid *ngIf="false"><!-- este caso es cuando es ambulancia -->
+        <ion-row>
+            <ion-col size="12">
+                <div  class="appointment">
+                    <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
+                    <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="true"><!-- este caso es cuando es cita otorgada -->
+        <ion-row>
+            <ion-col size="12">
+                <div class="appointment">
+                    <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
+                    <p class="appointment__text">
+                        <ng-container i18n="@@appointment">
+                            Cita para el test del coronavirus<br>
+                            <strong>16 Marzo a les 12:30</strong> en Distrito Digital (Avinguda de Jean Claude Combaldieu s/n, Alicante)
+                        </ng-container>
+                        <br><br>
+                        <a href="#" class="appointment__link" i18n="@@howtoget">¿Cómo llegar?</a>
+                    </p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="false"><!-- este caso es cuando es cita solicitada -->
+        <ion-row>
+            <ion-col size="12">
+                <div  class="appointment">
+                    <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
+                    <p class="appointment__text" i18n="@@appointmentRequested">Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="main-options" *ngIf="patientService.patient?.status !== 2"><!-- este caso es cuando es todo menos NEGATIVO -->
+        <ion-row class="ion-align-items-center">
+            <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus != 2">
+                <div class="main-options__btn" (click)="goToRequestLeaveHome()">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
+                    <p class="main-options__text"  i18n="@@leaveHome">Salir <br>de casa</p>
+                </div>
+            </ion-col>
+
+            <ion-col size="6" class="ion-text-center"  *ngIf="leaveStatus == 2">
+                <div class="main-options__btn" (click)="setAtHome()">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
+                    <p class="main-options__text"  i18n="@@leaveHome">Volver <br>de casa</p>
+                </div>
+            </ion-col>
+
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-test-new.svg">
+                    <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn" *ngIf="!patientHasTestAppointment" (click)="goToAutotest()" >
+                    <img class="main-options__image" src="/assets/icons/svg/icon-autotest.svg">
+                    <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento.svg">
+                    <p class="main-options__text" i18n="@@tracking">Seguimiento <br>de tu salud</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="main-options" *ngIf="patientService.patient?.status === 2"> <!-- este caso es cuando es un NEGATIVO -->
+        <ion-row class="ion-align-items-center">
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn main-options__btn--no-link">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
+                    <p class="main-options__text" i18n="@@canGoHome">Puedes salir de casa</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn main-options__btn--small">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
+                    <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
+                </div>
+                <div class="main-options__btn main-options__btn--small">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-test-new.svg">
+                    <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn" *ngIf="!patientHasTestAppointment" (click)="goToAutotest()" >
+                    <img class="main-options__image" src="/assets/icons/svg/icon-autotest.svg">
+                    <p class="main-options__text" i18n="@@autotest" >Autoevaluación <br>COVID-19</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center">
+                <div class="main-options__btn">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento.svg">
+                    <p class="main-options__text" i18n="@@tracking">Seguimiento <br>de tu salud</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
     <div *ngIf="patientHasTestAppointment" class="appointment-info">
         <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
         <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
     </div>
-    <ion-button *ngIf="!patientHasTestAppointment" (click)="goToAutotest()" color="dark" expand="block"><div slot="start"><img class="button-icon filter-white" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;</div>
-        <ng-container i18n="@@autotestButton">¿Tengo el coronavirus?</ng-container></ion-button>
-    <ion-button (click)="goToCoronavirusInfo()" class="light-button" expand="block"><div slot="start"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;</div>
-        <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container></ion-button>
-    <div class="share-link"><a href="javascrip:void(null);" (click)="share()"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@shareButton">Compartir App para luchar juntos</ng-container></a></div>
-</ion-toolbar>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
+                    <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
+                </div>
+            </ion-col>
+            <ion-col size="12">
+                <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">Compartir App para luchar juntos</ng-container></a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
