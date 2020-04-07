@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewEncapsulation, OnInit } from '@angular/core';
 import { ToastController, NavController } from '@ionic/angular';
 import { UserService } from '../../shared/services/user.service';
 import { User } from '../../shared/sdk/model/user';
+import { PoliceOfficerWithRelations } from '../../shared/sdk/model/policeOfficerWithRelations';
 
 @Component({
     selector: 'user-info',
@@ -11,7 +12,7 @@ import { User } from '../../shared/sdk/model/user';
 })
 export class UserInfoComponent implements OnInit {
 
-    user: User;
+    user: PoliceOfficerWithRelations;
 
     constructor(
         public userService: UserService,

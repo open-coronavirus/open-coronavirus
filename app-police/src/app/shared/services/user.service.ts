@@ -15,14 +15,15 @@ import { PoliceOfficerWithRelations } from '../sdk/model/policeOfficerWithRelati
 
 
 
+
 @Injectable()
 export class UserService {
 
-    get user(): User {
+    get user(): PoliceOfficerWithRelations {
         return this._user;
     }
 
-    set user(value: User) {
+    set user(value: PoliceOfficerWithRelations) {
         this._user = value;
     }
 
