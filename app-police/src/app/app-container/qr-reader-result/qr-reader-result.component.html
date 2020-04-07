@@ -55,23 +55,27 @@
       </div>
     </div>
     <span class="result__map">Ver mapa movilidad</span>
+    
     <div class="result__timeline">
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante 2h</strong></p>
-        <p class="result__timeline-item-time">15/02/2020 20.30h</p>
-      </div>
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity">Se encuentra en casa</p>
-        <p class="result__timeline-item-time">15/02/2020 12.30h</p>
-      </div>
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity">Solicitud salir a comprar alimentos</p>
-        <p class="result__timeline-item-time">15/02/2020 9.30h</p>
-      </div>
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity">Solicitud salir a comprar medicina</p>
-        <p class="result__timeline-item-time">14/02/2020 17.30h</p>
-      </div>
+
+      <ng-container *ngFor="let leaveRequest of leaveRequests">
+
+        <div class="result__timeline-item" *ngIf="leaveRequest.backToHomeTimestamp">
+          <p class="result__timeline-item-activity">Vuelta a casa</p>
+          <p class="result__timeline-item-time">{{leaveRequest.backToHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div>
+        
+        <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status >= 3">
+          <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}} horas</strong></p>
+        </div>
+
+        <div class="result__timeline-item">
+          <p class="result__timeline-item-activity">Salida de casa</p>
+          <p class="result__timeline-item-time">{{leaveRequest.outOfHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div>
+
+      </ng-container>
+      
     </div>
   </div>
 </ion-content>

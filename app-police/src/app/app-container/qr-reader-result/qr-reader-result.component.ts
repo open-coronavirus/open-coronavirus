@@ -4,6 +4,7 @@ import { UserService } from '../../shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PatientService } from '../../shared/services/patient.service';
+import { PatientWithRelations, LeaveRequestWithRelations, LeaveRequestControllerService } from 'src/app/shared/sdk';
 
 
 @Component({
@@ -14,14 +15,14 @@ import { PatientService } from '../../shared/services/patient.service';
 })
 export class QrReaderResultComponent implements OnInit {
 
-    private patient;
+    private patient: PatientWithRelations;
+    private leaveRequests: LeaveRequestWithRelations;
 
     constructor(
-        public userService: UserService,
         private route: ActivatedRoute,
         protected router: Router,
         protected loadingController: LoadingController,
-        private patientService: PatientService,
+        private leaveRequestControllerService: LeaveRequestControllerService,
         protected location: Location) {
 
 
@@ -32,32 +33,30 @@ export class QrReaderResultComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.getTracking(this.patient.id);
+        this.getLeaveRequests(this.patient.id);
     }
 
 
-    async getTracking(idPatient: string) {
-
-        // todo
+    async getLeaveRequests(idPatient: string) {
         const loading = await this.loadingController.create({
             message: $localize`:@@pleaseWait:Por favor, espere`
         });
+
         await loading.present();
 
-        this.patientService.getPatientDetail(idPatient).subscribe(patient => {
+        this.leaveRequestControllerService.leaveRequestControllerGetLeaveRequestsByPatientId(idPatient).subscribe(leaveRequests => {
             loading.dismiss();
-            if (patient != null && patient != false) {
-                loading.dismiss();
-                this.patient = patient;
-            } else {
-                // no patient foundit
-                loading.dismiss();
-                // this.router.navigate(['/no-access']);
-            }
+            this.leaveRequests = leaveRequests;
         }, err => {
-            console.log("getPatientDetail err: ", err);
+            console.log('getPatientDetail err: ', err);
             loading.dismiss();
         });
+    }
+
+    public hoursOutsideHome(outOfHomeTimestamp: string) {
+        const now = new Date();
+        const outOfHomeDate = new Date(outOfHomeTimestamp);
+        return Math.round(Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
     }
 
     public goBack() {

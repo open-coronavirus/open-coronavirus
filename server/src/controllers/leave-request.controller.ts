@@ -17,20 +17,20 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {LeaveRequest} from '../models';
-import {LeaveRequestRepository} from '../repositories';
+import { LeaveRequest } from '../models';
+import { LeaveRequestRepository } from '../repositories';
 
 export class LeaveRequestController {
   constructor(
     @repository(LeaveRequestRepository)
-    public leaveRequestRepository : LeaveRequestRepository,
-  ) {}
+    public leaveRequestRepository: LeaveRequestRepository,
+  ) { }
 
   @post('/leave-requests', {
     responses: {
       '200': {
         description: 'LeaveRequest model instance',
-        content: {'application/json': {schema: getModelSchemaRef(LeaveRequest)}},
+        content: { 'application/json': { schema: getModelSchemaRef(LeaveRequest) } },
       },
     },
   })
@@ -57,7 +57,7 @@ export class LeaveRequestController {
     responses: {
       '200': {
         description: 'LeaveRequest model count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -75,7 +75,7 @@ export class LeaveRequestController {
           'application/json': {
             schema: {
               type: 'array',
-              items: getModelSchemaRef(LeaveRequest, {includeRelations: true}),
+              items: getModelSchemaRef(LeaveRequest, { includeRelations: true }),
             },
           },
         },
@@ -92,7 +92,7 @@ export class LeaveRequestController {
     responses: {
       '200': {
         description: 'LeaveRequest PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -100,7 +100,7 @@ export class LeaveRequestController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(LeaveRequest, {partial: true}),
+          schema: getModelSchemaRef(LeaveRequest, { partial: true }),
         },
       },
     })
@@ -116,7 +116,7 @@ export class LeaveRequestController {
         description: 'LeaveRequest model instance',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(LeaveRequest, {includeRelations: true}),
+            schema: getModelSchemaRef(LeaveRequest, { includeRelations: true }),
           },
         },
       },
@@ -135,7 +135,7 @@ export class LeaveRequestController {
         description: 'LeaveRequest model instance',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(LeaveRequest, {includeRelations: true}),
+            schema: getModelSchemaRef(LeaveRequest, { includeRelations: true }),
           },
         },
       },
@@ -144,8 +144,8 @@ export class LeaveRequestController {
   async findByToken(
     @param.path.string('token') token: string,
   ): Promise<LeaveRequest | null> {
-    let filter: Filter<LeaveRequest> = {"where": {"patientId":token}, order: ['outOfHomeTimestamp DESC']};
-    return this.leaveRequestRepository.findOne(filter, {strictObjectIDCoercion: true});
+    let filter: Filter<LeaveRequest> = { "where": { "patientId": token }, order: ['outOfHomeTimestamp DESC'] };
+    return this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true });
   }
 
   @put('/leave-requests/token/{token}/set-at-home', {
@@ -159,10 +159,10 @@ export class LeaveRequestController {
     @param.path.string('token') token: string
   ): Promise<void> {
 
-    let filter: Filter<LeaveRequest> =  {"where": {"patientId":token}, order: ['outOfHomeTimestamp DESC']};
-    await this.leaveRequestRepository.findOne(filter, {strictObjectIDCoercion: true})
+    let filter: Filter<LeaveRequest> = { "where": { "patientId": token }, order: ['outOfHomeTimestamp DESC'] };
+    await this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true })
       .then(leaveRequest => {
-        if(leaveRequest) {
+        if (leaveRequest) {
           leaveRequest.status = 1;
           this.leaveRequestRepository.save(leaveRequest);
         }
@@ -181,10 +181,10 @@ export class LeaveRequestController {
     @param.path.string('token') token: string
   ): Promise<void> {
 
-    let filter: Filter<LeaveRequest> = {"where": {"patientId":token}, order: ['outOfHomeTimestamp DESC']};
-    await this.leaveRequestRepository.findOne(filter, {strictObjectIDCoercion: true})
+    let filter: Filter<LeaveRequest> = { "where": { "patientId": token }, order: ['outOfHomeTimestamp DESC'] };
+    await this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true })
       .then(leaveRequest => {
-        if(leaveRequest) {
+        if (leaveRequest) {
           leaveRequest.backToHomeTimestamp = new Date();
           leaveRequest.status = 2;
           this.leaveRequestRepository.save(leaveRequest);
@@ -205,7 +205,7 @@ export class LeaveRequestController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(LeaveRequest, {partial: true}),
+          schema: getModelSchemaRef(LeaveRequest, { partial: true }),
         },
       },
     })
@@ -237,5 +237,31 @@ export class LeaveRequestController {
   })
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.leaveRequestRepository.deleteById(id);
+  }
+
+  @get('/patients/{id}/leaveRequests', {
+    responses: {
+      '200': {
+        description: 'Get leave requests by patient',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(LeaveRequest, { includeRelations: true }),
+          },
+        },
+      },
+    },
+  })
+  async getLeaveRequestsByPatientId(
+    @param.path.string('id') id: string,
+  ): Promise<LeaveRequest[]> {
+
+    let filter = {
+      where: {
+        "patientId": id
+      },
+      order: ['outOfHomeTimestamp DESC']
+    };
+
+    return this.leaveRequestRepository.find(filter, { strictObjectIDCoercion: true });
   }
 }

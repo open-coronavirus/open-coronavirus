@@ -14,6 +14,8 @@ import { PatientControllerService } from 'src/app/shared/sdk/api/patientControll
 })
 export class QrReaderComponent {
 
+    private now: Date;
+
     constructor(
         // protected router: Router,
         public navCtrl: NavController,
@@ -22,7 +24,7 @@ export class QrReaderComponent {
         protected barcodeScanner: BarcodeScanner,
         public loadingController: LoadingController,
         protected menu: MenuController,
-        protected location: Location) { }
+        protected location: Location) {}
 
     scanQR() {
         this.barcodeScanner.scan().then(barcodeData => {
@@ -34,7 +36,7 @@ export class QrReaderComponent {
         }).catch(err => {
             console.error('Error scanQR: ', err);
             // Test
-            this.getPatient('5e8b992cbedca5d2f624dce5');
+            this.getPatient('5e8815c411000f36890151fd');
         });
     }
 
@@ -45,7 +47,7 @@ export class QrReaderComponent {
         await loading.present();
         this.patientControllerService.patientControllerGetByQrCode(idPatient).subscribe(patient => {
             loading.dismiss();
-            if (patient != null && patient != false) {
+            if (patient != null && patient !== false) {
                 this.goDetail(patient);
             } else {
                 // no patient foundit
@@ -67,7 +69,6 @@ export class QrReaderComponent {
         };
         this.navCtrl.navigateForward(['app/qr-reader-result'], navigationExtras);
     }
-
 
 
     public goBack() {
