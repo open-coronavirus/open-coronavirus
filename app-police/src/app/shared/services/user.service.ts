@@ -10,6 +10,7 @@ import { UserControllerService } from '../sdk/api/userController.service';
 import { AuthControllerService } from '../sdk/api/authController.service';
 import { PoliceOfficerLogin } from '../sdk/model/policeOfficerLogin';
 import { PoliceOfficerControllerService } from '../sdk/api/policeOfficerController.service';
+import { PoliceOfficerWithRelations } from '../sdk/model/policeOfficerWithRelations';
 
 
 
@@ -28,7 +29,7 @@ export class UserService {
     // protected activatedBackgroundGeolocation = false;
 
     protected userToken: string = null;
-    private _user: User = null;
+    private _user: PoliceOfficerWithRelations = null;
 
     public userLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
@@ -52,7 +53,7 @@ export class UserService {
                         }
                     );
             } else {
-                this.loadUser('5e7497828d970a10056ef022');
+                this.loadUser('1');
             }
         });
 
