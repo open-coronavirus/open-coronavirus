@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { PatientWithRelations, LeaveRequestWithRelations, LeaveRequestControllerService } from 'src/app/shared/sdk';
+import { PatientWithRelations } from 'src/app/shared/sdk';
 
 
 @Component({
@@ -11,10 +11,9 @@ import { PatientWithRelations, LeaveRequestWithRelations, LeaveRequestController
     styleUrls: ['diagnostic-send-result.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class DiagnosticSendResultComponent implements OnInit {
+export class DiagnosticSendResultComponent {
 
-    private patient: PatientWithRelations;
-
+    public patient: PatientWithRelations;
 
     constructor(
         private route: ActivatedRoute,
@@ -27,34 +26,7 @@ export class DiagnosticSendResultComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-        // this.getLeaveRequests(this.patient.id);
-    }
-
-
-    // async getLeaveRequests(idPatient: string) {
-    //     const loading = await this.loadingController.create({
-    //         message: $localize`:@@pleaseWait:Por favor, espere`
-    //     });
-
-    //     await loading.present();
-
-    //     this.leaveRequestControllerService.leaveRequestControllerGetLeaveRequestsByPatientId(idPatient).subscribe(leaveRequests => {
-    //         loading.dismiss();
-    //         this.leaveRequests = leaveRequests;
-    //     }, err => {
-    //         loading.dismiss();
-    //     });
-    // }
-
-    // public hoursOutsideHome(outOfHomeTimestamp: string) {
-    //     const now = new Date();
-    //     const outOfHomeDate = new Date(outOfHomeTimestamp);
-    //     return Math.round(Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
-    // }
-
     public goBack() {
         this.location.back();
     }
-
 }

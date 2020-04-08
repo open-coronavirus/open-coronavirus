@@ -5,10 +5,10 @@
 
   <div>
     <p i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
-    <span>{{ patient.identifier }}</span>
+    <span>{{ patient.healthInsuranceCardNumber }}</span>
     <br>
     <p i18n="@@patientName">Nombre del paciente</p>
-    <span>{{ patient.status }}</span>
+    <span>{{ patient.firstName + ' ' + patient.lastName }}</span>
     <br>
     <p i18n="@@patientStatus">Estado del paciente</p>
     <span>{{ patient.status }}</span>

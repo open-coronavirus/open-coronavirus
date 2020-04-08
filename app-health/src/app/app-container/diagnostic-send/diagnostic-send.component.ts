@@ -104,16 +104,15 @@ export class DiagnosticSendComponent implements OnInit {
         return await modalConfirmSendDiagnostic.present();
     }
 
-
     async sendDiagnostic() {
         const loading = await this.loadingController.create({
             message: $localize`:@@pleaseWait:Por favor, espere`
         });
         await loading.present();
-        this.patientControllerService.patientControllerUpdateStatusByHealthInsuranceCardNumber(
-            { healthInsuranceCardNumber: this.dataForm.identifier, status: this.dataForm.status }).subscribe(patient => {
+        this.patientControllerService.patientControllerUpdateStatusByDocumentNumber(
+            { documentNumber: this.dataForm.identifier, status: this.dataForm.status }).subscribe(patient => {
                 loading.dismiss();
-                console.log("res update: ", patient); // 1111
+                // 2323232 numbertest
                 if (patient != null && patient !== false) {
                     this.goResult(patient);
                 } else {
