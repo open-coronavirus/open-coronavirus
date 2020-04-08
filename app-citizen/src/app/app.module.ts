@@ -27,10 +27,12 @@ import {StorageService} from "./shared/services/storage.service";
 import {BlueToothTrackingService} from "./shared/services/tracking/bluetoothtracking.service";
 import {GeolocationtrackingService} from "./shared/services/tracking/geolocationtracking.service";
 import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
+import { PrivacityConditionsService } from './shared/services/privacityConditions.service';
+import { PrivacityConditionsComponent } from './shared/privacity-conditions/privacity-conditions.component';
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
-    entryComponents: [],
+    entryComponents: [PrivacityConditionsComponent],
     imports: [BrowserModule,
         HttpClientModule,
         I18nStringsModule,
@@ -55,11 +57,13 @@ import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
         TestResultService,
         InAppBrowser,
         SocialSharing,
+        PrivacityConditionsService,
         {provide: 'environment', useValue: environment},
         {provide: 'settings', useValue: settings},
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+
 })
 export class AppModule {
 }
