@@ -54,12 +54,6 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
             // Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
         });
 
-        // VALUES TEST
-        this.loginInfoForm.setValue({
-            uniqueId: 'demo@opencoronavirus.com',
-            password: 'demo@opencoronavirus.com'
-        });
-
         this.subscriptions.push(this.loginInfoForm.get('uniqueId').valueChanges
             .subscribe(value => {
                 this.user.uniqueId = value;

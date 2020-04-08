@@ -32,38 +32,37 @@ export class LoginComponent {
     }
 
     public onSubmit() {
-        this.loginDemo();
-        // this.formTriedToSubmit = true;
-        // this.loginFormComponent.validate();
-        // if (this.loginForm.valid && this.loginFormComponent.isValid) {
-        //     this.login();
-        // }
+        this.formTriedToSubmit = true;
+        this.loginFormComponent.validate();
+        if (this.loginForm.valid && this.loginFormComponent.isValid) {
+            this.login();
+        }
     }
 
-    // async login() {
-    //     if (this.loginFormComponent.isValid) {
-    //         const loading = await this.loadingController.create({
-    //             message: 'Por favor, espere...'
-    //         });
-    //         await loading.present();
+    async login() {
+        if (this.loginFormComponent.isValid) {
+            const loading = await this.loadingController.create({
+                message: 'Por favor, espere...'
+            });
+            await loading.present();
 
-    //         this.userCredentials = this.loginFormComponent.user;
-    //         this.userService.login(this.userCredentials).subscribe(res => {
-    //             loading.dismiss();
-    //             if (res != null && res !== false) {
-    //                 this.router.navigate(['/app/qr-reader']);
-    //             } else {
-    //                 // go to error page
-    //                 this.error = 'Usuario no válido';
-    //             }
-    //         }, err => {
-    //             // console.log("login: ", err);
-    //             loading.dismiss();
-    //             this.error = err.message;
+            this.userCredentials = this.loginFormComponent.user;
+            this.userService.login(this.userCredentials).subscribe(res => {
+                loading.dismiss();
+                if (res != null && res !== false) {
+                    this.router.navigate(['/app/qr-reader']);
+                } else {
+                    // go to error page
+                    this.error = 'Usuario no válido';
+                }
+            }, err => {
+                // console.log("login: ", err);
+                loading.dismiss();
+                this.error = err.message;
 
-    //         });
-    //     }
-    // }
+            });
+        }
+    }
 
     async presentLoading() {
         const loading = await this.loadingController.create({
