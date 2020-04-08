@@ -88,7 +88,7 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'leave-custom-reason-form',
+                path: 'leave-custom-reason-form/:leaveReason',
                 children: [
                     {
                         path: '',

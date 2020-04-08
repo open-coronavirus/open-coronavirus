@@ -1,9 +1,6 @@
-import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
-import {PatientService} from '../../shared/services/patient.service';
-import {PatientInfoFormComponent} from '../../shared/patient-info-form/patient-info-form.component';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {LeaveRequestService, LeaveReasonEnum} from '../../shared/services/leave-request.service';
 import {Router} from '@angular/router';
-import {LeaveRequestWithRelations} from '../../shared/sdk';
 
 @Component({
     selector: 'leave-request-result',
@@ -18,22 +15,21 @@ export class LeaveRequestResultComponent {
     constructor(protected leaveRequestService: LeaveRequestService,
                 protected router: Router) {
         this.leaveRequestService.loaded$.subscribe(loaded => {
-            if(loaded) {
-                if(this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
+            if (loaded) {
+                if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                     this.leaveRequestService.leaveReasons.forEach(leaveReason => {
-                        if(leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
+                        if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
                             this.leaveRequestReason = leaveReason;
                         }
                     });
-                }
-                else {
+                } else {
                     this.leaveRequestReason = {
                         id: LeaveReasonEnum.otherLeaveReason,
                         label: this.leaveRequestService.leaveRequest.additionalInfo
-                    }
+                    };
                 }
             }
-        })
+        });
     }
 
     public backToHome() {

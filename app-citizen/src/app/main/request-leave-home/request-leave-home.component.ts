@@ -17,17 +17,15 @@ export class RequestLeaveHomeComponent {
 
     public requestLeaveHome(value) {
 
-        if(value < 9) {
+        if (value < 8) {
             this.leaveRequestService.request(value, null).subscribe(result => {
-                if(result != null) {
+                if (result != null) {
                     this.router.navigate(['/app/leave-request-result']);
                 }
-            })
+            });
+        } else {
+            this.router.navigate(['/app/leave-custom-reason-form', value]);
         }
-        else {
-            this.router.navigate(['/app/leave-custom-reason-form']);
-        }
-
     }
 
     public backToHome() {

@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import {LeaveRequestService} from '../../shared/services/leave-request.service';
 
 @Component({
     selector: 'leave-custom-reason-form',
@@ -11,9 +11,16 @@ import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-
 export class LeaveCustomReasonFormComponent {
 
     public leaveRequestAdditionalInfo;
+    public leaveReason: number;
 
-    constructor(protected router: Router,
-                protected leaveRequestService: LeaveRequestService) {
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        protected router: Router,
+        protected leaveRequestService: LeaveRequestService
+    ) {
+        this.activatedRoute.paramMap.subscribe(params => {
+            this.leaveReason = +params.get('leaveReason');
+        });
     }
 
     public backToRequestReasons() {
@@ -25,15 +32,14 @@ export class LeaveCustomReasonFormComponent {
     }
 
     public requestLeaveHome() {
-        if(this.leaveRequestAdditionalInfo != null && this.leaveRequestAdditionalInfo.length > 3) {
-            this.leaveRequestService.request(LeaveReasonEnum.otherLeaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
+        if (this.leaveRequestAdditionalInfo != null && this.leaveRequestAdditionalInfo.length > 3) {
+            this.leaveRequestService.request(this.leaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
                 if (result != null) {
                     this.router.navigate(['/app/leave-request-result']);
                 }
-            })
-        }
-        else {
-            let enterCustomReasonToLeaveTo = $localize`:@@enterCustomReasonToLeaveTo:Por favor, escriba porque desea salir.`;
+            });
+        } else {
+            const enterCustomReasonToLeaveTo = $localize`:@@enterCustomReasonToLeaveTo:Por favor, escriba porque desea salir.`;
             alert(enterCustomReasonToLeaveTo);
         }
     }
