@@ -52,51 +52,29 @@
         </ion-row>
     </ion-grid>
 
-    <ion-grid class="main-options" *ngIf="patientService.patient?.status !== 2"><!-- este caso es cuando es todo menos NEGATIVO -->
+    <ion-grid class="main-options">
         <ion-row class="ion-align-items-center">
-            <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus != 2">
+
+            <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus == 2">
+                <div class="main-options__btn" (click)="setAtHome()">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
+                    <p class="main-options__text"  i18n="@@leaveHome">Volver <br>de casa</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">
+                <div class="main-options__btn main-options__btn--no-link">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
+                    <p class="main-options__text" i18n="@@canGoHome">Puedes salir de casa</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus !== 2 && patientService.patient?.status !== 2">
                 <div class="main-options__btn" (click)="goToRequestLeaveHome()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
                     <p class="main-options__text"  i18n="@@leaveHome">Salir <br>de casa</p>
                 </div>
             </ion-col>
 
-            <ion-col size="6" class="ion-text-center"  *ngIf="leaveStatus == 2">
-                <div class="main-options__btn" (click)="setAtHome()">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
-                    <p class="main-options__text"  i18n="@@leaveHome">Volver <br>de casa</p>
-                </div>
-            </ion-col>
-
-            <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-test-new.svg">
-                    <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
-                </div>
-            </ion-col>
-            <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn" *ngIf="!patientHasTestAppointment" (click)="goToAutotest()" >
-                    <img class="main-options__image" src="/assets/icons/svg/icon-autotest.svg">
-                    <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
-                </div>
-            </ion-col>
-            <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento.svg">
-                    <p class="main-options__text" i18n="@@tracking">Seguimiento <br>de tu salud</p>
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-    <ion-grid class="main-options" *ngIf="patientService.patient?.status === 2"> <!-- este caso es cuando es un NEGATIVO -->
-        <ion-row class="ion-align-items-center">
-            <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn main-options__btn--no-link">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-salir.svg">
-                    <p class="main-options__text" i18n="@@canGoHome">Puedes salir de casa</p>
-                </div>
-            </ion-col>
-            <ion-col size="6" class="ion-text-center">
+            <ion-col size="6" class="ion-text-center" *ngIf="patientService.patient?.status === 2">
                 <div class="main-options__btn main-options__btn--small">
                     <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
                     <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
@@ -106,10 +84,16 @@
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>
             </ion-col>
-            <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn" *ngIf="!patientHasTestAppointment" (click)="goToAutotest()" >
+            <ion-col size="6" class="ion-text-center" *ngIf="patientService.patient?.status !== 2">
+                <div class="main-options__btn">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-test-new.svg">
+                    <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
+                </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-center" *ngIf="!patientHasTestAppointment">
+                <div class="main-options__btn" (click)="goToAutotest()" >
                     <img class="main-options__image" src="/assets/icons/svg/icon-autotest.svg">
-                    <p class="main-options__text" i18n="@@autotest" >Autoevaluación <br>COVID-19</p>
+                    <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center">

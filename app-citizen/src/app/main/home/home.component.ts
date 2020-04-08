@@ -77,7 +77,7 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
 
             if (patientLoaded) {
-                this.patientService.patient.status = 4;
+                // this.patientService.patient.status = 2;
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
