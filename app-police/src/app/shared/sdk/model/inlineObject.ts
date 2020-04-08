@@ -12,7 +12,7 @@
 
 
 export interface InlineObject { 
-    healthInsuranceCardNumber: string;
+    documentNumber: string;
     status: number;
 }
 
