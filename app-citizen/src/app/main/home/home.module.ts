@@ -7,6 +7,8 @@ import {QrCodeModule} from '../../shared/qr-code/qr-code.module';
 import {RouterModule} from '@angular/router';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import { CoronaHeaderModule } from '../../shared/corona-header/corona-header.module';
+import { QRCodeModule } from 'angularx-qrcode';
+import { QrCodeComponent } from 'src/app/shared/qr-code/qr-code.component';
 
 @NgModule({
     imports: [
@@ -14,6 +16,7 @@ import { CoronaHeaderModule } from '../../shared/corona-header/corona-header.mod
         CommonModule,
         FormsModule,
         QrCodeModule,
+        QRCodeModule,
         CoronaHeaderModule,
         RouterModule.forChild([{ path: '', component: HomeComponent }])
     ],

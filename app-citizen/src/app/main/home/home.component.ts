@@ -8,7 +8,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { TestAppointmentService } from "../../shared/services/test-appointment.service";
 import { Subscription } from "rxjs";
 import { AppointmentType } from "../../../../../server/src/common/utils/enums";
-import { DocumentControllerService } from "../../shared/sdk";
+
 
 @Component({
     selector: 'home',
@@ -36,7 +36,8 @@ export class HomeComponent implements OnDestroy {
 
     public patientName: string;
 
-    constructor(protected router: Router,
+    constructor(
+        protected router: Router,
         public patientService: PatientService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
@@ -75,14 +76,18 @@ export class HomeComponent implements OnDestroy {
         }));
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
-
+            // console.log("patientLoaded: ", patientLoaded);
+            // console.log("this.patientService.patient: ", this.patientService.patient);
             if (patientLoaded) {
-                // this.patientService.patient.status = 2;
+                this.patientService.patient.status = 4;
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
+                    // console.log("this.leaveRequestService.leaveRequest: ", this.leaveRequestService.leaveRequest);
+                    // console.log("this.leaveRequestService.leaveReasons: ", this.leaveRequestService.leaveReasons);
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
 
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;
+                        // console.log("leaveStatus: ", this.leaveStatus);
                         if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestService.leaveReasons.forEach(leaveReason => {
                                 if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
@@ -98,6 +103,11 @@ export class HomeComponent implements OnDestroy {
         }));
 
     }
+
+    // openMenu() {
+    //     this.menu.enable(true, 'menu');
+    //     this.menu.open('menu');
+    // }
 
     public goToRequestLeaveHome() {
         this.router.navigate(['/app/request-leave-home'])
@@ -144,13 +154,13 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return 'result--infected';
+                return 'result__status--infected';
 
             case 3:
-                return 'result--quarentine';
+                return 'result__status--quarentine';
 
             case 2:
-                return 'result--ok';
+                return 'result__status--ok';
 
         }
     }
@@ -159,7 +169,19 @@ export class HomeComponent implements OnDestroy {
         if (!this.patientService.patient) {
             return;
         }
-        return 'qr-fake-negro';
+        switch (this.patientService.patient.status) {
+            case 4:
+                return 'qr-fake-rojo';
+
+            case 3:
+                return 'qr-fake-amarillo';
+
+            case 2:
+                return 'qr-fake-verde';
+
+            default:
+                return 'qr-fake-negro';
+        }
     }
 
     public ngOnDestroy(): void {
