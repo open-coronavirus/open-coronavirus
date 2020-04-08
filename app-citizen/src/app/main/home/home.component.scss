@@ -1,4 +1,5 @@
 .result{
+  $result: &;
   
   &__qr{
     display: block;
@@ -24,21 +25,42 @@
     margin: 0;
     line-height: 1;
     font-size: 12px;
-    line-height: 16px;
-    
-    &--quarentine{
-      color: #ffca08;
-      font-size: 16px;
+    line-height: 16px;    
+  }
+
+  &--quarentine{
+    #{ $result }{
+      &__status{
+        color: #ffca08;
+        font-size: 16px;
+      }
+      &__qr{
+        filter: invert(73%) sepia(100%) saturate(830%) hue-rotate(349deg) brightness(102%) contrast(105%);
+      }
     }
-    &--infected{
-      color: #c80f2e;
-      font-size: 16px;
-      text-transform: uppercase;
+  }
+  &--infected{
+    #{ $result }{
+      &__status{
+        color: #c80f2e;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      &__qr{
+        filter: invert(16%) sepia(44%) saturate(7056%) hue-rotate(340deg) brightness(83%) contrast(101%);
+      }
     }
-    &--ok{
-      color: #61bc7c;  
-      font-size: 16px;
-      text-transform: uppercase;
+  }
+  &--ok{
+    #{ $result }{
+      &__status{
+        color: #61bc7c;  
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      &__qr{
+        filter: invert(68%) sepia(49%) saturate(390%) hue-rotate(85deg) brightness(89%) contrast(84%);
+      }
     }
   }
 }

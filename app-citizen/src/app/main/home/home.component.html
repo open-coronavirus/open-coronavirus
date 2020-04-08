@@ -1,6 +1,6 @@
 <corona-header [showMenu]="true"></corona-header>
 <ion-content>
-    <ion-grid class="result">
+    <ion-grid class="result" [ngClass]="getClassStatus()">
         <ion-row class="ion-align-items-center" *ngIf="true">
             <ion-col size="6">
                 <img class="result__qr" [src]="'/assets/images/' + getIconStatus() + '.svg'">
@@ -9,7 +9,7 @@
                 <p class="result__title" i18n="@@identity">Identificación</p>
                 <p class="result__name">{{ patientName }}</p>
                 <p class="result__title" i18n="@@results">Resultado COVID-19</p>
-                <h3 class="result__status" [ngClass]="getClassStatus()">{{ getTextStatus() }}</h3>
+                <h3 class="result__status">{{ getTextStatus() }}</h3>
             </ion-col>
         </ion-row>
     </ion-grid>
