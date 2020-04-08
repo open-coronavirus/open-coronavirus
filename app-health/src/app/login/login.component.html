@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar class="header-app">
+        <ion-title i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <!-- LOGIN PENDIENTE UNIR CON SERVICIO EXTERNO -->
+                <!-- <div class="form-row">
+                    <h1 i18n="@@loginTitle">Identifícate</h1>
+                    <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada de la policía.</strong></p>
+                </div>
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <login-form #loginFormComponent></login-form>
+                    <div class="form-row">
+                        <small class="error" *ngIf="error"> {{ error }}</small>
+                    </div>
+                    <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</ion-button>
+                </form> -->
+
+
+                <p>Falta por implementar login contra sistema centrales</p>
+                <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</ion-button>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

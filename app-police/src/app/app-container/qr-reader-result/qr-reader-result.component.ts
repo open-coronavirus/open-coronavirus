@@ -1,9 +1,7 @@
-import { Component, ViewChild, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { UserService } from '../../shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { PatientService } from '../../shared/services/patient.service';
 import { PatientWithRelations, LeaveRequestWithRelations, LeaveRequestControllerService } from 'src/app/shared/sdk';
 
 
@@ -25,10 +23,8 @@ export class QrReaderResultComponent implements OnInit {
         private leaveRequestControllerService: LeaveRequestControllerService,
         protected location: Location) {
 
-
         this.route.queryParams.subscribe(params => {
             this.patient = JSON.parse(params['patient']);
-            console.log("consttuctor data: ", this.patient);
         });
     }
 
@@ -48,7 +44,6 @@ export class QrReaderResultComponent implements OnInit {
             loading.dismiss();
             this.leaveRequests = leaveRequests;
         }, err => {
-            console.log('getPatientDetail err: ', err);
             loading.dismiss();
         });
     }

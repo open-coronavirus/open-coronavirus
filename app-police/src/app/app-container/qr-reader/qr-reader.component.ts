@@ -1,7 +1,7 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Location } from '@angular/common';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { Router, NavigationExtras } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 import { PatientService } from '../../shared/services/patient.service';
 import { MenuController, LoadingController, NavController } from '@ionic/angular';
 import { PatientControllerService } from 'src/app/shared/sdk/api/patientController.service';
@@ -14,10 +14,7 @@ import { PatientControllerService } from 'src/app/shared/sdk/api/patientControll
 })
 export class QrReaderComponent {
 
-    private now: Date;
-
     constructor(
-        // protected router: Router,
         public navCtrl: NavController,
         public patientService: PatientService,
         public patientControllerService: PatientControllerService,
@@ -30,7 +27,6 @@ export class QrReaderComponent {
         this.barcodeScanner.scan().then(barcodeData => {
             console.log('Barcode data: ', barcodeData);
             if (barcodeData && barcodeData.text) {
-                // this.idPatient = barcodeData.text;
                 this.getPatient(barcodeData.text);
             }
         }).catch(err => {
@@ -54,12 +50,9 @@ export class QrReaderComponent {
                 // this.router.navigate(['/no-access']);
             }
         }, err => {
-            console.log("getPatient errr: ", err);
             loading.dismiss();
-            this.goDetail({ id: '33', name: 'federico' });
         });
     }
-
 
     goDetail(patient) {
         const navigationExtras: NavigationExtras = {

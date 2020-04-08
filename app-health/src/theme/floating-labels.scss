@@ -1,0 +1,198 @@
+:root {
+  --input-padding-x: .75rem;
+  --input-padding-y: .75rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 2px solid #e2e2e2 !important;
+  border-radius: 4px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.ng-invalid:not(form):not(.ng-untouched) {
+  border: 2px solid #fa755a !important;
+}
+
+.error {
+  color: #fa755a;
+}
+
+.form-row .form-group.form-label-group label {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: .3rem;
+  margin-left: -1.25rem;
+}
+
+.form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+
+.option-group {
+  width: 30%;
+  float: left;
+}
+
+.option-error {
+  clear: both;
+  width: 100%;
+  float: left;
+}
+
+.form-label-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: text;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #878e95;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+  pointer-events: none;
+}
+
+.form-label-group>input, .form-label-group>label, .form-label-group>select {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.section-title {
+  padding-top: 15px;
+}
+
+.form-row {
+
+  padding-right: 10px;
+  padding-left: 10px;
+  clear: both;
+
+  .form-group.form-label-group {
+    label {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group {
+  .form-control {
+    padding: var(--input-padding-y) var(--input-padding-x);
+    height: 50px !important;
+  }
+
+  textarea.form-control{
+    height: auto !important;
+  }
+
+  .credit-card-control {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+}
+
+
+.form-label-group > input,
+.form-label-group > select,
+.form-label-group > label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group > input,
+.form-label-group > select {
+  height: 50px !important;
+}
+
+
+.form-label-group > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: text;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #878e95;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+  pointer-events: none;
+}
+
+.form-label-group input::-webkit-input-placeholder,
+.form-label-group select::-webkit-input-placeholder
+{
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder,
+.form-label-group select:-ms-input-placeholder
+{
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder,
+.form-label-group select::-moz-placeholder
+{
+  color: transparent;
+}
+
+.form-label-group input::placeholder,
+.form-label-group select::placeholder
+{
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown),
+.form-label-group select:not(:placeholder-shown)
+{
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label,
+.form-label-group select:not(:placeholder-shown) ~ label
+{
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+

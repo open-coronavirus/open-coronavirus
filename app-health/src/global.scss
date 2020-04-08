@@ -1,0 +1,108 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "theme/fonts";
+@import "theme/floating-labels";
+
+* {
+  font-family: 'Signika', sans-serif !important;
+}
+
+.light-button {
+  --border-color: black !important;
+  --border-width: 2px !important;
+  --color: black;
+  --border-style: solid;
+  --background: white !important;
+  --background-activated: white;
+}
+
+.transparent-toolbar {
+  --background: white;
+  --border-style: none;
+}
+
+.button-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.header-app {
+  --background: #6292d3;
+  --color: white
+}
+
+.footer-app {
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --background: #fff;
+  --color: #000;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.16)
+}
+.footer-app{
+  &__title{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+  }
+  &__text{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+
+.filter-white {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(102%);
+}
+
+.filter-black {
+  filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(200%);
+}
+
+.filter-green {
+  filter: invert(62%) sepia(20%) saturate(699%) hue-rotate(85deg) brightness(94%) contrast(88%);
+}
+
+.footer-buttons-container {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.footer-labels-container {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  padding-bottom: 20px;
+}
+
+.emoji-thinking-face::before  {
+  content: "\01F914";
+}
