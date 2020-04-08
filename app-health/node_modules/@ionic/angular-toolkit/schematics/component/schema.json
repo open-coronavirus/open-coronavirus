@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsIonicAngularComponent",
+  "title": "@ionic/angular Component Options Schema",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the page",
+      "visible": false
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the page",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The prefix to apply to generated selectors",
+      "alias": "p",
+      "oneOf": [
+        {
+          "maxLength": 0
+        },
+        {
+          "minLength": 1,
+          "format": "html-selector"
+        }
+      ]
+    },
+    "styleext": {
+      "type": "string",
+      "description": "The file extension of the style file for the page",
+      "default": "css"
+    },
+    "spec": {
+      "type": "boolean",
+      "description": "Specifies if a spec file is generated",
+      "default": true
+    },
+    "flat": {
+      "type": "boolean",
+      "description": "Flag to indicate if a dir is created",
+      "default": false
+    },
+    "selector": {
+      "type": "string",
+      "format": "html-selector",
+      "description": "The selector to use for the page"
+    },
+    "createModule":  {
+      "type": "boolean",
+      "description": "Allows creating an NgModule for the component",
+      "default": false
+    },
+    "module": {
+      "type": "string",
+      "description": "Allows adding to an NgModule's imports or declarations"
+    },
+    "export": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the declaring NgModule exports this component."
+    },
+    "entryComponent": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the new component is the entry component of the declaring NgModule."
+    }
+  },
+  "required": []
+}

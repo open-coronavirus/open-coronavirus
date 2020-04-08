@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {QrCodeModule} from '../../shared/qr-code/qr-code.module';
 import {RouterModule} from '@angular/router';
 import {  UserInfoComponent } from './user-info.component';
+import { AvatarModule } from '../../shared/avatar/avatar.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {  UserInfoComponent } from './user-info.component';
         CommonModule,
         FormsModule,
         QrCodeModule,
+        AvatarModule,
         RouterModule.forChild([{path: '', component: UserInfoComponent}])
     ],
     declarations: [UserInfoComponent]

@@ -1,11 +1,4 @@
-<ion-header>
-  <ion-toolbar class="header-app">
-      <!--ion-buttons slot="start">
-          <ion-menu-button class="menu" (click)="openMenu()" autoHide="false"></ion-menu-button>
-      </ion-buttons-->
-      <ion-title i18n="@@headerTitle"><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
-  </ion-toolbar>
-</ion-header>
+<corona-header></corona-header>
 <ion-content class="result">
   <ion-grid>
 <!--
@@ -35,10 +28,13 @@
       <ion-col size="3">
         <img class="result__qr" [src]="'/assets/images/qr-fake-verde.svg'">
       </ion-col>
-      <ion-col size="9">
+      <ion-col size="9" [ngSwitch]="patient?.status">
         <p class="result__citizen">Ciudadano</p>
-        <p class="result__name">Marsisa García Pérez</p>
-        <h3 class="result__status result__status--ok">Limpio</h3>
+        <p class="result__name">{{patient?.firstName}} {{patient?.lastName}}</p>
+        <h3 class="result__status" *ngSwitchCase="1">Desconocido</h3>
+        <h3 class="result__status result__status--ok" *ngSwitchCase="2">Negativo</h3>
+        <h3 class="result__status result__status--quarentine" *ngSwitchCase="3">Cuarentena obligatoria</h3>
+        <h3 class="result__status result__status--infected" *ngSwitchCase="4">Positivo</h3>
       </ion-col>
     </ion-row>
 
@@ -47,35 +43,39 @@
     <div class="result__box">
       <div class="result__box-item">
         <p class="result__box-title">DNI</p>
-        <p class="result__box-value">734567849-F</p>
+        <p class="result__box-value">{{patient?.documentNumber}}</p>
       </div>
       <div class="result__box-item">
         <p class="result__box-title">Edad</p>
-        <p class="result__box-value">38 años</p>
+        <p class="result__box-value">{{patient?.age}} años</p>
       </div>
       <div class="result__box-item">
         <p class="result__box-title">Dirección</p>
-        <p class="result__box-value">C/ Bailén 12 4A Alicante (04003)</p>
+        <p class="result__box-value">{{patient?.street}} {{patient?.apartment}} ({{patient?.postalCode}})</p>
       </div>
     </div>
     <span class="result__map">Ver mapa movilidad</span>
+    
     <div class="result__timeline">
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante 2h</strong></p>
-        <p class="result__timeline-item-time">15/02/2020 20.30h</p>
-      </div>
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity">Se encuentra en casa</p>
-        <p class="result__timeline-item-time">15/02/2020 12.30h</p>
-      </div>
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity">Solicitud salir a comprar alimentos</p>
-        <p class="result__timeline-item-time">15/02/2020 9.30h</p>
-      </div>
-      <div class="result__timeline-item">
-        <p class="result__timeline-item-activity">Solicitud salir a comprar medicina</p>
-        <p class="result__timeline-item-time">14/02/2020 17.30h</p>
-      </div>
+
+      <ng-container *ngFor="let leaveRequest of leaveRequests">
+
+        <div class="result__timeline-item" *ngIf="leaveRequest.backToHomeTimestamp">
+          <p class="result__timeline-item-activity">Vuelta a casa</p>
+          <p class="result__timeline-item-time">{{leaveRequest.backToHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div>
+        
+        <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status >= 3">
+          <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}} horas</strong></p>
+        </div>
+
+        <div class="result__timeline-item">
+          <p class="result__timeline-item-activity">Salida de casa</p>
+          <p class="result__timeline-item-time">{{leaveRequest.outOfHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div>
+
+      </ng-container>
+      
     </div>
   </div>
 </ion-content>

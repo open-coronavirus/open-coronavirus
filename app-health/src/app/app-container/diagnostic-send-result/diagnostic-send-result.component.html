@@ -1,0 +1,21 @@
+<corona-header></corona-header>
+<ion-content class="result">
+  <h3 i18n="@@titleSendDiagnosticResult">Test diagnóstico SARS-CoV-2 actualizado</h3>
+  <p i18n="@@descriptionSendDiagnosticResult">Se ha introducido el test diagnóstico del paciente correctamente</p>
+
+  <div>
+    <p i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
+    <span>{{ patient.healthInsuranceCardNumber }}</span>
+    <br>
+    <p i18n="@@patientName">Nombre del paciente</p>
+    <span>{{ patient.firstName + ' ' + patient.lastName }}</span>
+    <br>
+    <p i18n="@@patientStatus">Estado del paciente</p>
+    <span>{{ patient.status }}</span>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button class="result__ok" (click)="goBack()" expand="block" i18n="@@okButton">OK</ion-button>
+  </ion-toolbar>
+</ion-footer>

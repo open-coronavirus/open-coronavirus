@@ -1,10 +1,10 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Location } from '@angular/common';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { Router, NavigationExtras } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 import { PatientService } from '../../shared/services/patient.service';
 import { MenuController, LoadingController, NavController } from '@ionic/angular';
-
+import { PatientControllerService } from 'src/app/shared/sdk/api/patientController.service';
 
 @Component({
     selector: 'qr-reader',
@@ -15,25 +15,24 @@ import { MenuController, LoadingController, NavController } from '@ionic/angular
 export class QrReaderComponent {
 
     constructor(
-        // protected router: Router,
         public navCtrl: NavController,
         public patientService: PatientService,
+        public patientControllerService: PatientControllerService,
         protected barcodeScanner: BarcodeScanner,
         public loadingController: LoadingController,
         protected menu: MenuController,
-        protected location: Location) { }
+        protected location: Location) {}
 
     scanQR() {
         this.barcodeScanner.scan().then(barcodeData => {
             console.log('Barcode data: ', barcodeData);
             if (barcodeData && barcodeData.text) {
-                // this.idPatient = barcodeData.text;
                 this.getPatient(barcodeData.text);
             }
         }).catch(err => {
             console.error('Error scanQR: ', err);
             // Test
-            this.getPatient('33');
+            this.getPatient('5e8815c411000f36890151fd');
         });
     }
 
@@ -42,24 +41,18 @@ export class QrReaderComponent {
             message: $localize`:@@pleaseWait:Por favor, espere`
         });
         await loading.present();
-
-        this.patientService.getPatient(idPatient).subscribe(patient => {
+        this.patientControllerService.patientControllerGetByQrCode(idPatient).subscribe(patient => {
             loading.dismiss();
-            if (patient != null && patient != false) {
-                loading.dismiss();
+            if (patient != null && patient !== false) {
                 this.goDetail(patient);
             } else {
                 // no patient foundit
-                loading.dismiss();
                 // this.router.navigate(['/no-access']);
             }
         }, err => {
-            console.log("getPatient errr: ", err);
             loading.dismiss();
-            this.goDetail({ id: '33', name: 'federico' });
         });
     }
-
 
     goDetail(patient) {
         const navigationExtras: NavigationExtras = {
@@ -70,10 +63,6 @@ export class QrReaderComponent {
         this.navCtrl.navigateForward(['app/qr-reader-result'], navigationExtras);
     }
 
-    openMenu() {
-        this.menu.enable(true, 'menu');
-        this.menu.open('menu');
-    }
 
     public goBack() {
         this.location.back();

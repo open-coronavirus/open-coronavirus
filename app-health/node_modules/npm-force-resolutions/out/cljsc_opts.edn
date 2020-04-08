@@ -1,0 +1,1 @@
+{:target :nodejs, :output-to "index.js", :main npm-force-resolutions.core, :output-dir "out", :aot-cache true}

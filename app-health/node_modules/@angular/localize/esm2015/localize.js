@@ -1,0 +1,12 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// This file contains the public API of the `@angular/localize` entry-point
+export { clearTranslations, loadTranslations } from './src/translate';
+// Exports that are not part of the public API
+export * from './private';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibG9jYWxpemUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9sb2NhbGl6ZS9sb2NhbGl6ZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCwyRUFBMkU7QUFFM0UsT0FBTyxFQUFDLGlCQUFpQixFQUFFLGdCQUFnQixFQUFDLE1BQU0saUJBQWlCLENBQUM7QUFFcEUsOENBQThDO0FBQzlDLGNBQWMsV0FBVyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBJbmMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG4vLyBUaGlzIGZpbGUgY29udGFpbnMgdGhlIHB1YmxpYyBBUEkgb2YgdGhlIGBAYW5ndWxhci9sb2NhbGl6ZWAgZW50cnktcG9pbnRcblxuZXhwb3J0IHtjbGVhclRyYW5zbGF0aW9ucywgbG9hZFRyYW5zbGF0aW9uc30gZnJvbSAnLi9zcmMvdHJhbnNsYXRlJztcblxuLy8gRXhwb3J0cyB0aGF0IGFyZSBub3QgcGFydCBvZiB0aGUgcHVibGljIEFQSVxuZXhwb3J0ICogZnJvbSAnLi9wcml2YXRlJzsiXX0=

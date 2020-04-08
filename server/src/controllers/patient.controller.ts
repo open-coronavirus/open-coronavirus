@@ -114,6 +114,28 @@ export class PatientController {
     return this.patientRepository.updateAll(patient, where);
   }
 
+  @get('/patients/scan/{qrcode}', {
+    responses: {
+      '200': {
+        description: 'Get patient by qr-code scan',
+      },
+      '404': {
+        description: 'Patient not found',
+      }
+    },
+  })
+  async getByQrCode(
+    @param.path.string('qrcode') qrcode: string,
+  ): Promise<Patient> {
+    return await this.patientRepository.findById(qrcode).then(patient => {
+      if (patient != null) {
+        return patient;
+      } else {
+        throw new HttpErrors[404];
+      }
+    });
+  }
+
   @get('/patients/{id}', {
     responses: {
       '200': {
@@ -162,12 +184,12 @@ export class PatientController {
     },
   })
   async updateStatus(
-      @param.path.string('id') id: string,
-      @requestBody() status: number,
+    @param.path.string('id') id: string,
+    @requestBody() status: number,
   ): Promise<void> {
 
     await this.patientRepository.findById(id).then(patient => {
-      if(patient != null) {
+      if (patient != null) {
         patient.status = status;
         this.patientRepository.replaceById(id, patient);
       }
@@ -175,9 +197,9 @@ export class PatientController {
 
   }
 
-  @post('/patients/healthInsuranceCardNumber/{healthInsuranceCardNumber}/status', {
+  @put('/patients/status', {
     responses: {
-      '204': {
+      '200': {
         description: 'Update patient status success',
       },
       '404': {
@@ -185,20 +207,35 @@ export class PatientController {
       }
     },
   })
-  async updateStatusByHealthInsuranceCardNumber(
-    @param.path.string('healthInsuranceCardNumber') healthInsuranceCardNumber: string,
-    @requestBody() status: number,
-  ): Promise<void> {
+  async updateStatusByDocumentNumber(
+    @requestBody({
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              documentNumber: { type: 'string' },
+              status: { type: 'number' }
+            },
+            required: ['documentNumber', 'status']
+          }
+        }
+      },
+    })
+    body: any,
+  ): Promise<Patient | null> {
     let filter = {
       "where": {
-        "healthInsuranceCardNumber": healthInsuranceCardNumber
+        "documentNumber": body.documentNumber
       }
     };
 
-    await this.patientRepository.findOne(filter).then(patient => {
+    return await this.patientRepository.findOne(filter).then(patient => {
       if (patient != null) {
-        patient.status = status;
+        patient.status = body.status;
         this.patientRepository.update(patient);
+        return patient;
       } else {
         throw new HttpErrors[404];
       }

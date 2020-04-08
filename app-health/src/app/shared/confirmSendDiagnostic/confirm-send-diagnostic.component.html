@@ -1,0 +1,16 @@
+<ion-content>
+  <h2 i18n="@@confirmationSendTitle">¿Estás seguro de subir el test diagnóstico del paciente?</h2>
+
+  <p i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
+  <span>{{ dataForm.identifier }}</span>
+  <br>
+  <p i18n="@@patientStatus">Estado del paciente</p>
+  <span>{{ dataForm.status }}</span>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button class="result__ok" (click)="clickOK()" expand="block" i18n="@@okButton">Sí, estoy seguro</ion-button>
+    <ion-button class="result__ok" (click)="clickKO()" expand="block" i18n="@@koButton">Volver</ion-button>
+  </ion-toolbar>
+</ion-footer>

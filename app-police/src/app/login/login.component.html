@@ -1,36 +1,30 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-title i18n="@@headerTitle"><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
+        <ion-title i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
     <ion-grid>
         <ion-row>
             <ion-col>
-                <div class="form-row">
-                    <h1 i18n="@@logiTitle">Login</h1>
+                 <!-- LOGIN PENDIENTE UNIR CON SERVICIO EXTERNO -->
+                <!-- <div class="form-row">
+                    <h1 i18n="@@loginTitle">Identifícate</h1>
+                    <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada de la policía.</strong></p>
                 </div>
+
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <login-form #loginFormComponent></login-form>
-                    <!-- <div class="form-row">
-                        <div class="form-group form-check">
-                            <input formControlName="acceptterms" name="acceptterms" class="form-check-input" id="acceptterms" type="checkbox">
-                            <label for="acceptterms" i18n="@@accepttermsLabel">Acepto las condiciones de uso y políticas de privacidad</label>
-                            <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit" i18n="@@accepttermsError">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
-                        </div>
-                    </div> -->
                     <div class="form-row">
                         <small class="error" *ngIf="error"> {{ error }}</small>
                     </div>
                     <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</ion-button>
-                    <!-- <div class="d-none d-lg-block d-lg-flex justify-content-end">
-                        <div>
-                            <small class="error" *ngIf="(!loginPatientForm.isValid || acceptterms.invalid) && formTriedToSubmit" i18n="@@registerFormError">
-                                Ups! Te faltan campos por rellenar <span class="emoji-thinking-face"></span>
-                            </small>
-                        </div>
-                    </div> -->
-                </form>
+                </form> -->
+
+
+                <p>Falta por implementar login contra sistema centrales</p>
+                <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</ion-button>
+
             </ion-col>
         </ion-row>
     </ion-grid>
