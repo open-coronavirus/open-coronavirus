@@ -1,0 +1,24 @@
+<ion-menu side="start" menuId="menu" contentId="main">
+    <ion-header>
+        <ion-list>
+            <div class="menu-item-header menu-separator" (click)="goToHome()">
+                <avatar [userName]="userName"></avatar>
+                <div class="patient-name-in-menu">{{ userName }}</div>
+            </div>
+        </ion-list>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <div class="menu-item" (click)="goToIdentity()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@coronavirusIdentityUserMenuLabel">Identificar a un usuario</ng-container></div>
+        </ion-list>
+    </ion-content>
+    <ion-toolbar>
+        <ion-list>
+            <div class="menu-item" (click)="goToMyInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container></div>
+            <div class="menu-item" (click)="goExit()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@exitMenuLabel">Salir</ng-container></div>
+        </ion-list>
+    </ion-toolbar>
+</ion-menu>
+
+<!-- the main content -->
+<ion-router-outlet class="app-router-outlet" id="main"></ion-router-outlet>
