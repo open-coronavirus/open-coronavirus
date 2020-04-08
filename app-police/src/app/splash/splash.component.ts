@@ -19,15 +19,16 @@ export class SplashComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.userService.userLoaded$.subscribe(loaded => {
-            if (loaded) {
-                this.router.navigate(['app/qr-reader']);
-            }
-        });
+        // Code auto-enter login
+        // this.userService.userLoaded$.subscribe(loaded => {
+        //     if (loaded) {
+        //         this.router.navigate(['app/qr-reader']);
+        //     }
+        // });
     }
 
     public enter() {
-        this.router.navigate(['app/qr-reader']);
+        this.router.navigate(['login']);
     }
 
 }

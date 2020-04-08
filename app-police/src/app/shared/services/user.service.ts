@@ -82,6 +82,7 @@ export class UserService {
         let returnValue = new Subject();
         this.authController.authControllerPoliceOfficerLogin({ uniqueId: userCredentials.uniqueId, password: userCredentials.password }).subscribe(res => {
             if (res) {
+                this.loadUser(res.id);
                 this.nativeStorage.setItem(UserService.USER_TOKEN_KEY, res.id).then(result => { });
                 returnValue.next(res);
             } else {

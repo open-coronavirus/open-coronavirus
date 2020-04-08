@@ -38,29 +38,30 @@ export class LoginComponent {
     }
 
     async login() {
-        if (this.loginFormComponent.isValid) {
-            const loading = await this.loadingController.create({
-                message: 'Por favor, espere...'
-            });
-            await loading.present();
+        // if (this.loginFormComponent.isValid) {
+        //     const loading = await this.loadingController.create({
+        //         message: 'Por favor, espere...'
+        //     });
+        //     await loading.present();
 
-            this.userCredentials = this.loginFormComponent.user;
-            this.userService.login(this.userCredentials).subscribe(res => {
-                loading.dismiss();
-                if (res != null && res !== false) {
-                    this.router.navigate(['/app/qr-reader']);
-                } else {
-                    // go to error page
-                    this.error = 'Usuario no válido';
-                }
-            }, err => {
-                // console.log("login: ", err);
-                loading.dismiss();
-                this.error = err.message;
+        //     this.userCredentials = this.loginFormComponent.user;
+        //     this.userService.login(this.userCredentials).subscribe(res => {
+        //         loading.dismiss();
+        //         if (res != null && res !== false) {
+        //             this.router.navigate(['/app/qr-reader']);
+        //         } else {
+        //             // go to error page
+        //             this.error = 'Usuario no válido';
+        //         }
+        //     }, err => {
+        //         // console.log("login: ", err);
+        //         loading.dismiss();
+        //         this.error = err.message;
 
-            });
+        //     });
+        // }
 
-        }
+
     }
 
     async presentLoading() {
@@ -72,6 +73,11 @@ export class LoginComponent {
 
         const { role, data } = await loading.onDidDismiss();
         console.log('Loading dismissed!');
+    }
+
+    loginDemo() {
+        this.userService.user = { "id": "1", "uniqueId": "244124", "firstName": "Pedro", "lastName": "Garrido Jiménez", "hash": "asdfasdf", "documentNumber": "123456789B", "age": 25, "street": "San Juan nº 33", "city": "Alicante", "postalCode": "03640", "position": "Policía Nacional" };
+        this.router.navigate(['/app/qr-reader']);
     }
 
 }
