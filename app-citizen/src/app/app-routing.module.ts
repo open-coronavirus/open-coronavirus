@@ -47,9 +47,19 @@ const routes: Routes = [
         path: 'permissions',
         children: [
             {
-                path: '',
+                path: '/push',
                 loadChildren: () =>
-                    import('./permissions/permissions.module').then(m => m.PermissionsModule)
+                    import('./permissions-push/permissions-push.module').then(m => m.PermissionsPushModule)
+            },
+            {
+                path: 'gps',
+                loadChildren: () =>
+                    import('./permissions-gps/permissions-gps.module').then(m => m.PermissionsGpsModule)
+            },
+            {
+                path: 'bluetooth',
+                loadChildren: () =>
+                    import('./permissions-bluetooth/permissions-bluetooth.module').then(m => m.PermissionsBluetoothModule)
             }
         ]
     },
