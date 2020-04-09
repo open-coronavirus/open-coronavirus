@@ -76,18 +76,13 @@ export class HomeComponent implements OnDestroy {
         }));
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
-            // console.log("patientLoaded: ", patientLoaded);
-            // console.log("this.patientService.patient: ", this.patientService.patient);
             if (patientLoaded) {
-                this.patientService.patient.status = 4;
+                // this.patientService.patient.status = 2;
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
-                    // console.log("this.leaveRequestService.leaveRequest: ", this.leaveRequestService.leaveRequest);
-                    // console.log("this.leaveRequestService.leaveReasons: ", this.leaveRequestService.leaveReasons);
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
 
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;
-                        // console.log("leaveStatus: ", this.leaveStatus);
                         if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestService.leaveReasons.forEach(leaveReason => {
                                 if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
@@ -103,11 +98,6 @@ export class HomeComponent implements OnDestroy {
         }));
 
     }
-
-    // openMenu() {
-    //     this.menu.enable(true, 'menu');
-    //     this.menu.open('menu');
-    // }
 
     public goToRequestLeaveHome() {
         this.router.navigate(['/app/request-leave-home'])
@@ -154,13 +144,30 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return 'result__status--infected';
+                return 'result--infected';
 
             case 3:
-                return 'result__status--quarentine';
+                return 'result--quarentine';
 
             case 2:
-                return 'result__status--ok';
+                return 'result--ok';
+
+        }
+    }
+
+    getColorStatus() {
+        if (!this.patientService.patient) {
+            return;
+        }
+        switch (this.patientService.patient.status) {
+            case 4:
+                return '#c80f2eff';
+
+            case 3:
+                return '#ffca08ff';
+
+            case 2:
+                return '#61bc7cff';
 
         }
     }

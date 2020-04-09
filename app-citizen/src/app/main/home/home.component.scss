@@ -34,9 +34,6 @@
         color: #ffca08;
         font-size: 16px;
       }
-      &__qr{
-        filter: invert(73%) sepia(100%) saturate(830%) hue-rotate(349deg) brightness(102%) contrast(105%);
-      }
     }
   }
   &--infected{
@@ -45,9 +42,6 @@
         color: #c80f2e;
         font-size: 16px;
         text-transform: uppercase;
-      }
-      &__qr{
-        filter: invert(16%) sepia(44%) saturate(7056%) hue-rotate(340deg) brightness(83%) contrast(101%);
       }
     }
   }
@@ -58,12 +52,21 @@
         font-size: 16px;
         text-transform: uppercase;
       }
-      &__qr{
-        filter: invert(68%) sepia(49%) saturate(390%) hue-rotate(85deg) brightness(89%) contrast(84%);
-      }
     }
   }
 }
+.qrcode {
+  text-align: center !important;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+}
+
 
 .main-options{
   &__btn{
@@ -152,51 +155,4 @@
     margin: 0 10px 0 0;
     width: 14px;
   }
-}
-
-.appointment-info {
-  font-size: 14px;
-  display: flex;
-  align-items: start;
-  margin-left: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: black;
-  text-align: left !important;
-  vertical-align: middle;
-  word-break: keep-all;
-  white-space: normal;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  background-color: #f3f3f3;
-}
-
-.appointment-info-icon {
-  height: 25px;
-  width: auto;
-  padding-right: 10px;
-}
-
-.auth-code-label {
-  text-align: center;
-  color: #848484;
-}
-
-.leave-status {
-  padding-bottom: 10px;
-  text-align: center;
-  color: #848484;
-}
-
-.leave-reason {
-  color: black;
-}
-
-.patient-name {
-  text-align: center;
-  color: black;
 }

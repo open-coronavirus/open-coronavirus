@@ -1,34 +1,58 @@
-<ion-menu side="start" menuId="menu" contentId="main">
+<ion-menu class="menu" side="start" menuId="menu" contentId="main">
     <ion-header>
-        <ion-list>
-            <div class="menu-item-header menu-separator" (click)="goToHome()">
-                <div class="circle circle-gray">{{patientInitials}}</div>
-                <div class="patient-name-in-menu">{{patientName}}</div>
-            </div>
-        </ion-list>
+        <div class="menu__header menu__separator" (click)="goToHome()">
+            <div class="menu__header-circle">{{patientInitials}}</div>
+            <div class="menu__header-name">{{patientName}}</div>
+        </div>
     </ion-header>
     <ion-content>
-        <ion-list>
-            <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu-item menu-separator" (click)="goToRequestLeaveHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container></div>
+        <div>
+            <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu__item" (click)="goToRequestLeaveHome()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
+                <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container>
+            </div>
 
-            <div *ngIf="leaveStatus == 2" class="menu-item menu-separator" (click)="setAtHome()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-volver-casa.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container></div>
+            <div *ngIf="leaveStatus == 2" class="menu__item" (click)="setAtHome()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-entrar-black.svg">
+                <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
+            </div>
 
-            <div class="menu-item" (click)="requestTest()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container></div>
+            <div class="menu__item" (click)="requestTest()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-test-black.svg">
+                <ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container>
+            </div>
 
-            <div class="menu-item" (click)="goToAutotest()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@autotestMenuLabel">Autoevaluación COVID-19</ng-container></div>
+            <div class="menu__item" (click)="goToAutotest()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-autotest-black.svg">
+                <ng-container i18n="@@autotestMenuLabel">Autoevaluación COVID-19</ng-container>
+            </div>
 
-            <div class="menu-item" (click)="goToTracking()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@trckingMenuLabel">Seguimiento de tu salud</ng-container></div>
+            <div class="menu__item menu__separator" (click)="goToTracking()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-seguimiento-black.svg">
+                <ng-container i18n="@@trckingMenuLabel">Seguimiento de tu salud</ng-container>
+            </div>
+            <div class="menu__item" (click)="goToMyInfo()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">
+                <ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container>
+            </div>
 
-            <!-- <div class="menu-item" (click)="goToCoronavirusInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@coronavirusInfoMenuLabel">Información sobre el coronavirus</ng-container></div> -->
-        </ion-list>
+            <!-- <div class="menu__item" (click)="goToCoronavirusInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg"><ng-container i18n="@@coronavirusInfoMenuLabel">Información sobre el coronavirus</ng-container></div> -->
+        </div>
     </ion-content>
     <ion-toolbar>
-        <ion-list>
-            <div class="menu-item" (click)="goToMyInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container></div>
-            <div class="menu-item" (click)="share()"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@shareMenuLabelLine1">Compartir App</ng-container><br /><ng-container i18n="@@shareMenuLabelLine2">para luchar juntos</ng-container></div>
-            <div class="menu-item" (click)="showPrivacityConditions($event)"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">&nbsp;&nbsp;&nbsp;
-            <ng-container i18n="@@privacityConditions">Condiciones de uso y política de privacidad</ng-container></div>
-        </ion-list>
+        <div>
+            <div class="menu__item menu__item--sm" (click)="share()">
+                <img class="button-icon" src="/assets/icons/svg/icon-info.svg">
+                <ng-container i18n="@@InfoMenuLabel">Información sobre el coronavirus</ng-container>
+            </div>
+            <div class="menu__item menu__item--sm" (click)="share()">
+                <img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">
+                <ng-container i18n="@@shareMenuLabel">Compartir App para luchar juntos</ng-container>
+            </div>
+            <div class="menu__item menu__item--xs" (click)="showPrivacityConditions($event)">
+                <ng-container i18n="@@privacityConditions">Condiciones de uso y política de privacidad</ng-container>
+            </div>
+        </div>
     </ion-toolbar>
 </ion-menu>
 
