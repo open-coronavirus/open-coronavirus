@@ -36,6 +36,12 @@ export class Patient extends Entity {
   healthInsuranceCardNumber: string;
 
   @property({
+    type: 'date',
+    required: true,
+  })
+  birthday: Date;
+
+  @property({
     type: 'number',
     required: false,
   })
