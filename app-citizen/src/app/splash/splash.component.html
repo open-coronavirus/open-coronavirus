@@ -1,16 +1,10 @@
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <div class="title-splash">
-                    <ng-container i18n="@@introductionHeaderLine1">Luchemos juntos</ng-container><br /><ng-container i18n="@@introductionHeaderLine2">contra el</ng-container>
-                    <img class="coronavirus" src="/assets/images/coronavirus.png">
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+  <div class="title-splash">
+    <img class="coronavirus" src="/assets/icons/svg/texto-icono.svg">
+  </div>
 </ion-content>
-<div class="footer-buttons-container">
-    <div class="footer-labels-container" i18n="@@introductionTip">Informate, avisa y si te encuentras mal pide que te hagan el test del coronavirus</div>
-    <ion-button color="dark" (click)="goToRegister()" expand="block" i18n="@@enter">ENTRAR</ion-button>
-</div>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="clickEnter()" expand="block" i18n="@@enter">ENTRAR</ion-button>
+  </ion-toolbar>
+</ion-footer>

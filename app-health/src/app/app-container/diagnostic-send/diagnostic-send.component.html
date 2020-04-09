@@ -1,0 +1,31 @@
+<corona-header></corona-header>
+<ion-content>
+    <div class="send-diagnostic">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <h3 i18n="@@titleSendDiagnostic">Subir diagnóstico</h3>
+                    <p i18n="@@descriptionSendDiagnostic">Introduce el <strong>identificador del paciente</strong> que quieres informar del resultado del test</p>
+
+                    <p class="error" *ngIf="patientError" i18n="@@errorIdentierNotFound">El identificador es incorrecto o no existe ningún paciente con este identificador</p>
+                    <ion-input
+                        name="identifier"
+                        type="text"
+                        [(ngModel)]="dataForm.identifier"
+                        (keypress)="onKeyPressed($event)"
+                        (keyup)="onKeyUp($event)"
+                        [ngClass]="{'field-error' : dataForm.error_identifier}"
+                        >
+                    </ion-input>
+                    <p *ngIf="dataForm.intent_send && dataForm.error_identifier" class=""  i18n="@@errorIdentierNoFill">Debe rellenar el campo identificador</p>
+
+                    <ul>
+                        <li (click)="setStatus(key)" [ngClass]="{'status-selected' : dataForm.status === key}" *ngFor='let key of  [1,2,3,4]'>{{ getNameStatus(key) }}</li>
+                    </ul>
+
+                  <ion-button color="dark" (click)="clickSend()" expand="block" i18n="@@sendDiagnostic">SUBIR</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

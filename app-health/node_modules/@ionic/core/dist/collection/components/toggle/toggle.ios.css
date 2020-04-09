@@ -1,0 +1,179 @@
+:host {
+  /**
+   * @prop --background: Background of the toggle
+   * @prop --background-checked: Background of the toggle when checked
+   * @prop --handle-background: Background of the toggle handle
+   * @prop --handle-background-checked: Background of the toggle handle when checked
+   * @prop --border-radius: Border radius of the toggle track
+   * @prop --handle-border-radius: Border radius of the toggle handle
+   */
+  /* stylelint-disable-next-line declaration-no-important */
+  box-sizing: content-box !important;
+  display: inline-block;
+  outline: none;
+  contain: content;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  z-index: 2;
+}
+
+:host(.ion-focused) input {
+  border: 2px solid #5e9ed6;
+}
+
+:host(.toggle-disabled) {
+  pointer-events: none;
+}
+
+button {
+  left: 0;
+  top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+}
+[dir=rtl] button, :host-context([dir=rtl]) button {
+  left: unset;
+  right: unset;
+  right: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+:host {
+  --background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.088);
+  --background-checked: var(--ion-color-primary, #3880ff);
+  --handle-background: #ffffff;
+  --handle-background-checked: #ffffff;
+  --border-radius: 16px;
+  --handle-border-radius: 14px;
+  box-sizing: content-box;
+  position: relative;
+  width: 51px;
+  height: 32px;
+  contain: strict;
+}
+
+:host(.ion-color.toggle-checked) .toggle-icon {
+  background: var(--ion-color-base);
+}
+
+.toggle-icon {
+  border-radius: var(--border-radius);
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+  transition: background-color 300ms;
+  background: var(--background);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.toggle-inner {
+  left: 2px;
+  top: 2px;
+  border-radius: var(--handle-border-radius);
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms, right 110ms ease-in-out 80ms;
+  background: var(--handle-background);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 1px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+  contain: strict;
+}
+[dir=rtl] .toggle-inner, :host-context([dir=rtl]) .toggle-inner {
+  left: unset;
+  right: unset;
+  right: 2px;
+}
+
+:host(.toggle-checked) .toggle-icon {
+  background: var(--background-checked);
+}
+
+:host(.toggle-activated) .toggle-icon::before,
+:host(.toggle-checked) .toggle-icon::before {
+  transform: scale3d(0, 0, 0);
+}
+
+:host(.toggle-checked) .toggle-inner {
+  transform: translate3d(19px,  0,  0);
+  background: var(--handle-background-checked);
+}
+:host-context([dir=rtl]):host(.toggle-checked) .toggle-inner, :host-context([dir=rtl]).toggle-checked .toggle-inner {
+  transform: translate3d(calc(-1 * 19px),  0,  0);
+}
+
+:host(.toggle-activated.toggle-checked) .toggle-inner::before {
+  transform: scale3d(0, 0, 0);
+}
+
+:host(.toggle-activated) .toggle-inner {
+  width: 34px;
+}
+
+:host(.toggle-activated.toggle-checked) .toggle-inner {
+  left: -4px;
+}
+:host-context([dir=rtl]):host(.toggle-activated.toggle-checked) .toggle-inner, :host-context([dir=rtl]).toggle-activated.toggle-checked .toggle-inner {
+  left: unset;
+  right: unset;
+  right: -4px;
+}
+
+:host(.toggle-disabled) {
+  opacity: 0.3;
+}
+
+:host(.in-item[slot]) {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+}
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  :host(.in-item[slot]) {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: 20px;
+    padding-inline-start: 20px;
+    -webkit-padding-end: 10px;
+    padding-inline-end: 10px;
+  }
+}
+
+:host(.in-item[slot=start]) {
+  padding-left: 0;
+  padding-right: 16px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+}
+@supports (margin-inline-start: 0) or (-webkit-margin-start: 0) {
+  :host(.in-item[slot=start]) {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: 0;
+    padding-inline-start: 0;
+    -webkit-padding-end: 16px;
+    padding-inline-end: 16px;
+  }
+}

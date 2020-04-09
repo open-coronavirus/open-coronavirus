@@ -17,12 +17,14 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { UserService } from './shared/services/user.service';
 import { PatientService } from './shared/services/patient.service';
+import { AvatarModule } from './shared/avatar/avatar.module';
 
 @NgModule({
     declarations: [AppComponent, AppContainerComponent],
     entryComponents: [],
     imports: [BrowserModule,
         HttpClientModule,
+        AvatarModule,
         IonicModule.forRoot({
             mode: 'ios'
         }),

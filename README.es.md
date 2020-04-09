@@ -37,7 +37,7 @@ cuarentena obligatorio para contagiados o posibles contagiados.
 identificación del ciudadano en los entornos que se decidan así como monitorizar
 su movilidad.
 
-| ![Apps Open Coronavirus](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-apps.jpg) | 
+| ![Apps Open Coronavirus](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-app-3.jpg) | 
 |:--:| 
 | *Ejemplo de las 3 aplicaciones para distintos tipos de usuarios* |
 
@@ -62,9 +62,6 @@ Para más información puedes consultar la [wiki del proyecto](https://github.co
 * [06. Idiomas](https://github.com/open-coronavirus/open-coronavirus/wiki/06.-Idiomas)
 
 
-| ![Ejemplo funcionando de la APP del ciudadano](https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/opencoronavirus-workflow.gif) | 
-|:--:| 
-| *Ejemplo funcionando de la APP del ciudadano* |
 
 
 ## ¿Por qué hemos hecho Open Coronavirus?
@@ -166,10 +163,13 @@ Esto permite ejecutar la app en un browser.
 
 | | | |  
 |:--:|:--:| :--:|  
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1.png" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2.png" alt="Pantalla 2" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3.png" alt="Pantalla 3" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4.png" alt="Pantalla 4" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5.png" alt="Pantalla 5" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6.png" alt="Pantalla 6" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7.png" alt="Pantalla 7" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8.png" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen-9.jpg" alt="Pantalla 9" width="250"/>
-| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen-10.jpg" alt="Pantalla 10" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1-es-2.jpg" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2-es-2.jpg" alt="Pantalla 2" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3-es-2.jpg" alt="Pantalla 3" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4-es-2.jpg" alt="Pantalla 4" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5-es-2.jpg" alt="Pantalla 5" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6-es-2.jpg" alt="Pantalla 6" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7-es-2.jpg" alt="Pantalla 7" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8-es-2.jpg" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen9-es-2.jpg" alt="Pantalla 9" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen10-es-2.jpg" alt="Pantalla 10" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen11-es-2.jpg" alt="Pantalla 11" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen12-es-2.jpg" alt="Pantalla 12" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen13-es-2.jpg" alt="Pantalla 13" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen14-es-2.jpg" alt="Pantalla 14" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen15-es-2.jpg" alt="Pantalla 15" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-2.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-2.jpg" alt="Pantalla 17" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen18-es-2.jpg" alt="Pantalla 18" width="250"/>
+
 
 
 ## Licencia

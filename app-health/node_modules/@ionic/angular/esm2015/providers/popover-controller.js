@@ -1,0 +1,26 @@
+import * as tslib_1 from "tslib";
+import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { popoverController } from '@ionic/core';
+import { OverlayBaseController } from '../util/overlay';
+import { AngularDelegate } from './angular-delegate';
+let PopoverController = class PopoverController extends OverlayBaseController {
+    constructor(angularDelegate, resolver, injector) {
+        super(popoverController);
+        this.angularDelegate = angularDelegate;
+        this.resolver = resolver;
+        this.injector = injector;
+    }
+    create(opts) {
+        return super.create(Object.assign({}, opts, { delegate: this.angularDelegate.create(this.resolver, this.injector) }));
+    }
+};
+PopoverController.ctorParameters = () => [
+    { type: AngularDelegate },
+    { type: ComponentFactoryResolver },
+    { type: Injector }
+];
+PopoverController = tslib_1.__decorate([
+    Injectable()
+], PopoverController);
+export { PopoverController };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9wb3Zlci1jb250cm9sbGVyLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGlvbmljL2FuZ3VsYXIvIiwic291cmNlcyI6WyJwcm92aWRlcnMvcG9wb3Zlci1jb250cm9sbGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxPQUFPLEVBQUUsd0JBQXdCLEVBQUUsVUFBVSxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUMvRSxPQUFPLEVBQWtCLGlCQUFpQixFQUFFLE1BQU0sYUFBYSxDQUFDO0FBRWhFLE9BQU8sRUFBRSxxQkFBcUIsRUFBRSxNQUFNLGlCQUFpQixDQUFDO0FBRXhELE9BQU8sRUFBRSxlQUFlLEVBQUUsTUFBTSxvQkFBb0IsQ0FBQztBQUdyRCxJQUFhLGlCQUFpQixHQUE5QixNQUFhLGlCQUFrQixTQUFRLHFCQUE0RDtJQUVqRyxZQUNVLGVBQWdDLEVBQ2hDLFFBQWtDLEVBQ2xDLFFBQWtCO1FBRTFCLEtBQUssQ0FBQyxpQkFBaUIsQ0FBQyxDQUFDO1FBSmpCLG9CQUFlLEdBQWYsZUFBZSxDQUFpQjtRQUNoQyxhQUFRLEdBQVIsUUFBUSxDQUEwQjtRQUNsQyxhQUFRLEdBQVIsUUFBUSxDQUFVO0lBRzVCLENBQUM7SUFFRCxNQUFNLENBQUMsSUFBb0I7UUFDekIsT0FBTyxLQUFLLENBQUMsTUFBTSxtQkFDZCxJQUFJLElBQ1AsUUFBUSxFQUFFLElBQUksQ0FBQyxlQUFlLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxRQUFRLEVBQUUsSUFBSSxDQUFDLFFBQVEsQ0FBQyxJQUNuRSxDQUFDO0lBQ0wsQ0FBQztDQUNGLENBQUE7O1lBYjRCLGVBQWU7WUFDdEIsd0JBQXdCO1lBQ3hCLFFBQVE7O0FBTGpCLGlCQUFpQjtJQUQ3QixVQUFVLEVBQUU7R0FDQSxpQkFBaUIsQ0FnQjdCO1NBaEJZLGlCQUFpQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudEZhY3RvcnlSZXNvbHZlciwgSW5qZWN0YWJsZSwgSW5qZWN0b3IgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFBvcG92ZXJPcHRpb25zLCBwb3BvdmVyQ29udHJvbGxlciB9IGZyb20gJ0Bpb25pYy9jb3JlJztcblxuaW1wb3J0IHsgT3ZlcmxheUJhc2VDb250cm9sbGVyIH0gZnJvbSAnLi4vdXRpbC9vdmVybGF5JztcblxuaW1wb3J0IHsgQW5ndWxhckRlbGVnYXRlIH0gZnJvbSAnLi9hbmd1bGFyLWRlbGVnYXRlJztcblxuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIFBvcG92ZXJDb250cm9sbGVyIGV4dGVuZHMgT3ZlcmxheUJhc2VDb250cm9sbGVyPFBvcG92ZXJPcHRpb25zLCBIVE1MSW9uUG9wb3ZlckVsZW1lbnQ+IHtcblxuICBjb25zdHJ1Y3RvcihcbiAgICBwcml2YXRlIGFuZ3VsYXJEZWxlZ2F0ZTogQW5ndWxhckRlbGVnYXRlLFxuICAgIHByaXZhdGUgcmVzb2x2ZXI6IENvbXBvbmVudEZhY3RvcnlSZXNvbHZlcixcbiAgICBwcml2YXRlIGluamVjdG9yOiBJbmplY3RvcixcbiAgKSB7XG4gICAgc3VwZXIocG9wb3ZlckNvbnRyb2xsZXIpO1xuICB9XG5cbiAgY3JlYXRlKG9wdHM6IFBvcG92ZXJPcHRpb25zKTogUHJvbWlzZTxIVE1MSW9uUG9wb3ZlckVsZW1lbnQ+IHtcbiAgICByZXR1cm4gc3VwZXIuY3JlYXRlKHtcbiAgICAgIC4uLm9wdHMsXG4gICAgICBkZWxlZ2F0ZTogdGhpcy5hbmd1bGFyRGVsZWdhdGUuY3JlYXRlKHRoaXMucmVzb2x2ZXIsIHRoaXMuaW5qZWN0b3IpXG4gICAgfSk7XG4gIH1cbn1cbiJdfQ==

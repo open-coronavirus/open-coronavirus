@@ -13,21 +13,21 @@
     color: #000;
     margin: 0 0 6px 0 ;
   }
-  &__status{  
+  &__status{
     font-weight: bold;
     margin: 0;
     line-height: 1;
-    
-    &--quarentine{
+
+    &--infected{
       color: #c80f2e;
       font-size: 28px;
     }
-    &--infected{
+    &--quarentine{
       color: #ffca08;
       font-size: 20px;
     }
     &--ok{
-      color: #61bc7c;  
+      color: #61bc7c;
       font-size: 24px;
     }
   }
@@ -35,7 +35,7 @@
     padding: 0 12px;
 
   }
-  &__box{  
+  &__box{
     margin: 10px 0 20px 0;
     padding: 15px;
     border-radius: 12px;
@@ -52,18 +52,18 @@
       }
     }
     &-title{
-      margin: 0;  
+      margin: 0;
       font-weight: 300;
     }
     &-value{
       margin: 0 0 0 8px;
     }
   }
-  &__map{  
+  &__map{
     display: block;
     width: 100%;
     margin: 20px 0;
-    font-size: 14px;  
+    font-size: 14px;
     color: #000000;
     padding: 12px 12px 12px 40px;
     border-radius: 16px;
@@ -81,7 +81,7 @@
       font-size: 12px;
       font-weight: 300;
       line-height: 1.33;
-      
+
 
       &:before{
         content: '';
@@ -113,9 +113,9 @@
          }
       }
 
-      &-activity{  
+      &-activity{
         margin: 0;
-        
+
         &--danger{
           color: #c80f2e;
         }
@@ -123,12 +123,12 @@
       &-time{
         margin: 0;
         color: #919293;
-        
+
       }
-      
+
     }
   }
-  
+
   &__ok{
     --background: #000;
     --color: #fff;

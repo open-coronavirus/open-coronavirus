@@ -6,6 +6,7 @@ import {QrReaderComponent} from './qr-reader.component';
 import {QrCodeModule} from '../../shared/qr-code/qr-code.module';
 import {RouterModule} from '@angular/router';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import { CoronaHeaderModule } from '../../shared/header/header.module';
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
         CommonModule,
         FormsModule,
         QrCodeModule,
+        CoronaHeaderModule,
         RouterModule.forChild([{ path: '', component: QrReaderComponent }])
     ],
     declarations: [QrReaderComponent]

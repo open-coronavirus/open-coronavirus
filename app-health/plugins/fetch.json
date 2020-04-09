@@ -1,0 +1,10 @@
+{
+    "phonegap-plugin-barcodescanner": {
+        "source": {
+            "type": "registry",
+            "id": "phonegap-plugin-barcodescanner@7.0.4"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

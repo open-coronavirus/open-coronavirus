@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar class="header-app">
+        <ion-buttons slot="start">
+            <ion-icon size="large" (click)="goBack()" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title i18n="@@userInfoTitle">Mis datos</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <avatar [userName]="userName"></avatar><br>
+                <p>Identificador: {{ user?.documentNumber }}</p>
+                <p>Nombre: {{ userName }}</p>
+                <p>Cargo: {{ user?.position }}</p>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,61 +1,135 @@
-.qrcode {
-
-  img {
-    width: 100% !important;
+.result{
+  
+  &__qr{
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
   }
-
+  &__title{
+    font-size: 12px;
+    line-height: 16px;
+    color: #9b9b9b;
+    font-weight: 300;
+    margin: 0;
+  }
+  &__name{
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    margin: 0 0 12px 0 ;
+  }
+  &__status{  
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    font-size: 12px;
+    line-height: 16px;
+    
+    &--quarentine{
+      color: #ffca08;
+      font-size: 16px;
+    }
+    &--infected{
+      color: #c80f2e;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    &--ok{
+      color: #61bc7c;  
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
 }
 
-.supertitle {
+.main-options{
+  &__btn{
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+
+    &--no-link{
+      border-radius: 0;
+      box-shadow: none;
+    }
+    &--small{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      &:nth-child(n+2){
+        margin-top: 12px;
+      }
+      .main-options__image{
+        width: 24%;
+        max-width: 30px;
+        margin-right: 8px;
+        height: auto;
+      }
+      .main-options__text{
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+  }
+  &__text{
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    margin: 4px 0 0 0;
+  }
+  &__image{
+    width: 60%;
+    max-width: 120px;
+    height: auto;
+  }
+}
+
+.appointment{
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: flex-start;
+  &__icon{
+    width: 24px;
+    margin: 0 12px 0 0;
+  }
+  &__text{
+    font-size: 14px;  
+    line-height: 16px;   
+    font-weight: 300;
+    margin: 0; 
+  }
+  &__link, &__link:hover{
+    color: #000;
+  }
+}
+
+.info-link {
   font-size: 14px;
-  font-weight: 300;
-}
-
-.menu {
-  --color: white;
-}
-
-.home-footer-toolbar {
-  -webkit-box-shadow: 0px 11px 9px 9px rgba(0, 0, 0, 0.34);
-  -moz-box-shadow: 0px 11px 9px 9px rgba(0, 0, 0, 0.34);
-  box-shadow: 0px 11px 9px 9px rgba(0, 0, 0, 0.34);
-  padding: 10px;
-}
-
-.auth-code-label {
-  text-align: center;
-  color: #848484;
-}
-
-.leave-status {
-  padding-bottom: 10px;
-  text-align: center;
-  color: #848484;
-}
-
-.leave-reason {
-  color: black;
-}
-
-.patient-name {
-  text-align: center;
-  color: black;
+  display: flex;
+  align-items: center;
+  img{
+    display: block;
+    margin: 0 10px 0 0;
+    width: 14px;
+  }
 }
 
 .share-link {
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  img {
-    vertical-align: middle;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  img{
+    display: block;
+    margin: 0 10px 0 0;
+    width: 14px;
   }
-
-  a, a:hover {
-    color: black;
-    text-decoration: none;
-  }
-
 }
 
 .appointment-info {
@@ -77,7 +151,6 @@
   margin-bottom: 10px;
   font-weight: 500;
   background-color: #f3f3f3;
-  border-radius: 15px;
 }
 
 .appointment-info-icon {
@@ -86,3 +159,22 @@
   padding-right: 10px;
 }
 
+.auth-code-label {
+  text-align: center;
+  color: #848484;
+}
+
+.leave-status {
+  padding-bottom: 10px;
+  text-align: center;
+  color: #848484;
+}
+
+.leave-reason {
+  color: black;
+}
+
+.patient-name {
+  text-align: center;
+  color: black;
+}

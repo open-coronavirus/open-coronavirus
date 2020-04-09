@@ -12,9 +12,7 @@ export class QrCodeComponent {
     public url = null;
 
     constructor(protected userService: UserService) {
-
         // this.url = userService.getCheckStatusUrl();
-
     }
 
 

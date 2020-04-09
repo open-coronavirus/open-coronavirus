@@ -1,17 +1,9 @@
-<ion-header>
-    <ion-toolbar class="header-app">
-        <!--ion-buttons slot="start">
-            <ion-menu-button class="menu" (click)="openMenu()" autoHide="false"></ion-menu-button>
-        </ion-buttons-->
-        <ion-title i18n="@@headerTitle"><span class="supertitle">Luchemos juntos contra el</span><br /> CORONAVIRUS</ion-title>
-    </ion-toolbar>
-</ion-header>
+<corona-header></corona-header>
 <ion-content>
     <div class="scan-recuadro">
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <!-- <patient-info-form #patientInfoFormComponent [patient]="patientService.patient"></patient-info-form> -->
                     <img [src]="'/assets/images/qr-fake-gris.svg'">
                     <ion-button  class="btn-escanear" (click)="scanQR()" expand="block" i18n="@@scanButton">Escanear QR</ion-button>
                 </ion-col>

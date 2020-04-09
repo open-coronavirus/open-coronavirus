@@ -1,0 +1,23 @@
+# exclude everything
+/*
+
+# only include project files
+!/.npmignore
+!/*.md
+!/plugin.xml
+!/package.json
+!/www
+!/android
+/android/*
+!/android/dependencies.gradle
+!/android/common
+/android/common/*
+!/android/common/src
+!/android/CDVBackgroundGeolocation
+/android/CDVBackgroundGeolocation/*
+!/android/CDVBackgroundGeolocation/src
+!/ios
+/ios/*
+!/ios/common
+!/ios/CDVBackgroundGeolocation
+!/LICENSE

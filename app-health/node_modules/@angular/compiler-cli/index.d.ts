@@ -1,0 +1,16 @@
+/// <amd-module name="@angular/compiler-cli" />
+export { AotCompilerHost, AotCompilerHost as StaticReflectorHost, StaticReflector, StaticSymbol } from '@angular/compiler';
+export { DiagnosticTemplateInfo, getExpressionScope, getTemplateExpressionDiagnostics } from './src/diagnostics/expression_diagnostics';
+export { AstType, ExpressionDiagnosticsContext } from './src/diagnostics/expression_type';
+export { BuiltinType, DeclarationKind, Definition, PipeInfo, Pipes, Signature, Span, Symbol, SymbolDeclaration, SymbolQuery, SymbolTable } from './src/diagnostics/symbols';
+export { getClassMembersFromDeclaration, getPipesTable, getSymbolQuery } from './src/diagnostics/typescript_symbols';
+export { VERSION } from './src/version';
+export * from './src/metadata';
+export * from './src/transformers/api';
+export * from './src/transformers/entry_points';
+export * from './src/perform_compile';
+export * from './src/tooling';
+export { CompilerOptions as AngularCompilerOptions } from './src/transformers/api';
+export { NgTools_InternalApi_NG_2 as __NGTOOLS_PRIVATE_API_2 } from './src/ngtools_api';
+export { ngToTsDiagnostic } from './src/transformers/util';
+export { NgTscPlugin } from './src/ngtsc/tsc_plugin';

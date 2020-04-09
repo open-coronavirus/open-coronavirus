@@ -1,0 +1,1 @@
+module.exports = process.env.ISERACH_COV ? require('./lib-cov/again.js') : require('./lib/again');

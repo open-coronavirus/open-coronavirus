@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subject, Subscription} from 'rxjs';
-import {User, UserCredentials} from '../sdk';
+import { PoliceOfficerLogin } from '../sdk/model/policeOfficerLogin';
 
 @Component({
     selector: 'login-form',
@@ -22,17 +22,17 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     @Input('user')
-    public user: UserCredentials = new class implements UserCredentials {
+    public user: PoliceOfficerLogin = new class implements PoliceOfficerLogin {
         [key: string]: object | any;
-        email: string;
+        uniqueId: string;
         password: string;
     };
 
     @Output('onChange')
     public onChange: Subject<any> = new Subject();
 
-    get email() {
-        return this.loginInfoForm.get('email');
+    get uniqueId() {
+        return this.loginInfoForm.get('uniqueId');
     }
 
     get password() {
@@ -49,14 +49,14 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.loginInfoForm = this.formBuilder.group({
             password: new FormControl(this.user.password, [Validators.required]),
-            email: new FormControl(this.user.email, [
-                Validators.required,
-                Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
+            uniqueId: new FormControl(this.user.uniqueId, [
+                Validators.required])
+                // Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)]),
         });
 
-        this.subscriptions.push(this.loginInfoForm.get('email').valueChanges
+        this.subscriptions.push(this.loginInfoForm.get('uniqueId').valueChanges
             .subscribe(value => {
-                this.user.email = value;
+                this.user.uniqueId = value;
                 this.onChange.next(this.user);
             }));
 
@@ -81,6 +81,5 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
     public ngAfterViewInit() {
         // todo
     }
-
 
 }

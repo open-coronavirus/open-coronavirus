@@ -14,6 +14,16 @@ const routes: Routes = [
       ]
     },
     {
+        path: 'welcome',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+                import('./welcome/welcome.module').then(m => m.WelcomeModule)
+          }
+        ]
+      },
+    {
         path: 'register',
         children: [
             {
