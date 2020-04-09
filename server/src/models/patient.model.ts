@@ -1,6 +1,6 @@
 
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {LeaveRequest} from './leave-request.model';
+import { Entity, model, property, hasMany } from '@loopback/repository';
+import { LeaveRequest } from './leave-request.model';
 
 @model({ settings: { strict: false } })
 export class Patient extends Entity {
@@ -31,19 +31,19 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   healthInsuranceCardNumber: string;
 
   @property({
     type: 'number',
-    required: true,
+    required: false,
   })
   age: number;
 
   @property({
     type: 'number',
-    required: true,
+    required: false,
   })
   gender: number;
 
