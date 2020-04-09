@@ -44,6 +44,16 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'permissions',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./permissions/permissions.module').then(m => m.PermissionsModule)
+            }
+        ]
+    },
+    {
         path: 'app',
         component: MainComponent,
         children: [

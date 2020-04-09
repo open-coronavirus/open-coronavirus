@@ -57,8 +57,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
+            "assets": [{
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
@@ -69,8 +68,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              {
+            "styles": [{
                 "input": "src/theme/variables.scss"
               },
               {
@@ -84,44 +82,58 @@
           },
           "configurations": {
             "en": {
-              "localize": ["en"],
+              "localize": [
+                "en"
+              ],
               "main": "src/main.ts"
             },
             "ru": {
-              "localize": ["ru"],
+              "localize": [
+                "ru"
+              ],
               "main": "src/main.ts"
             },
             "gl": {
-              "localize": ["gl"],
+              "localize": [
+                "gl"
+              ],
               "main": "src/main.ts"
             },
             "it": {
-              "localize": ["it"],
+              "localize": [
+                "it"
+              ],
               "main": "src/main.ts"
             },
             "fr": {
-              "localize": ["fr"],
+              "localize": [
+                "fr"
+              ],
               "main": "src/main.ts"
             },
             "de": {
-              "localize": ["de"],
+              "localize": [
+                "de"
+              ],
               "main": "src/main.ts"
             },
             "sw": {
-              "localize": ["sw"],
+              "localize": [
+                "sw"
+              ],
               "main": "src/main.ts"
             },
             "ca": {
-              "localize": ["ca"],
+              "localize": [
+                "ca"
+              ],
               "main": "src/main.ts"
             },
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -131,8 +143,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -144,12 +155,10 @@
               ]
             },
             "ci": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
+              "budgets": [{
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
+              }],
               "progress": false
             }
           }
@@ -207,8 +216,7 @@
             "karmaConfig": "karma.conf.js",
             "styles": [],
             "scripts": [],
-            "assets": [
-              {
+            "assets": [{
                 "glob": "favicon.ico",
                 "input": "src/",
                 "output": "/"

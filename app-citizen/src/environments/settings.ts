@@ -4,6 +4,8 @@ export const settings = {
     shareApp: {
         text: 'Compartir App para luchar juntos'
     },
-    gps: true,
-    bluetooth: true
+    permissions: {
+        gps: true,
+        bluetooth: true
+    }
 };
