@@ -12,7 +12,7 @@
               <h1 i18n="@@leaveCustomReasonFormTitle">Autodeclaración de salida</h1>
               <ng-container i18n="@@leaveCustomReasonFormDescription">
                 <p>
-                  Yo, <strong>{{patient?.firstName}} {{patient?.lastName}}</strong> nacida el <strong>{{patient?.birthday | date:'dd/MM/yyyy'}}</strong> con documento de identificación nº<strong>{{patient?.documentNumber}}</strong> y con residencia en calle <strong>asdflkasdf</strong> consciente de las consecuencias penales previstas en caso de falsedad en documento público oficial (art 392 c.p.)
+                  Yo, <strong>{{patient?.firstName}} {{patient?.lastName}}</strong> nacido el <strong>{{patient?.birthday | date:'dd/MM/yyyy'}}</strong> con documento de identificación nº<strong>{{patient?.documentNumber}}</strong> y con residencia en calle <strong>{{patient?.street}} ({{patient?.postalCode}})</strong> consciente de las consecuencias penales previstas en caso de falsedad en documento público oficial (art 392 c.p.)
                 </p>
 
                 <h2>DECLARA, BAJO SU EXCLUSIVA RESPONSABILIDAD</h2>
@@ -57,11 +57,11 @@
                   </li>
                 </ul>
 
-                <p>El 04/04/2020 a las 20:30</p>
+                <p>El {{now | date:'dd/MM/yyyy'}} a las {{now | date:'HH:mm'}}</p>
               </ng-container>
             <ion-row>
                 <ion-col>
-                    <ion-button color="dark" expand="block" i18n="@@okButton">OK</ion-button>
+                    <ion-button color="dark" expand="block" (click)="requestLeaveHome()" i18n="@@okButton">OK</ion-button>
                     <ion-button color="light" expand="block" (click)="goBack()" i18n="@@backButton">Volver</ion-button>
                 </ion-col>
             </ion-row>

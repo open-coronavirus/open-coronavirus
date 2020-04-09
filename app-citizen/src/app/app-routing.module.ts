@@ -88,7 +88,7 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'self-declaration-leave',
+                path: 'self-declaration-leave/:leaveReason',
                 children: [
                     {
                         path: '',

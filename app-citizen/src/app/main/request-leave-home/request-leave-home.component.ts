@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Inject} from '@angular/core';
 import {LeaveRequestService} from '../../shared/services/leave-request.service';
 import {Router} from '@angular/router';
 
@@ -10,19 +10,26 @@ import {Router} from '@angular/router';
 })
 export class RequestLeaveHomeComponent {
 
-    constructor(public leaveRequestService: LeaveRequestService,
-                protected router: Router) {
+    constructor(
+        public leaveRequestService: LeaveRequestService,
+        protected router: Router,
+        @Inject('settings') protected settings,
+    ) {
 
     }
 
     public requestLeaveHome(value) {
 
         if (value < 8) {
-            this.leaveRequestService.request(value, null).subscribe(result => {
-                if (result != null) {
-                    this.router.navigate(['/app/leave-request-result']);
-                }
-            });
+            if (this.settings.screens.selfDeclarationLeave) {
+                this.router.navigate(['/app/self-declaration-leave', value]);
+            } else {
+                this.leaveRequestService.request(value, null).subscribe(result => {
+                    if (result != null) {
+                        this.router.navigate(['/app/leave-request-result']);
+                    }
+                });
+            }
         } else {
             this.router.navigate(['/app/leave-custom-reason-form', value]);
         }

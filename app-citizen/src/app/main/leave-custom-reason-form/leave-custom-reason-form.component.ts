@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Inject} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {LeaveRequestService} from '../../shared/services/leave-request.service';
 
@@ -16,7 +16,8 @@ export class LeaveCustomReasonFormComponent {
     constructor(
         private activatedRoute: ActivatedRoute,
         protected router: Router,
-        protected leaveRequestService: LeaveRequestService
+        protected leaveRequestService: LeaveRequestService,
+        @Inject('settings') protected settings
     ) {
         this.activatedRoute.paramMap.subscribe(params => {
             this.leaveReason = +params.get('leaveReason');
@@ -33,11 +34,21 @@ export class LeaveCustomReasonFormComponent {
 
     public requestLeaveHome() {
         if (this.leaveRequestAdditionalInfo != null && this.leaveRequestAdditionalInfo.length > 3) {
-            this.leaveRequestService.request(this.leaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
-                if (result != null) {
-                    this.router.navigate(['/app/leave-request-result']);
-                }
-            });
+            if (this.settings.screens.selfDeclarationLeave) {
+                this.router.navigate([
+                    '/app/self-declaration-leave',
+                    this.leaveReason,
+                    {
+                        leaveRequestAdditionalInfo: this.leaveRequestAdditionalInfo
+                    }
+                ]);
+            } else {
+                this.leaveRequestService.request(this.leaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
+                    if (result != null) {
+                        this.router.navigate(['/app/leave-request-result']);
+                    }
+                });
+            }
         } else {
             const enterCustomReasonToLeaveTo = $localize`:@@enterCustomReasonToLeaveTo:Por favor, escriba porque desea salir.`;
             alert(enterCustomReasonToLeaveTo);
