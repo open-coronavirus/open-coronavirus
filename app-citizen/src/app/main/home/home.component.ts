@@ -61,13 +61,13 @@ export class HomeComponent implements OnDestroy {
                         let healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                         let googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + this.testAppointmentService.testAppointment.healthCenter.latitude + ',' + this.testAppointmentService.testAppointment.healthCenter.longitude;
 
-                        let appointmentDescription = $localize`:@@appointmentAtHealthCenterDescription:Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]`;
+                        let appointmentDescription = $localize`:@@appointmentAtHealthCenterDescription:Cita para el test del coronavirus <strong>[appointmentDate] </strong> en [healthCenterName] [healthCenterAddress]`;
                         this.appointmentDescriptionLine1 = appointmentDescription
                             .replace("\[appointmentDate\]", appointmentDate)
                             .replace("\[healthCenterName\]", healthCenterName)
                             .replace("\[healthCenterAddress\]", healthCenterAddress)
                         let howToGetThereLink = $localize`:@@howToGetThereLink:Como llegar?`;
-                        this.appointmentDescriptionLine2 = "<a href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
+                        this.appointmentDescriptionLine2 = "<br><a class='appointment__link' href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
                         break;
 
                 }
@@ -93,14 +93,14 @@ export class HomeComponent implements OnDestroy {
                             this.leaveReason = this.leaveRequestService.leaveRequest.additionalInfo;
                         }
                     }
-                })
+                });
             }
         }));
 
     }
 
     public goToRequestLeaveHome() {
-        this.router.navigate(['/app/request-leave-home'])
+        this.router.navigate(['/app/request-leave-home']);
     }
 
     public setAtHome() {
@@ -108,7 +108,15 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToAutotest() {
-        this.router.navigate(['/app/autotest'])
+        this.router.navigate(['/app/autotest']);
+    }
+
+    public requestTest() {
+        this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+    }
+
+    public goToTracking() {
+        // this.router.navigate(['/app/xxxx']);
     }
 
     public goToCoronavirusInfo() {
@@ -125,16 +133,16 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return 'Positivo';
+                return  $localize`:@@statusInfected:Positivo`;
 
             case 3:
-                return 'Cuarentena obligatoria';
+                return  $localize`:@@statusQuarantine:Cuarentena obligatoria`;
 
             case 2:
-                return 'Negativo';
+                return  $localize`:@@statusNoInfected:Negativo`;
 
             default:
-                return 'No se ha realizado el test de COVID-19';
+                return  $localize`:@@statusNoData:'No se ha realizado el test de COVID-19`;
         }
     }
 
