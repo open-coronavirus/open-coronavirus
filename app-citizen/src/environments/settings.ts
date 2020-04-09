@@ -7,5 +7,8 @@ export const settings = {
     permissions: {
         gps: false,
         bluetooth: true
+    },
+    screens: {
+        selfDeclarationLeave: true
     }
 };
