@@ -88,6 +88,16 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'self-declaration-leave',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/self-declaration-leave/self-declaration-leave.module').then(m => m.SelfDeclarationLeaveModule)
+                    }
+                ]
+            },
+            {
                 path: 'request-leave-home',
                 children: [
                     {
