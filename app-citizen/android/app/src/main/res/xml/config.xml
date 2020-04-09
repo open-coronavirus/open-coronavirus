@@ -6,6 +6,10 @@
     <param name="android-package" value="com.tenforwardconsulting.bgloc.cordova.BackgroundGeolocationPlugin"/>
   </feature>
 
+  <feature name="BLE">
+    <param name="android-package" value="com.megster.cordova.ble.central.BLECentralPlugin"/>
+  </feature>
+
   <feature name="BluetoothLePlugin">
     <param name="android-package" value="com.randdusing.bluetoothle.BluetoothLePlugin"/>
   </feature>
@@ -18,10 +22,6 @@
     <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
   </feature>
 
-  <feature name="LocationManager">
-    <param name="android-package" value="com.unarin.cordova.beacon.LocationManager"/>
-  </feature>
-
   <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
   </feature>
@@ -32,6 +32,10 @@
 
   <feature name="SocialSharing">
     <param name="android-package" value="nl.xservices.plugins.SocialSharing"/>
+  </feature>
+
+  <feature name="SQLitePlugin">
+    <param name="android-package" value="io.sqlc.SQLitePlugin"/>
   </feature>
 
   

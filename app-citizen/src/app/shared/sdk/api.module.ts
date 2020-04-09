@@ -8,6 +8,7 @@ import { DocumentControllerService } from './api/documentController.service';
 import { GeolocationControllerService } from './api/geolocationController.service';
 import { HealthCenterControllerService } from './api/healthCenterController.service';
 import { LeaveRequestControllerService } from './api/leaveRequestController.service';
+import { MeControllerService } from './api/meController.service';
 import { PatientControllerService } from './api/patientController.service';
 import { PingControllerService } from './api/pingController.service';
 import { TestAppointmentControllerService } from './api/testAppointmentController.service';

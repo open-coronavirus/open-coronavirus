@@ -9,6 +9,7 @@ import {TestAppointmentService} from "../../shared/services/test-appointment.ser
 import {Subscription} from "rxjs";
 import {AppointmentType} from "../../../../../server/src/common/utils/enums";
 import {DocumentControllerService} from "../../shared/sdk";
+import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 
 @Component({
     selector: 'home',
@@ -36,6 +37,8 @@ export class HomeComponent implements OnDestroy {
 
     public patientName: string;
 
+    public serviceAdvertisementUUID;
+
     constructor(protected router: Router,
                 public patientService: PatientService,
                 protected leaveRequestService: LeaveRequestService,
@@ -44,6 +47,8 @@ export class HomeComponent implements OnDestroy {
                 @Inject('settings') protected settings,
                 protected inAppBrowser: InAppBrowser,
                 protected shareService: ShareService) {
+
+
 
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
             if(loaded) {
@@ -77,6 +82,7 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
             if(patientLoaded) {
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.serviceAdvertisementUUID = this.patientService.patient.serviceAdvertisementUUID;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;

@@ -1,9 +1,6 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
-import {
-  RestExplorerBindings,
-  RestExplorerComponent,
-} from '@loopback/rest-explorer';
+import {RestExplorerBindings, RestExplorerComponent,} from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
@@ -11,8 +8,7 @@ import {join} from 'path';
 import {MySequence} from './sequence';
 import {AppointmentMockService} from './services/impl/appointment-mock.service';
 import {HealthCenterMockService} from './services/impl/health-center-mock.service';
-
-import * as Queries from './infrastructure/application/query';
+import {LeaveRequestService} from "./services/leave-request.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -68,10 +64,7 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(AppointmentMockService, {interface: 'AppointmentService'});
     this.service(HealthCenterMockService, {interface: 'HealthCenterService'});
 
-    //Define queries at this point:
-    this.service(Queries.GetPatientLeaveRequestsLoobpack, {
-      interface: 'GetPatientLeaveRequests',
-    });
+    this.service(LeaveRequestService);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

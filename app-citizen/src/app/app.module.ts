@@ -24,9 +24,12 @@ import {TestResultService} from "./shared/services/test-result.service";
 import {I18nStringsModule} from "./shared/i18n-strings/i18n-strings.module";
 import {settings} from "../environments/settings";
 import {StorageService} from "./shared/services/storage.service";
-import {BlueToothTrackingService} from "./shared/services/tracking/bluetoothtracking.service";
-import {GeolocationtrackingService} from "./shared/services/tracking/geolocationtracking.service";
-import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
+import {BluetoothTrackingService} from "./shared/services/tracking/bluetooth-tracking.service";
+import {GeolocationTrackingService} from "./shared/services/tracking/geolocation-tracking.service";
+import {BluetoothLE} from '@ionic-native/bluetooth-le/ngx';
+import {BLE} from "@ionic-native/ble/ngx";
+import {SQLite} from "@ionic-native/sqlite/ngx";
+import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.service";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -47,9 +50,13 @@ import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
         LeaveRequestService,
         StorageService,
         NativeStorage,
+        SQLite,
         ShareService,
-        BlueToothTrackingService,
-        GeolocationtrackingService,
+        ContactTrackerService,
+        BluetoothTrackingService,
+        BLE,
+        //BLEPeripheral,
+        GeolocationTrackingService,
         AutotestAnswers,
         TestAppointmentService,
         TestResultService,
