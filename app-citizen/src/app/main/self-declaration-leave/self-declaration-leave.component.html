@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar class="transparent-toolbar">
+      <ion-buttons slot="end">
+          <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="request-leave-home">
+  <ion-grid>
+      <ion-row>
+          <ion-col>
+              <h1 i18n="@@leaveCustomReasonFormTitle">Autodeclaración de salida</h1>
+              <ng-container i18n="@@leaveCustomReasonFormDescription">
+                <p>
+                  Yo, <strong>{{patient?.firstName}} {{patient?.lastName}}</strong> nacida el <strong>{{patient?.birthday | date:'dd/MM/yyyy'}}</strong> con documento de identificación nº<strong>{{patient?.documentNumber}}</strong> y con residencia en calle <strong>asdflkasdf</strong> consciente de las consecuencias penales previstas en caso de falsedad en documento público oficial (art 392 c.p.)
+                </p>
+
+                <h2>DECLARA, BAJO SU EXCLUSIVA RESPONSABILIDAD</h2>
+
+                <p>
+                  De ser <strong>consciente de las medidas de contención del contagio</strong> referidas en el artículo 7 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la gestión de la situación de crisis sanitaria ocasionada por el COVID-19 concernientes <strong>a la limitación de la libertad de circulación de las personas por las vías de uso público;</strong>
+                </p>
+
+                <p>
+                  <strong>De no estar bajo las medidas de cuarentena por haber resultado</strong> positivo al virus COVID-19;
+                </p>
+
+                <p>
+                  <strong>
+                    De ser consciente de las sanciones previstas en el artículo 20 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la   gestión de la situación de crisis sanitaria ocasionada por el COVID-19
+                  </strong>, en caso de incumplimiento o resistencia a las órdernes de las autoridades competentes;
+                </p>
+
+                <p>Que el traslado tiene la finalidad de:</p>
+
+                <ul>
+                  <li>
+                    Adquisición de alimentos, productos farmacéuticos y de primera necesidad.
+                  </li>
+                  <li>
+                    Asistencia a centros, servicios y establecimientos sanitarios.
+                  </li>
+                  <li>
+                    Desplazamiento al lugar de trabajo para efecturar su prestación laboral, profesional o empresarial.
+                  </li>
+                  <li>
+                    Retorno al lugar de residencia habitual.
+                  </li>
+                  <li>
+                    Asistencia y cuidado a mayores, menores, dependientes, personas con discapacidad o personas expecialmente vulnerables.
+                  </li>
+                  <li>
+                    Desplazamiento a entidades financieras y seguros.
+                  </li>
+                  <li>
+                    Por causa de fuerza mayor o situación de necesidad
+                  </li>
+                </ul>
+
+                <p>El 04/04/2020 a las 20:30</p>
+              </ng-container>
+            <ion-row>
+                <ion-col>
+                    <ion-button color="dark" expand="block" i18n="@@okButton">OK</ion-button>
+                    <ion-button color="light" expand="block" (click)="goBack()" i18n="@@backButton">Volver</ion-button>
+                </ion-col>
+            </ion-row>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
