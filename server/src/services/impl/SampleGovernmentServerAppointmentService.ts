@@ -39,7 +39,10 @@ export class SampleGovernmentServerAppointmentService
     request: CreateAppointmentRequest,
   ): Promise<TestAppointment> {
     const {patientId} = request;
-    const patient = await this.patientRepository.findById(patientId, {});
+    const patient = await this.patientRepository.findById(
+      <string>patientId,
+      {},
+    );
 
     if (null === patient) {
       throw new Error('Patient not found'); // TODO: convert to PatientNotFoundError. Capture in controller and send a 404

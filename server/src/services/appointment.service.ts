@@ -1,7 +1,7 @@
 import {TestAppointment} from '../models';
 
 export type CreateAppointmentRequest = {
-  patientId: string;
+  patientId: string | null;
 };
 
 export interface AppointmentService {

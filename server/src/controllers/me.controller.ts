@@ -1,4 +1,4 @@
-import {get, param, post} from '@loopback/rest';
+import {get, param, post, getModelSchemaRef} from '@loopback/rest';
 import {TestAppointment} from '../models';
 import {service} from '@loopback/core';
 import {GetPatientLeaveRequests} from '../application/query/patient/GetPatientLeaveRequests';
@@ -31,7 +31,20 @@ export class MeController {
     return leaveRequests;
   }
 
-  @post('/me/appointments')
+  @post('/me/appointments', {
+    responses: {
+      '200': {
+        description: 'TestAppointment model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(TestAppointment, {
+              includeRelations: true,
+            }),
+          },
+        },
+      },
+    },
+  })
   public createAppointment(
     @param.header.string('X-User-Id') patientId: string,
   ): Promise<TestAppointment> {
