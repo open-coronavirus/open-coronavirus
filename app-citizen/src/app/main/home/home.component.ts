@@ -8,6 +8,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { TestAppointmentService } from "../../shared/services/test-appointment.service";
 import { Subscription } from "rxjs";
 import { AppointmentType } from "../../../../../server/src/common/utils/enums";
+import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class HomeComponent implements OnDestroy {
     protected subscriptions: Array<Subscription> = new Array();
 
     public patientName: string;
+    public leaveRequest: LeaveRequestWithRelations;
 
     constructor(
         protected router: Router,
@@ -78,10 +80,10 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
             if (patientLoaded) {
                 // this.patientService.patient.status = 2;
-                this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.patientName = this.patientService.patient.firstName;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
-
+                        this.leaveRequest = this.leaveRequestService.leaveRequest
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;
                         if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestService.leaveReasons.forEach(leaveReason => {
@@ -133,16 +135,16 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return  $localize`:@@statusInfected:Positivo`;
+                return $localize`:@@statusInfected:Positivo`;
 
             case 3:
-                return  $localize`:@@statusQuarantine:Cuarentena obligatoria`;
+                return $localize`:@@statusQuarantine:Cuarentena obligatoria`;
 
             case 2:
-                return  $localize`:@@statusNoInfected:Negativo`;
+                return $localize`:@@statusNoInfected:Negativo`;
 
             default:
-                return  $localize`:@@statusNoData:'No se ha realizado el test de COVID-19`;
+                return $localize`:@@statusNoData:No se ha realizado el test de COVID-19`;
         }
     }
 
@@ -207,5 +209,23 @@ export class HomeComponent implements OnDestroy {
 
     public getSettingsText(): string {
         return this.settings.shareApp.text;
+    }
+
+    public hoursOutsideHome(outOfHomeTimestamp: string) {
+        if (!outOfHomeTimestamp) {
+            return;
+        }
+        const now = new Date();
+        const outOfHomeDate = new Date(outOfHomeTimestamp);
+        const hours = (Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+        const min = Math.round((hours % 60) * 60);
+        const hoursMath = Math.round(hours);
+
+        let str = '';
+        if (hoursMath) {
+            str += hoursMath + 'h ';
+        }
+        str += min + 'min';
+        return str;
     }
 }

@@ -86,7 +86,7 @@ export class MainComponent implements OnDestroy {
 
     public requestTest() {
         this.closeMenu();
-        // this.router.navigate(['/app/xxxx']);
+        this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
     public goToTracking() {
