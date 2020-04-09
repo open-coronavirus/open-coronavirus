@@ -28,7 +28,7 @@ export class HealthCenter extends Entity {
   postalCode: string;
 
   @property({
-    type: 'number'
+    type: 'number',
   })
   latitude?: number;
 
@@ -36,6 +36,12 @@ export class HealthCenter extends Entity {
     type: 'number',
   })
   longitude?: number;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  refCode: string;
 
   // Define well-known properties here
 

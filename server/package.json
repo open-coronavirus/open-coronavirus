@@ -32,7 +32,7 @@
     "docker:run": "docker run -p 3000:3000 -d adminapp-server",
     "migrate": "node ./dist/migrate",
     "prestart": "npm run build",
-    "start": "NODE_ENV=dev DEBUG=loopback:connector:mongodb node -r source-map-support/register .",
+    "start": "NODE_ENV=dev node -r source-map-support/register .",
     "prepublishOnly": "npm run test"
   },
   "repository": {
@@ -57,10 +57,12 @@
     "@loopback/rest": "^3.1.0",
     "@loopback/rest-explorer": "^2.0.2",
     "@loopback/service-proxy": "^2.0.2",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "guid-typescript": "^1.0.9",
     "loopback-connector-mongodb": "^4.2.0",
-    "loopback-connector-rest": "^3.6.0"
+    "loopback-connector-rest": "^3.6.0",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "@loopback/build": "^5.0.0",

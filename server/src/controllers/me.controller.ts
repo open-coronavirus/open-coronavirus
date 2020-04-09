@@ -1,9 +1,9 @@
-import {get, param} from '@loopback/rest';
-import {LeaveRequest} from '../models';
+import {get, param, post} from '@loopback/rest';
+import {TestAppointment} from '../models';
 import {service} from '@loopback/core';
-import {getPatientLeaveRequestsSpec} from './specs/me.controller.specs';
 import {GetPatientLeaveRequests} from '../application/query/patient/GetPatientLeaveRequests';
 import {PatientLeaveRequestViewModel} from '../application/query/patient/PatientLeaveRequestViewModel';
+import {AppointmentService} from '../services/appointment.service';
 
 const BAD_REQUEST = 400;
 
@@ -11,10 +11,12 @@ export class MeController {
   constructor(
     @service('GetPatientLeaveRequests')
     private getPatientLeaveRequestsQuery: GetPatientLeaveRequests,
+    @service('AppointmentService')
+    private appointmentService: AppointmentService,
   ) {}
 
-  @get('/me/leave-requests', getPatientLeaveRequestsSpec)
-  async getPatientLeaveRequests(
+  @get('/me/leave-requests')
+  public async getPatientLeaveRequests(
     @param.header.string('X-User-Id') patientId: string,
   ): Promise<PatientLeaveRequestViewModel[]> {
     // TODO: patient ID  should be gotten from JWT token or session or whatever
@@ -27,6 +29,13 @@ export class MeController {
     );
 
     return leaveRequests;
+  }
+
+  @post('/me/appointments')
+  public createAppointment(
+    @param.header.string('X-User-Id') patientId: string,
+  ): Promise<TestAppointment> {
+    return this.appointmentService.createAppointment({patientId});
   }
 
   private throwError(message: string, code: number): void {

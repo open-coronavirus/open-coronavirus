@@ -8,9 +8,7 @@ export class HealthCenterRepository extends DefaultCrudRepository<
   typeof HealthCenter.prototype.id,
   HealthCenterRelations
 > {
-  constructor(
-    @inject('datasources.mongo') dataSource: MongoDataSource,
-  ) {
+  constructor(@inject('datasources.mongo') dataSource: MongoDataSource) {
     super(HealthCenter, dataSource);
   }
 }
