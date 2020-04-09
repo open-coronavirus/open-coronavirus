@@ -75,7 +75,7 @@
                     <p class="main-options__text"  i18n="@@leaveHome">Salir <br>de casa</p>
                 </div>
             </ion-col>
-            <ion-col size="6" class="ion-text-center" *ngIf="patientService.patient?.status === 2">
+            <ion-col size="6" class="ion-text-center" *ngIf="false && patientService.patient?.status === 2">
                 <div class="main-options__btn main-options__btn--small">
                     <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
                     <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
@@ -85,7 +85,7 @@
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>
             </ion-col>
-            <ion-col size="6" class="ion-text-center" *ngIf="patientService.patient?.status !== 2">
+            <ion-col size="6" class="ion-text-center" *ngIf="(true || patientService.patient?.status !== 2) && !patientHasTestAppointment">
                 <div class="main-options__btn" (click)="requestTest()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-test-new.svg">
                     <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
