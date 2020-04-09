@@ -35,7 +35,8 @@ export class PatientService {
 
     public static PATIENT_TOKEN_KEY = 'patientToken';
 
-    constructor(protected patientController: PatientControllerService,
+    constructor(
+        protected patientController: PatientControllerService,
         @Inject('environment') protected environment,
         protected router: Router,
         protected geolocationtrackingService: GeolocationtrackingService,
@@ -43,10 +44,13 @@ export class PatientService {
         public platform: Platform,
         protected storageService: StorageService) {
 
+        this.loadLocalPatient();
+    }
+
+    public loadLocalPatient() {
         this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(data => {
             this.loadPatient(data);
         });
-
     }
 
     protected loadPatient(patientToken) {
