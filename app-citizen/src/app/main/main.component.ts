@@ -119,4 +119,7 @@ export class MainComponent implements OnDestroy {
         });
     }
 
+    public getSettingsText(): string {
+        return this.settings.shareApp.text;
+    }
 }

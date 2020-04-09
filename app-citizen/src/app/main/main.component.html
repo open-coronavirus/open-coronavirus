@@ -47,7 +47,7 @@
             </div>
             <div class="menu__item menu__item--sm" (click)="share()">
                 <img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">
-                <ng-container i18n="@@shareMenuLabel">Compartir App para luchar juntos</ng-container>
+                <ng-container i18n="@@shareMenuLabel">{{getSettingsText()}}</ng-container>
             </div>
             <div class="menu__item menu__item--xs" (click)="showPrivacityConditions($event)">
                 <ng-container i18n="@@privacityConditions">Condiciones de uso y política de privacidad</ng-container>
