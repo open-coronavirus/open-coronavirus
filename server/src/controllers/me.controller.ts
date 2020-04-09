@@ -35,7 +35,10 @@ export class MeController {
   public createAppointment(
     @param.header.string('X-User-Id') patientId: string,
   ): Promise<TestAppointment> {
-    return this.appointmentService.createAppointment({patientId});
+    // TODO: patient ID  should be gotten from JWT token or session or whatever
+    return this.appointmentService.createAppointment({
+      patientId: patientId || null,
+    });
   }
 
   private throwError(message: string, code: number): void {
