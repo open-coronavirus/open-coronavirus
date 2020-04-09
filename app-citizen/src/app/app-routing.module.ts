@@ -34,32 +34,22 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'permissions',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./permissions-modal/permissions-modal.module').then(m => m.PermissionsPushModule)
+            },
+        ]
+    },
+    {
         path: 'no-access',
         children: [
             {
                 path: '',
                 loadChildren: () =>
                     import('./no-access/no-access.module').then(m => m.NoAccessModule)
-            }
-        ]
-    },
-    {
-        path: 'permissions',
-        children: [
-            {
-                path: '/push',
-                loadChildren: () =>
-                    import('./permissions-push/permissions-push.module').then(m => m.PermissionsPushModule)
-            },
-            {
-                path: 'gps',
-                loadChildren: () =>
-                    import('./permissions-gps/permissions-gps.module').then(m => m.PermissionsGpsModule)
-            },
-            {
-                path: 'bluetooth',
-                loadChildren: () =>
-                    import('./permissions-bluetooth/permissions-bluetooth.module').then(m => m.PermissionsBluetoothModule)
             }
         ]
     },
