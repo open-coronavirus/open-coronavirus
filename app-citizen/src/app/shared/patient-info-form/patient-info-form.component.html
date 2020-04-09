@@ -20,10 +20,9 @@
 
     <div class="form-row">
         <div class="form-group form-label-group" style="width: 50%;">
-            <!-- <input type="text" class="form-control" name="age" id="age" formControlName="age" i18n-placeholder placeholder="Edad"> -->
-            <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" name="lastName" id="lastName" formControlName="lastName"></ion-datetime>
-            <label for="lastName" i18n="@@dateLabel">Fecha de nacimiento</label>
-            <small class="error" *ngIf="lastName.invalid && lastName.touched" i18n="@@dateError">Por favor, introduce tu fecha de nacimiento.</small>
+            <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" name="birthday" id="birthday" formControlName="birthday"></ion-datetime>
+            <label for="birthday" i18n="@@birthdayLabel">Fecha de nacimiento</label>
+            <small class="error" *ngIf="birthday.invalid && birthday.touched" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento.</small>
         </div>
     </div>
 
