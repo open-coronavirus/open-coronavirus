@@ -75,21 +75,6 @@
   float: left;
 }
 
-.form-label-group>label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: text;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  line-height: 1.5;
-  color: #878e95;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
-  pointer-events: none;
-}
 
 .form-label-group>input, .form-label-group>label, .form-label-group>select {
   padding: var(--input-padding-y) var(--input-padding-x);
@@ -97,7 +82,7 @@
 
 label {
   display: inline-block;
-  margin-bottom: .5rem;
+  margin-bottom: .5rem; 
 }
 
 .form-signin {
@@ -125,12 +110,9 @@ label {
   }
 }
 
-.form-label-group {
-  position: relative;
-  margin-bottom: 1rem;
-}
 
 .form-label-group {
+  position: relative;
   .form-control {
     padding: var(--input-padding-y) var(--input-padding-x);
     height: 50px !important;
@@ -159,21 +141,26 @@ label {
   height: 50px !important;
 }
 
-
 .form-label-group > label {
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 0;
   cursor: text;
   display: block;
   width: 100%;
   margin-bottom: 0; /* Override default `<label>` margin */
-  line-height: 1.5;
+  line-height: 1.1;
   color: #878e95;
   border: 1px solid transparent;
   border-radius: .25rem;
   transition: all .1s ease-in-out;
   pointer-events: none;
+  z-index: 2;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
 }
 
 .form-label-group input::-webkit-input-placeholder,
@@ -214,5 +201,6 @@ label {
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
+  top: 0;
 }
 

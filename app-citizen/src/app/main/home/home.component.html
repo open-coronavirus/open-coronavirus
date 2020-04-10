@@ -55,17 +55,17 @@
     </ion-grid>
 
     <ion-grid class="main-options">
-        <ion-row class="ion-align-items-center">
-
+        <ion-row>
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus == 2">
                 <div class="main-options__btn" (click)="setAtHome()">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-                    <p class="main-options__text">
-                        <span i18n="@@leaveHome">Volver a casa</span>
-                        <br>
-                        <span i18n="@@wayto">De camino a: </span><span>{{ leaveReason }}</span>
-                        <br>
-                        <span i18n="@@ago">hace </span><span>{{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
+                    <div class="main-options__btn-volver" (click)="setAtHome()">
+                        <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                        <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
+                    </div>
+                    <p class="main-options__btn-camino">  
+                        <span class="main-options__btn-camino-a" i18n="@@wayto">De camino a: </span>
+                        <span class="main-options__btn-camino-donde">{{ leaveReason }}</span>
+                        <span class="main-options__btn-camino-tiempo"><ng-container i18n="@@ago">hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
                     </p>
                 </div>
             </ion-col>
