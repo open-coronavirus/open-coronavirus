@@ -73,7 +73,7 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   email: string;
 
