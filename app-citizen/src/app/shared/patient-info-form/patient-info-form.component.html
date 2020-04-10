@@ -19,9 +19,9 @@
     </div>
 
     <div class="form-row">
-        <div class="form-group form-label-group" style="width: 50%;">
+        <div class="form-group form-label-group form-label-group--bday">
             <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" name="birthday" id="birthday" formControlName="birthday"></ion-datetime>
-            <label for="birthday" i18n="@@birthdayLabel">Fecha de nacimiento</label>
+            <label for="birthday" i18n="@@birthdayLabel" *ngIf="!patient.birthday">Fecha de nacimiento</label>
             <small class="error" *ngIf="birthday.invalid && birthday.touched" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento.</small>
         </div>
     </div>

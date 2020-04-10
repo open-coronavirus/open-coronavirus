@@ -70,9 +70,14 @@
 
 .main-options{
   &__btn{
+    height: 100%;
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     &--no-link{
       border-radius: 0;
@@ -95,6 +100,43 @@
       .main-options__text{
         font-size: 12px;
         line-height: 16px;
+      }
+    }
+    &-volver{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 4px;
+      &:nth-child(n+2){
+        margin-top: 12px;
+      }
+      .main-options__image{
+        width: 40%;
+        max-width: 30px;
+        margin-right: 8px;
+        height: auto;
+      }
+      .main-options__text{
+        width: 60%;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+    &-camino{
+      font-size: 10px;
+      line-height: 12px;
+      text-align: left;
+      color: #666;
+      &-a{
+        display: block;
+      }
+      &-donde{
+        color: #000;  
+        display: block;      
+      }
+      &-tiempo{
+        display: block;        
       }
     }
   }
