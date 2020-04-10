@@ -83,7 +83,7 @@ export class HomeComponent implements OnDestroy {
                 this.patientName = this.patientService.patient.firstName;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
-                        this.leaveRequest = this.leaveRequestService.leaveRequest
+                        this.leaveRequest = this.leaveRequestService.leaveRequest;
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;
                         if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestService.leaveReasons.forEach(leaveReason => {
