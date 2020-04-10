@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { PatientService } from '../shared/services/patient.service';
 import { IonSlides } from '@ionic/angular';
+import {StorageService} from "../shared/services/storage.service";
 
 
 @Component({
@@ -20,11 +21,12 @@ export class WelcomeComponent implements OnInit {
     slideOpts: any;
     constructor(
         protected router: Router,
-        protected nativeStorage: NativeStorage) {
+        protected storageService: StorageService) {
     }
 
     public ngOnInit(): void {
-        this.nativeStorage.setItem('WELCOME_VISIT', true).then(result => { });
+
+        this.storageService.setItem('WELCOME_VISIT', true);
         this.slideOpts = {
             initialSlide: 0,
             speed: 400
