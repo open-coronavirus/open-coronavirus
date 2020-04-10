@@ -1,4 +1,7 @@
 <div (click)="onClick()" class="gray-option">
-    <div><img *ngIf="icon != null" [src]="icon" class="gray-option-icon filter-black"></div>
-    <div>{{text}}</div>
+    <div class="wrapper">
+        <div><img *ngIf="icon != null" [src]="icon" class="gray-option-icon filter-black"></div>
+        <div>{{text}}</div>
+    </div>
+    <div *ngIf="additionalText" class="subtitle">{{additionalText}}</div>
 </div>

@@ -1,29 +1,6 @@
 <corona-header></corona-header>
 <ion-content class="result">
   <ion-grid>
-<!--
-    <ion-row>
-      <ion-col size="3">
-        <img class="result__qr" [src]="'/assets/images/qr-fake-rojo.svg'">
-      </ion-col>
-      <ion-col size="9">
-        <p class="result__citizen">Ciudadano</p>
-        <p class="result__name">Marsisa García Pérez</p>
-        <h3 class="result__status result__status--quarentine">INFECTADO</h3>
-      </ion-col>
-    </ion-row> -->
-
-    <!-- ion-row>
-      <ion-col size="3">
-        <img class="result__qr" [src]="'/assets/images/qr-fake-amarillo.svg'">
-      </ion-col>
-      <ion-col size="9">
-        <p class="result__citizen">Ciudadano</p>
-        <p class="result__name">Marsisa García Pérez</p>
-        <h3 class="result__status result__status--infected">CUARENTENA OBLIGATORIA</h3>
-      </ion-col>
-    </ion-row> -->
-
     <ion-row>
       <ion-col size="3">
         <img class="result__qr" [src]="'/assets/images/qr-fake-verde.svg'">
@@ -55,7 +32,7 @@
       </div>
     </div>
     <span class="result__map">Ver mapa movilidad</span>
-    
+
     <div class="result__timeline">
 
       <ng-container *ngFor="let leaveRequest of leaveRequests">
@@ -64,7 +41,7 @@
           <p class="result__timeline-item-activity">Vuelta a casa</p>
           <p class="result__timeline-item-time">{{leaveRequest.backToHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
         </div>
-        
+
         <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status >= 3">
           <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}} horas</strong></p>
         </div>
@@ -75,7 +52,7 @@
         </div>
 
       </ng-container>
-      
+
     </div>
   </div>
 </ion-content>

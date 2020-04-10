@@ -12,6 +12,9 @@ export class GrayOptionComponent {
     @Input('text')
     public text;
 
+    @Input('additionalText')
+    public additionalText;
+    
     @Input('icon')
     public icon;
 

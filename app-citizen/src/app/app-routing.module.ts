@@ -34,6 +34,16 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'permissions',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./permissions-modal/permissions-modal.module').then(m => m.PermissionsPushModule)
+            },
+        ]
+    },
+    {
         path: 'no-access',
         children: [
             {
@@ -74,6 +84,16 @@ const routes: Routes = [
                         path: '',
                         loadChildren: () =>
                             import('./main/autotest/autotest.module').then(m => m.AutotestModule)
+                    }
+                ]
+            },
+            {
+                path: 'self-declaration-leave/:leaveReason',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/self-declaration-leave/self-declaration-leave.module').then(m => m.SelfDeclarationLeaveModule)
                     }
                 ]
             },

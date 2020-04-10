@@ -24,23 +24,25 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-grid *ngIf="true"><!-- este caso es cuando es cita otorgada -->
+
+
+    <ion-grid *ngIf="patientHasTestAppointment"><!-- este caso es cuando es cita otorgada -->
         <ion-row>
             <ion-col size="12">
                 <div class="appointment">
                     <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
                     <p class="appointment__text">
                         <ng-container i18n="@@appointment">
-                            Cita para el test del coronavirus<br>
-                            <strong>16 Marzo a les 12:30</strong> en Distrito Digital (Avinguda de Jean Claude Combaldieu s/n, Alicante)
+                            <span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span>
                         </ng-container>
-                        <br><br>
-                        <a href="#" class="appointment__link" i18n="@@howtoget">¿Cómo llegar?</a>
                     </p>
                 </div>
             </ion-col>
         </ion-row>
     </ion-grid>
+
+
+    <!-- PENDIENTE -->
     <ion-grid *ngIf="false"><!-- este caso es cuando es cita solicitada -->
         <ion-row>
             <ion-col size="12">
@@ -58,7 +60,8 @@
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus == 2">
                 <div class="main-options__btn" (click)="setAtHome()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-                    <p class="main-options__text" i18n="@@leaveHome">Volver <br>de casa</p>
+                    <p class="main-options__text"  i18n="@@leaveHome">Volver <br>de casa</p>
+                    <span>{{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">
@@ -78,13 +81,13 @@
                     <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
                     <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
                 </div>
-                <div class="main-options__btn main-options__btn--small">
+                <div class="main-options__btn main-options__btn--small" (click)="requestTest()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>
             </ion-col>
-            <ion-col size="6" class="ion-text-center" *ngIf="true || patientService.patient?.status !== 2">
-                <div class="main-options__btn">
+            <ion-col size="6" class="ion-text-center" *ngIf="(true || patientService.patient?.status !== 2) && !patientHasTestAppointment">
+                <div class="main-options__btn" (click)="requestTest()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
                     <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
                 </div>
@@ -104,10 +107,10 @@
         </ion-row>
     </ion-grid>
 
-    <div *ngIf="patientHasTestAppointment" class="appointment-info">
+    <!-- <div *ngIf="patientHasTestAppointment" class="appointment-info">
         <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
         <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
-    </div>
+    </div> -->
     <ion-grid>
         <ion-row>
             <ion-col size="12">
@@ -117,7 +120,7 @@
                 </div>
             </ion-col>
             <ion-col size="12">
-                <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">Compartir App para luchar juntos</ng-container></a>
+                <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
             </ion-col>
 
 

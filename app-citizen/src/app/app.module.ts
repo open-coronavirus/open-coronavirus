@@ -17,6 +17,7 @@ import {MainComponent} from './main/main.component';
 import {ShareService} from './shared/services/share.service';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import {LeaveRequestService} from './shared/services/leave-request.service';
+import {PermissionsService} from './shared/services/permissionsService.service';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {AutotestAnswers} from './shared/services/autotest-answers.service';
 import {TestAppointmentService} from "./shared/services/test-appointment.service";
@@ -47,6 +48,7 @@ import { PrivacityConditionsComponent } from './shared/privacity-conditions/priv
         sdkConfigurationProvider,
         PatientService,
         LeaveRequestService,
+        PermissionsService,
         StorageService,
         NativeStorage,
         ShareService,

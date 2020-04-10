@@ -30,10 +30,11 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
         documentNumber: string;
         email: string;
         firstName: string;
+        lastName: string;
         gender: number;
         healthInsuranceCardNumber: string;
         id: string;
-        lastName: string;
+        birthday: string;
         phone: string;
         postalCode: string;
         street: string;
@@ -62,6 +63,9 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
         return this.patientInfoForm.get('age');
     }
 
+    get birthday() {
+        return this.patientInfoForm.get('birthday');
+    }
     get gender() {
         return this.patientInfoForm.get('gender');
     }
@@ -100,8 +104,7 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
                 Validators.minLength(2),
                 Validators.pattern(/^.*[AEIOUYaeiouy]+.*$/)]),
             documentNumber: new FormControl(this.patient.documentNumber, [Validators.required]),
-            // age: new FormControl(this.patient.age, [Validators.required]),
-            lastName: new FormControl(this.patient.lastName, [Validators.required]),
+            birthday: new FormControl(this.patient.birthday, [Validators.required]),
             street: new FormControl(this.patient.street),
             postalCode: new FormControl(this.patient.postalCode, [
                 Validators.pattern(/^\s*\d{5}\s*$/), Validators.required]),
@@ -126,10 +129,10 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
             }));
 
 
-        this.subscriptions.push(this.patientInfoForm.get('lastName').valueChanges
+        this.subscriptions.push(this.patientInfoForm.get('birthday').valueChanges
             .subscribe((value: string) => {
                 value = value.trim();
-                this.patient.lastName = value;
+                this.patient.birthday = value;
                 this.onChange.next(this.patient);
             }));
 

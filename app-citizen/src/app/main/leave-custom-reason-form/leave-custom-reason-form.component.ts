@@ -1,6 +1,6 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Inject} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {LeaveRequestService} from '../../shared/services/leave-request.service';
+import {LeaveRequestService, LeaveReasonEnum} from '../../shared/services/leave-request.service';
 
 @Component({
     selector: 'leave-custom-reason-form',
@@ -12,14 +12,26 @@ export class LeaveCustomReasonFormComponent {
 
     public leaveRequestAdditionalInfo;
     public leaveReason: number;
+    public leaveRequestReason: any;
 
     constructor(
         private activatedRoute: ActivatedRoute,
         protected router: Router,
-        protected leaveRequestService: LeaveRequestService
+        protected leaveRequestService: LeaveRequestService,
+        @Inject('settings') protected settings
     ) {
         this.activatedRoute.paramMap.subscribe(params => {
             this.leaveReason = +params.get('leaveReason');
+
+            this.leaveRequestService.loaded$.subscribe(loaded => {
+                if (loaded) {
+                    this.leaveRequestService.leaveReasons.forEach(leaveReason => {
+                        if (leaveReason.id === this.leaveReason && leaveReason.id !== LeaveReasonEnum.otherLeaveReason) {
+                            this.leaveRequestReason = leaveReason;
+                        }
+                    });
+                }
+            });
         });
     }
 
@@ -33,11 +45,21 @@ export class LeaveCustomReasonFormComponent {
 
     public requestLeaveHome() {
         if (this.leaveRequestAdditionalInfo != null && this.leaveRequestAdditionalInfo.length > 3) {
-            this.leaveRequestService.request(this.leaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
-                if (result != null) {
-                    this.router.navigate(['/app/leave-request-result']);
-                }
-            });
+            if (this.settings.screens.selfDeclarationLeave) {
+                this.router.navigate([
+                    '/app/self-declaration-leave',
+                    this.leaveReason,
+                    {
+                        leaveRequestAdditionalInfo: this.leaveRequestAdditionalInfo
+                    }
+                ]);
+            } else {
+                this.leaveRequestService.request(this.leaveReason, this.leaveRequestAdditionalInfo).subscribe(result => {
+                    if (result != null) {
+                        this.router.navigate(['/app/leave-request-result']);
+                    }
+                });
+            }
         } else {
             const enterCustomReasonToLeaveTo = $localize`:@@enterCustomReasonToLeaveTo:Por favor, escriba porque desea salir.`;
             alert(enterCustomReasonToLeaveTo);
