@@ -34,6 +34,16 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'permissions',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./permissions/permissions-modal/permissions-modal.module').then(m => m.PermissionsPushModule)
+            },
+        ]
+    },
+    {
         path: 'no-access',
         children: [
             {
@@ -78,6 +88,16 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'self-declaration-leave/:leaveReason',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/self-declaration-leave/self-declaration-leave.module').then(m => m.SelfDeclarationLeaveModule)
+                    }
+                ]
+            },
+            {
                 path: 'request-leave-home',
                 children: [
                     {
@@ -88,7 +108,7 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'leave-custom-reason-form',
+                path: 'leave-custom-reason-form/:leaveReason',
                 children: [
                     {
                         path: '',

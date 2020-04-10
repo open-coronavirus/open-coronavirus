@@ -30,7 +30,7 @@ export interface PoliceOfficerPartial {
     city?: string;
     postalCode?: string;
     position?: string;
-    created?: Date;
-    updated?: Date;
+    created?: string;
+    updated?: string;
 }
 

@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Subject, Subscription} from 'rxjs';
-import {Patient, PatientWithRelations} from '../sdk';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject, Subscription } from 'rxjs';
+import { Patient, PatientWithRelations } from '../sdk';
 
 @Component({
     selector: 'patient-info-form',
@@ -30,10 +30,11 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
         documentNumber: string;
         email: string;
         firstName: string;
+        lastName: string;
         gender: number;
         healthInsuranceCardNumber: string;
         id: string;
-        lastName: string;
+        birthday: string;
         phone: string;
         postalCode: string;
         street: string;
@@ -62,6 +63,9 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
         return this.patientInfoForm.get('age');
     }
 
+    get birthday() {
+        return this.patientInfoForm.get('birthday');
+    }
     get gender() {
         return this.patientInfoForm.get('gender');
     }
@@ -99,25 +103,16 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
                 Validators.required,
                 Validators.minLength(2),
                 Validators.pattern(/^.*[AEIOUYaeiouy]+.*$/)]),
-            lastName: new FormControl(this.patient.lastName, [,
-                Validators.required,
-                Validators.minLength(2),
-                Validators.pattern(/^.*[AEIOUYaeiouy]+.*$/)]),
             documentNumber: new FormControl(this.patient.documentNumber, [Validators.required]),
-            healthInsuranceCardNumber: new FormControl(this.patient.healthInsuranceCardNumber, [Validators.required]),
-            age: new FormControl(this.patient.age, [Validators.required, Validators.pattern(/^\s*\d+\s*$/ )]),
-            gender: new FormControl(this.patient.gender, [Validators.required]),
-            street: new FormControl(this.patient.street, [Validators.required]),
-            apartment: new FormControl(this.patient.apartment),
+            birthday: new FormControl(this.patient.birthday, [Validators.required]),
+            street: new FormControl(this.patient.street),
             postalCode: new FormControl(this.patient.postalCode, [
-                Validators.required,
-                Validators.pattern(/^\s*\d{5}\s*$/ )]),
+                Validators.pattern(/^\s*\d{5}\s*$/), Validators.required]),
             phone: new FormControl(this.patient.phone, [
                 Validators.required,
                 Validators.minLength(9),
-                Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/ )]),
+                Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/)]),
             email: new FormControl(this.patient.email, [
-                Validators.required,
                 Validators.pattern(/^\s*[a-zA-Z0-9._-]+@[a-zA-Z0-9\.-]+?\.[a-zA-Z]{2,}\s*$/i)]),
         });
 
@@ -127,46 +122,23 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
                 this.onChange.next(this.patient);
             }));
 
-        this.subscriptions.push(this.patientInfoForm.get('lastName').valueChanges
-            .subscribe((value: string) => {
-                this.patient.lastName = value.trim();
-                this.onChange.next(this.patient);
-            }));
-
         this.subscriptions.push(this.patientInfoForm.get('documentNumber').valueChanges
             .subscribe((value: string) => {
                 this.patient.documentNumber = value.trim();
                 this.onChange.next(this.patient);
             }));
 
-        this.subscriptions.push(this.patientInfoForm.get('healthInsuranceCardNumber').valueChanges
-            .subscribe((value: string) => {
-                this.patient.healthInsuranceCardNumber = value.trim();
-                this.onChange.next(this.patient);
-            }));
 
-        this.subscriptions.push(this.patientInfoForm.get('age').valueChanges
+        this.subscriptions.push(this.patientInfoForm.get('birthday').valueChanges
             .subscribe((value: string) => {
                 value = value.trim();
-                this.patient.age = +value;
-                this.onChange.next(this.patient);
-            }));
-
-        this.subscriptions.push(this.patientInfoForm.get('gender').valueChanges
-            .subscribe(value => {
-                this.patient.gender = +value;
+                this.patient.birthday = value;
                 this.onChange.next(this.patient);
             }));
 
         this.subscriptions.push(this.patientInfoForm.get('street').valueChanges
             .subscribe((value: string) => {
                 this.patient.street = value.trim();
-                this.onChange.next(this.patient);
-            }));
-
-        this.subscriptions.push(this.patientInfoForm.get('apartment').valueChanges
-            .subscribe((value: string) => {
-                this.patient.apartment = value.trim();
                 this.onChange.next(this.patient);
             }));
 
@@ -188,6 +160,8 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
                 this.onChange.next(this.patient);
             }));
 
+
+
     }
 
     public validate() {
@@ -201,7 +175,7 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
     }
 
     public ngAfterViewInit() {
-        //todo
+        //  todo
     }
 
 

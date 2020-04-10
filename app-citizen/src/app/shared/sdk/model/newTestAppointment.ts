@@ -18,8 +18,8 @@ export interface NewTestAppointment {
   [key: string]: object | any;
 
 
-    created?: Date;
-    appointmentDate?: Date;
+    created?: string;
+    appointmentDate?: string;
     type?: number;
     patientId: string;
     healthCenterId?: string;

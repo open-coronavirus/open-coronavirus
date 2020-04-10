@@ -1,7 +1,7 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {PatientService} from './patient.service';
 import {BehaviorSubject, Subject} from 'rxjs';
-import {LeaveRequest, LeaveRequestControllerService} from '../sdk';
+import {LeaveRequest, LeaveRequestControllerService, LeaveRequestWithRelations} from '../sdk';
 import {AlertController} from '@ionic/angular';
 
 export enum LeaveReasonEnum {
@@ -19,7 +19,7 @@ export enum LeaveReasonEnum {
 @Injectable()
 export class LeaveRequestService {
 
-    public leaveRequest: LeaveRequest = null;
+    public leaveRequest: LeaveRequestWithRelations = null;
 
     public loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 

@@ -17,6 +17,7 @@ export class QrReaderResultComponent implements OnInit {
     private leaveRequests: LeaveRequestWithRelations;
 
     public showMap: boolean;
+    public showMore: boolean;
 
     constructor(
         private route: ActivatedRoute,
@@ -51,9 +52,42 @@ export class QrReaderResultComponent implements OnInit {
     }
 
     public hoursOutsideHome(outOfHomeTimestamp: string) {
+        if (!outOfHomeTimestamp) {
+            return;
+        }
+
         const now = new Date();
         const outOfHomeDate = new Date(outOfHomeTimestamp);
-        return Math.round(Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+        const hours = (Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+        const min = Math.floor((hours % 1) * 60);
+        const hoursMath = Math.floor(hours);
+
+        let str = '';
+        if (hoursMath) {
+            str += hoursMath + 'h ';
+        }
+        str += min + 'min';
+        return str;
+    }
+
+    public getColorStatus() {
+        if (!this.patient) {
+            return;
+        }
+        switch (this.patient.status) {
+            case 4:
+                return '#c80f2eff';
+
+            case 3:
+                return '#ffca08ff';
+
+            case 2:
+                return '#61bc7cff';
+        }
+    }
+
+    public clickShowMore() {
+       this.showMore = true;
     }
 
     public clickShowMap() {

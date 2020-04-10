@@ -1,9 +1,9 @@
 <ion-header>
     <ion-toolbar class="header-app">
         <ion-buttons slot="start">
-            <ion-icon size="large" (click)="goBack()" name="chevron-back-outline"></ion-icon>
+            <ion-icon size="large" (click)="goBack()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
         </ion-buttons>
-        <ion-title>{{title}}</ion-title>
+        <div class="header-app__title">{{title}}</div>
         <ion-buttons *ngIf="showExitButton" slot="end">
             <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
         </ion-buttons>

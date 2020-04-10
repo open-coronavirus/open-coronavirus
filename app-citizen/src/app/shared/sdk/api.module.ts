@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthControllerService } from './api/authController.service';
 import { BluetoothLeAdvertisementControllerService } from './api/bluetoothLeAdvertisementController.service';
 import { ContactControllerService } from './api/contactController.service';
+import { DocumentControllerService } from './api/documentController.service';
 import { GeolocationControllerService } from './api/geolocationController.service';
 import { HealthCenterControllerService } from './api/healthCenterController.service';
 import { LeaveRequestControllerService } from './api/leaveRequestController.service';
@@ -22,21 +23,7 @@ import { TestResultControllerService } from './api/testResultController.service'
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [
-    AuthControllerService,
-    BluetoothLeAdvertisementControllerService,
-    ContactControllerService,
-    GeolocationControllerService,
-    HealthCenterControllerService,
-    LeaveRequestControllerService,
-    MeControllerService,
-    PatientControllerService,
-    PingControllerService,
-    PoliceOfficerControllerService,
-    SanitarianControllerService,
-    TestAppointmentControllerService,
-    TestQuestionControllerService,
-    TestResultControllerService ]
+  providers: []
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

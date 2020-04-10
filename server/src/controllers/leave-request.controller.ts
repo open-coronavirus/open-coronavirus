@@ -182,6 +182,7 @@ export class LeaveRequestController {
     await this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true })
       .then(leaveRequest => {
         if (leaveRequest) {
+          leaveRequest.backToHomeTimestamp = new Date();
           leaveRequest.status = 1;
           this.leaveRequestRepository.save(leaveRequest);
         }

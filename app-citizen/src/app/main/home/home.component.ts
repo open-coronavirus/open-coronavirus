@@ -1,13 +1,15 @@
-import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {ShareService} from '../../shared/services/share.service';
-import {PatientService} from '../../shared/services/patient.service';
-import {MenuController} from '@ionic/angular';
-import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {TestAppointmentService} from "../../shared/services/test-appointment.service";
-import {Subscription} from "rxjs";
-import {AppointmentType} from "../../../../../server/src/common/utils/enums";
+import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { ShareService } from '../../shared/services/share.service';
+import { PatientService } from '../../shared/services/patient.service';
+import { MenuController } from '@ionic/angular';
+import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { TestAppointmentService } from "../../shared/services/test-appointment.service";
+import { Subscription } from "rxjs";
+import { AppointmentType } from "../../../../../server/src/common/utils/enums";
+import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
+import { LeaveRequest } from 'src/app/shared/sdk';
 
 @Component({
     selector: 'home',
@@ -34,6 +36,7 @@ export class HomeComponent implements OnDestroy {
     protected subscriptions: Array<Subscription> = new Array();
 
     public patientName: string;
+    public leaveRequest: LeaveRequest;
 
     public serviceAdvertisementUUID;
 
@@ -63,13 +66,13 @@ export class HomeComponent implements OnDestroy {
                         let healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                         let googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + this.testAppointmentService.testAppointment.healthCenter.latitude + ',' + this.testAppointmentService.testAppointment.healthCenter.longitude;
 
-                        let appointmentDescription = $localize`:@@appointmentAtHealthCenterDescription:Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]`;
+                        let appointmentDescription = $localize`:@@appointmentAtHealthCenterDescription:Cita para el test del coronavirus <strong>[appointmentDate] </strong> en [healthCenterName] [healthCenterAddress]`;
                         this.appointmentDescriptionLine1 = appointmentDescription
                             .replace("\[appointmentDate\]", appointmentDate)
                             .replace("\[healthCenterName\]", healthCenterName)
                             .replace("\[healthCenterAddress\]", healthCenterAddress)
                         let howToGetThereLink = $localize`:@@howToGetThereLink:Como llegar?`;
-                        this.appointmentDescriptionLine2 = "<a href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
+                        this.appointmentDescriptionLine2 = "<br><a class='appointment__link' href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
                         break;
 
                 }
@@ -78,19 +81,13 @@ export class HomeComponent implements OnDestroy {
         }));
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
-            // console.log("patientLoaded: ", patientLoaded);
-            // console.log("this.patientService.patient: ", this.patientService.patient);
             if (patientLoaded) {
-                // this.patientService.patient.status = 4;
-                this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.patientName = this.patientService.patient.firstName;
                 this.serviceAdvertisementUUID = this.patientService.patient.serviceAdvertisementUUID;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
-                    // console.log("this.leaveRequestService.leaveRequest: ", this.leaveRequestService.leaveRequest);
-                    // console.log("this.leaveRequestService.leaveReasons: ", this.leaveRequestService.leaveReasons);
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
-
+                        this.leaveRequest = this.leaveRequestService.leaveRequest;
                         this.leaveStatus = this.leaveRequestService.leaveRequest.status;
-                        // console.log("leaveStatus: ", this.leaveStatus);
                         if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestService.leaveReasons.forEach(leaveReason => {
                                 if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
@@ -101,19 +98,14 @@ export class HomeComponent implements OnDestroy {
                             this.leaveReason = this.leaveRequestService.leaveRequest.additionalInfo;
                         }
                     }
-                })
+                });
             }
         }));
 
     }
 
-    // openMenu() {
-    //     this.menu.enable(true, 'menu');
-    //     this.menu.open('menu');
-    // }
-
     public goToRequestLeaveHome() {
-        this.router.navigate(['/app/request-leave-home'])
+        this.router.navigate(['/app/request-leave-home']);
     }
 
     public setAtHome() {
@@ -121,7 +113,15 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToAutotest() {
-        this.router.navigate(['/app/autotest'])
+        this.router.navigate(['/app/autotest']);
+    }
+
+    public requestTest() {
+        this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+    }
+
+    public goToTracking() {
+        this.router.navigate(['/app/autotest/0/seguimiento1_1']);
     }
 
     public goToCoronavirusInfo() {
@@ -138,16 +138,16 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return 'Positivo';
+                return $localize`:@@statusInfected:Positivo`;
 
             case 3:
-                return 'Cuarentena obligatoria';
+                return $localize`:@@statusQuarantine:Cuarentena obligatoria`;
 
             case 2:
-                return 'Negativo';
+                return $localize`:@@statusNoInfected:Negativo`;
 
             default:
-                return 'No se ha realizado el test de COVID-19';
+                return $localize`:@@statusNoData:No se ha realizado el test de COVID-19`;
         }
     }
 
@@ -157,33 +157,31 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return 'result__status--infected';
+                return 'result--infected';
 
             case 3:
-                return 'result__status--quarentine';
+                return 'result--quarentine';
 
             case 2:
-                return 'result__status--ok';
+                return 'result--ok';
 
         }
     }
 
-    getIconStatus() {
+    getColorStatus() {
         if (!this.patientService.patient) {
             return;
         }
         switch (this.patientService.patient.status) {
             case 4:
-                return 'qr-fake-rojo';
+                return '#c80f2eff';
 
             case 3:
-                return 'qr-fake-amarillo';
+                return '#ffca08ff';
 
             case 2:
-                return 'qr-fake-verde';
+                return '#61bc7cff';
 
-            default:
-                return 'qr-fake-negro';
         }
     }
 
@@ -193,4 +191,25 @@ export class HomeComponent implements OnDestroy {
         });
     }
 
+    public getSettingsText(): string {
+        return this.settings.shareApp.text;
+    }
+
+    public hoursOutsideHome(outOfHomeTimestamp: string) {
+        if (!outOfHomeTimestamp) {
+            return;
+        }
+        const now = new Date();
+        const outOfHomeDate = new Date(outOfHomeTimestamp);
+        const hours = (Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+        const min = Math.floor((hours % 1) * 60);
+        const hoursMath = Math.floor(hours);
+
+        let str = '';
+        if (hoursMath) {
+            str += hoursMath + ' h ';
+        }
+        str += min + ' min';
+        return str;
+    }
 }

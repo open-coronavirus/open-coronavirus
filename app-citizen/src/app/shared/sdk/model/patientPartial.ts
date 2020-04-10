@@ -23,6 +23,7 @@ export interface PatientPartial {
     lastName?: string;
     documentNumber?: string;
     healthInsuranceCardNumber?: string;
+    birthday?: string;
     age?: number;
     gender?: number;
     street?: string;
@@ -32,7 +33,7 @@ export interface PatientPartial {
     status?: number;
     phone?: string;
     serviceAdvertisementUUID?: string;
-    created?: Date;
-    updated?: Date;
+    created?: string;
+    updated?: string;
 }
 
