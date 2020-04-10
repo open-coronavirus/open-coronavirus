@@ -9,6 +9,7 @@ import { TestAppointmentService } from "../../shared/services/test-appointment.s
 import { Subscription } from "rxjs";
 import { AppointmentType } from "../../../../../server/src/common/utils/enums";
 import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
+import { LeaveRequest } from 'src/app/shared/sdk';
 
 @Component({
     selector: 'home',
@@ -35,7 +36,7 @@ export class HomeComponent implements OnDestroy {
     protected subscriptions: Array<Subscription> = new Array();
 
     public patientName: string;
-    public leaveRequest: LeaveRequestWithRelations;
+    public leaveRequest: LeaveRequest;
 
     public serviceAdvertisementUUID;
 
