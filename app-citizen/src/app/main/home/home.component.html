@@ -3,7 +3,7 @@
     <ion-grid class="result" [ngClass]="getClassStatus()">
         <ion-row class="ion-align-items-center">
             <ion-col size="6">
-                <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.documentNumber'"></qrcode>
+                <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
             </ion-col>
             <ion-col size="6">
                 <p class="result__title" i18n="@@identity">Identificación</p>

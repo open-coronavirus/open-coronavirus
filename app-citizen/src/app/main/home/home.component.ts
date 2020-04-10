@@ -121,7 +121,7 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToTracking() {
-        this.router.navigate(['/app/autotest/1/question3_1']);
+        this.router.navigate(['/app/autotest/1/seguimiento1_1']);
     }
 
     public goToCoronavirusInfo() {

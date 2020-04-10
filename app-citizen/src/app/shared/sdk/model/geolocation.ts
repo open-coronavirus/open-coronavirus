@@ -22,7 +22,7 @@ export interface Geolocation {
     altitude?: number;
     bearing?: number;
     speed?: number;
-    created?: Date;
+    created?: string;
     patientId: string;
 }
 
