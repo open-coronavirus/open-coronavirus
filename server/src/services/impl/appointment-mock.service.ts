@@ -25,12 +25,12 @@ export class AppointmentMockService implements AppointmentService {
                 }
             });
 
-            if(score > 100) {
+            //if(score > 100) {
                 result(AppointmentType.AT_HEALTH_CENTER);
-            }
-            else {
-                result(AppointmentType.AT_HOME);
-            }
+            //}
+            //else {
+            //    result(AppointmentType.AT_HOME);
+            //}
 
         });
     }
