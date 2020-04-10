@@ -29,37 +29,40 @@ export class ContactTrackerService {
                        protected contactControllerService: ContactControllerService,
                        protected platform: Platform) {
 
-        let dbConfiguration = { name: 'open-coronavirus.db' };
-        if(this.platform.is('android')) {
-            dbConfiguration['location'] = 'default';
-        }
-        else {
-            dbConfiguration['iosDatabaseLocation'] = 'default';
-        }
+        if(!this.platform.is('desktop')) {
+            let dbConfiguration = {name: 'open-coronavirus.db'};
+            if (this.platform.is('android')) {
+                dbConfiguration['location'] = 'default';
+            } else if (this.platform.is('ios')) {
+                dbConfiguration['iosDatabaseLocation'] = 'default';
+            }
 
-        sqlite.create(dbConfiguration).then((db: SQLiteObject) => {
-            this.db = db;
-            console.log("Connected: " + JSON.stringify(db));
-            this.db.executeSql("SELECT * FROM sqlite_master WHERE type='table' AND name='contacts'", []).then(result => {
-                if(result.rows.length > 0) {
-                    console.debug("Table contacts already exists!")
-                    this.connectedToDb$.next(true);
-                }
-                else {
-                    console.debug("Table contacts does not exits. Creatint it ...")
-                    this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from timestamp, timestamp_to timestamp, rssi int);', [])
-                        .then(() => {
+            let promise = sqlite.create(dbConfiguration);
+
+            if(promise != null) {
+                promise.then((db: SQLiteObject) => {
+                    this.db = db;
+                    console.log("Connected: " + JSON.stringify(db));
+                    this.db.executeSql("SELECT * FROM sqlite_master WHERE type='table' AND name='contacts'", []).then(result => {
+                        if (result.rows.length > 0) {
+                            console.debug("Table contacts already exists!")
                             this.connectedToDb$.next(true);
-                        })
-                        .catch(e => console.error(e));
-                }
-            })
-            .catch(noResults => {
-                console.error("Error checking database status at the very beginning: " + JSON.stringify(noResults));
-            });
+                        } else {
+                            console.debug("Table contacts does not exits. Creatint it ...")
+                            this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from timestamp, timestamp_to timestamp, rssi int);', [])
+                                .then(() => {
+                                    this.connectedToDb$.next(true);
+                                })
+                                .catch(e => console.error(e));
+                        }
+                    })
+                    .catch(noResults => {
+                        console.error("Error checking database status at the very beginning: " + JSON.stringify(noResults));
+                    });
+                });
+            }
 
-        });
-
+        }
     }
 
     public trackContact(uuid: string, rssi: number, address: string) {
@@ -79,15 +82,21 @@ export class ContactTrackerService {
 
         let returnValue: Subject<boolean> = new Subject();
 
-        this.db.executeSql("INSERT INTO contacts(id, uuid, timestamp_from, timestamp_to, rssi) values (?, ?, ?, ?, ?)",
-            [contact.id, contact.uuid, contact.timestampFrom, contact.timestampTo, contact.rssi]).then(result => {
-            this.knownContacts.set(address, contact); //update the contact
-            console.debug("[Contact tracker] Inserted new contact with uuid " + contact.uuid);
-            returnValue.next(true);
-        }).catch(error => {
-            console.error("Error trying to insert a contact: " + contact.uuid);
+        if(this.db != null) {
+
+            this.db.executeSql("INSERT INTO contacts(id, uuid, timestamp_from, timestamp_to, rssi) values (?, ?, ?, ?, ?)",
+                [contact.id, contact.uuid, contact.timestampFrom, contact.timestampTo, contact.rssi]).then(result => {
+                this.knownContacts.set(address, contact); //update the contact
+                console.debug("[Contact tracker] Inserted new contact with uuid " + contact.uuid);
+                returnValue.next(true);
+            }).catch(error => {
+                console.error("Error trying to insert a contact: " + contact.uuid);
+                returnValue.next(false);
+            });
+        }
+        else {
             returnValue.next(false);
-        });
+        }
 
         return returnValue;
     }
@@ -118,22 +127,27 @@ export class ContactTrackerService {
     public _updateTrack(address, rssi) {
         let returnValue: Subject<boolean> = new Subject();
 
-        let contact = this.knownContacts.get(address);
-        if(contact.rssi < rssi) {
-            contact.rssi = rssi;
+        if(this.db != null) {
+
+            let contact = this.knownContacts.get(address);
+            if (contact.rssi < rssi) {
+                contact.rssi = rssi;
+            }
+            contact.timestampTo = new Date().getTime();
+
+            this.db.executeSql("UPDATE contacts set rssi = ?, timestamp_to = ? where id = ?",
+                [contact.rssi, contact.timestampTo, contact.id]).then(result => {
+                this.knownContacts.set(address, contact); //update the contact
+                console.debug("[Contact tracker] Updated existing contact with uuid " + contact.uuid);
+                returnValue.next(true);
+            }).catch(error => {
+                console.error("Error trying to insert a contact: " + contact.uuid);
+                returnValue.next(false);
+            });
         }
-        contact.timestampTo = new Date().getTime();
-
-        this.db.executeSql("UPDATE contacts set rssi = ?, timestamp_to = ? where id = ?",
-            [contact.rssi, contact.timestampTo, contact.id]).then(result => {
-            this.knownContacts.set(address, contact); //update the contact
-            console.debug("[Contact tracker] Updated existing contact with uuid " + contact.uuid);
-            returnValue.next(true);
-        }).catch(error => {
-            console.error("Error trying to insert a contact: " + contact.uuid);
+        else {
             returnValue.next(false);
-        });
-
+        }
         return returnValue;
     }
 
@@ -141,58 +155,64 @@ export class ContactTrackerService {
     async getContactEntries(limit = 100, offset= 0) {
 
         return new Promise((resolve, reject) => {
-            this.db.executeSql(`SELECT * FROM contacts order by timestamp_from desc limit ${limit} offset ${offset}`,[]).then(result => {
-                resolve(result);
-            }).catch(error => {
-                console.error("Error trying to retrieve contacts: " + JSON.stringify(error));
-                reject(error);
-            });
+            if(this.db != null) {
+                this.db.executeSql(`SELECT * FROM contacts order by timestamp_from desc limit ${limit} offset ${offset}`, []).then(result => {
+                    resolve(result);
+                }).catch(error => {
+                    console.error("Error trying to retrieve contacts: " + JSON.stringify(error));
+                    reject(error);
+                });
+            }
+            else {
+                reject(false);
+            }
         });
     }
 
-    async uploadContactsToServer() {
+    public async uploadContactsToServer() {
 
         let limit = 100;
         let offset = 0;
 
-        let existsMoreRows = true;
-        do {
+        if(this.db != null) {
 
-            let entries: any = await this.getContactEntries(limit, offset);
-            if(entries.rows.length > 0) {
-                let contactsToUpload = [];
-                entries.rows.forEach(row => {
-                    let contactToUpload: ContactWithRelations = new class implements ContactWithRelations {
-                        [key: string]: object | any;
+            let existsMoreRows = true;
+            do {
 
-                        id: string;
-                        rssi: number;
-                        sourceUuid: string;
-                        targetUuid: string;
-                        timestampFrom: number;
-                        timestampTo: number;
-                    }
+                let entries: any = await this.getContactEntries(limit, offset);
+                if (entries.rows.length > 0) {
+                    let contactsToUpload = [];
+                    entries.rows.forEach(row => {
+                        let contactToUpload: ContactWithRelations = new class implements ContactWithRelations {
+                            [key: string]: object | any;
 
-                    contactToUpload.rssi = row.rssi;
-                    contactToUpload.sourceUuid = this._patientServiceUUID;
-                    contactToUpload.targetUuid = row.uuid;
-                    contactToUpload.timestampFrom = row.timestampFrom;
-                    contactToUpload.timestampTo = row.timestampTo;
+                            id: string;
+                            rssi: number;
+                            sourceUuid: string;
+                            targetUuid: string;
+                            timestampFrom: number;
+                            timestampTo: number;
+                        }
 
-                    contactsToUpload.push(contactToUpload);
+                        contactToUpload.rssi = row.rssi;
+                        contactToUpload.sourceUuid = this._patientServiceUUID;
+                        contactToUpload.targetUuid = row.uuid;
+                        contactToUpload.timestampFrom = row.timestampFrom;
+                        contactToUpload.timestampTo = row.timestampTo;
 
-                });
+                        contactsToUpload.push(contactToUpload);
 
-                await this.contactControllerService.contactControllerCreateAll(contactsToUpload);
-            }
-            else {
-                existsMoreRows = false;
-            }
+                    });
 
-            offset = offset + limit;
+                    await this.contactControllerService.contactControllerCreateAll(contactsToUpload);
+                } else {
+                    existsMoreRows = false;
+                }
 
-        }while(existsMoreRows);
+                offset = offset + limit;
 
+            } while (existsMoreRows);
+        }
 
     }
 
