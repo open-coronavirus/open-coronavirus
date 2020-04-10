@@ -32,7 +32,7 @@
     "docker:run": "docker run -p 3000:3000 -d adminapp-server",
     "migrate": "node ./dist/migrate",
     "prestart": "npm run build",
-    "start": "NODE_ENV=dev node -r source-map-support/register .",
+    "start": "NODE_ENV=dev DEBUG=loopback:connector:mongodb node -r source-map-support/register .",
     "prepublishOnly": "npm run test"
   },
   "repository": {
