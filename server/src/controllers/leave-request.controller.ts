@@ -148,6 +148,25 @@ export class LeaveRequestController {
     return this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true });
   }
 
+  @get('/leave-requests/patient/{patientId}', {
+    responses: {
+      '200': {
+        description: 'LeaveRequest model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(LeaveRequest, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async findAllByPatientId(
+      @param.path.string('patientId') patientId: string,
+  ): Promise<(LeaveRequest)[]> {
+    let filter: Filter<LeaveRequest> = {"where": {"patientId":patientId}, order: ['outOfHomeTimestamp DESC']};
+    return this.leaveRequestRepository.find(filter, {strictObjectIDCoercion: true});
+  }
+
   @put('/leave-requests/token/{token}/set-at-home', {
     responses: {
       '204': {

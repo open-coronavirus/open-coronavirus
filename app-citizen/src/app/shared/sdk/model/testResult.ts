@@ -20,6 +20,6 @@ export interface TestResult {
     patientId: string;
     result?: number;
     action?: number;
-    created?: string;
+    created?: Date;
 }
 

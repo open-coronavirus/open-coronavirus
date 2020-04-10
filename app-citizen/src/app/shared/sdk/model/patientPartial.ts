@@ -32,7 +32,7 @@ export interface PatientPartial {
     status?: number;
     phone?: string;
     serviceAdvertisementUUID?: string;
-    created?: string;
-    updated?: string;
+    created?: Date;
+    updated?: Date;
 }
 

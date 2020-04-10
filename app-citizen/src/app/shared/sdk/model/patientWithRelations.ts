@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { LeaveRequestWithRelations } from './leaveRequestWithRelations';
 
 
 /**
@@ -32,7 +33,8 @@ export interface PatientWithRelations {
     status?: number;
     phone: string;
     serviceAdvertisementUUID?: string;
-    created?: string;
-    updated?: string;
+    created?: Date;
+    updated?: Date;
+    leaveRequests?: Array<LeaveRequestWithRelations>;
 }
 

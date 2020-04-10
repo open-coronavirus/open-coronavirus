@@ -15,6 +15,7 @@ import {
 } from '../../repositories';
 import {repository} from '@loopback/repository';
 import {inject} from '@loopback/core';
+import {AppointmentType} from '../../common/utils/enums';
 
 export class SampleGovernmentServerAppointmentService
   implements AppointmentService {
@@ -115,16 +116,66 @@ export class SampleGovernmentServerAppointmentService
     return healthCenters;
   }
 
-  getAppointmentType(answers: object[], patientId: string): Promise<number> {
-    throw new Error('Method not implemented.');
+  // COPIED FROM appointment-mock.service.ts to allow compatibility with existing code
+
+  /**
+   * Demo, determine the appointment type based on a given score (100)
+   *
+   * @param healthCenterId
+   * @param patientId
+   */
+  public getAppointmentType(
+    answers: object[],
+    patientId: string,
+  ): Promise<number> {
+    return new Promise((result) => {
+      let score = 0;
+      answers.forEach((answer: any) => {
+        if (answer.answer.hasOwnProperty('value')) {
+          score += answer.answer.value;
+        }
+      });
+
+      if (score > 100) {
+        result(AppointmentType.AT_HEALTH_CENTER);
+      } else {
+        result(AppointmentType.AT_HOME);
+      }
+    });
   }
-  getAppointmentDateAtHealthCenter(
+
+  /**
+   * Demo, returns a ramdon date between tomorrow and 6 days
+   *
+   * @param healthCenterId
+   * @param patientId
+   */
+  public getAppointmentDateAtHealthCenter(
     healthCenterId: string,
     patientId: string,
   ): Promise<Date> {
-    throw new Error('Method not implemented.');
+    return new Promise((result) => {
+      let returnValue = new Date();
+      returnValue.setDate(
+        returnValue.getDate() + Math.floor(Math.random() * 6) + 1,
+      );
+      result(returnValue);
+    });
   }
-  getAppointmentDateAtHome(patientId: string): Promise<Date> {
-    throw new Error('Method not implemented.');
+
+  /**
+   *
+   * Demo, returns a ramdon date between tomorrow and 6 days
+   *
+   * @param patientId
+   */
+  public getAppointmentDateAtHome(patientId: string): Promise<Date> {
+    return new Promise((result) => {
+      let returnValue = new Date();
+      returnValue.setDate(
+        returnValue.getDate() + Math.floor(Math.random() * 6) + 1,
+      );
+      result(returnValue);
+    });
   }
 }

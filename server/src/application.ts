@@ -10,11 +10,9 @@ import {ServiceMixin} from '@loopback/service-proxy';
 import axios from 'axios';
 import {join} from 'path';
 import {MySequence} from './sequence';
-import {AppointmentMockService} from './services/impl/appointment-mock.service';
 import {HealthCenterMockService} from './services/impl/health-center-mock.service';
+import {LeaveRequestService} from './services/leave-request.service';
 import {AuthMockService} from './services/impl/auth-mock.service';
-
-import * as Queries from './infrastructure/application/query';
 import {SampleGovernmentServerAppointmentService} from './services/impl/SampleGovernmentServerAppointmentService';
 import {SampleGovernmentServerHttpClient} from './infrastructure/application/query/patient/http/SampleGovernmentServerHttpClient';
 
@@ -27,8 +25,8 @@ export class CoronavirusServerApplication extends BootMixin(
   constructor(options: ApplicationConfig = {}) {
     console.log('Loading ' + join(process.cwd(), '.env') + ' ...');
     let envConfig = dotenv.parse(fs.readFileSync(join(process.cwd(), '.env')));
-    for (var k in envConfig) {
-      process.env[k] = envConfig[k];
+    for (let envVarName in envConfig) {
+      process.env[envVarName] = envConfig[envVarName];
     }
     //environment specific
     console.log(
@@ -38,8 +36,8 @@ export class CoronavirusServerApplication extends BootMixin(
       fs.readFileSync(join(process.cwd(), '.env.' + process.env.NODE_ENV)) +
         ' ...',
     );
-    for (var k in envConfig) {
-      process.env[k] = envConfig[k];
+    for (let envVarName in envConfig) {
+      process.env[envVarName] = envConfig[envVarName];
     }
 
     options.rest = {
@@ -59,9 +57,6 @@ export class CoronavirusServerApplication extends BootMixin(
     // Set up the custom sequence
     this.sequence(MySequence);
 
-    // Set up default home page
-    //this.static('/', path.join(__dirname, '../public'));
-
     // Customize @loopback/rest-explorer configuration here
     this.bind(RestExplorerBindings.CONFIG).to({
       path: '/explorer',
@@ -69,16 +64,12 @@ export class CoronavirusServerApplication extends BootMixin(
     this.component(RestExplorerComponent);
 
     //Define custom services at this point:
-    this.service(HealthCenterMockService, {interface: 'HealthCenterService'});
-    this.service(AuthMockService, {interface: 'AuthService'});
     this.service(SampleGovernmentServerAppointmentService, {
       interface: 'AppointmentService',
     });
-
-    //Define queries at this point:
-    this.service(Queries.GetPatientLeaveRequestsLoobpack, {
-      interface: 'GetPatientLeaveRequests',
-    });
+    this.service(HealthCenterMockService, {interface: 'HealthCenterService'});
+    this.service(AuthMockService, {interface: 'AuthService'});
+    this.service(LeaveRequestService);
 
     // Other
     this.bind('SampleGovernmentServerHttpClient').toDynamicValue(
@@ -90,10 +81,6 @@ export class CoronavirusServerApplication extends BootMixin(
           }),
         ),
     );
-
-    this.service(Queries.GetPatientLeaveRequestsLoobpack, {
-      interface: 'GetPatientLeaveRequests',
-    });
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

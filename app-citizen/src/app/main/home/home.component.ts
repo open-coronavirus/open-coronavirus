@@ -1,14 +1,13 @@
-import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { ShareService } from '../../shared/services/share.service';
-import { PatientService } from '../../shared/services/patient.service';
-import { MenuController } from '@ionic/angular';
-import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { TestAppointmentService } from "../../shared/services/test-appointment.service";
-import { Subscription } from "rxjs";
-import { AppointmentType } from "../../../../../server/src/common/utils/enums";
-import { DocumentControllerService } from "../../shared/sdk";
+import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
+import {ShareService} from '../../shared/services/share.service';
+import {PatientService} from '../../shared/services/patient.service';
+import {MenuController} from '@ionic/angular';
+import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {TestAppointmentService} from "../../shared/services/test-appointment.service";
+import {Subscription} from "rxjs";
+import {AppointmentType} from "../../../../../server/src/common/utils/enums";
 
 @Component({
     selector: 'home',
@@ -36,6 +35,8 @@ export class HomeComponent implements OnDestroy {
 
     public patientName: string;
 
+    public serviceAdvertisementUUID;
+
     constructor(protected router: Router,
         public patientService: PatientService,
         protected leaveRequestService: LeaveRequestService,
@@ -44,6 +45,8 @@ export class HomeComponent implements OnDestroy {
         @Inject('settings') protected settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService) {
+
+
 
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
             if (loaded) {
@@ -80,6 +83,7 @@ export class HomeComponent implements OnDestroy {
             if (patientLoaded) {
                 // this.patientService.patient.status = 4;
                 this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.serviceAdvertisementUUID = this.patientService.patient.serviceAdvertisementUUID;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     // console.log("this.leaveRequestService.leaveRequest: ", this.leaveRequestService.leaveRequest);
                     // console.log("this.leaveRequestService.leaveReasons: ", this.leaveRequestService.leaveReasons);
