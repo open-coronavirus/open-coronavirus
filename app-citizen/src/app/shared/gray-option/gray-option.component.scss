@@ -18,17 +18,26 @@
   background-color: #f3f3f3;
   border-radius: 15px;
 
-  .wrapper {
+  &__wrapper {
     display: flex;
+    align-items: center;
   }
+
+  &__icon {
+    height: auto;
+    width: 35px;
+    padding-right: 10px;
+  }
+  &__text:nth-child(2){
+    width: calc(100% - 45px); 
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }  
 
   .subtitle {
     padding-top: 20px;
   }
-}
-
-.gray-option-icon {
-  height: 25px;
-  width: auto;
-  padding-right: 10px;
 }

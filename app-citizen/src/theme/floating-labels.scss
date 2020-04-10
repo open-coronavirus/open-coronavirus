@@ -18,6 +18,26 @@
   background-clip: padding-box;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.form-textarea{  
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 2px solid #e2e2e2 !important;
+  border-radius: 4px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 230px;
+
+  &--mb{
+    margin-bottom: 16px;
+  }
+}
 
 .ng-invalid:not(form):not(.ng-untouched) {
   border: 2px solid #fa755a !important;

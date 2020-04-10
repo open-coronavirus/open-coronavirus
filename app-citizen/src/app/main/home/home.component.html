@@ -60,8 +60,10 @@
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus == 2">
                 <div class="main-options__btn" (click)="setAtHome()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-                    <p class="main-options__text"  i18n="@@leaveHome">Volver <br>de casa</p>
-                    <span>{{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
+                    <p class="main-options__text"  i18n="@@leaveHome">
+                        Volver a casa
+                        <span>{{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
+                    </p>
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">

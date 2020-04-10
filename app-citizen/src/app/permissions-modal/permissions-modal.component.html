@@ -1,11 +1,11 @@
 <ion-header translucent>
-  <ion-toolbar>
+  <ion-toolbar class="modal-header">
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()" i18n="@@close">Cerrar</ion-button>
+      <ion-icon size="large" (click)="dismissModal()" name="close"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen [ngSwitch]="type">
+<ion-content class="modal-text" fullscreen [ngSwitch]="type">
   <h1>Activa los permisos necesarios para poder utilizar la aplicación</h1>
   <ng-container *ngSwitchCase="'push'">
     <h3>Notificaciones push</h3>
@@ -23,7 +23,9 @@
     <p>La protección y prevención de tu salud es lo primero.</p>
     <p>Recuerda liberar espacio en tu móvil para que funcione correctamente esta funcionalidad.</p>
   </ng-container>    
-  <ion-buttons>
-    <ion-button (click)="activatePermission()" i18n="@@activate">Activar</ion-button>
-  </ion-buttons>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="activatePermission()" expand="block" i18n="@@activate">ACTIVAR</ion-button>
+  </ion-toolbar>
+</ion-footer>
