@@ -1,6 +1,23 @@
-import {Count, CountSchema, Filter, FilterExcludingWhere, repository, Where,} from '@loopback/repository';
-import {del, get, getModelSchemaRef, param, patch, post, put, requestBody,} from '@loopback/rest';
-import {BluetoothLeAdvertisement} from '../models';
+import {
+  Count,
+  CountSchema,
+  Filter,
+  repository,
+  Where,
+} from '@loopback/repository';
+import {
+  post,
+  param,
+  get,
+  getFilterSchemaFor,
+  getModelSchemaRef,
+  getWhereSchemaFor,
+  patch,
+  put,
+  del,
+  requestBody,
+} from '@loopback/rest';
+import {BluetoothLeAdvertisement, Geolocation} from '../models';
 import {BluetoothLeAdvertisementRepository} from '../repositories';
 
 export class BluetoothLeAdvertisementController {
@@ -45,7 +62,7 @@ export class BluetoothLeAdvertisementController {
     },
   })
   async count(
-    @param.where(BluetoothLeAdvertisement) where?: Where<BluetoothLeAdvertisement>,
+      @param.query.object('where', getWhereSchemaFor(BluetoothLeAdvertisement)) where?: Where<BluetoothLeAdvertisement>,
   ): Promise<Count> {
     return this.bluetoothLeAdvertisementRepository.count(where);
   }
@@ -66,7 +83,7 @@ export class BluetoothLeAdvertisementController {
     },
   })
   async find(
-    @param.filter(BluetoothLeAdvertisement) filter?: Filter<BluetoothLeAdvertisement>,
+    @param.query.object('filter', getFilterSchemaFor(BluetoothLeAdvertisement)) filter?: Filter<BluetoothLeAdvertisement>,
   ): Promise<BluetoothLeAdvertisement[]> {
     return this.bluetoothLeAdvertisementRepository.find(filter);
   }
@@ -88,7 +105,7 @@ export class BluetoothLeAdvertisementController {
       },
     })
     bluetoothLeAdvertisement: BluetoothLeAdvertisement,
-    @param.where(BluetoothLeAdvertisement) where?: Where<BluetoothLeAdvertisement>,
+    @param.query.object('where', getWhereSchemaFor(BluetoothLeAdvertisement)) where?: Where<BluetoothLeAdvertisement>,
   ): Promise<Count> {
     return this.bluetoothLeAdvertisementRepository.updateAll(bluetoothLeAdvertisement, where);
   }
@@ -107,7 +124,7 @@ export class BluetoothLeAdvertisementController {
   })
   async findById(
     @param.path.string('id') id: string,
-    @param.filter(BluetoothLeAdvertisement, {exclude: 'where'}) filter?: FilterExcludingWhere<BluetoothLeAdvertisement>
+    @param.query.object('filter', getFilterSchemaFor(BluetoothLeAdvertisement)) filter?: Filter<BluetoothLeAdvertisement>
   ): Promise<BluetoothLeAdvertisement> {
     return this.bluetoothLeAdvertisementRepository.findById(id, filter);
   }

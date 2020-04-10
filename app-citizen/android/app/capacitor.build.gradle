@@ -13,11 +13,9 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:11+"
     implementation "com.android.support:support-v4:26+"
     implementation "com.android.support:appcompat-v7:26+"
-    implementation "com.android.support:support-core-utils:26+"
     implementation "com.android.support:support-v4:24.1.1+"
 }
 apply from: "../../node_modules/@mauron85/cordova-plugin-background-geolocation/android/dependencies.gradle"
-apply from: "../../node_modules/cordova-plugin-ibeacon/src/android/cordova-plugin-ibeacon.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

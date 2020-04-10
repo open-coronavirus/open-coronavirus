@@ -20,8 +20,8 @@ export interface NewLeaveRequest {
 
     leaveReason: number;
     additionalInfo?: string;
-    outOfHomeTimestamp?: string;
-    backToHomeTimestamp?: string;
+    outOfHomeTimestamp?: Date;
+    backToHomeTimestamp?: Date;
     patientId: string;
     status?: number;
 }

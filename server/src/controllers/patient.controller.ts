@@ -1,26 +1,21 @@
+import {Count, CountSchema, Filter, repository, Where,} from '@loopback/repository';
 import {
-  Count,
-  CountSchema,
-  Filter,
-  repository,
-  Where,
-} from '@loopback/repository';
-import {
-  post,
-  param,
+  del,
   get,
   getFilterSchemaFor,
   getModelSchemaRef,
   getWhereSchemaFor,
-  patch,
-  put,
-  del,
-  requestBody,
   HttpErrors,
+  param,
+  patch,
+  post,
+  put,
+  requestBody,
 } from '@loopback/rest';
-import { Patient } from '../models';
-import { PatientRepository } from '../repositories';
-import { Guid } from "guid-typescript";
+
+import {Patient} from '../models';
+import {PatientRepository} from '../repositories';
+import {BluetoothUuidGenerator} from "../common/utils/bluetooth-uuid-generator";
 
 export class PatientController {
   constructor(
@@ -48,13 +43,30 @@ export class PatientController {
       },
     })
     patient: Omit<Patient, 'id'>,
-  ): Promise<Patient> {
+  ): Promise<Patient | null> {
 
-    //generate an unique uuid for each patient
-    patient.serviceAdvertisementUUID = Guid.create();
-    patient.created = new Date();
+    let returnValue: Promise<Patient | null> = new Promise(resolve => {
 
-    return this.patientRepository.create(patient);
+      this.patientRepository.count({documentNumber: {eq: patient.documentNumber}}).then(result => {
+        //create the new patient just in case there is no other with same NIF within database
+        if (result.count == 0) {
+          //generate an unique uuid for each patient
+          patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
+          patient.created = new Date();
+
+          this.patientRepository.create(patient).then(createdPatient => {
+            resolve(createdPatient);
+          })
+        }
+        else {
+          resolve(null);
+        }
+
+      })
+    });
+
+    return returnValue;
+
   }
 
   @get('/patients/count', {
@@ -152,7 +164,17 @@ export class PatientController {
     @param.path.string('id') id: string,
     @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>
   ): Promise<Patient> {
-    return this.patientRepository.findById(id, filter);
+
+    let returnValue: Promise<Patient> = new Promise(resolve => {
+      this.patientRepository.findById(id, filter).then(patient => {
+        if(patient.serviceAdvertisementUUID == null) {
+          patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
+        }
+        resolve(patient);
+      })
+    });
+
+    return returnValue;
   }
 
   @patch('/patients/{id}', {

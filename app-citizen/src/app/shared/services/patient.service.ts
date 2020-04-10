@@ -1,19 +1,15 @@
 import { Inject, Injectable } from '@angular/core';
 import {
-    GeolocationControllerService,
-    GeolocationWithRelations,
     PatientControllerService,
     PatientWithRelations
 } from '../sdk';
 import { ApiFilter } from '../utils/apifilter';
 import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
 import { Router } from '@angular/router';
-import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
-import { BackgroundGeolocationEvents, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 import { Platform } from '@ionic/angular';
 import { StorageService } from "./storage.service";
-import { BlueToothTrackingService } from "./tracking/bluetoothtracking.service";
-import { GeolocationtrackingService } from "./tracking/geolocationtracking.service";
+import {BluetoothTrackingService} from "./tracking/bluetooth-tracking.service";
+import {GeolocationTrackingService} from "./tracking/geolocation-tracking.service";
 
 
 @Injectable()
@@ -35,21 +31,23 @@ export class PatientService {
 
     public static PATIENT_TOKEN_KEY = 'patientToken';
 
-    constructor(
-        protected patientController: PatientControllerService,
-        @Inject('environment') protected environment,
-        protected router: Router,
-        protected geolocationtrackingService: GeolocationtrackingService,
-        protected blueToothTrackingService: BlueToothTrackingService,
-        public platform: Platform,
-        protected storageService: StorageService) {
+    constructor(protected patientController: PatientControllerService,
+                @Inject('environment') protected environment,
+                @Inject('settings') protected settings,
+                protected router: Router,
+                protected geolocationtrackingService: GeolocationTrackingService,
+                protected blueToothTrackingService: BluetoothTrackingService,
+                public platform: Platform,
+                protected storageService: StorageService) {
 
         this.loadLocalPatient();
     }
 
     public loadLocalPatient() {
         this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(data => {
-            this.loadPatient(data);
+            if(data != null) {
+                this.loadPatient(data);
+            }
         });
     }
 
@@ -85,15 +83,15 @@ export class PatientService {
     }
 
     protected startTracking(patient) {
-        // start geolocation tracking
-        this.geolocationtrackingService.activateBackgroundGeolocation(patient);
-        // start bluetooth tracking
-        this.blueToothTrackingService.btEnabled$.subscribe(enabled => {
-            if (enabled) {
-                this.blueToothTrackingService.startAdvertising(patient);
-                this.blueToothTrackingService.startScan();
-            }
-        });
+        //start geolocation tracking
+        if(this.settings.permissions.gps) {
+            this.geolocationtrackingService.activateBackgroundGeolocation(patient);
+        }
+        //start bluetooth tracking
+        if(this.settings.permissions.bluetooth) {
+            this.blueToothTrackingService.patientServiceUUID = this.patient.serviceAdvertisementUUID;
+            this.blueToothTrackingService.startBluetooth();
+        }
     }
 
     public changeStatus(newStatus: number) {
@@ -104,25 +102,15 @@ export class PatientService {
 
         let returnValue = new Subject();
 
-        this.patientController.patientControllerFind(new ApiFilter({ where: { documentNumber: { 'eq': patient.documentNumber } } })).subscribe(existingPatient => {
-
-            // TODO: Quitar if para sólo autorizar usuario por teléfono
-            // if (existingPatient.length > 0) {
-            if (false) {
-                returnValue.next(false);
-            } else {
-
-                this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
-                    this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
-                        this.loadPatient(newPatient.id);
-                        this.patientLoaded$.subscribe(loaded => {
-                            if (loaded) {
-                                returnValue.next(newPatient);
-                            }
-                        });
-                    });
+        this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
+            this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
+                this.loadPatient(newPatient.id);
+                this.patientLoaded$.subscribe(loaded => {
+                    if (loaded) {
+                        returnValue.next(newPatient);
+                    }
                 });
-            }
+            });
         });
 
         return returnValue;

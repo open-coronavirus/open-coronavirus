@@ -11,4 +11,5 @@ export const settings = {
     screens: {
         selfDeclarationLeave: true
     }
+
 };

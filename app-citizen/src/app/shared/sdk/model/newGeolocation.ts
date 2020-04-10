@@ -25,7 +25,7 @@ export interface NewGeolocation {
     altitude?: number;
     bearing?: number;
     speed?: number;
-    created?: string;
+    created?: Date;
     patientId: string;
 }
 

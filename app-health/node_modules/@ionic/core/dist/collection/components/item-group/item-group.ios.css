@@ -1,8 +1,0 @@
-ion-item-group {
-  display: block;
-}
-
-.item-group-ios ion-item:last-child,
-.item-group-ios ion-item-sliding:last-child .item {
-  --border-width: 0;
-}
