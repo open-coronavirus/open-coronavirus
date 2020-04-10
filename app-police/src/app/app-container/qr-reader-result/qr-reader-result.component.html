@@ -23,8 +23,8 @@
         <p class="result__box-value">{{patient?.documentNumber}}</p>
       </div>
       <div class="result__box-item">
-        <p class="result__box-title" i18n="@@qrresultage">Edad</p>
-        <p class="result__box-value">{{patient?.age}} años</p>x
+        <p class="result__box-title" i18n="@@qrresultage">Fecha de nacimiento</p>
+        <p class="result__box-value">{{patient?.birthday | date:'dd/MM/yyyy'}}</p>
       </div>
       <div class="result__box-item">
         <p class="result__box-title" i18n="@@qrresultaddress">Dirección</p>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status >= 3">
-          <p class="result__timeline-item-activity result__timeline-item-activity--danger" i18n="@@qrresultexitquarantine">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}} horas</strong></p>
+          <p class="result__timeline-item-activity result__timeline-item-activity--danger" i18n="@@qrresultexitquarantine">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}}</strong></p>
         </div>
 
         <div class="result__timeline-item">
