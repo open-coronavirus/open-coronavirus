@@ -207,9 +207,9 @@ export class HomeComponent implements OnDestroy {
 
         let str = '';
         if (hoursMath) {
-            str += hoursMath + 'h ';
+            str += hoursMath + ' h ';
         }
-        str += min + 'min';
+        str += min + ' min';
         return str;
     }
 }
