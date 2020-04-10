@@ -106,10 +106,10 @@ export class LeaveRequestService {
             [key: string]: object | any;
 
             additionalInfo: string;
-            backToHomeTimestamp: Date;
+            backToHomeTimestamp: string;
             id: string;
             leaveReason: number;
-            outOfHomeTimestamp: Date;
+            outOfHomeTimestamp: string;
             patientId: string;
             status: number;
         }
