@@ -21,7 +21,7 @@ export class QrReaderComponent {
         protected barcodeScanner: BarcodeScanner,
         public loadingController: LoadingController,
         protected menu: MenuController,
-        protected location: Location) {}
+        protected location: Location) { }
 
     scanQR() {
         this.barcodeScanner.scan().then(barcodeData => {
@@ -54,7 +54,7 @@ export class QrReaderComponent {
         });
     }
 
-    goDetail(patient) {
+    public goDetail(patient) {
         const navigationExtras: NavigationExtras = {
             queryParams: {
                 patient: JSON.stringify(patient)
@@ -62,7 +62,6 @@ export class QrReaderComponent {
         };
         this.navCtrl.navigateForward(['app/qr-reader-result'], navigationExtras);
     }
-
 
     public goBack() {
         this.location.back();

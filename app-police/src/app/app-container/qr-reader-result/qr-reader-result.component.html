@@ -54,9 +54,9 @@
         <p class="result__box-value">{{patient?.street}} {{patient?.apartment}} ({{patient?.postalCode}})</p>
       </div>
     </div>
-    <span class="result__map">Ver mapa movilidad</span>
-    
-    <div class="result__timeline">
+    <span class="result__map" i18n="@@qrresultmap" (click)="clickShowMap()">Ver mapa movilidad</span>
+
+    <div class="result__timeline" *ngIf="showMap" >
 
       <ng-container *ngFor="let leaveRequest of leaveRequests">
 
@@ -64,7 +64,7 @@
           <p class="result__timeline-item-activity">Vuelta a casa</p>
           <p class="result__timeline-item-time">{{leaveRequest.backToHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
         </div>
-        
+
         <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status >= 3">
           <p class="result__timeline-item-activity result__timeline-item-activity--danger">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}} horas</strong></p>
         </div>
@@ -75,7 +75,7 @@
         </div>
 
       </ng-container>
-      
+
     </div>
   </div>
 </ion-content>

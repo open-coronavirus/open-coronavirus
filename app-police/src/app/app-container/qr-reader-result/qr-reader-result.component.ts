@@ -16,6 +16,8 @@ export class QrReaderResultComponent implements OnInit {
     private patient: PatientWithRelations;
     private leaveRequests: LeaveRequestWithRelations;
 
+    public showMap: boolean;
+
     constructor(
         private route: ActivatedRoute,
         protected router: Router,
@@ -52,6 +54,10 @@ export class QrReaderResultComponent implements OnInit {
         const now = new Date();
         const outOfHomeDate = new Date(outOfHomeTimestamp);
         return Math.round(Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+    }
+
+    public clickShowMap() {
+        this.showMap = true;
     }
 
     public goBack() {
