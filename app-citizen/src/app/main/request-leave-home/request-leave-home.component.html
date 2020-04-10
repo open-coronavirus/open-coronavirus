@@ -1,23 +1,15 @@
-<ion-header>
-    <ion-toolbar class="transparent-toolbar">
-        <ion-buttons slot="end">
-            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
-        </ion-buttons>
+<ion-header translucent>
+    <ion-toolbar class="modal-header">
+      <ion-buttons slot="end">
+        <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+      </ion-buttons>
     </ion-toolbar>
-</ion-header>
-<ion-content class="request-leave-home">
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <h1 i18n="@@requestLeaveHomeTitle">Necesito salir</h1>
-                <ng-container i18n="@@requestLeaveHomeDescriptionLine1">Estamos en estado de alerta.</ng-container><br />
-                <ng-container i18n="@@requestLeaveHomeDescriptionLine2">Selecciona el motivo por el que vas a salir:</ng-container>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <gray-option *ngFor="let leaveReason of leaveRequestService.leaveReasons;" (click)="requestLeaveHome(leaveReason.id)" [icon]="leaveReason.icon != null?'/assets/icons/svg/' + leaveReason.icon:null" [text]="leaveReason.label"></gray-option>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+  </ion-header>
+  <ion-content class="modal-text" fullscreen>
+    <h1 i18n="@@requestLeaveHomeTitle">¿Vas a salir de casa?</h1>
+    <p i18n="@@requestLeaveHomeDescriptionLine1">Estamos en estado de alerta.</p>
+    <p i18n="@@requestLeaveHomeDescriptionLine2">Selecciona el motivo por el que vas a salir:</p>
+
+    <gray-option *ngFor="let leaveReason of leaveRequestService.leaveReasons;" (click)="requestLeaveHome(leaveReason.id)" [icon]="leaveReason.icon != null?'/assets/icons/svg/' + leaveReason.icon:null" [text]="leaveReason.label"></gray-option>
+            
 </ion-content>

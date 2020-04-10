@@ -47,22 +47,14 @@ export class PatientController {
 
     let returnValue: Promise<Patient | null> = new Promise(resolve => {
 
-      this.patientRepository.count({documentNumber: {eq: patient.documentNumber}}).then(result => {
-        //create the new patient just in case there is no other with same NIF within database
-        if (result.count == 0) {
-          //generate an unique uuid for each patient
-          patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
-          patient.created = new Date();
+      //generate an unique uuid for each patient
+      patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
+      patient.created = new Date();
 
-          this.patientRepository.create(patient).then(createdPatient => {
-            resolve(createdPatient);
-          })
-        }
-        else {
-          resolve(null);
-        }
+      this.patientRepository.create(patient).then(createdPatient => {
+        resolve(createdPatient);
+      });
 
-      })
     });
 
     return returnValue;

@@ -25,7 +25,7 @@ export class PatientService {
 
     public patientLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
-    public static PATIENT_TOKEN_KEY = 'patientToken';
+    public static PATIENT_TOKEN_KEY = 'patientTokenV1';
 
     constructor(protected patientController: PatientControllerService,
                 @Inject('environment') protected environment,
@@ -36,12 +36,15 @@ export class PatientService {
                 public platform: Platform,
                 protected storageService: StorageService) {
 
+        this.loadLocalPatient();
+    }
+
+    public loadLocalPatient() {
         this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(data => {
             if(data != null) {
                 this.loadPatient(data);
             }
         });
-
     }
 
     protected loadPatient(patientToken) {
@@ -76,19 +79,25 @@ export class PatientService {
     }
 
     protected startTracking(patient) {
-        //start geolocation tracking
-        if(this.settings.enableGpsModule) {
+        this.startGeoTracking(patient);
+        this.startBluetoothTracking(patient);
+    }
+
+    public startGeoTracking(patient: PatientWithRelations) {
+        if(this.settings.permissions.gps && !this.platform.is('desktop')) {
             this.geolocationtrackingService.activateBackgroundGeolocation(patient);
         }
-        //start bluetooth tracking
-        if(this.settings.enableBluetoothModule) {
-            this.blueToothTrackingService.patientServiceUUID = this.patient.serviceAdvertisementUUID;
+    }
+
+    public startBluetoothTracking(patient: PatientWithRelations) {
+        if(this.settings.permissions.bluetooth && !this.platform.is('desktop')) {
+            this.blueToothTrackingService.patientServiceUUID = patient.serviceAdvertisementUUID;
             this.blueToothTrackingService.startBluetooth();
         }
     }
 
     public changeStatus(newStatus: number) {
-        //todo
+        // todo
     }
 
     public register(patient: PatientWithRelations): Subscribable<any> {
@@ -96,21 +105,14 @@ export class PatientService {
         let returnValue = new Subject();
 
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
-
-            if(newPatient != null) {
-
-                this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
-                    this.loadPatient(newPatient.id);
-                    this.patientLoaded$.subscribe(loaded => {
-                        if (loaded) {
-                            returnValue.next(newPatient);
-                        }
-                    })
+            this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
+                this.loadPatient(newPatient.id);
+                this.patientLoaded$.subscribe(loaded => {
+                    if (loaded) {
+                        returnValue.next(newPatient);
+                    }
                 });
-            }
-            else {
-                returnValue.next(false);
-            }
+            });
         });
 
         return returnValue;

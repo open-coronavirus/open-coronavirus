@@ -1,31 +1,25 @@
-<ion-header>
-    <ion-toolbar class="header-app">
-        <ion-title i18n="testAppointmentResultTitle">Test solicitado</ion-title>
-        <ion-buttons slot="end">
-            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
-        </ion-buttons>
+<ion-header translucent>
+    <ion-toolbar class="modal-header">
+      <ion-buttons slot="end">
+        <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+      </ion-buttons>
     </ion-toolbar>
-</ion-header>
-<ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <h1 i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</h1>
-                <h5 i18n="@@testAppointmentResultSubtitle2">Estamos para ayudarte!</h5>
-                <p i18n="@@testAppointmentResultDescription">Tu cita es el próximo {{appointmentDate}}</p>
-                <div class="highlighted-area">
-                    <div style="width: 100%;">
-                        <ng-container i18n="@@appointmentLocation">Lugar de la cita</ng-container>
-                        <p><strong>{{healthCenterName}}</strong><br />
-                        {{healthCenterAddress}}</p>
-                        <div class="map" #map id="map"></div>
-                        <a (click)="showDirectionsToHealthCenter()" href="javascript:void(null);" i18n="@@howToGetThereLink">Cómo llegar?</a>
-                    </div>
-                </div>
-                <p i18n="@@testAppointmentResultDescription2">Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</p>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+  </ion-header>
+  <ion-content class="modal-text" fullscreen>
+    <h1 i18n="@@requestLeaveHomeTitle">Test solicitado</h1>
+    <h2 i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</h2>
+    <h5 i18n="@@testAppointmentResultSubtitle2">Estamos para ayudarte!</h5>
+    <p i18n="@@testAppointmentResultDescription">Tu cita es el próximo {{appointmentDate}}</p>
+    <div class="highlighted-area">
+        <div style="width: 100%;">
+            <ng-container i18n="@@appointmentLocation">Lugar de la cita</ng-container>
+            <p><strong>{{healthCenterName}}</strong><br />
+            {{healthCenterAddress}}</p>
+            <div class="map" #map id="map"></div>
+            <a (click)="showDirectionsToHealthCenter()" href="javascript:void(null);" i18n="@@howToGetThereLink">Cómo llegar?</a>
+        </div>
+    </div>
+    <p i18n="@@testAppointmentResultDescription2">Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</p>
 </ion-content>
 <div class="footer-buttons-container">
     <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</ion-button>

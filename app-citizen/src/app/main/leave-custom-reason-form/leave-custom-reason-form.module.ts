@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {QrCodeModule} from '../../shared/qr-code/qr-code.module';
 import {RouterModule} from '@angular/router';
 import {LeaveCustomReasonFormComponent} from './leave-custom-reason-form.component';
+import { GrayOptionModule } from 'src/app/shared/gray-option/gray-option.module';
 
 @NgModule({
     imports: [
@@ -12,6 +13,7 @@ import {LeaveCustomReasonFormComponent} from './leave-custom-reason-form.compone
         CommonModule,
         FormsModule,
         QrCodeModule,
+        GrayOptionModule,
         RouterModule.forChild([{path: '', component: LeaveCustomReasonFormComponent}]),
     ],
     declarations: [LeaveCustomReasonFormComponent]

@@ -1,0 +1,31 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="dismissModal()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen [ngSwitch]="type">
+  <h1>Activa los permisos necesarios para poder utilizar la aplicación</h1>
+  <ng-container *ngSwitchCase="'push'">
+    <h3>Notificaciones push</h3>
+    <p>Las utilizaremos para enviarte información relevante, resultados de tu test de COVID-19 y líneas de actuación</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'gps'">
+    <h3>Geolocalización</h3>    
+    <p>Necesitamos saber dónde te encuentras para poder ofrecerte las mejores medidas preventivas y médicas</p> 
+    <p>Compartiendo tu información ayudarás a frenar el COVID-19</p>   
+  </ng-container>
+  <ng-container *ngSwitchCase="'bluetooth'">
+    <h3>Bluetooth</h3>
+    <p>Mediante la tecnología bluetooth podrás <strong>estar informado de si te has cruzado con alguien con COVID-19</strong> y así estar más seguro.</p>
+    <p><strong>Se informará a las autoridades sanitarias</strong> información sobre con quién has estado a menos de 2 metros <strong>de forma anónima.</strong></p>
+    <p>La protección y prevención de tu salud es lo primero.</p>
+    <p>Recuerda liberar espacio en tu móvil para que funcione correctamente esta funcionalidad.</p>
+  </ng-container>    
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="activatePermission()" expand="block" i18n="@@activate">ACTIVAR</ion-button>
+  </ion-toolbar>
+</ion-footer>

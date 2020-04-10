@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { UserService } from '../shared/services/user.service';
-
+import { NavController } from '@ionic/angular';
 
 @Component({
     selector: 'splash',
@@ -13,8 +12,8 @@ import { UserService } from '../shared/services/user.service';
 export class SplashComponent implements OnInit {
 
     constructor(
-        protected router: Router,
         protected userService: UserService,
+        private navCtrl: NavController,
         protected nativeStorage: NativeStorage) {
     }
 
@@ -28,7 +27,7 @@ export class SplashComponent implements OnInit {
     }
 
     public enter() {
-        this.router.navigate(['login']);
+        this.navCtrl.navigateRoot(['login']);
     }
 
 }

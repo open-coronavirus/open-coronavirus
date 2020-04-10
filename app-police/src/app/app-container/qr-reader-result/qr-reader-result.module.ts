@@ -6,6 +6,7 @@ import {QrReaderResultComponent} from './qr-reader-result.component';
 import {QrCodeModule} from '../../shared/qr-code/qr-code.module';
 import {RouterModule} from '@angular/router';
 import { CoronaHeaderModule } from '../../shared/header/header.module';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import { CoronaHeaderModule } from '../../shared/header/header.module';
         CommonModule,
         FormsModule,
         QrCodeModule,
+        QRCodeModule,
         CoronaHeaderModule,
         RouterModule.forChild([{ path: '', component: QrReaderResultComponent }])
     ],

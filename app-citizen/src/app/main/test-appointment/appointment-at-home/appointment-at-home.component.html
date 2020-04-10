@@ -1,16 +1,16 @@
-<ion-header>
-    <ion-toolbar class="header-app">
-        <ion-title i18n="testAppointmentResultTitle">Test solicitado</ion-title>
-        <ion-buttons slot="end">
-            <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
-        </ion-buttons>
+<ion-header translucent>
+    <ion-toolbar class="modal-header">
+      <ion-buttons slot="end">
+        <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+      </ion-buttons>
     </ion-toolbar>
-</ion-header>
-<ion-content>
+  </ion-header>
+  <ion-content class="modal-text" fullscreen>
+    <h1 i18n="@@requestLeaveHomeTitle">Test solicitado</h1>
     <ion-grid>
         <ion-row>
             <ion-col>
-                <h1 i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</h1>
+                <h2 i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</h2>
                 <h5 i18n="@@testAppointmentResultSubtitle2">Estamos para ayudarte!</h5>
                 <p i18n="@@testAppointmentResultDescription">Proximamente llegará una ambulancia a donde vives</p>
                 <h5>{{patientAddress}}</h5>

@@ -84,35 +84,51 @@
           },
           "configurations": {
             "en": {
-              "localize": ["en"],
+              "localize": [
+                "en"
+              ],
               "main": "src/main.ts"
             },
             "ru": {
-              "localize": ["ru"],
+              "localize": [
+                "ru"
+              ],
               "main": "src/main.ts"
             },
             "gl": {
-              "localize": ["gl"],
+              "localize": [
+                "gl"
+              ],
               "main": "src/main.ts"
             },
             "it": {
-              "localize": ["it"],
+              "localize": [
+                "it"
+              ],
               "main": "src/main.ts"
             },
             "fr": {
-              "localize": ["fr"],
+              "localize": [
+                "fr"
+              ],
               "main": "src/main.ts"
             },
             "de": {
-              "localize": ["de"],
+              "localize": [
+                "de"
+              ],
               "main": "src/main.ts"
             },
             "sw": {
-              "localize": ["sw"],
+              "localize": [
+                "sw"
+              ],
               "main": "src/main.ts"
             },
             "ca": {
-              "localize": ["ca"],
+              "localize": [
+                "ca"
+              ],
               "main": "src/main.ts"
             },
             "production": {
@@ -305,7 +321,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
+    "defaultCollection": "@ionic/angular-toolkit",
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

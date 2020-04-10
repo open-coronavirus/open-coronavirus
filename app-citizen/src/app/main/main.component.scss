@@ -1,62 +1,56 @@
-.menu-separator {
-  border-bottom: 1px solid lightgray;
-}
-
-.menu-item-header {
-  padding-top: 40px;
-  padding-bottom: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-left: 10px;
-
-}
-
-.menu-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-left: 45px;
-  text-indent: -35px;
-
-  img {
-    vertical-align: middle;
+.menu{
+  &__separator {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 16px;
   }
 
-}
+  &__header{
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    padding: 16px 0;
+    
+    &-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 24px;
+      background: #f3f3f3;
+      color: black;
+    }
+      
+    &-name {
+      font-size: 16px;
+    }
 
-.menu-footer-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-left: 45px;
-  text-indent: -35px;
-
-  img {
-    vertical-align: middle;
   }
 
-}
+  &__item {
+    display: flex;
+    align-items: center;
+    padding-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
 
-.circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 15px;
-  text-align: center;
-  line-height: 40px;
-  float: left;
-  margin-right: 10px;
-}
+    img {
+      margin-right: 16px;
+    }
 
-.circle-gray {
-  background: #f3f3f3;
-  color: black;
-}
+    &--sm{
+      font-size: 14px;
+      line-height: 16px;
 
-.patient-name-in-menu {
-  height: 40px;
-  vertical-align: middle;
-  line-height: 40px;
+    }
+    &--xs{
+      color: #9b9b9b;
+      padding-left: 40px;
+      margin-bottom: 16px;
+      text-decoration: underline;
+      font-size: 12px;
+    }
+  }
 }

@@ -17,6 +17,7 @@ import {MainComponent} from './main/main.component';
 import {ShareService} from './shared/services/share.service';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import {LeaveRequestService} from './shared/services/leave-request.service';
+import {PermissionsService} from './shared/services/permissionsService.service';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {AutotestAnswers} from './shared/services/autotest-answers.service';
 import {TestAppointmentService} from "./shared/services/test-appointment.service";
@@ -24,6 +25,8 @@ import {TestResultService} from "./shared/services/test-result.service";
 import {I18nStringsModule} from "./shared/i18n-strings/i18n-strings.module";
 import {settings} from "../environments/settings";
 import {StorageService} from "./shared/services/storage.service";
+import { PrivacityConditionsService } from './shared/services/privacityConditions.service';
+import { PrivacityConditionsComponent } from './shared/privacity-conditions/privacity-conditions.component';
 import {BluetoothTrackingService} from "./shared/services/tracking/bluetooth-tracking.service";
 import {GeolocationTrackingService} from "./shared/services/tracking/geolocation-tracking.service";
 import {BluetoothLE} from '@ionic-native/bluetooth-le/ngx';
@@ -33,7 +36,7 @@ import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
-    entryComponents: [],
+    entryComponents: [PrivacityConditionsComponent],
     imports: [BrowserModule,
         HttpClientModule,
         I18nStringsModule,
@@ -48,6 +51,7 @@ import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.
         sdkConfigurationProvider,
         PatientService,
         LeaveRequestService,
+        PermissionsService,
         StorageService,
         NativeStorage,
         SQLite,
@@ -55,18 +59,19 @@ import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.
         ContactTrackerService,
         BluetoothTrackingService,
         BLE,
-        //BLEPeripheral,
         GeolocationTrackingService,
         AutotestAnswers,
         TestAppointmentService,
         TestResultService,
         InAppBrowser,
         SocialSharing,
+        PrivacityConditionsService,
         {provide: 'environment', useValue: environment},
         {provide: 'settings', useValue: settings},
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+
 })
 export class AppModule {
 }

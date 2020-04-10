@@ -19,11 +19,12 @@ export interface NewPatient {
 
 
     firstName: string;
-    lastName: string;
+    lastName?: string;
     documentNumber: string;
-    healthInsuranceCardNumber: string;
-    age: number;
-    gender: number;
+    healthInsuranceCardNumber?: string;
+    birthday: string;
+    age?: number;
+    gender?: number;
     street: string;
     apartment?: string;
     postalCode: string;
@@ -31,7 +32,7 @@ export interface NewPatient {
     status?: number;
     phone: string;
     serviceAdvertisementUUID?: string;
-    created?: Date;
-    updated?: Date;
+    created?: string;
+    updated?: string;
 }
 

@@ -1,8 +1,9 @@
 .result{
+  $result: &;
   
   &__qr{
     display: block;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
   }
@@ -24,30 +25,68 @@
     margin: 0;
     line-height: 1;
     font-size: 12px;
-    line-height: 16px;
-    
-    &--quarentine{
-      color: #ffca08;
-      font-size: 16px;
+    line-height: 16px;    
+  }
+
+  &--quarentine{
+    #{ $result }{
+      &__status{
+        color: #ffca08;
+        font-size: 16px;
+      }
     }
-    &--infected{
-      color: #c80f2e;
-      font-size: 16px;
-      text-transform: uppercase;
+  }
+  &--infected{
+    #{ $result }{
+      &__status{
+        color: #c80f2e;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
     }
-    &--ok{
-      color: #61bc7c;  
-      font-size: 16px;
-      text-transform: uppercase;
+  }
+  &--ok{
+    #{ $result }{
+      &__status{
+        color: #61bc7c;  
+        font-size: 16px;
+        text-transform: uppercase;
+      }
     }
   }
 }
 
+.qrcode-container {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.qrcode {
+
+  img {
+    min-height: 160px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+}
+
+
 .main-options{
   &__btn{
+    height: 100%;
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     &--no-link{
       border-radius: 0;
@@ -70,6 +109,43 @@
       .main-options__text{
         font-size: 12px;
         line-height: 16px;
+      }
+    }
+    &-volver{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 4px;
+      &:nth-child(n+2){
+        margin-top: 12px;
+      }
+      .main-options__image{
+        width: 40%;
+        max-width: 30px;
+        margin-right: 8px;
+        height: auto;
+      }
+      .main-options__text{
+        width: 60%;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+    &-camino{
+      font-size: 10px;
+      line-height: 12px;
+      text-align: left;
+      color: #666;
+      &-a{
+        display: block;
+      }
+      &-donde{
+        color: #000;  
+        display: block;      
+      }
+      &-tiempo{
+        display: block;        
       }
     }
   }
@@ -130,51 +206,4 @@
     margin: 0 10px 0 0;
     width: 14px;
   }
-}
-
-.appointment-info {
-  font-size: 14px;
-  display: flex;
-  align-items: start;
-  margin-left: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: black;
-  text-align: left !important;
-  vertical-align: middle;
-  word-break: keep-all;
-  white-space: normal;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  background-color: #f3f3f3;
-}
-
-.appointment-info-icon {
-  height: 25px;
-  width: auto;
-  padding-right: 10px;
-}
-
-.auth-code-label {
-  text-align: center;
-  color: #848484;
-}
-
-.leave-status {
-  padding-bottom: 10px;
-  text-align: center;
-  color: #848484;
-}
-
-.leave-reason {
-  color: black;
-}
-
-.patient-name {
-  text-align: center;
-  color: black;
 }

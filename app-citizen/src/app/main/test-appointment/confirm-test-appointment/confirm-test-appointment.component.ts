@@ -1,8 +1,8 @@
-import {Component, OnDestroy, ViewEncapsulation} from '@angular/core';
-import {Subscription} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Location} from "@angular/common";
-import {TestAppointmentService} from "../../../shared/services/test-appointment.service";
+import { Component, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Subscription } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Location } from "@angular/common";
+import { TestAppointmentService } from "../../../shared/services/test-appointment.service";
 
 
 @Component({
@@ -17,9 +17,9 @@ export class ConfirmTestAppointmentComponent implements OnDestroy {
     protected appointmentType: string;
 
     constructor(protected activatedRoute: ActivatedRoute,
-                protected testAppointmentService: TestAppointmentService,
-                protected location: Location,
-                protected router: Router) {
+        protected testAppointmentService: TestAppointmentService,
+        protected location: Location,
+        protected router: Router) {
 
         this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
             this.appointmentType = params['appointment-type'];
@@ -34,11 +34,10 @@ export class ConfirmTestAppointmentComponent implements OnDestroy {
     public requestTest() {
 
         this.testAppointmentService.requestTestAppointment().subscribe(requested => {
-            if(requested) {
+            if (requested) {
                 this.router.navigate(['/app/test-appointment/' + this.appointmentType + '/result']);
-            }
-            else {
-                //error?
+            } else {
+                // error?
             }
         });
 
