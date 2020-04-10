@@ -16,6 +16,8 @@ export class QrReaderResultComponent implements OnInit {
     private patient: PatientWithRelations;
     private leaveRequests: LeaveRequestWithRelations;
 
+    public showMore: boolean;
+
     constructor(
         private route: ActivatedRoute,
         protected router: Router,
@@ -81,6 +83,10 @@ export class QrReaderResultComponent implements OnInit {
             case 2:
                 return '#61bc7cff';
         }
+    }
+
+    public clickShowMore() {
+       this.showMore = true;
     }
 
     public goBack() {
