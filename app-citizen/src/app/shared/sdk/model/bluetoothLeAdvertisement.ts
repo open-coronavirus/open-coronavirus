@@ -18,7 +18,7 @@ export interface BluetoothLeAdvertisement {
     id?: string;
     sourceServiceUUID: string;
     targetServiceUUID: string;
-    created?: string;
+    created?: Date;
     rssi?: number;
 }
 

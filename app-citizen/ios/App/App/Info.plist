@@ -38,6 +38,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>By activating the bluetooth you are helping us to fight the CORONAVIRUS</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Advertisement would like to use bluetooth. Please allow to help fight the CORONAVIRUS.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To Take Photos and Video</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -54,7 +58,11 @@
 	<string>To Pick Photos from Library</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
 		<string>location</string>
+		<string>processing</string>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

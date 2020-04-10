@@ -4,7 +4,7 @@ import { PatientService } from '../shared/services/patient.service';
 import { Router } from '@angular/router';
 import { Patient, PatientWithRelations } from '../shared/sdk';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
 import { PermissionsService } from '../shared/services/permissionsService.service';
 
@@ -34,6 +34,7 @@ export class RegisterComponent {
         private privacityConditionsService: PrivacityConditionsService,
         protected router: Router,
         private permissionService: PermissionsService,
+        private navCtrl: NavController,
     ) {
         this.registerPatientForm = this.formBuilder.group({
             acceptterms: new FormControl(this.accepttermsValuer, [Validators.requiredTrue])
@@ -61,7 +62,7 @@ export class RegisterComponent {
                     this.permissionService.requestAllPermissions('/app/home');
                 } else {
                     // go to error page
-                    this.router.navigate(['/no-access']);
+                    this.navCtrl.navigateRoot(['/no-access']);
                 }
             });
 

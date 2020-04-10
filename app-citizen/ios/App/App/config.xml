@@ -7,6 +7,10 @@
     <param name="onload" value="true"/>
   </feature>
 
+  <feature name="BLE">
+    <param name="ios-package" value="BLECentralPlugin" onload="true"/>
+  </feature>
+
   <feature name="BluetoothLePlugin">
     <param name="ios-package" value="BluetoothLePlugin"/>
   </feature>
@@ -17,10 +21,6 @@
 
   <feature name="Geolocation">
     <param name="ios-package" value="CDVLocation"/>
-  </feature>
-
-  <feature name="LocationManager">
-    <param name="ios-package" value="CDVLocationManager"/>
   </feature>
 
   <feature name="InAppBrowser">
@@ -43,6 +43,10 @@
   <feature name="SocialSharing">
     <param name="ios-package" value="SocialSharing"/>
     <param name="onload" value="true"/>
+  </feature>
+
+  <feature name="SQLitePlugin">
+    <param name="ios-package" value="SQLitePlugin"/>
   </feature>
 
   

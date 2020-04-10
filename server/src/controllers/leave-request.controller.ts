@@ -148,6 +148,25 @@ export class LeaveRequestController {
     return this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true });
   }
 
+  @get('/leave-requests/patient/{patientId}', {
+    responses: {
+      '200': {
+        description: 'LeaveRequest model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(LeaveRequest, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async findAllByPatientId(
+      @param.path.string('patientId') patientId: string,
+  ): Promise<(LeaveRequest)[]> {
+    let filter: Filter<LeaveRequest> = {"where": {"patientId":patientId}, order: ['outOfHomeTimestamp DESC']};
+    return this.leaveRequestRepository.find(filter, {strictObjectIDCoercion: true});
+  }
+
   @put('/leave-requests/token/{token}/set-at-home', {
     responses: {
       '204': {
@@ -163,6 +182,7 @@ export class LeaveRequestController {
     await this.leaveRequestRepository.findOne(filter, { strictObjectIDCoercion: true })
       .then(leaveRequest => {
         if (leaveRequest) {
+          leaveRequest.backToHomeTimestamp = new Date();
           leaveRequest.status = 1;
           this.leaveRequestRepository.save(leaveRequest);
         }

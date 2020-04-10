@@ -9,7 +9,7 @@ import { TestAppointmentService } from "../../shared/services/test-appointment.s
 import { Subscription } from "rxjs";
 import { AppointmentType } from "../../../../../server/src/common/utils/enums";
 import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
-
+import { LeaveRequest } from 'src/app/shared/sdk';
 
 @Component({
     selector: 'home',
@@ -36,10 +36,11 @@ export class HomeComponent implements OnDestroy {
     protected subscriptions: Array<Subscription> = new Array();
 
     public patientName: string;
-    public leaveRequest: LeaveRequestWithRelations;
+    public leaveRequest: LeaveRequest;
 
-    constructor(
-        protected router: Router,
+    public serviceAdvertisementUUID;
+
+    constructor(protected router: Router,
         public patientService: PatientService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
@@ -47,6 +48,8 @@ export class HomeComponent implements OnDestroy {
         @Inject('settings') protected settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService) {
+
+
 
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
             if (loaded) {
@@ -79,8 +82,8 @@ export class HomeComponent implements OnDestroy {
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
             if (patientLoaded) {
-                // this.patientService.patient.status = 2;
-                this.patientName = this.patientService.patient.firstName;
+                this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.serviceAdvertisementUUID = this.patientService.patient.serviceAdvertisementUUID;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
                         this.leaveRequest = this.leaveRequestService.leaveRequest;

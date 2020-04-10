@@ -23,6 +23,6 @@ export interface TestResultPartial {
     patientId?: string;
     result?: number;
     action?: number;
-    created?: string;
+    created?: Date;
 }
 

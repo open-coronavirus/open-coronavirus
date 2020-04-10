@@ -49,9 +49,22 @@ export class QrReaderResultComponent implements OnInit {
     }
 
     public hoursOutsideHome(outOfHomeTimestamp: string) {
+        if (!outOfHomeTimestamp) {
+            return;
+        }
+
         const now = new Date();
         const outOfHomeDate = new Date(outOfHomeTimestamp);
-        return Math.round(Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+        const hours = (Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
+        const min = Math.floor((hours % 1) * 60);
+        const hoursMath = Math.floor(hours);
+
+        let str = '';
+        if (hoursMath) {
+            str += hoursMath + 'h ';
+        }
+        str += min + 'min';
+        return str;
     }
 
     public getColorStatus() {
