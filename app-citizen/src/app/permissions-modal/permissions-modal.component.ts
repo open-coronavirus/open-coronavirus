@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
-
+import { PatientService } from '../shared/services/patient.service';
 @Component({
   selector: 'app-permissions-modal',
   templateUrl: './permissions-modal.component.html',
@@ -11,7 +11,8 @@ export class PermissionsModalComponent implements OnInit {
 
   constructor(
     public modalCtrl: ModalController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public patientService: PatientService
   ) { }
 
   ngOnInit() {
@@ -23,6 +24,17 @@ export class PermissionsModalComponent implements OnInit {
   }
 
   activatePermission() {
+    switch (this.type) {
+      case 'push':
+        break;
+      case 'gps':
+        this.patientService.startGeoTracking(this.patientService.patient);
+        break;
+      case 'bluetooth':
+        this.patientService.startBluetoothTracking(this.patientService.patient);
+        break;
+    }
+
     this.modalCtrl.dismiss({});
   }
 
