@@ -118,7 +118,7 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToTracking() {
-        // this.router.navigate(['/app/xxxx']);
+        this.router.navigate(['/app/autotest/1/question3_1']);
     }
 
     public goToCoronavirusInfo() {
@@ -218,8 +218,8 @@ export class HomeComponent implements OnDestroy {
         const now = new Date();
         const outOfHomeDate = new Date(outOfHomeTimestamp);
         const hours = (Math.abs(now.getTime() - outOfHomeDate.getTime()) / 36e5);
-        const min = Math.round((hours % 60) * 60);
-        const hoursMath = Math.round(hours);
+        const min = Math.floor((hours % 1) * 60);
+        const hoursMath = Math.floor(hours);
 
         let str = '';
         if (hoursMath) {
