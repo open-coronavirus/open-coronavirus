@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { PermissionsModalComponent } from 'src/app/permissions-modal/permissions-modal.component';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,8 @@ export class PermissionsService {
     constructor(
         private modalController: ModalController,
         @Inject('settings') protected settings,
-        protected router: Router
+        protected router: Router,
+        protected navCtrl: NavController
     ) {
     }
 
@@ -38,13 +39,13 @@ export class PermissionsService {
                 component: PermissionsModalComponent,
                 componentProps: {
                     type: requiredPermissions.shift()
-                 }
+                }
             });
 
         modalPermissions.onDidDismiss()
             .then(() => {
                 if (requiredPermissions.length === 0) {
-                    this.router.navigate([finalUrl]);
+                    this.navCtrl.navigateRoot([finalUrl]);
                 } else {
                     this.showAllPermissionModals(requiredPermissions, finalUrl);
                 }
