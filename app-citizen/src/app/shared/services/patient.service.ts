@@ -83,13 +83,19 @@ export class PatientService {
     }
 
     protected startTracking(patient) {
-        //start geolocation tracking
-        if(this.settings.permissions.gps) {
+        this.startGeoTracking(patient);
+        this.startBluetoothTracking(patient);
+    }
+
+    public startGeoTracking(patient: PatientWithRelations) {
+        if(this.settings.permissions.gps && !this.platform.is('desktop')) {
             this.geolocationtrackingService.activateBackgroundGeolocation(patient);
         }
-        //start bluetooth tracking
-        if(this.settings.permissions.bluetooth) {
-            this.blueToothTrackingService.patientServiceUUID = this.patient.serviceAdvertisementUUID;
+    }
+
+    public startBluetoothTracking(patient: PatientWithRelations) {
+        if(this.settings.permissions.bluetooth && !this.platform.is('desktop')) {
+            this.blueToothTrackingService.patientServiceUUID = patient.serviceAdvertisementUUID;
             this.blueToothTrackingService.startBluetooth();
         }
     }
