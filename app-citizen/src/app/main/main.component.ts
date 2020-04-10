@@ -41,9 +41,8 @@ export class MainComponent implements OnDestroy {
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if (loaded) {
-                const { firstName, lastName } = this.patientService.patient;
-                this.patientName = `${firstName}`;
-                this.patientInitials = firstName.split(" ").map(elem => elem[0]).join("").toUpperCase();
+                this.patientName = this.patientService.patient.firstName;
+                this.patientInitials = this.patientName.split(" ").map(elem => elem[0]).join("").toUpperCase();
             }
         }));
 
