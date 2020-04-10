@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 
 @Component({
     templateUrl: 'privacity-conditions.component.html',
+    styleUrls: ['privacity-conditions.component.scss'],
 })
 export class PrivacityConditionsComponent {
 
