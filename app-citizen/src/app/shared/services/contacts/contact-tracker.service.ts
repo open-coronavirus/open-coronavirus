@@ -3,6 +3,7 @@ import {SQLite, SQLiteObject} from "@ionic-native/sqlite/ngx";
 import {BehaviorSubject, Subject} from "rxjs";
 import {Contact} from "./contact";
 import {Platform} from "@ionic/angular";
+import {ContactControllerService, ContactWithRelations} from "../../sdk";
 
 
 @Injectable()
@@ -12,9 +13,20 @@ export class ContactTrackerService {
 
     private knownContacts = new Map<string, Contact>();
 
+    get patientServiceUUID(): string {
+        return this._patientServiceUUID;
+    }
+
+    set patientServiceUUID(value: string) {
+        this._patientServiceUUID = value;
+    }
+
+    private _patientServiceUUID: string;
+
     public connectedToDb$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    public constructor(private sqlite: SQLite,
+    public constructor(protected sqlite: SQLite,
+                       protected contactControllerService: ContactControllerService,
                        protected platform: Platform) {
 
         let dbConfiguration = { name: 'open-coronavirus.db' };
@@ -124,6 +136,66 @@ export class ContactTrackerService {
 
         return returnValue;
     }
+
+
+    async getContactEntries(limit = 100, offset= 0) {
+
+        return new Promise((resolve, reject) => {
+            this.db.executeSql(`SELECT * FROM contacts order by timestamp_from desc limit ${limit} offset ${offset}`,[]).then(result => {
+                resolve(result);
+            }).catch(error => {
+                console.error("Error trying to retrieve contacts: " + JSON.stringify(error));
+                reject(error);
+            });
+        });
+    }
+
+    async uploadContactsToServer() {
+
+        let limit = 100;
+        let offset = 0;
+
+        let existsMoreRows = true;
+        do {
+
+            let entries: any = await this.getContactEntries(limit, offset);
+            if(entries.rows.length > 0) {
+                let contactsToUpload = [];
+                entries.rows.forEach(row => {
+                    let contactToUpload: ContactWithRelations = new class implements ContactWithRelations {
+                        [key: string]: object | any;
+
+                        id: string;
+                        rssi: number;
+                        sourceUuid: string;
+                        targetUuid: string;
+                        timestampFrom: number;
+                        timestampTo: number;
+                    }
+
+                    contactToUpload.rssi = row.rssi;
+                    contactToUpload.sourceUuid = this._patientServiceUUID;
+                    contactToUpload.targetUuid = row.uuid;
+                    contactToUpload.timestampFrom = row.timestampFrom;
+                    contactToUpload.timestampTo = row.timestampTo;
+
+                    contactsToUpload.push(contactToUpload);
+
+                });
+
+                await this.contactControllerService.contactControllerCreateAll(contactsToUpload);
+            }
+            else {
+                existsMoreRows = false;
+            }
+
+            offset = offset + limit;
+
+        }while(existsMoreRows);
+
+
+    }
+
 
 
 

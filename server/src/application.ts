@@ -1,6 +1,9 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
-import {RestExplorerBindings, RestExplorerComponent,} from '@loopback/rest-explorer';
+import {
+  RestExplorerBindings,
+  RestExplorerComponent,
+} from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
@@ -11,29 +14,25 @@ import {HealthCenterMockService} from './services/impl/health-center-mock.servic
 import {LeaveRequestService} from "./services/leave-request.service";
 import {AuthMockService} from "./services/impl/auth-mock.service";
 
-
 const fs = require('fs');
 const dotenv = require('dotenv');
 
 export class CoronavirusServerApplication extends BootMixin(
-  ServiceMixin(RepositoryMixin(RestApplication)),
+    ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
+
   constructor(options: ApplicationConfig = {}) {
+
     console.log('Loading ' + join(process.cwd(), '.env') + ' ...');
     let envConfig = dotenv.parse(fs.readFileSync(join(process.cwd(), '.env')));
-    for (var k in envConfig) {
-      process.env[k] = envConfig[k];
+    for (let envVarName in envConfig) {
+      process.env[envVarName] = envConfig[envVarName];
     }
     //environment specific
-    console.log(
-      'Loading ' + join(process.cwd(), '.env.' + process.env.NODE_ENV),
-    );
-    envConfig = dotenv.parse(
-      fs.readFileSync(join(process.cwd(), '.env.' + process.env.NODE_ENV)) +
-        ' ...',
-    );
-    for (var k in envConfig) {
-      process.env[k] = envConfig[k];
+    console.log( 'Loading ' + join(process.cwd(), '.env.' + process.env.NODE_ENV) );
+    envConfig = dotenv.parse(fs.readFileSync(join(process.cwd(), '.env.' + process.env.NODE_ENV)) + ' ...');
+    for (let envVarName in envConfig) {
+      process.env[envVarName] = envConfig[envVarName];
     }
 
     options.rest = {
@@ -45,7 +44,7 @@ export class CoronavirusServerApplication extends BootMixin(
         optionsSuccessStatus: 204,
         maxAge: 86400,
         credentials: true,
-      },
+      }
     };
 
     super(options);
@@ -53,12 +52,9 @@ export class CoronavirusServerApplication extends BootMixin(
     // Set up the custom sequence
     this.sequence(MySequence);
 
-    // Set up default home page
-    //this.static('/', path.join(__dirname, '../public'));
-
     // Customize @loopback/rest-explorer configuration here
     this.bind(RestExplorerBindings.CONFIG).to({
-      path: '/explorer',
+      path: '/explorer'
     });
     this.component(RestExplorerComponent);
 
@@ -66,7 +62,6 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(AppointmentMockService, { interface: 'AppointmentService' });
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
     this.service(AuthMockService, { interface: 'AuthService' });
-
     this.service(LeaveRequestService);
 
     this.projectRoot = __dirname;
@@ -77,7 +72,9 @@ export class CoronavirusServerApplication extends BootMixin(
         dirs: ['controllers'],
         extensions: ['.controller.js'],
         nested: true,
-      },
+      }
     };
+
   }
+
 }

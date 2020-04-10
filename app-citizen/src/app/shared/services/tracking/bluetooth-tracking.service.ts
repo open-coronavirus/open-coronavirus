@@ -27,6 +27,8 @@ export class BluetoothTrackingService {
 
     set patientServiceUUID(value) {
         this._patientServiceUUID = value;
+        //also set the contact tracker with this value
+        this.contactTrackerService.patientServiceUUID = value;
     }
 
     constructor(protected bluetoothle: BluetoothLE,

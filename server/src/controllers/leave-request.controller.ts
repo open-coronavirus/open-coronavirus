@@ -161,9 +161,9 @@ export class LeaveRequestController {
     },
   })
   async findAllByPatientId(
-      @param.path.string('id') id: string,
+      @param.path.string('patientId') patientId: string,
   ): Promise<(LeaveRequest)[]> {
-    let filter: Filter<LeaveRequest> = {"where": {"patientId":id}, order: ['outOfHomeTimestamp DESC']};
+    let filter: Filter<LeaveRequest> = {"where": {"patientId":patientId}, order: ['outOfHomeTimestamp DESC']};
     return this.leaveRequestRepository.find(filter, {strictObjectIDCoercion: true});
   }
 
