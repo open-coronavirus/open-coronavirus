@@ -182,25 +182,6 @@ export class HomeComponent implements OnDestroy {
         }
     }
 
-    getIconStatus() {
-        if (!this.patientService.patient) {
-            return;
-        }
-        switch (this.patientService.patient.status) {
-            case 4:
-                return 'qr-fake-rojo';
-
-            case 3:
-                return 'qr-fake-amarillo';
-
-            case 2:
-                return 'qr-fake-verde';
-
-            default:
-                return 'qr-fake-negro';
-        }
-    }
-
     public ngOnDestroy(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe();
