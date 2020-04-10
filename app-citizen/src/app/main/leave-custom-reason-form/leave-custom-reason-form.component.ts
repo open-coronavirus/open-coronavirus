@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation, Inject} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {LeaveRequestService} from '../../shared/services/leave-request.service';
+import {LeaveRequestService, LeaveReasonEnum} from '../../shared/services/leave-request.service';
 
 @Component({
     selector: 'leave-custom-reason-form',
@@ -12,6 +12,7 @@ export class LeaveCustomReasonFormComponent {
 
     public leaveRequestAdditionalInfo;
     public leaveReason: number;
+    public leaveRequestReason: any;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -21,6 +22,16 @@ export class LeaveCustomReasonFormComponent {
     ) {
         this.activatedRoute.paramMap.subscribe(params => {
             this.leaveReason = +params.get('leaveReason');
+
+            this.leaveRequestService.loaded$.subscribe(loaded => {
+                if (loaded) {
+                    this.leaveRequestService.leaveReasons.forEach(leaveReason => {
+                        if (leaveReason.id === this.leaveReason && leaveReason.id !== LeaveReasonEnum.otherLeaveReason) {
+                            this.leaveRequestReason = leaveReason;
+                        }
+                    });
+                }
+            });
         });
     }
 

@@ -16,18 +16,19 @@ export class LeaveRequestResultComponent {
                 protected router: Router) {
         this.leaveRequestService.loaded$.subscribe(loaded => {
             if (loaded) {
-                if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
-                    this.leaveRequestService.leaveReasons.forEach(leaveReason => {
-                        if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
+                this.leaveRequestService.leaveReasons.forEach(leaveReason => {
+                    if (leaveReason.id === this.leaveRequestService.leaveRequest.leaveReason) {
+                        if (leaveReason.id !== LeaveReasonEnum.otherLeaveReason) {
                             this.leaveRequestReason = leaveReason;
+                            this.leaveRequestReason.additionalInfo = this.leaveRequestService.leaveRequest.additionalInfo;
+                        } else {
+                            this.leaveRequestReason = {
+                                id: LeaveReasonEnum.otherLeaveReason,
+                                label: this.leaveRequestService.leaveRequest.additionalInfo
+                            };
                         }
-                    });
-                } else {
-                    this.leaveRequestReason = {
-                        id: LeaveReasonEnum.otherLeaveReason,
-                        label: this.leaveRequestService.leaveRequest.additionalInfo
-                    };
-                }
+                    }
+                });
             }
         });
     }
