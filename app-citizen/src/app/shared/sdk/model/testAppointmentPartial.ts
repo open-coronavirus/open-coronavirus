@@ -19,8 +19,8 @@ export interface TestAppointmentPartial {
 
 
     id?: string;
-    created?: Date;
-    appointmentDate?: Date;
+    created?: string;
+    appointmentDate?: string;
     type?: number;
     patientId?: string;
     healthCenterId?: string;

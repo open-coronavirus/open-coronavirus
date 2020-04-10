@@ -20,7 +20,7 @@ export interface NewBluetoothLeAdvertisement {
 
     sourceServiceUUID: string;
     targetServiceUUID: string;
-    created?: Date;
+    created?: string;
     rssi?: number;
 }
 
