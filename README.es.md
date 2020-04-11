@@ -21,23 +21,22 @@ El sistema contará con 3 aplicativos:
 - **App Ciudadano**. Aplicación mobile para la colaboración ciudadana y control de la propagación del
 SARS-CoV-2.
 
-    Desde la aplicación **se solicitará un test diagnóstico y ver los resultados del mismo.**
-Se almacenará todo movimiento del ciudadano para controlar posibles contagios y
-cercar el ámbito de acción del SARS-CoV-2 desde las autoridades sanitarias.
+    Desde la aplicación **se solicitará un test diagnóstico y ver los resultados del mismo.** Servirá como identificación del ciudadano **mediante códigos QR** que determinará este estado.
 
-    Servirá como **identificación del ciudadano mediante códigos QR.**
+    Se almacenará en el dispositivo de cada ciudadano los **cruces con otros ciudadanos de forma anónima** a partir de la información obtenida por **Bluetooth Low Energy**.
 
-- **Software de control datos** donde las autoridades sanitarias y de control
-epidemiológico podrán consultar y detectar los movimientos del SARS-CoV-2.
+    De esta forma controlar posibles contagios y cercar el ámbito de acción del SARS-CoV-2 desde las autoridades sanitarias.
 
-    Desde el software se podrán ver los focos de contagio, el cumplimiento de la
-cuarentena obligatorio para contagiados o posibles contagiados.
+    La APP está pensada como **INCENTIVO** (te informa, etc.) no como una obligación.
+
+- **Software de control datos (próximamente)** donde las autoridades sanitarias y de control
+epidemiológico podrán consultar y detectar posibles contagios del SARS-CoV-2.
 
 - **App Autoridades.** Aplicación mobile para que las autoridades pertinentes puedan leer los QR de
 identificación del ciudadano en los entornos que se decidan así como monitorizar
 su movilidad.
 
-| ![Apps Open Coronavirus](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-app-3.jpg) | 
+| | 
 |:--:| 
 | *Ejemplo de las 3 aplicaciones para distintos tipos de usuarios* |
 
