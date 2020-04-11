@@ -1,17 +1,16 @@
 import { Component, ViewEncapsulation } from "@angular/core";
 import { Location } from "@angular/common";
-import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 
 
 @Component({
-    selector: 'tracking-result-1',
-    templateUrl: 'tracking-result-1.component.html',
-    styleUrls: ['tracking-result-1.component.scss'],
+    selector: 'following-up-result-2',
+    templateUrl: 'following-up-result-2.component.html',
+    styleUrls: ['following-up-result-2.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class TrackingResult1Component {
+export class FollowingUpResult2Component {
 
 
     constructor(

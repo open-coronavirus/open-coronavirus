@@ -6,12 +6,12 @@ import { NavController } from '@ionic/angular';
 
 
 @Component({
-    selector: 'tracking-result-2',
-    templateUrl: 'tracking-result-2.component.html',
-    styleUrls: ['tracking-result-2.component.scss'],
+    selector: 'following-up-result-1',
+    templateUrl: 'following-up-result-1.component.html',
+    styleUrls: ['following-up-result-1.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class TrackingResult2Component {
+export class FollowingUpResult1Component {
 
 
     constructor(

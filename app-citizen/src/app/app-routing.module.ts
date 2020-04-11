@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
-import { TestResult1Component } from './main/test-result/test-result-1/test-result-1.component';
+
 
 const routes: Routes = [
     {
@@ -275,22 +275,22 @@ const routes: Routes = [
             },
 
             {
-                path: 'tracking-result/result/1',
+                path: 'following-up-result/result/1',
                 children: [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./main/tracking-result/tracking-result-1/tracking-result-1.module').then(m => m.TrackingResult1Module)
+                            import('./main/following-up-result/following-up-result-1/following-up-result-1.module').then(m => m.FollowingUpResult1Module)
                     }
                 ]
             },
             {
-                path: 'tracking-result/result/2',
+                path: 'following-up-result/result/2',
                 children: [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('./main/tracking-result/tracking-result-2/tracking-result-2.module').then(m => m.TrackingResult2Module)
+                            import('./main/following-up-result/following-up-result-2/following-up-result-2.module').then(m => m.FollowingUpResult2Module)
                     }
                 ]
             },

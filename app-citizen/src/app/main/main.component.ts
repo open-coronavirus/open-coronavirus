@@ -131,9 +131,9 @@ export class MainComponent implements OnDestroy {
         this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
-    public goToTracking() {
+    public goToFollowingUp() {
         this.closeMenu();
-        this.router.navigate(['/app/autotest/tracking/0/seguimiento1_1']);
+        this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
     }
 
     public goAbout() {

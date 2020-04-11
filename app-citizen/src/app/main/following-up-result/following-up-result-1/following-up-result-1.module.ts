@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import { TrackingResult2Component } from './tracking-result-2.component';
+import { FollowingUpResult1Component } from './following-up-result-1.component';
 
 
 @NgModule({
@@ -11,8 +11,8 @@ import { TrackingResult2Component } from './tracking-result-2.component';
         IonicModule,
         CommonModule,
         FormsModule,
-        RouterModule.forChild([{path: '', component: TrackingResult2Component}]),
+        RouterModule.forChild([{path: '', component: FollowingUpResult1Component}]),
     ],
-    declarations: [TrackingResult2Component]
+    declarations: [FollowingUpResult1Component]
 })
-export class TrackingResult2Module {}
+export class FollowingUpResult1Module {}
