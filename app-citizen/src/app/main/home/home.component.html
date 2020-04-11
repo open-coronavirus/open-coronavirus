@@ -112,6 +112,14 @@
         </ion-row>
     </ion-grid>
 
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" (click)="uploadContactsAndShowThanksModal()">
+                ENVIAR INFORMACIÓN DE FORMA ANÓNIMA DE CRUCES CON CIUDADANOS Y AUTORIZAR SU USO
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
     <!-- <div *ngIf="patientHasTestAppointment" class="appointment-info">
         <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
         <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>

@@ -218,4 +218,8 @@ export class HomeComponent implements OnDestroy {
         str += min + ' min';
         return str;
     }
+
+    public uploadContactsAndShowThanksModal() {
+        this.contactTrackerService.uploadContactsAndShowThanksModal();
+    }
 }

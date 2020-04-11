@@ -10,6 +10,7 @@ import {PrivacityConditionsService} from '../shared/services/privacityConditions
 import {GeolocationTrackingService} from "../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../shared/services/tracking/bluetooth-tracking.service";
 import {PermissionsService} from "../shared/services/permissionsService.service";
+import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
 
 @Component({
     selector: 'app-container',
@@ -37,7 +38,8 @@ export class MainComponent implements OnDestroy {
         protected testAppointmentService: TestAppointmentService,
         protected permissionsService: PermissionsService,
         private privacityConditionsService: PrivacityConditionsService,
-        protected shareService: ShareService) {
+        protected shareService: ShareService,
+        protected contactTrackerService: ContactTrackerService) {
 
         this.subscriptions.push(this.leaveRequestService.loaded$.subscribe(loaded => {
             if (loaded && this.leaveRequestService.leaveRequest != null) {
@@ -150,5 +152,9 @@ export class MainComponent implements OnDestroy {
 
     public getSettingsText(): string {
         return this.settings.shareApp.text;
+    }
+
+    public uploadContactsAndShowThanksModal() {
+        this.contactTrackerService.uploadContactsAndShowThanksModal();
     }
 }
