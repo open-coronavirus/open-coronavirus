@@ -22,6 +22,10 @@
     <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
   </feature>
 
+  <feature name="UniqueDeviceID">
+    <param name="android-package" value="hu.dpal.phonegap.plugins.UniqueDeviceID"/>
+  </feature>
+
   <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
   </feature>

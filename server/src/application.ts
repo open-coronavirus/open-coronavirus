@@ -15,6 +15,7 @@ import {AuthorizationComponent, AuthorizationTags} from "@loopback/authorization
 import KEY = ContextTags.KEY;
 import {Auth0AuthenticationStrategy, JWTServiceProvider} from "./security";
 import {MyAuthorizationProvider} from "./security/authorizor";
+import {PushNotificationService} from "./services/pushnotification.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -85,6 +86,8 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
     this.service(AuthMockService, { interface: 'AuthService' });
     this.service(LeaveRequestService);
+    //General purpose services:
+    this.service(PushNotificationService);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

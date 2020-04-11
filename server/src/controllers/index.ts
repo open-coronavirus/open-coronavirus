@@ -11,3 +11,4 @@ export * from './police-officer.controller';
 export * from './sanitarian.controller';
 export * from './auth.controller';
 export * from './contact.controller';
+export * from './installation.controller';
