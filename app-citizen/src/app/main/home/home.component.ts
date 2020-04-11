@@ -107,6 +107,21 @@ export class HomeComponent implements OnDestroy {
 
     }
 
+    public goToConfirmationRequestLeaveHome() {
+        switch (this.patientService.patient?.status) {
+            case 1:
+                this.router.navigate(['/app/request-leave-home-confirmation-no-test']);
+                break;
+            case 3:
+                this.router.navigate(['/app/request-leave-home-confirmation-mandatory-quarentine']);
+                break;
+            case 4:
+                this.router.navigate(['/app/request-leave-home-confirmation-infected']);
+                break;
+        }
+
+    }
+
     public goToRequestLeaveHome() {
         this.router.navigate(['/app/request-leave-home']);
     }
@@ -138,7 +153,7 @@ export class HomeComponent implements OnDestroy {
         this.router.navigate(['/app/tracking-result/result/2']);
     }
 
-    getTextStatus() {
+getTextStatus() {
         if (!this.patientService.patient) {
             return;
         }
@@ -157,7 +172,7 @@ export class HomeComponent implements OnDestroy {
         }
     }
 
-    getClassStatus() {
+getClassStatus() {
         if (!this.patientService.patient) {
             return;
         }
@@ -174,7 +189,7 @@ export class HomeComponent implements OnDestroy {
         }
     }
 
-    getColorStatus() {
+getColorStatus() {
         if (!this.patientService.patient) {
             return;
         }
