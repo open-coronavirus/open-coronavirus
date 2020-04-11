@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { AutotestAnswers } from '../../shared/services/autotest-answers.service';
 import { TestQuestion, TestQuestionControllerService, TestResultControllerService } from "../../shared/sdk";
 import { PatientService } from "../../shared/services/patient.service";
-import { TestActionEnum, TestType } from '../../../../../server/src/common/utils/enums';
+import { TestType } from '../../../../../server/src/common/utils/enums';
 import { TestResultService } from "../../shared/services/test-result.service";
 
 

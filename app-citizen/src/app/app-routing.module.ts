@@ -240,6 +240,17 @@ const routes: Routes = [
                             import('./main/tracking-result/tracking-result-2/tracking-result-2.module').then(m => m.TrackingResult2Module)
                     }
                 ]
+            },
+
+            {
+                path: 'about',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/about/about.module').then(m => m.AboutModule)
+                    }
+                ]
             }
         ]
     },

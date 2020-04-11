@@ -118,6 +118,11 @@ export class MainComponent implements OnDestroy {
         this.router.navigate(['/app/autotest/tracking/0/seguimiento1_1']);
     }
 
+    public goAbout() {
+        this.closeMenu();
+        this.router.navigate(['/app/about']);
+    }
+
     public goToCoronavirusInfo() {
         this.closeMenu();
         window.open(this.settings.moreInfoUrl, '_system');
