@@ -1,22 +1,29 @@
-<ion-menu side="start" menuId="menu" contentId="main">
+<ion-menu class="menu" side="start" menuId="menu" contentId="main">
     <ion-header>
-        <ion-list>
-            <div class="menu-item-header menu-separator" (click)="goToHome()">
-                <avatar [userName]="userName"></avatar>
-                <div class="patient-name-in-menu">{{ userName }}</div>
-            </div>
-        </ion-list>
+        <div class="menu__header menu__separator" (click)="goToHome()">
+            <avatar class="menu__header-circle" [userName]="userName"></avatar>
+            <div class="menu__header-name">{{userName}}</div>
+        </div>
     </ion-header>
     <ion-content>
-        <ion-list>
-            <div class="menu-item" (click)="goToIdentity()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@coronavirusIdentityUserMenuLabel">Identificar a un usuario</ng-container></div>
-        </ion-list>
+        <div>
+            <div class="menu__item" (click)="goToIdentity()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
+                <ng-container i18n="@@coronavirusIdentityUserMenuLabel">Identificar a un usuario</ng-container>
+            </div>
+        </div>
     </ion-content>
     <ion-toolbar>
-        <ion-list>
-            <div class="menu-item" (click)="goToMyInfo()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container></div>
-            <div class="menu-item" (click)="goExit()"><img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@exitMenuLabel">Salir</ng-container></div>
-        </ion-list>
+        <div>
+            <div class="menu__item menu__item--sm" (click)="goToMyInfo()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">
+                <ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container>
+            </div>
+            <div class="menu__item menu__item--sm" (click)="goExit()">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">
+                <ng-container i18n="@@exitMenuLabel">Salir</ng-container>
+            </div>
+        </div>
     </ion-toolbar>
 </ion-menu>
 

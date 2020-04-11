@@ -34,6 +34,41 @@ export class QrReaderResultComponent implements OnInit {
         this.getLeaveRequests(this.patient.id);
     }
 
+    getTextStatus() {
+        if (!this.patient) {
+            return;
+        }
+        switch (this.patient.status) {
+            case 4:
+                return $localize`:@@qrresultpositive:Positivo`;
+
+            case 3:
+                return $localize`:@@qrresultquarantine:Cuarentena obligatoria`;
+
+            case 2:
+                return $localize`:@@qrresultnegative:Negativo`;
+
+            default:
+                return $localize`:@@qrresultunknown:Desconocido`;
+        }
+    }
+
+    getClassStatus() {
+        if (!this.patient) {
+            return;
+        }
+        switch (this.patient.status) {
+            case 4:
+                return 'result--infected';
+
+            case 3:
+                return 'result--quarentine';
+
+            case 2:
+                return 'result--ok';
+
+        }
+    }
 
     async getLeaveRequests(idPatient: string) {
         const loading = await this.loadingController.create({

@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-title i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
+        <ion-title class="header-app__title" i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -22,10 +22,15 @@
                 </form> -->
 
 
-                <p>Falta por implementar login contra sistema centrales</p>
-                <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</ion-button>
+                <p class="login-demo">Pendiente de implementar el login contra el sistema central de la policía.</p>
 
             </ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="footer-app" >
+        <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</ion-button>
+    </ion-toolbar>
+  </ion-footer>
