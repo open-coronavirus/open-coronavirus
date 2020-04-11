@@ -22,10 +22,6 @@
     <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
   </feature>
 
-  <feature name="UniqueDeviceID">
-    <param name="android-package" value="hu.dpal.phonegap.plugins.UniqueDeviceID"/>
-  </feature>
-
   <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
   </feature>
@@ -34,12 +30,20 @@
     <param name="android-package" value="NativeStorage"/>
   </feature>
 
+  <feature name="UniqueDeviceID">
+    <param name="android-package" value="hu.dpal.phonegap.plugins.UniqueDeviceID"/>
+  </feature>
+
   <feature name="SocialSharing">
     <param name="android-package" value="nl.xservices.plugins.SocialSharing"/>
   </feature>
 
   <feature name="SQLitePlugin">
     <param name="android-package" value="io.sqlc.SQLitePlugin"/>
+  </feature>
+
+  <feature name="PushNotification">
+    <param name="android-package" value="com.adobe.phonegap.push.PushPlugin"/>
   </feature>
 
   
