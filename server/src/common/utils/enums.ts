@@ -13,3 +13,8 @@ export enum AppointmentType {
     AT_HOME = 1,
     AT_HEALTH_CENTER = 2
 }
+
+export enum TestType {
+    AUTOTEST = 'autotest',
+    TRACKING = 'tracking'
+}

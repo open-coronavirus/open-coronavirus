@@ -45,6 +45,10 @@
                 <img class="button-icon" src="/assets/icons/svg/icon-info.svg">
                 <ng-container i18n="@@InfoMenuLabel">Información sobre el coronavirus</ng-container>
             </div>
+            <div class="menu__item menu__item--sm" (click)="goAbout()">
+                <img class="button-icon" src="/assets/icons/svg/icon-info.svg">
+                <ng-container i18n="@@InfoAppMenuLabel">Información sobre la app</ng-container>
+            </div>
             <div class="menu__item menu__item--sm" (click)="share()">
                 <img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">
                 <ng-container i18n="@@shareMenuLabel">{{getSettingsText()}}</ng-container>
