@@ -10,11 +10,11 @@ import {HealthCenterMockService} from './services/impl/health-center-mock.servic
 import {LeaveRequestService} from "./services/leave-request.service";
 import {AuthMockService} from "./services/impl/auth-mock.service";
 import {AuthenticationSequence} from "./authentication-sequence";
-import {Auth0AuthenticationStrategy, JWTServiceProvider} from "./authentication-strategies";
 import {AuthenticationComponent, registerAuthenticationStrategy} from "@loopback/authentication";
-import {MyAuthorizationProvider} from "./authentication-strategies/authorizor";
 import {AuthorizationComponent, AuthorizationTags} from "@loopback/authorization";
 import KEY = ContextTags.KEY;
+import {Auth0AuthenticationStrategy, JWTServiceProvider} from "./security";
+import {MyAuthorizationProvider} from "./security/authorizor";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
