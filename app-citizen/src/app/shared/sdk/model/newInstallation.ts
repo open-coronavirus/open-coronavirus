@@ -11,15 +11,14 @@
  */
 
 
-export interface TestAppointment { 
+/**
+ * (Schema options: { title: \'NewInstallation\', exclude: [ \'id\' ] })
+ */
+export interface NewInstallation { 
   [key: string]: object | any;
 
 
-    id?: string;
-    created?: string;
-    appointmentDate?: string;
-    type?: number;
-    patientId: string;
-    healthCenterId?: string;
+    deviceId: string;
+    created: string;
 }
 

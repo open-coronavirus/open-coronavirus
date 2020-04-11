@@ -9,3 +9,4 @@ export * from './police-officer.repository';
 export * from './sanitarian.repository';
 export * from './document.repository';
 export * from './contact.repository';
+export * from './installation.repository';

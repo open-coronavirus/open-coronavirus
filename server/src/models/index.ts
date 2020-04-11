@@ -10,3 +10,4 @@ export * from './sanitarian.model';
 export * from './auth.model';
 export * from './document.model';
 export * from './contact.model';
+export * from './installation.model';

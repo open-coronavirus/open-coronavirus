@@ -23,6 +23,11 @@
     <param name="ios-package" value="CDVLocation"/>
   </feature>
 
+  <feature name="UniqueDeviceID">
+    <param name="ios-package" value="CDVUniqueDeviceID"/>
+    <param name="onload" value="true"/>
+  </feature>
+
   <feature name="InAppBrowser">
     <param name="ios-package" value="CDVInAppBrowser"/>
     <param name="onload" value="true"/>

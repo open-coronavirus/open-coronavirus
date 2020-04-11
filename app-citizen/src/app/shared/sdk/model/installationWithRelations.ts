@@ -11,15 +11,15 @@
  */
 
 
-export interface TestAppointment { 
+/**
+ * (Schema options: { includeRelations: true })
+ */
+export interface InstallationWithRelations { 
   [key: string]: object | any;
 
 
     id?: string;
-    created?: string;
-    appointmentDate?: string;
-    type?: number;
-    patientId: string;
-    healthCenterId?: string;
+    deviceId: string;
+    created: string;
 }
 

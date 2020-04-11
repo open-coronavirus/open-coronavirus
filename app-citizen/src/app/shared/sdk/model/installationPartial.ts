@@ -11,15 +11,15 @@
  */
 
 
-export interface TestAppointment { 
+/**
+ * (Schema options: { partial: true })
+ */
+export interface InstallationPartial { 
   [key: string]: object | any;
 
 
     id?: string;
+    deviceId?: string;
     created?: string;
-    appointmentDate?: string;
-    type?: number;
-    patientId: string;
-    healthCenterId?: string;
 }
 
