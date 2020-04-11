@@ -9,5 +9,4 @@ export * from './police-officer.model';
 export * from './sanitarian.model';
 export * from './auth.model';
 export * from './document.model';
-export * from './bluetooth-le-advertisement.model';
 export * from './contact.model';

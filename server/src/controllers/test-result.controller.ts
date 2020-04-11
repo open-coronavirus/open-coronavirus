@@ -22,6 +22,8 @@ import {TestResultRepository} from '../repositories';
 import {AppointmentType, TestActionEnum, TestResultEnum} from "../common/utils/enums";
 import {service} from "@loopback/core";
 import {AppointmentService} from "../services/appointment.service";
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class TestResultController {
     constructor(
@@ -44,6 +46,7 @@ export class TestResultController {
             },
         },
     })
+    //todo securize
     async create(
         @requestBody({
             content: {
@@ -106,6 +109,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['read']})
     async count(
         @param.query.object('where', getWhereSchemaFor(TestResult)) where?: Where<TestResult>,
     ): Promise<Count> {
@@ -127,6 +132,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['read']})
     async find(
         @param.query.object('filter', getFilterSchemaFor(TestResult)) filter?: Filter<TestResult>,
     ): Promise<TestResult[]> {
@@ -141,6 +148,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['write']})
     async updateAll(
         @requestBody({
             content: {
@@ -167,6 +176,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['read']})
     async findById(
         @param.path.string('id') id: string,
         @param.query.object('filter', getFilterSchemaFor(TestResult)) filter?: Filter<TestResult>
@@ -186,6 +197,7 @@ export class TestResultController {
             },
         },
     })
+    //todo securize
     async findLatestByPatientId(
         @param.path.string('patientId') patientId: string
     ): Promise<TestResult | null> {
@@ -203,6 +215,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['write']})
     async updateById(
         @param.path.string('id') id: string,
         @requestBody({
@@ -224,6 +238,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['write']})
     async replaceById(
         @param.path.string('id') id: string,
         @requestBody() testResult: TestResult,
@@ -238,6 +254,8 @@ export class TestResultController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'TestResult', scopes: ['write']})
     async deleteById(@param.path.string('id') id: string): Promise<void> {
         await this.testResultRepository.deleteById(id);
     }

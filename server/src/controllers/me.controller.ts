@@ -33,6 +33,7 @@ export class MeController {
       },
     },
   })
+  //todo securize
   async getPatientLeaveRequests(
     @param.header.string('X-User-Id') patientId: string,
   ): Promise<LeaveRequest[]> {

@@ -3,7 +3,9 @@
   "extends": "@loopback/build/config/tsconfig.common.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDirs": ["src"]
+    "rootDirs": ["src"],
+    "experimentalDecorators": true,
+    "allowJs": true
   },
   "include": ["src"]
 }
