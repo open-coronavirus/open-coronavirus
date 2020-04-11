@@ -1,0 +1,29 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen>
+  <h1 i18n="@@requestLeaveHomeTitle">¿Vas a salir de casa?</h1>
+    
+  <p>
+    Estás en cuarentena obligatoria y no deberías salir.
+  </p>
+
+  <p>
+    La responsabilidad y colaboración ciudadana es fundamental para la lucha contra el virus
+  </p>
+
+  <p>
+    ¡Quédate en casa!
+  </p>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@OK">OK</ion-button>
+    <ion-button color="dark" (click)="goToRequestLeaveHome()" expand="block" i18n="@@noStillGoingToLeaveTheHouse">No, aún así voy a salir de casa</ion-button>
+  </ion-toolbar>
+</ion-footer>

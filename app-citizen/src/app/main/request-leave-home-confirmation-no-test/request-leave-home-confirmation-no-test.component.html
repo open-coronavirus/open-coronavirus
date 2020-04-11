@@ -1,0 +1,21 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen>
+  <h1 i18n="@@requestLeaveHomeTitle">¿Vas a salir de casa?</h1>
+    
+  <p>
+    Recuerda que puedes salir de casa de forma permanente y sin informar pidiendo el test del COVID-19 y si no tienes la infección podrás volver a la normalidad
+  </p>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="requestTest()" expand="block" i18n="@@requestTestMenuLabel">SOLICITAR TEST COVID-19</ion-button>
+    <ion-button color="dark" (click)="goToRequestLeaveHome()" expand="block" i18n="@@noMaybeInANotherTime">No, gracias. Ahora voy a salir de casa</ion-button>
+  </ion-toolbar>
+</ion-footer>

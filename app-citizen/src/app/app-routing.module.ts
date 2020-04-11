@@ -119,6 +119,39 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'request-leave-home-confirmation-no-test',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.module')
+                                .then(m => m.RequestLeaveHomeConfirmationNoTestModule)
+                    }
+                ]
+            },
+            {
+                path: 'request-leave-home-confirmation-mandatory-quarentine',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.module')
+                                .then(m => m.RequestLeaveHomeConfirmationMandatoryQuarentineModule)
+                    }
+                ]
+            },
+            {
+                path: 'request-leave-home-confirmation-infected',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.module')
+                                .then(m => m.RequestLeaveHomeConfirmationInfectedModule)
+                    }
+                ]
+            },
+            {
                 path: 'contact-upload-request',
                 children: [
                     {
