@@ -33,6 +33,8 @@ import {BluetoothLE} from '@ionic-native/bluetooth-le/ngx';
 import {BLE} from "@ionic-native/ble/ngx";
 import {SQLite} from "@ionic-native/sqlite/ngx";
 import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.service";
+import {UniqueDeviceID} from "@ionic-native/unique-device-id/ngx";
+
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -57,6 +59,7 @@ import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.
         SQLite,
         ShareService,
         ContactTrackerService,
+        UniqueDeviceID,
         BluetoothTrackingService,
         BLE,
         GeolocationTrackingService,
