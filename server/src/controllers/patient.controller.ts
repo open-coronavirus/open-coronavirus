@@ -16,6 +16,8 @@ import {
 import {Patient} from '../models';
 import {PatientRepository} from '../repositories';
 import {BluetoothUuidGenerator} from "../common/utils/bluetooth-uuid-generator";
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class PatientController {
   constructor(
@@ -69,6 +71,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'patient', scopes: ['query']})
   async count(
     @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
   ): Promise<Count> {
@@ -104,6 +108,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'patient', scopes: ['update']})
   async updateAll(
     @requestBody({
       content: {
@@ -128,6 +134,8 @@ export class PatientController {
       }
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'patient', scopes: ['query']})
   async getByQrCode(
     @param.path.string('qrcode') qrcode: string,
   ): Promise<Patient> {
@@ -264,6 +272,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'patient', scopes: ['update']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() patient: Patient,
