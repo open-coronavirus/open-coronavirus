@@ -1,36 +1,61 @@
 .result{
+  $result: &;
+  
   &__qr{
+    display: block;
     width: 100%;
     height: auto;
+    margin: 0 auto;
   }
-  &__citizen{
-    font-size: 16px;
+  &__title{
+    font-size: 12px;
+    line-height: 16px;
     color: #9b9b9b;
+    font-weight: 300;
     margin: 0;
   }
   &__name{
     font-size: 16px;
+    line-height: 20px;
     color: #000;
-    margin: 0 0 6px 0 ;
+    margin: 0 0 12px 0 ;
   }
-  &__status{
+  &__status{  
     font-weight: bold;
     margin: 0;
     line-height: 1;
+    font-size: 16px;
+    line-height: 16px;    
+  }
 
-    &--infected{
-      color: #c80f2e;
-      font-size: 28px;
-    }
-    &--quarentine{
-      color: #ffca08;
-      font-size: 20px;
-    }
-    &--ok{
-      color: #61bc7c;
-      font-size: 24px;
+  &--quarentine{
+    #{ $result }{
+      &__status{
+        color: #ffca08;
+        font-size: 16px;
+      }
     }
   }
+  &--infected{
+    #{ $result }{
+      &__status{
+        color: #c80f2e;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &--ok{
+    #{ $result }{
+      &__status{
+        color: #61bc7c;  
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+
   &__container{
     padding: 0 12px;
 
@@ -134,4 +159,16 @@
     --color: #fff;
     --text-transform: uppercase;
   }
+}
+
+.qrcode {
+  text-align: center !important;
+
+  canvas, img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
 }
