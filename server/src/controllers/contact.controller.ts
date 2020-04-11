@@ -2,6 +2,8 @@ import {Count, CountSchema, Filter, FilterExcludingWhere, repository, Where,} fr
 import {del, get, getModelSchemaRef, param, patch, post, put, requestBody,} from '@loopback/rest';
 import {Contact} from '../models';
 import {ContactRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 const schemaWithArrayOfContact = {
   type: 'array',
@@ -24,6 +26,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['write']})
   async create(
     @requestBody({
       content: {
@@ -48,6 +52,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['read']})
   async count(
     @param.where(Contact) where?: Where<Contact>,
   ): Promise<Count> {
@@ -69,6 +75,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['read']})
   async find(
     @param.filter(Contact) filter?: Filter<Contact>,
   ): Promise<Contact[]> {
@@ -83,6 +91,7 @@ export class ContactController {
       },
     },
   })
+  //unsecure!!!
   async createAll(
       @requestBody({
         content: {
@@ -104,6 +113,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -130,6 +141,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['read']})
   async findById(
     @param.path.string('id') id: string,
     @param.filter(Contact, {exclude: 'where'}) filter?: FilterExcludingWhere<Contact>
@@ -144,6 +157,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -165,6 +180,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() contact: Contact,
@@ -179,6 +196,8 @@ export class ContactController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.contactRepository.deleteById(id);
   }

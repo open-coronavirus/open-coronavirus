@@ -19,6 +19,8 @@ import {
 } from '@loopback/rest';
 import {Geolocation} from '../models';
 import {GeolocationRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class GeolocationController {
   constructor(
@@ -61,6 +63,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['read']})
   async count(
     @param.query.object('where', getWhereSchemaFor(Geolocation)) where?: Where<Geolocation>,
   ): Promise<Count> {
@@ -82,6 +86,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['read']})
   async find(
     @param.query.object('filter', getFilterSchemaFor(Geolocation)) filter?: Filter<Geolocation>,
   ): Promise<Geolocation[]> {
@@ -96,6 +102,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -122,6 +130,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['read']})
   async findById(
     @param.path.string('id') id: string,
     @param.query.object('filter', getFilterSchemaFor(Geolocation)) filter?: Filter<Geolocation>
@@ -136,6 +146,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -157,6 +169,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() geolocation: Geolocation,
@@ -171,6 +185,8 @@ export class GeolocationController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Geolocation', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.geolocationRepository.deleteById(id);
   }

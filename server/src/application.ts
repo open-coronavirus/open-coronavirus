@@ -1,18 +1,20 @@
 import {BootMixin} from '@loopback/boot';
-import {ApplicationConfig} from '@loopback/core';
-import {
-  RestExplorerBindings,
-  RestExplorerComponent,
-} from '@loopback/rest-explorer';
+import {ApplicationConfig, ContextTags} from '@loopback/core';
+import {RestExplorerBindings, RestExplorerComponent,} from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import {join} from 'path';
-import {MySequence} from './sequence';
 import {AppointmentMockService} from './services/impl/appointment-mock.service';
 import {HealthCenterMockService} from './services/impl/health-center-mock.service';
 import {LeaveRequestService} from "./services/leave-request.service";
 import {AuthMockService} from "./services/impl/auth-mock.service";
+import {AuthenticationSequence} from "./authentication-sequence";
+import {Auth0AuthenticationStrategy, JWTServiceProvider} from "./authentication-strategies";
+import {AuthenticationComponent, registerAuthenticationStrategy} from "@loopback/authentication";
+import {MyAuthorizationProvider} from "./authentication-strategies/authorizor";
+import {AuthorizationComponent, AuthorizationTags} from "@loopback/authorization";
+import KEY = ContextTags.KEY;
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -49,8 +51,28 @@ export class CoronavirusServerApplication extends BootMixin(
 
     super(options);
 
+    // Bind authentication component related elements
+    this.component(AuthenticationComponent);
+    this.component(AuthorizationComponent);
+
+    this.service(JWTServiceProvider);
+
+    // Register the Auth0 JWT authentication strategy
+    registerAuthenticationStrategy(this, Auth0AuthenticationStrategy);
+    this.configure(KEY).to({
+      jwksUri: process.env.JWKS_URI,
+      audience: process.env.AUDIENCE,
+      issuer: process.env.ISSUER,
+      algorithms: ['RS256'],
+    });
+
+    this.bind('authorizationProviders.my-provider')
+        .toProvider(MyAuthorizationProvider)
+        .tag(AuthorizationTags.AUTHORIZER);
+
+
     // Set up the custom sequence
-    this.sequence(MySequence);
+    this.sequence(AuthenticationSequence);
 
     // Customize @loopback/rest-explorer configuration here
     this.bind(RestExplorerBindings.CONFIG).to({
