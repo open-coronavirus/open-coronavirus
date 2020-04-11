@@ -17,6 +17,7 @@ export interface Installation {
 
     id?: string;
     deviceId: string;
+    patientId: string;
     created: string;
 }
 

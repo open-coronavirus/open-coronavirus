@@ -16,10 +16,16 @@ export class Installation extends Entity {
   deviceId: string;
 
   @property({
-    type: 'date',
+    type: 'string',
     required: true,
   })
-  created: string;
+  patientId: string;
+
+  @property({
+    type: 'date',
+    required: false,
+  })
+  created: Date;
 
   // Define well-known properties here
 

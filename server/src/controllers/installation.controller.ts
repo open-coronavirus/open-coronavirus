@@ -1,25 +1,9 @@
-import {
-    Count,
-    CountSchema,
-    Filter,
-    FilterExcludingWhere,
-    repository,
-    Where,
-} from '@loopback/repository';
-import {
-    post,
-    param,
-    get,
-    getFilterSchemaFor,
-    getModelSchemaRef,
-    getWhereSchemaFor,
-    patch,
-    put,
-    del,
-    requestBody,
-} from '@loopback/rest';
+import {Count, CountSchema, Filter, FilterExcludingWhere, repository, Where,} from '@loopback/repository';
+import {del, get, getModelSchemaRef, param, patch, post, put, requestBody,} from '@loopback/rest';
 import {Installation} from '../models';
 import {InstallationRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class InstallationController {
     constructor(
@@ -49,9 +33,29 @@ export class InstallationController {
             installation: Omit<Installation, 'id'>,
     ): Promise<Installation> {
 
-        installation.created = new Date();
+        console.log('register new installation: ' + JSON.stringify(installation));
 
-        return this.installationRepository.create(installation);
+        let returnValue: Promise<Installation> = new Promise(resolve => {
+            this.installationRepository.findOne({where: {deviceId: installation.deviceId}}).then(result => {
+                if (result != null) {
+                    result.patientId = installation.patientId;
+                    result.created = new Date();
+                    this.installationRepository.update(result).then(updatedInstance => {
+                        resolve(result);
+                    })
+                } else {
+                    installation.created = new Date();
+                    this.installationRepository.create(installation).then(createdInstance => {
+                        resolve(createdInstance);
+                    }).catch(error => {
+                        console.error('error trying to create installation: ' + JSON.stringify(error));
+                    })
+                }
+            })
+        });
+
+        return returnValue;
+
     }
 
     @get('/installations/count', {
@@ -62,6 +66,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['read']})
     async count(
         @param.where(Installation) where?: Where<Installation>,
     ): Promise<Count> {
@@ -83,6 +89,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['read']})
     async find(
         @param.filter(Installation) filter?: Filter<Installation>,
     ): Promise<Installation[]> {
@@ -97,6 +105,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['write']})
     async updateAll(
         @requestBody({
             content: {
@@ -123,6 +133,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['read']})
     async findById(
         @param.path.string('id') id: string,
         @param.filter(Installation, {exclude: 'where'}) filter?: FilterExcludingWhere<Installation>
@@ -137,6 +149,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['write']})
     async updateById(
         @param.path.string('id') id: string,
         @requestBody({
@@ -158,6 +172,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['write']})
     async replaceById(
         @param.path.string('id') id: string,
         @requestBody() installation: Installation,
@@ -172,6 +188,8 @@ export class InstallationController {
             },
         },
     })
+    @authenticate(process.env.AUTH_STRATEGY!)
+    @authorize({resource: 'Installation', scopes: ['write']})
     async deleteById(@param.path.string('id') id: string): Promise<void> {
         await this.installationRepository.deleteById(id);
     }

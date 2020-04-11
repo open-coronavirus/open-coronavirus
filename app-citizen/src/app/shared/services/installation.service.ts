@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {UniqueDeviceID} from "@ionic-native/unique-device-id/ngx";
 import {InstallationControllerService, InstallationWithRelations} from "../sdk";
+import {BehaviorSubject, Subject} from "rxjs";
 
 
 @Injectable()
@@ -10,9 +11,16 @@ export class InstallationService {
                 protected installationControllerService: InstallationControllerService
     ) { }
 
-    public registerInstallation() {
+    public registerInstallation(patientId: string) {
+
+        let returnValue = new Subject<boolean>();
+
+        console.log('Register installation ...');
+
         this.uniqueDeviceID.get()
             .then((uuid: any) => {
+
+                console.log('Unique device ID: ' + uuid);
 
                 let installation: InstallationWithRelations = new class implements InstallationWithRelations {
                     [key: string]: object | any;
@@ -20,16 +28,27 @@ export class InstallationService {
                     created: string;
                     deviceId: string;
                     id: string;
-                };
+                    patientId: string;
+                }
 
                 installation.deviceId = uuid;
+                installation.patientId = patientId;
+
+                console.log('Call the API to regiter the installation ...');
 
                 this.installationControllerService.installationControllerCreate(installation).subscribe(result => {
-
+                    console.log('Installation registration successful!');
+                    returnValue.next(true);
                 })
 
             })
-            .catch((error: any) => console.log(error));
+            .catch((error: any) => {
+                returnValue.next(false);
+                console.error('Error trying to regiter the installation: ' + JSON.stringify(error));
+            });
+
+        return returnValue;
+
     }
 
 }

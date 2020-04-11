@@ -1,5 +1,7 @@
-import {get, Request, ResponseObject, RestBindings} from '@loopback/rest';
+import {get, param, Request, ResponseObject, RestBindings} from '@loopback/rest';
 import {inject} from '@loopback/context';
+import {service} from "@loopback/core";
+import {PushNotificationService} from "../services/pushnotification.service";
 
 /**
  * OpenAPI response for ping()
@@ -38,6 +40,17 @@ const HEARTBEAT_RESPONSE: ResponseObject = {
   },
 };
 
+const PUSH_RESPONSE: ResponseObject = {
+  description: 'Push Response',
+  content: {
+    'application/json': {
+      schema: {
+        type: 'string'
+      },
+    },
+  },
+};
+
 export const UserProfileSchema = {
   type: 'object',
   required: ['id'],
@@ -53,7 +66,9 @@ export const UserProfileSchema = {
  */
 export class PingController {
 
-  constructor(@inject(RestBindings.Http.REQUEST) private req: Request) {}
+  constructor(@inject(RestBindings.Http.REQUEST) private req: Request,
+              @service( 'PushNotificationService') protected pushNotificationService: PushNotificationService
+              ) {}
 
   // Map to `GET /ping`
   @get('/ping', {
@@ -78,6 +93,20 @@ export class PingController {
     },
   })
   heartbeat(): string {
+    // Reply with a greeting, the current time, the url, and request headers
+    return "OK";
+  }
+
+  // Map to `GET /ping`
+  @get('/push', {
+    responses: {
+      '200': PUSH_RESPONSE,
+    },
+  })
+  push(
+      @param.query.string('deviceId') deviceId: string,
+  ): string {
+    this.pushNotificationService.sendNotification([deviceId], 'hello', 'hello neng');
     // Reply with a greeting, the current time, the url, and request headers
     return "OK";
   }

@@ -4,6 +4,7 @@ import {BehaviorSubject, Subject, Subscribable} from 'rxjs';
 import {Router} from '@angular/router';
 import {Platform} from '@ionic/angular';
 import {StorageService} from "./storage.service";
+import {InstallationService} from "./installation.service";
 
 
 @Injectable()
@@ -23,11 +24,12 @@ export class PatientService {
 
     public patientLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
-    public static PATIENT_TOKEN_KEY = 'patientTokenV1';
+    public static PATIENT_TOKEN_KEY = 'patientTokenV2';
 
     constructor(protected patientController: PatientControllerService,
                 @Inject('environment') protected environment,
                 @Inject('settings') protected settings,
+                protected installationService: InstallationService,
                 protected router: Router,
                 public platform: Platform,
                 protected storageService: StorageService) {
@@ -87,9 +89,12 @@ export class PatientService {
                 this.loadPatient(newPatient.id);
                 this.patientLoaded$.subscribe(loaded => {
                     if (loaded) {
-                        returnValue.next(newPatient);
+                        this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
+                            returnValue.next(newPatient);
+                        });
                     }
                 });
+
             });
         });
 

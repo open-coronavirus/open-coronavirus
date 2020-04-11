@@ -32,7 +32,6 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-
       this.checkWelcome();
 
     });
@@ -45,7 +44,6 @@ export class AppComponent {
       }
     });
   }
-
 
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
