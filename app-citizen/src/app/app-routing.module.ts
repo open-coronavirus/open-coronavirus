@@ -4,16 +4,6 @@ import {MainComponent} from './main/main.component';
 
 const routes: Routes = [
     {
-      path: 'splash',
-      children: [
-        {
-          path: '',
-          loadChildren: () =>
-              import('./splash/splash.module').then(m => m.SplashModule)
-        }
-      ]
-    },
-    {
         path: 'welcome',
         children: [
           {
@@ -181,7 +171,7 @@ const routes: Routes = [
     },
     {
       path: '',
-      redirectTo: '/splash',
+      redirectTo: '/register',
       pathMatch: 'full'
     }
 ];
