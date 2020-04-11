@@ -67,7 +67,7 @@
     min-height: 160px;
   }
 
-  canvas {
+  canvas, img {
     width: 100% !important;
     height: 100% !important;
     max-width: 400px;
@@ -75,7 +75,6 @@
   }
 
 }
-
 
 .main-options{
   &__btn{

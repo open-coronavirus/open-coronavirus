@@ -26,7 +26,7 @@ export class SplashComponent implements OnInit {
     public ngOnInit(): void {
         this.patientService.patientLoaded$.subscribe(loaded => {
             if (loaded) {
-                this.router.navigate(['app/home']);
+                this.navCtrl.navigateRoot(['app/home']);
             }
         });
     }

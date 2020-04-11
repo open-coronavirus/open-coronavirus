@@ -18,6 +18,7 @@ export interface NewTestResult {
   [key: string]: object | any;
 
 
+    questionnaireId: string;
     answers?: Array<object>;
     patientId: string;
     result?: number;

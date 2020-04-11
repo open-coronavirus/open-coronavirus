@@ -1,12 +1,15 @@
-import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { ShareService } from '../shared/services/share.service';
-import { PatientService } from '../shared/services/patient.service';
-import { LeaveRequestService } from '../shared/services/leave-request.service';
-import { Subscription } from "rxjs";
-import { TestAppointmentService } from "../shared/services/test-appointment.service";
-import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
+import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {MenuController} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {ShareService} from '../shared/services/share.service';
+import {PatientService} from '../shared/services/patient.service';
+import {LeaveRequestService} from '../shared/services/leave-request.service';
+import {Subscription} from "rxjs";
+import {TestAppointmentService} from "../shared/services/test-appointment.service";
+import {PrivacityConditionsService} from '../shared/services/privacityConditions.service';
+import {GeolocationTrackingService} from "../shared/services/tracking/geolocation-tracking.service";
+import {BluetoothTrackingService} from "../shared/services/tracking/bluetooth-tracking.service";
+import {PermissionsService} from "../shared/services/permissionsService.service";
 
 @Component({
     selector: 'app-container',
@@ -28,8 +31,11 @@ export class MainComponent implements OnDestroy {
         protected router: Router,
         @Inject('settings') protected settings,
         protected patientService: PatientService,
+        protected geolocationtrackingService: GeolocationTrackingService,
+        protected bluetoothTrackingService: BluetoothTrackingService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
+        protected permissionsService: PermissionsService,
         private privacityConditionsService: PrivacityConditionsService,
         protected shareService: ShareService) {
 
@@ -52,6 +58,25 @@ export class MainComponent implements OnDestroy {
             }
         }));
 
+        //start tracking at this point in case the permissions are already granted
+        //and no popups will be shown to the end user
+        if(!permissionsService.requestedPermissions) {
+            this.startGeoTracking();
+            this.startBluetoothTracking();
+        }
+    }
+
+
+    public startGeoTracking() {
+        if(this.settings.permissions.gps) {
+            this.geolocationtrackingService.startBackgroundGeolocation();
+        }
+    }
+
+    public startBluetoothTracking() {
+        if(this.settings.permissions.bluetooth) {
+            this.bluetoothTrackingService.startBluetoothTracking();
+        }
     }
 
     openMenu() {

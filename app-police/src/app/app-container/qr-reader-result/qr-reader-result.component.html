@@ -1,21 +1,19 @@
 <corona-header></corona-header>
-<ion-content class="result">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="3">
-        <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patient?.id'"></qrcode>
-      </ion-col>
-      <ion-col size="9" [ngSwitch]="patient?.status">
-        <p class="result__citizen" i18n="@@qrresultcitizen">Ciudadano</p>
-        <p class="result__name">{{patient?.firstName}} {{patient?.lastName}}</p>
-        <h3 class="result__status" *ngSwitchCase="1" i18n="@@qrresultunknown">Desconocido</h3>
-        <h3 class="result__status result__status--ok" *ngSwitchCase="2" i18n="@@qrresultnegative">Negativo</h3>
-        <h3 class="result__status result__status--quarentine" *ngSwitchCase="3" i18n="@@qrresultquarantine">Cuarentena obligatoria</h3>
-        <h3 class="result__status result__status--infected" *ngSwitchCase="4" i18n="@@qrresultpositive">Positivo</h3>
-      </ion-col>
-    </ion-row>
+<ion-content>
 
+  <ion-grid class="result" [ngClass]="getClassStatus()">
+      <ion-row class="ion-align-items-center">
+          <ion-col size="6">
+              <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patient?.id'"></qrcode>
+          </ion-col>
+          <ion-col size="6">
+              <p class="result__title" i18n="@@qrresultcitizen">Ciudadano</p>
+              <p class="result__name">{{patient?.firstName}} {{patient?.lastName}}</p>
+              <h3 class="result__status">{{ getTextStatus() }}</h3>
+          </ion-col>
+      </ion-row>
   </ion-grid>
+
   <div class="result__container">
     <div class="result__box">
       <div class="result__box-item">

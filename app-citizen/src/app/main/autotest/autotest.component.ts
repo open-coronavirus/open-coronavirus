@@ -28,6 +28,8 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
     public commonTarget: string;
 
+    public questionnaireId: string;
+
     public currentQuestion: TestQuestion;
 
     protected subscriptions: Array<Subscription> = new Array();
@@ -48,6 +50,10 @@ export class AutotestComponent implements OnInit, OnDestroy {
             else {
                 this.questionId = 'question0';
                 this.level = 0;
+            }
+
+            if(params.hasOwnProperty('questionnaire_id')) {
+                this.questionnaireId = params['questionnaire_id'];
             }
 
             this.subscriptions.push(this.testQuestionControllerService.testQuestionControllerFindByQuestionId(this.questionId).subscribe(question => {
@@ -108,7 +114,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
         if(target == 'testresult') {
 
-            this.subscriptions.push(this.testResultService.sendTestAnswers(this.autotestAnswers.getAnswers()).subscribe(success => {
+            this.subscriptions.push(this.testResultService.sendTestAnswers(this.autotestAnswers.getAnswers(), this.questionnaireId).subscribe(success => {
 
                 if(success) {
                     //even if we have send the test, wait until the result is loaded again (to ensure that
@@ -144,7 +150,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
                 window.open(target, "_system");
             } else {
                 const nextLevel = +this.level + 1;
-                this.router.navigate(['/app/autotest/' + nextLevel + '/' + target]);
+                this.router.navigate(['/app/autotest/' + this.questionnaireId + '/' + nextLevel + '/' + target]);
             }
         }
     }
