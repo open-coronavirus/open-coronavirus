@@ -1,0 +1,26 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="dismissModal()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen>
+  <h1>Gracias por la colaboración ciudadana</h1>
+    <h3>Has enviado la información de cruces con ciudadanos y autorizado su uso a las autoridades sanitarias.</h3>
+    
+    <p>
+      Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades podrán gracias a esta información avisar al resto de ciudadanos que hayan estado en contacto contigo a menos de dos metros de forma anónima.
+    </p>
+
+    <p>
+      De este modo estás ayudando y protegiendo a muchas personas.<br/>
+      ¡A este virus le ganamos entre todos!
+    </p>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="dismissModal()" expand="block" i18n="@@OK">OK</ion-button>
+  </ion-toolbar>
+</ion-footer>

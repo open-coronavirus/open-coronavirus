@@ -1,0 +1,27 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="dismissModal()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen>
+  <h1>Las autoridades solicitan que compartas tus datos</h1>
+    <h3>Enviar datos adquiridos por bluetooth</h3>
+    
+    <p>
+      Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades piden que des autorizacióin para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.
+    </p>
+
+    <p>
+      De este modo estás ayudando y protegiendo a muchas personas.<br/>
+      ¡A este virus le ganamos entre todos!
+    </p>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <ion-button color="dark" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">ENVIAR DATOS Y AUTORIZAR SU USO</ion-button>
+    <ion-button color="dark" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO, QUIZÁS EN OTRO MOMENTO</ion-button>
+  </ion-toolbar>
+</ion-footer>

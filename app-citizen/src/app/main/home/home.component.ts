@@ -12,6 +12,7 @@ import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/sha
 import { LeaveRequest } from 'src/app/shared/sdk';
 import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
+import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
 
 @Component({
     selector: 'home',
@@ -42,16 +43,17 @@ export class HomeComponent implements OnDestroy {
 
     public serviceAdvertisementUUID;
 
-    constructor(protected router: Router,
+    constructor(
+        protected router: Router,
         public patientService: PatientService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
         protected menu: MenuController,
         @Inject('settings') protected settings,
         protected inAppBrowser: InAppBrowser,
-        protected shareService: ShareService) {
-
-
+        protected shareService: ShareService,
+        protected contactTrackerService: ContactTrackerService
+    ) {
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
             if (loaded) {
                 switch (this.testAppointmentService.testAppointment.type) {

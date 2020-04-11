@@ -118,6 +118,26 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'contact-upload-request',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/contact-upload-request/contact-upload-request.module').then(m => m.ContactUploadRequestModule)
+                    }
+                ]
+            },
+            {
+                path: 'contact-upload-thanks',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/contact-upload-thanks/contact-upload-thanks.module').then(m => m.ContactUploadThanksModule)
+                    }
+                ]
+            },
+            {
                 path: 'my-info',
                 children: [
                     {
