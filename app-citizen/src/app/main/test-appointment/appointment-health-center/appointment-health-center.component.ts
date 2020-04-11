@@ -1,12 +1,12 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from "@angular/core";
-import {Subscription} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
-import {TestAppointmentService} from "../../../shared/services/test-appointment.service";
-import {Location} from "@angular/common";
-import {TestAppointmentWithRelations} from "../../../shared/sdk";
-import {PatientService} from "../../../shared/services/patient.service";
-import {AppointmentType, TestResultEnum} from "../../../../../../server/src/common/utils/enums";
-import {TestResultService} from "../../../shared/services/test-result.service";
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
+import { TestAppointmentService } from "../../../shared/services/test-appointment.service";
+import { Location } from "@angular/common";
+import { TestAppointmentWithRelations } from "../../../shared/sdk";
+import { PatientService } from "../../../shared/services/patient.service";
+import { AppointmentType, TestResultEnum } from "../../../../../../server/src/common/utils/enums";
+import { TestResultService } from "../../../shared/services/test-result.service";
 
 import * as L from 'leaflet';
 
@@ -20,6 +20,8 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
 
     protected map;
 
+    private ID_DIV_MAP = 'map';
+
     protected subscriptions: Array<Subscription> = new Array();
 
     protected testAppointment: TestAppointmentWithRelations;
@@ -28,16 +30,16 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
     public healthCenterName: string;
 
     constructor(protected patientService: PatientService,
-                protected testAppointmentService: TestAppointmentService,
-                protected location: Location,
-                protected router: Router) {
+        protected testAppointmentService: TestAppointmentService,
+        protected location: Location,
+        protected router: Router) {
 
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
-            if(loaded) {
+            if (loaded) {
                 let options = { weekday: 'long', month: 'long', day: 'numeric', hour: "2-digit", minute: '2-digit' };
                 this.testAppointment = this.testAppointmentService.testAppointment;
                 this.appointmentDate = new Date(this.testAppointmentService.testAppointment.appointmentDate).toLocaleDateString("es-ES", options);
-                if(!!this.testAppointmentService.testAppointment.healthCenter) {
+                if (!!this.testAppointmentService.testAppointment.healthCenter) {
                     this.healthCenterAddress = this.testAppointmentService.testAppointment.healthCenter.address;
                     this.healthCenterName = this.testAppointmentService.testAppointment.healthCenter.name;
                 }
@@ -47,17 +49,20 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
     }
 
     ngAfterViewInit(): void {
-
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
-            if(loaded) {
+            if (loaded) {
                 setTimeout(() => {
-                    this.map = L.map('map').setView([this.testAppointmentService.testAppointment.healthCenter.latitude, this.testAppointmentService.testAppointment.healthCenter.longitude], 15);
+                    if (this.map) {
+                        return;
+                    }
+
+                    this.map = L.map(this.ID_DIV_MAP).setView([this.testAppointmentService.testAppointment.healthCenter.latitude, this.testAppointmentService.testAppointment.healthCenter.longitude], 15);
 
                     L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
                         maxZoom: 20,
                         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                     }).addTo(this.map);
-                });
+                }, 500);
             }
 
         }));
@@ -76,7 +81,7 @@ export class AppointmentHealthCenterComponent implements AfterViewInit, OnDestro
     public ngOnDestroy(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe();
-        })
+        });
     }
 
 }
