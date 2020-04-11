@@ -128,10 +128,15 @@ This allows you to run the app in a browser.
 ## Special thanks
 
 > Special thanks to **Trayma Traducciones** for the english translations
+
 > Special thanks to **Alex Nogues** for translate to english the wiki
+
 > Special thanks to **Marc Mauri** for translate to catalan the app
+
 > Special thanks to **Yaiza Berenguer** for translate to french the app
+
 > Special thanks to **Laura Gea** for translate to italian the app
+
 > Special thanks to **Ma. Amparo Aymerich** for translate to german the app
 
 ## How you can help
