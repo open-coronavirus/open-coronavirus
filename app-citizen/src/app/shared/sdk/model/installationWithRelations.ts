@@ -20,6 +20,7 @@ export interface InstallationWithRelations {
 
     id?: string;
     deviceId: string;
+    patientId: string;
     created: string;
 }
 

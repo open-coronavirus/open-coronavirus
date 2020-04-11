@@ -55,9 +55,9 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  street: string;
+  street?: string;
 
   @property({
     type: 'string',

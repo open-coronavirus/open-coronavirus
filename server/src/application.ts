@@ -56,8 +56,6 @@ export class CoronavirusServerApplication extends BootMixin(
     this.component(AuthenticationComponent);
     this.component(AuthorizationComponent);
 
-    this.service(JWTServiceProvider);
-
     // Register the Auth0 JWT authentication strategy
     registerAuthenticationStrategy(this, Auth0AuthenticationStrategy);
     this.configure(KEY).to({
@@ -86,8 +84,8 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
     this.service(AuthMockService, { interface: 'AuthService' });
     this.service(LeaveRequestService);
-    //General purpose services:
-    this.service(PushNotificationService);
+    this.service(PushNotificationService, { interface: 'PushNotificationService' });
+    this.service(JWTServiceProvider);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here
