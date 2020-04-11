@@ -10,7 +10,7 @@ export const settings = {
         bluetooth: true
     },
     screens: {
-        selfDeclarationLeave: true
+        selfDeclarationLeave: false
     }
 
 };
