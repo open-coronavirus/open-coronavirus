@@ -134,16 +134,16 @@ export class LeaveRequestService {
 
     async setAtHome() {
         const alert = await this.alertController.create({
-            message: 'Did you already arrive home?',
+            message: $localize`:@@quiestionArriveHome:¿Has llegado a casa?`,
             buttons: [
                 {
-                    text: 'No',
+                    text: $localize`:@@responseNo:No`,
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: (blah) => {
                     }
                 }, {
-                    text: 'Yes',
+                    text: $localize`:@@responseYes:Si`,
                     handler: () => {
                         if(this.leaveRequest != null) {
                             this.leaveRequestController.leaveRequestControllerSetAtHome(this.patientService.patient.id).subscribe(result => {
