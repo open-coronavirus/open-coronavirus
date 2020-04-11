@@ -26,7 +26,7 @@ export interface Patient {
     street: string;
     apartment?: string;
     postalCode: string;
-    email: string;
+    email?: string;
     status?: number;
     phone: string;
     serviceAdvertisementUUID?: string;

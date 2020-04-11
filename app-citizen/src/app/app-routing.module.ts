@@ -68,7 +68,7 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'autotest/:level/:question_id',
+                path: 'autotest/:questionnaire_id/:level/:question_id',
                 children: [
                     {
                         path: '',

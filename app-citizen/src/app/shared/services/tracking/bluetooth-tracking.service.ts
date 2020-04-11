@@ -1,17 +1,17 @@
-import {Injectable} from "@angular/core";
+import {Inject, Injectable} from "@angular/core";
 import {BluetoothLE} from "@ionic-native/bluetooth-le/ngx";
 import {Platform} from "@ionic/angular";
-import {BluetoothLeAdvertisementControllerService} from "../../sdk";
 import {BehaviorSubject, Subject} from "rxjs";
 import {BLE} from "@ionic-native/ble/ngx";
 import {ContactTrackerService} from "../contacts/contact-tracker.service";
+import {PatientService} from "../patient.service";
 
 @Injectable()
 export class BluetoothTrackingService {
 
     public btEnabled$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    private _patientServiceUUID;
+    private patientServiceUUID;
 
     protected addressesBeingTracked = new Map<string, boolean>();
 
@@ -19,61 +19,63 @@ export class BluetoothTrackingService {
 
     protected myAddress;
 
-    get patientServiceUUID() {
-        return this._patientServiceUUID;
-    }
+    protected activated = false;
 
     protected restoreKey = "Open Coronavirus";
-
-    set patientServiceUUID(value) {
-        this._patientServiceUUID = value;
-        //also set the contact tracker with this value
-        this.contactTrackerService.patientServiceUUID = value;
-    }
 
     constructor(protected bluetoothle: BluetoothLE,
                 protected ble: BLE,
                 protected platform: Platform,
-                protected contactTrackerService: ContactTrackerService,
-                protected bluetoothLeAdvertisementControllerService: BluetoothLeAdvertisementControllerService,
+                protected patientService: PatientService,
+                @Inject('settings') protected settings,
+                protected contactTrackerService: ContactTrackerService
                 ) {
 
     }
 
-    public startBluetooth() {
+    public startBluetoothTracking() {
 
-        if(this._patientServiceUUID == null) {
-            throw new Error("Need to set a value to patientServiceUUID before calling startBluetooth!!!");
-        }
+        if(this.settings.permissions.bluetooth && this.activated == false) {
+            this.activated = true;
 
-        this.checkBLEPermission();
+            this.patientService.patientLoaded$.subscribe(loaded => {
 
-        this.platform.ready().then((readySource) => {
+                if (loaded && this.patientService.patient != null && this.patientService.patient.id != null) {
 
-            console.debug("[BluetoothLE] Initialize bluetooth LE ...");
+                    this.patientServiceUUID = this.patientService.patient.serviceAdvertisementUUID;
 
-            // request => true / false (default) - Should user be prompted to enable Bluetooth
-            // statusReceiver => true / false (default) - Should change in Bluetooth status notifications be sent.
-            // restoreKey => A unique string to identify your app. Bluetooth Central background mode is required to
-            // use this, but background mode doesn't seem to require specifying the restoreKey.
-            let params = {request: true, statusReceiver: false, restoreKey : this.restoreKey};
+                    this.checkBLEPermission();
 
-            this.bluetoothle.initialize(params).subscribe(result => {
-                console.debug("[BluetoothLE] Initialization result: " + JSON.stringify(result));
+                    this.platform.ready().then((readySource) => {
+
+                        console.debug("[BluetoothLE] Initialize bluetooth LE ...");
+
+                        // request => true / false (default) - Should user be prompted to enable Bluetooth
+                        // statusReceiver => true / false (default) - Should change in Bluetooth status notifications be sent.
+                        // restoreKey => A unique string to identify your app. Bluetooth Central background mode is required to
+                        // use this, but background mode doesn't seem to require specifying the restoreKey.
+                        let params = {request: true, statusReceiver: false, restoreKey: this.restoreKey};
+
+                        this.bluetoothle.initialize(params).subscribe(result => {
+                            console.debug("[BluetoothLE] Initialization result: " + JSON.stringify(result));
+                        });
+                        //Use this way because the issue iOS: initialize promise resolve not called #477
+                        setTimeout(() => {
+                            this.btEnabled$.next(true);
+                        }, 10000);
+
+                    });
+
+                    this.btEnabled$.subscribe(enabled => {
+                        if (enabled) {
+                            this.startScan();
+                            this.startAdvertising();
+                        }
+                    })
+                }
             });
-            //Use this way because the issue iOS: initialize promise resolve not called #477
-            setTimeout(() => {
-                this.btEnabled$.next(true);
-            }, 10000);
 
-        });
-
-        this.btEnabled$.subscribe(enabled => {
-            if(enabled) {
-                this.startScan();
-                this.startAdvertising();
-            }
-        })
+        }
 
         return this.btEnabled$;
 
@@ -99,7 +101,7 @@ export class BluetoothTrackingService {
 
     protected addService() {
 
-        console.debug("[BluetoothLE] Add service with UUID: " + this._patientServiceUUID);
+        console.debug("[BluetoothLE] Add service with UUID: " + this.patientServiceUUID);
 
         let returnValue: Subject<boolean> = new Subject();
 
@@ -107,7 +109,7 @@ export class BluetoothTrackingService {
             service: BluetoothTrackingService.serviceUUID,
             characteristics: [
                 {
-                    uuid: this._patientServiceUUID,
+                    uuid: this.patientServiceUUID,
                     permissions: {
                         read: true,
                         write: false,

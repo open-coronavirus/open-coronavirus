@@ -10,6 +10,8 @@ import { Subscription } from "rxjs";
 import { AppointmentType } from "../../../../../server/src/common/utils/enums";
 import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
 import { LeaveRequest } from 'src/app/shared/sdk';
+import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
+import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 
 @Component({
     selector: 'home',
@@ -48,7 +50,6 @@ export class HomeComponent implements OnDestroy {
         @Inject('settings') protected settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService) {
-
 
 
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {

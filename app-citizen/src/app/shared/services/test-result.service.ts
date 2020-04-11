@@ -35,7 +35,7 @@ export class TestResultService {
         });
     }
 
-    public sendTestAnswers(answers) {
+    public sendTestAnswers(answers, questionnaireId) {
 
         let returnValue = new Subject();
 
@@ -44,11 +44,12 @@ export class TestResultService {
 
                 let testResult: TestResultWithRelations = new class implements TestResultWithRelations {
                     [key: string]: object | any;
-
+                    questionnaireId: string;
                     answers: Array<object>;
                     patientId: string;
                 }
 
+                testResult.questionnaireId = questionnaireId;
                 testResult.answers = answers;
                 testResult.patientId = this.patientService.patient.id;
 

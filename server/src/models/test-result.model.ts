@@ -11,6 +11,12 @@ export class TestResult extends Entity {
   id?: string;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  questionnaireId: string;
+
+  @property({
     type: 'array',
     itemType: 'object',
   })

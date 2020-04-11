@@ -19,6 +19,7 @@ export interface TestResultWithRelations {
 
 
     id?: string;
+    questionnaireId: string;
     answers?: Array<object>;
     patientId: string;
     result?: number;

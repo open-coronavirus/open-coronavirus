@@ -4,6 +4,7 @@ import {BehaviorSubject, Subject} from "rxjs";
 import {Contact} from "./contact";
 import {Platform} from "@ionic/angular";
 import {ContactControllerService, ContactWithRelations} from "../../sdk";
+import {PatientService} from "../patient.service";
 
 
 @Injectable()
@@ -13,56 +14,59 @@ export class ContactTrackerService {
 
     private knownContacts = new Map<string, Contact>();
 
-    get patientServiceUUID(): string {
-        return this._patientServiceUUID;
-    }
-
-    set patientServiceUUID(value: string) {
-        this._patientServiceUUID = value;
-    }
-
-    private _patientServiceUUID: string;
+    private patientServiceUUID: string;
 
     public connectedToDb$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     public constructor(protected sqlite: SQLite,
                        protected contactControllerService: ContactControllerService,
+                       protected patientService: PatientService,
                        protected platform: Platform) {
 
-        if(!this.platform.is('desktop')) {
-            let dbConfiguration = {name: 'open-coronavirus.db'};
-            if (this.platform.is('android')) {
-                dbConfiguration['location'] = 'default';
-            } else if (this.platform.is('ios')) {
-                dbConfiguration['iosDatabaseLocation'] = 'default';
-            }
+        this.patientService.patientLoaded$.subscribe(loaded => {
+            if(loaded) {
+                this.patientServiceUUID = this.patientService.patient.serviceAdvertisementUUID;
 
-            let promise = sqlite.create(dbConfiguration);
+                if(!this.platform.is('desktop')) {
 
-            if(promise != null) {
-                promise.then((db: SQLiteObject) => {
-                    this.db = db;
-                    console.log("Connected: " + JSON.stringify(db));
-                    this.db.executeSql("SELECT * FROM sqlite_master WHERE type='table' AND name='contacts'", []).then(result => {
-                        if (result.rows.length > 0) {
-                            console.debug("Table contacts already exists!")
-                            this.connectedToDb$.next(true);
-                        } else {
-                            console.debug("Table contacts does not exits. Creatint it ...")
-                            this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from timestamp, timestamp_to timestamp, rssi int);', [])
-                                .then(() => {
+                    let dbConfiguration = {name: 'open-coronavirus.db'};
+                    if (this.platform.is('android')) {
+                        dbConfiguration['location'] = 'default';
+                    } else if (this.platform.is('ios')) {
+                        dbConfiguration['iosDatabaseLocation'] = 'default';
+                    }
+
+                    let promise = sqlite.create(dbConfiguration);
+
+                    if(promise != null) {
+                        promise.then((db: SQLiteObject) => {
+                            this.db = db;
+                            console.log("Connected: " + JSON.stringify(db));
+                            this.db.executeSql("SELECT * FROM sqlite_master WHERE type='table' AND name='contacts'", []).then(result => {
+                                if (result.rows.length > 0) {
+                                    console.debug("Table contacts already exists!")
                                     this.connectedToDb$.next(true);
-                                })
-                                .catch(e => console.error(e));
-                        }
-                    })
-                    .catch(noResults => {
-                        console.error("Error checking database status at the very beginning: " + JSON.stringify(noResults));
-                    });
-                });
-            }
+                                } else {
+                                    console.debug("Table contacts does not exits. Creatint it ...")
+                                    this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from timestamp, timestamp_to timestamp, rssi int);', [])
+                                        .then(() => {
+                                            this.connectedToDb$.next(true);
+                                        })
+                                        .catch(e => console.error(e));
+                                }
+                            })
+                                .catch(noResults => {
+                                    console.error("Error checking database status at the very beginning: " + JSON.stringify(noResults));
+                                });
+                        });
+                    }
 
-        }
+                }
+
+            }
+        })
+
+
     }
 
     public trackContact(uuid: string, rssi: number, address: string) {
@@ -195,7 +199,7 @@ export class ContactTrackerService {
                         }
 
                         contactToUpload.rssi = row.rssi;
-                        contactToUpload.sourceUuid = this._patientServiceUUID;
+                        contactToUpload.sourceUuid = this.patientServiceUUID;
                         contactToUpload.targetUuid = row.uuid;
                         contactToUpload.timestampFrom = row.timestampFrom;
                         contactToUpload.timestampTo = row.timestampTo;
