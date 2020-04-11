@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { PermissionsModalComponent } from 'src/app/permissions-modal/permissions-modal.component';
+import { PermissionsModalComponent } from 'src/app/permissions/permissions-modal/permissions-modal.component';
 import { Router } from '@angular/router';
 
 
@@ -22,7 +22,7 @@ export class PermissionsService {
     }
 
     getRequiredPermissions(): Array<string> {
-        const requiredPermissions = ['push'];
+        const requiredPermissions = [];
 
         for (const type in this.settings.permissions) {
             if (this.settings.permissions[type]) {

@@ -56,8 +56,16 @@
   }
 }
 
+.qrcode-container {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .qrcode {
-  text-align: center !important;
+
+  img {
+    min-height: 160px;
+  }
 
   canvas, img {
     width: 100% !important;

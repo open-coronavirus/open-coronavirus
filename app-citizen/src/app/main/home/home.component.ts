@@ -82,7 +82,7 @@ export class HomeComponent implements OnDestroy {
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
             if (patientLoaded) {
-                this.patientName = this.patientService.patient.firstName + " " + this.patientService.patient.lastName;
+                this.patientName = this.patientService.patient.firstName;
                 this.serviceAdvertisementUUID = this.patientService.patient.serviceAdvertisementUUID;
                 this.leaveRequestService.loaded$.subscribe(loaded => {
                     if (loaded && this.leaveRequestService.leaveRequest != null) {
@@ -121,7 +121,7 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToTracking() {
-        this.router.navigate(['/app/autotest/1/seguimiento1_1']);
+        this.router.navigate(['/app/autotest/0/seguimiento1_1']);
     }
 
     public goToCoronavirusInfo() {

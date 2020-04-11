@@ -1,13 +1,9 @@
-import { Inject, Injectable } from '@angular/core';
-import {
-    PatientControllerService,
-    PatientWithRelations
-} from '../sdk';
-import { ApiFilter } from '../utils/apifilter';
-import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
-import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
-import { StorageService } from "./storage.service";
+import {Inject, Injectable} from '@angular/core';
+import {PatientControllerService, PatientWithRelations} from '../sdk';
+import {BehaviorSubject, Subject, Subscribable} from 'rxjs';
+import {Router} from '@angular/router';
+import {Platform} from '@ionic/angular';
+import {StorageService} from "./storage.service";
 import {BluetoothTrackingService} from "./tracking/bluetooth-tracking.service";
 import {GeolocationTrackingService} from "./tracking/geolocation-tracking.service";
 
@@ -29,7 +25,7 @@ export class PatientService {
 
     public patientLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
-    public static PATIENT_TOKEN_KEY = 'patientToken';
+    public static PATIENT_TOKEN_KEY = 'patientTokenV1';
 
     constructor(protected patientController: PatientControllerService,
                 @Inject('environment') protected environment,

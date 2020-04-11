@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
-import { PatientService } from '../shared/services/patient.service';
+import { PatientService } from '../../shared/services/patient.service';
 @Component({
   selector: 'app-permissions-modal',
   templateUrl: './permissions-modal.component.html',

@@ -1,6 +1,6 @@
 <corona-header [showMenu]="true"></corona-header>
 <ion-content>
-    <ion-grid class="result" [ngClass]="getClassStatus()">
+    <ion-grid class="result qrcode-container" [ngClass]="getClassStatus()">
         <ion-row class="ion-align-items-center">
             <ion-col size="6">
                 <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
@@ -91,13 +91,13 @@
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>
             </ion-col>
-            <ion-col size="6" class="ion-text-center" *ngIf="(true || patientService.patient?.status !== 2) && !patientHasTestAppointment">
+            <ion-col size="6" class="ion-text-center">
                 <div class="main-options__btn" (click)="requestTest()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
                     <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
                 </div>
             </ion-col>
-            <ion-col size="6" class="ion-text-center" *ngIf="!patientHasTestAppointment">
+            <ion-col size="6" class="ion-text-center">
                 <div class="main-options__btn" (click)="goToAutotest()" >
                     <img class="main-options__image" src="/assets/icons/svg/icon-autotest-sm.svg">
                     <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
