@@ -9,14 +9,19 @@ The **Open Coronavirus** project offers, for this time interval, a digital solut
 for **monitoring, diagnosing and containing SARS-CoV-2 infection** that allows quarantine measures to be applied in a controlled manner at focal points or hotspots, thus minimizing the general quarantine of the population, reducing the overload of health systems, and at the same time facilitating the progressive resumption of daily activity in the shortest possible time.
 
 The system will have 3 applications:
-- **Citizen App**. Mobile application for citizen collaboration and to control the spread of SARS-CoV-2.
-    From the application **a diagnostic test will be requested, and the results of the test can be seen.**
-All citizen movements will be stored to control possible infection and to delimit the scope of action of SARS-CoV-2 by the health authorities.
-    It will serve as **QR-code based citizen identification.**
-- **Data control software** where health and epidemiological control authorities will be able to consult and detect the movements of SARS-CoV-2.
-    From the software, they will be able to see focal points of infection, compliance of mandatory quarantine for those infected or potentially infected.
-- **Authorities’ App**. Mobile application that enables relevant authorities to read citizens’ QR identification codes in the locations where they have decided to monitor
-their movements in this way.
+- **Citizen App**. Collaborative Mobile app to control spread of SARS-CoV-2.
+
+    The application allows you to **request a test, and receive the ensuing results.** Will be made possible **by a personalised QR code to identify the user.**
+
+    **Anonymous cross paths** of the user (with **Bluetooth Low Energy**) will be logged into his mobile to control possible infections and
+to enable SARS-CoV-2 monitoring by health authorities.
+
+   
+- **Centralised Data Management Software (coming soon)** where health & epidemiologic control authorities will track the spread of SARS-CoV-2.
+
+- **Authorities App.** Mobile app enabling authorities to read the users' QR codes
+where needed, as well as tracking the users' mobility.
+
 
 
 
