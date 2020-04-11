@@ -176,6 +176,21 @@ Esto permite ejecutar la app en un browser.
 [Licencia MIT](license.md)
 
 
+## Agradecimientos especiales
+
+> Agradecimiento especial a **Trayma Traducciones** por las traducciones al inglés
+
+> Agradecimiento especial a **Alex Nogues** por las traducciones al inglés de la wiki
+
+> Agradecimiento especial a **Marc Mauri** por las traducciones al catalán
+
+> Agradecimiento especial a **Yaiza Berenguer** por las traducciones al francés
+
+> Agradecimiento especial a **Laura Gea** por las traducciones al italiano
+
+> Agradecimiento especial a **Ma. Amparo Aymerich** por las traducciones al alemán
+
+
 ## Cómo colaborar
 
 PRs bienvenidos.
