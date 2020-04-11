@@ -11,6 +11,8 @@ export const settings = {
     },
     screens: {
         selfDeclarationLeave: false
-    }
-
+    },
+    uploadAutomaticallyContactsToServerIfUserHasCoronavirus: false,
+    // If uploadAutomaticallyContactsToServerIfUserHasCoronavirus is activated, this property is ignored
+    requestUserConsentToUploadContactsToServerIfUserHasCoronavirus: true
 };
