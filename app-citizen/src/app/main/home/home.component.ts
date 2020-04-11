@@ -119,7 +119,6 @@ export class HomeComponent implements OnDestroy {
                 this.router.navigate(['/app/request-leave-home-confirmation-infected']);
                 break;
         }
-
     }
 
     public goToRequestLeaveHome() {

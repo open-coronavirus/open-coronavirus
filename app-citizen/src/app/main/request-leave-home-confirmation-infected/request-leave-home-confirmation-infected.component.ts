@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-leave-home-confirmation-infected',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestLeaveHomeConfirmationInfectedComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    protected router: Router
+  ) { }
 
   ngOnInit() {}
+
+  public backToHome() {
+    this.router.navigate(['/app/home']);
+  }
 
 }

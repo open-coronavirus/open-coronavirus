@@ -95,6 +95,22 @@ export class MainComponent implements OnDestroy {
         this.router.navigate(['/app/home']);
     }
 
+    public goToConfirmationRequestLeaveHome() {
+        this.closeMenu();
+
+        switch (this.patientService.patient?.status) {
+            case 1:
+                this.router.navigate(['/app/request-leave-home-confirmation-no-test']);
+                break;
+            case 3:
+                this.router.navigate(['/app/request-leave-home-confirmation-mandatory-quarentine']);
+                break;
+            case 4:
+                this.router.navigate(['/app/request-leave-home-confirmation-infected']);
+                break;
+        }
+    }
+
     public goToRequestLeaveHome() {
         this.closeMenu();
         this.router.navigate(['/app/request-leave-home']);
@@ -155,6 +171,7 @@ export class MainComponent implements OnDestroy {
     }
 
     public uploadContactsAndShowThanksModal() {
+        this.closeMenu();
         this.contactTrackerService.uploadContactsAndShowThanksModal();
     }
 }

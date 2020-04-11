@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-leave-home-confirmation-mandatory-quarentine',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestLeaveHomeConfirmationMandatoryQuarentineComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    protected router: Router
+  ) { }
 
   ngOnInit() {}
 
+  public goToRequestLeaveHome() {
+    this.router.navigate(['/app/request-leave-home']);
+  }
+
+  public backToHome() {
+    this.router.navigate(['/app/home']);
+  }
 }
