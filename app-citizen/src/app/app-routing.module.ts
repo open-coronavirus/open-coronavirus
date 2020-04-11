@@ -219,6 +219,27 @@ const routes: Routes = [
                             import('./main/test-result/test-result-5/test-result-5.module').then(m => m.TestResult5Module)
                     }
                 ]
+            },
+
+            {
+                path: 'tracking-result/result/1',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/tracking-result/tracking-result-1/tracking-result-1.module').then(m => m.TrackingResult1Module)
+                    }
+                ]
+            },
+            {
+                path: 'tracking-result/result/2',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/tracking-result/tracking-result-2/tracking-result-2.module').then(m => m.TrackingResult2Module)
+                    }
+                ]
             }
         ]
     },
