@@ -10,7 +10,9 @@ export const settings = {
         bluetooth: true
     },
     screens: {
-        selfDeclarationLeave: true
-    }
-
+        selfDeclarationLeave: false
+    },
+    uploadAutomaticallyContactsToServerIfUserHasCoronavirus: false,
+    // If uploadAutomaticallyContactsToServerIfUserHasCoronavirus is activated, this property is ignored
+    requestUserConsentToUploadContactsToServerIfUserHasCoronavirus: true
 };
