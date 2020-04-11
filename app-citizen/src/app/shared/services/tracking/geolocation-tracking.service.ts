@@ -22,7 +22,7 @@ export class GeolocationTrackingService {
 
         let returnValue: Subject<any> = new Subject();
 
-        if(this.settings.permissions.bluetooth && this.activated == false) {
+        if(this.settings.enabled.bluetooth && this.activated == false) {
             this.activated = true;
 
             this.patientService.patientLoaded$.subscribe(loaded => {

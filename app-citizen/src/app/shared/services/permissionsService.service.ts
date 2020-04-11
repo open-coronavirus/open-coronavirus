@@ -27,8 +27,8 @@ export class PermissionsService {
     getRequiredPermissions(): Array<string> {
         const requiredPermissions = [];
 
-        for (const type in this.settings.permissions) {
-            if (this.settings.permissions[type]) {
+        for (const type in this.settings.enabled) {
+            if (this.settings.enabled[type]) {
                 requiredPermissions.push(type);
             }
         }

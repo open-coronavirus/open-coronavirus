@@ -70,13 +70,13 @@ export class MainComponent implements OnDestroy {
 
 
     public startGeoTracking() {
-        if(this.settings.permissions.gps) {
+        if(this.settings.enabled.gps) {
             this.geolocationtrackingService.startBackgroundGeolocation();
         }
     }
 
     public startBluetoothTracking() {
-        if(this.settings.permissions.bluetooth) {
+        if(this.settings.enabled.bluetooth) {
             this.bluetoothTrackingService.startBluetoothTracking();
         }
     }
