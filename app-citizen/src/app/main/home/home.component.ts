@@ -236,4 +236,8 @@ getColorStatus() {
     public uploadContactsAndShowThanksModal() {
         this.contactTrackerService.uploadContactsAndShowThanksModal();
     }
+
+    public valeriaDemoConfirmarContact() {
+        this.contactTrackerService.showUploadContactRequestModal();
+    }
 }
