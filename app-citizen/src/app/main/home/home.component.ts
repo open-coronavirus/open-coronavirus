@@ -114,7 +114,7 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToAutotest() {
-        this.router.navigate(['/app/autotest']);
+        this.router.navigate(['/app/autotest/autotest']);
     }
 
     public requestTest() {
@@ -122,7 +122,7 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToTracking() {
-        this.router.navigate(['/app/autotest/0/seguimiento1_1']);
+        this.router.navigate(['/app/autotest/tracking/0/seguimiento1_1']);
     }
 
     public goToCoronavirusInfo() {
@@ -131,6 +131,8 @@ export class HomeComponent implements OnDestroy {
 
     public share() {
         this.shareService.share();
+
+        // this.router.navigate(['/app/test-result/result/5']);
     }
 
     getTextStatus() {

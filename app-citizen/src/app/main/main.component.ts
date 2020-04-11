@@ -105,7 +105,7 @@ export class MainComponent implements OnDestroy {
 
     public goToAutotest() {
         this.closeMenu();
-        this.router.navigate(['/app/autotest']);
+        this.router.navigate(['/app/autotest/autotest']);
     }
 
     public requestTest() {
@@ -115,7 +115,7 @@ export class MainComponent implements OnDestroy {
 
     public goToTracking() {
         this.closeMenu();
-        this.router.navigate(['/app/autotest/0/seguimiento1_1']);
+        this.router.navigate(['/app/autotest/tracking/0/seguimiento1_1']);
     }
 
     public goToCoronavirusInfo() {

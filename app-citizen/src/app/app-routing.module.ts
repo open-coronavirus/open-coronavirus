@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
+import { TestResult1Component } from './main/test-result/test-result-1/test-result-1.component';
 
 const routes: Routes = [
     {
@@ -68,7 +69,7 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'autotest',
+                path: 'autotest/:questionnaire_id',
                 children: [
                     {
                         path: '',
@@ -164,6 +165,58 @@ const routes: Routes = [
                         path: '',
                         loadChildren: () =>
                             import('./main/test-appointment/appointment-health-center/appointment-health-center.module').then(m => m.AppointmentHealthCenterModule)
+                    }
+                ]
+            },
+
+
+            {
+                path: 'test-result/result/1',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-result/test-result-1/test-result-1.module').then(m => m.TestResult1Module)
+                    }
+                ]
+            },
+            {
+                path: 'test-result/result/2',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-result/test-result-2/test-result-2.module').then(m => m.TestResult2Module)
+                    }
+                ]
+            },
+            {
+                path: 'test-result/result/3',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-result/test-result-3/test-result-3.module').then(m => m.TestResult3Module)
+                    }
+                ]
+            },
+            {
+                path: 'test-result/result/4',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-result/test-result-4/test-result-4.module').then(m => m.TestResult4Module)
+                    }
+                ]
+            },
+            {
+                path: 'test-result/result/5',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-result/test-result-5/test-result-5.module').then(m => m.TestResult5Module)
                     }
                 ]
             }
