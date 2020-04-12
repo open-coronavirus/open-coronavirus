@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PatientWithRelations } from 'src/app/shared/sdk';
+import { getNameStatus } from '../../shared/utils/status-utils';
 
 
 @Component({
@@ -28,5 +29,9 @@ export class DiagnosticSendResultComponent {
 
     public goBack() {
         this.location.back();
+    }
+
+    getNameStatus(status: number) {
+        return getNameStatus(status);
     }
 }

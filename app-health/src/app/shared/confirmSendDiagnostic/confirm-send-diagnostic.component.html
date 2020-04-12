@@ -12,7 +12,7 @@
     <p class="recuadro-info__title" i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
     <p class="recuadro-info__text">{{ dataForm.identifier }}</p>
     <p class="recuadro-info__title" i18n="@@patientStatus">Estado del paciente</p>
-    <p class="recuadro-info__status" [ngClass]="{'recuadro-info__status--initial' : 1 === dataForm.status, 'recuadro-info__status--ok' : 2 === dataForm.status, 'recuadro-info__status--quarentine' : 3 === dataForm.status, 'recuadro-info__status--infected' : 4 === dataForm.status}">{{ dataForm.status }}</p>
+    <p class="recuadro-info__status" [ngClass]="{'recuadro-info__status--initial' : 1 === dataForm.status, 'recuadro-info__status--ok' : 2 === dataForm.status, 'recuadro-info__status--quarentine' : 3 === dataForm.status, 'recuadro-info__status--infected' : 4 === dataForm.status}">{{ getNameStatus(dataForm.status) }}</p>
   </div>
 </ion-content>
 
