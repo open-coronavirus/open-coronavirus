@@ -5,3 +5,45 @@
 .hidden {
   display: none;
 }
+.question-title{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 16px 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.question-text{
+  font-size: 16px;  
+  font-weight: 300;
+  line-height: 18px;
+  margin: 0 0 16px 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  p{    
+    margin: 0 0 16px 0;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  ul{    
+    margin-bottom: 16px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    li{
+      margin-bottom: 8px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+    }
+  }
+}
+.question-questions{
+  margin: 40px 0 0 0;
+}

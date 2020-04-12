@@ -10,23 +10,15 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-grid>
-        <ion-row *ngIf="questionText">
-            <ion-col>
-                <h4>{{questionText}}</h4>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <span *ngIf="subtitle" [innerHTML]="subtitle"></span>
-                <ng-container *ngFor="let question of currentQuestion?.children; let i = index">
-                    <gray-option (click)="answer($event, question)" [text]="question.option"></gray-option>
-                </ng-container>
-                <div *ngIf="showExitButton">
-                    <button class="btn" color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</button>
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <h2 class="question-title" *ngIf="questionText">{{questionText}}</h2>
+    <div class="question-text" *ngIf="subtitle" [innerHTML]="subtitle"></div>
+    <div class="question-questions">
+        <ng-container *ngFor="let question of currentQuestion?.children; let i = index">
+            <gray-option (click)="answer($event, question)" [text]="question.option"></gray-option>
+        </ng-container>
+    </div>
+    <div *ngIf="showExitButton">
+        <button class="btn" (click)="backToHome()" expand="block" i18n="@@okButton">OK</button>
+    </div>
 </ion-content>
 
