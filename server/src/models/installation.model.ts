@@ -17,6 +17,12 @@ export class Installation extends Entity {
 
   @property({
     type: 'string',
+    required: false,
+  })
+  pushRegistrationId?: string;
+
+  @property({
+    type: 'string',
     required: true,
   })
   patientId: string;

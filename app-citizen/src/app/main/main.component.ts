@@ -11,6 +11,7 @@ import {GeolocationTrackingService} from "../shared/services/tracking/geolocatio
 import {BluetoothTrackingService} from "../shared/services/tracking/bluetooth-tracking.service";
 import {PermissionsService} from "../shared/services/permissionsService.service";
 import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
+import {PushNotificationService} from "../shared/services/push-notification.service";
 
 @Component({
     selector: 'app-container',
@@ -35,6 +36,7 @@ export class MainComponent implements OnDestroy {
         protected geolocationtrackingService: GeolocationTrackingService,
         protected bluetoothTrackingService: BluetoothTrackingService,
         protected leaveRequestService: LeaveRequestService,
+        protected pushNotificationService: PushNotificationService,
         protected testAppointmentService: TestAppointmentService,
         protected permissionsService: PermissionsService,
         private privacityConditionsService: PrivacityConditionsService,
@@ -65,6 +67,7 @@ export class MainComponent implements OnDestroy {
         if(!permissionsService.requestedPermissions) {
             this.startGeoTracking();
             this.startBluetoothTracking();
+            this.pushNotificationService.startPushNotifications();
         }
     }
 
