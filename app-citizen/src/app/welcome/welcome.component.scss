@@ -1,11 +1,10 @@
 .slide{
   display: block;
-  padding: 24px 0;
   &__title{
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-    margin: 0 0 56px 0;
+    margin: 24px 0 40px 0;
 
     &-strong{
       color:#c80f2e;
@@ -13,27 +12,31 @@
   }
   &__image-container{
     text-align: center;
-    margin: 0 0 48px 0;
+    margin: 0 0 36px 0;
   }  
   img{
-    width: 50%;
-    max-width: 300px;
+    width: 70%;
+    max-width: 400px;
   }
   &__text{
-    font-size: 20px;
+    font-size: 22px;
     line-height: 24px;
     text-align: center;    
     font-weight: 300;
-    margin: 0 0 48px 0;
+    margin: 0 0 36px 0;
     strong{
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 }
 .footer-app__text{
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
   text-align: center;
   font-weight: 300;
   margin: 0;
+  @media (max-width: 320px) {
+    font-size: 12px;
+  }
+
 }

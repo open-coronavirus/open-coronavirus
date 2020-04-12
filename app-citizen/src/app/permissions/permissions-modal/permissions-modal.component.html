@@ -8,20 +8,28 @@
 <ion-content class="modal-text" fullscreen [ngSwitch]="type">
   <h1>Activa los permisos necesarios para poder utilizar la aplicación</h1>
   <ng-container *ngSwitchCase="'push'">
-    <h3>Notificaciones push</h3>
-    <p>Las utilizaremos para enviarte información relevante, resultados de tu test de COVID-19 y líneas de actuación</p>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-campana.svg"></span>
+    </p>
+    <h2 class="screen-subtitle">Notificaciones push</h2>
+    <p class="screen-text">Las utilizaremos para enviarte información relevante, resultados de tu test de COVID-19 y líneas de actuación.</p>
   </ng-container>
   <ng-container *ngSwitchCase="'gps'">
-    <h3>Geolocalización</h3>    
-    <p>Necesitamos saber dónde te encuentras para poder ofrecerte las mejores medidas preventivas y médicas</p> 
-    <p>Compartiendo tu información ayudarás a frenar el COVID-19</p>   
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-localizacion.svg"></span>
+    </p>
+    <h2 class="screen-subtitle">Geolocalización</h2>    
+    <p class="screen-text">Necesitamos saber dónde te encuentras para poder ofrecerte las mejores medidas preventivas y médicas.</p> 
+    <p class="screen-text">Compartiendo tu información ayudarás a frenar el COVID-19.</p>   
   </ng-container>
-  <ng-container *ngSwitchCase="'bluetooth'">
-    <h3>Bluetooth</h3>
-    <p>Mediante la tecnología bluetooth podrás <strong>estar informado de si te has cruzado con alguien con COVID-19</strong> y así estar más seguro.</p>
-    <p><strong>Se informará a las autoridades sanitarias</strong> información sobre con quién has estado a menos de 2 metros <strong>de forma anónima.</strong></p>
-    <p>La protección y prevención de tu salud es lo primero.</p>
-    <p>Recuerda liberar espacio en tu móvil para que funcione correctamente esta funcionalidad.</p>
+  <ng-container *ngSwitchCase="'bluetooth'">  
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
+    </p>
+    <h2 class="screen-subtitle">Bluetooth</h2>
+    <p class="screen-text">Mediante la tecnología bluetooth podrás compartir con las autoridades sanitarias información sobre con quién has estado a menos de 2 metros.</p>
+    <p class="screen-text">La protección y prevención de tu salud es lo primero.</p>
+    <p class="screen-text">Recuerda liberar espacio en tu móvil para que  funcione correctamente esta funcionalidad.</p>
   </ng-container>    
 </ion-content>
 <ion-footer class="ion-no-border">

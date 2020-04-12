@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     margin: 0 16px;
-    padding: 16px 0;     
+    padding: 24px 0 16px 0;  
 
     .circle{
       margin-right: 10px;
@@ -27,6 +27,10 @@
 
     img {
       margin-right: 16px;
+      @media (min-width: 320px) {
+        width: 30px;
+        height: auto;
+      }
     }
 
     &--sm{
@@ -38,7 +42,7 @@
       color: #9b9b9b;
       padding-left: 40px;
       text-decoration: underline;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }

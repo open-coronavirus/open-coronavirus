@@ -1,30 +1,17 @@
 <corona-header [showMenu]="false"></corona-header>
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div class="form-row">
-          <h1 i18n="@@registerTitle">Registro</h1>
+  <form [formGroup]="registerPatientForm" (ngSubmit)="onSubmit()">
+    <patient-info-form #patientInfoFormComponent></patient-info-form>
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-check">
+          <input formControlName="acceptterms" name="acceptterms" class="form-check__input" id="acceptterms" type="checkbox">
+          <span class="form-check__check"></span>
+          <label for="acceptterms"><span>Al enviar mis datos personales recogidos en este formulario estoy confirmando que he leído y acepto las </span> <a href="javascript:void(null);" (click)="showPrivacityConditions($event)">condiciones de uso y políticas de privacidad</a>.</label>
         </div>
-        <form [formGroup]="registerPatientForm" (ngSubmit)="onSubmit()">
-          <patient-info-form #patientInfoFormComponent></patient-info-form>
-          <div class="form-row">
-            <div class="form-group form-check">
-              <input formControlName="acceptterms" name="acceptterms" class="form-check-input" id="acceptterms" type="checkbox">
-              <label for="acceptterms"><span>Al enviar mis datos personales recogidos en este formulario estoy confirmando que he leído y acepto las </span> <a href="javascript:void(null);" (click)="showPrivacityConditions($event)">condiciones de uso y políticas de privacidad</a></label>
-              <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit" i18n="@@accepttermsError">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
-            </div>
-          </div>
-          <button class="btn" type="submit" color="dark" expand="block" i18n="@@registerSubmitButton">REGISTRARSE</button>
-          <div class="d-none d-lg-block d-lg-flex justify-content-end">
-            <div>
-              <small class="error" *ngIf="(!patientInfoFormComponent.isValid || acceptterms.invalid) && formTriedToSubmit">
-                <ng-container i18n="@@registerFormError">Ups! Te faltan campos por rellenar</ng-container> <span class="emoji-thinking-face"></span>
-              </small>
-            </div>
-          </div>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit" i18n="@@accepttermsError">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
+      </div>
+    </div>
+    <button class="btn" type="submit" color="dark" expand="block" i18n="@@registerSubmitButton">Siguiente</button>   
+  </form>
 </ion-content>
