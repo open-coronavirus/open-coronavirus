@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
-import { Patient, PatientWithRelations } from '../sdk';
+import { PatientWithRelations } from '../sdk';
+import moment from 'moment';
 
 @Component({
     selector: 'patient-info-form',
@@ -169,6 +170,11 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
             this.patientInfoForm.controls[i].markAsTouched();
         }
     }
+
+    getMaxDate() {
+        return moment().subtract(18, 'y').format('YYYY-MM-DD');
+    }
+
 
     public ngOnDestroy() {
         this.subscriptions.forEach(subscription => subscription.unsubscribe());

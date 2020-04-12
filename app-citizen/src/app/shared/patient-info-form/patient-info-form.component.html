@@ -20,7 +20,7 @@
 
     <div class="form-row">
         <div class="form-group form-label-group form-label-group--bday">
-            <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" name="birthday" id="birthday" formControlName="birthday"></ion-datetime>
+            <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" [max]="getMaxDate()" name="birthday" id="birthday" formControlName="birthday"></ion-datetime>
             <label for="birthday" i18n="@@birthdayLabel" *ngIf="!patient.birthday">Fecha de nacimiento</label>
             <small class="error" *ngIf="birthday.invalid && birthday.touched" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento.</small>
         </div>
@@ -39,7 +39,7 @@
     <div class="form-row">
         <div class="form-group form-label-group">
             <input type="text" class="form-control" id="street" name="street" formControlName="street" i18n-placeholder placeholder="Calle">
-            <label for="street" i18n="@@streetLabel">Dirección</label>
+            <label for="street" i18n="@@streetLabel">Dirección domicilio: calle, avd... (opcional)</label>
             <small class="error" *ngIf="street.invalid && street.touched" i18n="@@streetError">Por favor, introduce tu dirección</small>
         </div>
     </div>
@@ -51,14 +51,14 @@
     <div class="form-row">
         <div class="form-group form-label-group">
             <input type="text" class="form-control" id="phone" name="phone" formControlName="phone" i18n-placeholder placeholder="Phone">
-            <label for="phone" i18n="@@phoneLabel">Phone</label>
+            <label for="phone" i18n="@@phoneLabel">Teléfono</label>
             <small class="error" *ngIf="phone.invalid && phone.touched" i18n="@@phoneError">Por favor, introduce un número de teléfono válido</small>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group form-label-group">
             <input type="text" class="form-control" id="email" name="email" formControlName="email" i18n-placeholder placeholder="Email">
-            <label for="email" i18n="@@emailLabel">Email</label>
+            <label for="email" i18n="@@emailLabel">Correo electrónico (opcional)</label>
             <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
         </div>
     </div>
