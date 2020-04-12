@@ -15,7 +15,7 @@
         </div>
         <p *ngIf="dataForm.intent_send && dataForm.error_identifier" i18n="@@errorIdentierNoFill">Debe rellenar el campo identificador</p>
 
-        <h2 class="send-diagnostic__subtitle">Estado del paciente</h2>
+        <h2 class="send-diagnostic__subtitle" i18n="@@patientStatus">Estado del paciente</h2>
         <ul class="diagnostic-status">
             <li (click)="setStatus(key)" class="diagnostic-status__item" [ngClass]="{'diagnostic-status__item--selected' : dataForm.status === key, 'diagnostic-status__item--initial' : 1 === key, 'diagnostic-status__item--ok' : 2 === key, 'diagnostic-status__item--quarentine' : 3 === key, 'diagnostic-status__item--infected' : 4 === key}" *ngFor='let key of [1,2,3,4]'>{{ getNameStatus(key) }}</li>
         </ul>
