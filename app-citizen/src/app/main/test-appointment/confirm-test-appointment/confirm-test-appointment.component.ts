@@ -3,6 +3,7 @@ import { Subscription } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { TestAppointmentService } from "../../../shared/services/test-appointment.service";
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class ConfirmTestAppointmentComponent implements OnDestroy {
     constructor(protected activatedRoute: ActivatedRoute,
         protected testAppointmentService: TestAppointmentService,
         protected location: Location,
+        private navCtrl: NavController,
         protected router: Router) {
 
         this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
@@ -29,6 +31,11 @@ export class ConfirmTestAppointmentComponent implements OnDestroy {
 
     public backToHome() {
         this.router.navigate(['/app/home']);
+    }
+
+    public back() {
+        // this.location.back();
+        this.navCtrl.back();
     }
 
     public requestTest() {
