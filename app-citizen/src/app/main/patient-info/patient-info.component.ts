@@ -1,8 +1,9 @@
-import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
-import {PatientService} from '../../shared/services/patient.service';
-import {PatientInfoFormComponent} from '../../shared/patient-info-form/patient-info-form.component';
-import {Location} from '@angular/common';
-import {ToastController} from '@ionic/angular';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { PatientService } from '../../shared/services/patient.service';
+import { PatientInfoFormComponent } from '../../shared/patient-info-form/patient-info-form.component';
+import { Location } from '@angular/common';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
     selector: 'patient-info',
@@ -12,25 +13,24 @@ import {ToastController} from '@ionic/angular';
 })
 export class PatientInfoComponent {
 
-    @ViewChild('patientInfoFormComponent', {static: true}) protected patientInfoFormComponent: PatientInfoFormComponent;
+    @ViewChild('patientInfoFormComponent', { static: true }) protected patientInfoFormComponent: PatientInfoFormComponent;
 
 
     constructor(public patientService: PatientService,
-                public toastController: ToastController,
-                protected location: Location) {}
+        public toastController: ToastController,
+        protected location: Location) { }
 
     public update() {
 
-        if(this.patientInfoFormComponent.isValid) {
-            let patient = this.patientInfoFormComponent.patient;
+        if (this.patientInfoFormComponent.isValid) {
+            const patient = this.patientInfoFormComponent.patient;
             this.patientService.update(patient).subscribe(success => {
-                if(success != null && success != false) {
+                if (success != null && success != false) {
                     this.presentToast();
-                }
-                else {
+                } else {
                     alert('Error');
                 }
-            })
+            });
 
         }
 
@@ -38,7 +38,7 @@ export class PatientInfoComponent {
 
     async presentToast() {
         const toast = await this.toastController.create({
-            //Your changes has been saved
+            // Your changes has been saved
             message: $localize`:@@changesSavedAlert:Tus cambios se han salvado`,
             duration: 2000
         });

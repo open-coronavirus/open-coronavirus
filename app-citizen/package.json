@@ -60,6 +60,7 @@
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
     "leaflet": "^1.6.0",
+    "moment": "^2.24.0",
     "phonegap-plugin-multidex": "^1.0.0",
     "phonegap-plugin-push": "^2.3.0",
     "rxjs": "^6.5.5",
