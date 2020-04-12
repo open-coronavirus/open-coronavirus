@@ -11,10 +11,10 @@
       <p class="result__name"><strong>{{patient?.firstName}} {{patient?.lastName}}</strong></p>
       <p class="result__title" i18n="@@qrresultdni">DNI</p>
       <p class="result__name">{{patient?.documentNumber}}</p>
-      <p class="result__title" i18n="@@qrresultage">Fecha de nacimiento</p>
-      <p class="result__name">{{patient?.birthday | date:'dd/MM/yyyy'}}</p>
+      <p class="result__title" i18n="@@qrresultage">Edad</p>
+      <p class="result__name">{{ getYearsOld(patient?.birthday) }}</p>
       <p class="result__title" i18n="@@qrresultaddress">Dirección</p>
-      <p class="result__text">{{patient?.street}} {{patient?.apartment}} ({{patient?.postalCode}}) <br><a href="#" i18n="@@qrresultviewmap">Ver ubicación</a> </p>
+      <p class="result__text">{{patient?.street}} {{patient?.apartment}} ({{patient?.postalCode}}) <br><a [href]="'http://maps.google.com/maps?q=' + patient?.street" target="_blank" i18n="@@qrresultviewmap">Ver ubicación</a> </p>
     </div>
   </div>
 

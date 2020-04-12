@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { DataFormSendDiagnostic } from '../../app-container/diagnostic-send/diagnostic-send.component';
 import { ActivatedRoute } from '@angular/router';
 import { PatientWithRelations } from '../sdk/model/patientWithRelations';
+import { getNameStatus } from '../utils/status-utils';
 
 
 @Component({
@@ -34,6 +35,11 @@ export class ConfirmSendDiagnosticComponent implements OnInit {
 
     dismissModal(success: boolean) {
         this.modalCtrl.dismiss({ success });
+    }
+
+
+    getNameStatus(status: number) {
+        return getNameStatus(status);
     }
 
 

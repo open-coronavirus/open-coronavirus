@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PatientWithRelations, LeaveRequestWithRelations, LeaveRequestControllerService } from 'src/app/shared/sdk';
+import moment from 'moment';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class QrReaderResultComponent implements OnInit {
 
         this.route.queryParams.subscribe(params => {
             this.patient = JSON.parse(params['patient']);
+            this.patient.street = "Omega 18, 3ºD";
         });
     }
 
@@ -127,6 +129,9 @@ export class QrReaderResultComponent implements OnInit {
 
     public clickShowMap() {
         this.showMap = true;
+    }
+    public getYearsOld(birthday) {
+        return moment().diff(moment(birthday, 'YYYY-MM-DD'), 'years');
     }
 
     public goBack() {
