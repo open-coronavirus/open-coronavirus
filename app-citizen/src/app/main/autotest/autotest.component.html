@@ -23,7 +23,7 @@
                     <gray-option (click)="answer($event, question)" [text]="question.option"></gray-option>
                 </ng-container>
                 <div *ngIf="showExitButton">
-                    <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</ion-button>
+                    <button class="btn" color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</button>
                 </div>
             </ion-col>
         </ion-row>

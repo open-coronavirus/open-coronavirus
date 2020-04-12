@@ -11,7 +11,7 @@
         <ion-row>
             <ion-col>
                 <patient-info-form #patientInfoFormComponent [patient]="patientService.patient"></patient-info-form>
-                <ion-button color="dark" (click)="update()" expand="block" i18n="@@saveButton">Guardar</ion-button>
+                <button class="btn" color="dark" (click)="update()" expand="block" i18n="@@saveButton">Guardar</button>
             </ion-col>
         </ion-row>
     </ion-grid>

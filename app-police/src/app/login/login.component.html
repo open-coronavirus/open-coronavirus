@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-title class="header-app__title" i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
+        <div i18n="@@headerTitleLine" class="header-app__title"><strong>OPEN</strong> CORONAVIRUS</div>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -18,7 +18,7 @@
                     <div class="form-row">
                         <small class="error" *ngIf="error"> {{ error }}</small>
                     </div>
-                    <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</ion-button>
+                    <button class="btn" type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</button>
                 </form> -->
 
 
@@ -31,6 +31,6 @@
 
 <ion-footer class="ion-no-border">
     <ion-toolbar class="footer-app" >
-        <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</ion-button>
+        <button class="btn" type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</button>
     </ion-toolbar>
   </ion-footer>

@@ -1,5 +1,5 @@
 :root {
-  --input-padding-x: .75rem;
+  --input-padding-x: 16px;
   --input-padding-y: .75rem;
 }
 
@@ -17,19 +17,15 @@
   background-color: #fff;
   background-clip: padding-box;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  outline: none;
 }
 
 .ng-invalid:not(form):not(.ng-untouched) {
-  border: 2px solid #fa755a !important;
+  border: 2px solid #c80f2e !important;
 }
 
 .error {
-  color: #fa755a;
-}
-
-.form-row .form-group.form-label-group label {
-  padding-left: 16px;
-  padding-right: 16px;
+  color: #c80f2e;
 }
 
 .form-check-input {
@@ -92,15 +88,18 @@ label {
 }
 
 .form-row {
-
-  padding-right: 10px;
-  padding-left: 10px;
-  clear: both;
-
   .form-group.form-label-group {
     label {
       padding-left: 16px;
       padding-right: 16px;
+    }
+  }
+  &--error{
+    .form-control {
+      border-color: #c80f2e!important;
+    }
+    label {
+      color: #c80f2e!important;
     }
   }
 }
@@ -111,22 +110,14 @@ label {
 }
 
 .form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+
   .form-control {
     padding: var(--input-padding-y) var(--input-padding-x);
     height: 50px !important;
   }
-
-  textarea.form-control{
-    height: auto !important;
-  }
-
-  .credit-card-control {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
 }
-
 
 .form-label-group > input,
 .form-label-group > select,

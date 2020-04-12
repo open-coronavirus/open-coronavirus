@@ -30,6 +30,7 @@
 
 * {
   font-family: 'Signika', sans-serif !important;
+  font-weight: 300;
 }
 
 .light-button {
@@ -51,9 +52,42 @@
   height: 25px;
 }
 
+ion-content, ion-toolbar{
+  --background:	#ffffff;
+  --color:	#3d3d3d;
+  --padding-bottom: 16px;
+  --padding-end: 16px;
+  --padding-start: 16px;
+  --padding-top: 16px;
+}
+.btn{
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff; 
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 16px;
+  background-color: #000000;
+  
+  &--light{
+    background-color: #666;
+    color: #000000;
+  }
+
+}
+
+
+.menu-icon {
+  --color: white;
+  position: absolute;
+}
+
 .header-app {
   $header: &;
-  --background: #c80f2e ;
+  --background: #6292d3;
 
   &__title{
     font-size: 16px;
@@ -77,77 +111,6 @@
   
 }
 
-.menu-icon {
-  --color: white;
-  position: absolute;
-}
-
-.modal-header{
-  --border-style: none;
-  --border-width: 0;
-}
-
-h1{  
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.17;
-  margin: 36px 0 24px 0;
-  &:first-child{
-    margin-top: 0;
-  }
-}
-
-.modal-text{
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --padding-bottom: 16px;
-  
-  h2{  
-    font-size: 20px;
-    font-weight: 600;  
-    line-height: 1.3;
-    margin: 24px 0 16px 0;
-    &:first-child{
-      margin-top: 0;
-    }
-    &:last-child{
-      margin-bottom: 0;
-    }
-  }
-  h3{  
-    font-size: 16px;
-    font-weight: 600;  
-    line-height: 1.3;
-    margin: 24px 0 16px 0;
-    &:first-child{
-      margin-top: 0;
-    }
-    &:last-child{
-      margin-bottom: 0;
-    }
-  }
-  p{  
-    font-size: 14px;
-    font-weight: 300; 
-    line-height: 1.43;
-    margin: 0 0 16px 0;
-
-    &:last-child{  
-      margin-bottom: 0;
-    }
-  }
-  ul{  
-    font-size: 14px;
-    font-weight: 300; 
-    line-height: 1.43;
-    margin: 0 0 16px 0;
-
-    &:last-child{  
-      margin-bottom: 0;
-    }
-  }
-}
-
 .filter-white {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(171deg) brightness(101%) contrast(102%);
 }
@@ -164,8 +127,6 @@ h1{
   padding-left: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-bottom: constant(safe-area-inset-bottom);
 }
 
 .footer-labels-container {
@@ -177,8 +138,4 @@ h1{
 
 .emoji-thinking-face::before  {
   content: "\01F914";
-}
-
-.ion-slides { 
-  --bullet-background-active: #000; 
 }

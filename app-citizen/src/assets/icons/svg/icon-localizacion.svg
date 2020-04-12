@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="32px" viewBox="0 0 24 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Ciudadano-v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="09.03.01.-Localizacion" transform="translate(-33.000000, -170.000000)" fill="#000000">
+            <g id="Group-2" transform="translate(33.000000, 170.000000)">
+                <g id="map-marker" fill-rule="nonzero">
+                    <path d="M12,0 C5.3689375,0 0,5.3758776 0,12 C0,16.4448205 1.4994375,17.8338211 9.4544375,30.5890148 C10.6285,32.4714532 13.3728125,32.4692032 14.5455,30.5890148 C22.5046875,17.8271336 24,16.4439455 24,12 C24,5.3689401 18.624125,0 12,0 Z M12,29.000014 C4.036,16.2303829 3,15.4242575 3,12.0000015 C3,7.0294409 7.0294375,3.00000145 12,3.00000145 C16.9705625,3.00000145 21,7.0294409 21,12.0000015 C21,15.40957 20.052125,16.0890703 12,29.000014 Z" id="Shape"></path>
+                </g>
+                <circle id="Oval" cx="12" cy="12" r="5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

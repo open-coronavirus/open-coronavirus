@@ -1,21 +1,20 @@
 <corona-header></corona-header>
 <ion-content class="result">
-  <h3 i18n="@@titleSendDiagnosticResult">Test diagnóstico SARS-CoV-2 actualizado</h3>
-  <p i18n="@@descriptionSendDiagnosticResult">Se ha introducido el test diagnóstico del paciente correctamente</p>
+  <h1 class="screen-title" i18n="@@titleSendDiagnosticResult">Test diagnóstico SARS-CoV-2 actualizado</h1>
+  <p class="screen-text" i18n="@@descriptionSendDiagnosticResult">Se ha introducido el test diagnóstico del paciente correctamente</p>
 
-  <div>
-    <p i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
-    <span>{{ patient.healthInsuranceCardNumber }}</span>
-    <br>
-    <p i18n="@@patientName">Nombre del paciente</p>
-    <span>{{ patient.firstName + ' ' + patient.lastName }}</span>
-    <br>
-    <p i18n="@@patientStatus">Estado del paciente</p>
-    <span>{{ patient.status }}</span>
+  <div class="recuadro-info">
+    <p class="recuadro-info__title"  i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
+    <p class="recuadro-info__text">{{ patient.healthInsuranceCardNumber }}</p>
+    <p class="recuadro-info__title"  i18n="@@patientName">Nombre del paciente</p>
+    <p class="recuadro-info__text">{{ patient.firstName + ' ' + patient.lastName }}</p>
+    <p class="recuadro-info__title" i18n="@@patientStatus">Estado del paciente</p>
+    <p class="recuadro-info__status" [ngClass]="{'recuadro-info__status--initial' : 1 === patient.status, 'recuadro-info__status--ok' : 2 === patient.status, 'recuadro-info__status--quarentine' : 3 === patient.status, 'recuadro-info__status--infected' : 4 === patient.status}">{{ patient.status }}</p>
   </div>
+
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
-    <ion-button class="result__ok" (click)="goBack()" expand="block" i18n="@@okButton">OK</ion-button>
+    <button class="btn" (click)="goBack()" expand="block" i18n="@@okButton">OK</button>
   </ion-toolbar>
 </ion-footer>

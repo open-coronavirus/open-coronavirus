@@ -1,0 +1,58 @@
+.diagnostic-status{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+
+  &__item{
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 7px 4px;  
+    border-radius: 8px;
+    border: solid 2px #e6e6e6;
+    background-color: #ffffff;
+    font-size: 11px;
+    font-weight: 300;
+    text-align: center;
+
+    &:before{
+      content: '';
+      display: block;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      background-color: #000000;
+      margin: 0 0 8px 0;
+    }
+
+    &--selected{
+      border: solid 2px #000000;
+    }
+   
+    &--quarentine{
+      &:before{
+        background-color: #ffca08;
+      }
+    }
+    &--infected{
+      &:before{
+        background-color: #c80f2e;
+      }
+    }
+    &--ok{
+      &:before{
+        background-color: #61bc7c;
+      }
+    }
+  }
+}
+.send-diagnostic__subtitle{
+  font-size: 11px;
+  line-height: 20px;
+  font-weight: 300;
+  margin: 32px 0 8px 0;
+}

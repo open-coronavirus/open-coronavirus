@@ -30,6 +30,7 @@
 
 * {
   font-family: 'Signika', sans-serif !important;
+  font-weight: 300;
 }
 
 .light-button {
@@ -51,9 +52,39 @@
   height: 25px;
 }
 
+ion-content, ion-toolbar{
+  --background:	#ffffff;
+  --color:	#3d3d3d;
+  --padding-bottom: 16px;
+  --padding-end: 16px;
+  --padding-start: 16px;
+  --padding-top: 16px;
+}
+.btn{
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff; 
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 16px;
+  background-color: #000000;
+  
+  &--light{
+    background-color: #666;
+    color: #000000;
+  }
+
+}
+
 .menu-icon {
   --color: white;
-  position: absolute;
+}
+
+.menu-icon {
+  --color: white;
 }
 
 .header-app {

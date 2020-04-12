@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar class="header-app">
-        <ion-title i18n="@@headerTitle">OPEN CORONAVIRUS</ion-title>
+        <div i18n="@@headerTitleLine" class="header-app__title"><strong>OPEN</strong> CORONAVIRUS</div>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -10,7 +10,7 @@
                 <!-- LOGIN PENDIENTE UNIR CON SERVICIO EXTERNO -->
                 <!-- <div class="form-row">
                     <h1 i18n="@@loginTitle">Identifícate</h1>
-                    <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada de la policía.</strong></p>
+                    <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada del sistema central sanitario.</strong></p>
                 </div>
 
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -18,14 +18,18 @@
                     <div class="form-row">
                         <small class="error" *ngIf="error"> {{ error }}</small>
                     </div>
-                    <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</ion-button>
+                    <button class="btn" type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</button>
                 </form> -->
 
-
-                <p class="login-demo">Pendiente de implementar el login contra el sistema central sanitario correspondiente.</p>
-                <ion-button type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</ion-button>
+                <p class="login-demo">Pendiente de implementar el login contra el sistema central sanitario.</p>
 
             </ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="footer-app" >
+        <button class="btn" type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</button>
+    </ion-toolbar>
+  </ion-footer>

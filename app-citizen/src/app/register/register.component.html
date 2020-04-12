@@ -15,7 +15,7 @@
               <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit" i18n="@@accepttermsError">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
             </div>
           </div>
-          <ion-button type="submit" color="dark" expand="block" i18n="@@registerSubmitButton">REGISTRARSE</ion-button>
+          <button class="btn" type="submit" color="dark" expand="block" i18n="@@registerSubmitButton">REGISTRARSE</button>
           <div class="d-none d-lg-block d-lg-flex justify-content-end">
             <div>
               <small class="error" *ngIf="(!patientInfoFormComponent.isValid || acceptterms.invalid) && formTriedToSubmit">

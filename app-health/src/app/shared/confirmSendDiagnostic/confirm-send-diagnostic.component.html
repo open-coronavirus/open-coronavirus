@@ -1,16 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="clickKO()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <h2 i18n="@@confirmationSendTitle">¿Estás seguro de subir el test diagnóstico del paciente?</h2>
+  <h2 class="screen-title" i18n="@@confirmationSendTitle">¿Estás seguro de subir el test diagnóstico del paciente?</h2>
 
-  <p i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
-  <span>{{ dataForm.identifier }}</span>
-  <br>
-  <p i18n="@@patientStatus">Estado del paciente</p>
-  <span>{{ dataForm.status }}</span>
+  <div class="recuadro-info">
+    <p class="recuadro-info__title" i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
+    <p class="recuadro-info__text">{{ dataForm.identifier }}</p>
+    <p class="recuadro-info__title" i18n="@@patientStatus">Estado del paciente</p>
+    <p class="recuadro-info__status" [ngClass]="{'recuadro-info__status--initial' : 1 === dataForm.status, 'recuadro-info__status--ok' : 2 === dataForm.status, 'recuadro-info__status--quarentine' : 3 === dataForm.status, 'recuadro-info__status--infected' : 4 === dataForm.status}">{{ dataForm.status }}</p>
+  </div>
 </ion-content>
 
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
-    <ion-button class="result__ok" (click)="clickOK()" expand="block" i18n="@@okButton">Sí, estoy seguro</ion-button>
-    <ion-button class="result__ok" (click)="clickKO()" expand="block" i18n="@@koButton">Volver</ion-button>
+    <button class="btn" (click)="clickOK()" expand="block" i18n="@@okButton">Sí, estoy seguro</button>
+    <button class="btn btn--secondary" (click)="clickKO()" expand="block" i18n="@@koButton">Volver</button>
   </ion-toolbar>
 </ion-footer>
