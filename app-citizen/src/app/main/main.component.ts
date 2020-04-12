@@ -1,17 +1,17 @@
-import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
-import {MenuController} from '@ionic/angular';
-import {Router} from '@angular/router';
-import {ShareService} from '../shared/services/share.service';
-import {PatientService} from '../shared/services/patient.service';
-import {LeaveRequestService} from '../shared/services/leave-request.service';
-import {Subscription} from "rxjs";
-import {TestAppointmentService} from "../shared/services/test-appointment.service";
-import {PrivacityConditionsService} from '../shared/services/privacityConditions.service';
-import {GeolocationTrackingService} from "../shared/services/tracking/geolocation-tracking.service";
-import {BluetoothTrackingService} from "../shared/services/tracking/bluetooth-tracking.service";
-import {PermissionsService} from "../shared/services/permissionsService.service";
+import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ShareService } from '../shared/services/share.service';
+import { PatientService } from '../shared/services/patient.service';
+import { LeaveRequestService } from '../shared/services/leave-request.service';
+import { Subscription } from "rxjs";
+import { TestAppointmentService } from "../shared/services/test-appointment.service";
+import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
+import { GeolocationTrackingService } from "../shared/services/tracking/geolocation-tracking.service";
+import { BluetoothTrackingService } from "../shared/services/tracking/bluetooth-tracking.service";
+import { PermissionsService } from "../shared/services/permissionsService.service";
 import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
-import {PushNotificationService} from "../shared/services/push-notification.service";
+import { PushNotificationService } from "../shared/services/push-notification.service";
 
 @Component({
     selector: 'app-container',
@@ -52,7 +52,7 @@ export class MainComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if (loaded) {
                 this.patientName = this.patientService.patient.firstName;
-                this.patientInitials = this.patientName.split(" ").map(elem => elem[0]).join("").toUpperCase();
+                this.patientInitials = this.patientName.charAt(0).toUpperCase();
             }
         }));
 
@@ -62,9 +62,9 @@ export class MainComponent implements OnDestroy {
             }
         }));
 
-        //start tracking at this point in case the permissions are already granted
-        //and no popups will be shown to the end user
-        if(!permissionsService.requestedPermissions) {
+        // start tracking at this point in case the permissions are already granted
+        // and no popups will be shown to the end user
+        if (!permissionsService.requestedPermissions) {
             this.startGeoTracking();
             this.startBluetoothTracking();
             this.pushNotificationService.startPushNotifications();
@@ -73,13 +73,13 @@ export class MainComponent implements OnDestroy {
 
 
     public startGeoTracking() {
-        if(this.settings.enabled.gps) {
+        if (this.settings.enabled.gps) {
             this.geolocationtrackingService.startBackgroundGeolocation();
         }
     }
 
     public startBluetoothTracking() {
-        if(this.settings.enabled.bluetooth) {
+        if (this.settings.enabled.bluetooth) {
             this.bluetoothTrackingService.startBluetoothTracking();
         }
     }
