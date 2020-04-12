@@ -4,36 +4,36 @@
           <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
       </ion-buttons>
       <div class="header-app__title"i18n="@@autoTestMainTitle">Autoevaluación de COVID-19</div>
-      <ion-buttons slot="end">
-          <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
-      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 i18n="@@testResult5Title">Resultado de la autoevaluación de COVID-19</h1>
+  <h1 class="screen-title" i18n="@@testResult5Title">Resultado de la autoevaluación de COVID-19</h1>
+  <div class="recuadro-test recuadro-test--alert">
+    <h2 class="recuadro-title" i18n="@@testResult5Text1">Tiene clínica sospechosa de infección leve o moderada de Covid 19 y/o un alto riesgo de haberla contraído.</h2>
+    <p i18n="@@testResult5Text2">Debe autoaislarse en casa durante 14 días después de que comenzaron los síntomas y se recomienda encarecidamente solicitar una prueba de diagnóstico drive-trough</p>
+  </div>   
+  <p class="resultado-text resultado-text--separa">
+    <button class="btn" (click)="requestTest()">
+      <img class="button-icon filter-white" src="/assets/icons/svg/icon-test-black.svg">
+      Solicitar test covid-19
+    </button>
+  </p>
 
-  <p i18n="@@testResult5Text1">Tiene clínica sospechosa de infección leve o moderada de Covid 19 y/o un alto riesgo de haberla contraído.
-    Debe autoaislarse en casa durante 14 días después de que comenzaron los síntomas y se recomienda encarecidamente solicitar una prueba de diagnóstico drive-trough</p>
-  <p i18n="@@testResult5Text2">Tiene clínica sospechosa de infección leve o moderada de Covid 19 y/o un alto riesgo de haberla contraído.
-    Debe autoaislarse en casa durante 14 días después de que comenzaron los síntomas y se recomienda encarecidamente solicitar una prueba de diagnóstico drive-trough</p>
-
-  <p i18n="@@testResult5BtnRequestTest" (click)="requestTest()">SOLICITAR TEST COVID-19</p>
-
-  <p i18n="@@testResult5Text3">Debe realizar auto-aislamiento, lo que significa:</p>
-  <ul>
+  <h2 class="resultado-title" i18n="@@testResult5Text3">Debe realizar auto-aislamiento, lo que significa:</h2>
+  <ul class="resultado-list">
     <li i18n="@@testResult5List1_1">Solo salga de su casa o vea a otras personas por razones críticas (como una emergencia médica)</li>
     <li i18n="@@testResult5List1_2">Busque servicios por teléfono o en línea o solicite ayuda de amigos, familiares o vecinos,</li>
     <li i18n="@@testResult5List1_3">No acuda al hospital, o clínica para hacerse una prueba COVID-19 a menos que se lo solicite un profesional sanitario</li>
   </ul>
 
-  <p i18n="@@testResult5Text4">También debe:</p>
-  <ul>
+  <h2 class="resultado-title" i18n="@@testResult5Text4">También debe:</h2>
+  <ul class="resultado-list">
     <li i18n="@@testResult5List2_1">Informar a las personas con las que tuvo contacto cercano para aislarse si interactuó en los 2 días anteriores a que sus síntomas comenzaron.</li>
     <li i18n="@@testResult5List2_2">Controlar su salud durante 14 días completos sus síntomas comenzaron.</li>
   </ul>
 
-  <p i18n="@@testResult5Text5">2 semanas después de que comenzaron sus síntomas, practique el distanciamiento físico:</p>
-  <ul>
+  <h2 class="resultado-title" i18n="@@testResult5Text5">2 semanas después de que comenzaron sus síntomas, practique el distanciamiento físico:</h2>
+  <ul class="resultado-list">
     <li i18n="@@testResult5List3_1">Quédese en casa lo más que pueda.</li>
     <li i18n="@@testResult5List3_2">Salga a comprar comestibles y otras diligencias esenciales una vez por semana.</li>
     <li i18n="@@testResult5List3_3">Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga en público.</li>
