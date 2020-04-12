@@ -19,6 +19,8 @@ import {
 } from '@loopback/rest';
 import {HealthCenter} from '../models';
 import {HealthCenterRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class HealthCenterController {
   constructor(
@@ -34,6 +36,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['write']})
   async create(
     @requestBody({
       content: {
@@ -58,6 +62,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['read']})
   async count(
     @param.query.object('where', getWhereSchemaFor(HealthCenter)) where?: Where<HealthCenter>,
   ): Promise<Count> {
@@ -79,6 +85,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['read']})
   async find(
     @param.query.object('filter', getFilterSchemaFor(HealthCenter)) filter?: Filter<HealthCenter>,
   ): Promise<HealthCenter[]> {
@@ -93,6 +101,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -119,6 +129,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['read']})
   async findById(
     @param.path.string('id') id: string,
     @param.query.object('filter', getFilterSchemaFor(HealthCenter)) filter?: Filter<HealthCenter>
@@ -133,6 +145,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -154,6 +168,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() healthCenter: HealthCenter,
@@ -168,6 +184,8 @@ export class HealthCenterController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'HealthCenter', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.healthCenterRepository.deleteById(id);
   }

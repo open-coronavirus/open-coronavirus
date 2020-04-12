@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
-import { TestResult1Component } from './main/test-result/test-result-1/test-result-1.component';
+
 
 const routes: Routes = [
     {
@@ -119,6 +119,59 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'request-leave-home-confirmation-no-test',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.module')
+                                .then(m => m.RequestLeaveHomeConfirmationNoTestModule)
+                    }
+                ]
+            },
+            {
+                path: 'request-leave-home-confirmation-mandatory-quarentine',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.module')
+                                .then(m => m.RequestLeaveHomeConfirmationMandatoryQuarentineModule)
+                    }
+                ]
+            },
+            {
+                path: 'request-leave-home-confirmation-infected',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.module')
+                                .then(m => m.RequestLeaveHomeConfirmationInfectedModule)
+                    }
+                ]
+            },
+            {
+                path: 'contact-upload-request',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/contact-upload-request/contact-upload-request.module').then(m => m.ContactUploadRequestModule)
+                    }
+                ]
+            },
+            {
+                path: 'contact-upload-thanks',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/contact-upload-thanks/contact-upload-thanks.module').then(m => m.ContactUploadThanksModule)
+                    }
+                ]
+            },
+            {
                 path: 'my-info',
                 children: [
                     {
@@ -217,6 +270,38 @@ const routes: Routes = [
                         path: '',
                         loadChildren: () =>
                             import('./main/test-result/test-result-5/test-result-5.module').then(m => m.TestResult5Module)
+                    }
+                ]
+            },
+
+            {
+                path: 'following-up-result/result/1',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/following-up-result/following-up-result-1/following-up-result-1.module').then(m => m.FollowingUpResult1Module)
+                    }
+                ]
+            },
+            {
+                path: 'following-up-result/result/2',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/following-up-result/following-up-result-2/following-up-result-2.module').then(m => m.FollowingUpResult2Module)
+                    }
+                ]
+            },
+
+            {
+                path: 'about',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/about/about.module').then(m => m.AboutModule)
                     }
                 ]
             }

@@ -1,10 +1,11 @@
 export const settings = {
     moreInfoUrl: 'https://coronavirus.epidemixs.org/#/opening',
+    appVersion: '1.0.0',
     techSupportPhone: '555 555 5555',
     shareApp: {
         text: 'Compartir App para luchar juntos'
     },
-    permissions: {
+    enabled: {
         push: false,
         gps: false,
         bluetooth: true

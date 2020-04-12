@@ -10,6 +10,7 @@ import {PrivacityConditionsService} from '../shared/services/privacityConditions
 import {GeolocationTrackingService} from "../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../shared/services/tracking/bluetooth-tracking.service";
 import {PermissionsService} from "../shared/services/permissionsService.service";
+import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
 
 @Component({
     selector: 'app-container',
@@ -37,7 +38,8 @@ export class MainComponent implements OnDestroy {
         protected testAppointmentService: TestAppointmentService,
         protected permissionsService: PermissionsService,
         private privacityConditionsService: PrivacityConditionsService,
-        protected shareService: ShareService) {
+        protected shareService: ShareService,
+        protected contactTrackerService: ContactTrackerService) {
 
         this.subscriptions.push(this.leaveRequestService.loaded$.subscribe(loaded => {
             if (loaded && this.leaveRequestService.leaveRequest != null) {
@@ -68,13 +70,13 @@ export class MainComponent implements OnDestroy {
 
 
     public startGeoTracking() {
-        if(this.settings.permissions.gps) {
+        if(this.settings.enabled.gps) {
             this.geolocationtrackingService.startBackgroundGeolocation();
         }
     }
 
     public startBluetoothTracking() {
-        if(this.settings.permissions.bluetooth) {
+        if(this.settings.enabled.bluetooth) {
             this.bluetoothTrackingService.startBluetoothTracking();
         }
     }
@@ -91,6 +93,22 @@ export class MainComponent implements OnDestroy {
     public goToHome() {
         this.closeMenu();
         this.router.navigate(['/app/home']);
+    }
+
+    public goToConfirmationRequestLeaveHome() {
+        this.closeMenu();
+
+        switch (this.patientService.patient?.status) {
+            case 1:
+                this.router.navigate(['/app/request-leave-home-confirmation-no-test']);
+                break;
+            case 3:
+                this.router.navigate(['/app/request-leave-home-confirmation-mandatory-quarentine']);
+                break;
+            case 4:
+                this.router.navigate(['/app/request-leave-home-confirmation-infected']);
+                break;
+        }
     }
 
     public goToRequestLeaveHome() {
@@ -113,9 +131,14 @@ export class MainComponent implements OnDestroy {
         this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
-    public goToTracking() {
+    public goToFollowingUp() {
         this.closeMenu();
-        this.router.navigate(['/app/autotest/tracking/0/seguimiento1_1']);
+        this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+    }
+
+    public goAbout() {
+        this.closeMenu();
+        this.router.navigate(['/app/about']);
     }
 
     public goToCoronavirusInfo() {
@@ -145,5 +168,10 @@ export class MainComponent implements OnDestroy {
 
     public getSettingsText(): string {
         return this.settings.shareApp.text;
+    }
+
+    public uploadContactsAndShowThanksModal() {
+        this.closeMenu();
+        this.contactTrackerService.uploadContactsAndShowThanksModal();
     }
 }

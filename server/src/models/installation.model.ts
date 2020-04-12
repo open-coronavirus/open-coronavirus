@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model({settings: {strict: false}})
-export class BluetoothLeAdvertisement extends Entity {
+export class Installation extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -13,26 +13,19 @@ export class BluetoothLeAdvertisement extends Entity {
     type: 'string',
     required: true,
   })
-  sourceServiceUUID: string;
+  deviceId: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  targetServiceUUID: string;
+  patientId: string;
 
   @property({
     type: 'date',
     required: false,
   })
-  created?: string;
-
-  @property({
-    type: 'number',
-    required: false,
-  })
-  rssi?: number;
-
+  created: Date;
 
   // Define well-known properties here
 
@@ -40,13 +33,13 @@ export class BluetoothLeAdvertisement extends Entity {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [prop: string]: any;
 
-  constructor(data?: Partial<BluetoothLeAdvertisement>) {
+  constructor(data?: Partial<Installation>) {
     super(data);
   }
 }
 
-export interface BluetoothLeAdvertisementRelations {
+export interface InstallationRelations {
   // describe navigational properties here
 }
 
-export type BluetoothLeAdvertisementWithRelations = BluetoothLeAdvertisement & BluetoothLeAdvertisementRelations;
+export type InstallationWithRelations = Installation & InstallationRelations;

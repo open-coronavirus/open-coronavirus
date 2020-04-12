@@ -19,6 +19,8 @@ import {
 } from '@loopback/rest';
 import { LeaveRequest } from '../models';
 import { LeaveRequestRepository } from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class LeaveRequestController {
   constructor(
@@ -34,6 +36,7 @@ export class LeaveRequestController {
       },
     },
   })
+  //todo securize
   async create(
     @requestBody({
       content: {
@@ -61,6 +64,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['read']})
   async count(
     @param.query.object('where', getWhereSchemaFor(LeaveRequest)) where?: Where<LeaveRequest>,
   ): Promise<Count> {
@@ -82,6 +87,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['read']})
   async find(
     @param.query.object('filter', getFilterSchemaFor(LeaveRequest)) filter?: Filter<LeaveRequest>,
   ): Promise<LeaveRequest[]> {
@@ -96,6 +103,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -122,6 +131,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['read']})
   async findById(
     @param.path.string('id') id: string,
     @param.query.object('filter', getFilterSchemaFor(LeaveRequest)) filter?: Filter<LeaveRequest>
@@ -141,6 +152,7 @@ export class LeaveRequestController {
       },
     },
   })
+  //todo securize
   async findByToken(
     @param.path.string('token') token: string,
   ): Promise<LeaveRequest | null> {
@@ -160,6 +172,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['read']})
   async findAllByPatientId(
       @param.path.string('patientId') patientId: string,
   ): Promise<(LeaveRequest)[]> {
@@ -174,6 +188,7 @@ export class LeaveRequestController {
       },
     },
   })
+  //todo securize
   async setAtHome(
     @param.path.string('token') token: string
   ): Promise<void> {
@@ -197,6 +212,7 @@ export class LeaveRequestController {
       },
     },
   })
+  //todo securize
   async setOutOfHome(
     @param.path.string('token') token: string
   ): Promise<void> {
@@ -220,6 +236,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -241,6 +259,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() leaveRequest: LeaveRequest,
@@ -255,6 +275,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.leaveRequestRepository.deleteById(id);
   }
@@ -271,6 +293,8 @@ export class LeaveRequestController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'LeaveRequest', scopes: ['read']})
   async getLeaveRequestsByPatientId(
     @param.path.string('id') id: string,
   ): Promise<LeaveRequest[]> {

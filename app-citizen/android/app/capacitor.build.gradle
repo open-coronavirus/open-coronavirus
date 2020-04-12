@@ -14,8 +14,13 @@ dependencies {
     implementation "com.android.support:support-v4:26+"
     implementation "com.android.support:appcompat-v7:26+"
     implementation "com.android.support:support-v4:24.1.1+"
+    implementation "com.android.support:support-v13:27.+"
+    implementation "me.leolin:ShortcutBadger:1.1.17@aar"
+    implementation "com.google.firebase:firebase-messaging:17.0.+"
 }
 apply from: "../../node_modules/@mauron85/cordova-plugin-background-geolocation/android/dependencies.gradle"
+apply from: "../../node_modules/cordova-support-google-services/build.gradle"
+apply from: "../../node_modules/phonegap-plugin-multidex/multidex.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

@@ -1,18 +1,21 @@
 import {BootMixin} from '@loopback/boot';
-import {ApplicationConfig} from '@loopback/core';
-import {
-  RestExplorerBindings,
-  RestExplorerComponent,
-} from '@loopback/rest-explorer';
+import {ApplicationConfig, ContextTags} from '@loopback/core';
+import {RestExplorerBindings, RestExplorerComponent,} from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import {join} from 'path';
-import {MySequence} from './sequence';
 import {AppointmentMockService} from './services/impl/appointment-mock.service';
 import {HealthCenterMockService} from './services/impl/health-center-mock.service';
 import {LeaveRequestService} from "./services/leave-request.service";
 import {AuthMockService} from "./services/impl/auth-mock.service";
+import {AuthenticationSequence} from "./authentication-sequence";
+import {AuthenticationComponent, registerAuthenticationStrategy} from "@loopback/authentication";
+import {AuthorizationComponent, AuthorizationTags} from "@loopback/authorization";
+import KEY = ContextTags.KEY;
+import {Auth0AuthenticationStrategy, JWTServiceProvider} from "./security";
+import {MyAuthorizationProvider} from "./security/authorizor";
+import {PushNotificationService} from "./services/pushnotification.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -49,8 +52,26 @@ export class CoronavirusServerApplication extends BootMixin(
 
     super(options);
 
+    // Bind authentication component related elements
+    this.component(AuthenticationComponent);
+    this.component(AuthorizationComponent);
+
+    // Register the Auth0 JWT authentication strategy
+    registerAuthenticationStrategy(this, Auth0AuthenticationStrategy);
+    this.configure(KEY).to({
+      jwksUri: process.env.JWKS_URI,
+      audience: process.env.AUDIENCE,
+      issuer: process.env.ISSUER,
+      algorithms: ['RS256'],
+    });
+
+    this.bind('authorizationProviders.my-provider')
+        .toProvider(MyAuthorizationProvider)
+        .tag(AuthorizationTags.AUTHORIZER);
+
+
     // Set up the custom sequence
-    this.sequence(MySequence);
+    this.sequence(AuthenticationSequence);
 
     // Customize @loopback/rest-explorer configuration here
     this.bind(RestExplorerBindings.CONFIG).to({
@@ -63,6 +84,8 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
     this.service(AuthMockService, { interface: 'AuthService' });
     this.service(LeaveRequestService);
+    this.service(PushNotificationService, { interface: 'PushNotificationService' });
+    this.service(JWTServiceProvider);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

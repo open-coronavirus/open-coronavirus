@@ -58,11 +58,11 @@
         <ion-row>
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus == 2">
                 <div class="main-options__btn" (click)="setAtHome()">
-                    <div class="main-options__btn-volver" (click)="setAtHome()">
+                    <div class="main-options__btn-volver">
                         <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                         <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
                     </div>
-                    <p class="main-options__btn-camino">  
+                    <p class="main-options__btn-camino">
                         <span class="main-options__btn-camino-a" i18n="@@wayto">De camino a: </span>
                         <span class="main-options__btn-camino-donde">{{ leaveReason }}</span>
                         <span class="main-options__btn-camino-tiempo"><ng-container i18n="@@ago">hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
@@ -76,7 +76,7 @@
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center" *ngIf="leaveStatus !== 2 && patientService.patient?.status !== 2">
-                <div class="main-options__btn" (click)="goToRequestLeaveHome()">
+                <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                     <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
                 </div>
@@ -104,10 +104,19 @@
                 </div>
             </ion-col>
             <ion-col size="6" class="ion-text-center">
-                <div class="main-options__btn" (click)="goToTracking()">
+                <div class="main-options__btn" (click)="goToFollowingUp()">
                     <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
-                    <p class="main-options__text" i18n="@@tracking">Seguimiento <br>de tu salud</p>
+                    <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
                 </div>
+            </ion-col>
+            <!--<a (click)="valeriaDemoConfirmarContact()">valeriaDemoConfirmarContact</a>-->
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" (click)="uploadContactsAndShowThanksModal()">
+                ENVIAR INFORMACIÓN DE FORMA ANÓNIMA DE CRUCES CON CIUDADANOS Y AUTORIZAR SU USO
             </ion-col>
         </ion-row>
     </ion-grid>

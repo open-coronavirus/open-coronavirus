@@ -16,5 +16,5 @@ export enum AppointmentType {
 
 export enum TestType {
     AUTOTEST = 'autotest',
-    TRACKING = 'tracking'
+    FOLLING_UP = 'following-up'
 }

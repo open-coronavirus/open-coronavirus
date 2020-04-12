@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { AutotestAnswers } from '../../shared/services/autotest-answers.service';
 import { TestQuestion, TestQuestionControllerService, TestResultControllerService } from "../../shared/sdk";
 import { PatientService } from "../../shared/services/patient.service";
-import { TestActionEnum, TestType } from '../../../../../server/src/common/utils/enums';
+import { TestType } from '../../../../../server/src/common/utils/enums';
 import { TestResultService } from "../../shared/services/test-result.service";
 
 
@@ -123,20 +123,24 @@ export class AutotestComponent implements OnInit, OnDestroy {
                         case TestType.AUTOTEST:
                             if (score === 100) {
                                 this.router.navigate(['/app/test-result/result/1']);
-                            } else  if (score === 0) {
+                            } else if (score === 0) {
                                 this.router.navigate(['/app/test-result/result/2']);
-                            } else  if (score === 50) {
+                            } else if (score === 50) {
                                 this.router.navigate(['/app/test-result/result/3']);
-                            } else  if (score === 60) {
+                            } else if (score === 60) {
                                 this.router.navigate(['/app/test-result/result/4']);
-                            } else  if (score === 10) {
+                            } else if (score === 10) {
                                 this.router.navigate(['/app/test-result/result/5']);
                             } else {
                                 // this.router.navigate(['/app/test-result/result/6']);
                             }
                             break;
-                        case TestType.TRACKING:
-
+                        case TestType.FOLLING_UP:
+                            if (score === 100) {
+                                this.router.navigate(['/app/following-up-result/result/1']);
+                            } else if (score === 0) {
+                                this.router.navigate(['/app/following-up-result/result/2']);
+                            }
                             break;
                     }
 

@@ -16,6 +16,8 @@ import {
 import {Patient} from '../models';
 import {PatientRepository} from '../repositories';
 import {BluetoothUuidGenerator} from "../common/utils/bluetooth-uuid-generator";
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class PatientController {
   constructor(
@@ -31,6 +33,7 @@ export class PatientController {
       },
     },
   })
+  //todo securize
   async create(
     @requestBody({
       content: {
@@ -69,6 +72,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['read']})
   async count(
     @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
   ): Promise<Count> {
@@ -90,6 +95,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['read']})
   async find(
     @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>,
   ): Promise<Patient[]> {
@@ -104,6 +111,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -128,6 +137,8 @@ export class PatientController {
       }
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['read']})
   async getByQrCode(
     @param.path.string('qrcode') qrcode: string,
   ): Promise<Patient> {
@@ -152,6 +163,7 @@ export class PatientController {
       },
     },
   })
+  //todo securize
   async findById(
     @param.path.string('id') id: string,
     @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>
@@ -176,6 +188,7 @@ export class PatientController {
       },
     },
   })
+  //todo securize
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -197,6 +210,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['write']})
   async updateStatus(
     @param.path.string('id') id: string,
     @requestBody() status: number,
@@ -221,6 +236,7 @@ export class PatientController {
       }
     },
   })
+  //todo securize
   async updateStatusByDocumentNumber(
     @requestBody({
       content: {
@@ -264,6 +280,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() patient: Patient,
@@ -278,6 +296,8 @@ export class PatientController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Patient', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.patientRepository.deleteById(id);
   }

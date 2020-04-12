@@ -1,0 +1,25 @@
+<ion-header translucent>
+    <ion-toolbar class="modal-header">
+      <ion-buttons slot="end">
+        <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="modal-text" fullscreen>
+    
+    <h1 i18n="@@requestLeaveHomeTitle">¿Vas a salir de casa?</h1>
+      
+    <h3>
+      No puedes salir de casa al estar positivo en COVID-19
+    </h3>
+  
+    <p>
+      La responsabilidad y colaboración ciudadana es fundamental para la lucha contra el virus.
+    </p>
+  
+  </ion-content>
+  <ion-footer class="ion-no-border">
+    <ion-toolbar class="footer-app" >
+      <ion-button color="dark" (click)="backToHome()" expand="block" i18n="@@OK">OK</ion-button>
+    </ion-toolbar>
+  </ion-footer>

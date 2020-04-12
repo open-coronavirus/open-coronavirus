@@ -2,9 +2,11 @@ import {Injectable} from "@angular/core";
 import {SQLite, SQLiteObject} from "@ionic-native/sqlite/ngx";
 import {BehaviorSubject, Subject} from "rxjs";
 import {Contact} from "./contact";
-import {Platform} from "@ionic/angular";
+import {Platform, ModalController} from "@ionic/angular";
 import {ContactControllerService, ContactWithRelations} from "../../sdk";
 import {PatientService} from "../patient.service";
+import { ContactUploadRequestComponent } from 'src/app/main/contact-upload-request/contact-upload-request.component';
+import { ContactUploadThanksComponent } from 'src/app/main/contact-upload-thanks/contact-upload-thanks.component';
 
 
 @Injectable()
@@ -21,7 +23,8 @@ export class ContactTrackerService {
     public constructor(protected sqlite: SQLite,
                        protected contactControllerService: ContactControllerService,
                        protected patientService: PatientService,
-                       protected platform: Platform) {
+                       protected platform: Platform,
+                       protected modalController: ModalController) {
 
         this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {
@@ -220,7 +223,37 @@ export class ContactTrackerService {
 
     }
 
+    async showUploadContactRequestModal() {
+        const modalUploadContacts = await this.modalController.create(
+            {
+                component: ContactUploadRequestComponent,
+            });
 
+        modalUploadContacts.onDidDismiss()
+            .then((response) => {
+                if (response.data.accepts) {
+                    this.uploadContactsAndShowThanksModal();
+
+                }
+            });
+
+        return await modalUploadContacts.present();
+    }
+
+    async showUploadContactThanksModal() {
+        const modalUploadContacts = await this.modalController.create(
+            {
+                component: ContactUploadThanksComponent,
+            });
+
+        return await modalUploadContacts.present();
+    }
+
+    async uploadContactsAndShowThanksModal() {
+        this.uploadContactsToServer().then( () => {
+            this.showUploadContactThanksModal();
+        });
+    }
 
 
 }

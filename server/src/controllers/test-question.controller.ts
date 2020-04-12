@@ -19,6 +19,8 @@ import {
 } from '@loopback/rest';
 import {LeaveRequest, TestQuestion, TestQuestionWithRelations} from '../models';
 import {TestQuestionRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class TestQuestionController {
   constructor(
@@ -34,6 +36,7 @@ export class TestQuestionController {
       },
     },
   })
+  //todo securize
   async create(
     @requestBody({
       content: {
@@ -58,6 +61,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['read']})
   async count(
     @param.query.object('where', getWhereSchemaFor(TestQuestion)) where?: Where<TestQuestion>,
   ): Promise<Count> {
@@ -79,6 +84,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['read']})
   async find(
     @param.query.object('filter', getFilterSchemaFor(TestQuestion)) filter?: Filter<TestQuestion>,
   ): Promise<TestQuestion[]> {
@@ -93,6 +100,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -119,6 +128,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['read']})
   async findById(
     @param.path.string('id') id: string,
     @param.query.object('filter', getFilterSchemaFor(TestQuestion)) filter?: Filter<TestQuestion>
@@ -138,6 +149,7 @@ export class TestQuestionController {
       },
     },
   })
+  //todo securize
   async findByQuestionId(
       @param.path.string('questionId') questionId: string
   ): Promise<TestQuestion | null> {
@@ -154,6 +166,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -175,6 +189,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() testQuestion: TestQuestion,
@@ -189,6 +205,8 @@ export class TestQuestionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'TestQuestion', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.testQuestionRepository.deleteById(id);
   }

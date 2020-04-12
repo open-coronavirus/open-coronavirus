@@ -35,7 +35,7 @@ export class BluetoothTrackingService {
 
     public startBluetoothTracking() {
 
-        if(this.settings.permissions.bluetooth && this.activated == false) {
+        if(this.settings.enabled.bluetooth && this.activated == false) {
             this.activated = true;
 
             this.patientService.patientLoaded$.subscribe(loaded => {
