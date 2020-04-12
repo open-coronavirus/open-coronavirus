@@ -1,20 +1,33 @@
 <ion-header>
     <ion-toolbar class="header-app">
         <ion-buttons slot="start">
-            <ion-icon size="large" (click)="goBack()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
+            <ion-icon size="large" (click)="goBack()" class="menu-icon filter-white menu-icon--abs" name="chevron-back-outline"></ion-icon>
         </ion-buttons>
         <div class="header-app__title" i18n="@@userInfoTitle">Mis datos</div>
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <avatar [userName]="userName"></avatar><br>
-                <p>Identificador: {{ user?.documentNumber }}</p>
-                <p>Nombre: {{ userName }}</p>
-                <p>Cargo: {{ user?.position }}</p>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <h1 class="screen-title" i18n="@@userInfoTitle">Mis datos</h1>
+    <p class="screen-text" i18n="@@userInfoText">Datos del policía</p>
+    <div class="user-info">
+        <div class="user-info__col-avatar">
+            <avatar [userName]="userName"></avatar>
+        </div>
+        <div class="user-info__col-texts">
+          <p class="user-info__title" i18n="@@userinfoid">Identificador</p>
+          <p class="user-info__name">{{ user?.documentNumber }}</p>
+          <p class="user-info__title" i18n="@@userinfoname">Nombre</p>
+          <p class="user-info__name">{{ userName }}</p>
+          <p class="user-info__title" i18n="@@userinfoposition">Cargo</p>
+          <p class="user-info__name">{{ user?.position }}</p>
+        </div>
+    </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <button class="btn btn--secondary btn--min" (click)="goExit()" expand="block" i18n="@@exitAccount">
+        <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-casa.svg">
+        Salir de la cuenta
+    </button>
+  </ion-toolbar>
+</ion-footer>

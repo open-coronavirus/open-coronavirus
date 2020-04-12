@@ -1,37 +1,26 @@
 <corona-header></corona-header>
 <ion-content>
 
-  <ion-grid class="result" [ngClass]="getClassStatus()">
-      <ion-row class="ion-align-items-center">
-          <ion-col size="6">
-              <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patient?.id'"></qrcode>
-          </ion-col>
-          <ion-col size="6">
-              <p class="result__title" i18n="@@qrresultcitizen">Ciudadano</p>
-              <p class="result__name">{{patient?.firstName}} {{patient?.lastName}}</p>
-              <h3 class="result__status">{{ getTextStatus() }}</h3>
-          </ion-col>
-      </ion-row>
-  </ion-grid>
+  <div class="result" [ngClass]="getClassStatus()">
+    <div class="result__col-qr">
+      <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patient?.id'"></qrcode>
+      <h1 class="result__status">{{ getTextStatus() }}</h1>
+    </div>
+    <div class="result__col-texts">
+      <p class="result__title" i18n="@@qrresultname">Nombre</p>
+      <p class="result__name"><strong>{{patient?.firstName}} {{patient?.lastName}}</strong></p>
+      <p class="result__title" i18n="@@qrresultdni">DNI</p>
+      <p class="result__name">{{patient?.documentNumber}}</p>
+      <p class="result__title" i18n="@@qrresultage">Fecha de nacimiento</p>
+      <p class="result__name">{{patient?.birthday | date:'dd/MM/yyyy'}}</p>
+      <p class="result__title" i18n="@@qrresultaddress">Dirección</p>
+      <p class="result__text">{{patient?.street}} {{patient?.apartment}} ({{patient?.postalCode}}) <br><a href="#" i18n="@@qrresultviewmap">Ver ubicación</a> </p>
+    </div>
+  </div>
 
   <div class="result__container">
-    <div class="result__box">
-      <div class="result__box-item">
-        <p class="result__box-title" i18n="@@qrresultdni">DNI</p>
-        <p class="result__box-value">{{patient?.documentNumber}}</p>
-      </div>
-      <div class="result__box-item">
-        <p class="result__box-title" i18n="@@qrresultage">Fecha de nacimiento</p>
-        <p class="result__box-value">{{patient?.birthday | date:'dd/MM/yyyy'}}</p>
-      </div>
-      <div class="result__box-item">
-        <p class="result__box-title" i18n="@@qrresultaddress">Dirección</p>
-        <p class="result__box-value">{{patient?.street}} {{patient?.apartment}} ({{patient?.postalCode}})</p>
-      </div>
-    </div>
-    <span class="result__map" i18n="@@qrresultmap" (click)="clickShowMore()" *ngIf="leaveRequests && leaveRequests.length" >Ver mapa movilidad</span>
 
-    <div class="result__timeline" *ngIf="showMore">
+    <div class="result__timeline">
 
       <ng-container *ngFor="let leaveRequest of leaveRequests">
 
@@ -54,8 +43,8 @@
     </div>
   </div>
 </ion-content>
-<ion-footer class="ion-no-border">
+<ion-footer>
   <ion-toolbar class="footer-app" >
-    <button class="btn" class="result__ok" (click)="goBack()" expand="block" i18n="@@okButton">OK</button>
+    <button class="btn" (click)="goBack()" expand="block" i18n="@@okButton">OK</button>
   </ion-toolbar>
 </ion-footer>

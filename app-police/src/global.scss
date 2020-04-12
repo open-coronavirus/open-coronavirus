@@ -33,20 +33,6 @@
   font-weight: 300;
 }
 
-.light-button {
-  --border-color: black !important;
-  --border-width: 2px !important;
-  --color: black;
-  --border-style: solid;
-  --background: white !important;
-  --background-activated: white;
-}
-
-.transparent-toolbar {
-  --background: white;
-  --border-style: none;
-}
-
 .button-icon {
   width: 25px;
   height: 25px;
@@ -59,9 +45,18 @@ ion-content, ion-toolbar{
   --padding-end: 16px;
   --padding-start: 16px;
   --padding-top: 16px;
+
+  &.modal-header{
+    --padding-bottom: 0;
+    --padding-end: 10px;
+    --padding-start: 0;
+    --padding-top: 0;
+    --border-width: 0!important;
+  }
 }
+
 .btn{
-  display: block;
+  display: flex;
   width: 100%;
   padding: 20px;
   font-size: 16px;
@@ -69,22 +64,37 @@ ion-content, ion-toolbar{
   color: #fff; 
   text-transform: uppercase;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 16px;
   background-color: #000000;
+  outline: none;
   
-  &--light{
-    background-color: #666;
+  &--secondary{
+    background-color: #f5f5f5;
     color: #000000;
   }
+  
+  &--min{
+    text-transform: initial;
+    font-weight: 400;
+  }
 
+  img{
+    margin-right: 5px;
+  }
+
+  &:nth-child(n+1){
+    margin-top: 8px;
+  }
 }
 
 .menu-icon {
   --color: white;
-}
 
-.menu-icon {
-  --color: white;
+  &--abs{
+    position: absolute;
+  }
 }
 
 .header-app {
@@ -92,13 +102,13 @@ ion-content, ion-toolbar{
   --background: #6292d3;
 
   &__title{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
     color: #fff;
     text-align: center;
 
     strong{
-      font-weight: 700;
+      font-weight: 400;
     }
   }
   &--modal{
@@ -108,9 +118,7 @@ ion-content, ion-toolbar{
         color: #000;
       }
     }
-
-  }
-  
+  }  
 }
 
 .filter-white {
@@ -140,4 +148,90 @@ ion-content, ion-toolbar{
 
 .emoji-thinking-face::before  {
   content: "\01F914";
+}
+
+.screen-title{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.17;
+  margin: 0 0 16px 0;
+}
+.screen-text{
+  font-size: 14px;  
+  line-height: 1.43;
+  margin: 0 0 10px 0;
+}
+
+.recuadro-info{  
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  padding: 16px;
+
+  &__title{  
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.17;
+    margin: 0;
+  }
+  &__text{  
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;   
+    margin: 0 0 16px 0; 
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &__status{
+    display: flex;
+    font-size: 14px;
+    line-height: 1;
+    margin: 0 0 16px 0; 
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    
+    &:before{
+      content: '';
+      display: block;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      background-color: #000000;
+      margin: 0 8px 0 0;
+    }
+   
+    &--quarentine{
+      &:before{
+        background-color: #ffca08;
+      }
+    }
+    &--infected{
+      &:before{
+        background-color: #c80f2e;
+      }
+    }
+    &--ok{
+      &:before{
+        background-color: #61bc7c;
+      }
+    }
+  }
+}
+
+.message{
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.29;
+  margin: 0 0 8px 0;
+
+  &--error{    
+    color: #c80f2e;  
+    background-color: #fdeff3;
+  }
+
 }

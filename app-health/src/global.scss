@@ -33,20 +33,6 @@
   font-weight: 300;
 }
 
-.light-button {
-  --border-color: black !important;
-  --border-width: 2px !important;
-  --color: black;
-  --border-style: solid;
-  --background: white !important;
-  --background-activated: white;
-}
-
-.transparent-toolbar {
-  --background: white;
-  --border-style: none;
-}
-
 .button-icon {
   width: 25px;
   height: 25px;
@@ -70,7 +56,7 @@ ion-content, ion-toolbar{
 }
 
 .btn{
-  display: block;
+  display: flex;
   width: 100%;
   padding: 20px;
   font-size: 16px;
@@ -78,6 +64,8 @@ ion-content, ion-toolbar{
   color: #fff; 
   text-transform: uppercase;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 16px;
   background-color: #000000;
   outline: none;
@@ -86,16 +74,27 @@ ion-content, ion-toolbar{
     background-color: #f5f5f5;
     color: #000000;
   }
+  
+  &--min{
+    text-transform: initial;
+    font-weight: 400;
+  }
+
+  img{
+    margin-right: 5px;
+  }
 
   &:nth-child(n+1){
     margin-top: 8px;
   }
-
 }
-
 
 .menu-icon {
   --color: white;
+
+  &--abs{
+    position: absolute;
+  }
 }
 
 .header-app {
@@ -103,13 +102,13 @@ ion-content, ion-toolbar{
   --background: #4fc195;
 
   &__title{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
     color: #fff;
     text-align: center;
 
     strong{
-      font-weight: 700;
+      font-weight: 400;
     }
   }
   &--modal{
@@ -119,9 +118,7 @@ ion-content, ion-toolbar{
         color: #000;
       }
     }
-
-  }
-  
+  }  
 }
 
 .filter-white {

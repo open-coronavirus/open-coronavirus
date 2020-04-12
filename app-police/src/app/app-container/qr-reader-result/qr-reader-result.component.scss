@@ -1,5 +1,23 @@
 .result{
-  $result: &;
+  $result: &;  
+  border-radius: 8px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 32px 0;
+
+
+  &__col{
+    &-qr{
+      width: calc(40% - 12px);
+
+    }
+    &-texts{
+      width: calc(60% - 12px);
+
+    }
+  }
   
   &__qr{
     display: block;
@@ -9,30 +27,41 @@
   }
   &__title{
     font-size: 12px;
-    line-height: 16px;
-    color: #9b9b9b;
+    line-height: 14px;
     font-weight: 300;
     margin: 0;
   }
   &__name{
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 20px;
-    color: #000;
     margin: 0 0 12px 0 ;
+  }
+  &__text{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 0 12px 0 ;
+    a{
+      color: #000;
+      text-decoration: underline;
+    }
   }
   &__status{  
     font-weight: bold;
     margin: 0;
-    line-height: 1;
-    font-size: 16px;
-    line-height: 16px;    
+    line-height: 1;  
+    font-size: 12px;
+    line-height: 14px;    
+    text-transform: uppercase;
+    text-align: center;
   }
 
   &--quarentine{
     #{ $result }{
       &__status{
         color: #ffca08;
-        font-size: 16px;
+        font-size: 12px;
       }
     }
   }
@@ -40,7 +69,6 @@
     #{ $result }{
       &__status{
         color: #c80f2e;
-        font-size: 16px;
         text-transform: uppercase;
       }
     }
@@ -49,7 +77,6 @@
     #{ $result }{
       &__status{
         color: #61bc7c;  
-        font-size: 16px;
         text-transform: uppercase;
       }
     }

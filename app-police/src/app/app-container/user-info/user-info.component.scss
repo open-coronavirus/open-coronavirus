@@ -1,0 +1,39 @@
+.user-info{
+  border-radius: 8px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+
+
+  &__col{
+    &-avatar{
+      width: 60px;
+      .circle{
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+      }
+    }
+    &-texts{
+      width: calc(100% - 84px);
+    }
+  }
+  &__title{
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+    margin: 0;
+  }
+  &__name{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 0 12px 0;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}

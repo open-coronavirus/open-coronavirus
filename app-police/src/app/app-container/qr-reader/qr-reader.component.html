@@ -1,13 +1,8 @@
 <corona-header></corona-header>
 <ion-content>
+    <h1 class="screen-title" i18n="@@titleIdentify">Identificar a un ciudadano</h1>
     <div class="scan-recuadro">
-        <ion-grid>
-            <ion-row>
-                <ion-col>
-                    <img [src]="'/assets/images/qr-fake-gris.svg'">
-                    <button class="btn"  class="btn-escanear" (click)="scanQR()" expand="block" i18n="@@scanButton">Escanear QR</button>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+        <img [src]="'/assets/images/qr-fake-gris.svg'">
+        <button class="btn btn--escanear" (click)="scanQR()" expand="block" i18n="@@scanButton">Escanear QR</button>
     </div>
 </ion-content>
