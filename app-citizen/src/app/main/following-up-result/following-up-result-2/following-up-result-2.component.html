@@ -1,15 +1,23 @@
-<ion-header translucent>
-  <ion-toolbar class="modal-header">
-    <ion-buttons slot="end">
-      <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
-    </ion-buttons>
+<ion-header>
+  <ion-toolbar class="header-app">
+      <ion-buttons slot="start">
+          <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
+      </ion-buttons>
+      <div class="header-app__title" i18n="@@followinUpMainTitle">Seguimiento de tu salud</div>
   </ion-toolbar>
 </ion-header>
-<ion-content class="modal-text" fullscreen>
-  <h1 i18n="@@requestLeaveHomeTitle">Following Up Resultado 2</h1>
+<ion-content>
+  <h1 class="screen-title" i18n="@@followinUResult2Title">Resultado del seguimiento</h1>
+  <p i18n="@@followinUResult2Text1">Sus síntomas no han empeorado ni tiene síntomas nuevos.</p>
+  <p i18n="@@followinUResult2Text2">Debe seguir haciendo recurrentemente seguimiento de su salud y recomendamos el distanciamiento físico o pedir opcionalmente una prueba de diagnóstico drive-through que le permitiría salir en caso de ser negativo</p>
 
+  <p (click)="requestTest()" i18n="@@followinUResult2BtnRequestTest">SOLICITAR TEST COVID-19</p>
+  <p i18n="@@followinUResult2Text3">Medidas de distanciamiento físicos</p>
+  <ul>
+    <li i18n="@@followinUResult2List1_1">Quédese en casa según lo dictado por la autoridad.</li>
+    <li i18n="@@followinUResult2List1_2">Salga a comprar alimentos y otros mandados esenciales una vez a la semana.</li>
+    <li i18n="@@followinUResult2List1_3">Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</li>
+    <li i18n="@@followinUResult2List1_4">Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</li>
+  </ul>
 
 </ion-content>
-<div class="footer-buttons-container">
-  <button class="btn" (click)="backToHome()" expand="block" i18n="@@enter">OK</button>
-</div>
