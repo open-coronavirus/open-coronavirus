@@ -11,7 +11,7 @@
             <h3 class="result__status">{{ getTextStatus() }}</h3>
         </div>
     </div>
-   
+
     <div  class="appointment"  *ngIf="false"><!-- este caso es cuando es ambulancia -->
         <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
         <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
@@ -77,7 +77,7 @@
         <!--<a (click)="valeriaDemoConfirmarContact()">valeriaDemoConfirmarContact</a>-->
     </div>
 
-    <div (click)="uploadContactsAndShowThanksModal()">
+    <div i18n="@@coronavirusSendInfo" (click)="uploadContactsAndShowThanksModal()">
         ENVIAR INFORMACIÓN DE FORMA ANÓNIMA DE CRUCES CON CIUDADANOS Y AUTORIZAR SU USO
     </div>
 
