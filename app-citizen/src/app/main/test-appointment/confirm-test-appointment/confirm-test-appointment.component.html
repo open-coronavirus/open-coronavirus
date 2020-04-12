@@ -2,10 +2,10 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <h1 i18n="@@requestTestConfirmationTitle">¿Estás seguro de pedir el test del coronavirus?</h1>
-                <p i18n="@@requestTestConfirmationDescription">Te daremos cita para que vayas a realizar el test o enviaremos una ambulancia a tu domicilio</p>
-                <button class="btn" (click)="requestTest()" color="dark" expand="block" i18n="@@requestTestButton">Si, solicitar test</button>
-                <button class="btn" color="light" (click)="backToHome()" expand="block" i18n="@@backButton">No, estoy bien</button>
+                <h1 class="screen-title" i18n="@@requestTestConfirmationTitle">¿Estás seguro de pedir el test del coronavirus?</h1>
+                <p class="screen-text screen-text--mb-big" i18n="@@requestTestConfirmationDescription">Te daremos cita para que vayas a realizar el test.</p>
+                <button class="btn btn--min" (click)="requestTest()" i18n="@@requestTestButton">Sí, solicitar test</button>
+                <button class="btn btn--secondar ybtn--min" (click)="backToHome()" i18n="@@backButton">Volver</button>
             </ion-col>
         </ion-row>
     </ion-grid>

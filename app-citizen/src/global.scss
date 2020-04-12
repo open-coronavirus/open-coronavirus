@@ -83,7 +83,7 @@ ion-content, ion-toolbar{
   }
 
   img{
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
   &:nth-child(n+1){
@@ -166,6 +166,9 @@ ion-content, ion-toolbar{
   font-size: 14px;  
   line-height: 1.43;
   margin: 0 0 10px 0;
+  &--mb-big{
+    margin-bottom: 80px;
+  }
 }
 .circle-icon{
   margin: 16px 0;
@@ -257,4 +260,85 @@ ion-content, ion-toolbar{
     background-color: #fdeff3;
   }
 
+}
+
+.recuadro-test{    
+  margin: 16px 0;
+  border-radius: 16px;
+  padding: 24px;  
+  font-size: 16px;
+  line-height: 1.3;
+
+  &--big{
+    font-size: 20px;
+  }
+
+  &--danger{    
+    background-color: #fdeff3;  
+    color: #c80f2e;
+  }
+  &--alert{
+    background-color :#FFFBDC;
+  }
+  &--ok{     
+    background-color: #DFF2E5;
+  }
+  p{
+    margin: 0 0 16px 0;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .recuadro-title{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+}
+.resultado-title{  
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  margin: 0 0 8px 0;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.resultado-text{  
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.29;
+  margin: 0 0 16px 0;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  &--separa{
+    margin-bottom: 24px;
+  }
+}
+.resultado-list{  
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.29;
+  margin: 0 0 16px 0;
+  padding-left: 18px;
+  
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  li{
+    margin: 0 0 16px 0;
+  
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
 }

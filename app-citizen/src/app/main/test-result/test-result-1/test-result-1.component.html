@@ -4,11 +4,11 @@
           <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
       </ion-buttons>
       <div class="header-app__title">Autoevaluación de COVID-19</div>
-      <ion-buttons *ngIf="showExitButton" slot="end">
-          <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
-      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <h1 i18n="@@requestLeaveHomeTitle">Test Resultado 1</h1>
+  <h1 class="screen-title" i18n="@@requestLeaveHomeTitle">Resultado de la autoevaluación de COVID-19</h1>
+  <div class="recuadro-test recuadro-test--big recuadro-test--danger">
+    <p><strong>Llame al 112</strong> o vaya directamente al departamento de emergencias más cercano.</p>
+  </div>  
 </ion-content>
