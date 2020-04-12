@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from "@angular/core";
 import { Location } from "@angular/common";
-import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 
@@ -19,6 +18,10 @@ export class TestResult4Component {
         protected navCtrl: NavController) {
 
 
+    }
+
+    public goBack() {
+        this.location.back();
     }
 
     public backToHome() {

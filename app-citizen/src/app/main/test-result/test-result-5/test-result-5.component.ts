@@ -21,6 +21,14 @@ export class TestResult5Component {
 
     }
 
+    public goBack() {
+        this.location.back();
+    }
+
+    public requestTest() {
+        this.navCtrl.navigateForward(['/app/test-appointment/at-health-center/confirm']);
+    }
+
     public backToHome() {
         this.navCtrl.navigateBack(['/app/home']);
     }
