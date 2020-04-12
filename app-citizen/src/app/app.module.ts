@@ -35,6 +35,8 @@ import {SQLite} from "@ionic-native/sqlite/ngx";
 import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.service";
 import {UniqueDeviceID} from "@ionic-native/unique-device-id/ngx";
 import {InstallationService} from "./shared/services/installation.service";
+import {PushNotificationService} from "./shared/services/push-notification.service";
+import {Push} from "@ionic-native/push/ngx";
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import {InstallationService} from "./shared/services/installation.service";
         PermissionsService,
         StorageService,
         NativeStorage,
+        PushNotificationService,
+        Push,
         SQLite,
         ShareService,
         ContactTrackerService,

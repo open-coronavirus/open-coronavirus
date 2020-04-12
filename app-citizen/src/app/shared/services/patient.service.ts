@@ -90,6 +90,7 @@ export class PatientService {
                 this.patientLoaded$.subscribe(loaded => {
                     if (loaded) {
                         this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
+
                             returnValue.next(newPatient);
                         });
                     }

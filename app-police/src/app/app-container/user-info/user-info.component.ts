@@ -31,4 +31,9 @@ export class UserInfoComponent implements OnInit {
         this.navCtrl.back();
     }
 
+    public goExit() {
+        this.userService.user = null;
+        this.navCtrl.navigateRoot(['login']);
+    }
+
 }
