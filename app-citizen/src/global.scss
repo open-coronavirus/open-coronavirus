@@ -54,8 +54,9 @@ ion-content, ion-toolbar{
     --border-width: 0!important;
   }
 }
-
-
+.modal-text__mb-big{
+  margin-bottom: 80px;
+}
 .btn{
   display: flex;
   width: 100%;
@@ -265,12 +266,13 @@ ion-content, ion-toolbar{
 .recuadro-test{    
   margin: 16px 0;
   border-radius: 16px;
-  padding: 24px;  
+  padding: 16px;  
   font-size: 16px;
   line-height: 1.3;
 
   &--big{
     font-size: 20px;
+    padding: 24px;  
   }
 
   &--danger{    
@@ -287,6 +289,22 @@ ion-content, ion-toolbar{
     margin: 0 0 16px 0;
     &:last-child{
       margin-bottom: 0;
+    }
+  }
+  ul{    
+    margin: 0 0 16px 0;
+    padding-left: 18px;
+    
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    li{
+      margin: 0 0 16px 0;
+    
+      &:last-child{
+        margin-bottom: 0;
+      }
     }
   }
   .recuadro-title{
@@ -307,6 +325,9 @@ ion-content, ion-toolbar{
 
   &:last-child{
     margin-bottom: 0;
+  }
+  &--mb-big{
+    margin-bottom: 24px;
   }
 }
 .resultado-text{  

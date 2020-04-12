@@ -148,7 +148,7 @@ export class HomeComponent implements OnDestroy {
     public share() {
         this.shareService.share();
 
-        this.router.navigate(['/app/test-result/result/3']); // del 1 al 5
+        this.router.navigate(['/app/test-result/result/5']); // del 1 al 5
         // this.router.navigate(['/app/following-up-result/result/2']);
     }
 

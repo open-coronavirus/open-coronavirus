@@ -4,37 +4,30 @@
           <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
       </ion-buttons>
       <div class="header-app__title"i18n="@@autoTestMainTitle">Autoevaluación de COVID-19</div>
-      <ion-buttons slot="end">
-          <ion-icon size="large" (click)="backToHome()" name="close-outline"></ion-icon>
-      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 i18n="@@testResult4Title">Resultado de la autoevaluación de COVID-19</h1>
+  <h1 class="screen-title" i18n="@@testResult4Title">Resultado de la autoevaluación de COVID-19</h1>
+  <div class="recuadro-test recuadro-test--alert">
+    <p i18n="@@testResult4Text1"><strong>Tiene clínica sospechosa de infección leve o moderada</strong> y tiene mayor riesgo que el resto de la población de padecer la enfermedad Covid. Para más instrucciones, por favor, comuníquese con:</p>
+    <ul>
+      <li i18n="@@testResult4List1_1">Su proveedor de atención primaria (por ejemplo, médico de familia) para una consulta telefónica o evaluación virtual</li>
+      <li i18n="@@testResult4List1_2">Alternativamente contacte con el teleoperador sanitario XXXXXX  para hablar con un profesional sanitario</li>
+    </ul>
+  </div>   
 
-  <p i18n="@@testResult4Text1">Tiene clínica sospechosa de infección leve o moderada y tiene mayor riesgo que el resto de la población de padecer la enfermedad Covid. Para más instrucciones, por favor, comuníquese con:</p>
-  <ul>
-    <li i18n="@@testResult4List1_1">Su proveedor de atención primaria (por ejemplo, médico de familia) para una consulta telefónica o evaluación virtual</li>
-    <li i18n="@@testResult4List1_2">Alternativamente contacte con el teleoperador sanitario XXXXXX  para hablar con un profesional sanitario</li>
-  </ul>
+  <h2 class="resultado-title" i18n="@@testResult4Text2">Volúmenes de llamadas</h2>
+  <p class="resultado-text" i18n="@@testResult4Text3">Por favor tenga en cuenta que su teleoperador puede estar experimentando grandes volúmenes de llamadas y atenderá su llamada lo más rápido posible.</p>
 
-
-  <p i18n="@@testResult4Text2">Volúmenes de llamadas</p>
-  <p i18n="@@testResult4Text3">Por favor tenga en cuenta que su teleoperador puede estar experimentando grandes volúmenes de llamadas y atenderá su llamada lo más rápido posible.</p>
-
-
-  <p i18n="@@testResult4Text4">También debe aislarse a sí mismo, lo que significa:</p>
-  <ul>
+  <h2 class="resultado-title" i18n="@@testResult4Text4">También debe aislarse a sí mismo, lo que significa:</h2>
+  <ul class="resultado-list">
     <li i18n="@@testResult4List2_1">Solo salga de su casa o vea a otras personas por razones críticas (como una emergencia médica)</li>
     <li i18n="@@testResult4List2_2">Utilice proveedores de servicios (compras de diario, etc. .)  por teléfono o en línea o solicite ayuda de amigos, familiares o vecinos</li>
     <li i18n="@@testResult4List2_3"> No acuda al hospital, o clínica para hacerse una prueba COVID-19 a menos que se lo solicite un profesional sanitario</li>
   </ul>
-  <p i18n="@@testResult4Text5">La mayoría de las enfermedades COVID-19 son leves. Si comienza a experimentar un empeoramiento de los síntomas, visite su departamento de emergencias local. Llame antes de ir y dígales que ha utilizado esta herramienta de autoevaluación.</p>
+  <p  class="resultado-title resultado-title--mb-big" i18n="@@testResult4Text5">La mayoría de las enfermedades COVID-19 son leves. Si comienza a experimentar un empeoramiento de los síntomas, visite su departamento de emergencias local. Llame antes de ir y dígales que ha utilizado esta herramienta de autoevaluación.</p>
 
 
-  <p i18n="@@testResult5BtnOK" (click)="backToHome()">OK</p>
+  <button class="btn" i18n="@@testResult5BtnOK" (click)="backToHome()">OK</button>
 
 </ion-content>
-<div class="footer-buttons-container">
-  <button class="btn" color="dark" (click)="backToHome()" expand="block" i18n="@@enter">OK</button>
-</div>
