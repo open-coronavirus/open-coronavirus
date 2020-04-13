@@ -49,13 +49,15 @@
           if (n.r(e), Object.defineProperty(e, "default", {
             enumerable: !0,
             value: t
-          }), 2 & r && "string" != typeof t) for (var o in t) n.d(e, o, function (r) {
-            return t[r];
-          }.bind(null, o));
+          }), 2 & r && "string" != typeof t) for (var o in t) {
+            n.d(e, o, function (r) {
+              return t[r];
+            }.bind(null, o));
+          }
           return e;
         }, n.n = function (t) {
           var r = t && t.__esModule ? function () {
-            return t.default;
+            return t["default"];
           } : function () {
             return t;
           };
@@ -412,19 +414,21 @@
               l = 6 == t,
               h = 5 == t || l;
           return function (p, v, g, d) {
-            for (var y, x, m = i(p), b = o(m), S = e(v, g, 3), w = u(b.length), E = 0, O = d || a, A = r ? O(p, w) : n ? O(p, 0) : void 0; w > E; E++) if ((h || E in b) && (x = S(y = b[E], E, m), t)) if (r) A[E] = x;else if (x) switch (t) {
-              case 3:
-                return !0;
+            for (var y, x, m = i(p), b = o(m), S = e(v, g, 3), w = u(b.length), E = 0, O = d || a, A = r ? O(p, w) : n ? O(p, 0) : void 0; w > E; E++) {
+              if ((h || E in b) && (x = S(y = b[E], E, m), t)) if (r) A[E] = x;else if (x) switch (t) {
+                case 3:
+                  return !0;
 
-              case 5:
-                return y;
+                case 5:
+                  return y;
 
-              case 6:
-                return E;
+                case 6:
+                  return E;
 
-              case 2:
-                c.call(A, y);
-            } else if (f) return !1;
+                case 2:
+                  c.call(A, y);
+              } else if (f) return !1;
+            }
 
             return l ? -1 : s || f ? f : A;
           };
@@ -638,7 +642,9 @@
               r = c("iframe"),
               n = i.length;
 
-          for (r.style.display = "none", a.appendChild(r), r.src = String("javascript:"), (t = r.contentWindow.document).open(), t.write("<script>document.F=Object<\/script>"), t.close(), _l = t.F; n--;) delete _l.prototype[i[n]];
+          for (r.style.display = "none", a.appendChild(r), r.src = String("javascript:"), (t = r.contentWindow.document).open(), t.write("<script>document.F=Object<\/script>"), t.close(), _l = t.F; n--;) {
+            delete _l.prototype[i[n]];
+          }
 
           return _l();
         };
@@ -711,7 +717,9 @@
               new y(t);
             }),
                 R = !d && l(function () {
-              for (var t = new y(), r = 5; r--;) t[b](r, r);
+              for (var t = new y(), r = 5; r--;) {
+                t[b](r, r);
+              }
 
               return !t.has(-0);
             });
@@ -754,7 +762,9 @@
             if ("function" != typeof (p = a(t))) throw TypeError("Target is not iterable");
 
             if (o(p)) {
-              for (v = 0, g = i(t.length); g > v; v++) if ((d = f ? x(e(y = t[v])[0], y[1]) : x(t[v])) && d instanceof s) return d;
+              for (v = 0, g = i(t.length); g > v; v++) {
+                if ((d = f ? x(e(y = t[v])[0], y[1]) : x(t[v])) && d instanceof s) return d;
+              }
 
               return new s(!1);
             }
@@ -762,7 +772,9 @@
             h = p.call(t);
           }
 
-          for (; !(y = h.next()).done;) if ((d = c(h, x, y.value, f)) && d instanceof s) return d;
+          for (; !(y = h.next()).done;) {
+            if ((d = c(h, x, y.value, f)) && d instanceof s) return d;
+          }
 
           return new s(!1);
         }).stop = function (t) {
@@ -772,12 +784,14 @@
         var e = n(15);
 
         t.exports = function (t, r, n) {
-          for (var o in r) e(t, o, r[o], n);
+          for (var o in r) {
+            e(t, o, r[o], n);
+          }
 
           return t;
         };
       }, function (t, r) {
-        t.exports = "\t\n\v\f\r                　\u2028\u2029\ufeff";
+        t.exports = "\t\n\x0B\f\r \xA0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF";
       }, function (t, r, n) {
         "use strict";
 
@@ -1014,7 +1028,9 @@
             values: E("values"),
             keys: x ? j : E("keys"),
             entries: E("entries")
-          }, m) for (w in S) !g && !A && w in I || s(I, w, S[w]);else e({
+          }, m) for (w in S) {
+            !g && !A && w in I || s(I, w, S[w]);
+          } else e({
             target: r,
             proto: !0,
             forced: g || A
@@ -1078,7 +1094,9 @@
               i = e(t);
           if (i < 0 || i == 1 / 0) throw RangeError("Wrong number of repetitions");
 
-          for (; i > 0; (i >>>= 1) && (r += r)) 1 & i && (n += r);
+          for (; i > 0; (i >>>= 1) && (r += r)) {
+            1 & i && (n += r);
+          }
 
           return n;
         };
@@ -1132,7 +1150,9 @@
               o,
               c = this;
           return f && (n = new RegExp("^" + c.source + "$(?!\\s)", i.call(c))), s && (r = c.lastIndex), e = u.call(c, t), s && e && (c.lastIndex = c.global ? e.index + e[0].length : r), f && e && e.length > 1 && a.call(e[0], n, function () {
-            for (o = 1; o < arguments.length - 2; o++) void 0 === arguments[o] && (e[o] = void 0);
+            for (o = 1; o < arguments.length - 2; o++) {
+              void 0 === arguments[o] && (e[o] = void 0);
+            }
           }), e;
         }), t.exports = c;
       }, function (t, r, n) {
@@ -1195,9 +1215,13 @@
               c = 0,
               s = [];
 
-          for (n in a) !e(u, n) && e(a, n) && s.push(n);
+          for (n in a) {
+            !e(u, n) && e(a, n) && s.push(n);
+          }
 
-          for (; r.length > c;) e(a, n = r[c++]) && (~i(s, n) || s.push(n));
+          for (; r.length > c;) {
+            e(a, n = r[c++]) && (~i(s, n) || s.push(n));
+          }
 
           return s;
         };
@@ -1213,8 +1237,12 @@
                 f = i(u, s);
 
             if (t && n != n) {
-              for (; s > f;) if ((a = c[f++]) != a) return !0;
-            } else for (; s > f; f++) if ((t || f in c) && c[f] === n) return t || f || 0;
+              for (; s > f;) {
+                if ((a = c[f++]) != a) return !0;
+              }
+            } else for (; s > f; f++) {
+              if ((t || f in c) && c[f] === n) return t || f || 0;
+            }
 
             return !t && -1;
           };
@@ -1234,7 +1262,9 @@
         t.exports = e ? Object.defineProperties : function (t, r) {
           i(t);
 
-          for (var n, e = u(r), a = e.length, c = 0; a > c;) o.f(t, n = e[c++], r[n]);
+          for (var n, e = u(r), a = e.length, c = 0; a > c;) {
+            o.f(t, n = e[c++], r[n]);
+          }
 
           return t;
         };
@@ -1284,7 +1314,11 @@
               d = void 0 !== g,
               y = 0,
               x = s(h);
-          if (d && (g = e(g, v > 2 ? arguments[2] : void 0, 2)), null == x || p == Array && u(x)) for (n = new p(r = a(h.length)); r > y; y++) c(n, y, d ? g(h[y], y) : h[y]);else for (l = x.call(h), n = new p(); !(f = l.next()).done; y++) c(n, y, d ? i(l, g, [f.value, y], !0) : f.value);
+          if (d && (g = e(g, v > 2 ? arguments[2] : void 0, 2)), null == x || p == Array && u(x)) for (n = new p(r = a(h.length)); r > y; y++) {
+            c(n, y, d ? g(h[y], y) : h[y]);
+          } else for (l = x.call(h), n = new p(); !(f = l.next()).done; y++) {
+            c(n, y, d ? i(l, g, [f.value, y], !0) : f.value);
+          }
           return n.length = y, n;
         };
       }, function (t, r, n) {
@@ -1294,7 +1328,7 @@
           try {
             return o ? r(e(n)[0], n[1]) : r(n);
           } catch (r) {
-            var i = t.return;
+            var i = t["return"];
             throw void 0 !== i && e(i.call(t)), r;
           }
         };
@@ -1319,7 +1353,7 @@
                 done: !!i++
               };
             },
-            return: function _return() {
+            "return": function _return() {
               o = !0;
             }
           };
@@ -1488,16 +1522,20 @@
                   o = h(r);
               if ("F" !== o) return e.index[o];
 
-              for (n = e.first; n; n = n.next) if (n.key == r) return n;
+              for (n = e.first; n; n = n.next) {
+                if (n.key == r) return n;
+              }
             };
 
             return i(f.prototype, {
               clear: function clear() {
-                for (var t = p(this), r = t.index, n = t.first; n;) n.removed = !0, n.previous && (n.previous = n.previous.next = void 0), delete r[n.index], n = n.next;
+                for (var t = p(this), r = t.index, n = t.first; n;) {
+                  n.removed = !0, n.previous && (n.previous = n.previous.next = void 0), delete r[n.index], n = n.next;
+                }
 
                 t.first = t.last = void 0, l ? t.size = 0 : this.size = 0;
               },
-              delete: function _delete(t) {
+              "delete": function _delete(t) {
                 var r = p(this),
                     n = y(this, t);
 
@@ -1510,7 +1548,11 @@
                 return !!n;
               },
               forEach: function forEach(t) {
-                for (var r, n = p(this), e = u(t, arguments.length > 1 ? arguments[1] : void 0, 3); r = r ? r.next : n.first;) for (e(r.value, r.key, this); r && r.removed;) r = r.previous;
+                for (var r, n = p(this), e = u(t, arguments.length > 1 ? arguments[1] : void 0, 3); r = r ? r.next : n.first;) {
+                  for (e(r.value, r.key, this); r && r.removed;) {
+                    r = r.previous;
+                  }
+                }
               },
               has: function has(t) {
                 return !!y(this, t);
@@ -1546,7 +1588,9 @@
                 last: void 0
               });
             }, function () {
-              for (var t = i(this), r = t.kind, n = t.last; n && n.removed;) n = n.previous;
+              for (var t = i(this), r = t.kind, n = t.last; n && n.removed;) {
+                n = n.previous;
+              }
 
               return t.target && (t.last = n = n ? n.next : t.state.first) ? "keys" == r ? {
                 value: n.key,
@@ -1590,7 +1634,11 @@
             r[t] = t;
           }), 7 != f({}, t)[n] || "abcdefghijklmnopqrst" != i(f({}, r)).join("");
         }) ? function (t, r) {
-          for (var n = c(t), o = arguments.length, f = 1, l = u.f, h = a.f; o > f;) for (var p, v = s(arguments[f++]), g = l ? i(v).concat(l(v)) : i(v), d = g.length, y = 0; d > y;) p = g[y++], e && !h.call(v, p) || (n[p] = v[p]);
+          for (var n = c(t), o = arguments.length, f = 1, l = u.f, h = a.f; o > f;) {
+            for (var p, v = s(arguments[f++]), g = l ? i(v).concat(l(v)) : i(v), d = g.length, y = 0; d > y;) {
+              p = g[y++], e && !h.call(v, p) || (n[p] = v[p]);
+            }
+          }
 
           return n;
         } : f;
@@ -1601,7 +1649,9 @@
             u = n(59).f,
             a = function a(t) {
           return function (r) {
-            for (var n, a = i(r), c = o(a), s = c.length, f = 0, l = []; s > f;) n = c[f++], e && !u.call(a, n) || l.push(t ? [n, a[n]] : a[n]);
+            for (var n, a = i(r), c = o(a), s = c.length, f = 0, l = []; s > f;) {
+              n = c[f++], e && !u.call(a, n) || l.push(t ? [n, a[n]] : a[n]);
+            }
 
             return l;
           };
@@ -1717,7 +1767,7 @@
             var n = m(this, t);
             n ? n[1] = r : this.entries.push([t, r]);
           },
-          delete: function _delete(t) {
+          "delete": function _delete(t) {
             var r = g(this.entries, function (r) {
               return r[0] === t;
             });
@@ -1740,11 +1790,11 @@
             };
 
             return e(l.prototype, {
-              delete: function _delete(t) {
+              "delete": function _delete(t) {
                 var r = v(this);
                 if (!u(t)) return !1;
                 var n = o(t);
-                return !0 === n ? y(r).delete(t) : n && f(n, r.id) && delete n[r.id];
+                return !0 === n ? y(r)["delete"](t) : n && f(n, r.id) && delete n[r.id];
               },
               has: function has(t) {
                 var r = v(this);
@@ -1823,7 +1873,9 @@
           try {
             return decodeURIComponent(r);
           } catch (t) {
-            for (; n;) r = r.replace(E(n--), O);
+            for (; n;) {
+              r = r.replace(E(n--), O);
+            }
 
             return r;
           }
@@ -1844,10 +1896,12 @@
           return encodeURIComponent(t).replace(I, j);
         },
             L = function L(t, r) {
-          if (r) for (var n, e, o = r.split("&"), i = 0; i < o.length;) (n = o[i++]).length && (e = n.split("="), t.push({
-            key: A(e.shift()),
-            value: A(e.join("="))
-          }));
+          if (r) for (var n, e, o = r.split("&"), i = 0; i < o.length;) {
+            (n = o[i++]).length && (e = n.split("="), t.push({
+              key: A(e.shift()),
+              value: A(e.join("="))
+            }));
+          }
         },
             P = function P(t) {
           this.entries.length = 0, L(this.entries, t);
@@ -1892,10 +1946,12 @@
                 key: o.value + "",
                 value: i.value + ""
               });
-            } else for (u in a) l(a, u) && s.push({
-              key: u,
-              value: a[u] + ""
-            });
+            } else for (u in a) {
+              l(a, u) && s.push({
+                key: u,
+                value: a[u] + ""
+              });
+            }
           } else L(s, "string" == typeof a ? "?" === a.charAt(0) ? a.slice(1) : a : a + "");
         },
             U = T.prototype;
@@ -1910,38 +1966,48 @@
               value: r + ""
             }), n.updateURL();
           },
-          delete: function _delete(t) {
+          "delete": function _delete(t) {
             _(arguments.length, 1);
 
-            for (var r = m(this), n = r.entries, e = t + "", o = 0; o < n.length;) n[o].key === e ? n.splice(o, 1) : o++;
+            for (var r = m(this), n = r.entries, e = t + "", o = 0; o < n.length;) {
+              n[o].key === e ? n.splice(o, 1) : o++;
+            }
 
             r.updateURL();
           },
           get: function get(t) {
             _(arguments.length, 1);
 
-            for (var r = m(this).entries, n = t + "", e = 0; e < r.length; e++) if (r[e].key === n) return r[e].value;
+            for (var r = m(this).entries, n = t + "", e = 0; e < r.length; e++) {
+              if (r[e].key === n) return r[e].value;
+            }
 
             return null;
           },
           getAll: function getAll(t) {
             _(arguments.length, 1);
 
-            for (var r = m(this).entries, n = t + "", e = [], o = 0; o < r.length; o++) r[o].key === n && e.push(r[o].value);
+            for (var r = m(this).entries, n = t + "", e = [], o = 0; o < r.length; o++) {
+              r[o].key === n && e.push(r[o].value);
+            }
 
             return e;
           },
           has: function has(t) {
             _(arguments.length, 1);
 
-            for (var r = m(this).entries, n = t + "", e = 0; e < r.length;) if (r[e++].key === n) return !0;
+            for (var r = m(this).entries, n = t + "", e = 0; e < r.length;) {
+              if (r[e++].key === n) return !0;
+            }
 
             return !1;
           },
           set: function set(t, r) {
             _(arguments.length, 1);
 
-            for (var n, e = m(this), o = e.entries, i = !1, u = t + "", a = r + "", c = 0; c < o.length; c++) (n = o[c]).key === u && (i ? o.splice(c--, 1) : (i = !0, n.value = a));
+            for (var n, e = m(this), o = e.entries, i = !1, u = t + "", a = r + "", c = 0; c < o.length; c++) {
+              (n = o[c]).key === u && (i ? o.splice(c--, 1) : (i = !0, n.value = a));
+            }
 
             i || o.push({
               key: u,
@@ -1957,9 +2023,11 @@
                 i = o.slice();
 
             for (o.length = 0, n = 0; n < i.length; n++) {
-              for (t = i[n], r = 0; r < n; r++) if (o[r].key > t.key) {
-                o.splice(r, 0, t);
-                break;
+              for (t = i[n], r = 0; r < n; r++) {
+                if (o[r].key > t.key) {
+                  o.splice(r, 0, t);
+                  break;
+                }
               }
 
               r === n && o.push(t);
@@ -1968,7 +2036,9 @@
             e.updateURL();
           },
           forEach: function forEach(t) {
-            for (var r, n = m(this).entries, e = h(t, arguments.length > 1 ? arguments[1] : void 0, 3), o = 0; o < n.length;) e((r = n[o++]).value, r.key, this);
+            for (var r, n = m(this).entries, e = h(t, arguments.length > 1 ? arguments[1] : void 0, 3), o = 0; o < n.length;) {
+              e((r = n[o++]).value, r.key, this);
+            }
           },
           keys: function keys() {
             return new N(this, "keys");
@@ -1982,7 +2052,9 @@
         }, {
           enumerable: !0
         }), i(U, y, U.entries), i(U, "toString", function () {
-          for (var t, r = m(this).entries, n = [], e = 0; e < r.length;) t = r[e++], n.push(k(t.key) + "=" + k(t.value));
+          for (var t, r = m(this).entries, n = [], e = 0; e < r.length;) {
+            t = r[e++], n.push(k(t.key) + "=" + k(t.value));
+          }
 
           return n.join("&");
         }, {
@@ -2037,13 +2109,17 @@
                 l = f(u, 0),
                 h = 0;
 
-            for (r = -1, e = arguments.length; r < e; r++) if (i = -1 === r ? u : arguments[r], g(i)) {
-              if (h + (o = c(i.length)) > 9007199254740991) throw TypeError("Maximum allowed index exceeded");
+            for (r = -1, e = arguments.length; r < e; r++) {
+              if (i = -1 === r ? u : arguments[r], g(i)) {
+                if (h + (o = c(i.length)) > 9007199254740991) throw TypeError("Maximum allowed index exceeded");
 
-              for (n = 0; n < o; n++, h++) n in i && s(l, h, i[n]);
-            } else {
-              if (h >= 9007199254740991) throw TypeError("Maximum allowed index exceeded");
-              s(l, h++, i);
+                for (n = 0; n < o; n++, h++) {
+                  n in i && s(l, h, i[n]);
+                }
+              } else {
+                if (h >= 9007199254740991) throw TypeError("Maximum allowed index exceeded");
+                s(l, h++, i);
+              }
             }
 
             return l.length = h, l;
@@ -2095,7 +2171,9 @@
               l = u((void 0 === f ? a : o(f, a)) - s, a - c),
               h = 1;
 
-          for (s < c && c < s + l && (h = -1, s += l - 1, c += l - 1); l-- > 0;) s in n ? n[c] = n[s] : delete n[c], c += h, s += h;
+          for (s < c && c < s + l && (h = -1, s += l - 1, c += l - 1); l-- > 0;) {
+            s in n ? n[c] = n[s] : delete n[c], c += h, s += h;
+          }
 
           return n;
         };
@@ -2120,7 +2198,9 @@
             i = n(6);
 
         t.exports = function (t) {
-          for (var r = e(this), n = i(r.length), u = arguments.length, a = o(u > 1 ? arguments[1] : void 0, n), c = u > 2 ? arguments[2] : void 0, s = void 0 === c ? n : o(c, n); s > a;) r[a++] = t;
+          for (var r = e(this), n = i(r.length), u = arguments.length, a = o(u > 1 ? arguments[1] : void 0, n), c = u > 2 ? arguments[2] : void 0, s = void 0 === c ? n : o(c, n); s > a;) {
+            r[a++] = t;
+          }
 
           return r;
         };
@@ -2297,7 +2377,9 @@
           })
         }, {
           of: function of() {
-            for (var t = 0, r = arguments.length, n = new ("function" == typeof this ? this : Array)(r); r > t;) i(n, t, arguments[t++]);
+            for (var t = 0, r = arguments.length, n = new ("function" == typeof this ? this : Array)(r); r > t;) {
+              i(n, t, arguments[t++]);
+            }
 
             return n.length = r, n;
           }
@@ -2331,7 +2413,9 @@
                 y = u(void 0 === r ? g : r, g);
             if (i(v) && ("function" != typeof (n = v.constructor) || n !== Array && !i(n.prototype) ? o(n) && null === (n = n[l]) && (n = void 0) : n = void 0, n === Array || void 0 === n)) return h.call(v, d, y);
 
-            for (e = new (void 0 === n ? Array : n)(p(y - d, 0)), f = 0; d < y; d++, f++) d in v && s(e, f, v[d]);
+            for (e = new (void 0 === n ? Array : n)(p(y - d, 0)), f = 0; d < y; d++, f++) {
+              d in v && s(e, f, v[d]);
+            }
 
             return e.length = f, e;
           }
@@ -2369,15 +2453,25 @@
                 m = arguments.length;
             if (0 === m ? n = e = 0 : 1 === m ? (n = 0, e = y - x) : (n = m - 2, e = h(l(i(r), 0), y - x)), y + n - e > 9007199254740991) throw TypeError("Maximum allowed length exceeded");
 
-            for (f = c(d, e), p = 0; p < e; p++) (v = x + p) in d && s(f, p, d[v]);
+            for (f = c(d, e), p = 0; p < e; p++) {
+              (v = x + p) in d && s(f, p, d[v]);
+            }
 
             if (f.length = e, n < e) {
-              for (p = x; p < y - e; p++) g = p + n, (v = p + e) in d ? d[g] = d[v] : delete d[g];
+              for (p = x; p < y - e; p++) {
+                g = p + n, (v = p + e) in d ? d[g] = d[v] : delete d[g];
+              }
 
-              for (p = y; p > y - e + n; p--) delete d[p - 1];
-            } else if (n > e) for (p = y - e; p > x; p--) g = p + n - 1, (v = p + e - 1) in d ? d[g] = d[v] : delete d[g];
+              for (p = y; p > y - e + n; p--) {
+                delete d[p - 1];
+              }
+            } else if (n > e) for (p = y - e; p > x; p--) {
+              g = p + n - 1, (v = p + e - 1) in d ? d[g] = d[v] : delete d[g];
+            }
 
-            for (p = 0; p < n; p++) d[p + x] = arguments[p + 2];
+            for (p = 0; p < n; p++) {
+              d[p + x] = arguments[p + 2];
+            }
 
             return d.length = y - e + n, f;
           }
@@ -2399,7 +2493,9 @@
             if ("function" != typeof this || !e(t)) return !1;
             if (!e(this.prototype)) return t instanceof this;
 
-            for (; t = i(t);) if (this.prototype === t) return !0;
+            for (; t = i(t);) {
+              if (this.prototype === t) return !0;
+            }
 
             return !1;
           }
@@ -2481,7 +2577,9 @@
                 return +s;
             }
 
-            for (u = (i = s.slice(2)).length, a = 0; a < u; a++) if ((c = i.charCodeAt(a)) < 48 || c > o) return NaN;
+            for (u = (i = s.slice(2)).length, a = 0; a < u; a++) {
+              if ((c = i.charCodeAt(a)) < 48 || c > o) return NaN;
+            }
 
             return parseInt(i, e);
           }
@@ -2495,7 +2593,9 @@
             return n instanceof w && (m ? l(function () {
               x.valueOf.call(n);
             }) : "Number" != c(n)) ? s(new y(b(r)), n, w) : b(r);
-          }, E = e ? p(y) : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","), O = 0; E.length > O; O++) a(y, S = E[O]) && !a(w, S) && g(w, S, v(y, S));
+          }, E = e ? p(y) : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","), O = 0; E.length > O; O++) {
+            a(y, S = E[O]) && !a(w, S) && g(w, S, v(y, S));
+          }
 
           w.prototype = x, x.constructor = w, u(o, "Number", w);
         }
@@ -2635,15 +2735,21 @@
                 p = "",
                 v = "0",
                 g = function g(t, r) {
-              for (var n = -1, e = r; ++n < 6;) e += t * h[n], h[n] = e % 1e7, e = s(e / 1e7);
+              for (var n = -1, e = r; ++n < 6;) {
+                e += t * h[n], h[n] = e % 1e7, e = s(e / 1e7);
+              }
             },
                 d = function d(t) {
-              for (var r = 6, n = 0; --r >= 0;) n += h[r], h[r] = s(n / t), n = n % t * 1e7;
+              for (var r = 6, n = 0; --r >= 0;) {
+                n += h[r], h[r] = s(n / t), n = n % t * 1e7;
+              }
             },
                 y = function y() {
-              for (var t = 6, r = ""; --t >= 0;) if ("" !== r || 0 === t || 0 !== h[t]) {
-                var n = String(h[t]);
-                r = "" === r ? n : r + u.call("0", 7 - n.length) + n;
+              for (var t = 6, r = ""; --t >= 0;) {
+                if ("" !== r || 0 === t || 0 !== h[t]) {
+                  var n = String(h[t]);
+                  r = "" === r ? n : r + u.call("0", 7 - n.length) + n;
+                }
               }
 
               return r;
@@ -2653,15 +2759,23 @@
             if (c != c) return "NaN";
             if (c <= -1e21 || c >= 1e21) return String(c);
             if (c < 0 && (p = "-", c = -c), c > 1e-21) if (n = (r = function (t) {
-              for (var r = 0, n = t; n >= 4096;) r += 12, n /= 4096;
+              for (var r = 0, n = t; n >= 4096;) {
+                r += 12, n /= 4096;
+              }
 
-              for (; n >= 2;) r += 1, n /= 2;
+              for (; n >= 2;) {
+                r += 1, n /= 2;
+              }
 
               return r;
             }(c * f(2, 69, 1)) - 69) < 0 ? c * f(2, -r, 1) : c / f(2, r, 1), n *= 4503599627370496, (r = 52 - r) > 0) {
-              for (g(0, n), e = l; e >= 7;) g(1e7, 0), e -= 7;
+              for (g(0, n), e = l; e >= 7;) {
+                g(1e7, 0), e -= 7;
+              }
 
-              for (g(f(10, e, 1), 0), e = r - 1; e >= 23;) d(1 << 23), e -= 23;
+              for (g(f(10, e, 1), 0), e = r - 1; e >= 23;) {
+                d(1 << 23), e -= 23;
+              }
 
               d(1 << e), g(1, 1), d(2), v = y();
             } else g(0, n), g(1 << -r, 0), v = y() + u.call("0", l);
@@ -2806,7 +2920,9 @@
           sham: !o
         }, {
           getOwnPropertyDescriptors: function getOwnPropertyDescriptors(t) {
-            for (var r, n, e = u(t), o = a.f, s = i(e), f = {}, l = 0; s.length > l;) void 0 !== (n = o(e, r = s[l++])) && c(f, r, n);
+            for (var r, n, e = u(t), o = a.f, s = i(e), f = {}, l = 0; s.length > l;) {
+              void 0 !== (n = o(e, r = s[l++])) && c(f, r, n);
+            }
 
             return f;
           }
@@ -3078,7 +3194,9 @@
                 g[t] = r;
               }
             });
-          }, w = c(g), E = 0; w.length > E;) S(w[E++]);
+          }, w = c(g), E = 0; w.length > E;) {
+            S(w[E++]);
+          }
 
           d.constructor = b, b.prototype = d, l(o, "RegExp", b);
         }
@@ -3356,7 +3474,9 @@
           stat: !0
         }, {
           raw: function raw(t) {
-            for (var r = o(t.raw), n = i(r.length), e = arguments.length, u = [], a = 0; n > a;) u.push(String(r[a++])), a < e && u.push(String(arguments[a]));
+            for (var r = o(t.raw), n = i(r.length), e = arguments.length, u = [], a = 0; n > a;) {
+              u.push(String(r[a++])), a < e && u.push(String(arguments[a]));
+            }
 
             return u.join("");
           }
@@ -3413,7 +3533,9 @@
             for (var b, S = "", w = 0, E = 0; E < x.length; E++) {
               m = x[E];
 
-              for (var O = String(m[0]), A = l(h(a(m.index), v.length), 0), I = [], R = 1; R < m.length; R++) I.push(void 0 === (b = m[R]) ? b : String(b));
+              for (var O = String(m[0]), A = l(h(a(m.index), v.length), 0), I = [], R = 1; R < m.length; R++) {
+                I.push(void 0 === (b = m[R]) ? b : String(b));
+              }
 
               var j = m.groups;
 
@@ -3520,7 +3642,9 @@
             if (void 0 === t) return [e];
             if (!o(t)) return r.call(e, t, i);
 
-            for (var a, c, s, f = [], h = (t.ignoreCase ? "i" : "") + (t.multiline ? "m" : "") + (t.unicode ? "u" : "") + (t.sticky ? "y" : ""), v = 0, g = new RegExp(t.source, h + "g"); (a = l.call(g, e)) && !((c = g.lastIndex) > v && (f.push(e.slice(v, a.index)), a.length > 1 && a.index < e.length && p.apply(f, a.slice(1)), s = a[0].length, v = c, f.length >= i));) g.lastIndex === a.index && g.lastIndex++;
+            for (var a, c, s, f = [], h = (t.ignoreCase ? "i" : "") + (t.multiline ? "m" : "") + (t.unicode ? "u" : "") + (t.sticky ? "y" : ""), v = 0, g = new RegExp(t.source, h + "g"); (a = l.call(g, e)) && !((c = g.lastIndex) > v && (f.push(e.slice(v, a.index)), a.length > 1 && a.index < e.length && p.apply(f, a.slice(1)), s = a[0].length, v = c, f.length >= i));) {
+              g.lastIndex === a.index && g.lastIndex++;
+            }
 
             return v === e.length ? !s && g.test("") || f.push("") : f.push(e.slice(v)), f.length > i ? f.slice(0, i) : f;
           } : "0".split(void 0, 0).length ? function (t, n) {
@@ -3549,7 +3673,9 @@
               if (null === O || (E = v(s(x.lastIndex + (g ? 0 : S)), h.length)) === b) S = c(h, S, d);else {
                 if (w.push(h.slice(b, S)), w.length === m) return w;
 
-                for (var A = 1; A <= O.length - 1; A++) if (w.push(O[A]), w.length === m) return w;
+                for (var A = 1; A <= O.length - 1; A++) {
+                  if (w.push(O[A]), w.length === m) return w;
+                }
 
                 S = b = E;
               }
@@ -3835,15 +3961,15 @@
         if (l && h) {
           e = c.getConstructor(v, "WeakMap", !0), u.REQUIRED = !0;
           var d = g.prototype,
-              y = d.delete,
+              y = d["delete"],
               x = d.has,
               m = d.get,
               b = d.set;
           i(d, {
-            delete: function _delete(t) {
+            "delete": function _delete(t) {
               if (s(t) && !p(t)) {
                 var r = f(this);
-                return r.frozen || (r.frozen = new e()), y.call(this, t) || r.frozen.delete(t);
+                return r.frozen || (r.frozen = new e()), y.call(this, t) || r.frozen["delete"](t);
               }
 
               return y.call(this, t);
@@ -3992,7 +4118,9 @@
           } else {
             if (T.test(r)) return "Invalid host";
 
-            for (n = "", e = p(r), o = 0; o < e.length; o++) n += V(e[o], B);
+            for (n = "", e = p(r), o = 0; o < e.length; o++) {
+              n += V(e[o], B);
+            }
 
             t.host = n;
           }
@@ -4017,11 +4145,15 @@
             n.push(u);
           }
 
-          for (e = 0; e < r; e++) if (u = n[e], e == r - 1) {
-            if (u >= A(256, 5 - r)) return null;
-          } else if (u > 255) return null;
+          for (e = 0; e < r; e++) {
+            if (u = n[e], e == r - 1) {
+              if (u >= A(256, 5 - r)) return null;
+            } else if (u > 255) return null;
+          }
 
-          for (a = n.pop(), e = 0; e < n.length; e++) a += n[e] * A(256, 3 - e);
+          for (a = n.pop(), e = 0; e < n.length; e++) {
+            a += n[e] * A(256, 3 - e);
+          }
 
           return a;
         },
@@ -4050,7 +4182,9 @@
             if (8 == s) return;
 
             if (":" != h()) {
-              for (r = n = 0; n < 4 && _.test(h());) r = 16 * r + parseInt(h(), 16), l++, n++;
+              for (r = n = 0; n < 4 && _.test(h());) {
+                r = 16 * r + parseInt(h(), 16), l++, n++;
+              }
 
               if ("." == h()) {
                 if (0 == n) return;
@@ -4091,24 +4225,32 @@
             }
           }
 
-          if (null !== f) for (u = s - f, s = 7; 0 != s && u > 0;) a = c[s], c[s--] = c[f + u - 1], c[f + --u] = a;else if (8 != s) return;
+          if (null !== f) for (u = s - f, s = 7; 0 != s && u > 0;) {
+            a = c[s], c[s--] = c[f + u - 1], c[f + --u] = a;
+          } else if (8 != s) return;
           return c;
         },
             q = function q(t) {
           var r, n, e, o;
 
           if ("number" == typeof t) {
-            for (r = [], n = 0; n < 4; n++) r.unshift(t % 256), t = O(t / 256);
+            for (r = [], n = 0; n < 4; n++) {
+              r.unshift(t % 256), t = O(t / 256);
+            }
 
             return r.join(".");
           }
 
           if ("object" == typeof t) {
             for (r = "", e = function (t) {
-              for (var r = null, n = 1, e = null, o = 0, i = 0; i < 8; i++) 0 !== t[i] ? (o > n && (r = e, n = o), e = null, o = 0) : (null === e && (e = i), ++o);
+              for (var r = null, n = 1, e = null, o = 0, i = 0; i < 8; i++) {
+                0 !== t[i] ? (o > n && (r = e, n = o), e = null, o = 0) : (null === e && (e = i), ++o);
+              }
 
               return o > n && (r = e, n = o), r;
-            }(t), n = 0; n < 8; n++) o && 0 === t[n] || (o && (o = !1), e === n ? (r += n ? ":" : "::", o = !0) : (r += t[n].toString(16), n < 7 && (r += ":")));
+            }(t), n = 0; n < 8; n++) {
+              o && 0 === t[n] || (o && (o = !1), e === n ? (r += n ? ":" : "::", o = !0) : (r += t[n].toString(16), n < 7 && (r += ":")));
+            }
 
             return "[" + r + "]";
           }
@@ -4426,7 +4568,9 @@
 
               case yt:
                 if (u == e || "/" == u || "\\" == u && X(t) || !n && ("?" == u || "#" == u)) {
-                  if (".." === (s = (s = v).toLowerCase()) || "%2e." === s || ".%2e" === s || "%2e%2e" === s ? (K(t), "/" == u || "\\" == u && X(t) || t.path.push("")) : Z(v) ? "/" == u || "\\" == u && X(t) || t.path.push("") : ("file" == t.scheme && !t.path.length && H(v) && (t.host && (t.host = ""), v = v.charAt(0) + ":"), t.path.push(v)), v = "", "file" == t.scheme && (u == e || "?" == u || "#" == u)) for (; t.path.length > 1 && "" === t.path[0];) t.path.shift();
+                  if (".." === (s = (s = v).toLowerCase()) || "%2e." === s || ".%2e" === s || "%2e%2e" === s ? (K(t), "/" == u || "\\" == u && X(t) || t.path.push("")) : Z(v) ? "/" == u || "\\" == u && X(t) || t.path.push("") : ("file" == t.scheme && !t.path.length && H(v) && (t.host && (t.host = ""), v = v.charAt(0) + ":"), t.path.push(v)), v = "", "file" == t.scheme && (u == e || "?" == u || "#" == u)) for (; t.path.length > 1 && "" === t.path[0];) {
+                    t.path.shift();
+                  }
                   "?" == u ? (t.query = "", f = mt) : "#" == u && (t.fragment = "", f = bt);
                 } else v += V(u, G);
 
@@ -4557,7 +4701,9 @@
             if (!Y(r)) {
               r.username = "";
 
-              for (var e = 0; e < n.length; e++) r.username += V(n[e], W);
+              for (var e = 0; e < n.length; e++) {
+                r.username += V(n[e], W);
+              }
             }
           }),
           password: Ft(jt, function (t) {
@@ -4567,7 +4713,9 @@
             if (!Y(r)) {
               r.password = "";
 
-              for (var e = 0; e < n.length; e++) r.password += V(n[e], W);
+              for (var e = 0; e < n.length; e++) {
+                r.password += V(n[e], W);
+              }
             }
           }),
           host: Ft(kt, function (t) {
@@ -4634,7 +4782,9 @@
             s = function s(t, r, n) {
           var e = 0;
 
-          for (t = n ? u(t / 700) : t >> 1, t += u(t / r); t > 455; e += 36) t = u(t / 35);
+          for (t = n ? u(t / 700) : t >> 1, t += u(t / r); t > 455; e += 36) {
+            t = u(t / 35);
+          }
 
           return u(e + 36 * t / (t + 38));
         },
@@ -4658,7 +4808,9 @@
               l = 0,
               h = 72;
 
-          for (r = 0; r < t.length; r++) (n = t[r]) < 128 && e.push(a(n));
+          for (r = 0; r < t.length; r++) {
+            (n = t[r]) < 128 && e.push(a(n));
+          }
 
           var p = e.length,
               v = p;
@@ -4666,7 +4818,9 @@
           for (p && e.push("-"); v < o;) {
             var g = 2147483647;
 
-            for (r = 0; r < t.length; r++) (n = t[r]) >= f && n < g && (g = n);
+            for (r = 0; r < t.length; r++) {
+              (n = t[r]) >= f && n < g && (g = n);
+            }
 
             var d = v + 1;
             if (g - f > u((2147483647 - l) / d)) throw RangeError(i);
@@ -4699,7 +4853,9 @@
               i = [],
               u = t.toLowerCase().replace(o, ".").split(".");
 
-          for (r = 0; r < u.length; r++) n = u[r], i.push(e.test(n) ? "xn--" + f(n) : n);
+          for (r = 0; r < u.length; r++) {
+            n = u[r], i.push(e.test(n) ? "xn--" + f(n) : n);
+          }
 
           return i.join(".");
         };
@@ -4832,7 +4988,9 @@
           if (o) return o;
           if (this._bodyBlob) return t = this._bodyBlob, r = f(e = new FileReader()), e.readAsText(t), r;
           if (this._bodyArrayBuffer) return Promise.resolve(function (t) {
-            for (var e = new Uint8Array(t), r = new Array(e.length), o = 0; o < e.length; o++) r[o] = String.fromCharCode(e[o]);
+            for (var e = new Uint8Array(t), r = new Array(e.length), o = 0; o < e.length; o++) {
+              r[o] = String.fromCharCode(e[o]);
+            }
 
             return r.join("");
           }(this._bodyArrayBuffer));
@@ -4849,7 +5007,7 @@
         t = n(t), e = i(e);
         var r = this.map[t];
         this.map[t] = r ? r + ", " + e : e;
-      }, a.prototype.delete = function (t) {
+      }, a.prototype["delete"] = function (t) {
         delete this.map[n(t)];
       }, a.prototype.get = function (t) {
         return t = n(t), this.has(t) ? this.map[t] : null;
@@ -4858,7 +5016,9 @@
       }, a.prototype.set = function (t, e) {
         this.map[n(t)] = i(e);
       }, a.prototype.forEach = function (t, e) {
-        for (var r in this.map) this.map.hasOwnProperty(r) && t.call(e, this.map[r], r, this);
+        for (var r in this.map) {
+          this.map.hasOwnProperty(r) && t.call(e, this.map[r], r, this);
+        }
       }, a.prototype.keys = function () {
         var t = [];
         return this.forEach(function (e, r) {

@@ -55,15 +55,15 @@
     /*! ./index-1469ea79.js */
     "./node_modules/@ionic/core/dist/esm/index-1469ea79.js");
 
-    const mdTransitionAnimation = (_, opts) => {
-      const OFF_BOTTOM = '40px';
-      const CENTER = '0px';
-      const backDirection = opts.direction === 'back';
-      const enteringEl = opts.enteringEl;
-      const leavingEl = opts.leavingEl;
-      const ionPageElement = Object(_index_1469ea79_js__WEBPACK_IMPORTED_MODULE_5__["g"])(enteringEl);
-      const enteringToolbarEle = ionPageElement.querySelector('ion-toolbar');
-      const rootTransition = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    var mdTransitionAnimation = function mdTransitionAnimation(_, opts) {
+      var OFF_BOTTOM = '40px';
+      var CENTER = '0px';
+      var backDirection = opts.direction === 'back';
+      var enteringEl = opts.enteringEl;
+      var leavingEl = opts.leavingEl;
+      var ionPageElement = Object(_index_1469ea79_js__WEBPACK_IMPORTED_MODULE_5__["g"])(enteringEl);
+      var enteringToolbarEle = ionPageElement.querySelector('ion-toolbar');
+      var rootTransition = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
       rootTransition.addElement(ionPageElement).fill('both').beforeRemoveClass('ion-page-invisible'); // animate the component itself
 
       if (backDirection) {
@@ -74,7 +74,7 @@
 
 
       if (enteringToolbarEle) {
-        const enteringToolBar = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+        var enteringToolBar = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
         enteringToolBar.addElement(enteringToolbarEle);
         rootTransition.addAnimation(enteringToolBar);
       } // setup leaving view
@@ -83,7 +83,7 @@
       if (leavingEl && backDirection) {
         // leaving content
         rootTransition.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-        const leavingPage = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+        var leavingPage = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
         leavingPage.addElement(Object(_index_1469ea79_js__WEBPACK_IMPORTED_MODULE_5__["g"])(leavingEl)).afterStyles({
           'display': 'none'
         }).fromTo('transform', "translateY(".concat(CENTER, ")"), "translateY(".concat(OFF_BOTTOM, ")")).fromTo('opacity', 1, 0);

@@ -1,3 +1,9 @@
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[25], {
   /***/
   "./node_modules/@ionic/core/dist/esm/ion-img.entry.js":
@@ -31,16 +37,20 @@
     /*! ./config-3c7f3790.js */
     "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
 
-    const Img = class {
-      constructor(hostRef) {
+    var Img = /*#__PURE__*/function () {
+      function Img(hostRef) {
+        var _this = this;
+
+        _classCallCheck(this, Img);
+
         Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
 
-        this.onLoad = () => {
-          this.ionImgDidLoad.emit();
+        this.onLoad = function () {
+          _this.ionImgDidLoad.emit();
         };
 
-        this.onError = () => {
-          this.ionError.emit();
+        this.onError = function () {
+          _this.ionError.emit();
         };
 
         this.ionImgWillLoad = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionImgWillLoad", 7);
@@ -48,78 +58,96 @@
         this.ionError = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionError", 7);
       }
 
-      srcChanged() {
-        this.addIO();
-      }
-
-      componentDidLoad() {
-        this.addIO();
-      }
-
-      addIO() {
-        if (this.src === undefined) {
-          return;
+      _createClass(Img, [{
+        key: "srcChanged",
+        value: function srcChanged() {
+          this.addIO();
         }
-
-        if ('IntersectionObserver' in window) {
-          this.removeIO();
-          this.io = new IntersectionObserver(data => {
-            // because there will only ever be one instance
-            // of the element we are observing
-            // we can just use data[0]
-            if (data[0].isIntersecting) {
-              this.load();
-              this.removeIO();
-            }
-          });
-          this.io.observe(this.el);
-        } else {
-          // fall back to setTimeout for Safari and IE
-          setTimeout(() => this.load(), 200);
+      }, {
+        key: "componentDidLoad",
+        value: function componentDidLoad() {
+          this.addIO();
         }
-      }
+      }, {
+        key: "addIO",
+        value: function addIO() {
+          var _this2 = this;
 
-      load() {
-        this.loadError = this.onError;
-        this.loadSrc = this.src;
-        this.ionImgWillLoad.emit();
-      }
+          if (this.src === undefined) {
+            return;
+          }
 
-      removeIO() {
-        if (this.io) {
-          this.io.disconnect();
-          this.io = undefined;
+          if ('IntersectionObserver' in window) {
+            this.removeIO();
+            this.io = new IntersectionObserver(function (data) {
+              // because there will only ever be one instance
+              // of the element we are observing
+              // we can just use data[0]
+              if (data[0].isIntersecting) {
+                _this2.load();
+
+                _this2.removeIO();
+              }
+            });
+            this.io.observe(this.el);
+          } else {
+            // fall back to setTimeout for Safari and IE
+            setTimeout(function () {
+              return _this2.load();
+            }, 200);
+          }
         }
-      }
+      }, {
+        key: "load",
+        value: function load() {
+          this.loadError = this.onError;
+          this.loadSrc = this.src;
+          this.ionImgWillLoad.emit();
+        }
+      }, {
+        key: "removeIO",
+        value: function removeIO() {
+          if (this.io) {
+            this.io.disconnect();
+            this.io = undefined;
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            "class": Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this)
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
+            decoding: "async",
+            src: this.loadSrc,
+            alt: this.alt,
+            onLoad: this.onLoad,
+            onError: this.loadError
+          }));
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "watchers",
+        get: function get() {
+          return {
+            "src": ["srcChanged"]
+          };
+        }
+      }, {
+        key: "style",
+        get: function get() {
+          return ":host{-o-object-fit:contain;object-fit:contain}:host,img{display:block}img{width:100%;height:100%;-o-object-fit:inherit;object-fit:inherit;-o-object-position:inherit;object-position:inherit}";
+        }
+      }]);
 
-      render() {
-        return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-          class: Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this)
-        }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("img", {
-          decoding: "async",
-          src: this.loadSrc,
-          alt: this.alt,
-          onLoad: this.onLoad,
-          onError: this.loadError
-        }));
-      }
-
-      get el() {
-        return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
-      }
-
-      static get watchers() {
-        return {
-          "src": ["srcChanged"]
-        };
-      }
-
-      static get style() {
-        return ":host{-o-object-fit:contain;object-fit:contain}:host,img{display:block}img{width:100%;height:100%;-o-object-fit:inherit;object-fit:inherit;-o-object-position:inherit;object-position:inherit}";
-      }
-
-    };
+      return Img;
+    }();
     /***/
+
   }
 }]);
 //# sourceMappingURL=25-es5.js.map

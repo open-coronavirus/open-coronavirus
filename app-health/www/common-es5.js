@@ -1,3 +1,67 @@
+function _templateObject5() {
+  var data = _taggedTemplateLiteral([":@@statusImune:Inmune"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral([":@@statusInfected:Positivo"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral([":@@statusQuarantine:Cuarentena obligatoria"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral([":@@statusNoInfected:Negativo"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral([":@@statusNoData:An\xF3nimo"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"], {
   /***/
   "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js":
@@ -25,38 +89,71 @@
       return detachComponent;
     });
 
-    const attachComponent = async (delegate, container, component, cssClasses, componentProps) => {
-      if (delegate) {
-        return delegate.attachViewToDom(container, component, componentProps, cssClasses);
-      }
+    var attachComponent = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(delegate, container, component, cssClasses, componentProps) {
+        var el;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!delegate) {
+                  _context.next = 2;
+                  break;
+                }
 
-      if (typeof component !== 'string' && !(component instanceof HTMLElement)) {
-        throw new Error('framework delegate is missing');
-      }
+                return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
 
-      const el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
+              case 2:
+                if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
+                  _context.next = 4;
+                  break;
+                }
 
-      if (cssClasses) {
-        cssClasses.forEach(c => el.classList.add(c));
-      }
+                throw new Error('framework delegate is missing');
 
-      if (componentProps) {
-        Object.assign(el, componentProps);
-      }
+              case 4:
+                el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
 
-      container.appendChild(el);
+                if (cssClasses) {
+                  cssClasses.forEach(function (c) {
+                    return el.classList.add(c);
+                  });
+                }
 
-      if (el.componentOnReady) {
-        await el.componentOnReady();
-      }
+                if (componentProps) {
+                  Object.assign(el, componentProps);
+                }
 
-      return el;
-    };
+                container.appendChild(el);
 
-    const detachComponent = (delegate, element) => {
+                if (!el.componentOnReady) {
+                  _context.next = 11;
+                  break;
+                }
+
+                _context.next = 11;
+                return el.componentOnReady();
+
+              case 11:
+                return _context.abrupt("return", el);
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function attachComponent(_x, _x2, _x3, _x4, _x5) {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    var detachComponent = function detachComponent(delegate, element) {
       if (element) {
         if (delegate) {
-          const container = element.parentElement;
+          var container = element.parentElement;
           return delegate.removeViewFromDom(container, element);
         }
 
@@ -117,8 +214,8 @@
      */
 
 
-    const hapticSelection = () => {
-      const engine = window.TapticEngine;
+    var hapticSelection = function hapticSelection() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.selection();
@@ -129,8 +226,8 @@
      */
 
 
-    const hapticSelectionStart = () => {
-      const engine = window.TapticEngine;
+    var hapticSelectionStart = function hapticSelectionStart() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.gestureSelectionStart();
@@ -141,8 +238,8 @@
      */
 
 
-    const hapticSelectionChanged = () => {
-      const engine = window.TapticEngine;
+    var hapticSelectionChanged = function hapticSelectionChanged() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.gestureSelectionChanged();
@@ -154,8 +251,8 @@
      */
 
 
-    const hapticSelectionEnd = () => {
-      const engine = window.TapticEngine;
+    var hapticSelectionEnd = function hapticSelectionEnd() {
+      var engine = window.TapticEngine;
 
       if (engine) {
         engine.gestureSelectionEnd();
@@ -221,30 +318,34 @@
     /*! ./constants-3c3e1099.js */
     "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 
-    const iosTransitionAnimation = () => __webpack_require__.e(
-    /*! import() | ios-transition-b4752795-js */
-    "ios-transition-b4752795-js").then(__webpack_require__.bind(null,
-    /*! ./ios.transition-b4752795.js */
-    "./node_modules/@ionic/core/dist/esm/ios.transition-b4752795.js"));
+    var iosTransitionAnimation = function iosTransitionAnimation() {
+      return __webpack_require__.e(
+      /*! import() | ios-transition-b4752795-js */
+      "ios-transition-b4752795-js").then(__webpack_require__.bind(null,
+      /*! ./ios.transition-b4752795.js */
+      "./node_modules/@ionic/core/dist/esm/ios.transition-b4752795.js"));
+    };
 
-    const mdTransitionAnimation = () => __webpack_require__.e(
-    /*! import() | md-transition-5ee3c425-js */
-    "md-transition-5ee3c425-js").then(__webpack_require__.bind(null,
-    /*! ./md.transition-5ee3c425.js */
-    "./node_modules/@ionic/core/dist/esm/md.transition-5ee3c425.js"));
+    var mdTransitionAnimation = function mdTransitionAnimation() {
+      return __webpack_require__.e(
+      /*! import() | md-transition-5ee3c425-js */
+      "md-transition-5ee3c425-js").then(__webpack_require__.bind(null,
+      /*! ./md.transition-5ee3c425.js */
+      "./node_modules/@ionic/core/dist/esm/md.transition-5ee3c425.js"));
+    };
 
-    const transition = opts => {
-      return new Promise((resolve, reject) => {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
+    var transition = function transition(opts) {
+      return new Promise(function (resolve, reject) {
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
           beforeTransition(opts);
-          runTransition(opts).then(result => {
+          runTransition(opts).then(function (result) {
             if (result.animation) {
               result.animation.destroy();
             }
 
             afterTransition(opts);
             resolve(result);
-          }, error => {
+          }, function (error) {
             afterTransition(opts);
             reject(error);
           });
@@ -252,9 +353,9 @@
       });
     };
 
-    const beforeTransition = opts => {
-      const enteringEl = opts.enteringEl;
-      const leavingEl = opts.leavingEl;
+    var beforeTransition = function beforeTransition(opts) {
+      var enteringEl = opts.enteringEl;
+      var leavingEl = opts.leavingEl;
       setZIndex(enteringEl, leavingEl, opts.direction);
 
       if (opts.showGoBack) {
@@ -270,16 +371,38 @@
       }
     };
 
-    const runTransition = async opts => {
-      const animationBuilder = await getAnimationBuilder(opts);
-      const ani = animationBuilder ? animation(animationBuilder, opts) : noAnimation(opts); // fast path for no animation
+    var runTransition = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(opts) {
+        var animationBuilder, ani;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return getAnimationBuilder(opts);
 
-      return ani;
-    };
+              case 2:
+                animationBuilder = _context2.sent;
+                ani = animationBuilder ? animation(animationBuilder, opts) : noAnimation(opts); // fast path for no animation
 
-    const afterTransition = opts => {
-      const enteringEl = opts.enteringEl;
-      const leavingEl = opts.leavingEl;
+                return _context2.abrupt("return", ani);
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function runTransition(_x6) {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    var afterTransition = function afterTransition(opts) {
+      var enteringEl = opts.enteringEl;
+      var leavingEl = opts.leavingEl;
       enteringEl.classList.remove('ion-page-invisible');
 
       if (leavingEl !== undefined) {
@@ -287,67 +410,205 @@
       }
     };
 
-    const getAnimationBuilder = async opts => {
-      if (!opts.leavingEl || !opts.animated || opts.duration === 0) {
-        return undefined;
-      }
+    var getAnimationBuilder = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(opts) {
+        var getAnimation;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (!(!opts.leavingEl || !opts.animated || opts.duration === 0)) {
+                  _context3.next = 2;
+                  break;
+                }
 
-      if (opts.animationBuilder) {
-        return opts.animationBuilder;
-      }
+                return _context3.abrupt("return", undefined);
 
-      const getAnimation = opts.mode === 'ios' ? (await iosTransitionAnimation()).iosTransitionAnimation : (await mdTransitionAnimation()).mdTransitionAnimation;
-      return getAnimation;
-    };
+              case 2:
+                if (!opts.animationBuilder) {
+                  _context3.next = 4;
+                  break;
+                }
 
-    const animation = async (animationBuilder, opts) => {
-      await waitForReady(opts, true);
-      const trans = animationBuilder(opts.baseEl, opts);
-      fireWillEvents(opts.enteringEl, opts.leavingEl);
-      const didComplete = await playTransition(trans, opts);
+                return _context3.abrupt("return", opts.animationBuilder);
 
-      if (opts.progressCallback) {
-        opts.progressCallback(undefined);
-      }
+              case 4:
+                if (!(opts.mode === 'ios')) {
+                  _context3.next = 10;
+                  break;
+                }
 
-      if (didComplete) {
-        fireDidEvents(opts.enteringEl, opts.leavingEl);
-      }
+                _context3.next = 7;
+                return iosTransitionAnimation();
 
-      return {
-        hasCompleted: didComplete,
-        animation: trans
+              case 7:
+                _context3.t0 = _context3.sent.iosTransitionAnimation;
+                _context3.next = 13;
+                break;
+
+              case 10:
+                _context3.next = 12;
+                return mdTransitionAnimation();
+
+              case 12:
+                _context3.t0 = _context3.sent.mdTransitionAnimation;
+
+              case 13:
+                getAnimation = _context3.t0;
+                return _context3.abrupt("return", getAnimation);
+
+              case 15:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      return function getAnimationBuilder(_x7) {
+        return _ref3.apply(this, arguments);
       };
-    };
+    }();
 
-    const noAnimation = async opts => {
-      const enteringEl = opts.enteringEl;
-      const leavingEl = opts.leavingEl;
-      await waitForReady(opts, false);
-      fireWillEvents(enteringEl, leavingEl);
-      fireDidEvents(enteringEl, leavingEl);
-      return {
-        hasCompleted: true
+    var animation = /*#__PURE__*/function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(animationBuilder, opts) {
+        var trans, didComplete;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return waitForReady(opts, true);
+
+              case 2:
+                trans = animationBuilder(opts.baseEl, opts);
+                fireWillEvents(opts.enteringEl, opts.leavingEl);
+                _context4.next = 6;
+                return playTransition(trans, opts);
+
+              case 6:
+                didComplete = _context4.sent;
+
+                if (opts.progressCallback) {
+                  opts.progressCallback(undefined);
+                }
+
+                if (didComplete) {
+                  fireDidEvents(opts.enteringEl, opts.leavingEl);
+                }
+
+                return _context4.abrupt("return", {
+                  hasCompleted: didComplete,
+                  animation: trans
+                });
+
+              case 10:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      return function animation(_x8, _x9) {
+        return _ref4.apply(this, arguments);
       };
-    };
+    }();
 
-    const waitForReady = async (opts, defaultDeep) => {
-      const deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
-      const promises = deep ? [deepReady(opts.enteringEl), deepReady(opts.leavingEl)] : [shallowReady(opts.enteringEl), shallowReady(opts.leavingEl)];
-      await Promise.all(promises);
-      await notifyViewReady(opts.viewIsReady, opts.enteringEl);
-    };
+    var noAnimation = /*#__PURE__*/function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(opts) {
+        var enteringEl, leavingEl;
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                enteringEl = opts.enteringEl;
+                leavingEl = opts.leavingEl;
+                _context5.next = 4;
+                return waitForReady(opts, false);
 
-    const notifyViewReady = async (viewIsReady, enteringEl) => {
-      if (viewIsReady) {
-        await viewIsReady(enteringEl);
-      }
-    };
+              case 4:
+                fireWillEvents(enteringEl, leavingEl);
+                fireDidEvents(enteringEl, leavingEl);
+                return _context5.abrupt("return", {
+                  hasCompleted: true
+                });
 
-    const playTransition = (trans, opts) => {
-      const progressCallback = opts.progressCallback;
-      const promise = new Promise(resolve => {
-        trans.onFinish(currentStep => resolve(currentStep === 1));
+              case 7:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }));
+
+      return function noAnimation(_x10) {
+        return _ref5.apply(this, arguments);
+      };
+    }();
+
+    var waitForReady = /*#__PURE__*/function () {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(opts, defaultDeep) {
+        var deep, promises;
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
+                promises = deep ? [deepReady(opts.enteringEl), deepReady(opts.leavingEl)] : [shallowReady(opts.enteringEl), shallowReady(opts.leavingEl)];
+                _context6.next = 4;
+                return Promise.all(promises);
+
+              case 4:
+                _context6.next = 6;
+                return notifyViewReady(opts.viewIsReady, opts.enteringEl);
+
+              case 6:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }));
+
+      return function waitForReady(_x11, _x12) {
+        return _ref6.apply(this, arguments);
+      };
+    }();
+
+    var notifyViewReady = /*#__PURE__*/function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(viewIsReady, enteringEl) {
+        return regeneratorRuntime.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                if (!viewIsReady) {
+                  _context7.next = 3;
+                  break;
+                }
+
+                _context7.next = 3;
+                return viewIsReady(enteringEl);
+
+              case 3:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
+      }));
+
+      return function notifyViewReady(_x13, _x14) {
+        return _ref7.apply(this, arguments);
+      };
+    }();
+
+    var playTransition = function playTransition(trans, opts) {
+      var progressCallback = opts.progressCallback;
+      var promise = new Promise(function (resolve) {
+        trans.onFinish(function (currentStep) {
+          return resolve(currentStep === 1);
+        });
       }); // cool, let's do this, start the transition
 
       if (progressCallback) {
@@ -366,19 +627,19 @@
       return promise;
     };
 
-    const fireWillEvents = (enteringEl, leavingEl) => {
+    var fireWillEvents = function fireWillEvents(enteringEl, leavingEl) {
       lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["b"]);
       lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["L"]);
     };
 
-    const fireDidEvents = (enteringEl, leavingEl) => {
+    var fireDidEvents = function fireDidEvents(enteringEl, leavingEl) {
       lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["a"]);
       lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
     };
 
-    const lifecycle = (el, eventName) => {
+    var lifecycle = function lifecycle(el, eventName) {
       if (el) {
-        const ev = new CustomEvent(eventName, {
+        var ev = new CustomEvent(eventName, {
           bubbles: false,
           cancelable: false
         });
@@ -386,7 +647,7 @@
       }
     };
 
-    const shallowReady = el => {
+    var shallowReady = function shallowReady(el) {
       if (el && el.componentOnReady) {
         return el.componentOnReady();
       }
@@ -394,23 +655,56 @@
       return Promise.resolve();
     };
 
-    const deepReady = async el => {
-      const element = el;
+    var deepReady = /*#__PURE__*/function () {
+      var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(el) {
+        var element, stencilEl;
+        return regeneratorRuntime.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                element = el;
 
-      if (element) {
-        if (element.componentOnReady != null) {
-          const stencilEl = await element.componentOnReady();
+                if (!element) {
+                  _context8.next = 10;
+                  break;
+                }
 
-          if (stencilEl != null) {
-            return;
+                if (!(element.componentOnReady != null)) {
+                  _context8.next = 8;
+                  break;
+                }
+
+                _context8.next = 5;
+                return element.componentOnReady();
+
+              case 5:
+                stencilEl = _context8.sent;
+
+                if (!(stencilEl != null)) {
+                  _context8.next = 8;
+                  break;
+                }
+
+                return _context8.abrupt("return");
+
+              case 8:
+                _context8.next = 10;
+                return Promise.all(Array.from(element.children).map(deepReady));
+
+              case 10:
+              case "end":
+                return _context8.stop();
+            }
           }
-        }
+        }, _callee8);
+      }));
 
-        await Promise.all(Array.from(element.children).map(deepReady));
-      }
-    };
+      return function deepReady(_x15) {
+        return _ref8.apply(this, arguments);
+      };
+    }();
 
-    const setPageHidden = (el, hidden) => {
+    var setPageHidden = function setPageHidden(el, hidden) {
       if (hidden) {
         el.setAttribute('aria-hidden', 'true');
         el.classList.add('ion-page-hidden');
@@ -421,7 +715,7 @@
       }
     };
 
-    const setZIndex = (enteringEl, leavingEl, direction) => {
+    var setZIndex = function setZIndex(enteringEl, leavingEl, direction) {
       if (enteringEl !== undefined) {
         enteringEl.style.zIndex = direction === 'back' ? '99' : '101';
       }
@@ -431,12 +725,12 @@
       }
     };
 
-    const getIonPageElement = element => {
+    var getIonPageElement = function getIonPageElement(element) {
       if (element.classList.contains('ion-page')) {
         return element;
       }
 
-      const ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
+      var ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
 
       if (ionPage) {
         return ionPage;
@@ -474,7 +768,7 @@
      */
 
 
-    const sanitizeDOMString = untrustedString => {
+    var sanitizeDOMString = function sanitizeDOMString(untrustedString) {
       try {
         if (typeof untrustedString !== 'string' || untrustedString === '') {
           return untrustedString;
@@ -486,8 +780,8 @@
          */
 
 
-        const documentFragment = document.createDocumentFragment();
-        const workingDiv = document.createElement('div');
+        var documentFragment = document.createDocumentFragment();
+        var workingDiv = document.createElement('div');
         documentFragment.appendChild(workingDiv);
         workingDiv.innerHTML = untrustedString;
         /**
@@ -495,11 +789,11 @@
          * that are blocked
          */
 
-        blockedTags.forEach(blockedTag => {
-          const getElementsToRemove = documentFragment.querySelectorAll(blockedTag);
+        blockedTags.forEach(function (blockedTag) {
+          var getElementsToRemove = documentFragment.querySelectorAll(blockedTag);
 
-          for (let elementIndex = getElementsToRemove.length - 1; elementIndex >= 0; elementIndex--) {
-            const element = getElementsToRemove[elementIndex];
+          for (var elementIndex = getElementsToRemove.length - 1; elementIndex >= 0; elementIndex--) {
+            var element = getElementsToRemove[elementIndex];
 
             if (element.parentNode) {
               element.parentNode.removeChild(element);
@@ -513,10 +807,10 @@
              */
 
 
-            const childElements = getElementChildren(element);
+            var childElements = getElementChildren(element);
             /* tslint:disable-next-line */
 
-            for (let childIndex = 0; childIndex < childElements.length; childIndex++) {
+            for (var childIndex = 0; childIndex < childElements.length; childIndex++) {
               sanitizeElement(childElements[childIndex]);
             }
           }
@@ -527,18 +821,18 @@
          */
         // IE does not support .children on document fragments, only .childNodes
 
-        const dfChildren = getElementChildren(documentFragment);
+        var dfChildren = getElementChildren(documentFragment);
         /* tslint:disable-next-line */
 
-        for (let childIndex = 0; childIndex < dfChildren.length; childIndex++) {
+        for (var childIndex = 0; childIndex < dfChildren.length; childIndex++) {
           sanitizeElement(dfChildren[childIndex]);
         } // Append document fragment to div
 
 
-        const fragmentDiv = document.createElement('div');
+        var fragmentDiv = document.createElement('div');
         fragmentDiv.appendChild(documentFragment); // First child is always the div we did our work in
 
-        const getInnerDiv = fragmentDiv.querySelector('div');
+        var getInnerDiv = fragmentDiv.querySelector('div');
         return getInnerDiv !== null ? getInnerDiv.innerHTML : fragmentDiv.innerHTML;
       } catch (err) {
         console.error(err);
@@ -552,15 +846,15 @@
      */
 
 
-    const sanitizeElement = element => {
+    var sanitizeElement = function sanitizeElement(element) {
       // IE uses childNodes, so ignore nodes that are not elements
       if (element.nodeType && element.nodeType !== 1) {
         return;
       }
 
-      for (let i = element.attributes.length - 1; i >= 0; i--) {
-        const attribute = element.attributes.item(i);
-        const attributeName = attribute.name; // remove non-allowed attribs
+      for (var i = element.attributes.length - 1; i >= 0; i--) {
+        var attribute = element.attributes.item(i);
+        var attributeName = attribute.name; // remove non-allowed attribs
 
         if (!allowedAttributes.includes(attributeName.toLowerCase())) {
           element.removeAttribute(attributeName);
@@ -569,7 +863,7 @@
         // that attempt to do any JS funny-business
 
 
-        const attributeValue = attribute.value;
+        var attributeValue = attribute.value;
         /* tslint:disable-next-line */
 
         if (attributeValue != null && attributeValue.toLowerCase().includes('javascript:')) {
@@ -581,11 +875,11 @@
        */
 
 
-      const childElements = getElementChildren(element);
+      var childElements = getElementChildren(element);
       /* tslint:disable-next-line */
 
-      for (let i = 0; i < childElements.length; i++) {
-        sanitizeElement(childElements[i]);
+      for (var _i = 0; _i < childElements.length; _i++) {
+        sanitizeElement(childElements[_i]);
       }
     };
     /**
@@ -594,12 +888,12 @@
      */
 
 
-    const getElementChildren = el => {
+    var getElementChildren = function getElementChildren(el) {
       return el.children != null ? el.children : el.childNodes;
     };
 
-    const allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
-    const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
+    var allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
+    var blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
     /***/
   },
 
@@ -623,13 +917,13 @@
       return SPINNERS;
     });
 
-    const spinners = {
+    var spinners = {
       'bubbles': {
         dur: 1000,
         circles: 9,
-        fn: (dur, index, total) => {
-          const animationDelay = "".concat(dur * index / total - dur, "ms");
-          const angle = 2 * Math.PI * index / total;
+        fn: function fn(dur, index, total) {
+          var animationDelay = "".concat(dur * index / total - dur, "ms");
+          var angle = 2 * Math.PI * index / total;
           return {
             r: 5,
             style: {
@@ -643,10 +937,10 @@
       'circles': {
         dur: 1000,
         circles: 8,
-        fn: (dur, index, total) => {
-          const step = index / total;
-          const animationDelay = "".concat(dur * step - dur, "ms");
-          const angle = 2 * Math.PI * step;
+        fn: function fn(dur, index, total) {
+          var step = index / total;
+          var animationDelay = "".concat(dur * step - dur, "ms");
+          var angle = 2 * Math.PI * step;
           return {
             r: 5,
             style: {
@@ -661,7 +955,7 @@
         dur: 1400,
         elmDuration: true,
         circles: 1,
-        fn: () => {
+        fn: function fn() {
           return {
             r: 20,
             cx: 48,
@@ -676,7 +970,7 @@
       'crescent': {
         dur: 750,
         circles: 1,
-        fn: () => {
+        fn: function fn() {
           return {
             r: 26,
             style: {}
@@ -686,8 +980,8 @@
       'dots': {
         dur: 750,
         circles: 3,
-        fn: (_, index) => {
-          const animationDelay = -(110 * index) + 'ms';
+        fn: function fn(_, index) {
+          var animationDelay = -(110 * index) + 'ms';
           return {
             r: 6,
             style: {
@@ -700,9 +994,9 @@
       'lines': {
         dur: 1000,
         lines: 12,
-        fn: (dur, index, total) => {
-          const transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
-          const animationDelay = "".concat(dur * index / total - dur, "ms");
+        fn: function fn(dur, index, total) {
+          var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
+          var animationDelay = "".concat(dur * index / total - dur, "ms");
           return {
             y1: 17,
             y2: 29,
@@ -716,9 +1010,9 @@
       'lines-small': {
         dur: 1000,
         lines: 12,
-        fn: (dur, index, total) => {
-          const transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
-          const animationDelay = "".concat(dur * index / total - dur, "ms");
+        fn: function fn(dur, index, total) {
+          var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
+          var animationDelay = "".concat(dur * index / total - dur, "ms");
           return {
             y1: 12,
             y2: 20,
@@ -730,7 +1024,7 @@
         }
       }
     };
-    const SPINNERS = spinners;
+    var SPINNERS = spinners;
     /***/
   },
 
@@ -772,7 +1066,7 @@
       return openURL;
     });
 
-    const hostContext = (selector, el) => {
+    var hostContext = function hostContext(selector, el) {
       return el.closest(selector) !== null;
     };
     /**
@@ -780,45 +1074,337 @@
      */
 
 
-    const createColorClasses = color => {
-      return typeof color === 'string' && color.length > 0 ? {
-        'ion-color': true,
-        ["ion-color-".concat(color)]: true
-      } : undefined;
+    var createColorClasses = function createColorClasses(color) {
+      return typeof color === 'string' && color.length > 0 ? _defineProperty({
+        'ion-color': true
+      }, "ion-color-".concat(color), true) : undefined;
     };
 
-    const getClassList = classes => {
+    var getClassList = function getClassList(classes) {
       if (classes !== undefined) {
-        const array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array.filter(c => c != null).map(c => c.trim()).filter(c => c !== '');
+        var array = Array.isArray(classes) ? classes : classes.split(' ');
+        return array.filter(function (c) {
+          return c != null;
+        }).map(function (c) {
+          return c.trim();
+        }).filter(function (c) {
+          return c !== '';
+        });
       }
 
       return [];
     };
 
-    const getClassMap = classes => {
-      const map = {};
-      getClassList(classes).forEach(c => map[c] = true);
+    var getClassMap = function getClassMap(classes) {
+      var map = {};
+      getClassList(classes).forEach(function (c) {
+        return map[c] = true;
+      });
       return map;
     };
 
-    const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
+    var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
 
-    const openURL = async (url, ev, direction) => {
-      if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
-        const router = document.querySelector('ion-router');
+    var openURL = /*#__PURE__*/function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(url, ev, direction) {
+        var router;
+        return regeneratorRuntime.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
+                  _context9.next = 5;
+                  break;
+                }
 
-        if (router) {
-          if (ev != null) {
-            ev.preventDefault();
+                router = document.querySelector('ion-router');
+
+                if (!router) {
+                  _context9.next = 5;
+                  break;
+                }
+
+                if (ev != null) {
+                  ev.preventDefault();
+                }
+
+                return _context9.abrupt("return", router.push(url, direction));
+
+              case 5:
+                return _context9.abrupt("return", false);
+
+              case 6:
+              case "end":
+                return _context9.stop();
+            }
           }
+        }, _callee9);
+      }));
 
-          return router.push(url, direction);
-        }
+      return function openURL(_x16, _x17, _x18) {
+        return _ref10.apply(this, arguments);
+      };
+    }();
+    /***/
+
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/header/header.component.html":
+  /*!*******************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/header/header.component.html ***!
+    \*******************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppSharedHeaderHeaderComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar class=\"header-app\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button class=\"menu-icon\" (click)=\"openMenu()\" autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n    <div i18n=\"@@headerTitleLine\" class=\"header-app__title\"><strong>OPEN</strong> CORONAVIRUS</div>\n    <ion-buttons slot=\"end\">\n      <avatar [userName]=\"userName\"></avatar>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>";
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/header/header.component.scss":
+  /*!*****************************************************!*\
+    !*** ./src/app/shared/header/header.component.scss ***!
+    \*****************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppSharedHeaderHeaderComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/header/header.component.ts":
+  /*!***************************************************!*\
+    !*** ./src/app/shared/header/header.component.ts ***!
+    \***************************************************/
+
+  /*! exports provided: CoronaHeaderComponent */
+
+  /***/
+  function srcAppSharedHeaderHeaderComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CoronaHeaderComponent", function () {
+      return CoronaHeaderComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../services/user.service */
+    "./src/app/shared/services/user.service.ts");
+
+    var CoronaHeaderComponent = /*#__PURE__*/function () {
+      function CoronaHeaderComponent(menu, userService) {
+        _classCallCheck(this, CoronaHeaderComponent);
+
+        this.menu = menu;
+        this.userService = userService;
       }
 
-      return false;
+      _createClass(CoronaHeaderComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.user = this.userService.user;
+
+          if (this.user) {
+            this.userName = this.user.firstName + ' ' + this.user.lastName;
+          }
+        }
+      }, {
+        key: "openMenu",
+        value: function openMenu() {
+          this.menu.enable(true, 'menu');
+          this.menu.open('menu');
+        }
+      }]);
+
+      return CoronaHeaderComponent;
+    }();
+
+    CoronaHeaderComponent.ctorParameters = function () {
+      return [{
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]
+      }, {
+        type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+      }];
     };
+
+    CoronaHeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'corona-header',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./header.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/header/header.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./header.component.scss */
+      "./src/app/shared/header/header.component.scss"))["default"]]
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])], CoronaHeaderComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/header/header.module.ts":
+  /*!************************************************!*\
+    !*** ./src/app/shared/header/header.module.ts ***!
+    \************************************************/
+
+  /*! exports provided: CoronaHeaderModule */
+
+  /***/
+  function srcAppSharedHeaderHeaderModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CoronaHeaderModule", function () {
+      return CoronaHeaderModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _header_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./header.component */
+    "./src/app/shared/header/header.component.ts");
+    /* harmony import */
+
+
+    var ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ngx-qrcode2 */
+    "./node_modules/ngx-qrcode2/index.js");
+    /* harmony import */
+
+
+    var _avatar_avatar_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../avatar/avatar.module */
+    "./src/app/shared/avatar/avatar.module.ts");
+
+    var CoronaHeaderModule = function CoronaHeaderModule() {
+      _classCallCheck(this, CoronaHeaderModule);
+    };
+
+    CoronaHeaderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+      imports: [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["IonicModule"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__["NgxQRCodeModule"], _avatar_avatar_module__WEBPACK_IMPORTED_MODULE_7__["AvatarModule"]],
+      declarations: [_header_component__WEBPACK_IMPORTED_MODULE_5__["CoronaHeaderComponent"]],
+      exports: [_header_component__WEBPACK_IMPORTED_MODULE_5__["CoronaHeaderComponent"]]
+    })], CoronaHeaderModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/utils/status-utils.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/shared/utils/status-utils.ts ***!
+    \**********************************************/
+
+  /*! exports provided: getNameStatus */
+
+  /***/
+  function srcAppSharedUtilsStatusUtilsTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "getNameStatus", function () {
+      return getNameStatus;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    function getNameStatus(status) {
+      switch (status) {
+        case 1:
+          return $localize(_templateObject());
+
+        case 2:
+          return $localize(_templateObject2());
+
+        case 3:
+          return $localize(_templateObject3());
+
+        case 4:
+          return $localize(_templateObject4());
+
+        case 5:
+          return $localize(_templateObject5());
+      }
+    }
     /***/
 
   }

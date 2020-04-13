@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n    <ion-grid>\n        <ion-row>\n            <ion-col>\n                <div class=\"title-splash\" i18n=\"@@introductionHeader\">\n                    Luchemos juntos<br />contra el\n                    <img class=\"coronavirus\" src=\"/assets/images/coronavirus.png\">\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n<div class=\"footer-buttons-container\">\n    <div class=\"footer-labels-container\" i18n=\"@@introductionTip\">App de control policial</div>\n    <ion-button color=\"dark\" (click)=\"enter()\" expand=\"block\" i18n=\"@@enter\">ENTRAR</ion-button>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n    <div class=\"title-splash\">\n      <img class=\"coronavirus\" src=\"/assets/icons/svg/texto-icono.svg\">\n    </div>\n  </ion-content>\n  <ion-footer class=\"ion-no-border\">\n    <ion-toolbar class=\"footer-app\" >\n        <button class=\"btn\" (click)=\"enter()\" i18n=\"@@enter\">ENTRAR</button>\n    </ion-toolbar>\n  </ion-footer>");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".coronavirus {\n  width: 80%;\n}\n\n.title-splash {\n  text-align: center;\n  font-weight: 300;\n  font-size: 30px;\n  padding-top: 100px;\n}\n\n.title-splash img {\n  padding-top: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9vcmRhcy93d3cvY29yb25hdmlydXMtYXBwLXJlYWwvYXBwLXBvbGljZS9zcmMvYXBwL3NwbGFzaC9zcGxhc2guY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3NwbGFzaC9zcGxhc2guY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFBO0FDQ0Y7O0FERUE7RUFDRSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FDQ0Y7O0FEQ0U7RUFDRSxpQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvc3BsYXNoL3NwbGFzaC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb3JvbmF2aXJ1cyB7XG4gIHdpZHRoOiA4MCU7XG59XG5cbi50aXRsZS1zcGxhc2gge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIGZvbnQtc2l6ZTogMzBweDtcbiAgcGFkZGluZy10b3A6IDEwMHB4O1xuXG4gIGltZyB7XG4gICAgcGFkZGluZy10b3A6IDIwcHg7XG4gIH1cblxufVxuIiwiLmNvcm9uYXZpcnVzIHtcbiAgd2lkdGg6IDgwJTtcbn1cblxuLnRpdGxlLXNwbGFzaCB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgZm9udC1zaXplOiAzMHB4O1xuICBwYWRkaW5nLXRvcDogMTAwcHg7XG59XG4udGl0bGUtc3BsYXNoIGltZyB7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".title-splash {\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.title-splash img {\n  width: 80%;\n  max-width: 400px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9vcmRhcy93d3cvY29yb25hdmlydXMtYXBwLXJlYWwvYXBwLWhlYWx0aC9zcmMvYXBwL3NwbGFzaC9zcGxhc2guY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3NwbGFzaC9zcGxhc2guY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxNQUFBO0VBQ0EsT0FBQTtFQUNBLFNBQUE7RUFDQSxRQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7QUNDRjtBRENFO0VBQ0UsVUFBQTtFQUNBLGdCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9zcGxhc2gvc3BsYXNoLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRpdGxlLXNwbGFzaCB7XG4gIHdpZHRoOiAxMDAlO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbiAgYm90dG9tOiAwO1xuICByaWdodDogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cbiAgaW1ne1xuICAgIHdpZHRoOiA4MCU7XG4gICAgbWF4LXdpZHRoOiA0MDBweDtcbiAgfVxufVxuIiwiLnRpdGxlLXNwbGFzaCB7XG4gIHdpZHRoOiAxMDAlO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbiAgYm90dG9tOiAwO1xuICByaWdodDogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG4udGl0bGUtc3BsYXNoIGltZyB7XG4gIHdpZHRoOiA4MCU7XG4gIG1heC13aWR0aDogNDAwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -40,32 +40,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/services/patient.service */ "./src/app/shared/services/patient.service.ts");
+/* harmony import */ var _shared_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/services/user.service */ "./src/app/shared/services/user.service.ts");
 
 
 
 
 
 let SplashComponent = class SplashComponent {
-    constructor(router, patientService, nativeStorage) {
+    constructor(router, userService, nativeStorage) {
         this.router = router;
-        this.patientService = patientService;
+        this.userService = userService;
         this.nativeStorage = nativeStorage;
     }
     ngOnInit() {
-        this.patientService.patientLoaded$.subscribe(loaded => {
-            if (loaded) {
-                this.router.navigate(['app/home']);
-            }
-        });
+        // Code auto-enter login
+        // this.userService.userLoaded$.subscribe(loaded => {
+        //     if (loaded) {
+        //         this.router.navigate(['app/diagnostic-send']);
+        //     }
+        // });
     }
     enter() {
-        this.router.navigate(['app/qr-reader']);
+        // this.router.navigate(['app/diagnostic-send']);
+        this.router.navigate(['login']);
     }
 };
 SplashComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_4__["PatientService"] },
+    { type: _shared_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"] }
 ];
 SplashComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -76,7 +78,7 @@ SplashComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./splash.component.scss */ "./src/app/splash/splash.component.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_4__["PatientService"],
+        _shared_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"]])
 ], SplashComponent);
 

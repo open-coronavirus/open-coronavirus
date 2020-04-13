@@ -25,48 +25,48 @@
     /*! ./helpers-46f4a262.js */
     "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
 
-    const startTapClick = config => {
-      let lastTouch = -MOUSE_WAIT * 10;
-      let lastActivated = 0;
-      let scrollingEl;
-      let activatableEle;
-      let activeRipple;
-      let activeDefer;
-      const useRippleEffect = config.getBoolean('animated', true) && config.getBoolean('rippleEffect', true);
-      const clearDefers = new WeakMap();
+    var startTapClick = function startTapClick(config) {
+      var lastTouch = -MOUSE_WAIT * 10;
+      var lastActivated = 0;
+      var scrollingEl;
+      var activatableEle;
+      var activeRipple;
+      var activeDefer;
+      var useRippleEffect = config.getBoolean('animated', true) && config.getBoolean('rippleEffect', true);
+      var clearDefers = new WeakMap();
 
-      const isScrolling = () => {
+      var isScrolling = function isScrolling() {
         return scrollingEl !== undefined && scrollingEl.parentElement !== null;
       }; // Touch Events
 
 
-      const onTouchStart = ev => {
+      var onTouchStart = function onTouchStart(ev) {
         lastTouch = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["n"])(ev);
         pointerDown(ev);
       };
 
-      const onTouchEnd = ev => {
+      var onTouchEnd = function onTouchEnd(ev) {
         lastTouch = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["n"])(ev);
         pointerUp(ev);
       };
 
-      const onMouseDown = ev => {
-        const t = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["n"])(ev) - MOUSE_WAIT;
+      var onMouseDown = function onMouseDown(ev) {
+        var t = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["n"])(ev) - MOUSE_WAIT;
 
         if (lastTouch < t) {
           pointerDown(ev);
         }
       };
 
-      const onMouseUp = ev => {
-        const t = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["n"])(ev) - MOUSE_WAIT;
+      var onMouseUp = function onMouseUp(ev) {
+        var t = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["n"])(ev) - MOUSE_WAIT;
 
         if (lastTouch < t) {
           pointerUp(ev);
         }
       };
 
-      const cancelActive = () => {
+      var cancelActive = function cancelActive() {
         clearTimeout(activeDefer);
         activeDefer = undefined;
 
@@ -76,7 +76,7 @@
         }
       };
 
-      const pointerDown = ev => {
+      var pointerDown = function pointerDown(ev) {
         if (activatableEle || isScrolling()) {
           return;
         }
@@ -85,11 +85,11 @@
         setActivatedElement(getActivatableTarget(ev), ev);
       };
 
-      const pointerUp = ev => {
+      var pointerUp = function pointerUp(ev) {
         setActivatedElement(undefined, ev);
       };
 
-      const setActivatedElement = (el, ev) => {
+      var setActivatedElement = function setActivatedElement(el, ev) {
         // do nothing
         if (el && el === activatableEle) {
           return;
@@ -97,10 +97,11 @@
 
         clearTimeout(activeDefer);
         activeDefer = undefined;
-        const {
-          x,
-          y
-        } = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["p"])(ev); // deactivate selected
+
+        var _Object = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["p"])(ev),
+            x = _Object.x,
+            y = _Object.y; // deactivate selected
+
 
         if (activatableEle) {
           if (clearDefers.has(activatableEle)) {
@@ -116,16 +117,16 @@
 
 
         if (el) {
-          const deferId = clearDefers.get(el);
+          var deferId = clearDefers.get(el);
 
           if (deferId) {
             clearTimeout(deferId);
-            clearDefers.delete(el);
+            clearDefers["delete"](el);
           }
 
-          const delay = isInstant(el) ? 0 : ADD_ACTIVATED_DEFERS;
+          var delay = isInstant(el) ? 0 : ADD_ACTIVATED_DEFERS;
           el.classList.remove(ACTIVATED);
-          activeDefer = setTimeout(() => {
+          activeDefer = setTimeout(function () {
             addActivated(el, x, y);
             activeDefer = undefined;
           }, delay);
@@ -134,10 +135,10 @@
         activatableEle = el;
       };
 
-      const addActivated = (el, x, y) => {
+      var addActivated = function addActivated(el, x, y) {
         lastActivated = Date.now();
         el.classList.add(ACTIVATED);
-        const rippleEffect = useRippleEffect && getRippleEffect(el);
+        var rippleEffect = useRippleEffect && getRippleEffect(el);
 
         if (rippleEffect && rippleEffect.addRipple) {
           removeRipple();
@@ -145,27 +146,29 @@
         }
       };
 
-      const removeRipple = () => {
+      var removeRipple = function removeRipple() {
         if (activeRipple !== undefined) {
-          activeRipple.then(remove => remove());
+          activeRipple.then(function (remove) {
+            return remove();
+          });
           activeRipple = undefined;
         }
       };
 
-      const removeActivated = smooth => {
+      var removeActivated = function removeActivated(smooth) {
         removeRipple();
-        const active = activatableEle;
+        var active = activatableEle;
 
         if (!active) {
           return;
         }
 
-        const time = CLEAR_STATE_DEFERS - Date.now() + lastActivated;
+        var time = CLEAR_STATE_DEFERS - Date.now() + lastActivated;
 
         if (smooth && time > 0 && !isInstant(active)) {
-          const deferId = setTimeout(() => {
+          var deferId = setTimeout(function () {
             active.classList.remove(ACTIVATED);
-            clearDefers.delete(active);
+            clearDefers["delete"](active);
           }, CLEAR_STATE_DEFERS);
           clearDefers.set(active, deferId);
         } else {
@@ -173,12 +176,12 @@
         }
       };
 
-      const doc = document;
-      doc.addEventListener('ionScrollStart', ev => {
+      var doc = document;
+      doc.addEventListener('ionScrollStart', function (ev) {
         scrollingEl = ev.target;
         cancelActive();
       });
-      doc.addEventListener('ionScrollEnd', () => {
+      doc.addEventListener('ionScrollEnd', function () {
         scrollingEl = undefined;
       });
       doc.addEventListener('ionGestureCaptured', cancelActive);
@@ -189,12 +192,12 @@
       doc.addEventListener('mouseup', onMouseUp, true);
     };
 
-    const getActivatableTarget = ev => {
+    var getActivatableTarget = function getActivatableTarget(ev) {
       if (ev.composedPath) {
-        const path = ev.composedPath();
+        var path = ev.composedPath();
 
-        for (let i = 0; i < path.length - 2; i++) {
-          const el = path[i];
+        for (var i = 0; i < path.length - 2; i++) {
+          var el = path[i];
 
           if (el.classList && el.classList.contains('ion-activatable')) {
             return el;
@@ -205,13 +208,13 @@
       }
     };
 
-    const isInstant = el => {
+    var isInstant = function isInstant(el) {
       return el.classList.contains('ion-activatable-instant');
     };
 
-    const getRippleEffect = el => {
+    var getRippleEffect = function getRippleEffect(el) {
       if (el.shadowRoot) {
-        const ripple = el.shadowRoot.querySelector('ion-ripple-effect');
+        var ripple = el.shadowRoot.querySelector('ion-ripple-effect');
 
         if (ripple) {
           return ripple;
@@ -221,10 +224,10 @@
       return el.querySelector('ion-ripple-effect');
     };
 
-    const ACTIVATED = 'ion-activated';
-    const ADD_ACTIVATED_DEFERS = 200;
-    const CLEAR_STATE_DEFERS = 200;
-    const MOUSE_WAIT = 2500;
+    var ACTIVATED = 'ion-activated';
+    var ADD_ACTIVATED_DEFERS = 200;
+    var CLEAR_STATE_DEFERS = 200;
+    var MOUSE_WAIT = 2500;
     /***/
   }
 }]);
