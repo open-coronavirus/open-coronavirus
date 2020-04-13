@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "es.opencoronavirus"
+        applicationId "com.opencoronavirus"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -20,9 +20,9 @@ android {
 
 repositories {
     maven {
-        url  "https://dl.bintray.com/ionic-team/capacitor"
+        url "https://dl.bintray.com/ionic-team/capacitor"
     }
-    flatDir{
+    flatDir {
         dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
     }
 }
@@ -31,6 +31,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation project(':capacitor-android')
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -44,6 +45,6 @@ try {
     if (servicesJSON.text) {
         apply plugin: 'com.google.gms.google-services'
     }
-} catch(Exception e) {
+} catch (Exception e) {
     logger.warn("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
 }

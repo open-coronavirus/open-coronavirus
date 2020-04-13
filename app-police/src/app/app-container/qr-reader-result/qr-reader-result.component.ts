@@ -29,7 +29,6 @@ export class QrReaderResultComponent implements OnInit {
 
         this.route.queryParams.subscribe(params => {
             this.patient = JSON.parse(params['patient']);
-            this.patient.street = "Omega 18, 3ºD";
         });
     }
 
@@ -42,6 +41,8 @@ export class QrReaderResultComponent implements OnInit {
             return;
         }
         switch (this.patient.status) {
+            case 5:
+                return $localize`:@@qrresultimmune:Inmune`;
             case 4:
                 return $localize`:@@qrresultpositive:Positivo`;
 
@@ -61,15 +62,14 @@ export class QrReaderResultComponent implements OnInit {
             return;
         }
         switch (this.patient.status) {
+            case 5:
+                return 'result--immune';
             case 4:
                 return 'result--infected';
-
             case 3:
                 return 'result--quarentine';
-
             case 2:
                 return 'result--ok';
-
         }
     }
 
@@ -112,6 +112,8 @@ export class QrReaderResultComponent implements OnInit {
             return;
         }
         switch (this.patient.status) {
+            case 5:
+                return '#61bc7cff';
             case 4:
                 return '#c80f2eff';
 

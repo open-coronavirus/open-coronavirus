@@ -1,5 +1,6 @@
 <corona-header [showMenu]="true"></corona-header>
 <ion-content>
+
     <div class="result" [ngClass]="getClassStatus()">
         <div class="result__col-qr">
             <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
@@ -12,79 +13,80 @@
         </div>
     </div>
 
-    <div  class="appointment"  *ngIf="false"><!-- este caso es cuando es ambulancia -->
-        <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
-        <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
-    </div>
+    <!-- NO INMUNE -->
+    <ng-container *ngIf="patientService.patient?.status !== 5" >
+        <div  class="appointment"  *ngIf="false"><!-- este caso es cuando es ambulancia -->
+            <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
+            <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
+        </div>
 
-    <div class="appointment" *ngIf="patientHasTestAppointment"><!-- este caso es cuando es cita otorgada -->
-        <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
-        <p class="appointment__text">
-            <ng-container i18n="@@appointment">
-                <span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span>
-            </ng-container>
-        </p>
-    </div>
-
-
-    <!-- PENDIENTE -->
-    <div  class="appointment" *ngIf="false"><!-- este caso es cuando es cita solicitada -->
-        <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
-        <p class="appointment__text" i18n="@@appointmentRequested">Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</p>
-    </div>
-
-    <div class="main-options">
-        <div *ngIf="leaveStatus == 2" class="main-options__btn" (click)="setAtHome()">
-            <div class="main-options__btn-volver">
-                <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
-            </div>
-            <p class="main-options__btn-camino">
-                <span class="main-options__btn-camino-a" i18n="@@wayto">De camino a: </span>
-                <span class="main-options__btn-camino-donde">{{ leaveReason }}</span>
-                <span class="main-options__btn-camino-tiempo"><ng-container i18n="@@ago">hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
+        <div class="appointment" *ngIf="patientHasTestAppointment"><!-- este caso es cuando es cita otorgada -->
+            <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
+            <p class="appointment__text">
+                <ng-container i18n="@@appointment">
+                    <span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span>
+                </ng-container>
             </p>
         </div>
-        <div class="main-options__btn main-options__btn--no-link" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">
-            <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-            <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
+
+
+        <!-- PENDIENTE -->
+        <div  class="appointment" *ngIf="false"><!-- este caso es cuando es cita solicitada -->
+            <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
+            <p class="appointment__text" i18n="@@appointmentRequested">Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</p>
         </div>
-        <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="leaveStatus !== 2 && patientService.patient?.status !== 2">
-            <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-            <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
-        </div>
-        <div class="main-options__btn main-options__btn--con-small" *ngIf="false && patientService.patient?.status === 2">
-            <div class="main-options__btn main-options__btn--small">
-                <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
-                <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
+
+        <div class="main-options">
+            <div *ngIf="leaveStatus == 2" class="main-options__btn" (click)="setAtHome()">
+                <div class="main-options__btn-volver">
+                    <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
+                </div>
+                <p class="main-options__btn-camino">
+                    <span class="main-options__btn-camino-a" i18n="@@wayto">De camino a: </span>
+                    <span class="main-options__btn-camino-donde">{{ leaveReason }}</span>
+                    <span class="main-options__btn-camino-tiempo"><ng-container i18n="@@ago">hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
+                </p>
             </div>
-            <div class="main-options__btn main-options__btn--small" (click)="requestTest()">
+            <div class="main-options__btn main-options__btn--no-link" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">
+                <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
+            </div>
+            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="leaveStatus !== 2 && patientService.patient?.status !== 2">
+                <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
+            </div>
+            <div class="main-options__btn main-options__btn--con-small" *ngIf="false && patientService.patient?.status === 2">
+                <div class="main-options__btn main-options__btn--small">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
+                    <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
+                </div>
+                <div class="main-options__btn main-options__btn--small" (click)="requestTest()">
+                    <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
+                    <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
+                </div>
+            </div>
+            <div class="main-options__btn" (click)="requestTest()">
                 <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
-                <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
+                <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
             </div>
+            <div class="main-options__btn" (click)="goToAutotest()" >
+                <img class="main-options__image" src="/assets/icons/svg/icon-autotest-sm.svg">
+                <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
+            </div>
+            <div class="main-options__btn" (click)="goToFollowingUp()">
+                <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
+                <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
+            </div>
+            <!--<a (click)="valeriaDemoConfirmarContact()">valeriaDemoConfirmarContact</a>-->
         </div>
-        <div class="main-options__btn" (click)="requestTest()">
-            <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
-            <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
+        <div class="alert-info" (click)="uploadContactsAndShowThanksModal()">
+            <img class="alert-info__icon filter-white" src="/assets/icons/svg/icon-bluetooth.svg">
+            <span class="alert-info__badge">1</span>
+            <p class="alert-info__text" i18n="@@coronavirusSendInfo">
+                Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
+            </p>
         </div>
-        <div class="main-options__btn" (click)="goToAutotest()" >
-            <img class="main-options__image" src="/assets/icons/svg/icon-autotest-sm.svg">
-            <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
-        </div>
-        <div class="main-options__btn" (click)="goToFollowingUp()">
-            <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
-            <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
-        </div>
-        <!--<a (click)="valeriaDemoConfirmarContact()">valeriaDemoConfirmarContact</a>-->
-    </div>
-
-    <div i18n="@@coronavirusSendInfo" (click)="uploadContactsAndShowThanksModal()">
-        ENVIAR INFORMACIÓN DE FORMA ANÓNIMA DE CRUCES CON CIUDADANOS Y AUTORIZAR SU USO
-    </div>
-
-    <!-- <div *ngIf="patientHasTestAppointment" class="appointment-info">
-        <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
-        <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
-    </div> -->
+    </ng-container>
 
     <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
         <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">

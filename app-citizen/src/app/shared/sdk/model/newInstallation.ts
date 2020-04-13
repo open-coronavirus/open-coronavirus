@@ -19,7 +19,8 @@ export interface NewInstallation {
 
 
     deviceId: string;
+    pushRegistrationId?: string;
     patientId: string;
-    created: string;
+    created?: string;
 }
 

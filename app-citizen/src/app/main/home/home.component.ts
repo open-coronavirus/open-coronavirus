@@ -157,6 +157,8 @@ getTextStatus() {
             return;
         }
         switch (this.patientService.patient.status) {
+            case 5:
+                return $localize`:@@statusImune:Inmune`;
             case 4:
                 return $localize`:@@statusInfected:Positivo`;
 
@@ -176,15 +178,14 @@ getClassStatus() {
             return;
         }
         switch (this.patientService.patient.status) {
+            case 5:
+                return 'result--immune';
             case 4:
                 return 'result--infected';
-
             case 3:
                 return 'result--quarentine';
-
             case 2:
                 return 'result--ok';
-
         }
     }
 
@@ -193,15 +194,14 @@ getColorStatus() {
             return;
         }
         switch (this.patientService.patient.status) {
+            case 5:
+                return '#61bc7cff';
             case 4:
                 return '#c80f2eff';
-
             case 3:
                 return '#ffca08ff';
-
             case 2:
                 return '#61bc7cff';
-
         }
     }
 

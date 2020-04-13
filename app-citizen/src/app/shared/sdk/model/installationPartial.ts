@@ -20,6 +20,7 @@ export interface InstallationPartial {
 
     id?: string;
     deviceId?: string;
+    pushRegistrationId?: string;
     patientId?: string;
     created?: string;
 }

@@ -32,7 +32,7 @@ export class MainComponent implements OnDestroy {
         protected menu: MenuController,
         protected router: Router,
         @Inject('settings') protected settings,
-        protected patientService: PatientService,
+        public patientService: PatientService,
         protected geolocationtrackingService: GeolocationTrackingService,
         protected bluetoothTrackingService: BluetoothTrackingService,
         protected leaveRequestService: LeaveRequestService,
@@ -62,9 +62,9 @@ export class MainComponent implements OnDestroy {
             }
         }));
 
-        // start tracking at this point in case the permissions are already granted
-        // and no popups will be shown to the end user
-        if (!permissionsService.requestedPermissions) {
+        //start tracking at this point in case the permissions are already granted
+        //and no popups will be shown to the end user
+        if(!permissionsService.permissionsRequested) {
             this.startGeoTracking();
             this.startBluetoothTracking();
             this.pushNotificationService.startPushNotifications();
