@@ -1,13 +1,15 @@
-import {Injectable} from "@angular/core";
+import {Injectable, NgZone} from "@angular/core";
 import {Push} from "@ionic-native/push/ngx";
 import {PushObject, PushOptions} from "@ionic-native/push";
+import {InstallationControllerService} from "../sdk";
+import {InstallationService} from "./installation.service";
 
 @Injectable()
 export class PushNotificationService {
 
-    constructor(private push: Push) { }
-
-    protected pushObject: PushObject;
+    constructor(protected push: Push,
+                protected installationService: InstallationService,
+                protected installationControllerService: InstallationControllerService) { }
 
     public startPushNotifications() {
 
@@ -35,31 +37,37 @@ export class PushNotificationService {
                 alert: true,
                 badge: true,
                 sound: true,
-            },
-            windows: {},
-            browser: {
-                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
             }
         }
 
-        this.pushObject = this.push.init(options);
+        const pushObject = this.push.init(options);
 
-        console.log('[PushService] push object: ' + JSON.stringify(this.pushObject));
+        console.log('[PushService] push object: ' + JSON.stringify(pushObject));
 
-        this.pushObject.on('registration').subscribe(registration => {
-            console.log("[PushService] Registration data: " + JSON.stringify(registration));
-        },
-        error => {
-            console.error("[PushService] Registration error: " + JSON.stringify(error));
+        pushObject.on('registration').subscribe(function(registration) {
+
+            console.log("[PushService] Registration done: " + JSON.stringify(registration));
+
+            let registrationId = registration.registrationId;
+
+            this.installationService.loadedDeviceId$.subscribe(loaded => {
+                if (loaded) {
+                    this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, registrationId);
+                    console.log("[PushService] Registration data: " + JSON.stringify(registration));
+                }
+            });
+
         });
 
-        this.pushObject.on('error').subscribe(e => {
+        console.log(pushObject);
+
+        pushObject.on('error').subscribe(e => {
             console.error("[PushService] Push error: " + JSON.stringify(e));
         });
 
-        this.pushObject.on('notification').subscribe(data => {
+        pushObject.on('notification').subscribe(data => {
             console.log('[PushService] Notification received: ' + JSON.stringify(data));
-        })
+        });
 
     }
 

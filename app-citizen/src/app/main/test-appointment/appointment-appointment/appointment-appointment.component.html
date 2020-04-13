@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar class="header-app">
+      <ion-buttons slot="start">
+          <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
+      </ion-buttons>
+      <div class="header-app__title"i18n="@@autoTestMainTitle">Test COVID-19</div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen>
+  <h1 class="screen-title screen-title--mb0" i18n="@@testAppointmentAppointmentResultSubtitle1">Gracias por la solicitud</h1>
+  <h2 class="screen-subtitle" i18n="@@testAppointmentAppointmentResultSubtitle2">¡Estamos para ayudarte!</h2>
+  <p class="cita-title" i18n="@@testAppointmentAppointmentResultDescription1">Próximamente te haremos llegar la hora y lugar de tu cita.</p>
+  <p class="" i18n="@@testAppointmentAppointmentResultDescription2">Una vez realizado el test, los resultados los tendrás a las 24 horas de realizar el test y te lo enviaremos directamente a tu móvil mediante esta aplicación.</p>
+
+  <p class="screen-text">
+    <button class="btn" (click)="backToHome()" i18n="@@okButton">OK</button>
+  </p>
+</ion-content>

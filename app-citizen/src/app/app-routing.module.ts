@@ -221,6 +221,16 @@ const routes: Routes = [
                     }
                 ]
             },
+            {
+                path: 'test-appointment/appointment/result',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./main/test-appointment/appointment-appointment/appointment-appointment.module').then(m => m.AppointmentAppointmentModule)
+                    }
+                ]
+            },
 
 
             {

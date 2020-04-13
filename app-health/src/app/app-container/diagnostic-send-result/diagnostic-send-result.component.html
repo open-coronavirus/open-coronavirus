@@ -7,7 +7,7 @@
     <p class="recuadro-info__title" i18n="@@patientIdentifier">Identificador sanitario del paciente</p>
     <p class="recuadro-info__text">{{ patient.healthInsuranceCardNumber }}</p>
     <p class="recuadro-info__title" i18n="@@patientName">Nombre del paciente</p>
-    <p class="recuadro-info__text">{{ patient.firstName + ' ' + patient.lastName }}</p>
+    <p class="recuadro-info__text">{{ patient?.firstName }} {{ patient?.lastName }}</p>
     <p class="recuadro-info__title" i18n="@@patientStatus">Estado del paciente</p>
     <p class="recuadro-info__status" [ngClass]="{'recuadro-info__status--initial' : 1 === patient.status, 'recuadro-info__status--ok' : 2 === patient.status, 'recuadro-info__status--quarentine' : 3 === patient.status, 'recuadro-info__status--infected' : 4 === patient.status, 'recuadro-info__status--immune' : 5 === patient.status}">{{ getNameStatus(patient.status) }}</p>
   </div>

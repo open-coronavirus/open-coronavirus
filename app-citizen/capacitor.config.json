@@ -1,5 +1,5 @@
 {
-  "appId": "es.opencoronavirus",
+  "appId": "com.opencoronavirus",
   "appName": "Open Coronavirus",
   "bundledWebRuntime": false,
   "npmClient": "npm",

@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subject, Subscription} from 'rxjs';
-import { PoliceOfficerLogin } from '../sdk/model/policeOfficerLogin';
 
 @Component({
     selector: 'login-form',
@@ -22,11 +21,7 @@ export class LoginFormComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     @Input('user')
-    public user: PoliceOfficerLogin = new class implements PoliceOfficerLogin {
-        [key: string]: object | any;
-        uniqueId: string;
-        password: string;
-    };
+    public user: any;
 
     @Output('onChange')
     public onChange: Subject<any> = new Subject();

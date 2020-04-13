@@ -3,7 +3,6 @@ import { MenuController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { UserService } from '../shared/services/user.service';
-import { PoliceOfficerWithRelations } from '../shared/sdk/model/policeOfficerWithRelations';
 
 @Component({
     selector: 'app-container',
@@ -13,7 +12,7 @@ import { PoliceOfficerWithRelations } from '../shared/sdk/model/policeOfficerWit
 })
 export class AppContainerComponent implements OnInit {
 
-    public user: PoliceOfficerWithRelations;
+    public user: any;
     public userName: string;
 
     constructor(

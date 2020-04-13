@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class PermissionsService {
 
-    public requestedPermissions = false;
+    public permissionsRequested = false;
 
     constructor(
         private modalController: ModalController,
@@ -18,7 +18,7 @@ export class PermissionsService {
     }
 
     async requestAllPermissions(finalUrl) {
-        this.requestedPermissions = true;
+        this.permissionsRequested = true;
         const requiredPermissions = this.getRequiredPermissions();
         this.showAllPermissionModals(requiredPermissions, finalUrl);
 
