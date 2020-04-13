@@ -6,8 +6,13 @@
       <div class="form-group">
         <div class="form-check">
           <input formControlName="acceptterms" name="acceptterms" class="form-check__input" id="acceptterms" type="checkbox">
-          <span class="form-check__check"></span>
-          <label for="acceptterms"><span i18n="@@privacityConditions1">Al enviar mis datos personales recogidos en este formulario estoy confirmando que he leído y acepto las </span> <a href="javascript:void(null);" (click)="showPrivacityConditions($event)" i18n="@@privacityConditions2">condiciones de uso y políticas de privacidad</a>.</label>
+          
+          <label for="acceptterms">
+            <span class="form-check__check"></span>
+            <span class="form-check__text">
+              <span i18n="@@privacityConditions1">Al enviar mis datos personales recogidos en este formulario estoy confirmando que he leído y acepto las </span> <a href="javascript:void(null);" (click)="showPrivacityConditions($event)" i18n="@@privacityConditions2">condiciones de uso y políticas de privacidad</a>.
+            </span>
+          </label>
         </div>
         <small class="error" *ngIf="acceptterms.invalid && formTriedToSubmit" i18n="@@accepttermsError">Por favor, debes aceptar las condiciones de uso y la política de privacidad.</small>
       </div>

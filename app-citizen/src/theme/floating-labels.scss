@@ -91,8 +91,8 @@
     position: absolute;
     top: 0;
     left: 0; 
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     border-radius: 4px;
     border: solid 2px #e6e6e6; 
 
@@ -100,19 +100,19 @@
       content: "";
       position: absolute;
       display: none;
-      left: 4px;
-      top: 2px;
-      width: 2px;
-      height: 5px;
+      left: 6px;
+      top: 3px;
+      width: 4px;
+      height: 8px;
       border: solid black;
-      border-width: 0 2px 2px 0;
+      border-width: 0 3px 3px 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     } 
   }
 
-  input:checked ~ .form-check__check {
+  input:checked ~ label>.form-check__check {
     &:after {
       display: block;
     }
