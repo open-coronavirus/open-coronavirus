@@ -3,4 +3,9 @@
   font-weight: 300;
   text-align: center;
   color: #c80f2e;
+
+  @media (min-width: 321px) {
+    font-size: 18px;
+    line-height: 22px;
+  }    
 }

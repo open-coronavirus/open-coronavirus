@@ -16,6 +16,11 @@
       
     &-name {
       font-size: 16px;
+
+      @media (min-width: 321px) {
+        font-size: 18px;
+        line-height: 22px;
+      }    
     }
 
   }
@@ -27,7 +32,7 @@
 
     img {
       margin-right: 16px;
-      @media (min-width: 320px) {
+      @media (min-width: 321px) {
         width: 30px;
         height: auto;
       }
@@ -36,6 +41,10 @@
     &--sm{
       font-size: 14px;
       line-height: 16px;
+      @media (min-width: 321px) {
+        font-size: 16px;
+        line-height: 18px;
+      }
 
     }
     &--xs{
@@ -43,6 +52,10 @@
       padding-left: 40px;
       text-decoration: underline;
       font-size: 14px;
+      @media (min-width: 321px) {
+        font-size: 16px;
+        line-height: 18px;
+      }    
     }
   }
 }

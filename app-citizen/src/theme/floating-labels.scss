@@ -74,6 +74,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  @media (min-width: 321px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 
   &__input {
     position: absolute;
@@ -186,4 +190,8 @@ label {
   font-size: 12px;
   color: #777;
   top: 2px;
+  @media (min-width: 321px) {
+    font-size: 14px;
+    line-height: 16px;
+  }    
 }

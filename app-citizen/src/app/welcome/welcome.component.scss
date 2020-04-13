@@ -6,6 +6,11 @@
     text-align: center;
     margin: 24px 0 40px 0;
 
+    @media (min-width: 321px) {
+      font-size: 28px;
+      line-height: 30px;
+    }    
+
     &-strong{
       color:#c80f2e;
     }
@@ -24,19 +29,25 @@
     text-align: center;    
     font-weight: 300;
     margin: 0 0 36px 0;
+
+    @media (min-width: 321px) {
+      font-size: 26px;
+      line-height: 28px;
+    }    
+
     strong{
       font-weight: 600;
     }
   }
 }
 .footer-app__text{
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   text-align: center;
   font-weight: 300;
   margin: 0;
-  @media (max-width: 320px) {
-    font-size: 12px;
+  @media (min-width: 321px) {
+    font-size: 14px;
   }
 
 }

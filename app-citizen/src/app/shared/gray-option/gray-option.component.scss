@@ -9,6 +9,11 @@
   background-color: #f5f5f5;
   border-radius: 16px;
 
+  @media (min-width: 321px) {
+    font-size: 18px;
+    line-height: 22px;
+  }    
+
   &__wrapper {
     display: flex;
     align-items: center;

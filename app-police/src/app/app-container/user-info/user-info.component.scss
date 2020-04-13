@@ -15,6 +15,10 @@
         height: 60px;
         line-height: 60px;
         font-size: 24px;
+
+        @media (min-width: 321px) {
+          font-size: 28px;
+        }    
       }
     }
     &-texts{
@@ -26,12 +30,21 @@
     line-height: 14px;
     font-weight: 300;
     margin: 0;
+    @media (min-width: 321px) {
+      font-size: 14px;
+      line-height: 16px;
+    }    
   }
   &__name{
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     margin: 0 0 12px 0;
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }    
+
     &:last-child{
       margin-bottom: 0;
     }

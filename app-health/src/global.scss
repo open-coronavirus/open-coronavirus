@@ -71,6 +71,11 @@ ion-content, ion-toolbar{
   background-color: #000000;
   outline: none;
 
+  @media (min-width: 321px) {
+    font-size: 18px;
+    line-height: 22px;
+  }    
+
   &--secondary{
     background-color: #f5f5f5;
     color: #000000;
@@ -107,6 +112,11 @@ ion-content, ion-toolbar{
     font-weight: 300;
     color: #fff;
     text-align: center;
+
+    @media (min-width: 321px) {
+      font-size: 24px;
+      line-height: 27px;
+    }    
 
     strong{
       font-weight: 400;
@@ -145,6 +155,11 @@ ion-content, ion-toolbar{
   font-size: 20px;
   font-weight: 300;
   padding-bottom: 20px;
+
+  @media (min-width: 321px) {
+    font-size: 24px;
+    line-height: 27px;
+  }    
 }
 
 .emoji-thinking-face::before  {
@@ -156,11 +171,20 @@ ion-content, ion-toolbar{
   font-weight: 600;
   line-height: 1.17;
   margin: 0 0 16px 0;
+
+  @media (min-width: 321px) {
+    font-size: 28px;
+    line-height: 30px;
+  }    
 }
 .screen-text{
   font-size: 14px;
   line-height: 1.43;
   margin: 0 0 10px 0;
+  @media (min-width: 321px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .recuadro-info{
@@ -173,12 +197,20 @@ ion-content, ion-toolbar{
     font-weight: 300;
     line-height: 1.17;
     margin: 0;
+    @media (min-width: 321px) {
+      font-size: 14px;
+      line-height: 16px;
+    }    
   }
   &__text{
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
     margin: 0 0 16px 0;
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
 
     &:last-child{
       margin-bottom: 0;
@@ -189,6 +221,10 @@ ion-content, ion-toolbar{
     font-size: 14px;
     line-height: 1;
     margin: 0 0 16px 0;
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
 
     &:last-child{
       margin-bottom: 0;
@@ -234,6 +270,10 @@ ion-content, ion-toolbar{
   font-weight: 300;
   line-height: 1.29;
   margin: 0 0 8px 0;
+  @media (min-width: 321px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 
   &--error{
     color: #c80f2e;

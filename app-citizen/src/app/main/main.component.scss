@@ -21,11 +21,20 @@
       margin-right: 24px;
       background: #f3f3f3;
       color: black;
+
+      @media (min-width: 321px) {
+        font-size: 28px;
+      }    
     }
       
     &-name {
       font-size: 16px;
       width: calc(100% - 72px);
+
+      @media (min-width: 321px) {
+        font-size: 18px;
+        line-height: 22px;
+      }    
     }
 
     &--immune{
@@ -64,6 +73,10 @@
       margin-right: 24px;
       background: #f3f3f3;
       color: black;
+
+      @media (min-width: 321px) {
+        font-size: 28px;
+      }    
     }
   }
 
@@ -74,9 +87,14 @@
     font-size: 16px;
     position: relative;
 
+    @media (min-width: 321px) {
+      font-size: 18px;
+      line-height: 22px;
+    }    
+
     img {
       margin-right: 16px;
-      @media (min-width: 320px) {
+      @media (min-width: 321px) {
         width: 30px;
         height: auto;
       }
@@ -94,13 +112,22 @@
       position: absolute;
       top: 16px;
       left: 8px;
+      @media (min-width: 321px) {
+        font-size: 14px;
+        line-height: 16px;
+      }    
     }
 
     &--sm{
       font-size: 14px;
       line-height: 16px;
+      @media (min-width: 321px) {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
       img {
-        @media (min-width: 320px) {
+        @media (min-width: 321px) {
           width: 25px;
         }
       }
@@ -114,8 +141,12 @@
       padding-left: 40px;
       text-decoration: underline;
       font-size: 14px;
+      @media (min-width: 321px) {
+        font-size: 16px;
+        line-height: 18px;
+      }
       img {
-        @media (min-width: 320px) {
+        @media (min-width: 321px) {
           width: 25px;
         }
       }
@@ -123,7 +154,7 @@
     &--ble{
       align-items: flex-start;
       img {
-        @media (min-width: 320px) {
+        @media (min-width: 321px) {
           width: 12px;
         }
       }

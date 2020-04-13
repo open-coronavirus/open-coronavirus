@@ -27,6 +27,10 @@
     color: #9b9b9b;
     font-weight: 300;
     margin: 0;
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
   &__name{
     font-size: 18px;
@@ -39,7 +43,11 @@
     margin: 0;
     line-height: 1;
     font-size: 14px;
-    line-height: 16px;    
+    line-height: 16px; 
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }   
   }
 
   &--quarentine{
@@ -139,9 +147,7 @@
       flex-direction: row;
       padding: 8px 4px;
       width: 100%;
-      @media (max-width: 320px) {
-        font-size: 0;
-      }
+
       &:nth-child(n+2){
         margin-top: 12px;
       }
@@ -152,11 +158,11 @@
         height: auto;
       }
       .main-options__text{
-        font-size: 14px;
+        font-size: 12px;
         line-height: 16px;
         width: calc(76% - 8px);
-        @media (max-width: 320px) {
-          font-size: 12px;
+        @media (min-width: 321px) {
+          font-size: 14px;
         }
       }
     }
@@ -177,13 +183,13 @@
       }
     }
     &-camino{
-      font-size: 12px;
+      font-size: 10px;
       line-height: 14px;
       text-align: left;
       color: #666;
-      @media (max-width: 320px) {
-        font-size: 10px;
-      }
+      @media (min-width: 321px) {
+        font-size: 12px;
+      }    
       &-a{
         display: block;
       }
@@ -203,6 +209,11 @@
     margin: 4px 0 0 0;  
     font-weight: 600;
     width: 100%;
+
+    @media (min-width: 321px) {
+      font-size: 18px;
+      line-height: 22px;
+    }    
   }
   &__image{
     width: 75%;
@@ -227,6 +238,10 @@
     line-height: 16px;   
     font-weight: 300;
     margin: 0; 
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
 }
 
@@ -236,6 +251,10 @@
   font-size: 14px;
   display: flex;
   align-items: center;
+  @media (min-width: 321px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
   img{
     display: block;
     margin: 0 10px 0 0;
@@ -251,6 +270,10 @@
   align-items: center;
   text-decoration: none;  
   color: #000;  
+  @media (min-width: 321px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
   img{
     display: block;
     margin: 0 8px 0 0;
@@ -280,6 +303,10 @@
     font-weight: 300;
     margin: 0; 
     padding: 0 20px;
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
 
   &__badge{
@@ -294,6 +321,9 @@
     position: absolute;
     top: 12px;
     left: 26px;
+    @media (min-width: 321px) {
+      font-size: 14px;
+    }    
   }
 
 }
