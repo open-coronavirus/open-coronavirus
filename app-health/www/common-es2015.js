@@ -634,6 +634,161 @@ const openURL = async (url, ev, direction) => {
 
 
 
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/header/header.component.html":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/header/header.component.html ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar class=\"header-app\">\n    <ion-buttons slot=\"start\">\n      <ion-menu-button class=\"menu-icon\" (click)=\"openMenu()\" autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n    <div i18n=\"@@headerTitleLine\" class=\"header-app__title\"><strong>OPEN</strong> CORONAVIRUS</div>\n    <ion-buttons slot=\"end\">\n      <avatar [userName]=\"userName\"></avatar>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>");
+
+/***/ }),
+
+/***/ "./src/app/shared/header/header.component.scss":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/header/header.component.scss ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/shared/header/header.component.ts":
+/*!***************************************************!*\
+  !*** ./src/app/shared/header/header.component.ts ***!
+  \***************************************************/
+/*! exports provided: CoronaHeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoronaHeaderComponent", function() { return CoronaHeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/shared/services/user.service.ts");
+
+
+
+
+let CoronaHeaderComponent = class CoronaHeaderComponent {
+    constructor(menu, userService) {
+        this.menu = menu;
+        this.userService = userService;
+    }
+    ngOnInit() {
+        this.user = this.userService.user;
+        if (this.user) {
+            this.userName = this.user.firstName + ' ' + this.user.lastName;
+        }
+    }
+    openMenu() {
+        this.menu.enable(true, 'menu');
+        this.menu.open('menu');
+    }
+};
+CoronaHeaderComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] }
+];
+CoronaHeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'corona-header',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/header/header.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./header.component.scss */ "./src/app/shared/header/header.component.scss")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
+        _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+], CoronaHeaderComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/header/header.module.ts":
+/*!************************************************!*\
+  !*** ./src/app/shared/header/header.module.ts ***!
+  \************************************************/
+/*! exports provided: CoronaHeaderModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoronaHeaderModule", function() { return CoronaHeaderModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _header_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./header.component */ "./src/app/shared/header/header.component.ts");
+/* harmony import */ var ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-qrcode2 */ "./node_modules/ngx-qrcode2/index.js");
+/* harmony import */ var _avatar_avatar_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../avatar/avatar.module */ "./src/app/shared/avatar/avatar.module.ts");
+
+
+
+
+
+
+
+
+let CoronaHeaderModule = class CoronaHeaderModule {
+};
+CoronaHeaderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+        imports: [
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["IonicModule"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+            ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__["NgxQRCodeModule"],
+            _avatar_avatar_module__WEBPACK_IMPORTED_MODULE_7__["AvatarModule"],
+        ],
+        declarations: [_header_component__WEBPACK_IMPORTED_MODULE_5__["CoronaHeaderComponent"]],
+        exports: [_header_component__WEBPACK_IMPORTED_MODULE_5__["CoronaHeaderComponent"]]
+    })
+], CoronaHeaderModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/utils/status-utils.ts":
+/*!**********************************************!*\
+  !*** ./src/app/shared/utils/status-utils.ts ***!
+  \**********************************************/
+/*! exports provided: getNameStatus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNameStatus", function() { return getNameStatus; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+function getNameStatus(status) {
+    switch (status) {
+        case 1:
+            return $localize `:@@statusNoData:Anónimo`;
+        case 2:
+            return $localize `:@@statusNoInfected:Negativo`;
+        case 3:
+            return $localize `:@@statusQuarantine:Cuarentena obligatoria`;
+        case 4:
+            return $localize `:@@statusInfected:Positivo`;
+        case 5:
+            return $localize `:@@statusImune:Inmune`;
+    }
+}
+
+
 /***/ })
 
 }]);

@@ -1,3 +1,11 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10], {
   /***/
   "./node_modules/@ionic/core/dist/esm/ion-backdrop-ios.entry.js":
@@ -43,8 +51,10 @@
     /*! ./index-c38df685.js */
     "./node_modules/@ionic/core/dist/esm/index-c38df685.js");
 
-    const Backdrop = class {
-      constructor(hostRef) {
+    var Backdrop = /*#__PURE__*/function () {
+      function Backdrop(hostRef) {
+        _classCallCheck(this, Backdrop);
+
         Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.lastClick = -10000;
         this.blocker = _index_c38df685_js__WEBPACK_IMPORTED_MODULE_3__["GESTURE_CONTROLLER"].createBlocker({
@@ -68,56 +78,65 @@
         this.ionBackdropTap = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBackdropTap", 7);
       }
 
-      connectedCallback() {
-        if (this.stopPropagation) {
-          this.blocker.block();
+      _createClass(Backdrop, [{
+        key: "connectedCallback",
+        value: function connectedCallback() {
+          if (this.stopPropagation) {
+            this.blocker.block();
+          }
         }
-      }
-
-      disconnectedCallback() {
-        this.blocker.unblock();
-      }
-
-      onTouchStart(ev) {
-        this.lastClick = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev);
-        this.emitTap(ev);
-      }
-
-      onMouseDown(ev) {
-        if (this.lastClick < Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev) - 2500) {
+      }, {
+        key: "disconnectedCallback",
+        value: function disconnectedCallback() {
+          this.blocker.unblock();
+        }
+      }, {
+        key: "onTouchStart",
+        value: function onTouchStart(ev) {
+          this.lastClick = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev);
           this.emitTap(ev);
         }
-      }
-
-      emitTap(ev) {
-        if (this.stopPropagation) {
-          ev.preventDefault();
-          ev.stopPropagation();
-        }
-
-        if (this.tappable) {
-          this.ionBackdropTap.emit();
-        }
-      }
-
-      render() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-          tabindex: "-1",
-          class: {
-            [mode]: true,
-            'backdrop-hide': !this.visible,
-            'backdrop-no-tappable': !this.tappable
+      }, {
+        key: "onMouseDown",
+        value: function onMouseDown(ev) {
+          if (this.lastClick < Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev) - 2500) {
+            this.emitTap(ev);
           }
-        });
-      }
+        }
+      }, {
+        key: "emitTap",
+        value: function emitTap(ev) {
+          if (this.stopPropagation) {
+            ev.preventDefault();
+            ev.stopPropagation();
+          }
 
-      static get style() {
-        return ":host{left:0;right:0;top:0;bottom:0;display:block;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0);contain:strict;cursor:pointer;opacity:.01;-ms-touch-action:none;touch-action:none;z-index:2}:host(.backdrop-hide){background:transparent}:host(.backdrop-no-tappable){cursor:auto}:host{background-color:var(--ion-backdrop-color,#000)}";
-      }
+          if (this.tappable) {
+            this.ionBackdropTap.emit();
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _class;
 
-    };
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            tabindex: "-1",
+            "class": (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'backdrop-hide', !this.visible), _defineProperty(_class, 'backdrop-no-tappable', !this.tappable), _class)
+          });
+        }
+      }], [{
+        key: "style",
+        get: function get() {
+          return ":host{left:0;right:0;top:0;bottom:0;display:block;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0);contain:strict;cursor:pointer;opacity:.01;-ms-touch-action:none;touch-action:none;z-index:2}:host(.backdrop-hide){background:transparent}:host(.backdrop-no-tappable){cursor:auto}:host{background-color:var(--ion-backdrop-color,#000)}";
+        }
+      }]);
+
+      return Backdrop;
+    }();
     /***/
+
   }
 }]);
 //# sourceMappingURL=10-es5.js.map

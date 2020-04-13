@@ -64,6 +64,9 @@ export class RegisterComponent {
                     // go to error page
                     this.navCtrl.navigateRoot(['/no-access']);
                 }
+            }, err => {
+                loading.dismiss();
+                console.error("error register: ", err);
             });
 
         }

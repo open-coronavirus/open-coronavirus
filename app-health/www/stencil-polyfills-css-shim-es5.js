@@ -277,39 +277,39 @@
     }
 
     function executeTemplate(template, props) {
-      var final = '';
+      var _final = '';
 
       for (var i = 0; i < template.length; i++) {
         var s = template[i];
-        final += typeof s === 'string' ? s : s(props);
+        _final += typeof s === 'string' ? s : s(props);
       }
 
-      return final;
+      return _final;
     }
 
     function findEndValue(cssText, offset) {
       var onStr = false;
-      var double = false;
+      var _double = false;
       var i = offset;
 
       for (; i < cssText.length; i++) {
         var c = cssText[i];
 
         if (onStr) {
-          if (double && c === '"') {
+          if (_double && c === '"') {
             onStr = false;
           }
 
-          if (!double && c === '\'') {
+          if (!_double && c === '\'') {
             onStr = false;
           }
         } else {
           if (c === '"') {
             onStr = true;
-            double = true;
+            _double = true;
           } else if (c === '\'') {
             onStr = true;
-            double = false;
+            _double = false;
           } else if (c === ';') {
             return i + 1;
           } else if (c === '}') {
@@ -322,13 +322,13 @@
     }
 
     function removeCustomAssigns(cssText) {
-      var final = '';
+      var _final2 = '';
       var offset = 0;
 
       while (true) {
         var assignPos = findRegex(VAR_ASSIGN_START, cssText, offset);
         var start = assignPos ? assignPos.start : cssText.length;
-        final += cssText.substring(offset, start);
+        _final2 += cssText.substring(offset, start);
 
         if (assignPos) {
           offset = findEndValue(cssText, start);
@@ -337,7 +337,7 @@
         }
       }
 
-      return final;
+      return _final2;
     }
 
     function compileTemplate(cssText) {
@@ -639,7 +639,7 @@
           linkElm.parentNode.insertBefore(styleEl, linkElm);
           linkElm.remove();
         }
-      }).catch(function (err) {
+      })["catch"](function (err) {
         console.error(err);
       });
     } // This regexp tries to determine when a variable is declared, for example:
@@ -768,8 +768,8 @@
           css.remove();
         }
 
-        this.hostStyleMap.delete(hostEl);
-        this.hostScopeMap.delete(hostEl);
+        this.hostStyleMap["delete"](hostEl);
+        this.hostScopeMap["delete"](hostEl);
       };
 
       CustomStyle.prototype.updateHost = function (hostEl) {

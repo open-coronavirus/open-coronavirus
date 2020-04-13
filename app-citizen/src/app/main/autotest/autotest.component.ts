@@ -132,7 +132,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
                             } else if (score === 10) {
                                 this.router.navigate(['/app/test-result/result/5']);
                             } else {
-                                // this.router.navigate(['/app/test-result/result/6']);
+                                this.router.navigate(['/app/test-result/result/5']);
                             }
                             break;
                         case TestType.FOLLING_UP:

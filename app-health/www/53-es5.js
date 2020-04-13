@@ -1,3 +1,15 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[53], {
   /***/
   "./node_modules/@ionic/core/dist/esm/ion-ripple-effect.entry.js":
@@ -31,8 +43,10 @@
     /*! ./config-3c7f3790.js */
     "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
 
-    const RippleEffect = class {
-      constructor(hostRef) {
+    var RippleEffect = /*#__PURE__*/function () {
+      function RippleEffect(hostRef) {
+        _classCallCheck(this, RippleEffect);
+
         Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * Sets the type of ripple-effect:
@@ -54,84 +68,113 @@
        */
 
 
-      async addRipple(x, y) {
-        return new Promise(resolve => {
-          Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["f"])(() => {
-            const rect = this.el.getBoundingClientRect();
-            const width = rect.width;
-            const height = rect.height;
-            const hypotenuse = Math.sqrt(width * width + height * height);
-            const maxDim = Math.max(height, width);
-            const maxRadius = this.unbounded ? maxDim : hypotenuse + PADDING;
-            const initialSize = Math.floor(maxDim * INITIAL_ORIGIN_SCALE);
-            const finalScale = maxRadius / initialSize;
-            let posX = x - rect.left;
-            let posY = y - rect.top;
+      _createClass(RippleEffect, [{
+        key: "addRipple",
+        value: function () {
+          var _addRipple = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(x, y) {
+            var _this = this;
 
-            if (this.unbounded) {
-              posX = width * 0.5;
-              posY = height * 0.5;
-            }
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    return _context.abrupt("return", new Promise(function (resolve) {
+                      Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["f"])(function () {
+                        var rect = _this.el.getBoundingClientRect();
 
-            const styleX = posX - initialSize * 0.5;
-            const styleY = posY - initialSize * 0.5;
-            const moveX = width * 0.5 - posX;
-            const moveY = height * 0.5 - posY;
-            Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
-              const div = document.createElement('div');
-              div.classList.add('ripple-effect');
-              const style = div.style;
-              style.top = styleY + 'px';
-              style.left = styleX + 'px';
-              style.width = style.height = initialSize + 'px';
-              style.setProperty('--final-scale', "".concat(finalScale));
-              style.setProperty('--translate-end', "".concat(moveX, "px, ").concat(moveY, "px"));
-              const container = this.el.shadowRoot || this.el;
-              container.appendChild(div);
-              setTimeout(() => {
-                resolve(() => {
-                  removeRipple(div);
-                });
-              }, 225 + 100);
-            });
-          });
-        });
-      }
+                        var width = rect.width;
+                        var height = rect.height;
+                        var hypotenuse = Math.sqrt(width * width + height * height);
+                        var maxDim = Math.max(height, width);
+                        var maxRadius = _this.unbounded ? maxDim : hypotenuse + PADDING;
+                        var initialSize = Math.floor(maxDim * INITIAL_ORIGIN_SCALE);
+                        var finalScale = maxRadius / initialSize;
+                        var posX = x - rect.left;
+                        var posY = y - rect.top;
 
-      get unbounded() {
-        return this.type === 'unbounded';
-      }
+                        if (_this.unbounded) {
+                          posX = width * 0.5;
+                          posY = height * 0.5;
+                        }
 
-      render() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-          role: "presentation",
-          class: {
-            [mode]: true,
-            'unbounded': this.unbounded
+                        var styleX = posX - initialSize * 0.5;
+                        var styleY = posY - initialSize * 0.5;
+                        var moveX = width * 0.5 - posX;
+                        var moveY = height * 0.5 - posY;
+                        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                          var div = document.createElement('div');
+                          div.classList.add('ripple-effect');
+                          var style = div.style;
+                          style.top = styleY + 'px';
+                          style.left = styleX + 'px';
+                          style.width = style.height = initialSize + 'px';
+                          style.setProperty('--final-scale', "".concat(finalScale));
+                          style.setProperty('--translate-end', "".concat(moveX, "px, ").concat(moveY, "px"));
+                          var container = _this.el.shadowRoot || _this.el;
+                          container.appendChild(div);
+                          setTimeout(function () {
+                            resolve(function () {
+                              removeRipple(div);
+                            });
+                          }, 225 + 100);
+                        });
+                      });
+                    }));
+
+                  case 1:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          function addRipple(_x, _x2) {
+            return _addRipple.apply(this, arguments);
           }
-        });
-      }
 
-      get el() {
-        return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
-      }
+          return addRipple;
+        }()
+      }, {
+        key: "render",
+        value: function render() {
+          var _class;
 
-      static get style() {
-        return ":host{left:0;right:0;top:0;bottom:0;position:absolute;contain:strict;pointer-events:none}:host(.unbounded){contain:layout size style}.ripple-effect{border-radius:50%;position:absolute;background-color:currentColor;color:inherit;contain:strict;opacity:0;-webkit-animation:rippleAnimation 225ms forwards,fadeInAnimation 75ms forwards;animation:rippleAnimation 225ms forwards,fadeInAnimation 75ms forwards;will-change:transform,opacity;pointer-events:none}.fade-out{-webkit-transform:translate(var(--translate-end)) scale(var(--final-scale,1));transform:translate(var(--translate-end)) scale(var(--final-scale,1));-webkit-animation:fadeOutAnimation .15s forwards;animation:fadeOutAnimation .15s forwards}\@-webkit-keyframes rippleAnimation{0%{-webkit-animation-timing-function:cubic-bezier(.4,0,.2,1);animation-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transform:scale(1);transform:scale(1)}to{-webkit-transform:translate(var(--translate-end)) scale(var(--final-scale,1));transform:translate(var(--translate-end)) scale(var(--final-scale,1))}}\@keyframes rippleAnimation{0%{-webkit-animation-timing-function:cubic-bezier(.4,0,.2,1);animation-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transform:scale(1);transform:scale(1)}to{-webkit-transform:translate(var(--translate-end)) scale(var(--final-scale,1));transform:translate(var(--translate-end)) scale(var(--final-scale,1))}}\@-webkit-keyframes fadeInAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:0}to{opacity:.16}}\@keyframes fadeInAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:0}to{opacity:.16}}\@-webkit-keyframes fadeOutAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:.16}to{opacity:0}}\@keyframes fadeOutAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:.16}to{opacity:0}}";
-      }
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            role: "presentation",
+            "class": (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'unbounded', this.unbounded), _class)
+          });
+        }
+      }, {
+        key: "unbounded",
+        get: function get() {
+          return this.type === 'unbounded';
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "style",
+        get: function get() {
+          return ":host{left:0;right:0;top:0;bottom:0;position:absolute;contain:strict;pointer-events:none}:host(.unbounded){contain:layout size style}.ripple-effect{border-radius:50%;position:absolute;background-color:currentColor;color:inherit;contain:strict;opacity:0;-webkit-animation:rippleAnimation 225ms forwards,fadeInAnimation 75ms forwards;animation:rippleAnimation 225ms forwards,fadeInAnimation 75ms forwards;will-change:transform,opacity;pointer-events:none}.fade-out{-webkit-transform:translate(var(--translate-end)) scale(var(--final-scale,1));transform:translate(var(--translate-end)) scale(var(--final-scale,1));-webkit-animation:fadeOutAnimation .15s forwards;animation:fadeOutAnimation .15s forwards}\@-webkit-keyframes rippleAnimation{0%{-webkit-animation-timing-function:cubic-bezier(.4,0,.2,1);animation-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transform:scale(1);transform:scale(1)}to{-webkit-transform:translate(var(--translate-end)) scale(var(--final-scale,1));transform:translate(var(--translate-end)) scale(var(--final-scale,1))}}\@keyframes rippleAnimation{0%{-webkit-animation-timing-function:cubic-bezier(.4,0,.2,1);animation-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transform:scale(1);transform:scale(1)}to{-webkit-transform:translate(var(--translate-end)) scale(var(--final-scale,1));transform:translate(var(--translate-end)) scale(var(--final-scale,1))}}\@-webkit-keyframes fadeInAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:0}to{opacity:.16}}\@keyframes fadeInAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:0}to{opacity:.16}}\@-webkit-keyframes fadeOutAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:.16}to{opacity:0}}\@keyframes fadeOutAnimation{0%{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:.16}to{opacity:0}}";
+        }
+      }]);
 
-    };
+      return RippleEffect;
+    }();
 
-    const removeRipple = ripple => {
+    var removeRipple = function removeRipple(ripple) {
       ripple.classList.add('fade-out');
-      setTimeout(() => {
+      setTimeout(function () {
         ripple.remove();
       }, 200);
     };
 
-    const PADDING = 10;
-    const INITIAL_ORIGIN_SCALE = 0.5;
+    var PADDING = 10;
+    var INITIAL_ORIGIN_SCALE = 0.5;
     /***/
   }
 }]);

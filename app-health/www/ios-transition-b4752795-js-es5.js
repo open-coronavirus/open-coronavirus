@@ -1,3 +1,11 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ios-transition-b4752795-js"], {
   /***/
   "./node_modules/@ionic/core/dist/esm/ios.transition-b4752795.js":
@@ -61,70 +69,80 @@
     /*! ./index-1469ea79.js */
     "./node_modules/@ionic/core/dist/esm/index-1469ea79.js");
 
-    const DURATION = 540;
+    var DURATION = 540;
 
-    const getClonedElement = tagName => {
+    var getClonedElement = function getClonedElement(tagName) {
       return document.querySelector("".concat(tagName, ".ion-cloned-element"));
     };
 
-    const shadow = el => {
+    var shadow = function shadow(el) {
       return el.shadowRoot || el;
     };
 
-    const getLargeTitle = refEl => {
-      const tabs = refEl.tagName === 'ION-TABS' ? refEl : refEl.querySelector('ion-tabs');
-      const query = 'ion-header:not(.header-collapse-condense-inactive) ion-title[size=large]';
+    var getLargeTitle = function getLargeTitle(refEl) {
+      var tabs = refEl.tagName === 'ION-TABS' ? refEl : refEl.querySelector('ion-tabs');
+      var query = 'ion-header:not(.header-collapse-condense-inactive) ion-title[size=large]';
 
       if (tabs != null) {
-        const activeTab = tabs.querySelector('ion-tab:not(.tab-hidden), .ion-page:not(.ion-page-hidden)');
+        var activeTab = tabs.querySelector('ion-tab:not(.tab-hidden), .ion-page:not(.ion-page-hidden)');
         return activeTab.querySelector(query);
       }
 
       return refEl.querySelector(query);
     };
 
-    const getBackButton = (refEl, backDirection) => {
-      const tabs = refEl.tagName === 'ION-TABS' ? refEl : refEl.querySelector('ion-tabs');
-      let buttonsList = [];
+    var getBackButton = function getBackButton(refEl, backDirection) {
+      var tabs = refEl.tagName === 'ION-TABS' ? refEl : refEl.querySelector('ion-tabs');
+      var buttonsList = [];
 
       if (tabs != null) {
-        const activeTab = tabs.querySelector('ion-tab:not(.tab-hidden), .ion-page:not(.ion-page-hidden)');
+        var activeTab = tabs.querySelector('ion-tab:not(.tab-hidden), .ion-page:not(.ion-page-hidden)');
         buttonsList = activeTab.querySelectorAll('ion-buttons');
       } else {
         buttonsList = refEl.querySelectorAll('ion-buttons');
       }
 
-      for (const buttons of buttonsList) {
-        const parentHeader = buttons.closest('ion-header');
-        const activeHeader = parentHeader && !parentHeader.classList.contains('header-collapse-condense-inactive');
-        const backButton = buttons.querySelector('ion-back-button');
-        const buttonsCollapse = buttons.classList.contains('buttons-collapse');
-        const startSlot = buttons.slot === 'start' || buttons.slot === '';
+      var _iterator = _createForOfIteratorHelper(buttonsList),
+          _step;
 
-        if (backButton !== null && startSlot && (buttonsCollapse && activeHeader && backDirection || !buttonsCollapse)) {
-          return backButton;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var buttons = _step.value;
+          var parentHeader = buttons.closest('ion-header');
+          var activeHeader = parentHeader && !parentHeader.classList.contains('header-collapse-condense-inactive');
+          var backButton = buttons.querySelector('ion-back-button');
+          var buttonsCollapse = buttons.classList.contains('buttons-collapse');
+          var startSlot = buttons.slot === 'start' || buttons.slot === '';
+
+          if (backButton !== null && startSlot && (buttonsCollapse && activeHeader && backDirection || !buttonsCollapse)) {
+            return backButton;
+          }
         }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
       }
 
       return null;
     };
 
-    const createLargeTitleTransition = (rootAnimation, rtl, backDirection, enteringEl, leavingEl) => {
-      const enteringBackButton = getBackButton(enteringEl, backDirection);
-      const leavingLargeTitle = getLargeTitle(leavingEl);
-      const enteringLargeTitle = getLargeTitle(enteringEl);
-      const leavingBackButton = getBackButton(leavingEl, backDirection);
-      const shouldAnimationForward = enteringBackButton !== null && leavingLargeTitle !== null && !backDirection;
-      const shouldAnimationBackward = enteringLargeTitle !== null && leavingBackButton !== null && backDirection;
+    var createLargeTitleTransition = function createLargeTitleTransition(rootAnimation, rtl, backDirection, enteringEl, leavingEl) {
+      var enteringBackButton = getBackButton(enteringEl, backDirection);
+      var leavingLargeTitle = getLargeTitle(leavingEl);
+      var enteringLargeTitle = getLargeTitle(enteringEl);
+      var leavingBackButton = getBackButton(leavingEl, backDirection);
+      var shouldAnimationForward = enteringBackButton !== null && leavingLargeTitle !== null && !backDirection;
+      var shouldAnimationBackward = enteringLargeTitle !== null && leavingBackButton !== null && backDirection;
 
       if (shouldAnimationForward) {
-        const leavingLargeTitleBox = leavingLargeTitle.getBoundingClientRect();
-        const enteringBackButtonBox = enteringBackButton.getBoundingClientRect();
+        var leavingLargeTitleBox = leavingLargeTitle.getBoundingClientRect();
+        var enteringBackButtonBox = enteringBackButton.getBoundingClientRect();
         animateLargeTitle(rootAnimation, rtl, backDirection, leavingLargeTitle, leavingLargeTitleBox, enteringBackButtonBox);
         animateBackButton(rootAnimation, rtl, backDirection, enteringBackButton, leavingLargeTitleBox, enteringBackButtonBox);
       } else if (shouldAnimationBackward) {
-        const enteringLargeTitleBox = enteringLargeTitle.getBoundingClientRect();
-        const leavingBackButtonBox = leavingBackButton.getBoundingClientRect();
+        var enteringLargeTitleBox = enteringLargeTitle.getBoundingClientRect();
+        var leavingBackButtonBox = leavingBackButton.getBoundingClientRect();
         animateLargeTitle(rootAnimation, rtl, backDirection, enteringLargeTitle, enteringLargeTitleBox, leavingBackButtonBox);
         animateBackButton(rootAnimation, rtl, backDirection, leavingBackButton, enteringLargeTitleBox, leavingBackButtonBox);
       }
@@ -135,14 +153,14 @@
       };
     };
 
-    const animateBackButton = (rootAnimation, rtl, backDirection, backButtonEl, largeTitleBox, backButtonBox) => {
-      const BACK_BUTTON_START_OFFSET = rtl ? "calc(100% - ".concat(backButtonBox.right + 4, "px)") : "".concat(backButtonBox.left - 4, "px");
-      const START_TEXT_TRANSLATE = rtl ? '7px' : '-7px';
-      const END_TEXT_TRANSLATE = rtl ? '-4px' : '4px';
-      const ICON_TRANSLATE = rtl ? '-4px' : '4px';
-      const TEXT_ORIGIN_X = rtl ? 'right' : 'left';
-      const ICON_ORIGIN_X = rtl ? 'left' : 'right';
-      const FORWARD_TEXT_KEYFRAMES = [{
+    var animateBackButton = function animateBackButton(rootAnimation, rtl, backDirection, backButtonEl, largeTitleBox, backButtonBox) {
+      var BACK_BUTTON_START_OFFSET = rtl ? "calc(100% - ".concat(backButtonBox.right + 4, "px)") : "".concat(backButtonBox.left - 4, "px");
+      var START_TEXT_TRANSLATE = rtl ? '7px' : '-7px';
+      var END_TEXT_TRANSLATE = rtl ? '-4px' : '4px';
+      var ICON_TRANSLATE = rtl ? '-4px' : '4px';
+      var TEXT_ORIGIN_X = rtl ? 'right' : 'left';
+      var ICON_ORIGIN_X = rtl ? 'left' : 'right';
+      var FORWARD_TEXT_KEYFRAMES = [{
         offset: 0,
         opacity: 0,
         transform: "translate3d(".concat(START_TEXT_TRANSLATE, ", ").concat(largeTitleBox.top - 40, "px, 0) scale(2.1)")
@@ -151,7 +169,7 @@
         opacity: 1,
         transform: "translate3d(".concat(END_TEXT_TRANSLATE, ", ").concat(backButtonBox.top - 46, "px, 0) scale(1)")
       }];
-      const BACKWARD_TEXT_KEYFRAMES = [{
+      var BACKWARD_TEXT_KEYFRAMES = [{
         offset: 0,
         opacity: 1,
         transform: "translate3d(".concat(END_TEXT_TRANSLATE, ", ").concat(backButtonBox.top - 46, "px, 0) scale(1)")
@@ -163,8 +181,8 @@
         opacity: 0,
         transform: "translate3d(".concat(START_TEXT_TRANSLATE, ", ").concat(largeTitleBox.top - 40, "px, 0) scale(2.1)")
       }];
-      const TEXT_KEYFRAMES = backDirection ? BACKWARD_TEXT_KEYFRAMES : FORWARD_TEXT_KEYFRAMES;
-      const FORWARD_ICON_KEYFRAMES = [{
+      var TEXT_KEYFRAMES = backDirection ? BACKWARD_TEXT_KEYFRAMES : FORWARD_TEXT_KEYFRAMES;
+      var FORWARD_ICON_KEYFRAMES = [{
         offset: 0,
         opacity: 0,
         transform: "translate3d(".concat(ICON_TRANSLATE, ", ").concat(backButtonBox.top - 41, "px, 0) scale(0.6)")
@@ -173,7 +191,7 @@
         opacity: 1,
         transform: "translate3d(".concat(ICON_TRANSLATE, ", ").concat(backButtonBox.top - 46, "px, 0) scale(1)")
       }];
-      const BACKWARD_ICON_KEYFRAMES = [{
+      var BACKWARD_ICON_KEYFRAMES = [{
         offset: 0,
         opacity: 1,
         transform: "translate3d(".concat(ICON_TRANSLATE, ", ").concat(backButtonBox.top - 46, "px, 0) scale(1)")
@@ -186,12 +204,12 @@
         opacity: 0,
         transform: "translate3d(".concat(ICON_TRANSLATE, ", ").concat(backButtonBox.top - 41, "px, 0) scale(0.6)")
       }];
-      const ICON_KEYFRAMES = backDirection ? BACKWARD_ICON_KEYFRAMES : FORWARD_ICON_KEYFRAMES;
-      const enteringBackButtonTextAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      const enteringBackButtonIconAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      const clonedBackButtonEl = getClonedElement('ion-back-button');
-      const backButtonTextEl = shadow(clonedBackButtonEl).querySelector('.button-text');
-      const backButtonIconEl = shadow(clonedBackButtonEl).querySelector('ion-icon');
+      var ICON_KEYFRAMES = backDirection ? BACKWARD_ICON_KEYFRAMES : FORWARD_ICON_KEYFRAMES;
+      var enteringBackButtonTextAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var enteringBackButtonIconAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var clonedBackButtonEl = getClonedElement('ion-back-button');
+      var backButtonTextEl = shadow(clonedBackButtonEl).querySelector('.button-text');
+      var backButtonIconEl = shadow(clonedBackButtonEl).querySelector('ion-icon');
       clonedBackButtonEl.text = backButtonEl.text;
       clonedBackButtonEl.mode = backButtonEl.mode;
       clonedBackButtonEl.icon = backButtonEl.icon;
@@ -203,10 +221,10 @@
       enteringBackButtonTextAnimation.addElement(backButtonTextEl);
       enteringBackButtonTextAnimation.beforeStyles({
         'transform-origin': "".concat(TEXT_ORIGIN_X, " center")
-      }).beforeAddWrite(() => {
+      }).beforeAddWrite(function () {
         backButtonEl.style.setProperty('display', 'none');
         clonedBackButtonEl.style.setProperty(TEXT_ORIGIN_X, BACK_BUTTON_START_OFFSET);
-      }).afterAddWrite(() => {
+      }).afterAddWrite(function () {
         backButtonEl.style.setProperty('display', '');
         clonedBackButtonEl.style.setProperty('display', 'none');
         clonedBackButtonEl.style.removeProperty(TEXT_ORIGIN_X);
@@ -217,11 +235,11 @@
       rootAnimation.addAnimation([enteringBackButtonTextAnimation, enteringBackButtonIconAnimation]);
     };
 
-    const animateLargeTitle = (rootAnimation, rtl, backDirection, largeTitleEl, largeTitleBox, backButtonBox) => {
-      const TITLE_START_OFFSET = rtl ? "calc(100% - ".concat(largeTitleBox.right, "px)") : "".concat(largeTitleBox.left, "px");
-      const START_TRANSLATE = rtl ? '-18px' : '18px';
-      const ORIGIN_X = rtl ? 'right' : 'left';
-      const BACKWARDS_KEYFRAMES = [{
+    var animateLargeTitle = function animateLargeTitle(rootAnimation, rtl, backDirection, largeTitleEl, largeTitleBox, backButtonBox) {
+      var TITLE_START_OFFSET = rtl ? "calc(100% - ".concat(largeTitleBox.right, "px)") : "".concat(largeTitleBox.left, "px");
+      var START_TRANSLATE = rtl ? '-18px' : '18px';
+      var ORIGIN_X = rtl ? 'right' : 'left';
+      var BACKWARDS_KEYFRAMES = [{
         offset: 0,
         opacity: 0,
         transform: "translate3d(".concat(START_TRANSLATE, ", ").concat(backButtonBox.top - 4, "px, 0) scale(0.49)")
@@ -233,7 +251,7 @@
         opacity: 1,
         transform: "translate3d(0, ".concat(largeTitleBox.top - 2, "px, 0) scale(1)")
       }];
-      const FORWARDS_KEYFRAMES = [{
+      var FORWARDS_KEYFRAMES = [{
         offset: 0,
         opacity: 0.99,
         transform: "translate3d(0, ".concat(largeTitleBox.top - 2, "px, 0) scale(1)")
@@ -245,50 +263,49 @@
         opacity: 0,
         transform: "translate3d(".concat(START_TRANSLATE, ", ").concat(backButtonBox.top - 4, "px, 0) scale(0.5)")
       }];
-      const KEYFRAMES = backDirection ? BACKWARDS_KEYFRAMES : FORWARDS_KEYFRAMES;
-      const clonedTitleEl = getClonedElement('ion-title');
-      const clonedLargeTitleAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var KEYFRAMES = backDirection ? BACKWARDS_KEYFRAMES : FORWARDS_KEYFRAMES;
+      var clonedTitleEl = getClonedElement('ion-title');
+      var clonedLargeTitleAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
       clonedTitleEl.innerText = largeTitleEl.innerText;
       clonedTitleEl.size = largeTitleEl.size;
       clonedTitleEl.color = largeTitleEl.color;
       clonedLargeTitleAnimation.addElement(clonedTitleEl);
-      clonedLargeTitleAnimation.beforeStyles({
+      clonedLargeTitleAnimation.beforeStyles(_defineProperty({
         'transform-origin': "".concat(ORIGIN_X, " center"),
         'height': '46px',
         'display': '',
-        'position': 'relative',
-        [ORIGIN_X]: TITLE_START_OFFSET
-      }).beforeAddWrite(() => {
+        'position': 'relative'
+      }, ORIGIN_X, TITLE_START_OFFSET)).beforeAddWrite(function () {
         largeTitleEl.style.setProperty('display', 'none');
-      }).afterAddWrite(() => {
+      }).afterAddWrite(function () {
         largeTitleEl.style.setProperty('display', '');
         clonedTitleEl.style.setProperty('display', 'none');
       }).keyframes(KEYFRAMES);
       rootAnimation.addAnimation(clonedLargeTitleAnimation);
     };
 
-    const iosTransitionAnimation = (navEl, opts) => {
+    var iosTransitionAnimation = function iosTransitionAnimation(navEl, opts) {
       try {
-        const EASING = 'cubic-bezier(0.32,0.72,0,1)';
-        const OPACITY = 'opacity';
-        const TRANSFORM = 'transform';
-        const CENTER = '0%';
-        const OFF_OPACITY = 0.8;
-        const isRTL = navEl.ownerDocument.dir === 'rtl';
-        const OFF_RIGHT = isRTL ? '-99.5%' : '99.5%';
-        const OFF_LEFT = isRTL ? '33%' : '-33%';
-        const enteringEl = opts.enteringEl;
-        const leavingEl = opts.leavingEl;
-        const backDirection = opts.direction === 'back';
-        const contentEl = enteringEl.querySelector(':scope > ion-content');
-        const headerEls = enteringEl.querySelectorAll(':scope > ion-header > *:not(ion-toolbar), :scope > ion-footer > *');
-        const enteringToolBarEls = enteringEl.querySelectorAll(':scope > ion-header > ion-toolbar');
-        const rootAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-        const enteringContentAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+        var EASING = 'cubic-bezier(0.32,0.72,0,1)';
+        var OPACITY = 'opacity';
+        var TRANSFORM = 'transform';
+        var CENTER = '0%';
+        var OFF_OPACITY = 0.8;
+        var isRTL = navEl.ownerDocument.dir === 'rtl';
+        var OFF_RIGHT = isRTL ? '-99.5%' : '99.5%';
+        var OFF_LEFT = isRTL ? '33%' : '-33%';
+        var enteringEl = opts.enteringEl;
+        var leavingEl = opts.leavingEl;
+        var backDirection = opts.direction === 'back';
+        var contentEl = enteringEl.querySelector(':scope > ion-content');
+        var headerEls = enteringEl.querySelectorAll(':scope > ion-header > *:not(ion-toolbar), :scope > ion-footer > *');
+        var enteringToolBarEls = enteringEl.querySelectorAll(':scope > ion-header > ion-toolbar');
+        var rootAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+        var enteringContentAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
         rootAnimation.addElement(enteringEl).duration(opts.duration || DURATION).easing(opts.easing || EASING).fill('both').beforeRemoveClass('ion-page-invisible');
 
         if (leavingEl && navEl) {
-          const navDecorAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var navDecorAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
           navDecorAnimation.addElement(navEl);
           rootAnimation.addAnimation(navDecorAnimation);
         }
@@ -311,14 +328,14 @@
         }
 
         if (contentEl) {
-          const enteringTransitionEffectEl = shadow(contentEl).querySelector('.transition-effect');
+          var enteringTransitionEffectEl = shadow(contentEl).querySelector('.transition-effect');
 
           if (enteringTransitionEffectEl) {
-            const enteringTransitionCoverEl = enteringTransitionEffectEl.querySelector('.transition-cover');
-            const enteringTransitionShadowEl = enteringTransitionEffectEl.querySelector('.transition-shadow');
-            const enteringTransitionEffect = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-            const enteringTransitionCover = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-            const enteringTransitionShadow = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var enteringTransitionCoverEl = enteringTransitionEffectEl.querySelector('.transition-cover');
+            var enteringTransitionShadowEl = enteringTransitionEffectEl.querySelector('.transition-shadow');
+            var enteringTransitionEffect = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var enteringTransitionCover = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var enteringTransitionShadow = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
             enteringTransitionEffect.addElement(enteringTransitionEffectEl).beforeStyles({
               opacity: '1',
               display: 'block'
@@ -335,41 +352,44 @@
           }
         }
 
-        const enteringContentHasLargeTitle = enteringEl.querySelector('ion-header.header-collapse-condense');
-        const {
-          forward,
-          backward
-        } = createLargeTitleTransition(rootAnimation, isRTL, backDirection, enteringEl, leavingEl);
-        enteringToolBarEls.forEach(enteringToolBarEl => {
-          const enteringToolBar = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+        var enteringContentHasLargeTitle = enteringEl.querySelector('ion-header.header-collapse-condense');
+
+        var _createLargeTitleTran = createLargeTitleTransition(rootAnimation, isRTL, backDirection, enteringEl, leavingEl),
+            forward = _createLargeTitleTran.forward,
+            backward = _createLargeTitleTran.backward;
+
+        enteringToolBarEls.forEach(function (enteringToolBarEl) {
+          var enteringToolBar = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
           enteringToolBar.addElement(enteringToolBarEl);
           rootAnimation.addAnimation(enteringToolBar);
-          const enteringTitle = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var enteringTitle = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
           enteringTitle.addElement(enteringToolBarEl.querySelector('ion-title')); // REVIEW
 
-          const enteringToolBarButtons = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-          const buttons = Array.from(enteringToolBarEl.querySelectorAll('ion-buttons,[menuToggle]'));
-          const parentHeader = enteringToolBarEl.closest('ion-header');
-          const inactiveHeader = parentHeader && parentHeader.classList.contains('header-collapse-condense-inactive');
-          let buttonsToAnimate;
+          var enteringToolBarButtons = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var buttons = Array.from(enteringToolBarEl.querySelectorAll('ion-buttons,[menuToggle]'));
+          var parentHeader = enteringToolBarEl.closest('ion-header');
+          var inactiveHeader = parentHeader && parentHeader.classList.contains('header-collapse-condense-inactive');
+          var buttonsToAnimate;
 
           if (backDirection) {
-            buttonsToAnimate = buttons.filter(button => {
-              const isCollapseButton = button.classList.contains('buttons-collapse');
+            buttonsToAnimate = buttons.filter(function (button) {
+              var isCollapseButton = button.classList.contains('buttons-collapse');
               return isCollapseButton && !inactiveHeader || !isCollapseButton;
             });
           } else {
-            buttonsToAnimate = buttons.filter(button => !button.classList.contains('buttons-collapse'));
+            buttonsToAnimate = buttons.filter(function (button) {
+              return !button.classList.contains('buttons-collapse');
+            });
           }
 
           enteringToolBarButtons.addElement(buttonsToAnimate);
-          const enteringToolBarItems = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var enteringToolBarItems = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
           enteringToolBarItems.addElement(enteringToolBarEl.querySelectorAll(':scope > *:not(ion-title):not(ion-buttons):not([menuToggle])'));
-          const enteringToolBarBg = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var enteringToolBarBg = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
           enteringToolBarBg.addElement(shadow(enteringToolBarEl).querySelector('.toolbar-background')); // REVIEW
 
-          const enteringBackButton = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-          const backButtonEl = enteringToolBarEl.querySelector('ion-back-button');
+          var enteringBackButton = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var backButtonEl = enteringToolBarEl.querySelector('ion-back-button');
 
           if (backButtonEl) {
             enteringBackButton.addElement(backButtonEl);
@@ -395,7 +415,7 @@
 
             enteringToolBarItems.fromTo('transform', "translateX(".concat(OFF_RIGHT, ")"), "translateX(".concat(CENTER, ")"));
             enteringToolBarBg.beforeClearStyles([OPACITY, 'transform']);
-            const translucentHeader = parentHeader === null || parentHeader === void 0 ? void 0 : parentHeader.translucent;
+            var translucentHeader = parentHeader === null || parentHeader === void 0 ? void 0 : parentHeader.translucent;
 
             if (!translucentHeader) {
               enteringToolBarBg.fromTo(OPACITY, 0.01, 1);
@@ -409,7 +429,7 @@
             }
 
             if (backButtonEl && !forward) {
-              const enteringBackBtnText = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+              var enteringBackBtnText = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
               enteringBackBtnText.addElement(shadow(backButtonEl).querySelector('.button-text')) // REVIEW
               .fromTo("transform", isRTL ? 'translateX(-100px)' : 'translateX(100px)', 'translateX(0px)');
               enteringToolBar.addAnimation(enteringBackBtnText);
@@ -418,8 +438,8 @@
         }); // setup leaving view
 
         if (leavingEl) {
-          const leavingContent = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-          const leavingContentEl = leavingEl.querySelector(':scope > ion-content');
+          var leavingContent = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var leavingContentEl = leavingEl.querySelector(':scope > ion-content');
           leavingContent.addElement(leavingContentEl); // REVIEW
 
           leavingContent.addElement(leavingEl.querySelectorAll(':scope > ion-header > *:not(ion-toolbar), :scope > ion-footer > *'));
@@ -428,8 +448,8 @@
           if (backDirection) {
             // leaving content, back direction
             leavingContent.beforeClearStyles([OPACITY]).fromTo('transform', "translateX(".concat(CENTER, ")"), isRTL ? 'translateX(-100%)' : 'translateX(100%)');
-            const leavingPage = Object(_index_1469ea79_js__WEBPACK_IMPORTED_MODULE_5__["g"])(leavingEl);
-            rootAnimation.afterAddWrite(() => {
+            var leavingPage = Object(_index_1469ea79_js__WEBPACK_IMPORTED_MODULE_5__["g"])(leavingEl);
+            rootAnimation.afterAddWrite(function () {
               if (rootAnimation.getDirection() === 'normal') {
                 leavingPage.style.setProperty('display', 'none');
               }
@@ -440,14 +460,14 @@
           }
 
           if (leavingContentEl) {
-            const leavingTransitionEffectEl = shadow(leavingContentEl).querySelector('.transition-effect');
+            var leavingTransitionEffectEl = shadow(leavingContentEl).querySelector('.transition-effect');
 
             if (leavingTransitionEffectEl) {
-              const leavingTransitionCoverEl = leavingTransitionEffectEl.querySelector('.transition-cover');
-              const leavingTransitionShadowEl = leavingTransitionEffectEl.querySelector('.transition-shadow');
-              const leavingTransitionEffect = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-              const leavingTransitionCover = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-              const leavingTransitionShadow = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+              var leavingTransitionCoverEl = leavingTransitionEffectEl.querySelector('.transition-cover');
+              var leavingTransitionShadowEl = leavingTransitionEffectEl.querySelector('.transition-shadow');
+              var leavingTransitionEffect = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+              var leavingTransitionCover = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+              var leavingTransitionShadow = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
               leavingTransitionEffect.addElement(leavingTransitionEffectEl).beforeStyles({
                 opacity: '1',
                 display: 'block'
@@ -464,34 +484,34 @@
             }
           }
 
-          const leavingToolBarEls = leavingEl.querySelectorAll(':scope > ion-header > ion-toolbar');
-          leavingToolBarEls.forEach(leavingToolBarEl => {
-            const leavingToolBar = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+          var leavingToolBarEls = leavingEl.querySelectorAll(':scope > ion-header > ion-toolbar');
+          leavingToolBarEls.forEach(function (leavingToolBarEl) {
+            var leavingToolBar = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
             leavingToolBar.addElement(leavingToolBarEl);
-            const leavingTitle = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var leavingTitle = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
             leavingTitle.addElement(leavingToolBarEl.querySelector('ion-title')); // REVIEW
 
-            const leavingToolBarButtons = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-            const buttons = leavingToolBarEl.querySelectorAll('ion-buttons,[menuToggle]');
-            const parentHeader = leavingToolBarEl.closest('ion-header');
-            const inactiveHeader = parentHeader && parentHeader.classList.contains('header-collapse-condense-inactive');
-            const buttonsToAnimate = Array.from(buttons).filter(button => {
-              const isCollapseButton = button.classList.contains('buttons-collapse');
+            var leavingToolBarButtons = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var buttons = leavingToolBarEl.querySelectorAll('ion-buttons,[menuToggle]');
+            var parentHeader = leavingToolBarEl.closest('ion-header');
+            var inactiveHeader = parentHeader && parentHeader.classList.contains('header-collapse-condense-inactive');
+            var buttonsToAnimate = Array.from(buttons).filter(function (button) {
+              var isCollapseButton = button.classList.contains('buttons-collapse');
               return isCollapseButton && !inactiveHeader || !isCollapseButton;
             });
             leavingToolBarButtons.addElement(buttonsToAnimate);
-            const leavingToolBarItems = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-            const leavingToolBarItemEls = leavingToolBarEl.querySelectorAll(':scope > *:not(ion-title):not(ion-buttons):not([menuToggle])');
+            var leavingToolBarItems = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var leavingToolBarItemEls = leavingToolBarEl.querySelectorAll(':scope > *:not(ion-title):not(ion-buttons):not([menuToggle])');
 
             if (leavingToolBarItemEls.length > 0) {
               leavingToolBarItems.addElement(leavingToolBarItemEls);
             }
 
-            const leavingToolBarBg = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var leavingToolBarBg = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
             leavingToolBarBg.addElement(shadow(leavingToolBarEl).querySelector('.toolbar-background')); // REVIEW
 
-            const leavingBackButton = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-            const backButtonEl = leavingToolBarEl.querySelector('ion-back-button');
+            var leavingBackButton = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+            var backButtonEl = leavingToolBarEl.querySelector('ion-back-button');
 
             if (backButtonEl) {
               leavingBackButton.addElement(backButtonEl);
@@ -514,7 +534,7 @@
               leavingToolBarBg.beforeClearStyles([OPACITY, 'transform']); // leaving toolbar, back direction, and there's no entering toolbar
               // should just slide out, no fading out
 
-              const translucentHeader = parentHeader === null || parentHeader === void 0 ? void 0 : parentHeader.translucent;
+              var translucentHeader = parentHeader === null || parentHeader === void 0 ? void 0 : parentHeader.translucent;
 
               if (!translucentHeader) {
                 leavingToolBarBg.fromTo(OPACITY, 0.99, 0);
@@ -523,7 +543,7 @@
               }
 
               if (backButtonEl && !backward) {
-                const leavingBackBtnText = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+                var leavingBackBtnText = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
                 leavingBackBtnText.addElement(shadow(backButtonEl).querySelector('.button-text')) // REVIEW
                 .fromTo('transform', "translateX(".concat(CENTER, ")"), "translateX(".concat((isRTL ? -124 : 124) + 'px', ")"));
                 leavingToolBar.addAnimation(leavingBackBtnText);

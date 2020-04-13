@@ -438,7 +438,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-menu side=\"start\" menuId=\"menu\" contentId=\"main\">\n    <ion-header>\n        <ion-list>\n            <div class=\"menu-item-header menu-separator\" (click)=\"goToHome()\">\n                <div class=\"circle circle-gray\">A</div>\n                <div class=\"patient-name-in-menu\">{{patientName}}</div>\n            </div>\n        </ion-list>\n    </ion-header>\n    <ion-content>\n        <ion-list>\n            <div *ngIf=\"leaveStatus == null || leaveStatus == 1\" class=\"menu-item menu-separator\" (click)=\"goToRequestLeaveHome()\"><img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-salir-casa.svg\">&nbsp;&nbsp;&nbsp;<ng-container i18n=\"@@ImGoingLeaveHomeMenuLabel\">Voy a salir de casa</ng-container></div>\n            <div *ngIf=\"leaveStatus == 2\" class=\"menu-item menu-separator\" (click)=\"setAtHome()\"><img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-volver-casa.svg\">&nbsp;&nbsp;&nbsp;<ng-container i18n=\"@@IWentBackToHomeMenuLabel\">He vuelto a casa</ng-container></div>\n            <div class=\"menu-item\" (click)=\"goToAutotest()\"><img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-test.svg\">&nbsp;&nbsp;&nbsp;<ng-container i18n=\"@@autotestMenuLabel\">¿Tengo el coronavirus?</ng-container></div>\n            <div class=\"menu-item\" (click)=\"goToCoronavirusInfo()\"><img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-info.svg\">&nbsp;&nbsp;&nbsp;<ng-container i18n=\"@@coronavirusInfoMenuLabel\">Información sobre el coronavirus</ng-container></div>\n        </ion-list>\n    </ion-content>\n    <ion-toolbar>\n        <ion-list>\n            <div class=\"menu-item\" (click)=\"goToMyInfo()\"><img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-usuario.svg\">&nbsp;&nbsp;&nbsp;<ng-container i18n=\"@@myInfoMenuLabel\">Mis datos</ng-container></div>\n            <div class=\"menu-item\" (click)=\"share()\"><img class=\"button-icon filter-green\" src=\"/assets/icons/svg/whatsapp.svg\">&nbsp;&nbsp;&nbsp;<ng-container i18n=\"@@shareMenuLabel\">Compartir App<br />para luchar juntos</ng-container></div>\n        </ion-list>\n    </ion-toolbar>\n</ion-menu>\n\n<!-- the main content -->\n<ion-router-outlet class=\"app-router-outlet\" id=\"main\"></ion-router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-menu class=\"menu\" side=\"start\" menuId=\"menu\" contentId=\"main\">\n    <ion-header>\n        <div class=\"menu__header menu__separator\" (click)=\"goToHome()\">\n            <avatar class=\"menu__header-circle\" [userName]=\"userName\"></avatar>\n            <div class=\"menu__header-name\">{{userName}}</div>\n        </div>\n    </ion-header>\n    <ion-content>\n        <div>\n            <div class=\"menu__item\" (click)=\"goToIdentity()\">\n                <img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-info.svg\">\n                <ng-container i18n=\"@@coronavirusIdentityUserMenuLabel\">Subir diagnóstico</ng-container>\n            </div>\n        </div>\n    </ion-content>\n    <ion-toolbar>\n        <div>\n            <div class=\"menu__item menu__item--sm\" (click)=\"goToMyInfo()\">\n                <img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-usuario.svg\">\n                <ng-container i18n=\"@@myInfoMenuLabel\">Mis datos</ng-container>\n            </div>\n            <div class=\"menu__item menu__item--sm\" (click)=\"goExit()\">\n                <img class=\"button-icon filter-black\" src=\"/assets/icons/svg/icon-salir-casa.svg\">\n                <ng-container i18n=\"@@exitMenuLabel\">Salir</ng-container>\n            </div>\n        </div>\n    </ion-toolbar>\n</ion-menu>\n\n<!-- the main content -->\n<ion-router-outlet class=\"app-router-outlet\" id=\"main\"></ion-router-outlet>\n");
 
 /***/ }),
 
@@ -452,6 +452,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/avatar/avatar.component.html":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/avatar/avatar.component.html ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"circle circle--gray\">{{ chartUser }}</div>");
 
 /***/ }),
 
@@ -712,7 +725,7 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".menu-separator {\n  border-bottom: 1px solid lightgray;\n}\n\n.menu-item-header {\n  padding-top: 40px;\n  padding-bottom: 20px;\n  margin-left: 15px;\n  margin-right: 15px;\n  padding-left: 10px;\n}\n\n.menu-item {\n  padding-top: 20px;\n  padding-bottom: 20px;\n  margin-left: 15px;\n  margin-right: 15px;\n  padding-left: 45px;\n  text-indent: -35px;\n}\n\n.menu-item img {\n  vertical-align: middle;\n}\n\n.menu-footer-item {\n  padding-top: 20px;\n  padding-bottom: 20px;\n  margin-left: 15px;\n  margin-right: 15px;\n  padding-left: 45px;\n  text-indent: -35px;\n}\n\n.menu-footer-item img {\n  vertical-align: middle;\n}\n\n.circle {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  font-size: 15px;\n  text-align: center;\n  line-height: 40px;\n  float: left;\n  margin-right: 10px;\n}\n\n.circle-gray {\n  background: #f3f3f3;\n  color: black;\n}\n\n.patient-name-in-menu {\n  height: 40px;\n  vertical-align: middle;\n  line-height: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9vcmRhcy93d3cvY29yb25hdmlydXMtYXBwLXJlYWwvYXBwLXBvbGljZS9zcmMvYXBwL2FwcC1jb250YWluZXIvYXBwLWNvbnRhaW5lci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLWNvbnRhaW5lci9hcHAtY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0NBQUE7QUNDRjs7QURFQTtFQUNFLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURHQTtFQUNFLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtBQ0FGOztBREVFO0VBQ0Usc0JBQUE7QUNBSjs7QURLQTtFQUNFLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtBQ0ZGOztBRElFO0VBQ0Usc0JBQUE7QUNGSjs7QURPQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0pGOztBRE9BO0VBQ0UsbUJBQUE7RUFDQSxZQUFBO0FDSkY7O0FET0E7RUFDRSxZQUFBO0VBQ0Esc0JBQUE7RUFDQSxpQkFBQTtBQ0pGIiwiZmlsZSI6InNyYy9hcHAvYXBwLWNvbnRhaW5lci9hcHAtY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lbnUtc2VwYXJhdG9yIHtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGxpZ2h0Z3JheTtcbn1cblxuLm1lbnUtaXRlbS1oZWFkZXIge1xuICBwYWRkaW5nLXRvcDogNDBweDtcbiAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcblxufVxuXG4ubWVudS1pdGVtIHtcbiAgcGFkZGluZy10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICBtYXJnaW4tbGVmdDogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBwYWRkaW5nLWxlZnQ6IDQ1cHg7XG4gIHRleHQtaW5kZW50OiAtMzVweDtcblxuICBpbWcge1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIH1cblxufVxuXG4ubWVudS1mb290ZXItaXRlbSB7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgbWFyZ2luLWxlZnQ6IDE1cHg7XG4gIG1hcmdpbi1yaWdodDogMTVweDtcbiAgcGFkZGluZy1sZWZ0OiA0NXB4O1xuICB0ZXh0LWluZGVudDogLTM1cHg7XG5cbiAgaW1nIHtcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICB9XG5cbn1cblxuLmNpcmNsZSB7XG4gIHdpZHRoOiA0MHB4O1xuICBoZWlnaHQ6IDQwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC1zaXplOiAxNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGxpbmUtaGVpZ2h0OiA0MHB4O1xuICBmbG9hdDogbGVmdDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4uY2lyY2xlLWdyYXkge1xuICBiYWNrZ3JvdW5kOiAjZjNmM2YzO1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi5wYXRpZW50LW5hbWUtaW4tbWVudSB7XG4gIGhlaWdodDogNDBweDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgbGluZS1oZWlnaHQ6IDQwcHg7XG59XG4iLCIubWVudS1zZXBhcmF0b3Ige1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgbGlnaHRncmF5O1xufVxuXG4ubWVudS1pdGVtLWhlYWRlciB7XG4gIHBhZGRpbmctdG9wOiA0MHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgbWFyZ2luLWxlZnQ6IDE1cHg7XG4gIG1hcmdpbi1yaWdodDogMTVweDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xufVxuXG4ubWVudS1pdGVtIHtcbiAgcGFkZGluZy10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICBtYXJnaW4tbGVmdDogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBwYWRkaW5nLWxlZnQ6IDQ1cHg7XG4gIHRleHQtaW5kZW50OiAtMzVweDtcbn1cbi5tZW51LWl0ZW0gaW1nIHtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbn1cblxuLm1lbnUtZm9vdGVyLWl0ZW0ge1xuICBwYWRkaW5nLXRvcDogMjBweDtcbiAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XG4gIHBhZGRpbmctbGVmdDogNDVweDtcbiAgdGV4dC1pbmRlbnQ6IC0zNXB4O1xufVxuLm1lbnUtZm9vdGVyLWl0ZW0gaW1nIHtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbn1cblxuLmNpcmNsZSB7XG4gIHdpZHRoOiA0MHB4O1xuICBoZWlnaHQ6IDQwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC1zaXplOiAxNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGxpbmUtaGVpZ2h0OiA0MHB4O1xuICBmbG9hdDogbGVmdDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4uY2lyY2xlLWdyYXkge1xuICBiYWNrZ3JvdW5kOiAjZjNmM2YzO1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi5wYXRpZW50LW5hbWUtaW4tbWVudSB7XG4gIGhlaWdodDogNDBweDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgbGluZS1oZWlnaHQ6IDQwcHg7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".menu__separator {\n  border-bottom: 1px solid lightgray;\n  padding-bottom: 16px;\n}\n.menu__header {\n  display: flex;\n  align-items: center;\n  margin: 0 16px;\n  padding: 24px 0 16px 0;\n}\n.menu__header .circle {\n  margin-right: 10px;\n}\n.menu__header-name {\n  font-size: 16px;\n}\n@media (min-width: 321px) {\n  .menu__header-name {\n    font-size: 18px;\n    line-height: 22px;\n  }\n}\n.menu__item {\n  display: flex;\n  align-items: center;\n  padding-top: 16px;\n}\n.menu__item img {\n  margin-right: 16px;\n}\n@media (min-width: 321px) {\n  .menu__item img {\n    width: 30px;\n    height: auto;\n  }\n}\n.menu__item--sm {\n  font-size: 14px;\n  line-height: 16px;\n}\n@media (min-width: 321px) {\n  .menu__item--sm {\n    font-size: 16px;\n    line-height: 18px;\n  }\n}\n.menu__item--xs {\n  color: #9b9b9b;\n  padding-left: 40px;\n  text-decoration: underline;\n  font-size: 14px;\n}\n@media (min-width: 321px) {\n  .menu__item--xs {\n    font-size: 16px;\n    line-height: 18px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9vcmRhcy93d3cvY29yb25hdmlydXMtYXBwLXJlYWwvYXBwLWhlYWx0aC9zcmMvYXBwL2FwcC1jb250YWluZXIvYXBwLWNvbnRhaW5lci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLWNvbnRhaW5lci9hcHAtY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0Usa0NBQUE7RUFDQSxvQkFBQTtBQ0FKO0FER0U7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0Esc0JBQUE7QUNESjtBREdJO0VBQ0Usa0JBQUE7QUNETjtBRElJO0VBQ0UsZUFBQTtBQ0ZOO0FESU07RUFIRjtJQUlJLGVBQUE7SUFDQSxpQkFBQTtFQ0ROO0FBQ0Y7QURNRTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLGlCQUFBO0FDSko7QURNSTtFQUNFLGtCQUFBO0FDSk47QURLTTtFQUZGO0lBR0ksV0FBQTtJQUNBLFlBQUE7RUNGTjtBQUNGO0FES0k7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7QUNITjtBRElNO0VBSEY7SUFJSSxlQUFBO0lBQ0EsaUJBQUE7RUNETjtBQUNGO0FESUk7RUFDRSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSwwQkFBQTtFQUNBLGVBQUE7QUNGTjtBREdNO0VBTEY7SUFNSSxlQUFBO0lBQ0EsaUJBQUE7RUNBTjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYXBwLWNvbnRhaW5lci9hcHAtY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lbnV7XG4gICZfX3NlcGFyYXRvciB7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGxpZ2h0Z3JheTtcbiAgICBwYWRkaW5nLWJvdHRvbTogMTZweDtcbiAgfVxuXG4gICZfX2hlYWRlcntcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luOiAwIDE2cHg7XG4gICAgcGFkZGluZzogMjRweCAwIDE2cHggMDsgIFxuXG4gICAgLmNpcmNsZXtcbiAgICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgICB9IFxuICAgICAgXG4gICAgJi1uYW1lIHtcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcblxuICAgICAgQG1lZGlhIChtaW4td2lkdGg6IDMyMXB4KSB7XG4gICAgICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICAgICAgbGluZS1oZWlnaHQ6IDIycHg7XG4gICAgICB9ICAgIFxuICAgIH1cblxuICB9XG5cbiAgJl9faXRlbSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHBhZGRpbmctdG9wOiAxNnB4O1xuXG4gICAgaW1nIHtcbiAgICAgIG1hcmdpbi1yaWdodDogMTZweDtcbiAgICAgIEBtZWRpYSAobWluLXdpZHRoOiAzMjFweCkge1xuICAgICAgICB3aWR0aDogMzBweDtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYtLXNte1xuICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgbGluZS1oZWlnaHQ6IDE2cHg7XG4gICAgICBAbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBsaW5lLWhlaWdodDogMThweDtcbiAgICAgIH1cblxuICAgIH1cbiAgICAmLS14c3tcbiAgICAgIGNvbG9yOiAjOWI5YjliO1xuICAgICAgcGFkZGluZy1sZWZ0OiA0MHB4O1xuICAgICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG4gICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICBAbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBsaW5lLWhlaWdodDogMThweDtcbiAgICAgIH0gICAgXG4gICAgfVxuICB9XG59XG4iLCIubWVudV9fc2VwYXJhdG9yIHtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGxpZ2h0Z3JheTtcbiAgcGFkZGluZy1ib3R0b206IDE2cHg7XG59XG4ubWVudV9faGVhZGVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgbWFyZ2luOiAwIDE2cHg7XG4gIHBhZGRpbmc6IDI0cHggMCAxNnB4IDA7XG59XG4ubWVudV9faGVhZGVyIC5jaXJjbGUge1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG59XG4ubWVudV9faGVhZGVyLW5hbWUge1xuICBmb250LXNpemU6IDE2cHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgLm1lbnVfX2hlYWRlci1uYW1lIHtcbiAgICBmb250LXNpemU6IDE4cHg7XG4gICAgbGluZS1oZWlnaHQ6IDIycHg7XG4gIH1cbn1cbi5tZW51X19pdGVtIHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgcGFkZGluZy10b3A6IDE2cHg7XG59XG4ubWVudV9faXRlbSBpbWcge1xuICBtYXJnaW4tcmlnaHQ6IDE2cHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgLm1lbnVfX2l0ZW0gaW1nIHtcbiAgICB3aWR0aDogMzBweDtcbiAgICBoZWlnaHQ6IGF1dG87XG4gIH1cbn1cbi5tZW51X19pdGVtLS1zbSB7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgbGluZS1oZWlnaHQ6IDE2cHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgLm1lbnVfX2l0ZW0tLXNtIHtcbiAgICBmb250LXNpemU6IDE2cHg7XG4gICAgbGluZS1oZWlnaHQ6IDE4cHg7XG4gIH1cbn1cbi5tZW51X19pdGVtLS14cyB7XG4gIGNvbG9yOiAjOWI5YjliO1xuICBwYWRkaW5nLWxlZnQ6IDQwcHg7XG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICBmb250LXNpemU6IDE0cHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgLm1lbnVfX2l0ZW0tLXhzIHtcbiAgICBmb250LXNpemU6IDE2cHg7XG4gICAgbGluZS1oZWlnaHQ6IDE4cHg7XG4gIH1cbn0iXX0= */");
 
 /***/ }),
 
@@ -730,8 +743,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/services/patient.service */ "./src/app/shared/services/patient.service.ts");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _shared_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/services/user.service */ "./src/app/shared/services/user.service.ts");
 
 
 
@@ -739,11 +752,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppContainerComponent = class AppContainerComponent {
-    constructor(menu, router, patientService, iab) {
+    constructor(menu, router, navCtrl, userService, iab) {
         this.menu = menu;
         this.router = router;
-        this.patientService = patientService;
+        this.navCtrl = navCtrl;
+        this.userService = userService;
         this.iab = iab;
+    }
+    ngOnInit() {
+        this.user = this.userService.user;
+        if (this.user) {
+            this.userName = this.user.firstName + ' ' + this.user.lastName;
+        }
     }
     openMenu() {
         this.menu.enable(true, 'menu');
@@ -752,32 +772,26 @@ let AppContainerComponent = class AppContainerComponent {
     closeMenu() {
         this.menu.close('menu');
     }
-    goToHome() {
+    goToIdentity() {
         this.closeMenu();
-        this.router.navigate(['/app/home']);
-    }
-    goToRequestLeaveHome() {
-        this.closeMenu();
-        this.router.navigate(['/app/request-leave-home']);
-    }
-    goToAutotest() {
-        this.closeMenu();
-        this.router.navigate(['/app/autotest']);
-    }
-    goToCoronavirusInfo() {
-        this.closeMenu();
-        window.open("https://coronavirus.epidemixs.org/#/opening", '_system');
+        this.router.navigate(['/app/qr-reader']);
     }
     goToMyInfo() {
         this.closeMenu();
         this.router.navigate(['/app/my-info']);
     }
+    goExit() {
+        this.closeMenu();
+        this.userService.user = null;
+        this.navCtrl.navigateRoot(['login']);
+    }
 };
 AppContainerComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_4__["PatientService"] },
-    { type: _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_5__["InAppBrowser"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+    { type: _shared_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_4__["InAppBrowser"] }
 ];
 AppContainerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -788,8 +802,9 @@ AppContainerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_4__["PatientService"],
-        _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_5__["InAppBrowser"]])
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
+        _shared_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_4__["InAppBrowser"]])
 ], AppContainerComponent);
 
 
@@ -825,20 +840,11 @@ const routes = [
         ]
     },
     {
-        path: 'register',
+        path: 'login',
         children: [
             {
                 path: '',
-                loadChildren: () => Promise.all(/*! import() | register-register-module */[__webpack_require__.e("default~no-access-no-access-module~register-register-module"), __webpack_require__.e("register-register-module")]).then(__webpack_require__.bind(null, /*! ./register/register.module */ "./src/app/register/register.module.ts")).then(m => m.RegisterModule)
-            }
-        ]
-    },
-    {
-        path: 'no-access',
-        children: [
-            {
-                path: '',
-                loadChildren: () => Promise.all(/*! import() | no-access-no-access-module */[__webpack_require__.e("default~no-access-no-access-module~register-register-module"), __webpack_require__.e("no-access-no-access-module")]).then(__webpack_require__.bind(null, /*! ./no-access/no-access.module */ "./src/app/no-access/no-access.module.ts")).then(m => m.NoAccessModule)
+                loadChildren: () => __webpack_require__.e(/*! import() | login-login-module */ "login-login-module").then(__webpack_require__.bind(null, /*! ./login/login.module */ "./src/app/login/login.module.ts")).then(m => m.LoginModule)
             }
         ]
     },
@@ -847,32 +853,32 @@ const routes = [
         component: _app_container_app_container_component__WEBPACK_IMPORTED_MODULE_3__["AppContainerComponent"],
         children: [
             {
-                path: 'home',
+                path: 'diagnostic-send',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | app-container-home-home-module */[__webpack_require__.e("default~app-container-home-home-module~app-container-qr-reader-qr-reader-module~app-container-qr-rea~69626e3f"), __webpack_require__.e("app-container-home-home-module")]).then(__webpack_require__.bind(null, /*! ./app-container/home/home.module */ "./src/app/app-container/home/home.module.ts")).then(m => m.HomeModule)
+                        loadChildren: () => Promise.all(/*! import() | app-container-diagnostic-send-diagnostic-send-module */[__webpack_require__.e("common"), __webpack_require__.e("app-container-diagnostic-send-diagnostic-send-module")]).then(__webpack_require__.bind(null, /*! ./app-container/diagnostic-send/diagnostic-send.module */ "./src/app/app-container/diagnostic-send/diagnostic-send.module.ts")).then(m => m.DiagnosticSendModule)
                     }
                 ]
             },
             {
-                path: 'qr-reader',
+                path: 'diagnostic-send-result',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | app-container-qr-reader-qr-reader-module */[__webpack_require__.e("default~app-container-home-home-module~app-container-qr-reader-qr-reader-module~app-container-qr-rea~69626e3f"), __webpack_require__.e("app-container-qr-reader-qr-reader-module")]).then(__webpack_require__.bind(null, /*! ./app-container/qr-reader/qr-reader.module */ "./src/app/app-container/qr-reader/qr-reader.module.ts")).then(m => m.QrReaderModule)
+                        loadChildren: () => Promise.all(/*! import() | app-container-diagnostic-send-result-diagnostic-send-result-module */[__webpack_require__.e("common"), __webpack_require__.e("app-container-diagnostic-send-result-diagnostic-send-result-module")]).then(__webpack_require__.bind(null, /*! ./app-container/diagnostic-send-result/diagnostic-send-result.module */ "./src/app/app-container/diagnostic-send-result/diagnostic-send-result.module.ts")).then(m => m.DiagnosticSendResultModule)
                     }
                 ]
             },
             {
-                path: 'qr-reader-result',
+                path: 'my-info',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | app-container-qr-reader-result-qr-reader-result-module */[__webpack_require__.e("default~app-container-home-home-module~app-container-qr-reader-qr-reader-module~app-container-qr-rea~69626e3f"), __webpack_require__.e("app-container-qr-reader-result-qr-reader-result-module")]).then(__webpack_require__.bind(null, /*! ./app-container/qr-reader-result/qr-reader-result.module */ "./src/app/app-container/qr-reader-result/qr-reader-result.module.ts")).then(m => m.QrReaderResultModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | app-container-user-info-user-info-module */ "app-container-user-info-user-info-module").then(__webpack_require__.bind(null, /*! ./app-container/user-info/user-info.module */ "./src/app/app-container/user-info/user-info.module.ts")).then(m => m.UserInfoModule)
                     }
                 ]
-            }
+            },
         ]
     },
     {
@@ -984,12 +990,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _shared_sdkconfiguration_provider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/sdkconfiguration.provider */ "./src/app/shared/sdkconfiguration.provider.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/services/patient.service */ "./src/app/shared/services/patient.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _app_container_app_container_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app-container/app-container.component */ "./src/app/app-container/app-container.component.ts");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
-/* harmony import */ var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/barcode-scanner/ngx */ "./node_modules/@ionic-native/barcode-scanner/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _app_container_app_container_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-container/app-container.component */ "./src/app/app-container/app-container.component.ts");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/barcode-scanner/ngx */ "./node_modules/@ionic-native/barcode-scanner/ngx/index.js");
+/* harmony import */ var _shared_services_user_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/services/user.service */ "./src/app/shared/services/user.service.ts");
+/* harmony import */ var _shared_avatar_avatar_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/avatar/avatar.module */ "./src/app/shared/avatar/avatar.module.ts");
+
 
 
 
@@ -1011,10 +1019,11 @@ let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _app_container_app_container_component__WEBPACK_IMPORTED_MODULE_14__["AppContainerComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _app_container_app_container_component__WEBPACK_IMPORTED_MODULE_13__["AppContainerComponent"]],
         entryComponents: [],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
+            _shared_avatar_avatar_module__WEBPACK_IMPORTED_MODULE_17__["AvatarModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot({
                 mode: 'ios'
             }),
@@ -1023,16 +1032,118 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
             _shared_sdkconfiguration_provider__WEBPACK_IMPORTED_MODULE_9__["sdkConfigurationProvider"],
-            _shared_services_patient_service__WEBPACK_IMPORTED_MODULE_11__["PatientService"],
-            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_13__["NativeStorage"],
-            _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_15__["InAppBrowser"],
-            _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_16__["BarcodeScanner"],
+            _shared_services_user_service__WEBPACK_IMPORTED_MODULE_16__["UserService"],
+            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_12__["NativeStorage"],
+            _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_14__["InAppBrowser"],
+            _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_15__["BarcodeScanner"],
             { provide: 'environment', useValue: _environments_environment__WEBPACK_IMPORTED_MODULE_10__["environment"] },
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/avatar/avatar.component.scss":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/avatar/avatar.component.scss ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".circle {\n  width: 32px;\n  height: 32px;\n  border-radius: 50%;\n  font-size: 14px;\n  text-align: center;\n  line-height: 32px;\n}\n@media (min-width: 321px) {\n  .circle {\n    font-size: 16px;\n    line-height: 18px;\n  }\n}\n.circle--gray {\n  background: #f3f3f3;\n  color: black;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9vcmRhcy93d3cvY29yb25hdmlydXMtYXBwLXJlYWwvYXBwLWhlYWx0aC9zcmMvYXBwL3NoYXJlZC9hdmF0YXIvYXZhdGFyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9zaGFyZWQvYXZhdGFyL2F2YXRhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtBQ0NGO0FEQUU7RUFQRjtJQVFJLGVBQUE7SUFDQSxpQkFBQTtFQ0dGO0FBQ0Y7QURERTtFQUNFLG1CQUFBO0VBQ0EsWUFBQTtBQ0dKIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2F2YXRhci9hdmF0YXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2lyY2xlIHtcbiAgd2lkdGg6IDMycHg7XG4gIGhlaWdodDogMzJweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXNpemU6IDE0cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbGluZS1oZWlnaHQ6IDMycHg7XG4gIEBtZWRpYSAobWluLXdpZHRoOiAzMjFweCkge1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICBsaW5lLWhlaWdodDogMThweDtcbiAgfSAgICBcblxuICAmLS1ncmF5IHtcbiAgICBiYWNrZ3JvdW5kOiAjZjNmM2YzO1xuICAgIGNvbG9yOiBibGFjaztcbiAgfVxuICBcbn0iLCIuY2lyY2xlIHtcbiAgd2lkdGg6IDMycHg7XG4gIGhlaWdodDogMzJweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXNpemU6IDE0cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbGluZS1oZWlnaHQ6IDMycHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogMzIxcHgpIHtcbiAgLmNpcmNsZSB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIGxpbmUtaGVpZ2h0OiAxOHB4O1xuICB9XG59XG4uY2lyY2xlLS1ncmF5IHtcbiAgYmFja2dyb3VuZDogI2YzZjNmMztcbiAgY29sb3I6IGJsYWNrO1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/shared/avatar/avatar.component.ts":
+/*!***************************************************!*\
+  !*** ./src/app/shared/avatar/avatar.component.ts ***!
+  \***************************************************/
+/*! exports provided: AvatarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AvatarComponent", function() { return AvatarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AvatarComponent = class AvatarComponent {
+    constructor() {
+    }
+    ngOnInit() {
+        // this.chartUser = this.userName.charAt(0);
+    }
+    ngOnChanges(changes) {
+        if (changes.userName) {
+            if (changes.userName && changes.userName.currentValue) {
+                this.chartUser = changes.userName.currentValue.charAt(0);
+            }
+        }
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+], AvatarComponent.prototype, "userName", void 0);
+AvatarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'avatar',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./avatar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/avatar/avatar.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./avatar.component.scss */ "./src/app/shared/avatar/avatar.component.scss")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], AvatarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/avatar/avatar.module.ts":
+/*!************************************************!*\
+  !*** ./src/app/shared/avatar/avatar.module.ts ***!
+  \************************************************/
+/*! exports provided: AvatarModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AvatarModule", function() { return AvatarModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _avatar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./avatar.component */ "./src/app/shared/avatar/avatar.component.ts");
+/* harmony import */ var ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-qrcode2 */ "./node_modules/ngx-qrcode2/index.js");
+
+
+
+
+
+
+
+let AvatarModule = class AvatarModule {
+};
+AvatarModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+        imports: [
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["IonicModule"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+            ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__["NgxQRCodeModule"]
+        ],
+        declarations: [_avatar_component__WEBPACK_IMPORTED_MODULE_5__["AvatarComponent"]],
+        exports: [_avatar_component__WEBPACK_IMPORTED_MODULE_5__["AvatarComponent"]]
+    })
+], AvatarModule);
 
 
 
@@ -1052,16 +1163,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./configuration */ "./src/app/shared/sdk/configuration.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _api_geolocationController_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./api/geolocationController.service */ "./src/app/shared/sdk/api/geolocationController.service.ts");
-/* harmony import */ var _api_leaveRequestController_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./api/leaveRequestController.service */ "./src/app/shared/sdk/api/leaveRequestController.service.ts");
-/* harmony import */ var _api_patientController_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./api/patientController.service */ "./src/app/shared/sdk/api/patientController.service.ts");
-/* harmony import */ var _api_pingController_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./api/pingController.service */ "./src/app/shared/sdk/api/pingController.service.ts");
 
 var ApiModule_1;
-
-
-
-
 
 
 
@@ -1091,12 +1194,7 @@ ApiModule = ApiModule_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [],
         declarations: [],
         exports: [],
-        providers: [
-            _api_geolocationController_service__WEBPACK_IMPORTED_MODULE_4__["GeolocationControllerService"],
-            _api_leaveRequestController_service__WEBPACK_IMPORTED_MODULE_5__["LeaveRequestControllerService"],
-            _api_patientController_service__WEBPACK_IMPORTED_MODULE_6__["PatientControllerService"],
-            _api_pingController_service__WEBPACK_IMPORTED_MODULE_7__["PingControllerService"]
-        ]
+        providers: []
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"])()),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
@@ -1112,24 +1210,51 @@ ApiModule = ApiModule_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************!*\
   !*** ./src/app/shared/sdk/api/api.ts ***!
   \***************************************/
-/*! exports provided: APIS, GeolocationControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService */
+/*! exports provided: AuthControllerService, PoliceOfficerControllerService, APIS, BluetoothLeAdvertisementControllerService, DocumentControllerService, GeolocationControllerService, HealthCenterControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService, SanitarianControllerService, TestAppointmentControllerService, TestQuestionControllerService, TestResultControllerService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APIS", function() { return APIS; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _geolocationController_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./geolocationController.service */ "./src/app/shared/sdk/api/geolocationController.service.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GeolocationControllerService", function() { return _geolocationController_service__WEBPACK_IMPORTED_MODULE_1__["GeolocationControllerService"]; });
+/* harmony import */ var _authController_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./authController.service */ "./src/app/shared/sdk/api/authController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AuthControllerService", function() { return _authController_service__WEBPACK_IMPORTED_MODULE_1__["AuthControllerService"]; });
 
-/* harmony import */ var _leaveRequestController_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./leaveRequestController.service */ "./src/app/shared/sdk/api/leaveRequestController.service.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LeaveRequestControllerService", function() { return _leaveRequestController_service__WEBPACK_IMPORTED_MODULE_2__["LeaveRequestControllerService"]; });
+/* harmony import */ var _bluetoothLeAdvertisementController_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bluetoothLeAdvertisementController.service */ "./src/app/shared/sdk/api/bluetoothLeAdvertisementController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BluetoothLeAdvertisementControllerService", function() { return _bluetoothLeAdvertisementController_service__WEBPACK_IMPORTED_MODULE_2__["BluetoothLeAdvertisementControllerService"]; });
 
-/* harmony import */ var _patientController_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./patientController.service */ "./src/app/shared/sdk/api/patientController.service.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatientControllerService", function() { return _patientController_service__WEBPACK_IMPORTED_MODULE_3__["PatientControllerService"]; });
+/* harmony import */ var _documentController_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./documentController.service */ "./src/app/shared/sdk/api/documentController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocumentControllerService", function() { return _documentController_service__WEBPACK_IMPORTED_MODULE_3__["DocumentControllerService"]; });
 
-/* harmony import */ var _pingController_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pingController.service */ "./src/app/shared/sdk/api/pingController.service.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PingControllerService", function() { return _pingController_service__WEBPACK_IMPORTED_MODULE_4__["PingControllerService"]; });
+/* harmony import */ var _geolocationController_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./geolocationController.service */ "./src/app/shared/sdk/api/geolocationController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GeolocationControllerService", function() { return _geolocationController_service__WEBPACK_IMPORTED_MODULE_4__["GeolocationControllerService"]; });
+
+/* harmony import */ var _healthCenterController_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./healthCenterController.service */ "./src/app/shared/sdk/api/healthCenterController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HealthCenterControllerService", function() { return _healthCenterController_service__WEBPACK_IMPORTED_MODULE_5__["HealthCenterControllerService"]; });
+
+/* harmony import */ var _leaveRequestController_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./leaveRequestController.service */ "./src/app/shared/sdk/api/leaveRequestController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LeaveRequestControllerService", function() { return _leaveRequestController_service__WEBPACK_IMPORTED_MODULE_6__["LeaveRequestControllerService"]; });
+
+/* harmony import */ var _patientController_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./patientController.service */ "./src/app/shared/sdk/api/patientController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatientControllerService", function() { return _patientController_service__WEBPACK_IMPORTED_MODULE_7__["PatientControllerService"]; });
+
+/* harmony import */ var _pingController_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pingController.service */ "./src/app/shared/sdk/api/pingController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PingControllerService", function() { return _pingController_service__WEBPACK_IMPORTED_MODULE_8__["PingControllerService"]; });
+
+/* harmony import */ var _policeOfficerController_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./policeOfficerController.service */ "./src/app/shared/sdk/api/policeOfficerController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PoliceOfficerControllerService", function() { return _policeOfficerController_service__WEBPACK_IMPORTED_MODULE_9__["PoliceOfficerControllerService"]; });
+
+/* harmony import */ var _sanitarianController_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sanitarianController.service */ "./src/app/shared/sdk/api/sanitarianController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SanitarianControllerService", function() { return _sanitarianController_service__WEBPACK_IMPORTED_MODULE_10__["SanitarianControllerService"]; });
+
+/* harmony import */ var _testAppointmentController_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./testAppointmentController.service */ "./src/app/shared/sdk/api/testAppointmentController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TestAppointmentControllerService", function() { return _testAppointmentController_service__WEBPACK_IMPORTED_MODULE_11__["TestAppointmentControllerService"]; });
+
+/* harmony import */ var _testQuestionController_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./testQuestionController.service */ "./src/app/shared/sdk/api/testQuestionController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TestQuestionControllerService", function() { return _testQuestionController_service__WEBPACK_IMPORTED_MODULE_12__["TestQuestionControllerService"]; });
+
+/* harmony import */ var _testResultController_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./testResultController.service */ "./src/app/shared/sdk/api/testResultController.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TestResultControllerService", function() { return _testResultController_service__WEBPACK_IMPORTED_MODULE_13__["TestResultControllerService"]; });
 
 
 
@@ -1140,7 +1265,925 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const APIS = [_geolocationController_service__WEBPACK_IMPORTED_MODULE_1__["GeolocationControllerService"], _leaveRequestController_service__WEBPACK_IMPORTED_MODULE_2__["LeaveRequestControllerService"], _patientController_service__WEBPACK_IMPORTED_MODULE_3__["PatientControllerService"], _pingController_service__WEBPACK_IMPORTED_MODULE_4__["PingControllerService"]];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const APIS = [_authController_service__WEBPACK_IMPORTED_MODULE_1__["AuthControllerService"], _bluetoothLeAdvertisementController_service__WEBPACK_IMPORTED_MODULE_2__["BluetoothLeAdvertisementControllerService"], _documentController_service__WEBPACK_IMPORTED_MODULE_3__["DocumentControllerService"], _geolocationController_service__WEBPACK_IMPORTED_MODULE_4__["GeolocationControllerService"], _healthCenterController_service__WEBPACK_IMPORTED_MODULE_5__["HealthCenterControllerService"], _leaveRequestController_service__WEBPACK_IMPORTED_MODULE_6__["LeaveRequestControllerService"], _patientController_service__WEBPACK_IMPORTED_MODULE_7__["PatientControllerService"], _pingController_service__WEBPACK_IMPORTED_MODULE_8__["PingControllerService"], _policeOfficerController_service__WEBPACK_IMPORTED_MODULE_9__["PoliceOfficerControllerService"], _sanitarianController_service__WEBPACK_IMPORTED_MODULE_10__["SanitarianControllerService"], _testAppointmentController_service__WEBPACK_IMPORTED_MODULE_11__["TestAppointmentControllerService"], _testQuestionController_service__WEBPACK_IMPORTED_MODULE_12__["TestQuestionControllerService"], _testResultController_service__WEBPACK_IMPORTED_MODULE_13__["TestResultControllerService"]];
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/authController.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/sdk/api/authController.service.ts ***!
+  \**********************************************************/
+/*! exports provided: AuthControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthControllerService", function() { return AuthControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let AuthControllerService = class AuthControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    authControllerPoliceOfficerLogin(policeOfficerLogin, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/auth/police-officers`, policeOfficerLogin, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    authControllerSanitarianLogin(sanitarianLogin, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/auth/sanitarians`, sanitarianLogin, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+AuthControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+AuthControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], AuthControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/bluetoothLeAdvertisementController.service.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/shared/sdk/api/bluetoothLeAdvertisementController.service.ts ***!
+  \******************************************************************************/
+/*! exports provided: BluetoothLeAdvertisementControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BluetoothLeAdvertisementControllerService", function() { return BluetoothLeAdvertisementControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let BluetoothLeAdvertisementControllerService = class BluetoothLeAdvertisementControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    bluetoothLeAdvertisementControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/bluetooth-le-advertisements/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/bluetooth-le-advertisements`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling bluetoothLeAdvertisementControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/bluetooth-le-advertisements/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/bluetooth-le-advertisements`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling bluetoothLeAdvertisementControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/bluetooth-le-advertisements/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling bluetoothLeAdvertisementControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/bluetooth-le-advertisements/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/bluetooth-le-advertisements`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    bluetoothLeAdvertisementControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling bluetoothLeAdvertisementControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/bluetooth-le-advertisements/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+BluetoothLeAdvertisementControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+BluetoothLeAdvertisementControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], BluetoothLeAdvertisementControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/documentController.service.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/shared/sdk/api/documentController.service.ts ***!
+  \**************************************************************/
+/*! exports provided: DocumentControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentControllerService", function() { return DocumentControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let DocumentControllerService = class DocumentControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    documentControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/documents/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/documents`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling documentControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/documents/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/documents`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling documentControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/documents/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling documentControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/documents/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/documents`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    documentControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling documentControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/documents/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+DocumentControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+DocumentControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], DocumentControllerService);
+
 
 
 /***/ }),
@@ -1162,7 +2205,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
 /* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
 /**
- * LoopBack Application
+ * coronavirus-server - coronavirus-server
  * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
  *
  * The version of the OpenAPI document: 1.0.0
@@ -1196,35 +2239,83 @@ let GeolocationControllerService = class GeolocationControllerService {
         }
         this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
     }
-    geolocationControllerCount(where, observe = 'body', reportProgress = false) {
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    geolocationControllerCount(where, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (where !== undefined && where !== null) {
-            queryParameters = queryParameters.set('where', where);
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/geolocations/count`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerCreate(requestBody, observe = 'body', reportProgress = false) {
+    geolocationControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1236,86 +2327,118 @@ let GeolocationControllerService = class GeolocationControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.post(`${this.configuration.basePath}/geolocations`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerDeleteById(id, observe = 'body', reportProgress = false) {
+    geolocationControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling geolocationControllerDeleteById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.delete(`${this.configuration.basePath}/geolocations/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerFind(filter, observe = 'body', reportProgress = false) {
+    geolocationControllerFind(filter, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (filter !== undefined && filter !== null) {
-            queryParameters = queryParameters.set('filter', filter);
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
         }
         return this.httpClient.get(`${this.configuration.basePath}/geolocations`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerFindById(id, filter, observe = 'body', reportProgress = false) {
+    geolocationControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling geolocationControllerFindById.');
         }
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (filter !== undefined && filter !== null) {
-            queryParameters = queryParameters.set('filter', filter);
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/geolocations/${encodeURIComponent(String(id))}`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false) {
+    geolocationControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling geolocationControllerReplaceById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1327,24 +2450,32 @@ let GeolocationControllerService = class GeolocationControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.put(`${this.configuration.basePath}/geolocations/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false) {
+    geolocationControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (where !== undefined && where !== null) {
-            queryParameters = queryParameters.set('where', where);
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1355,23 +2486,31 @@ let GeolocationControllerService = class GeolocationControllerService {
         const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
         }
         return this.httpClient.patch(`${this.configuration.basePath}/geolocations`, requestBody, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    geolocationControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false) {
+    geolocationControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling geolocationControllerUpdateById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1383,7 +2522,12 @@ let GeolocationControllerService = class GeolocationControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.patch(`${this.configuration.basePath}/geolocations/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
@@ -1408,6 +2552,370 @@ GeolocationControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"](
 
 /***/ }),
 
+/***/ "./src/app/shared/sdk/api/healthCenterController.service.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/shared/sdk/api/healthCenterController.service.ts ***!
+  \******************************************************************/
+/*! exports provided: HealthCenterControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HealthCenterControllerService", function() { return HealthCenterControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let HealthCenterControllerService = class HealthCenterControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    healthCenterControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/health-centers/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/health-centers`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling healthCenterControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/health-centers/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/health-centers`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling healthCenterControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/health-centers/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling healthCenterControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/health-centers/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/health-centers`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    healthCenterControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling healthCenterControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/health-centers/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+HealthCenterControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+HealthCenterControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], HealthCenterControllerService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/sdk/api/leaveRequestController.service.ts":
 /*!******************************************************************!*\
   !*** ./src/app/shared/sdk/api/leaveRequestController.service.ts ***!
@@ -1425,7 +2933,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
 /* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
 /**
- * LoopBack Application
+ * coronavirus-server - coronavirus-server
  * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
  *
  * The version of the OpenAPI document: 1.0.0
@@ -1459,35 +2967,83 @@ let LeaveRequestControllerService = class LeaveRequestControllerService {
         }
         this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
     }
-    leaveRequestControllerCount(where, observe = 'body', reportProgress = false) {
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    leaveRequestControllerCount(where, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (where !== undefined && where !== null) {
-            queryParameters = queryParameters.set('where', where);
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/leave-requests/count`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerCreate(requestBody, observe = 'body', reportProgress = false) {
+    leaveRequestControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1499,106 +3055,174 @@ let LeaveRequestControllerService = class LeaveRequestControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.post(`${this.configuration.basePath}/leave-requests`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerDeleteById(id, observe = 'body', reportProgress = false) {
+    leaveRequestControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling leaveRequestControllerDeleteById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.delete(`${this.configuration.basePath}/leave-requests/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerFind(filter, observe = 'body', reportProgress = false) {
+    leaveRequestControllerFind(filter, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (filter !== undefined && filter !== null) {
-            queryParameters = queryParameters.set('filter', filter);
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
         }
         return this.httpClient.get(`${this.configuration.basePath}/leave-requests`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerFindById(id, filter, observe = 'body', reportProgress = false) {
+    leaveRequestControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling leaveRequestControllerFindById.');
         }
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (filter !== undefined && filter !== null) {
-            queryParameters = queryParameters.set('filter', filter);
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/leave-requests/${encodeURIComponent(String(id))}`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerFindByToken(token, observe = 'body', reportProgress = false) {
+    leaveRequestControllerFindByToken(token, observe = 'body', reportProgress = false, options) {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling leaveRequestControllerFindByToken.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/leave-requests/token/${encodeURIComponent(String(token))}`, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false) {
+    leaveRequestControllerGetLeaveRequestsByPatientId(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling leaveRequestControllerGetLeaveRequestsByPatientId.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}/leaveRequests`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    leaveRequestControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling leaveRequestControllerReplaceById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1610,60 +3234,84 @@ let LeaveRequestControllerService = class LeaveRequestControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.put(`${this.configuration.basePath}/leave-requests/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerSetAtHome(token, observe = 'body', reportProgress = false) {
+    leaveRequestControllerSetAtHome(token, observe = 'body', reportProgress = false, options) {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling leaveRequestControllerSetAtHome.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.put(`${this.configuration.basePath}/leave-requests/token/${encodeURIComponent(String(token))}/set-at-home`, null, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerSetOutOfHome(token, observe = 'body', reportProgress = false) {
+    leaveRequestControllerSetOutOfHome(token, observe = 'body', reportProgress = false, options) {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling leaveRequestControllerSetOutOfHome.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.put(`${this.configuration.basePath}/leave-requests/token/${encodeURIComponent(String(token))}/set-out-home`, null, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false) {
+    leaveRequestControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (where !== undefined && where !== null) {
-            queryParameters = queryParameters.set('where', where);
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1675,22 +3323,30 @@ let LeaveRequestControllerService = class LeaveRequestControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.patch(`${this.configuration.basePath}/leave-requests`, requestBody, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    leaveRequestControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false) {
+    leaveRequestControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling leaveRequestControllerUpdateById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1702,7 +3358,12 @@ let LeaveRequestControllerService = class LeaveRequestControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.patch(`${this.configuration.basePath}/leave-requests/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
@@ -1744,7 +3405,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
 /* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
 /**
- * LoopBack Application
+ * coronavirus-server - coronavirus-server
  * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
  *
  * The version of the OpenAPI document: 1.0.0
@@ -1778,35 +3439,83 @@ let PatientControllerService = class PatientControllerService {
         }
         this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
     }
-    patientControllerCount(where, observe = 'body', reportProgress = false) {
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    patientControllerCount(where, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (where !== undefined && where !== null) {
-            queryParameters = queryParameters.set('where', where);
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/patients/count`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerCreate(requestBody, observe = 'body', reportProgress = false) {
+    patientControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1818,86 +3527,144 @@ let PatientControllerService = class PatientControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.post(`${this.configuration.basePath}/patients`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerDeleteById(id, observe = 'body', reportProgress = false) {
+    patientControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling patientControllerDeleteById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.delete(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerFind(filter, observe = 'body', reportProgress = false) {
+    patientControllerFind(filter, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (filter !== undefined && filter !== null) {
-            queryParameters = queryParameters.set('filter', filter);
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
         }
         return this.httpClient.get(`${this.configuration.basePath}/patients`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerFindById(id, filter, observe = 'body', reportProgress = false) {
+    patientControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling patientControllerFindById.');
         }
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (filter !== undefined && filter !== null) {
-            queryParameters = queryParameters.set('filter', filter);
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false) {
+    patientControllerGetByQrCode(qrcode, observe = 'body', reportProgress = false, options) {
+        if (qrcode === null || qrcode === undefined) {
+            throw new Error('Required parameter qrcode was null or undefined when calling patientControllerGetByQrCode.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/patients/scan/${encodeURIComponent(String(qrcode))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    patientControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling patientControllerReplaceById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1909,24 +3676,32 @@ let PatientControllerService = class PatientControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.put(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false) {
+    patientControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
         let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
         if (where !== undefined && where !== null) {
-            queryParameters = queryParameters.set('where', where);
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1937,23 +3712,31 @@ let PatientControllerService = class PatientControllerService {
         const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
         }
         return this.httpClient.patch(`${this.configuration.basePath}/patients`, requestBody, {
             params: queryParameters,
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         });
     }
-    patientControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false) {
+    patientControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling patientControllerUpdateById.');
         }
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
@@ -1965,7 +3748,77 @@ let PatientControllerService = class PatientControllerService {
         if (httpContentTypeSelected !== undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.patch(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    patientControllerUpdateStatus(id, body, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patientControllerUpdateStatus.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/patients/${encodeURIComponent(String(id))}/status`, body, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    patientControllerUpdateStatusByDocumentNumber(inlineObject, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/patients/status`, inlineObject, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
@@ -2007,7 +3860,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
 /* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
 /**
- * LoopBack Application
+ * coronavirus-server - coronavirus-server
  * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
  *
  * The version of the OpenAPI document: 1.0.0
@@ -2041,17 +3894,87 @@ let PingControllerService = class PingControllerService {
         }
         this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
     }
-    pingControllerPing(observe = 'body', reportProgress = false) {
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    pingControllerHeartbeat(observe = 'body', reportProgress = false, options) {
         let headers = this.defaultHeaders;
-        // to determine the Accept header
-        const httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/heartbeat`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    pingControllerPing(observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
         return this.httpClient.get(`${this.configuration.basePath}/ping`, {
+            responseType: responseType,
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
@@ -2071,6 +3994,2173 @@ PingControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
 ], PingControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/policeOfficerController.service.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/shared/sdk/api/policeOfficerController.service.ts ***!
+  \*******************************************************************/
+/*! exports provided: PoliceOfficerControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoliceOfficerControllerService", function() { return PoliceOfficerControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let PoliceOfficerControllerService = class PoliceOfficerControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    policeOfficerControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/police-officers/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/police-officers`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling policeOfficerControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/police-officers/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/police-officers`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling policeOfficerControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/police-officers/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling policeOfficerControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/police-officers/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/police-officers`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    policeOfficerControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling policeOfficerControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/police-officers/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+PoliceOfficerControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+PoliceOfficerControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], PoliceOfficerControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/sanitarianController.service.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/shared/sdk/api/sanitarianController.service.ts ***!
+  \****************************************************************/
+/*! exports provided: SanitarianControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SanitarianControllerService", function() { return SanitarianControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let SanitarianControllerService = class SanitarianControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    sanitarianControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/sanitarians/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/sanitarians`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/sanitarians`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/sanitarians`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    sanitarianControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling sanitarianControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/sanitarians/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+SanitarianControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+SanitarianControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], SanitarianControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/testAppointmentController.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/shared/sdk/api/testAppointmentController.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: TestAppointmentControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestAppointmentControllerService", function() { return TestAppointmentControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let TestAppointmentControllerService = class TestAppointmentControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    testAppointmentControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-appointments/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/test-appointments`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testAppointmentControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/test-appointments/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-appointments`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testAppointmentControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-appointments/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerFindLatestByPatientId(patientId, observe = 'body', reportProgress = false, options) {
+        if (patientId === null || patientId === undefined) {
+            throw new Error('Required parameter patientId was null or undefined when calling testAppointmentControllerFindLatestByPatientId.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-appointments/patient-id/${encodeURIComponent(String(patientId))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testAppointmentControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/test-appointments/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/test-appointments`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testAppointmentControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testAppointmentControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/test-appointments/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+TestAppointmentControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+TestAppointmentControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], TestAppointmentControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/testQuestionController.service.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/shared/sdk/api/testQuestionController.service.ts ***!
+  \******************************************************************/
+/*! exports provided: TestQuestionControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestQuestionControllerService", function() { return TestQuestionControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let TestQuestionControllerService = class TestQuestionControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    testQuestionControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-questions/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/test-questions`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testQuestionControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/test-questions/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-questions`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testQuestionControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-questions/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerFindByQuestionId(questionId, observe = 'body', reportProgress = false, options) {
+        if (questionId === null || questionId === undefined) {
+            throw new Error('Required parameter questionId was null or undefined when calling testQuestionControllerFindByQuestionId.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-questions/question-id/${encodeURIComponent(String(questionId))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testQuestionControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/test-questions/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/test-questions`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testQuestionControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testQuestionControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/test-questions/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+TestQuestionControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+TestQuestionControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], TestQuestionControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/testResultController.service.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/shared/sdk/api/testResultController.service.ts ***!
+  \****************************************************************/
+/*! exports provided: TestResultControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestResultControllerService", function() { return TestResultControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * coronavirus-server - coronavirus-server
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let TestResultControllerService = class TestResultControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substr(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    testResultControllerCount(where, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-results/count`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerCreate(requestBody, observe = 'body', reportProgress = false, options) {
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/test-results`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerDeleteById(id, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testResultControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/test-results/${encodeURIComponent(String(id))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerFind(filter, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-results`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerFindById(id, filter, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testResultControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, filter, 'filter');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-results/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerFindLatestByPatientId(patientId, observe = 'body', reportProgress = false, options) {
+        if (patientId === null || patientId === undefined) {
+            throw new Error('Required parameter patientId was null or undefined when calling testResultControllerFindLatestByPatientId.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/test-results/patient-id/${encodeURIComponent(String(patientId))}`, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testResultControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/test-results/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false, options) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = this.addToHttpParams(queryParameters, where, 'where');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/test-results`, requestBody, {
+            params: queryParameters,
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    testResultControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false, options) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling testResultControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        let httpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType = 'json';
+        if (httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/test-results/${encodeURIComponent(String(id))}`, requestBody, {
+            responseType: responseType,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+TestResultControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+TestResultControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], TestResultControllerService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sdk/api/userController.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/sdk/api/userController.service.ts ***!
+  \**********************************************************/
+/*! exports provided: UserControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserControllerService", function() { return UserControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _encoder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../encoder */ "./src/app/shared/sdk/encoder.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../variables */ "./src/app/shared/sdk/variables.ts");
+/* harmony import */ var _configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../configuration */ "./src/app/shared/sdk/configuration.ts");
+/**
+ * LoopBack Application
+ * No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+ *
+ * The version of the OpenAPI document: 1.0.0
+ *
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
+
+
+
+
+
+
+let UserControllerService = class UserControllerService {
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        this.basePath = 'http://localhost:3000';
+        this.defaultHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        this.configuration = new _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]();
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new _encoder__WEBPACK_IMPORTED_MODULE_3__["CustomHttpParameterCodec"]();
+    }
+    userControllerCount(where, observe = 'body', reportProgress = false) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = queryParameters.set('where', where);
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/users/count`, {
+            params: queryParameters,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerCreate(requestBody, observe = 'body', reportProgress = false) {
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        return this.httpClient.post(`${this.configuration.basePath}/user`, requestBody, {
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerDeleteById(id, observe = 'body', reportProgress = false) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patientControllerDeleteById.');
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        return this.httpClient.delete(`${this.configuration.basePath}/users/${encodeURIComponent(String(id))}`, {
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerFind(filter, observe = 'body', reportProgress = false) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = queryParameters.set('filter', filter);
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/user`, {
+            params: queryParameters,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerFindById(id, filter, observe = 'body', reportProgress = false) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling userControllerFindById.');
+        }
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (filter !== undefined && filter !== null) {
+            queryParameters = queryParameters.set('filter', filter);
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        return this.httpClient.get(`${this.configuration.basePath}/users/${encodeURIComponent(String(id))}`, {
+            params: queryParameters,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerReplaceById(id, requestBody, observe = 'body', reportProgress = false) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling userControllerReplaceById.');
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        return this.httpClient.put(`${this.configuration.basePath}/users/${encodeURIComponent(String(id))}`, requestBody, {
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerUpdateAll(where, requestBody, observe = 'body', reportProgress = false) {
+        let queryParameters = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]({ encoder: this.encoder });
+        if (where !== undefined && where !== null) {
+            queryParameters = queryParameters.set('where', where);
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/patients`, requestBody, {
+            params: queryParameters,
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    userControllerUpdateById(id, requestBody, observe = 'body', reportProgress = false) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling userControllerUpdateById.');
+        }
+        let headers = this.defaultHeaders;
+        // to determine the Accept header
+        const httpHeaderAccepts = [];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        return this.httpClient.patch(`${this.configuration.basePath}/users/${encodeURIComponent(String(id))}`, requestBody, {
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+};
+UserControllerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"],] }] },
+    { type: _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+UserControllerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_variables__WEBPACK_IMPORTED_MODULE_4__["BASE_PATH"])), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], String, _configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"]])
+], UserControllerService);
 
 
 
@@ -2189,22 +6279,40 @@ class CustomHttpParameterCodec {
 /*!*************************************!*\
   !*** ./src/app/shared/sdk/index.ts ***!
   \*************************************/
-/*! exports provided: APIS, BASE_PATH, COLLECTION_FORMATS, Configuration, ApiModule, GeolocationControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService */
+/*! exports provided: BASE_PATH, COLLECTION_FORMATS, Configuration, AuthControllerService, PoliceOfficerControllerService, APIS, ApiModule, BluetoothLeAdvertisementControllerService, DocumentControllerService, GeolocationControllerService, HealthCenterControllerService, LeaveRequestControllerService, PatientControllerService, PingControllerService, SanitarianControllerService, TestAppointmentControllerService, TestQuestionControllerService, TestResultControllerService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _api_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/api */ "./src/app/shared/sdk/api/api.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AuthControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["AuthControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PoliceOfficerControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["PoliceOfficerControllerService"]; });
+
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "APIS", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["APIS"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BluetoothLeAdvertisementControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["BluetoothLeAdvertisementControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocumentControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["DocumentControllerService"]; });
+
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GeolocationControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["GeolocationControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HealthCenterControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["HealthCenterControllerService"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LeaveRequestControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["LeaveRequestControllerService"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatientControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["PatientControllerService"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PingControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["PingControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SanitarianControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["SanitarianControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TestAppointmentControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["TestAppointmentControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TestQuestionControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["TestQuestionControllerService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TestResultControllerService", function() { return _api_api__WEBPACK_IMPORTED_MODULE_1__["TestResultControllerService"]; });
 
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./variables */ "./src/app/shared/sdk/variables.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BASE_PATH", function() { return _variables__WEBPACK_IMPORTED_MODULE_2__["BASE_PATH"]; });
@@ -2279,29 +6387,27 @@ let sdkConfigurationProvider = { provide: _sdk__WEBPACK_IMPORTED_MODULE_1__["Con
 
 /***/ }),
 
-/***/ "./src/app/shared/services/patient.service.ts":
-/*!****************************************************!*\
-  !*** ./src/app/shared/services/patient.service.ts ***!
-  \****************************************************/
-/*! exports provided: PatientService */
+/***/ "./src/app/shared/services/user.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/services/user.service.ts ***!
+  \*************************************************/
+/*! exports provided: UserService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientService", function() { return PatientService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _sdk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sdk */ "./src/app/shared/sdk/index.ts");
-/* harmony import */ var _utils_apifilter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/apifilter */ "./src/app/shared/utils/apifilter.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/background-geolocation */ "./node_modules/@ionic-native/background-geolocation/index.js");
-/* harmony import */ var _ionic_native_background_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/background-geolocation/ngx */ "./node_modules/@ionic-native/background-geolocation/ngx/index.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var _sdk_api_userController_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sdk/api/userController.service */ "./src/app/shared/sdk/api/userController.service.ts");
+/* harmony import */ var _sdk_api_authController_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../sdk/api/authController.service */ "./src/app/shared/sdk/api/authController.service.ts");
+/* harmony import */ var _sdk_api_policeOfficerController_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../sdk/api/policeOfficerController.service */ "./src/app/shared/sdk/api/policeOfficerController.service.ts");
 
-var PatientService_1;
-
+var UserService_1;
 
 
 
@@ -2310,52 +6416,53 @@ var PatientService_1;
 
 
 
-let PatientService = PatientService_1 = class PatientService {
-    constructor(patientController, environment, geolocationControllerService, router, platform, nativeStorage) {
-        this.patientController = patientController;
+let UserService = UserService_1 = class UserService {
+    constructor(authController, policeController, userController, environment, router, platform, nativeStorage) {
+        this.authController = authController;
+        this.policeController = policeController;
+        this.userController = userController;
         this.environment = environment;
-        this.geolocationControllerService = geolocationControllerService;
         this.router = router;
         this.platform = platform;
         this.nativeStorage = nativeStorage;
-        this.activatedBackgroundGeolocation = false;
-        this.patientToken = null;
-        this._patient = null;
-        this.patientLoaded$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](false);
+        this.userToken = null;
+        this._user = null;
+        this.userLoaded$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         platform.ready().then(() => {
-            if (true) {
-                this.nativeStorage.getItem(PatientService_1.PATIENT_TOKEN_KEY)
+            if (this.environment.production) {
+                this.nativeStorage.getItem(UserService_1.USER_TOKEN_KEY)
                     .then(data => {
-                    this.loadPatient(data);
+                    this.loadUser(data);
                 });
             }
-            else {}
+            else {
+                this.loadUser('1');
+            }
         });
     }
-    get patient() {
-        return this._patient;
+    get user() {
+        return this._user;
     }
-    set patient(value) {
-        this._patient = value;
+    set user(value) {
+        this._user = value;
     }
-    loadPatient(patientToken) {
-        this.setPatientToken(patientToken).subscribe(success => {
+    loadUser(userToken) {
+        this.setUserToken(userToken).subscribe(success => {
             if (success) {
-                this.patientLoaded$.next(true);
+                this.userLoaded$.next(true);
             }
             else {
-                this.router.navigate(['register']);
+                this.router.navigate(['/login']);
             }
         });
     }
-    setPatientToken(patientToken) {
-        let returnValue = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
-        this.patientController.patientControllerFindById(patientToken).subscribe(existingPatient => {
-            if (existingPatient != null) {
-                this._patient = existingPatient;
-                this.patientToken = patientToken;
+    setUserToken(userToken) {
+        let returnValue = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.policeController.policeOfficerControllerFindById(userToken).subscribe(user => {
+            if (user != null) {
+                this._user = user;
+                this.userToken = userToken;
                 returnValue.next(true);
-                this.activateBackgroundGeolocation();
             }
             else {
                 returnValue.next(false);
@@ -2363,137 +6470,43 @@ let PatientService = PatientService_1 = class PatientService {
         });
         return returnValue;
     }
-    register(patient) {
-        let returnValue = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
-        this.patientController.patientControllerFind(new _utils_apifilter__WEBPACK_IMPORTED_MODULE_3__["ApiFilter"]({ where: { documentNumber: { 'eq': patient.documentNumber } } })).subscribe(existingPatient => {
-            if (existingPatient.length > 0) {
-                returnValue.next(false);
+    login(userCredentials) {
+        let returnValue = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.authController.authControllerPoliceOfficerLogin({ uniqueId: userCredentials.uniqueId, password: userCredentials.password }).subscribe(res => {
+            if (res) {
+                this.loadUser(res.id);
+                this.nativeStorage.setItem(UserService_1.USER_TOKEN_KEY, res.id).then(result => { });
+                returnValue.next(res);
             }
             else {
-                this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
-                    this.loadPatient(newPatient.id);
-                    this.patientLoaded$.subscribe(loaded => {
-                        if (loaded) {
-                            returnValue.next(newPatient);
-                        }
-                    });
-                });
+                returnValue.next(false);
             }
+        }, err => {
+            returnValue.next(false);
         });
         return returnValue;
-    }
-    getCheckStatusUrl() {
-        return 'https://api.coronapp.es/check-status/' + this.patientToken;
-    }
-    update(patient) {
-        let returnValue = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
-        this.patientController.patientControllerUpdateById(patient.id, patient).subscribe(exitingPatient => {
-            this._patient = patient;
-            returnValue.next(true);
-        });
-        return returnValue;
-    }
-    activateBackgroundGeolocation() {
-        if (!this.activatedBackgroundGeolocation && this.patient != null && this.patient.id != null) {
-            this.activatedBackgroundGeolocation = true;
-            _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].configure({
-                desiredAccuracy: 10,
-                stationaryRadius: 50,
-                distanceFilter: 50,
-                interval: 60000,
-                fastestInterval: 60000,
-                activitiesInterval: 60000,
-                notificationTitle: 'Tu posición es importante',
-                notificationText: 'Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS',
-                debug: false,
-                stopOnTerminate: false,
-            });
-            _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].on(_ionic_native_background_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__["BackgroundGeolocationEvents"].location).subscribe((location) => {
-                console.log(location);
-                // handle your locations here
-                // to perform long running operation on iOS
-                // you need to create background task
-                _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].startTask().then(taskKey => {
-                    let geolocation = new class {
-                    };
-                    geolocation.userId = this.patient.id;
-                    geolocation.latitude = location.latitude;
-                    geolocation.longitude = location.longitude;
-                    geolocation.accuracy = location.accuracy;
-                    geolocation.speed = location.speed;
-                    geolocation.bearing = location.bearing;
-                    geolocation.altitude = location.altitude;
-                    this.geolocationControllerService.geolocationControllerCreate(geolocation).subscribe(createdGeolocation => {
-                        //nothing to do
-                    });
-                    // execute long running task
-                    // eg. ajax post location
-                    // IMPORTANT: task has to be ended by endTask
-                    _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].endTask(taskKey);
-                });
-            });
-            _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].checkStatus().then(status => {
-                if (status.authorization !== _ionic_native_background_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__["BackgroundGeolocationAuthorizationStatus"].AUTHORIZED) {
-                    // we need to set delay or otherwise alert may not be shown
-                    setTimeout(() => {
-                        var showSettings = confirm('Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?');
-                        if (showSettings) {
-                            return _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].showAppSettings();
-                        }
-                    }, 1000);
-                }
-                // you don't need to check status before start (this is just the example)
-                if (!status.isRunning) {
-                    _ionic_native_background_geolocation__WEBPACK_IMPORTED_MODULE_7__["BackgroundGeolocation"].start(); //triggers start on start event
-                }
-            });
-        }
     }
 };
-PatientService.PATIENT_TOKEN_KEY = 'patientToken';
-PatientService.ctorParameters = () => [
-    { type: _sdk__WEBPACK_IMPORTED_MODULE_2__["PatientControllerService"] },
+UserService.USER_TOKEN_KEY = 'userToken';
+UserService.ctorParameters = () => [
+    { type: _sdk_api_authController_service__WEBPACK_IMPORTED_MODULE_7__["AuthControllerService"] },
+    { type: _sdk_api_policeOfficerController_service__WEBPACK_IMPORTED_MODULE_8__["PoliceOfficerControllerService"] },
+    { type: _sdk_api_userController_service__WEBPACK_IMPORTED_MODULE_6__["UserControllerService"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: ['environment',] }] },
-    { type: _sdk__WEBPACK_IMPORTED_MODULE_2__["GeolocationControllerService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["Platform"] },
-    { type: _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeStorage"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"] },
+    { type: _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"] }
 ];
-PatientService = PatientService_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+UserService = UserService_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])('environment')),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_sdk__WEBPACK_IMPORTED_MODULE_2__["PatientControllerService"], Object, _sdk__WEBPACK_IMPORTED_MODULE_2__["GeolocationControllerService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["Platform"],
-        _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeStorage"]])
-], PatientService);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])('environment')),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_sdk_api_authController_service__WEBPACK_IMPORTED_MODULE_7__["AuthControllerService"],
+        _sdk_api_policeOfficerController_service__WEBPACK_IMPORTED_MODULE_8__["PoliceOfficerControllerService"],
+        _sdk_api_userController_service__WEBPACK_IMPORTED_MODULE_6__["UserControllerService"], Object, _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"],
+        _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"]])
+], UserService);
 
-
-
-/***/ }),
-
-/***/ "./src/app/shared/utils/apifilter.ts":
-/*!*******************************************!*\
-  !*** ./src/app/shared/utils/apifilter.ts ***!
-  \*******************************************/
-/*! exports provided: ApiFilter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiFilter", function() { return ApiFilter; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-class ApiFilter {
-    constructor(filter) {
-        this.filter = {};
-        this.toString = () => {
-            console.log(JSON.stringify(this.filter));
-            return JSON.stringify(this.filter);
-        };
-        this.filter = filter;
-    }
-}
 
 
 /***/ }),
@@ -2564,7 +6577,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ordas/www/coronavirus-app-real/app-police/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/ordas/www/coronavirus-app-real/app-health/src/main.ts */"./src/main.ts");
 
 
 /***/ })

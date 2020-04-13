@@ -32,13 +32,17 @@
         var b = a.isConnected;
         if (void 0 !== b) return b;
 
-        for (; a && !(a.__CE_isImportDocument || a instanceof Document);) a = a.parentNode || (window.ShadowRoot && a instanceof ShadowRoot ? a.host : void 0);
+        for (; a && !(a.__CE_isImportDocument || a instanceof Document);) {
+          a = a.parentNode || (window.ShadowRoot && a instanceof ShadowRoot ? a.host : void 0);
+        }
 
         return !(!a || !(a.__CE_isImportDocument || a instanceof Document));
       }
 
       function n(a, b) {
-        for (; b && b !== a && !b.nextSibling;) b = b.parentNode;
+        for (; b && b !== a && !b.nextSibling;) {
+          b = b.parentNode;
+        }
 
         return b && b !== a ? b.nextSibling : null;
       }
@@ -53,8 +57,10 @@
             var f = e.localName;
 
             if ("link" === f && "import" === e.getAttribute("rel")) {
-              c = e.import;
-              if (c instanceof Node && !d.has(c)) for (d.add(c), c = c.firstChild; c; c = c.nextSibling) p(c, b, d);
+              c = e["import"];
+              if (c instanceof Node && !d.has(c)) for (d.add(c), c = c.firstChild; c; c = c.nextSibling) {
+                p(c, b, d);
+              }
               c = n(a, e);
               continue;
             } else if ("template" === f) {
@@ -62,7 +68,9 @@
               continue;
             }
 
-            if (e = e.__CE_shadowRoot) for (e = e.firstChild; e; e = e.nextSibling) p(e, b, d);
+            if (e = e.__CE_shadowRoot) for (e = e.firstChild; e; e = e.nextSibling) {
+              p(e, b, d);
+            }
           }
 
           c = c.firstChild ? c.firstChild : n(a, c);
@@ -108,9 +116,13 @@
         if (a.b && !b.__CE_patched) {
           b.__CE_patched = !0;
 
-          for (var d = 0; d < a.c.length; d++) a.c[d](b);
+          for (var d = 0; d < a.c.length; d++) {
+            a.c[d](b);
+          }
 
-          for (d = 0; d < a.f.length; d++) a.f[d](b);
+          for (d = 0; d < a.f.length; d++) {
+            a.f[d](b);
+          }
         }
       }
 
@@ -149,15 +161,15 @@
 
         p(b, function (b) {
           if ("link" === b.localName && "import" === b.getAttribute("rel")) {
-            var d = b.import;
+            var d = b["import"];
             d instanceof Node && (d.__CE_isImportDocument = !0, d.__CE_hasRegistry = !0);
             d && "complete" === d.readyState ? d.__CE_documentLoadHandled = !0 : b.addEventListener("load", function () {
-              var d = b.import;
+              var d = b["import"];
 
               if (!d.__CE_documentLoadHandled) {
                 d.__CE_documentLoadHandled = !0;
                 var f = new Set(c);
-                f.delete(d);
+                f["delete"](d);
                 A(a, d, {
                   u: f,
                   i: e
@@ -166,9 +178,13 @@
             });
           } else f.push(b);
         }, c);
-        if (a.b) for (b = 0; b < f.length; b++) w(a, f[b]);
+        if (a.b) for (b = 0; b < f.length; b++) {
+          w(a, f[b]);
+        }
 
-        for (b = 0; b < f.length; b++) e(f[b]);
+        for (b = 0; b < f.length; b++) {
+          e(f[b]);
+        }
       }
 
       function y(a, b) {
@@ -235,7 +251,11 @@
         var b = this.a.readyState;
         "interactive" !== b && "complete" !== b || C(this);
 
-        for (b = 0; b < a.length; b++) for (var d = a[b].addedNodes, c = 0; c < d.length; c++) A(this.c, d[c]);
+        for (b = 0; b < a.length; b++) {
+          for (var d = a[b].addedNodes, c = 0; c < d.length; c++) {
+            A(this.c, d[c]);
+          }
+        }
       };
 
       function ea() {
@@ -322,7 +342,9 @@
         if (!1 !== a.b) {
           a.b = !1;
 
-          for (var b = a.g, d = [], c = new Map(), e = 0; e < b.length; e++) c.set(b[e].localName, []);
+          for (var b = a.g, d = [], c = new Map(), e = 0; e < b.length; e++) {
+            c.set(b[e].localName, []);
+          }
 
           A(a.a, document, {
             i: function i(b) {
@@ -334,14 +356,18 @@
             }
           });
 
-          for (e = 0; e < d.length; e++) y(a.a, d[e]);
+          for (e = 0; e < d.length; e++) {
+            y(a.a, d[e]);
+          }
 
           for (; 0 < b.length;) {
             var f = b.shift();
             e = f.localName;
             f = c.get(f.localName);
 
-            for (var t = 0; t < f.length; t++) y(a.a, f[t]);
+            for (var t = 0; t < f.length; t++) {
+              y(a.a, f[t]);
+            }
 
             (e = a.j.get(e)) && D(e);
           }
@@ -451,21 +477,29 @@
       function Y(a, b, d) {
         function c(b) {
           return function (d) {
-            for (var e = [], c = 0; c < arguments.length; ++c) e[c] = arguments[c];
+            for (var e = [], c = 0; c < arguments.length; ++c) {
+              e[c] = arguments[c];
+            }
 
             c = [];
 
             for (var f = [], m = 0; m < e.length; m++) {
               var q = e[m];
               q instanceof Element && l(q) && f.push(q);
-              if (q instanceof DocumentFragment) for (q = q.firstChild; q; q = q.nextSibling) c.push(q);else c.push(q);
+              if (q instanceof DocumentFragment) for (q = q.firstChild; q; q = q.nextSibling) {
+                c.push(q);
+              } else c.push(q);
             }
 
             b.apply(this, e);
 
-            for (e = 0; e < f.length; e++) z(a, f[e]);
+            for (e = 0; e < f.length; e++) {
+              z(a, f[e]);
+            }
 
-            if (l(this)) for (e = 0; e < c.length; e++) f = c[e], f instanceof Element && x(a, f);
+            if (l(this)) for (e = 0; e < c.length; e++) {
+              f = c[e], f instanceof Element && x(a, f);
+            }
           };
         }
 
@@ -527,12 +561,16 @@
                   if (0 < k && l(this)) {
                     d = Array(k);
 
-                    for (var h = 0; h < k; h++) d[h] = e[h];
+                    for (var h = 0; h < k; h++) {
+                      d[h] = e[h];
+                    }
                   }
                 }
 
                 c.set.call(this, a);
-                if (d) for (a = 0; a < d.length; a++) z(b, d[a]);
+                if (d) for (a = 0; a < d.length; a++) {
+                  z(b, d[a]);
+                }
               }
             }
           });
@@ -543,7 +581,9 @@
           if (a instanceof DocumentFragment) {
             var e = Array.prototype.slice.apply(a.childNodes);
             a = J.call(this, a, c);
-            if (l(this)) for (c = 0; c < e.length; c++) x(b, e[c]);
+            if (l(this)) for (c = 0; c < e.length; c++) {
+              x(b, e[c]);
+            }
             return a;
           }
 
@@ -557,7 +597,9 @@
           if (a instanceof DocumentFragment) {
             var c = Array.prototype.slice.apply(a.childNodes);
             a = I.call(this, a);
-            if (l(this)) for (var e = 0; e < c.length; e++) x(b, c[e]);
+            if (l(this)) for (var e = 0; e < c.length; e++) {
+              x(b, c[e]);
+            }
             return a;
           }
 
@@ -582,7 +624,9 @@
           if (a instanceof DocumentFragment) {
             var e = Array.prototype.slice.apply(a.childNodes);
             a = L.call(this, a, c);
-            if (l(this)) for (z(b, c), c = 0; c < e.length; c++) x(b, e[c]);
+            if (l(this)) for (z(b, c), c = 0; c < e.length; c++) {
+              x(b, e[c]);
+            }
             return a;
           }
 
@@ -607,7 +651,9 @@
               return a.join("");
             },
             set: function set(a) {
-              for (; this.firstChild;) K.call(this, this.firstChild);
+              for (; this.firstChild;) {
+                K.call(this, this.firstChild);
+              }
 
               null != a && "" !== a && I.call(this, document.createTextNode(a));
             }
@@ -620,21 +666,29 @@
       function Aa(a) {
         function b(b) {
           return function (e) {
-            for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
+            for (var c = [], d = 0; d < arguments.length; ++d) {
+              c[d] = arguments[d];
+            }
 
             d = [];
 
             for (var k = [], h = 0; h < c.length; h++) {
               var m = c[h];
               m instanceof Element && l(m) && k.push(m);
-              if (m instanceof DocumentFragment) for (m = m.firstChild; m; m = m.nextSibling) d.push(m);else d.push(m);
+              if (m instanceof DocumentFragment) for (m = m.firstChild; m; m = m.nextSibling) {
+                d.push(m);
+              } else d.push(m);
             }
 
             b.apply(this, c);
 
-            for (c = 0; c < k.length; c++) z(a, k[c]);
+            for (c = 0; c < k.length; c++) {
+              z(a, k[c]);
+            }
 
-            if (l(this)) for (c = 0; c < d.length; c++) k = d[c], k instanceof Element && x(a, k);
+            if (l(this)) for (c = 0; c < d.length; c++) {
+              k = d[c], k instanceof Element && x(a, k);
+            }
           };
         }
 
@@ -642,22 +696,30 @@
         void 0 !== V && (d.before = b(V));
         void 0 !== V && (d.after = b(qa));
         void 0 !== ra && r(d, "replaceWith", function (b) {
-          for (var e = [], c = 0; c < arguments.length; ++c) e[c] = arguments[c];
+          for (var e = [], c = 0; c < arguments.length; ++c) {
+            e[c] = arguments[c];
+          }
 
           c = [];
 
           for (var d = [], k = 0; k < e.length; k++) {
             var h = e[k];
             h instanceof Element && l(h) && d.push(h);
-            if (h instanceof DocumentFragment) for (h = h.firstChild; h; h = h.nextSibling) c.push(h);else c.push(h);
+            if (h instanceof DocumentFragment) for (h = h.firstChild; h; h = h.nextSibling) {
+              c.push(h);
+            } else c.push(h);
           }
 
           k = l(this);
           ra.apply(this, e);
 
-          for (e = 0; e < d.length; e++) z(a, d[e]);
+          for (e = 0; e < d.length; e++) {
+            z(a, d[e]);
+          }
 
-          if (k) for (z(a, this), e = 0; e < c.length; e++) d = c[e], d instanceof Element && x(a, d);
+          if (k) for (z(a, this), e = 0; e < c.length; e++) {
+            d = c[e], d instanceof Element && x(a, d);
+          }
         });
         void 0 !== sa && r(d, "remove", function () {
           var b = l(this);
@@ -703,9 +765,13 @@
 
         function d(a, b) {
           function e(a, b) {
-            for (var e = []; a !== b; a = a.nextSibling) e.push(a);
+            for (var e = []; a !== b; a = a.nextSibling) {
+              e.push(a);
+            }
 
-            for (b = 0; b < e.length; b++) A(c, e[b]);
+            for (b = 0; b < e.length; b++) {
+              A(c, e[b]);
+            }
           }
 
           r(a, "insertAdjacentHTML", function (a, c) {
@@ -727,7 +793,9 @@
           if (b.b && !a.__CE_patched) {
             a.__CE_patched = !0;
 
-            for (var e = 0; e < b.c.length; e++) b.c[e](a);
+            for (var e = 0; e < b.c.length; e++) {
+              b.c[e](a);
+            }
           }
 
           return this.__CE_shadowRoot = a;
@@ -744,9 +812,13 @@
                   c = b ? this.content : this,
                   e = G.call(document, this.namespaceURI, this.localName);
 
-              for (e.innerHTML = a; 0 < c.childNodes.length;) K.call(c, c.childNodes[0]);
+              for (e.innerHTML = a; 0 < c.childNodes.length;) {
+                K.call(c, c.childNodes[0]);
+              }
 
-              for (a = b ? e.content : e; 0 < a.childNodes.length;) I.call(c, a.childNodes[0]);
+              for (a = b ? e.content : e; 0 < a.childNodes.length;) {
+                I.call(c, a.childNodes[0]);
+              }
             }
           });
         });
@@ -875,7 +947,9 @@
       "function" !== typeof a.matches && (a.matches = a.msMatchesSelector || a.mozMatchesSelector || a.webkitMatchesSelector || function (a) {
         a = (this.document || this.ownerDocument).querySelectorAll(a);
 
-        for (var b = 0; a[b] && a[b] !== this;) ++b;
+        for (var b = 0; a[b] && a[b] !== this;) {
+          ++b;
+        }
 
         return !!a[b];
       });
@@ -961,11 +1035,15 @@
           return "" === t[0] && t.splice(0, 1), t.toggle = function (e, i) {
             void 0 !== i ? i ? t.add(e) : t.remove(e) : -1 !== t.indexOf(e) ? t.splice(t.indexOf(e), 1) : t.push(e), n();
           }, t.add = function () {
-            for (var e = [].slice.call(arguments), i = 0, s = e.length; i < s; i++) -1 === t.indexOf(e[i]) && t.push(e[i]);
+            for (var e = [].slice.call(arguments), i = 0, s = e.length; i < s; i++) {
+              -1 === t.indexOf(e[i]) && t.push(e[i]);
+            }
 
             n();
           }, t.remove = function () {
-            for (var e = [].slice.call(arguments), i = 0, s = e.length; i < s; i++) -1 !== t.indexOf(e[i]) && t.splice(t.indexOf(e[i]), 1);
+            for (var e = [].slice.call(arguments), i = 0, s = e.length; i < s; i++) {
+              -1 !== t.indexOf(e[i]) && t.splice(t.indexOf(e[i]), 1);
+            }
 
             n();
           }, t.item = function (e) {
