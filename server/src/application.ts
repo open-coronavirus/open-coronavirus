@@ -1,27 +1,26 @@
-import {BootMixin} from '@loopback/boot';
-import {ApplicationConfig, ContextTags} from '@loopback/core';
-import {RestExplorerBindings, RestExplorerComponent,} from '@loopback/rest-explorer';
-import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
-import {ServiceMixin} from '@loopback/service-proxy';
-import {join} from 'path';
-import {AppointmentMockService} from './services/impl/appointment-mock.service';
-import {HealthCenterMockService} from './services/impl/health-center-mock.service';
-import {LeaveRequestService} from "./services/leave-request.service";
-import {AuthMockService} from "./services/impl/auth-mock.service";
-import {AuthenticationSequence} from "./authentication-sequence";
-import {AuthenticationComponent, registerAuthenticationStrategy} from "@loopback/authentication";
-import {AuthorizationComponent, AuthorizationTags} from "@loopback/authorization";
+import { BootMixin } from '@loopback/boot';
+import { ApplicationConfig, ContextTags } from '@loopback/core';
+import { RestExplorerBindings, RestExplorerComponent, } from '@loopback/rest-explorer';
+import { RepositoryMixin } from '@loopback/repository';
+import { RestApplication } from '@loopback/rest';
+import { ServiceMixin } from '@loopback/service-proxy';
+import { join } from 'path';
+import { AppointmentMockService } from './services/impl/appointment-mock.service';
+import { HealthCenterMockService } from './services/impl/health-center-mock.service';
+import { LeaveRequestService } from "./services/leave-request.service";
+import { AuthenticationSequence } from "./authentication-sequence";
+import { AuthenticationComponent, registerAuthenticationStrategy } from "@loopback/authentication";
+import { AuthorizationComponent, AuthorizationTags } from "@loopback/authorization";
 import KEY = ContextTags.KEY;
-import {Auth0AuthenticationStrategy, JWTServiceProvider} from "./security";
-import {MyAuthorizationProvider} from "./security/authorizor";
-import {PushNotificationService} from "./services/pushnotification.service";
+import { Auth0AuthenticationStrategy, JWTServiceProvider } from "./security";
+import { MyAuthorizationProvider } from "./security/authorizor";
+import { PushNotificationService } from "./services/pushnotification.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
 
 export class CoronavirusServerApplication extends BootMixin(
-    ServiceMixin(RepositoryMixin(RestApplication)),
+  ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
 
   constructor(options: ApplicationConfig = {}) {
@@ -32,7 +31,7 @@ export class CoronavirusServerApplication extends BootMixin(
       process.env[envVarName] = envConfig[envVarName];
     }
     //environment specific
-    console.log( 'Loading ' + join(process.cwd(), '.env.' + process.env.NODE_ENV) );
+    console.log('Loading ' + join(process.cwd(), '.env.' + process.env.NODE_ENV));
     envConfig = dotenv.parse(fs.readFileSync(join(process.cwd(), '.env.' + process.env.NODE_ENV)) + ' ...');
     for (let envVarName in envConfig) {
       process.env[envVarName] = envConfig[envVarName];
@@ -66,8 +65,8 @@ export class CoronavirusServerApplication extends BootMixin(
     });
 
     this.bind('authorizationProviders.my-provider')
-        .toProvider(MyAuthorizationProvider)
-        .tag(AuthorizationTags.AUTHORIZER);
+      .toProvider(MyAuthorizationProvider)
+      .tag(AuthorizationTags.AUTHORIZER);
 
 
     // Set up the custom sequence
@@ -82,7 +81,6 @@ export class CoronavirusServerApplication extends BootMixin(
     //Define custom services at this point:
     this.service(AppointmentMockService, { interface: 'AppointmentService' });
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
-    this.service(AuthMockService, { interface: 'AuthService' });
     this.service(LeaveRequestService);
     this.service(PushNotificationService, { interface: 'PushNotificationService' });
     this.service(JWTServiceProvider);
