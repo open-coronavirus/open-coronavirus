@@ -7,34 +7,38 @@
     </ion-header>
     <ion-content>
         <div>
-            <div *ngIf="true" class="menu__item" (click)="uploadContactsAndShowThanksModal()">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
-                <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</ng-container>
-            </div>
-            <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu__item" (click)="goToConfirmationRequestLeaveHome()">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
-                <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container>
-            </div>
+            <ng-container *ngIf="patientService.patient.status !== 5">
+                <div *ngIf="true" class="menu__item" (click)="uploadContactsAndShowThanksModal()">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
+                    <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</ng-container>
+                </div>
+                <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu__item" (click)="goToConfirmationRequestLeaveHome()">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
+                    <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container>
+                </div>
 
-            <div *ngIf="leaveStatus == 2" class="menu__item" (click)="setAtHome()">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-entrar-black.svg">
-                <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
-            </div>
+                <div *ngIf="leaveStatus == 2" class="menu__item" (click)="setAtHome()">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-entrar-black.svg">
+                    <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
+                </div>
 
-            <div class="menu__item" (click)="requestTest()">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-test-black.svg">
-                <ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container>
-            </div>
+                <div class="menu__item" (click)="requestTest()">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-test-black.svg">
+                    <ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container>
+                </div>
 
-            <div class="menu__item" (click)="goToAutotest()">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-autotest-black.svg">
-                <ng-container i18n="@@autotestMenuLabel">Autoevaluación COVID-19</ng-container>
-            </div>
+                <div class="menu__item" (click)="goToAutotest()">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-autotest-black.svg">
+                    <ng-container i18n="@@autotestMenuLabel">Autoevaluación COVID-19</ng-container>
+                </div>
 
-            <div class="menu__item menu__separator" (click)="goToFollowingUp()">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-seguimiento-black.svg">
-                <ng-container i18n="@@trckingMenuLabel">Seguimiento de tu salud</ng-container>
-            </div>
+                <div class="menu__item menu__separator" (click)="goToFollowingUp()">
+                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-seguimiento-black.svg">
+                    <ng-container i18n="@@trckingMenuLabel">Seguimiento de tu salud</ng-container>
+                </div>
+            </ng-container>
+
+
             <div class="menu__item" (click)="goToMyInfo()">
                 <img class="button-icon filter-black" src="/assets/icons/svg/icon-usuario.svg">
                 <ng-container i18n="@@myInfoMenuLabel">Mis datos</ng-container>

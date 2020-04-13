@@ -32,7 +32,7 @@ export class MainComponent implements OnDestroy {
         protected menu: MenuController,
         protected router: Router,
         @Inject('settings') protected settings,
-        protected patientService: PatientService,
+        public patientService: PatientService,
         protected geolocationtrackingService: GeolocationTrackingService,
         protected bluetoothTrackingService: BluetoothTrackingService,
         protected leaveRequestService: LeaveRequestService,
