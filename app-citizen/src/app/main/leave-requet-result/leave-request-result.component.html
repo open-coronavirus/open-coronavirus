@@ -1,21 +1,27 @@
-<ion-header translucent>
-    <ion-toolbar class="modal-header">
-      <ion-buttons slot="end">
-        <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+<ion-header>
+  <ion-toolbar class="header-app">
+      <ion-buttons slot="start">
+          <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
       </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+      <div class="header-app__title"i18n="@@leaveHeaderTitle">Salir de casa</div>
+  </ion-toolbar>
+</ion-header>
   <ion-content class="modal-text" fullscreen>
 
-    <h1 i18n="@@leaveRequestSentTitle">Has informado que has salido de casa</h1>
-    <p i18n="@@leaveRequestSentDescription">El motivo por el que has salido es:</p>
+    <h1 class="screen-title" i18n="@@leaveRequestSentTitle">Has informado que has salido de casa</h1>
+    <p class="screen-text" i18n="@@leaveRequestSentDescription">El motivo por el que has salido es:</p>
 
     <gray-option [text]="leaveRequestReason.label" [additionalText]="leaveRequestReason.additionalInfo" [icon]="leaveRequestReason.icon != null?'/assets/icons/svg/' + leaveRequestReason.icon:null"></gray-option>
             
-    <p><strong i18n="@@gratitudeMessageLine1">¡Gracias por colaborar!</strong></p>
-    <p i18n="@@gratitudeMessageLine2">¡Juntos ganaremos al virus!</p>
+    <p class="screen-text">
+      <strong i18n="@@gratitudeMessageLine1">¡Gracias por colaborar!</strong><br>
+      <span i18n="@@gratitudeMessageLine2">¡Juntos ganaremos al virus!</span>
+    </p>
           
 </ion-content>
-<div class="footer-buttons-container">
-    <button class="btn" color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</button>
-</div>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app" >
+    <button class="btn" (click)="backToHome()" expand="block" i18n="@@okButton">OK</button>
+  </ion-toolbar>
+</ion-footer>
+

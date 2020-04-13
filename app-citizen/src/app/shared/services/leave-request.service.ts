@@ -143,7 +143,7 @@ export class LeaveRequestService {
                     handler: (blah) => {
                     }
                 }, {
-                    text: $localize`:@@responseYes:Si`,
+                    text: $localize`:@@responseYes:Sí`,
                     handler: () => {
                         if(this.leaveRequest != null) {
                             this.leaveRequestController.leaveRequestControllerSetAtHome(this.patientService.patient.id).subscribe(result => {

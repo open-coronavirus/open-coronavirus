@@ -321,6 +321,9 @@ ion-content, ion-toolbar{
     &:last-child{
       margin-bottom: 0;
     }
+    &--big{
+      font-size: 24px;
+    }
   }
 
 }
