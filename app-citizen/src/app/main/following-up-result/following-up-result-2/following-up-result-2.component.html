@@ -8,12 +8,19 @@
 </ion-header>
 <ion-content>
   <h1 class="screen-title" i18n="@@followinUResult2Title">Resultado del seguimiento</h1>
-  <p i18n="@@followinUResult2Text1">Sus síntomas no han empeorado ni tiene síntomas nuevos.</p>
-  <p i18n="@@followinUResult2Text2">Debe seguir haciendo recurrentemente seguimiento de su salud y recomendamos el distanciamiento físico o pedir opcionalmente una prueba de diagnóstico drive-through que le permitiría salir en caso de ser negativo</p>
+  <div class="recuadro-test recuadro-test--ok">
+    <p i18n="@@followinUResult2Text1"><strong>Sus síntomas no han empeorado ni tiene síntomas nuevos.</strong></p>
+    <p i18n="@@followinUResult2Text2">Debe seguir haciendo recurrentemente seguimiento de su salud y recomendamos el distanciamiento físico o pedir opcionalmente una prueba de diagnóstico drive-through que le permitiría salir en caso de ser negativo</p>
+  </div>
 
-  <p (click)="requestTest()" i18n="@@followinUResult2BtnRequestTest">SOLICITAR TEST COVID-19</p>
-  <p i18n="@@followinUResult2Text3">Medidas de distanciamiento físicos</p>
-  <ul>
+  <p class="resultado-text resultado-text--separa">
+    <button class="btn" (click)="requestTest()" i18n="@@followinUResult2BtnRequestTest">
+      <img class="button-icon filter-white" src="/assets/icons/svg/icon-test-black.svg">
+      Solicitar test covid-19
+    </button>
+  </p>
+  <h2 class="resultado-title" i18n="@@followinUResult2Text3">Medidas de distanciamiento físicos</h2>
+  <ul class="resultado-list">
     <li i18n="@@followinUResult2List1_1">Quédese en casa según lo dictado por la autoridad.</li>
     <li i18n="@@followinUResult2List1_2">Salga a comprar alimentos y otros mandados esenciales una vez a la semana.</li>
     <li i18n="@@followinUResult2List1_3">Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</li>
