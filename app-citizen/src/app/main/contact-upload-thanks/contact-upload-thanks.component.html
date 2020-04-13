@@ -6,21 +6,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 i18n="@@contactUploadThanksTitle1">Gracias por la colaboración ciudadana</h1>
-    <h3 i18n="@@contactUploadThanksTitle2">Has enviado la información de cruces con ciudadanos y autorizado su uso a las autoridades sanitarias.</h3>
+  <h1 class="screen-title" i18n="@@contactUploadThanksTitle1">Gracias por la colaboración ciudadana</h1>
+  <h2 class="screen-subtitle" i18n="@@contactUploadThanksTitle2">Has enviado la información de cruces con ciudadanos y autorizado su uso a las autoridades sanitarias.</h2>
 
-    <p i18n="@@contactUploadThanksText1">
-      Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades podrán gracias a esta información avisar al resto de ciudadanos que hayan estado en contacto contigo a menos de dos metros de forma anónima.
-    </p>
+  <p class="screen-text" i18n="@@contactUploadThanksText1">
+    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades podrán gracias a esta información avisar al resto de ciudadanos que hayan estado en contacto contigo a menos de dos metros de forma anónima.
+  </p>
 
-    <p i18n="@@contactUploadThanksText2">
-      De este modo estás ayudando y protegiendo a muchas personas.<br/>
-      ¡A este virus le ganamos entre todos!
-    </p>
+  <p class="screen-text" i18n="@@contactUploadThanksText2">
+    De este modo estás ayudando y protegiendo a muchas personas.<br/>
+    ¡A este virus le ganamos entre todos!
+  </p>
 
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
-    <ion-button color="dark" (click)="dismissModal()" expand="block" i18n="@@OK">OK</ion-button>
+    <button class="btn" color="dark"(click)="dismissModal()" i18n="@@OK">OK</button>
   </ion-toolbar>
 </ion-footer>

@@ -74,18 +74,15 @@
             <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
             <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
         </div>
-        <!--<a (click)="valeriaDemoConfirmarContact()">valeriaDemoConfirmarContact</a>-->
     </div>
 
-    <div i18n="@@coronavirusSendInfo" (click)="uploadContactsAndShowThanksModal()">
-        ENVIAR INFORMACIÓN DE FORMA ANÓNIMA DE CRUCES CON CIUDADANOS Y AUTORIZAR SU USO
+    <div class="alert-info" (click)="uploadContactsAndShowThanksModal()">
+        <img class="alert-info__icon filter-white" src="/assets/icons/svg/icon-bluetooth.svg">
+        <span class="alert-info__badge">1</span>
+        <p class="alert-info__text" i18n="@@coronavirusSendInfo">
+            Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
+        </p>
     </div>
-
-    <!-- <div *ngIf="patientHasTestAppointment" class="appointment-info">
-        <div><img src="{{icon}}" class="appointment-info-icon filter-black"></div>
-        <div style="width: 75%;"><span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span></div>
-    </div> -->
-
     <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
         <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
         <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>

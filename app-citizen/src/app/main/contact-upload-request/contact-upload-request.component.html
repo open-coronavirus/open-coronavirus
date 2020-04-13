@@ -6,22 +6,24 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 i18n="@@contactUploadRequestTitle1">Las autoridades solicitan que compartas tus datos</h1>
-    <h3 i18n="@@contactUploadRequestTitle2">Enviar datos adquiridos por bluetooth</h3>
+  <h1 class="screen-title" i18n="@@contactUploadRequestTitle1">Las autoridades solicitan que compartas tus datos</h1>
+  <p class="screen-text">
+    <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
+  </p>
+  <h3 class="screen-subtitle" i18n="@@contactUploadRequestTitle2">Enviar datos adquiridos por bluetooth</h3>
+  <p class="screen-text" i18n="@@contactUploadRequestText1">
+    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades piden que des autorizacióin para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.
+  </p>
 
-    <p i18n="@@contactUploadRequestText1">
-      Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades piden que des autorizacióin para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.
-    </p>
-
-    <p i18n="@@contactUploadRequestText2">
-      De este modo estás ayudando y protegiendo a muchas personas.<br/>
-      ¡A este virus le ganamos entre todos!
-    </p>
+  <p class="screen-text" i18n="@@contactUploadRequestText2">
+    De este modo estás ayudando y protegiendo a muchas personas.<br/>
+    ¡A este virus le ganamos entre todos!
+  </p>
 
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
     <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">ENVIAR DATOS Y AUTORIZAR SU USO</button>
-    <button class="btn" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO, QUIZÁS EN OTRO MOMENTO</button>
+    <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO, QUIZÁS EN OTRO MOMENTO</button>
   </ion-toolbar>
 </ion-footer>

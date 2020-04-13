@@ -4,33 +4,25 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                 <!-- LOGIN PENDIENTE UNIR CON SERVICIO EXTERNO -->
-                <!-- <div class="form-row">
-                    <h1 i18n="@@loginTitle">Identifícate</h1>
-                    <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada de la policía.</strong></p>
-                </div>
+    <!--< LOGIN PENDIENTE UNIR CON SERVICIO EXTERNO -->
+    <!-- <div class="form-row">
+        <h1 i18n="@@loginTitle">Identifícate</h1>
+        <p i18n="@@loginDescription">Introduce tu clave de acceso para poder acceder al <strong>área privada de la policía.</strong></p>
+    </div>
 
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                    <login-form #loginFormComponent></login-form>
-                    <div class="form-row">
-                        <small class="error" *ngIf="error"> {{ error }}</small>
-                    </div>
-                    <button class="btn" type="submit" color="dark" expand="block" i18n="@@enterSubmitButton">Entrar</button>
-                </form> -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <login-form #loginFormComponent></login-form>
+        <div class="form-row">
+            <small class="error" *ngIf="error"> {{ error }}</small>
+        </div>
+        <button class="btn" type="submit" i18n="@@enterSubmitButton">Entrar</button>
+    </form> -->
 
-
-                <p class="login-demo" i18n="@@noAccessTitle">Pendiente de implementar el login contra el sistema central de la policía.</p>
-
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <p class="login-demo" i18n="@@noAccessTitle">Pendiente de implementar el login contra el sistema central de la policía.</p>
 </ion-content>
 
 <ion-footer class="ion-no-border">
     <ion-toolbar class="footer-app" >
-        <button class="btn" type="submit" color="dark" expand="block" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</button>
+        <button class="btn" type="submit" i18n="@@enterSubmitButton" (click)="loginDemo()">Entrar</button>
     </ion-toolbar>
   </ion-footer>

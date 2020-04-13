@@ -26,10 +26,10 @@
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
     <p class="footer-app__text" i18n="@@ageFootNote">Para utilizar esta aplicación debes ser mayor de edad</p>
-    <button class="btn" *ngIf="!lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@next">
+    <button class="btn" *ngIf="!lastSlide" (click)="goContinue()" i18n="@@next">
       SIGUIENTE
       <ion-icon size="small" name="chevron-forward-outline"></ion-icon>
     </button>
-    <button class="btn" *ngIf="lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@enter">EMPEZAR</button>
+    <button class="btn" *ngIf="lastSlide" (click)="goContinue()" i18n="@@enter">EMPEZAR</button>
   </ion-toolbar>
 </ion-footer>
