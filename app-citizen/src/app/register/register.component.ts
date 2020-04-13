@@ -58,7 +58,6 @@ export class RegisterComponent {
             this.patient = this.patientInfoFormComponent.patient;
             this.patientService.register(this.patient).subscribe(newPatient => {
                 loading.dismiss();
-                console.log("newPatient: ", newPatient);
                 if (newPatient != null && newPatient != false) {
                     this.permissionService.requestAllPermissions('/app/home');
                 } else {
