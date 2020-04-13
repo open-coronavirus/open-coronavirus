@@ -166,6 +166,9 @@ ion-content, ion-toolbar{
   font-weight: 600;
   line-height: 1.25;
   margin: 0 0 4px 0;
+  &--mb-md{
+    margin-bottom: 24px;
+  }
 }
 .screen-text{
   font-size: 14px;  
@@ -380,6 +383,18 @@ ion-content, ion-toolbar{
   line-height: 1.25;
   margin: 24px 0 16px 0;
 }
+.cita-casa-title{
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin: 24px 0 0 0;
+}
+.cita-casa-dir{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 24px 0;
+}
 .cita-lugar{  
   border-radius: 4px;
   background-color: #f5f5f5;
@@ -400,5 +415,15 @@ ion-content, ion-toolbar{
   }
   &__como{
     margin: 8px 0 0 0;
+  }
+}
+.cita-ambulance{
+  text-align: center;
+  margin: 48px 0;
+  img{
+    display: inline-block;
+    width: 40%;
+    height: auto;
+    max-width: 400px;
   }
 }

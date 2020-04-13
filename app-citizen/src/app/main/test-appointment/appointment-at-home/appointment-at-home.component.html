@@ -7,15 +7,14 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 class="screen-title screen-title--mb0" i18n="@@requestLeaveHomeTitle">Test solicitado</h1>
-  <p class="screen-subtitle" i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</p>
-  <h2 class="cita-title" i18n="@@testAppointmentResultSubtitle2">Estamos para ayudarte!</h2>
-  <p class="screen-text" i18n="@@testAppointmentResultDescription">Proximamente llegará una ambulancia a donde vives</p>
-  <h2 class="cita-title">{{patientAddress}}</h2>
-  <div class="ambulance-container"><img class="button-icon filter-black" src="/assets/icons/svg/icon-ambulancia.svg"></div>
-  <p class="screen-text" i18n="@@testAppointmentResultDescription2">Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</p>
+  <h1 class="screen-title screen-title--mb0" i18n="@@requestLeaveHomeTitle">Gracias por la solicitud</h1>
+  <h2 class="screen-subtitle screen-subtitle--mb-md" i18n="@@testAppointmentResultSubtitle1">¡Estamos para ayudarte!</h2>
+  <p class="cita-casa-title" i18n="@@testAppointmentResultDescription">Próximamente llegará una ambulancia a donde vives</p>
+  <h2 class="cita-casa-dir">{{patientAddress}}</h2>
+  <div class="cita-ambulance"><img class="button-icon filter-black" src="/assets/icons/svg/icon-ambulancia.svg"></div>
+  <p class="screen-text screen-text--mb-md" i18n="@@testAppointmentResultDescription2">y <strong>en 24 horas tindrás los resultados del test</strong> que te lo enviaremos directamente a tu móvil mediante esta aplicación.</p>
 
+  <p class="screen-text">
+    <button class="btn" (click)="backToHome()" i18n="@@okButton">OK</button>
+  </p>
 </ion-content>
-<div class="footer-buttons-container">
-    <button class="btn" (click)="backToHome()" i18n="@@enter">OK</button>
-</div>
