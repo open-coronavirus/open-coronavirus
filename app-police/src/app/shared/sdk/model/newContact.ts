@@ -11,15 +11,18 @@
  */
 
 
-export interface TestAppointment { 
+/**
+ * (Schema options: { title: \'NewContact\' })
+ */
+export interface NewContact { 
   [key: string]: object | any;
 
 
-    id?: string;
-    created?: string;
-    appointmentDate?: string;
-    type?: number;
-    patientId: string;
-    healthCenterId?: string;
+    id: string;
+    sourceUuid: string;
+    targetUuid: string;
+    timestampFrom: number;
+    timestampTo: number;
+    rssi?: number;
 }
 

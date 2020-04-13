@@ -11,15 +11,14 @@
  */
 
 
-export interface TestAppointment { 
+export interface Installation { 
   [key: string]: object | any;
 
 
     id?: string;
-    created?: string;
-    appointmentDate?: string;
-    type?: number;
+    deviceId: string;
+    pushRegistrationId?: string;
     patientId: string;
-    healthCenterId?: string;
+    created?: string;
 }
 
