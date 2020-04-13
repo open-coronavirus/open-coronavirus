@@ -68,6 +68,21 @@
       }
     }
   }
+  &--immune{
+    background-color: #DBF3E4;
+    border-radius: 10px;
+    
+    img{
+      mix-blend-mode: multiply;
+    }
+    #{ $result }{
+      &__status{
+        color: #4CC380;  
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 
 .qrcode {

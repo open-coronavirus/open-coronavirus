@@ -85,12 +85,26 @@
                 Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
             </p>
         </div>
+        
+        <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
+            <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
+            <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
+        </div>
+        <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
+
     </ng-container>
 
-    <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
-        <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
-        <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
-    </div>
-    <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
-
 </ion-content>
+
+<!--  INMUNE -->
+<ng-container *ngIf="patientService.patient?.status === 5" >
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="footer-app" >
+        <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
+            <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
+            <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
+        </div>
+        <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
+    </ion-toolbar>
+</ion-footer>
+</ng-container>

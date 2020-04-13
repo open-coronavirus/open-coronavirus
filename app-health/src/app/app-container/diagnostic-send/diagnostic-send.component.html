@@ -6,7 +6,7 @@
 
         <p class="message message--error" *ngIf="patientError" i18n="@@errorIdentierNotFound">El identificador es incorrecto o no existe ningún paciente con este identificador</p>
 
-        <div class="form-row"  [ngClass]="{'form-row--error': patientError}">
+        <div class="form-row" [ngClass]="{'form-row--error': patientError}">
             <div class="form-group form-label-group">
                 <input type="text" class="form-control" [(ngModel)]="dataForm.identifier" (keypress)="onKeyPressed($event)" (keyup)="onKeyUp($event)" id="identifier" name="identifier" i18n-placeholder placeholder="Identificador">
                 <label for="identifier" i18n="@@identifierLabel">DNI / NIF / Tarjeta sanitaria del paciente</label>

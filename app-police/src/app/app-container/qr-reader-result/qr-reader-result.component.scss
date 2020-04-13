@@ -81,6 +81,14 @@
       }
     }
   }
+  &--immune{
+    #{ $result }{
+      &__status{
+        color: #4CC380;  
+        text-transform: uppercase;
+      }
+    }
+  }
 
 
   &__container{

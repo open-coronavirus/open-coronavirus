@@ -1,6 +1,6 @@
 <ion-menu class="menu" side="start" menuId="menu" contentId="main">
     <ion-header>
-        <div class="menu__header menu__separator" (click)="goToHome()">
+        <div class="menu__header menu__separator" [ngClass]="{'menu__header--immune': patientService.patient.status === 5}" (click)="goToHome()">
             <div class="menu__header-circle">{{patientInitials}}</div>
             <div class="menu__header-name">{{patientName}}</div>
         </div>

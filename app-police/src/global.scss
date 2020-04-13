@@ -220,6 +220,11 @@ ion-content, ion-toolbar{
         background-color: #61bc7c;
       }
     }
+    &--immune{
+      &:before{
+        background-color: #4CC380;
+      }
+    }
   }
 }
 

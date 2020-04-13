@@ -197,7 +197,7 @@ getColorStatus() {
         }
         switch (this.patientService.patient.status) {
             case 5:
-                return '#61bc7cff';
+                return '#4CC380ff';
             case 4:
                 return '#c80f2eff';
             case 3:

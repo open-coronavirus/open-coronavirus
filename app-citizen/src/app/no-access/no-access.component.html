@@ -4,17 +4,11 @@
     </ion-toolbar>
 </ion-header>
 <ion-content class="no-access">
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <h1 i18n="@@noAccessTitle">No acceso</h1>
-                <p i18n="@@noAccessDescriptionLine1">Parece que ya la estás utilizando en otro móvil.</p>
-                <p i18n="@@noAccessDescriptionLine2">Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</p>
-                <button class="btn" (click)="callToTechnicalSupport()" class="light-button" expand="block" ><img class="button-icon filter-black" src="/assets/icons/svg/icon-telefono.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@callTechnicalServiceButtonLabel">Servicio técnico&nbsp;&nbsp;999 888 777</ng-container></button>
-                <button class="btn" color="light" (click)="backToRegisterForm()" i18n="@@tryAgainButtonLabel" expand="block">Volver a intentar</button>
+    <h1 class="screen-title" i18n="@@noAccessTitle">No acceso</h1>
+    <p class="screen-text" i18n="@@noAccessDescriptionLine1">Parece que ya la estás utilizando en otro móvil.</p>
+    <p class="screen-text" i18n="@@noAccessDescriptionLine2">Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</p>
+    <button class="btn" (click)="callToTechnicalSupport()" class="light-button" expand="block" ><img class="button-icon filter-black" src="/assets/icons/svg/icon-telefono.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@callTechnicalServiceButtonLabel">Servicio técnico&nbsp;&nbsp;999 888 777</ng-container></button>
+    <button class="btn btn--secondary screen-text--mb-md" color="light" (click)="backToRegisterForm()" i18n="@@tryAgainButtonLabel" expand="block">Volver a intentar</button>
 
-                <p style="padding-top: 25px;" i18n="@@noAccessFootNote">Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</p>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <p class="screen-text" i18n="@@noAccessFootNote">Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</p>
 </ion-content>
