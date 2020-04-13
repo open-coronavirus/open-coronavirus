@@ -38,6 +38,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSMotionUsageDescription</key>
+    <string>$MOTION_USAGE_DESCRIPTION</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>By activating the bluetooth you are helping us to fight the CORONAVIRUS</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>

@@ -7,9 +7,22 @@ import {BehaviorSubject, Subject} from "rxjs";
 @Injectable()
 export class InstallationService {
 
+    public deviceId: string;
+    public loadedDeviceId$ = new BehaviorSubject<boolean>(false);
+
     constructor(protected uniqueDeviceID: UniqueDeviceID,
                 protected installationControllerService: InstallationControllerService
-    ) { }
+    ) {
+
+        this.uniqueDeviceID.get().then((uuid: any) => {
+            this.deviceId = uuid;
+            this.loadedDeviceId$.next(true);
+        })
+        .catch((error: any) => {
+            console.error('Error trying to regiter the installation: ' + JSON.stringify(error));
+        });
+
+    }
 
     public registerInstallation(patientId: string) {
 
@@ -17,10 +30,10 @@ export class InstallationService {
 
         console.log('Register installation ...');
 
-        this.uniqueDeviceID.get()
-            .then((uuid: any) => {
+        this.loadedDeviceId$.subscribe(loaded => {
+            if (loaded) {
 
-                console.log('Unique device ID: ' + uuid);
+                console.log('Unique device ID: ' + this.deviceId);
 
                 let installation: InstallationWithRelations = new class implements InstallationWithRelations {
                     [key: string]: object | any;
@@ -31,7 +44,7 @@ export class InstallationService {
                     patientId: string;
                 }
 
-                installation.deviceId = uuid;
+                installation.deviceId = this.deviceId;
                 installation.patientId = patientId;
 
                 console.log('Call the API to regiter the installation ...');
@@ -40,12 +53,8 @@ export class InstallationService {
                     console.log('Installation registration successful!');
                     returnValue.next(true);
                 })
-
-            })
-            .catch((error: any) => {
-                returnValue.next(false);
-                console.error('Error trying to regiter the installation: ' + JSON.stringify(error));
-            });
+            }
+        });
 
         return returnValue;
 

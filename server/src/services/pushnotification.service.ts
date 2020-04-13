@@ -13,11 +13,8 @@ export class PushNotificationService {
                 id: process.env.GCM_SERVER_API_KEY,
             },
             apn: {
-                token: {
-                    key: fs.readFileSync(join(process.cwd(), '/credentials/' + process.env.NODE_ENV + '/key.p8')),
-                    keyId: process.env.APPLE_KEY_ID,
-                    teamId: process.env.APPLE_TEAM_ID,
-                },
+                cert: join(process.cwd(), '/credentials/' + process.env.NODE_ENV + '/apns_cert.pem'),
+                key: join(process.cwd(), '/credentials/' + process.env.NODE_ENV + '/apns_key.pem'),
                 production: false // true for APN production environment, false for APN sandbox environment,
             },
             adm: {
@@ -50,14 +47,14 @@ export class PushNotificationService {
     public sendNotification(deviceIds: any[], title: string, body: string, badge = 0) {
         const data = {
             title: title, // REQUIRED for Android
-            topic: 'topic', // REQUIRED for iOS (apn and gcm)
+            topic: '', // REQUIRED for iOS (apn and gcm)
             /* The topic of the notification. When using token-based authentication, specify the bundle ID of the app.
              * When using certificate-based authentication, the topic is usually your app's bundle ID.
              * More details can be found under https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns
              */
             body: body,
             custom: {
-                sender: 'Open Coronavirus',
+                sender: 'com.opencoronavirus',
             },
             priority: 'high', // gcm, apn. Supported values are 'high' or 'normal' (gcm). Will be translated to 10 and 5 for apn. Defaults to 'high'
             collapseKey: '', // gcm for android, used as collapseId in apn

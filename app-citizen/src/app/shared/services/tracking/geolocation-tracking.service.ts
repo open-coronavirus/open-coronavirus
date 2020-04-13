@@ -1,8 +1,6 @@
 import {Inject, Injectable} from "@angular/core";
 import {Subject} from "rxjs";
-import {BackgroundGeolocation} from "@ionic-native/background-geolocation";
-import {BackgroundGeolocationEvents, BackgroundGeolocationResponse} from "@ionic-native/background-geolocation/ngx";
-import {GeolocationControllerService, GeolocationWithRelations, PatientWithRelations} from "../../sdk";
+import {GeolocationControllerService, GeolocationWithRelations} from "../../sdk";
 import {PatientService} from "../patient.service";
 
 
@@ -22,12 +20,13 @@ export class GeolocationTrackingService {
 
         let returnValue: Subject<any> = new Subject();
 
-        if(this.settings.enabled.bluetooth && this.activated == false) {
+        if(this.settings.permissions.gps && this.activated == false) {
             this.activated = true;
 
             this.patientService.patientLoaded$.subscribe(loaded => {
                 if(loaded && this.patientService.patient != null && this.patientService.patient.id != null) {
 
+                    /*
                     BackgroundGeolocation.configure({
                         desiredAccuracy: 10, //10 means MEDIUM
                         stationaryRadius: 50,
@@ -80,7 +79,7 @@ export class GeolocationTrackingService {
                             BackgroundGeolocation.endTask(taskKey);
                         });
                     });
-
+*/
                 }
             })
 

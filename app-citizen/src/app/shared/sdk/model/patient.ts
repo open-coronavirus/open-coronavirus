@@ -23,7 +23,7 @@ export interface Patient {
     birthday: string;
     age?: number;
     gender?: number;
-    street: string;
+    street?: string;
     apartment?: string;
     postalCode: string;
     email?: string;
