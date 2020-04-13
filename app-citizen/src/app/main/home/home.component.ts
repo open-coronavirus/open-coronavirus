@@ -74,7 +74,7 @@ export class HomeComponent implements OnDestroy {
                             .replace("\[appointmentDate\]", appointmentDate)
                             .replace("\[healthCenterName\]", healthCenterName)
                             .replace("\[healthCenterAddress\]", healthCenterAddress)
-                        let howToGetThereLink = $localize`:@@howToGetThereLink:Como llegar?`;
+                        let howToGetThereLink = $localize`:@@howToGetThereLink:¿Cómo llegar?`;
                         this.appointmentDescriptionLine2 = "<br><a class='appointment__link' href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
                         break;
 
@@ -148,8 +148,8 @@ export class HomeComponent implements OnDestroy {
     public share() {
         this.shareService.share();
 
-        // this.router.navigate(['/app/test-result/result/1']);
-        this.router.navigate(['/app/following-up-result/result/2']);
+        // this.router.navigate(['/app/test-result/result/5']); // del 1 al 5
+        // this.router.navigate(['/app/following-up-result/result/2']);
     }
 
 getTextStatus() {
@@ -157,6 +157,8 @@ getTextStatus() {
             return;
         }
         switch (this.patientService.patient.status) {
+            case 5:
+                return $localize`:@@statusImune:Inmune`;
             case 4:
                 return $localize`:@@statusInfected:Positivo`;
 
@@ -176,15 +178,14 @@ getClassStatus() {
             return;
         }
         switch (this.patientService.patient.status) {
+            case 5:
+                return 'result--immune';
             case 4:
                 return 'result--infected';
-
             case 3:
                 return 'result--quarentine';
-
             case 2:
                 return 'result--ok';
-
         }
     }
 
@@ -193,15 +194,14 @@ getColorStatus() {
             return;
         }
         switch (this.patientService.patient.status) {
+            case 5:
+                return '#61bc7cff';
             case 4:
                 return '#c80f2eff';
-
             case 3:
                 return '#ffca08ff';
-
             case 2:
                 return '#61bc7cff';
-
         }
     }
 

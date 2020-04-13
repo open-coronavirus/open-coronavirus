@@ -6,7 +6,7 @@
         <img class="slide__image" src="/assets/icons/svg/icon-test-bg.svg">
       </div>
       <p class="slide__text" i18n="@@introSlideTest">Con esta APP podrás <br><strong>solicitar un test de COVID-19</strong><br>y según su resultado poder<br>salir de casa</p>
-    </ion-slide>
+    </ion-slide> 
     <ion-slide class="slide">
       <h2 class="slide__title" i18n="@@introSlideTogether">Luchemos juntos<br>contra el <strong class="slide__title-strong">COVID-19</strong></h2>
       <div class="slide__image-container">
@@ -26,7 +26,10 @@
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
     <p class="footer-app__text" i18n="@@ageFootNote">Para utilizar esta aplicación debes ser mayor de edad</p>
-    <button class="btn" *ngIf="!lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@next">SIGUIENTE</button>
-    <button class="btn" *ngIf="lastSlide" color="dark" (click)="goContinue()" expand="block" i18n="@@enter">COMENZAR</button>
+    <button class="btn" *ngIf="!lastSlide" (click)="goContinue()" i18n="@@next">
+      SIGUIENTE
+      <ion-icon size="small" name="chevron-forward-outline"></ion-icon>
+    </button>
+    <button class="btn" *ngIf="lastSlide" (click)="goContinue()" i18n="@@enter">EMPEZAR</button>
   </ion-toolbar>
 </ion-footer>

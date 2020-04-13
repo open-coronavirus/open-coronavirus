@@ -12,7 +12,7 @@
             <ion-col>
                 <h4 *ngIf="isCoronavirusSuspicious" i18n="@@requestTestDescription">Según tus síntomas te recomendamos hacer un test diagnóstico de COVID-19</h4>
                 <p i18n="@@requestTestDescription2">Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</p>
-                <button class="btn" (click)="requestTest()" color="dark" expand="block"><img class="button-icon filter-white" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="requestTestButton">Solicitar test diagnóstico</ng-container></button>
+                <button class="btn" (click)="requestTest()"><img class="button-icon filter-white" src="/assets/icons/svg/icon-test.svg">&nbsp;&nbsp;&nbsp;<ng-container i18n="@@requestTestButton">Solicitar test diagnóstico</ng-container></button>
             </ion-col>
         </ion-row>
     </ion-grid>

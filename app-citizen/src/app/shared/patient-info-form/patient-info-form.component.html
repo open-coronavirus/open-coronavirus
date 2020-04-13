@@ -1,19 +1,20 @@
 <form [formGroup]="patientInfoForm">
     <div class="form-row">
-        <h5 i18n="@@personalInfoSectionTitle">Tus datos</h5>
+        <h1 class="screen-title" i18n="@@personalInfoSectionTitle">Introduce tus datos personales</h1>
+        <p class="screen-text" i18n="@@personalInfoSectionSubtitle">Utilizaremos tus datos únicamente con fines médicos, para ayudarte a evaluar tu situación y ayudar al resto de ciudadanos a frenar al COVID-19</p>
     </div>
     <div class="form-row">
         <div class="form-group form-label-group">
             <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" i18n-placeholder placeholder="Nombre">
-            <label for="firstName" i18n="@@firstNameLabel">Nombre</label>
-            <small class="error" *ngIf="firstName.invalid && firstName.touched" i18n="@@firstNameError">Por favor, introduce tu nombre</small>
+            <label for="firstName" i18n="@@firstNameLabel">Nombre y apellidos</label>
+            <small class="error" *ngIf="firstName.invalid && firstName.touched" i18n="@@firstNameError">Por favor, introduce tu nombre completo</small>
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-group form-label-group">
             <input type="text" class="form-control" name="documentNumber" id="documentNumber" formControlName="documentNumber" i18n-placeholder placeholder="DNI/NIF/Tarjeta residencia">
-            <label for="documentNumber" i18n="@@documentNumberLabel">DNI/NIF/Tarjeta residencia</label>
+            <label for="documentNumber" i18n="@@documentNumberLabel">DNI / NIF / Tarjeta sanitaria</label>
             <small class="error" *ngIf="documentNumber.invalid && documentNumber.touched" i18n="@@documentNumberForm">Por favor, introduce tu número de documento</small>
         </div>
     </div>
@@ -22,15 +23,16 @@
         <div class="form-group form-label-group form-label-group--bday">
             <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" [max]="getMaxDate()" name="birthday" id="birthday" formControlName="birthday"></ion-datetime>
             <label for="birthday" i18n="@@birthdayLabel" *ngIf="!patient.birthday">Fecha de nacimiento</label>
-            <small class="error" *ngIf="birthday.invalid && birthday.touched" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento.</small>
+            <small class="error" *ngIf="birthday.invalid && birthday.touched" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento</small>
         </div>
     </div>
 
-    <div class="form-row section-title">
-        <h5 i18n="@@addressSectionTitle">Dirección donde vives</h5>
+    <div class="form-row form-row--separa">
+        <h2 class="screen-subtitle" i18n="@@addressSectionTitle">Dirección actual</h2>
+        <p class="screen-text" i18n="@@addressSectionSubtitle">Tu dirección es importante para poder darte cita en el centro más cercano de test de COVID-19</p>
     </div>
     <div class="form-row">
-        <div class="form-group form-label-group">
+        <div class="form-group form-label-group form-label-group--half">
             <input type="text" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode" i18n-placeholder placeholder="Código postal">
             <label for="postalCode" i18n="@@postalCodeLabel">Código postal</label>
             <small class="error" *ngIf="postalCode.invalid && postalCode.touched" i18n="@@postalCodeError">Por favor, introduce un código postal válido</small>
@@ -45,8 +47,9 @@
     </div>
 
 
-    <div class="form-row section-title">
-        <h5 i18n="@@contactInfoSectionTitle">Información de contacto</h5>
+    <div class="form-row form-row--separa">
+        <h2 class="screen-subtitle" i18n="@@contactInfoSectionTitle">Información de contacto</h2>
+        <p class="screen-text" i18n="@@addressSectionSubtitle">Tu información de contacto es ensecial para que en caso de una urgencia podamos ponernos en contacto contigo</p>
     </div>
     <div class="form-row">
         <div class="form-group form-label-group">
@@ -62,5 +65,4 @@
             <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
         </div>
     </div>
-
 </form>

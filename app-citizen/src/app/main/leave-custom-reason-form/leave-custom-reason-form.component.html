@@ -7,13 +7,13 @@
   </ion-header>
   <ion-content class="modal-text" fullscreen>
 
-    <h1 i18n="@@leaveCustomReasonFormTitle">¿Quieres salir de casa?</h1>
+    <h1 class="screen-title" i18n="@@leaveCustomReasonFormTitle">¿Quieres salir de casa?</h1>
     <gray-option *ngIf="leaveRequestReason" [text]="leaveRequestReason.label" [icon]="leaveRequestReason.icon != null?'/assets/icons/svg/' + leaveRequestReason.icon:null"></gray-option>
-    <p i18n="@@leaveCustomReasonFormDescription">Indica el motivo por el que vas a salir de casa</p>
+    <p class="screen-text" i18n="@@leaveCustomReasonFormDescription">Indica el motivo por el que vas a salir de casa</p>
 
     <textarea [(ngModel)]="leaveRequestAdditionalInfo" class="form-textarea form-textarea--mb" i18n-placeholder placeholder="Escribe el motivo"></textarea>
     
-    <button class="btn" color="dark" (click)="requestLeaveHome()" expand="block" i18n="@@okButton">OK</button>
-    <button class="btn" color="light" (click)="backToRequestReasons()" expand="block" i18n="@@backButton">Volver</button>
+    <button class="btn" (click)="requestLeaveHome()" i18n="@@okButton">OK</button>
+    <button class="btn btn--secondary" (click)="backToRequestReasons()" i18n="@@backButton">Volver</button>
 
 </ion-content>

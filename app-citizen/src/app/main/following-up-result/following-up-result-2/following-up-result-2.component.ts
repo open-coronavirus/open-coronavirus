@@ -20,6 +20,11 @@ export class FollowingUpResult2Component {
 
     }
 
+    public requestTest() {
+        this.navCtrl.navigateForward(['/app/test-appointment/at-health-center/confirm']);
+    }
+
+
     public backToHome() {
         this.navCtrl.navigateBack(['/app/home']);
     }

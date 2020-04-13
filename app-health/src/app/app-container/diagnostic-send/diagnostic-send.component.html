@@ -2,22 +2,22 @@
 <ion-content>
     <div class="send-diagnostic">
         <h1 class="screen-title" i18n="@@titleSendDiagnostic">Subir diagnóstico</h1>
-        <p class="screen-text" i18n="@@descriptionSendDiagnostic">Introduce el <strong>identificador del paciente</strong> que quieres informar del resultado del test</p>
+        <p class="screen-text" i18n="@@descriptionSendDiagnostic">Introduce el <strong>DNI / NIF / Tarjeta sanitaria del paciente</strong> que quieres informar del resultado del test</p>
 
         <p class="message message--error" *ngIf="patientError" i18n="@@errorIdentierNotFound">El identificador es incorrecto o no existe ningún paciente con este identificador</p>
 
         <div class="form-row"  [ngClass]="{'form-row--error': patientError}">
             <div class="form-group form-label-group">
                 <input type="text" class="form-control" [(ngModel)]="dataForm.identifier" (keypress)="onKeyPressed($event)" (keyup)="onKeyUp($event)" id="identifier" name="identifier" i18n-placeholder placeholder="Identificador">
-                <label for="identifier" i18n="@@identifierLabel">Identificador sanitario paciente</label>
+                <label for="identifier" i18n="@@identifierLabel">DNI / NIF / Tarjeta sanitaria del paciente</label>
                 <small class="error" *ngIf="dataForm.error_identifier" i18n="@@identifierError">Por favor, introduce el identificador</small>
             </div>
         </div>
         <p *ngIf="dataForm.intent_send && dataForm.error_identifier" i18n="@@errorIdentierNoFill">Debe rellenar el campo identificador</p>
 
-        <h2 class="send-diagnostic__subtitle">Estado del paciente</h2>
+        <h2 class="send-diagnostic__subtitle" i18n="@@patientStatus">Estado del paciente</h2>
         <ul class="diagnostic-status">
-            <li (click)="setStatus(key)" class="diagnostic-status__item" [ngClass]="{'diagnostic-status__item--selected' : dataForm.status === key, 'diagnostic-status__item--initial' : 1 === key, 'diagnostic-status__item--ok' : 2 === key, 'diagnostic-status__item--quarentine' : 3 === key, 'diagnostic-status__item--infected' : 4 === key}" *ngFor='let key of [1,2,3,4]'>{{ getNameStatus(key) }}</li>
+            <li (click)="setStatus(key)" class="diagnostic-status__item" [ngClass]="{'diagnostic-status__item--selected' : dataForm.status === key, 'diagnostic-status__item--initial' : 1 === key, 'diagnostic-status__item--ok' : 2 === key, 'diagnostic-status__item--quarentine' : 3 === key, 'diagnostic-status__item--infected' : 4 === key, 'diagnostic-status__item--immune' : 5 === key}" *ngFor='let key of [1,2,3,4,5]'>{{ getNameStatus(key) }}</li>
         </ul>
     </div>
 </ion-content>

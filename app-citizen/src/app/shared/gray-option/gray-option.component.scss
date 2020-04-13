@@ -1,22 +1,13 @@
 .gray-option {
-  font-size: 14px;
+  font-size: 16px;
   align-items: center;
-  margin-left: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
   color: black;
-  text-align: left !important;
-  vertical-align: middle;
-  word-break: keep-all;
-  white-space: normal;
-  height: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  background-color: #f3f3f3;
-  border-radius: 15px;
+  padding: 20px;
+  margin: 10px 0;
+  font-weight: 300;  
+  border: solid 2px #e6e6e6;
+  background-color: #f5f5f5;
+  border-radius: 16px;
 
   &__wrapper {
     display: flex;

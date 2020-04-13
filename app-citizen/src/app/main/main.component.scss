@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     margin: 0 16px;
-    padding: 16px 0;
+    padding: 24px 0 16px 0;
     
     &-circle {
       width: 48px;
@@ -33,21 +33,62 @@
     display: flex;
     align-items: center;
     padding-top: 16px;
+    font-size: 16px;
+    position: relative;
 
     img {
       margin-right: 16px;
+      @media (min-width: 320px) {
+        width: 30px;
+        height: auto;
+      }
+    }
+
+    &-badge{
+      font-size: 12px;
+      line-height: 14px;
+      width: 14px;
+      height: 14px;
+      background-color: #c80f2e;
+      color: #fff;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 16px;
+      left: 8px;
     }
 
     &--sm{
       font-size: 14px;
       line-height: 16px;
+      img {
+        @media (min-width: 320px) {
+          width: 25px;
+        }
+      }
 
+    }
+    &--sin{
+      padding-left: 40px;
     }
     &--xs{
       color: #9b9b9b;
       padding-left: 40px;
       text-decoration: underline;
-      font-size: 12px;
+      font-size: 14px;
+      img {
+        @media (min-width: 320px) {
+          width: 25px;
+        }
+      }
+    }
+    &--ble{
+      align-items: flex-start;
+      img {
+        @media (min-width: 320px) {
+          width: 12px;
+        }
+      }
     }
   }
 }

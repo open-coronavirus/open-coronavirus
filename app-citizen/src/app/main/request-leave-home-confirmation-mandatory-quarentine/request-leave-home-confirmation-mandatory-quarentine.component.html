@@ -6,24 +6,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 i18n="@@requestLeaveHomeTitle">¿Vas a salir de casa?</h1>
-    
-  <p>
-    Estás en cuarentena obligatoria y no deberías salir.
-  </p>
+  <h1 class="screen-title" i18n="@@requestLeaveHomeConnfirmationMandatoryTitle1">¿Vas a salir de casa?</h1>
+  <div class="recuadro-test recuadro-test--alert">   
 
-  <p>
-    La responsabilidad y colaboración ciudadana es fundamental para la lucha contra el virus
-  </p>
-
-  <p>
-    ¡Quédate en casa!
-  </p>
-
-</ion-content>
-<ion-footer class="ion-no-border">
-  <ion-toolbar class="footer-app" >
+    <p class="screen-text" i18n="@@requestLeaveHomeConnfirmationMandatoryTitle2">
+      <strong>Estás en cuarentena obligatoria y no deberías salir.</strong>
+    </p>
+    <p class="screen-text" i18n="@@requestLeaveHomeConnfirmationMandatoryText1">
+      La responsabilidad y colaboración ciudadana es fundamental para la lucha contra el virus
+    </p>
+    <p class="screen-text" i18n="@@requestLeaveHomeConnfirmationMandatoryText2">
+      ¡Quédate en casa!
+    </p>
+  </div>
+  <p class="resultado-text">
     <button class="btn" (click)="backToHome()" expand="block" i18n="@@OK">OK</button>
-    <button class="btn" (click)="goToRequestLeaveHome()" expand="block" i18n="@@noStillGoingToLeaveTheHouse">No, aún así voy a salir de casa</button>
-  </ion-toolbar>
-</ion-footer>
+    <button class="btn btn--secondary btn--min" (click)="goToRequestLeaveHome()" expand="block" i18n="@@noStillGoingToLeaveTheHouse">No, aún así voy a salir de casa</button>
+  </p>
+</ion-content>
