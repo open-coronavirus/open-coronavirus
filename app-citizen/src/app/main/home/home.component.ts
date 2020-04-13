@@ -74,7 +74,7 @@ export class HomeComponent implements OnDestroy {
                             .replace("\[appointmentDate\]", appointmentDate)
                             .replace("\[healthCenterName\]", healthCenterName)
                             .replace("\[healthCenterAddress\]", healthCenterAddress)
-                        let howToGetThereLink = $localize`:@@howToGetThereLink:Como llegar?`;
+                        let howToGetThereLink = $localize`:@@howToGetThereLink:¿Cómo llegar?`;
                         this.appointmentDescriptionLine2 = "<br><a class='appointment__link' href='" + googleMapsUrl + "' target='_syste,'>" + howToGetThereLink + "</a>";
                         break;
 
@@ -148,8 +148,8 @@ export class HomeComponent implements OnDestroy {
     public share() {
         this.shareService.share();
 
-        this.router.navigate(['/app/test-result/result/5']); // del 1 al 5
-        // this.router.navigate(['/app/following-up-result/result/2']);
+        // this.router.navigate(['/app/test-result/result/5']); // del 1 al 5
+        this.router.navigate(['/app/following-up-result/result/2']);
     }
 
 getTextStatus() {

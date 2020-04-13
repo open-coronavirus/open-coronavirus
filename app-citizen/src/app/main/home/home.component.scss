@@ -195,7 +195,7 @@
 }
 
 .appointment{
-  padding: 8px 16px;
+  padding: 12px 16px;
   border-radius: 8px;
   background-color: #f5f5f5;
   display: flex;
@@ -210,9 +210,6 @@
     line-height: 16px;   
     font-weight: 300;
     margin: 0; 
-  }
-  &__link, &__link:hover{
-    color: #000;
   }
 }
 

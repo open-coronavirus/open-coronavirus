@@ -1,26 +1,29 @@
-<ion-header translucent>
-    <ion-toolbar class="modal-header">
-      <ion-buttons slot="end">
-        <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+<ion-header>
+  <ion-toolbar class="header-app">
+      <ion-buttons slot="start">
+          <ion-icon size="large" (click)="backToHome()" class="menu-icon filter-white" name="chevron-back-outline"></ion-icon>
       </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="modal-text" fullscreen>
-    <h1 i18n="@@requestLeaveHomeTitle">Test solicitado</h1>
-    <h2 i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</h2>
-    <h5 i18n="@@testAppointmentResultSubtitle2">Estamos para ayudarte!</h5>
-    <p i18n="@@testAppointmentResultDescription">Tu cita es el próximo {{appointmentDate}}</p>
-    <div class="highlighted-area">
-        <div style="width: 100%;">
-            <ng-container i18n="@@appointmentLocation">Lugar de la cita</ng-container>
-            <p><strong>{{healthCenterName}}</strong><br />
-            {{healthCenterAddress}}</p>
-            <div class="map" #map id="map"></div>
-            <a (click)="showDirectionsToHealthCenter()" href="javascript:void(null);" i18n="@@howToGetThereLink">Cómo llegar?</a>
-        </div>
-    </div>
-    <p i18n="@@testAppointmentResultDescription2">Y en 24 horas tendrás los resultados del test que te lo enviaremos directamente a tu móvil mediante esta APP.</p>
+      <div class="header-app__title"i18n="@@autoTestMainTitle">Test COVID-19</div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen>
+  <h1 class="screen-title screen-title--mb0" i18n="@@testAppointmentResultSubtitle1">Gracias por la solicitud</h1>
+  <h2 class="screen-subtitle" i18n="@@testAppointmentResultSubtitle2">¡Estamos para ayudarte!</h2>
+  <p class="cita-title" i18n="@@testAppointmentResultDescription">Tu cita es el próximo <br><strong>{{appointmentDate}}</strong></p>
+  <div class="cita-lugar">
+    <p class="cita-lugar__title" i18n="@@appointmentLocation">Lugar de la cita</p>
+    <p class="cita-lugar__direccion">
+      <strong>{{healthCenterName}}</strong><br />
+      {{healthCenterAddress}}
+    </p>
+    <div class="map" #map id="map"></div>
+    <p class="cita-lugar__como">
+      <a (click)="showDirectionsToHealthCenter()" href="javascript:void(null);" i18n="@@howToGetThereLink">¿Cómo llegar?</a>
+    </p>
+  </div>
+  <p class="screen-text screen-text--mb-md" i18n="@@testAppointmentResultDescription2">Y <strong>en 24 horas tendrás los resultados del test</strong> que te lo enviaremos directamente a tu móvil mediante esta APP.</p>
+
+  <p class="screen-text">
+    <button class="btn" (click)="backToHome()" i18n="@@okButton">OK</button>
+  </p>
 </ion-content>
-<div class="footer-buttons-container">
-    <button class="btn" color="dark" (click)="backToHome()" expand="block" i18n="@@okButton">OK</button>
-</div>

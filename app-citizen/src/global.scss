@@ -156,6 +156,10 @@ ion-content, ion-toolbar{
   font-weight: 600;
   line-height: 1.17;
   margin: 0 0 16px 0;
+
+  &--mb0{
+    margin-bottom: 0;
+  }
 }
 .screen-subtitle{
   font-size: 16px;
@@ -169,6 +173,9 @@ ion-content, ion-toolbar{
   margin: 0 0 10px 0;
   &--mb-big{
     margin-bottom: 80px;
+  }
+  &--mb-md{
+    margin-bottom: 24px;
   }
 }
 .circle-icon{
@@ -361,5 +368,34 @@ ion-content, ion-toolbar{
     &:last-child{
       margin-bottom: 0;
     }
+  }
+}
+
+.cita-title{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 24px 0 16px 0;
+}
+.cita-lugar{  
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  padding: 12px;
+  margin: 0 0 24px 0;
+
+  &__title{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    margin: 0 0 4px 0;
+  }
+  &__direccion{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    margin: 0 0 12px 0;
+  }
+  &__como{
+    margin: 8px 0 0 0;
   }
 }
