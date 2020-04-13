@@ -76,6 +76,36 @@ Esta aplicación pretende ser de ayuda a los ciudadanos y poder hacer frente a l
 Sé responsable. Entre todos, ¡venceremos al virus!
 \#yomequedoencasa
 
+## ¿Cómo funciona el sistema de seguimiento de contagios basado en Bluetooth Low Energy?
+
+La APP utiliza la tecnología **Bluetooth Low Energy** mediante la cual se hace seguimiento de posibles contagios de COVID-19.
+Cada ciudadano tiene la aplicación instalada y con el bluetooth conectado.
+
+El funcionamiento del sistema **Bluetooth LE** es el siguiente:
+
+1. Cuando **dos ciudadanos estén cerca físicamente**, sus teléfonos intercambiarán unos **códigos identificadores anónimos** mediante Bluetooth LE.
+Cada móvil guarda en su memoria del teléfono estos cruces entre ciudadanos.
+
+    El nivel de cercanía se calcula a partir de la intensidad de la señal de bluetooth.
+También se almacena el tiempo en el que has estado cerca de ese dispositivo para conocer la exposición al COVID-19 en caso de que el ciudadano padeciera la enfermedad.
+
+    **El almacenamiento de esta información es por tiempo limitado** protegiendo aún más la privacidad del ciudadano.
+    Ese tiempo es configurable en la herramienta pero **se recomienda entre 14 y 37 días** ya que es el tiempo en el que un portador diagnosticado podría haber infectado a otro individuo de COVID-19.
+
+2. **En el caso de que un ciudadano dé positivo por COVID-19**, la aplicación actualizará su estado QR a rojo y analizará los posibles cruces de cercanía con otros ciudadanos.
+
+    El sistema **subirá al servidor estos cruces de ciudadanos en los cuales se haya podido producir un posible contagio** y a estos ciudadanos les notificará vía push para que sean conscientes del riesgo y/o vuelvan ha realizarse un test diagnóstico.
+
+> Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno este correctamente integrado con la aplicación.
+
+
+---
+
+El pasado **10 de Abril de 2020 Apple y Google** hicieron [oficial un acuerdo](https://www.apple.com/newsroom/2020/04/apple-and-google-partner-on-covid-19-contact-tracing-technology/) para implementar de forma nativa a nivel del sistema operativo una tecnología de traceo de contacto mediante Bluetooth Low Energy.
+
+Conceptualmente es similar a la estrategia utilizada en _Open Coronavirus_.
+
+> En cuanto la API SDK este funcionando trabajaremos para conectar nuestro sistema de bluetooth al nativo para tener un resultado incluso más óptimo
 
 ## Consideraciones legales
 
