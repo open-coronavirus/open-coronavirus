@@ -75,8 +75,8 @@
   -ms-user-select: none;
   user-select: none;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 22px;
   }    
 
   &__input {
@@ -191,7 +191,7 @@ label {
   color: #777;
   top: 2px;
   @media (min-width: 321px) {
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 16px;
+    line-height: 20px;
   }    
 }

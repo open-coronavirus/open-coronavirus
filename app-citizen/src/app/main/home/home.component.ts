@@ -134,9 +134,9 @@ export class HomeComponent implements OnDestroy {
     }
 
     public requestTest() {
-        this.router.navigate(['/app/test-appointment/appointment/confirm']);
+        // this.router.navigate(['/app/test-appointment/appointment/confirm']);
         // this.router.navigate(['/app/test-appointment/at-home/confirm']);
-        // this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+        this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
     public goToFollowingUp() {

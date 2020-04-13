@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 24px 0;
+  margin: 0 0 8px 0;
 
   &__col{
     &-qr{
@@ -11,7 +11,7 @@
 
     }
     &-texts{
-      width: calc(50% - 12px);
+      width: calc(50% - 4px);
     }
   }
   
@@ -28,8 +28,8 @@
     font-weight: 300;
     margin: 0;
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 22px;
     }
   }
   &__name{
@@ -45,8 +45,8 @@
     font-size: 14px;
     line-height: 16px; 
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 22px;
     }   
   }
 
@@ -162,44 +162,17 @@
         line-height: 16px;
         width: calc(76% - 8px);
         @media (min-width: 321px) {
-          font-size: 14px;
+          font-size: 16px;
         }
       }
     }
-    &-volver{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 4px;
-      &:nth-child(n+2){
-        margin-top: 12px;
-      }
-      .main-options__text{
-        width: 100%;
-        @media (max-width: 320px) {
-          font-size: 14px;
-        }
-      }
-    }
-    &-camino{
-      font-size: 10px;
+    &-salido{
+      margin: 0;
+      font-size: 12px;
       line-height: 14px;
-      text-align: left;
-      color: #666;
       @media (min-width: 321px) {
-        font-size: 12px;
+        font-size: 16px;
       }    
-      &-a{
-        display: block;
-      }
-      &-donde{
-        color: #000;  
-        display: block;      
-      }
-      &-tiempo{
-        display: block;        
-      }
     }
   }
   &__text{
@@ -239,8 +212,8 @@
     font-weight: 300;
     margin: 0; 
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 22px;
     }
   }
 }
@@ -252,8 +225,8 @@
   display: flex;
   align-items: center;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 22px;
   }
   img{
     display: block;
@@ -271,8 +244,8 @@
   text-decoration: none;  
   color: #000;  
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 22px;
   }
   img{
     display: block;
@@ -304,8 +277,8 @@
     margin: 0; 
     padding: 0 20px;
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 22px;
     }
   }
 
@@ -322,7 +295,7 @@
     top: 12px;
     left: 26px;
     @media (min-width: 321px) {
-      font-size: 14px;
+      font-size: 16px;
     }    
   }
 

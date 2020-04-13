@@ -1,5 +1,10 @@
+.ion-slides{
+  height: 100%;
+}
 .slide{
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   &__title{
     font-size: 24px;
     line-height: 28px;

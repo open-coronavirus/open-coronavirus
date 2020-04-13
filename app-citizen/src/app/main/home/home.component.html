@@ -37,15 +37,10 @@
         </div>
 
         <div class="main-options">
-            <div *ngIf="leaveStatus == 2" class="main-options__btn" (click)="setAtHome()">
-                <div class="main-options__btn-volver">
-                    <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
-                </div>
-                <p class="main-options__btn-camino">
-                    <span class="main-options__btn-camino-a" i18n="@@wayto">De camino a: </span>
-                    <span class="main-options__btn-camino-donde">{{ leaveReason }}</span>
-                    <span class="main-options__btn-camino-tiempo"><ng-container i18n="@@ago">hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</span>
-                </p>
+            <div *ngIf="leaveStatus == 2" class="main-options__btn main-options__btn--volver" (click)="setAtHome()">
+                <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
+                <p class="main-options__btn-salido"><ng-container i18n="@@outto">He salido hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</p>
             </div>
             <div class="main-options__btn main-options__btn--no-link" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">

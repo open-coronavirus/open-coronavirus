@@ -200,8 +200,8 @@ ion-content, ion-toolbar{
   line-height: 1.43;
   margin: 0 0 10px 0;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 20px;
   }
   &--mb-big{
     margin-bottom: 80px;
@@ -227,7 +227,79 @@ ion-content, ion-toolbar{
     width: auto;
   }
 }
+.modal-text{
+  h1{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.17;
+    margin: 32px 0 16px 0;
+  
+    @media (min-width: 321px) {
+      font-size: 28px;
+    }   
+  
+    &:first-child{
+      margin-top: 0;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    } 
+  }
+  h2{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 32px 0 8px 0;
+  
+    @media (min-width: 321px) {
+      font-size: 18px;
+      line-height: 22px;
+    }    
+  
+    &:first-child{
+      margin-top: 0;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  h3{
+    font-weight: 600;
+    font-size: 14px;  
+    line-height: 1.43;
+    margin: 20px 0 8px 0;
+  
+    @media (min-width: 321px) {
+      font-size: 18px;
+      line-height: 20px;
+    }    
+  
+    &:first-child{
+      margin-top: 0;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  p, li{
+    font-size: 14px;  
+    line-height: 1.43;
+    margin: 8px 0 16px 0;
 
+    @media (min-width: 321px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  
+    &:first-child{
+      margin-top: 0;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+}
 .recuadro-info{  
   border-radius: 12px;
   background-color: #f5f5f5;
@@ -239,8 +311,8 @@ ion-content, ion-toolbar{
     line-height: 1.17;
     margin: 0;
     @media (min-width: 321px) {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 20px;
     }    
   }
   &__text{  
@@ -249,8 +321,8 @@ ion-content, ion-toolbar{
     line-height: 1;   
     margin: 0 0 16px 0; 
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 20px;
     }
 
     &:last-child{
@@ -263,8 +335,8 @@ ion-content, ion-toolbar{
     line-height: 1;
     margin: 0 0 16px 0; 
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 20px;
     }
 
     &:last-child{
@@ -312,8 +384,8 @@ ion-content, ion-toolbar{
   line-height: 1.29;
   margin: 0 0 8px 0;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 20px;
   }
 
   &--error{    
@@ -407,8 +479,8 @@ ion-content, ion-toolbar{
   line-height: 1.29;
   margin: 0 0 8px 0;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 20px;
   }
 
   &:last-child{
@@ -424,8 +496,8 @@ ion-content, ion-toolbar{
   line-height: 1.29;
   margin: 0 0 16px 0;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 20px;
   }
 
   &:last-child{
@@ -443,8 +515,8 @@ ion-content, ion-toolbar{
   margin: 0 0 16px 0;
   padding-left: 18px;
   @media (min-width: 321px) {
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 20px;
   }
   
   &:last-child{
@@ -465,6 +537,11 @@ ion-content, ion-toolbar{
   font-weight: 400;
   line-height: 1.25;
   margin: 24px 0 16px 0;
+
+  @media (min-width: 321px) {
+    font-size: 18px;
+    line-height: 22px;
+  }    
 }
 .cita-casa-title{
   font-size: 16px;
@@ -500,8 +577,8 @@ ion-content, ion-toolbar{
     line-height: 16px;
     margin: 0 0 4px 0;
     @media (min-width: 321px) {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 20px;
     }    
   }
   &__direccion{

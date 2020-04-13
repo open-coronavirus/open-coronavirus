@@ -8,7 +8,7 @@
     <ion-content>
         <div>
             <ng-container *ngIf="patientService.patient.status !== 5">
-                <div *ngIf="false" class="menu__item" (click)="uploadContactsAndShowThanksModal()">
+                <div *ngIf="true" class="menu__item menu__item--ble  menu__separator" (click)="uploadContactsAndShowThanksModal()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-bluetooth.svg">
                     <span class="menu__item-badge">1</span>
                     <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</ng-container>

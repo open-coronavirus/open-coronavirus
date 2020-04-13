@@ -31,8 +31,8 @@
     font-weight: 300;
     margin: 0;
     @media (min-width: 321px) {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 20px;
     }    
   }
   &__name{
@@ -41,8 +41,8 @@
     line-height: 20px;
     margin: 0 0 12px 0 ;
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 22px;
     }    
   }
   &__text{
@@ -55,8 +55,8 @@
       text-decoration: underline;
     }
     @media (min-width: 321px) {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 20px;
     }    
   }
   &__status{  
@@ -68,8 +68,8 @@
     text-transform: uppercase;
     text-align: center;
     @media (min-width: 321px) {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 20px;
     }    
   }
 
@@ -79,8 +79,8 @@
         color: #ffca08;
         font-size: 12px;
         @media (min-width: 321px) {
-          font-size: 14px;
-          line-height: 16px;
+          font-size: 16px;
+          line-height: 20px;
         }    
       }
     }
@@ -123,8 +123,8 @@
     font-size: 12px;
     color: #3d3d3d;
     @media (min-width: 321px) {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 20px;
     }    
 
     &-item{
@@ -155,8 +155,8 @@
     background: url(/assets/icons/svg/icon-ubicacion.svg) no-repeat 15px center;
     background-size: 13px 17px;
     @media (min-width: 321px) {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 18px;
+      line-height: 22px;
     }    
   }
 
@@ -170,8 +170,8 @@
       font-weight: 300;
       line-height: 1.33;
       @media (min-width: 321px) {
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 16px;
+        line-height: 20px;
       }    
 
 
