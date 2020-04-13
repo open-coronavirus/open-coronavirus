@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { LoginFormComponent } from '../shared/login-form/login-form.component';
 import { UserService } from '../shared/services/user.service';
-import { PoliceOfficerLogin } from '../shared/sdk/model/policeOfficerLogin';
 
 @Component({
     selector: 'login',
@@ -15,7 +14,6 @@ export class LoginComponent {
 
     @ViewChild('loginFormComponent', { static: true }) protected loginFormComponent: LoginFormComponent;
 
-    protected userCredentials: PoliceOfficerLogin;
     public loginForm: FormGroup;
 
     public error: string;

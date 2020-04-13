@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { PoliceOfficerWithRelations } from '../sdk/model/policeOfficerWithRelations';
 import { UserService } from '../services/user.service';
 
 
@@ -11,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class CoronaHeaderComponent implements OnInit {
 
-    private user: PoliceOfficerWithRelations;
+    private user: any;
     private userName: string;
 
     constructor(
