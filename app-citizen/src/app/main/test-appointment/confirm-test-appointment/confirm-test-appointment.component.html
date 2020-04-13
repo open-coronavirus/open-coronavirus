@@ -1,7 +1,7 @@
 <ion-header translucent>
   <ion-toolbar class="modal-header">
     <ion-buttons slot="end">
-      <ion-icon size="large" (click)="backToHome()" name="close"></ion-icon>
+      <ion-icon size="large" (click)="back()" name="close"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -9,5 +9,5 @@
     <h1 i18n="@@requestTestConfirmationTitle">¿Estás seguro de pedir el test del coronavirus?</h1>
     <p class="modal-text__mb-big" i18n="@@requestTestConfirmationDescription">Te daremos cita para que vayas a realizar el test.</p>
     <button class="btn btn--min" (click)="requestTest()" i18n="@@requestTestButton">Sí, solicitar test</button>
-    <button class="btn btn--secondary btn--min" (click)="backToHome()" i18n="@@backButton">Volver</button>         
+    <button class="btn btn--secondary btn--min" (click)="back()" i18n="@@backButton">Volver</button>
 </ion-content>

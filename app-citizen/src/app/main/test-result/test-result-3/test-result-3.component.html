@@ -7,22 +7,22 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <h1 class="screen-title" i18n="@@requestLeaveHomeTitle">Resultado de la autoevaluación de COVID-19</h1>
+  <h1 class="screen-title" i18n="@@requestLeaveHomeTitle" i18n="@@testResult3Title">Resultado de la autoevaluación de COVID-19</h1>
   <div class="recuadro-test recuadro-test--alert">
-    <p><strong>No tiene clínica sospechosa de infección</strong>, pero tiene mayor riesgo que el resto de la población de padecer la enfermedad Covid con neumonía en caso de infectarse.</p>
-    <p>Debe realizar distanciamiento físico para protegerse y, opcionalmente puede solicitar una prueba de diagnóstico drive-through</p>
-  </div>    
+    <p i18n="@@testResult3Text1"><strong>No tiene clínica sospechosa de infección</strong>, pero tiene mayor riesgo que el resto de la población de padecer la enfermedad Covid con neumonía en caso de infectarse.</p>
+    <p i18n="@@testResult3Text2">Debe realizar distanciamiento físico para protegerse y, opcionalmente puede solicitar una prueba de diagnóstico drive-through</p>
+  </div>
   <p class="resultado-text resultado-text--separa">
-    <button class="btn">
+    <button class="btn" (click)="requestTest()" i18n="@@testResult3RequestTest">
       <img class="button-icon filter-white" src="/assets/icons/svg/icon-test-black.svg">
       Solicitar test covid-19
     </button>
   </p>
-  <h2 class="resultado-title">Esto significa:</h2>
+  <h2 class="resultado-title" i18n="@@testResult3Text3">Esto significa:</h2>
   <ul class="resultado-list">
-    <li>Quédese en casa lo más posible,</li>
-    <li>Salga a comprar comestibles y otros recados esenciales una vez a la semana,</li>
-    <li>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</li>
+    <li i18n="@@testResult3List1_1">Quédese en casa lo más posible,</li>
+    <li i18n="@@testResult3List1_2">Salga a comprar comestibles y otros recados esenciales una vez a la semana,</li>
+    <li i18n="@@testResult3List1_3">Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</li>
   </ul>
-  <p class="resultado-text">Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</p>
+  <p class="resultado-text" i18n="@@testResult3Text4">Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</p>
 </ion-content>
