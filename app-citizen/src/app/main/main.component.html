@@ -8,10 +8,10 @@
     <ion-content>
         <div>
             <ng-container *ngIf="patientService.patient.status !== 5">
-                <div *ngIf="true" class="menu__item" (click)="uploadContactsAndShowThanksModal()">
+                <div *ngIf="false" class="menu__item" (click)="uploadContactsAndShowThanksModal()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-bluetooth.svg">
-                <span class="menu__item-badge">1</span>
-                <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</ng-container>
+                    <span class="menu__item-badge">1</span>
+                    <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</ng-container>
                 </div>
                 <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu__item menu__separator" (click)="goToConfirmationRequestLeaveHome()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
