@@ -95,6 +95,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
     }
 
     public answer(ev, answer: any) {
+        let urlNext: string;
         if (!ev) {
             return;
         }
@@ -122,27 +123,29 @@ export class AutotestComponent implements OnInit, OnDestroy {
                     switch (this.questionnaireId) {
                         case TestType.AUTOTEST:
                             if (score === 100) {
-                                this.router.navigate(['/app/test-result/result/1']);
+                                urlNext = '/app/test-result/result/1';
                             } else if (score === 0) {
-                                this.router.navigate(['/app/test-result/result/2']);
+                                urlNext = '/app/test-result/result/2';
                             } else if (score === 50) {
-                                this.router.navigate(['/app/test-result/result/3']);
+                                urlNext = '/app/test-result/result/3';
                             } else if (score >= 60) {
-                                this.router.navigate(['/app/test-result/result/4']);
+                                urlNext = '/app/test-result/result/4';
                             } else if (score === 10) {
-                                this.router.navigate(['/app/test-result/result/5']);
+                                urlNext = '/app/test-result/result/5';
                             } else {
-                                this.router.navigate(['/app/test-result/result/5']);
+                                urlNext = '/app/test-result/result/5';
                             }
                             break;
                         case TestType.FOLLING_UP:
                             if (score === 100) {
-                                this.router.navigate(['/app/following-up-result/result/1']);
+                                urlNext = '/app/following-up-result/result/1';
                             } else if (score === 0) {
-                                this.router.navigate(['/app/following-up-result/result/2']);
+                                urlNext = '/app/following-up-result/result/2';
                             }
                             break;
                     }
+
+                    setTimeout(() => { this.router.navigate([urlNext]); }, 200);
 
                     // even if we have send the test, wait until the result is loaded again (to ensure that
                     // we are working with the server version of the object
@@ -176,7 +179,9 @@ export class AutotestComponent implements OnInit, OnDestroy {
                 window.open(target, "_system");
             } else {
                 const nextLevel = +this.level + 1;
-                this.router.navigate(['/app/autotest/' + this.questionnaireId + '/' + nextLevel + '/' + target]);
+                setTimeout(() => {
+                    this.router.navigate(['/app/autotest/' + this.questionnaireId + '/' + nextLevel + '/' + target]);
+                }, 200);
             }
         }
     }
