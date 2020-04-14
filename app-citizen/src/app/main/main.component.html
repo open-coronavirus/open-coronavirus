@@ -1,13 +1,13 @@
 <ion-menu class="menu" side="start" menuId="menu" contentId="main">
     <ion-header>
-        <div class="menu__header menu__separator" [ngClass]="{'menu__header--immune': patientService.patient.status === 5}" (click)="goToHome()">
+        <div class="menu__header menu__separator" [ngClass]="{'menu__header--immune': patientService.patient.status === immuneStatus}" (click)="goToHome()">
             <div class="menu__header-circle">{{patientInitials}}</div>
             <div class="menu__header-name">{{patientName}}</div>
         </div>
     </ion-header>
     <ion-content>
         <div>
-            <ng-container *ngIf="patientService.patient.status !== 5">
+            <ng-container *ngIf="patientService.patient.status !== immuneStatus">
                 <div *ngIf="false" class="menu__item menu__item--ble  menu__separator" (click)="uploadContactsAndShowThanksModal()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-bluetooth.svg">
                     <span class="menu__item-badge">1</span>

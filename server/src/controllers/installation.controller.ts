@@ -165,7 +165,7 @@ export class InstallationController {
         await this.installationRepository.updateById(id, installation);
     }
 
-    @patch('/installations/push-registration-id/{deviceId}', {
+    @patch('/installations/push-registration-id/{deviceId}/{pushRegistrationId}', {
         responses: {
             '204': {
                 description: 'Installation PATCH success'
@@ -174,14 +174,14 @@ export class InstallationController {
     })
     async updatePushRegistrationIdByDeviceId(
         @param.path.string('deviceId') deviceId: string,
-        @requestBody() pushRegistrationId: string
+        @param.path.string('pushRegistrationId') pushRegistrationId: string,
     ): Promise<void> {
 
         let returnValue: Promise<void> = new Promise(resolve => {
             this.installationRepository.findOne({where: {deviceId: deviceId}}).then(result => {
                 if (result != null) {
                     result.pushRegistrationId = pushRegistrationId;
-                    this.installationRepository.updateById(result.id, result).then(result => {
+                    this.installationRepository.updateById(result.id, result).then(resultSaved => {
                         resolve();
                     });
                 }

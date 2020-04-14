@@ -12,6 +12,7 @@ import { BluetoothTrackingService } from "../shared/services/tracking/bluetooth-
 import { PermissionsService } from "../shared/services/permissionsService.service";
 import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
 import { PushNotificationService } from "../shared/services/push-notification.service";
+import {PatientStatus} from "../../../../server/src/common/utils/enums";
 
 @Component({
     selector: 'app-container',
@@ -27,6 +28,8 @@ export class MainComponent implements OnDestroy {
     public patientName;
     public patientInitials;
     protected subscriptions: Array<Subscription> = new Array();
+
+    public immuneStatus = PatientStatus.IMMUNE;
 
     constructor(
         protected menu: MenuController,
@@ -101,14 +104,14 @@ export class MainComponent implements OnDestroy {
     public goToConfirmationRequestLeaveHome() {
         this.closeMenu();
 
-        switch (this.patientService.patient?.status) {
-            case 1:
+        switch (this.patientService.patient.status) {
+            case PatientStatus.UNINFECTED:
                 this.router.navigate(['/app/request-leave-home-confirmation-no-test']);
                 break;
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 this.router.navigate(['/app/request-leave-home-confirmation-mandatory-quarentine']);
                 break;
-            case 4:
+            case PatientStatus.INFECTED:
                 this.router.navigate(['/app/request-leave-home-confirmation-infected']);
                 break;
         }

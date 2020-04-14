@@ -1,12 +1,14 @@
 import PushNotifications from 'node-pushnotifications';
 import {join} from "path";
 import * as fs from "fs";
+import {repository} from "@loopback/repository";
+import {InstallationRepository} from "../repositories";
 
 export class PushNotificationService {
 
     protected push: PushNotifications;
 
-    constructor() {
+    constructor(@repository(InstallationRepository) public installationRepository : InstallationRepository) {
 
         let settings: PushNotifications.Settings = {
             gcm: {
@@ -44,10 +46,36 @@ export class PushNotificationService {
 
     }
 
+    public sendNotificationToPatient(patientId: string, title: string, body: string) {
+
+        let filter = {
+            "where": {
+                "patientId": patientId
+            }
+        };
+
+        this.installationRepository.findOne(filter, {strictObjectIDCoercion: true}).then(installation => {
+
+            if(installation != null) {
+                if(!!installation.pushRegistrationId) {
+                    this.sendNotification([installation.pushRegistrationId], title, body);
+                }
+                else {
+                    console.error("No push registration info found for patient " + patientId + ", installation: " + installation.id);
+                }
+            }
+            else {
+                console.error("No installation info found for patient " + patientId);
+            }
+
+        });
+    }
+
+
     public sendNotification(deviceIds: any[], title: string, body: string, badge = 0) {
         const data = {
             title: title, // REQUIRED for Android
-            topic: '', // REQUIRED for iOS (apn and gcm)
+            topic: 'com.opencoronavirus', // REQUIRED for iOS (apn and gcm)
             /* The topic of the notification. When using token-based authentication, specify the bundle ID of the app.
              * When using certificate-based authentication, the topic is usually your app's bundle ID.
              * More details can be found under https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns
@@ -70,14 +98,14 @@ export class PushNotificationService {
             color: '', // gcm for android
             clickAction: '', // gcm for android. In ios, category will be used if not supplied
             locKey: '', // gcm, apn
-            locArgs: '', // gcm, apn
+            locArgs: '[]', // gcm, apn
             titleLocKey: '', // gcm, apn
-            titleLocArgs: '', // gcm, apn
+            titleLocArgs: '[]', // gcm, apn
             retries: 1, // gcm, apn
             encoding: '', // apn
             badge: badge, // gcm for ios, apn
             sound: 'ping.aiff', // gcm, apn
-            android_channel_id: '', // gcm - Android Channel ID
+            android_channel_id: 'opencoronavirus', // gcm - Android Channel ID
             notificationCount: badge, // fcm for android. badge can be used for both fcm and apn
             alert: { // apn, will take precedence over title and body
                 title: title,
@@ -100,7 +128,7 @@ export class PushNotificationService {
             truncateAtWordEnd: true, // apn and gcm for ios
             mutableContent: 0, // apn
             threadId: '', // apn
-            pushType: undefined, // apn. valid values are 'alert' and 'background' (https://github.com/parse-community/node-apn/blob/master/doc/notification.markdown#notificationpushtype)
+            pushType: 'alert', // apn. valid values are 'alert' and 'background' (https://github.com/parse-community/node-apn/blob/master/doc/notification.markdown#notificationpushtype)
             expiry: Math.floor(Date.now() / 1000) + 28 * 86400, // unit is seconds. if both expiry and timeToLive are given, expiry will take precedence
             timeToLive: 28 * 86400,
             headers: [], // wns

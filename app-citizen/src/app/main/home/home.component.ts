@@ -1,18 +1,15 @@
-import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { ShareService } from '../../shared/services/share.service';
-import { PatientService } from '../../shared/services/patient.service';
-import { MenuController } from '@ionic/angular';
-import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { TestAppointmentService } from "../../shared/services/test-appointment.service";
-import { Subscription } from "rxjs";
-import { AppointmentType } from "../../../../../server/src/common/utils/enums";
-import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
-import { LeaveRequest } from 'src/app/shared/sdk';
-import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
-import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
-import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
+import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
+import {ShareService} from '../../shared/services/share.service';
+import {PatientService} from '../../shared/services/patient.service';
+import {MenuController} from '@ionic/angular';
+import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {TestAppointmentService} from "../../shared/services/test-appointment.service";
+import {Subscription} from "rxjs";
+import {AppointmentType, PatientStatus} from "../../../../../server/src/common/utils/enums";
+import {LeaveRequest} from 'src/app/shared/sdk';
+import {ContactTrackerService} from 'src/app/shared/services/contacts/contact-tracker.service';
 
 @Component({
     selector: 'home',
@@ -108,14 +105,14 @@ export class HomeComponent implements OnDestroy {
     }
 
     public goToConfirmationRequestLeaveHome() {
-        switch (this.patientService.patient?.status) {
-            case 1:
+        switch (this.patientService.patient.status) {
+            case PatientStatus.UNINFECTED:
                 this.router.navigate(['/app/request-leave-home-confirmation-no-test']);
                 break;
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 this.router.navigate(['/app/request-leave-home-confirmation-mandatory-quarentine']);
                 break;
-            case 4:
+            case PatientStatus.INFECTED:
                 this.router.navigate(['/app/request-leave-home-confirmation-infected']);
                 break;
         }
@@ -154,20 +151,20 @@ export class HomeComponent implements OnDestroy {
         // this.router.navigate(['/app/following-up-result/result/2']);
     }
 
-getTextStatus() {
+    public getTextStatus() {
         if (!this.patientService.patient) {
             return;
         }
         switch (this.patientService.patient.status) {
-            case 5:
+            case PatientStatus.IMMUNE:
                 return $localize`:@@statusImune:Inmune`;
-            case 4:
+            case PatientStatus.INFECTED:
                 return $localize`:@@statusInfected:Positivo`;
 
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 return $localize`:@@statusQuarantine:Cuarentena obligatoria`;
 
-            case 2:
+            case PatientStatus.UNINFECTED:
                 return $localize`:@@statusNoInfected:Negativo`;
 
             default:
@@ -175,34 +172,34 @@ getTextStatus() {
         }
     }
 
-getClassStatus() {
+    public getClassStatus() {
         if (!this.patientService.patient) {
             return;
         }
         switch (this.patientService.patient.status) {
-            case 5:
+            case PatientStatus.IMMUNE:
                 return 'result--immune';
-            case 4:
+            case PatientStatus.INFECTED:
                 return 'result--infected';
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 return 'result--quarentine';
-            case 2:
+            case PatientStatus.UNINFECTED:
                 return 'result--ok';
         }
     }
 
-getColorStatus() {
+    public getColorStatus() {
         if (!this.patientService.patient) {
             return;
         }
         switch (this.patientService.patient.status) {
-            case 5:
+            case PatientStatus.IMMUNE:
                 return '#4CC380ff';
-            case 4:
+            case PatientStatus.INFECTED:
                 return '#c80f2eff';
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 return '#ffca08ff';
-            case 2:
+            case PatientStatus.UNINFECTED:
                 return '#61bc7cff';
         }
     }

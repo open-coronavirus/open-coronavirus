@@ -45,3 +45,14 @@ config.xml
 /app-police/www
 /app-police/resources
 /app-police/android
+server/credentials/dev/apns_cert.pem
+server/credentials/dev/apns_key.pem
+server/credentials/dev/aps_development.cer
+server/credentials/dev/Certificates.p12
+server/credentials/dev/backup/apns.pem
+server/credentials/dev/backup/apns_dev.p12
+server/credentials/dev/backup/apns_key.pem
+server/credentials/dev/backup/key.p8
+server/credentials/production/apns.p12
+server/credentials/production/apns_cert.pem
+server/credentials/production/apns_key.pem

@@ -33,11 +33,10 @@ import {BluetoothLE} from '@ionic-native/bluetooth-le/ngx';
 import {BLE} from "@ionic-native/ble/ngx";
 import {SQLite} from "@ionic-native/sqlite/ngx";
 import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.service";
-import {UniqueDeviceID} from "@ionic-native/unique-device-id/ngx";
 import {InstallationService} from "./shared/services/installation.service";
 import {PushNotificationService} from "./shared/services/push-notification.service";
 import {Push} from "@ionic-native/push/ngx";
-
+import { Device } from '@ionic-native/device/ngx';
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -63,8 +62,8 @@ import {Push} from "@ionic-native/push/ngx";
         Push,
         SQLite,
         ShareService,
+        Device,
         ContactTrackerService,
-        UniqueDeviceID,
         BluetoothTrackingService,
         InstallationService,
         BLE,

@@ -6,7 +6,7 @@ export const settings = {
         text: 'Compartir App para luchar juntos'
     },
     enabled: {
-        push: false,
+        push: true,
         gps: false,
         bluetooth: true
     },

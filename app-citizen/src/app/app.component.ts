@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { PatientService } from './shared/services/patient.service';
 import { StorageService } from './shared/services/storage.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -18,13 +19,23 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     protected nativeStorage: NativeStorage,
+    protected router: Router,
     private patientService: PatientService,
     private storageService: StorageService,
     private navCtrl: NavController
   ) {
+
     this.initializeApp();
 
-    this.subscribeLoadPatient();
+    this.patientService.loadLocalPatient().subscribe(loaded => {
+      if(loaded) {
+        this.navCtrl.navigateRoot(['app/home']);
+      }
+      else {
+        this.router.navigate(['register']); //move to registration page if user is not loaded
+      }
+    });
+
   }
 
   initializeApp() {
@@ -37,14 +48,6 @@ export class AppComponent {
     });
   }
 
-  subscribeLoadPatient() {
-    this.patientService.patientLoaded$.subscribe(loaded => {
-      if (loaded) {
-        this.navCtrl.navigateRoot(['app/home']);
-      }
-    });
-  }
-
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
       if (welcomeVisit) {
@@ -54,11 +57,5 @@ export class AppComponent {
       }
     });
   }
-
-  // Metodo para llamar cuand se reciba push informando cambio de status
-  onPushReceived() {
-    this.patientService.loadLocalPatient();
-  }
-
 
 }

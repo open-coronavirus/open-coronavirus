@@ -1,13 +1,17 @@
-import {Injectable, NgZone} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Push} from "@ionic-native/push/ngx";
-import {PushObject, PushOptions} from "@ionic-native/push";
 import {InstallationControllerService} from "../sdk";
 import {InstallationService} from "./installation.service";
+import {PatientService} from "./patient.service";
+import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
+
+const { PushNotifications } = Plugins;
 
 @Injectable()
 export class PushNotificationService {
 
     constructor(protected push: Push,
+                protected patientService: PatientService,
                 protected installationService: InstallationService,
                 protected installationControllerService: InstallationControllerService) { }
 
@@ -28,46 +32,47 @@ export class PushNotificationService {
             })
             .catch(error => {
                 console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
-            })
-
-        const options: PushOptions = {
-            android: {},
-            ios: {
-                fcmSandbox: true,
-                alert: true,
-                badge: true,
-                sound: true,
-            }
-        }
-
-        const pushObject = this.push.init(options);
-
-        console.log('[PushService] push object: ' + JSON.stringify(pushObject));
-
-        pushObject.on('registration').subscribe(function(registration) {
-
-            console.log("[PushService] Registration done: " + JSON.stringify(registration));
-
-            let registrationId = registration.registrationId;
-
-            this.installationService.loadedDeviceId$.subscribe(loaded => {
-                if (loaded) {
-                    this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, registrationId);
-                    console.log("[PushService] Registration data: " + JSON.stringify(registration));
-                }
             });
 
-        });
+            //set the init options at this point:
+            this.push.init({
+               android: {
+                   forceShow: true,
+               },
+               ios: {
+                   fcmSandbox: true,
+                   alert: true,
+                   badge: true,
+                   sound: true,
+               }
+            });
 
-        console.log(pushObject);
+            PushNotifications.register().then(result => {
+                console.log('[PushService] regitration result: ' + JSON.stringify(result) );
+            });
 
-        pushObject.on('error').subscribe(e => {
-            console.error("[PushService] Push error: " + JSON.stringify(e));
-        });
+            PushNotifications.addListener('registration', (token: PushNotificationToken) => {
+                console.log('[PushService] token: ' + token.value);
+                this.installationService.loadedDeviceId$.subscribe(loaded => {
+                    if(loaded) {
+                        this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, token.value).subscribe(installation => {
+                            console.log("[PushService] Registered on the installation");
+                        });
+                    }
+                });
+            });
 
-        pushObject.on('notification').subscribe(data => {
-            console.log('[PushService] Notification received: ' + JSON.stringify(data));
-        });
+            PushNotifications.addListener('registrationError', (error: any) => {
+                console.log('[PushService] error on register ' + JSON.stringify(error));
+            });
+            PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
+                console.log('[PushService] notification ' + JSON.stringify(notification));
+                this.patientService.loadLocalPatient(); //refresh patient data
+            });
+
+            PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
+                console.log('[PushService] notification ' + JSON.stringify(notification));
+            });
 
     }
 

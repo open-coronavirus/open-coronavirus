@@ -24,35 +24,46 @@ export class PatientService {
 
     public patientLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
-    public static PATIENT_TOKEN_KEY = 'patientTokenV2';
+    public static PATIENT_TOKEN_KEY = 'patientTokenV3';
 
     constructor(protected patientController: PatientControllerService,
                 @Inject('environment') protected environment,
                 @Inject('settings') protected settings,
                 protected installationService: InstallationService,
-                protected router: Router,
                 public platform: Platform,
                 protected storageService: StorageService) {
 
-        this.loadLocalPatient();
     }
 
     public loadLocalPatient() {
+
+        let returnValue = new Subject<boolean>();
+
         this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(data => {
             if(data != null) {
-                this.loadPatient(data);
+                this.loadPatient(data).subscribe(loaded => {
+                    returnValue.next(loaded);
+                })
             }
         });
+
+        return returnValue;
     }
 
     protected loadPatient(patientToken) {
+
+        let returnValue = new Subject<boolean>();
+
         this.setPatientToken(patientToken).subscribe(success => {
             if (success) {
                 this.patientLoaded$.next(true);
+                returnValue.next(true);
             } else {
-                this.router.navigate(['register']);
+                returnValue.next(false);
             }
         });
+
+        return returnValue;
     }
 
     public setPatientToken(patientToken: string) {

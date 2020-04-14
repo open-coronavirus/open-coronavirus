@@ -3,7 +3,6 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
-import { AuthControllerService } from './api/authController.service';
 import { ContactControllerService } from './api/contactController.service';
 import { GeolocationControllerService } from './api/geolocationController.service';
 import { HealthCenterControllerService } from './api/healthCenterController.service';
@@ -12,8 +11,6 @@ import { LeaveRequestControllerService } from './api/leaveRequestController.serv
 import { MeControllerService } from './api/meController.service';
 import { PatientControllerService } from './api/patientController.service';
 import { PingControllerService } from './api/pingController.service';
-import { PoliceOfficerControllerService } from './api/policeOfficerController.service';
-import { SanitarianControllerService } from './api/sanitarianController.service';
 import { TestAppointmentControllerService } from './api/testAppointmentController.service';
 import { TestQuestionControllerService } from './api/testQuestionController.service';
 import { TestResultControllerService } from './api/testResultController.service';

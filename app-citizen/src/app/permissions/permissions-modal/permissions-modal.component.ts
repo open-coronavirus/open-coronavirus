@@ -3,6 +3,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { PatientService } from '../../shared/services/patient.service';
 import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
+import {PushNotificationService} from "../../shared/services/push-notification.service";
 @Component({
   selector: 'app-permissions-modal',
   templateUrl: './permissions-modal.component.html',
@@ -15,6 +16,7 @@ export class PermissionsModalComponent implements OnInit {
     public modalCtrl: ModalController,
     public navParams: NavParams,
     protected geolocationtrackingService: GeolocationTrackingService,
+    protected pushNotificationService: PushNotificationService,
     protected bluetoothTrackingService: BluetoothTrackingService,
     public patientService: PatientService
   ) { }
@@ -30,6 +32,7 @@ export class PermissionsModalComponent implements OnInit {
   activatePermission() {
     switch (this.type) {
       case 'push':
+        this.pushNotificationService.startPushNotifications();
         break;
       case 'gps':
         console.debug('Activating geolocation ...');
