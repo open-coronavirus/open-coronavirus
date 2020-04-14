@@ -39,7 +39,7 @@ export class AppComponent {
 
   subscribeLoadPatient() {
     this.patientService.patientLoaded$.subscribe(loaded => {
-      if (loaded) {
+      if (loaded && (!loaded.hasOwnProperty('redirect') || loaded.redirect)) {
         this.navCtrl.navigateRoot(['app/home']);
       }
     });

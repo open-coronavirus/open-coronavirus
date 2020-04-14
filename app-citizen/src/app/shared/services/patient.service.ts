@@ -45,10 +45,10 @@ export class PatientService {
         });
     }
 
-    protected loadPatient(patientToken) {
+    protected loadPatient(patientToken, redirect: boolean = true) {
         this.setPatientToken(patientToken).subscribe(success => {
             if (success) {
-                this.patientLoaded$.next(true);
+                this.patientLoaded$.next({redirect});
             } else {
                 this.router.navigate(['register']);
             }
@@ -86,7 +86,7 @@ export class PatientService {
 
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
             this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
-                this.loadPatient(newPatient.id);
+                this.loadPatient(newPatient.id, false);
                 this.patientLoaded$.subscribe(loaded => {
                     if (loaded) {
                         this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
