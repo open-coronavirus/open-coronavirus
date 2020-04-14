@@ -10,8 +10,8 @@ import { Subscription } from "rxjs";
 import { AppointmentType } from "../../../../../server/src/common/utils/enums";
 import { LeaveRequestWithRelations } from '../../../../../app-health/src/app/shared/sdk/model/leaveRequestWithRelations';
 import { LeaveRequest } from 'src/app/shared/sdk';
-import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
-import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
+import { GeolocationTrackingService } from "../../shared/services/tracking/geolocation-tracking.service";
+import { BluetoothTrackingService } from "../../shared/services/tracking/bluetooth-tracking.service";
 import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
 
 @Component({
@@ -49,7 +49,7 @@ export class HomeComponent implements OnDestroy {
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
         protected menu: MenuController,
-        @Inject('settings') protected settings,
+        @Inject('settings') public settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService,
         protected contactTrackerService: ContactTrackerService
@@ -129,18 +129,26 @@ export class HomeComponent implements OnDestroy {
         this.leaveRequestService.setAtHome();
     }
 
-    public goToAutotest() {
-        this.router.navigate(['/app/autotest/autotest']);
-    }
-
     public requestTest() {
         // this.router.navigate(['/app/test-appointment/appointment/confirm']);
         // this.router.navigate(['/app/test-appointment/at-home/confirm']);
         this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
+    public goToAutotest() {
+        if (this.settings.autoTestUrl) {
+            window.open(this.settings.autoTestUrl, '_system');
+        } else {
+            this.router.navigate(['/app/autotest/autotest']);
+        }
+    }
+
     public goToFollowingUp() {
-        this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+        if (this.settings.followingUpUrl) {
+            window.open(this.settings.followingUpUrl, '_system');
+        } else {
+            this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+        }
     }
 
     public goToCoronavirusInfo() {
@@ -154,7 +162,7 @@ export class HomeComponent implements OnDestroy {
         // this.router.navigate(['/app/following-up-result/result/2']);
     }
 
-getTextStatus() {
+    getTextStatus() {
         if (!this.patientService.patient) {
             return;
         }
@@ -175,7 +183,7 @@ getTextStatus() {
         }
     }
 
-getClassStatus() {
+    getClassStatus() {
         if (!this.patientService.patient) {
             return;
         }
@@ -191,7 +199,7 @@ getClassStatus() {
         }
     }
 
-getColorStatus() {
+    getColorStatus() {
         if (!this.patientService.patient) {
             return;
         }
