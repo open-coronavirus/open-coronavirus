@@ -20,8 +20,12 @@ export class PermissionsService {
     async requestAllPermissions(finalUrl) {
         this.permissionsRequested = true;
         const requiredPermissions = this.getRequiredPermissions();
-        this.showAllPermissionModals(requiredPermissions, finalUrl);
 
+        if (requiredPermissions.length === 0) {
+            this.navCtrl.navigateRoot([finalUrl]);
+        } else {
+            this.showAllPermissionModals(requiredPermissions, finalUrl);
+        }
     }
 
     getRequiredPermissions(): Array<string> {
