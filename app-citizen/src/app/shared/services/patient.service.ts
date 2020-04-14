@@ -1,7 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {PatientControllerService, PatientWithRelations} from '../sdk';
 import {BehaviorSubject, Subject, Subscribable} from 'rxjs';
-import {Router} from '@angular/router';
 import {Platform} from '@ionic/angular';
 import {StorageService} from "./storage.service";
 import {InstallationService} from "./installation.service";

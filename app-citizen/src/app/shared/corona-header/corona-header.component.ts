@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, Input } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Input, Inject } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -13,6 +13,7 @@ export class CoronaHeaderComponent implements OnInit {
 
     constructor(
         protected menu: MenuController,
+        @Inject('settings') public settings
     ) {
 
     }

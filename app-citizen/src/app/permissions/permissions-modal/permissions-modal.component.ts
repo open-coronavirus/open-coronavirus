@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
-import { PatientService } from '../../shared/services/patient.service';
+import {Component, OnInit} from '@angular/core';
+import {ModalController, NavParams} from '@ionic/angular';
+import {PatientService} from '../../shared/services/patient.service';
 import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 import {PushNotificationService} from "../../shared/services/push-notification.service";
+
 @Component({
   selector: 'app-permissions-modal',
   templateUrl: './permissions-modal.component.html',
@@ -32,6 +33,7 @@ export class PermissionsModalComponent implements OnInit {
   activatePermission() {
     switch (this.type) {
       case 'push':
+        console.debug('Activating push ...');
         this.pushNotificationService.startPushNotifications();
         break;
       case 'gps':

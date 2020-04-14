@@ -46,7 +46,7 @@ export class HomeComponent implements OnDestroy {
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
         protected menu: MenuController,
-        @Inject('settings') protected settings,
+        @Inject('settings') public settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService,
         protected contactTrackerService: ContactTrackerService
@@ -126,18 +126,26 @@ export class HomeComponent implements OnDestroy {
         this.leaveRequestService.setAtHome();
     }
 
-    public goToAutotest() {
-        this.router.navigate(['/app/autotest/autotest']);
-    }
-
     public requestTest() {
         // this.router.navigate(['/app/test-appointment/appointment/confirm']);
         // this.router.navigate(['/app/test-appointment/at-home/confirm']);
         this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
+    public goToAutotest() {
+        if (this.settings.autoTestUrl) {
+            window.open(this.settings.autoTestUrl, '_system');
+        } else {
+            this.router.navigate(['/app/autotest/autotest']);
+        }
+    }
+
     public goToFollowingUp() {
-        this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+        if (this.settings.followingUpUrl) {
+            window.open(this.settings.followingUpUrl, '_system');
+        } else {
+            this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+        }
     }
 
     public goToCoronavirusInfo() {

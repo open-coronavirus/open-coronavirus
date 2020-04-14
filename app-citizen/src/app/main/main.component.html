@@ -13,27 +13,27 @@
                     <span class="menu__item-badge">1</span>
                     <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</ng-container>
                 </div>
-                <div *ngIf="leaveStatus == null || leaveStatus == 1" class="menu__item" (click)="goToConfirmationRequestLeaveHome()">
+                <div *ngIf="settings.home.moduleHome && (leaveStatus == null || leaveStatus == 1)" class="menu__item" (click)="goToConfirmationRequestLeaveHome()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
                     <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Voy a salir de casa</ng-container>
                 </div>
 
-                <div *ngIf="leaveStatus == 2" class="menu__item" (click)="setAtHome()">
+                <div *ngIf="settings.home.moduleHome && leaveStatus == 2" class="menu__item" (click)="setAtHome()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-entrar-black.svg">
                     <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
                 </div>
 
-                <div class="menu__item" (click)="requestTest()">
+                <div *ngIf="settings.home.moduleRequestTest" class="menu__item" (click)="requestTest()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-test-black.svg">
                     <ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container>
                 </div>
 
-                <div class="menu__item" (click)="goToAutotest()">
+                <div *ngIf="settings.home.moduleAutoTest" class="menu__item" (click)="goToAutotest()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-autotest-black.svg">
                     <ng-container i18n="@@autotestMenuLabel">Autoevaluación COVID-19</ng-container>
                 </div>
 
-                <div class="menu__item menu__separator" (click)="goToFollowingUp()">
+                <div *ngIf="settings.home.moduleFollowingUp" class="menu__item menu__separator" (click)="goToFollowingUp()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-seguimiento-black.svg">
                     <ng-container i18n="@@trckingMenuLabel">Seguimiento de tu salud</ng-container>
                 </div>
