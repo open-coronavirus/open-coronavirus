@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Inject, Injectable} from "@angular/core";
 import {Push} from "@ionic-native/push/ngx";
 import {InstallationControllerService} from "../sdk";
 import {InstallationService} from "./installation.service";
@@ -10,51 +10,57 @@ const { PushNotifications } = Plugins;
 @Injectable()
 export class PushNotificationService {
 
+    protected activated = false;
+
     constructor(protected push: Push,
                 protected patientService: PatientService,
+                @Inject('settings') protected settings,
                 protected installationService: InstallationService,
                 protected installationControllerService: InstallationControllerService) { }
 
     public startPushNotifications() {
 
-        // to check if we have permission
-        this.push.hasPermission()
-            .then((res: any) => {
+        if(this.settings.enabled.push && this.activated == false) {
+            this.activated = true;
 
-                console.log('[PushService] Permission response: ' + JSON.stringify(res));
+            // to check if we have permission
+            this.push.hasPermission()
+                .then((res: any) => {
 
-                if (res.isEnabled) {
-                    console.log('[PushService] We have permission to send push notifications');
-                } else {
-                    console.log('[PushService] We do not have permission to send push notifications');
-                }
+                    console.log('[PushService] Permission response: ' + JSON.stringify(res));
 
-            })
-            .catch(error => {
-                console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
-            });
+                    if (res.isEnabled) {
+                        console.log('[PushService] We have permission to send push notifications');
+                    } else {
+                        console.log('[PushService] We do not have permission to send push notifications');
+                    }
+
+                })
+                .catch(error => {
+                    console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
+                });
 
             //set the init options at this point:
             this.push.init({
-               android: {
-                   forceShow: true,
-               },
-               ios: {
-                   fcmSandbox: true,
-                   alert: true,
-                   badge: true,
-                   sound: true,
-               }
+                android: {
+                    forceShow: true,
+                },
+                ios: {
+                    fcmSandbox: true,
+                    alert: true,
+                    badge: true,
+                    sound: true,
+                }
             });
 
             PushNotifications.register().then(result => {
-                console.log('[PushService] regitration result: ' + JSON.stringify(result) );
+                console.log('[PushService] regitration result: ' + JSON.stringify(result));
             });
 
             PushNotifications.addListener('registration', (token: PushNotificationToken) => {
                 console.log('[PushService] token: ' + token.value);
                 this.installationService.loadedDeviceId$.subscribe(loaded => {
-                    if(loaded) {
+                    if (loaded) {
                         this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, token.value).subscribe(installation => {
                             console.log("[PushService] Registered on the installation");
                         });
@@ -73,6 +79,7 @@ export class PushNotificationService {
             PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
                 console.log('[PushService] notification ' + JSON.stringify(notification));
             });
+        }
 
     }
 

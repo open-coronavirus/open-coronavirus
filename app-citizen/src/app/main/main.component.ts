@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import {MenuController, Platform} from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ShareService } from '../shared/services/share.service';
 import { PatientService } from '../shared/services/patient.service';
@@ -42,6 +42,7 @@ export class MainComponent implements OnDestroy {
         protected pushNotificationService: PushNotificationService,
         protected testAppointmentService: TestAppointmentService,
         protected permissionsService: PermissionsService,
+        protected platform: Platform,
         private privacityConditionsService: PrivacityConditionsService,
         protected shareService: ShareService,
         protected contactTrackerService: ContactTrackerService) {
@@ -70,8 +71,14 @@ export class MainComponent implements OnDestroy {
         if(!permissionsService.permissionsRequested) {
             this.startGeoTracking();
             this.startBluetoothTracking();
-            this.pushNotificationService.startPushNotifications();
+            this.startPushNotification();
         }
+
+        //refresh the patient everytime the app becomes active:
+        this.platform.resume.subscribe(() => {
+            this.patientService.loadLocalPatient();
+        })
+
     }
 
 
@@ -84,6 +91,12 @@ export class MainComponent implements OnDestroy {
     public startBluetoothTracking() {
         if (this.settings.enabled.bluetooth) {
             this.bluetoothTrackingService.startBluetoothTracking();
+        }
+    }
+
+    public startPushNotification() {
+        if (this.settings.enabled.push) {
+            this.pushNotificationService.startPushNotifications();
         }
     }
 
