@@ -104,7 +104,7 @@ export class PushNotificationService {
             retries: 1, // gcm, apn
             encoding: '', // apn
             badge: badge, // gcm for ios, apn
-            sound: 'ping.aiff', // gcm, apn
+            sound: 'default', // gcm, apn
             android_channel_id: 'opencoronavirus', // gcm - Android Channel ID
             notificationCount: badge, // fcm for android. badge can be used for both fcm and apn
             alert: { // apn, will take precedence over title and body

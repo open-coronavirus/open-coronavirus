@@ -4,6 +4,7 @@ import {InstallationControllerService} from "../sdk";
 import {InstallationService} from "./installation.service";
 import {PatientService} from "./patient.service";
 import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
+import {PushNotificationChannel} from "@capacitor/core/dist/esm/core-plugin-definitions";
 
 const { PushNotifications } = Plugins;
 
@@ -66,6 +67,16 @@ export class PushNotificationService {
                         });
                     }
                 });
+            });
+
+            PushNotifications.createChannel(<PushNotificationChannel>{
+                id: 'opencoronavirus',
+                name: 'opencoronavirus',
+                description: 'Open Coronavirus Channel',
+                sound: 'pulse',
+                importance: 3,
+                visibility: 1,
+                vibration: true
             });
 
             PushNotifications.addListener('registrationError', (error: any) => {
