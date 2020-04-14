@@ -52,6 +52,9 @@ export class AppComponent {
   }
 
   setHeaderBgColor() {
+    if (!this.settings.header.bgcolor) {
+      return;
+    }
     const elements: any = document.querySelectorAll('.header-app');
     for (let i = 0; i < elements.length; i++) {
       elements[i].style.setProperty('--background', this.settings.header.bgcolor);

@@ -1,7 +1,7 @@
 export const settings = {
     header: {
         logo: '',
-        bgcolor: '#00ffff'
+        bgcolor: '#c80f2e'
     },
     home : {
         moduleHome: true,
