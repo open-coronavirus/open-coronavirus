@@ -31,7 +31,7 @@ export class MainComponent implements OnDestroy {
     constructor(
         protected menu: MenuController,
         protected router: Router,
-        @Inject('settings') protected settings,
+        @Inject('settings') public settings,
         public patientService: PatientService,
         protected geolocationtrackingService: GeolocationTrackingService,
         protected bluetoothTrackingService: BluetoothTrackingService,
@@ -124,19 +124,28 @@ export class MainComponent implements OnDestroy {
         this.leaveRequestService.setAtHome();
     }
 
-    public goToAutotest() {
-        this.closeMenu();
-        this.router.navigate(['/app/autotest/autotest']);
-    }
 
     public requestTest() {
         this.closeMenu();
         this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
     }
 
+    public goToAutotest() {
+        this.closeMenu();
+        if (this.settings.autoTestUrl) {
+            window.open(this.settings.autoTestUrl, '_system');
+        } else {
+            this.router.navigate(['/app/autotest/autotest']);
+        }
+    }
+
     public goToFollowingUp() {
         this.closeMenu();
-        this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+        if (this.settings.followingUpUrl) {
+            window.open(this.settings.followingUpUrl, '_system');
+        } else {
+            this.router.navigate(['/app/autotest/following-up/0/seguimiento1_1']);
+        }
     }
 
     public goAbout() {

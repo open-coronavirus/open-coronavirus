@@ -37,20 +37,20 @@
         </div>
 
         <div class="main-options">
-            <div *ngIf="leaveStatus == 2" class="main-options__btn main-options__btn--volver" (click)="setAtHome()">
+            <div *ngIf="settings.home.moduleHome && leaveStatus == 2" class="main-options__btn main-options__btn--volver" (click)="setAtHome()">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
                 <p class="main-options__btn-salido"><ng-container i18n="@@outto">He salido hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</p>
             </div>
-            <div class="main-options__btn main-options__btn--no-link" *ngIf="leaveStatus !== 2 && patientService.patient?.status == 2">
+            <div class="main-options__btn main-options__btn--no-link" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status == 2">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
             </div>
-            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="leaveStatus !== 2 && patientService.patient?.status !== 2">
+            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== 2">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
             </div>
-            <div class="main-options__btn main-options__btn--con-small" *ngIf="false && patientService.patient?.status === 2">
+            <div class="main-options__btn main-options__btn--con-small" *ngIf="false && settings.home.moduleRequestTest && patientService.patient?.status === 2">
                 <div class="main-options__btn main-options__btn--small">
                     <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
                     <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
@@ -60,15 +60,15 @@
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>
             </div>
-            <div class="main-options__btn" (click)="requestTest()">
+            <div *ngIf="settings.home.moduleRequestTest" class="main-options__btn" (click)="requestTest()">
                 <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
                 <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
             </div>
-            <div class="main-options__btn" (click)="goToAutotest()" >
+            <div *ngIf="settings.home.moduleAutoTest" class="main-options__btn" (click)="goToAutotest()" >
                 <img class="main-options__image" src="/assets/icons/svg/icon-autotest-sm.svg">
                 <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
             </div>
-            <div class="main-options__btn" (click)="goToFollowingUp()">
+            <div  *ngIf="settings.home.moduleFollowingUp" class="main-options__btn" (click)="goToFollowingUp()">
                 <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
                 <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
             </div>
@@ -80,7 +80,7 @@
                 Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
             </p>
         </div>
-        
+
         <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
             <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
             <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
