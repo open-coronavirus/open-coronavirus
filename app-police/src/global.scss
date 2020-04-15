@@ -183,8 +183,8 @@ ion-content, ion-toolbar{
   margin: 0 0 10px 0;
   @media (min-width: 321px) {
     font-size: 18px;
-    line-height: 22px;
-  }    
+    line-height: 20px;
+  }
 }
 
 .recuadro-info{  
@@ -258,7 +258,7 @@ ion-content, ion-toolbar{
     }
     &--immune{
       &:before{
-        background-color: #4CC380;
+        background-color: #00AAE4;
       }
     }
   }

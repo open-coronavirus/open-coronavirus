@@ -202,7 +202,7 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case PatientStatus.IMMUNE:
-                return '#4CC380ff';
+                return '#00AAE4ff';
             case PatientStatus.INFECTED:
                 return '#c80f2eff';
             case PatientStatus.INFECTION_SUSPECTED:
