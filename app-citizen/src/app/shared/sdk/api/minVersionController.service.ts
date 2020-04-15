@@ -17,7 +17,7 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { MinVersionWithRelations } from '../model/models';
+import { GetMinVersion } from '../model/models';
 import { UpdateMinVersion } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -90,9 +90,9 @@ export class MinVersionControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public minVersionControllerFind(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<MinVersionWithRelations>>;
-    public minVersionControllerFind(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<MinVersionWithRelations>>>;
-    public minVersionControllerFind(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<MinVersionWithRelations>>>;
+    public minVersionControllerFind(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<GetMinVersion>;
+    public minVersionControllerFind(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<GetMinVersion>>;
+    public minVersionControllerFind(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<GetMinVersion>>;
     public minVersionControllerFind(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -115,7 +115,7 @@ export class MinVersionControllerService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Array<MinVersionWithRelations>>(`${this.configuration.basePath}/min-version`,
+        return this.httpClient.get<GetMinVersion>(`${this.configuration.basePath}/min-version`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
