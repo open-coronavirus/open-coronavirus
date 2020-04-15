@@ -47,6 +47,11 @@
 
 .error {
   color: #c80f2e;
+  font-size: 14px;  
+  line-height: 1.2;
+  @media (min-width: 321px) {
+    font-size: 18px;
+  }
 }
 
 .form-row {
@@ -134,7 +139,9 @@ label {
   }
 
   &--half{
-    width: calc(50% - 12px);
+    .form-control{
+      width: calc(50% - 12px);
+    }
   }
 }
 

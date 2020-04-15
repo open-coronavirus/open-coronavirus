@@ -14,7 +14,7 @@
     </div>
 
     <!-- NO INMUNE -->
-    <ng-container *ngIf="patientService.patient?.status !== 5" >
+    <ng-container *ngIf="patientService.patient?.status !== STATUS.IMMUNE" >
         <div  class="appointment"  *ngIf="false"><!-- este caso es cuando es ambulancia -->
             <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
             <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
@@ -42,15 +42,15 @@
                 <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
                 <p class="main-options__btn-salido"><ng-container i18n="@@outto">He salido hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</p>
             </div>
-            <div class="main-options__btn main-options__btn--no-link" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status == 2">
+            <div class="main-options__btn main-options__btn--no-link" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status == STATUS.UNINFECTED">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
             </div>
-            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== 2">
+            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
             </div>
-            <div class="main-options__btn main-options__btn--con-small" *ngIf="false && settings.home.moduleRequestTest && patientService.patient?.status === 2">
+            <div class="main-options__btn main-options__btn--con-small" *ngIf="false && settings.home.moduleRequestTest && patientService.patient?.status === STATUS.UNINFECTED">
                 <div class="main-options__btn main-options__btn--small">
                     <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
                     <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
@@ -92,7 +92,7 @@
 </ion-content>
 
 <!--  INMUNE -->
-<ng-container *ngIf="patientService.patient?.status === 5" >
+<ng-container *ngIf="patientService.patient?.status === STATUS.IMMUNE" >
 <ion-footer class="ion-no-border">
     <ion-toolbar class="footer-app" >
         <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
