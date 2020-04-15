@@ -7,6 +7,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { PatientService } from './shared/services/patient.service';
 import { StorageService } from './shared/services/storage.service';
 import { Router, NavigationEnd } from '@angular/router';
+import { TestQuestionService } from './shared/services/test-question.service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ export class AppComponent {
     protected router: Router,
     private patientService: PatientService,
     private storageService: StorageService,
+    protected testQuestionService: TestQuestionService,
     private navCtrl: NavController,
     @Inject('settings') protected settings,
   ) {
@@ -29,11 +31,10 @@ export class AppComponent {
     this.initializeApp();
 
     this.patientService.loadLocalPatient().subscribe(loaded => {
-      if(loaded) {
+      if (loaded) {
         this.navCtrl.navigateRoot(['app/home']);
-      }
-      else {
-        this.router.navigate(['register']); //move to registration page if user is not loaded
+      } else {
+        this.router.navigate(['register']); // move to registration page if user is not loaded
       }
     });
 
@@ -75,7 +76,7 @@ export class AppComponent {
       if (welcomeVisit) {
         this.navCtrl.navigateRoot(['register']);
       } else {
-        this.navCtrl.navigateRoot(['welcome']);
+        this.navCtrl.navigateRoot(['welcome/0']);
       }
     });
   }

@@ -37,6 +37,7 @@ import {InstallationService} from "./shared/services/installation.service";
 import {PushNotificationService} from "./shared/services/push-notification.service";
 import {Push} from "@ionic-native/push/ngx";
 import { Device } from '@ionic-native/device/ngx';
+import { TestQuestionService } from './shared/services/test-question.service';
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -70,6 +71,7 @@ import { Device } from '@ionic-native/device/ngx';
         GeolocationTrackingService,
         AutotestAnswers,
         TestAppointmentService,
+        TestQuestionService,
         TestResultService,
         InAppBrowser,
         SocialSharing,

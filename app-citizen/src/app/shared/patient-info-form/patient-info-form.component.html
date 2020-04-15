@@ -53,7 +53,7 @@
     </div>
     <div class="form-row">
         <div class="form-group form-label-group">
-            <input type="number" class="form-control" id="phone" name="phone" formControlName="phone" i18n-placeholder placeholder="Phone">
+            <input type="tel" class="form-control" id="phone" name="phone" formControlName="phone" i18n-placeholder placeholder="Phone">
             <label for="phone" i18n="@@phoneLabel">Teléfono</label>
             <small class="error" *ngIf="phone.invalid && phone.touched" i18n="@@phoneError">Por favor, introduce un número de teléfono válido</small>
         </div>
