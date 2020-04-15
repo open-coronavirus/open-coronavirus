@@ -34,6 +34,15 @@ export class DiagnosticSendComponent implements OnInit {
     public STATUS = PatientStatus;
 
 
+    statusArr: Array<number> = [
+        PatientStatus.UNKNOWN,
+        PatientStatus.INFECTED,
+        PatientStatus.UNINFECTED,
+        PatientStatus.INFECTION_SUSPECTED,
+        PatientStatus.IMMUNE
+    ];
+
+
     constructor(
         public navCtrl: NavController,
         public patientControllerService: PatientControllerService,
