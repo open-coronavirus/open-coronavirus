@@ -59,7 +59,7 @@ export class RegisterComponent {
             this.patientService.register(this.patient).subscribe(newPatient => {
                 loading.dismiss();
                 if (newPatient != null && newPatient != false) {
-                    this.permissionService.requestAllPermissions('/app/home');
+                    this.permissionService.requestFirstPermission();
                 } else {
                     // go to error page
                     this.navCtrl.navigateRoot(['/no-access']);

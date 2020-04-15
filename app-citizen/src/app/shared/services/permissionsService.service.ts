@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
-import { PermissionsModalComponent } from 'src/app/permissions/permissions-modal/permissions-modal.component';
+import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 
@@ -8,23 +7,27 @@ import { Router } from '@angular/router';
 export class PermissionsService {
 
     public permissionsRequested = false;
+    public requiredPermissions: Array<string>;
 
     constructor(
-        private modalController: ModalController,
         @Inject('settings') protected settings,
         protected router: Router,
         protected navCtrl: NavController
     ) {
+        this.requiredPermissions = [];
     }
 
-    async requestAllPermissions(finalUrl) {
+    async requestFirstPermission() {
         this.permissionsRequested = true;
-        const requiredPermissions = this.getRequiredPermissions();
+        this.requiredPermissions = this.getRequiredPermissions();
+        this.goToNextPermission();
+    }
 
-        if (requiredPermissions.length === 0) {
-            this.navCtrl.navigateRoot([finalUrl]);
+    goToNextPermission() {
+        if (this.requiredPermissions.length === 0) {
+            this.navCtrl.navigateRoot(['app/home']);
         } else {
-            this.showAllPermissionModals(requiredPermissions, finalUrl);
+            this.navCtrl.navigateRoot(['permissions', this.requiredPermissions.shift()]);
         }
     }
 
@@ -38,27 +41,6 @@ export class PermissionsService {
         }
 
         return requiredPermissions;
-    }
-
-    async showAllPermissionModals(requiredPermissions: Array<string>, finalUrl: string) {
-        const modalPermissions = await this.modalController.create(
-            {
-                component: PermissionsModalComponent,
-                componentProps: {
-                    type: requiredPermissions.shift()
-                }
-            });
-
-        modalPermissions.onDidDismiss()
-            .then(() => {
-                if (requiredPermissions.length === 0) {
-                    this.navCtrl.navigateRoot([finalUrl]);
-                } else {
-                    this.showAllPermissionModals(requiredPermissions, finalUrl);
-                }
-            });
-
-        return await modalPermissions.present();
     }
 
 }

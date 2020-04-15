@@ -25,7 +25,7 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'permissions',
+        path: 'permissions/:type',
         children: [
             {
                 path: '',
