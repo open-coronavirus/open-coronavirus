@@ -3,6 +3,7 @@ import {InstallationControllerService, InstallationWithRelations} from "../sdk";
 import {BehaviorSubject, Subject} from "rxjs";
 import {Device} from '@ionic-native/device/ngx';
 import {Platform} from "@ionic/angular";
+import {Guid} from "guid-typescript";
 
 
 @Injectable()
@@ -16,15 +17,21 @@ export class InstallationService {
                 protected installationControllerService: InstallationControllerService
     ) {
 
-        window['plugins'].uniqueDeviceID.get((uuid) => {
-                this.deviceId = uuid;
-                console.log("[InstallationService] device: " + this.deviceId);
-                this.loadedDeviceId$.next(true);
-        },
-        (error) => {
-            console.error("[InstallationService] error trying to figureout device: " + JSON.stringify(error));
-        });
-
+        if(!!window['plugins'] && !!window['plugins'].uniqueDeviceID) {
+            window['plugins'].uniqueDeviceID.get((uuid) => {
+                    this.deviceId = uuid;
+                    console.log("[InstallationService] device uuid: " + this.deviceId);
+                    this.loadedDeviceId$.next(true);
+                },
+                (error) => {
+                    console.error("[InstallationService] error trying to figureout device: " + JSON.stringify(error));
+                });
+        }
+        else {
+            this.deviceId = Guid.create().toString();
+            console.log("[InstallationService] generating random unique device uuid: " + this.deviceId);
+            this.loadedDeviceId$.next(true);
+        }
     }
 
     public registerInstallation(patientId: string) {

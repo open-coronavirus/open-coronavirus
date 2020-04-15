@@ -55,6 +55,7 @@
     "cordova-plugin-x-socialsharing": "^5.6.4",
     "cordova-sqlite-storage": "^5.0.0",
     "cordova-support-google-services": "^1.4.0",
+    "guid-typescript": "^1.0.9",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
     "leaflet": "^1.6.0",
