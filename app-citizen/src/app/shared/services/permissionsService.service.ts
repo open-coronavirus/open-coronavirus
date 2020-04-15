@@ -25,6 +25,7 @@ export class PermissionsService {
 
     goToNextPermissionIfPermissionsRequested() {
         if (this.permissionsRequested) {
+            console.debug('Go to next permission');
             if (this.requiredPermissions.length === 0) {
                 this.permissionsRequested = false;
                 this.navCtrl.navigateRoot(['app/home']);

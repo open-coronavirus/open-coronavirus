@@ -77,6 +77,8 @@ export class BluetoothTrackingService {
                 }
             });
 
+        } else {
+            this.permissionsService.goToNextPermissionIfPermissionsRequested();
         }
 
         return this.btEnabled$;
@@ -98,7 +100,12 @@ export class BluetoothTrackingService {
                     console.debug("[BluetoothLE] err: " + JSON.stringify(err));
                     this.permissionsService.goToNextPermissionIfPermissionsRequested();
                 });
+            } else {
+                this.permissionsService.goToNextPermissionIfPermissionsRequested();
             }
+        }).catch(error => {
+            console.error('[PushService] Error trying to get bluetooth permissions: ' + JSON.stringify(error));
+            this.permissionsService.goToNextPermissionIfPermissionsRequested();
         });
 
     }
