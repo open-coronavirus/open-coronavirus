@@ -18,7 +18,7 @@ export interface ContactWithRelations {
   [key: string]: object | any;
 
 
-    id: string;
+    id?: string;
     sourceUuid: string;
     targetUuid: string;
     timestampFrom: number;

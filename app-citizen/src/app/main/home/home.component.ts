@@ -32,6 +32,8 @@ export class HomeComponent implements OnDestroy {
     public appointmentDescriptionLine1: string;
     public appointmentDescriptionLine2: string;
 
+    public showSendContactInformationMenu=false;
+    public contactsCount = null;
 
     protected subscriptions: Array<Subscription> = new Array();
 
@@ -83,6 +85,20 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
             if (patientLoaded) {
                 this.patientName = this.patientService.patient.firstName;
+                if(this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
+                    this.showSendContactInformationMenu = true;
+                }
+            }
+        }));
+
+        this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
+            if(loaded) {
+                this.subscriptions.push(this.contactTrackerService.contactsCount$.subscribe(contactsCount => {
+                    this.contactsCount = contactsCount;
+                    if(contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
+                        this.showSendContactInformationMenu = true;
+                    }
+                }));
             }
         }));
 
@@ -101,6 +117,8 @@ export class HomeComponent implements OnDestroy {
                 }
             }
         });
+
+
 
     }
 

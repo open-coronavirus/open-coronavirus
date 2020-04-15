@@ -1,9 +1,11 @@
 import {Count, CountSchema, Filter, FilterExcludingWhere, repository, Where,} from '@loopback/repository';
 import {del, get, getModelSchemaRef, param, patch, post, put, requestBody,} from '@loopback/rest';
-import {Contact} from '../models';
+import {Contact, Patient} from '../models';
 import {ContactRepository} from '../repositories';
 import {authenticate} from "@loopback/authentication";
 import {authorize} from "@loopback/authorization";
+import {PatientService} from "../services/patient.service";
+import {service} from "@loopback/core";
 
 const schemaWithArrayOfContact = {
   type: 'array',
@@ -14,8 +16,8 @@ const schemaWithArrayOfContact = {
 
 export class ContactController {
   constructor(
-    @repository(ContactRepository)
-    public contactRepository : ContactRepository,
+    @repository(ContactRepository) public contactRepository : ContactRepository,
+    @service(PatientService) public patientService: PatientService
   ) {}
 
   @post('/contacts', {
@@ -75,8 +77,7 @@ export class ContactController {
       },
     },
   })
-  @authenticate(process.env.AUTH_STRATEGY!)
-  @authorize({resource: 'Contact', scopes: ['read']})
+  //todo securize (now is unsecurized for debug reasons)
   async find(
     @param.filter(Contact) filter?: Filter<Contact>,
   ): Promise<Contact[]> {
@@ -102,7 +103,16 @@ export class ContactController {
       })
       contacts: Contact[],
   ): Promise<void> {
-    await this.contactRepository.createAll(contacts);
+    return new Promise(resolve => {
+      console.log("Received " + contacts.length + " contacts to save to ...");
+      this.contactRepository.createAll(contacts);
+      console.log("Added " + contacts.length + " contacts ...");
+      //also put in quarantine all of them
+      this.patientService.putInQuarantine(contacts);
+      console.log("Put " + contacts.length + " contacts in quarantine ...");
+      resolve();
+    });
+
   }
 
   @patch('/contacts', {

@@ -5,8 +5,7 @@ export class Contact extends Entity {
   @property({
     type: 'string',
     id: true,
-    generated: false,
-    required: true,
+    generated: true,
   })
   id: string;
 

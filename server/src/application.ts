@@ -15,6 +15,7 @@ import KEY = ContextTags.KEY;
 import { Auth0AuthenticationStrategy, JWTServiceProvider } from "./security";
 import { MyAuthorizationProvider } from "./security/authorizor";
 import { PushNotificationService } from "./services/pushnotification.service";
+import {PatientService} from "./services/patient.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -82,6 +83,7 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(AppointmentMockService, { interface: 'AppointmentService' });
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
     this.service(LeaveRequestService);
+    this.service(PatientService);
     this.service(PushNotificationService, { interface: 'PushNotificationService' });
     this.service(JWTServiceProvider);
 

@@ -18,7 +18,11 @@ export class ContactTrackerService {
 
     private patientServiceUUID: string;
 
+    public contactsCount$ = new BehaviorSubject<number>(0);
+
     public connectedToDb$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+    public contactAdded$ = new Subject<any>();
 
     public constructor(protected sqlite: SQLite,
                        protected contactControllerService: ContactControllerService,
@@ -54,6 +58,7 @@ export class ContactTrackerService {
                                     this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from timestamp, timestamp_to timestamp, rssi int);', [])
                                         .then(() => {
                                             this.connectedToDb$.next(true);
+                                            this.refreshContactsCount();
                                         })
                                         .catch(e => console.error(e));
                                 }
@@ -85,6 +90,12 @@ export class ContactTrackerService {
 
     }
 
+    public refreshContactsCount() {
+        this.getContactsCount().then((contactsCount: number) => {
+            this.contactsCount$.next(contactsCount);
+        })
+    }
+
     public _doTrackContact(contact: Contact, address: string) {
 
         let returnValue: Subject<boolean> = new Subject();
@@ -96,6 +107,8 @@ export class ContactTrackerService {
                 this.knownContacts.set(address, contact); //update the contact
                 console.debug("[Contact tracker] Inserted new contact with uuid " + contact.uuid);
                 returnValue.next(true);
+                this.refreshContactsCount();
+                this.contactAdded$.next(true);
             }).catch(error => {
                 console.error("Error trying to insert a contact: " + contact.uuid);
                 returnValue.next(false);
@@ -114,6 +127,24 @@ export class ContactTrackerService {
             return true;
         }
         return false;
+
+    }
+
+    public getContactsCount() {
+        return new Promise((resolve, reject) => {
+            if(this.db != null) {
+                this.db.executeSql('SELECT count(distinct(uuid)) AS TOTAL FROM contacts', []).then(result => {
+                    console.log('[Contact tracker] contacts count: ' + JSON.stringify(result.rows.item(0).TOTAL));
+                    resolve(result.rows.item(0).TOTAL);
+                }).catch(error => {
+                    console.error("Error trying to retrieve contacts: " + JSON.stringify(error));
+                    reject(error);
+                });
+            }
+            else {
+                reject(false);
+            }
+        });
 
     }
 
@@ -189,7 +220,8 @@ export class ContactTrackerService {
                 let entries: any = await this.getContactEntries(limit, offset);
                 if (entries.rows.length > 0) {
                     let contactsToUpload = [];
-                    entries.rows.forEach(row => {
+                    for (let i = 0; i < entries.rows.length; i++) {
+                        let row = entries.rows.item(i);
                         let contactToUpload: ContactWithRelations = new class implements ContactWithRelations {
                             [key: string]: object | any;
 
@@ -209,8 +241,8 @@ export class ContactTrackerService {
 
                         contactsToUpload.push(contactToUpload);
 
-                    });
-
+                    }
+                    console.log("[Contact tracker] Upload a total of " + contactsToUpload.length + " contacts to server ...");
                     await this.contactControllerService.contactControllerCreateAll(contactsToUpload);
                 } else {
                     existsMoreRows = false;
