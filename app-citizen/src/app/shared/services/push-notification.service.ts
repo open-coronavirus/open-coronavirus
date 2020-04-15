@@ -5,6 +5,7 @@ import {InstallationService} from "./installation.service";
 import {PatientService} from "./patient.service";
 import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
 import {PushNotificationChannel} from "@capacitor/core/dist/esm/core-plugin-definitions";
+import {AlertController} from "@ionic/angular";
 
 const { PushNotifications } = Plugins;
 
@@ -16,6 +17,7 @@ export class PushNotificationService {
     constructor(protected push: Push,
                 protected patientService: PatientService,
                 @Inject('settings') protected settings,
+                public alertController: AlertController,
                 protected installationService: InstallationService,
                 protected installationControllerService: InstallationControllerService) { }
 
@@ -84,7 +86,8 @@ export class PushNotificationService {
             });
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
                 console.log('[PushService] notification ' + JSON.stringify(notification));
-                this.patientService.loadLocalPatient(); //refresh patient data
+                this.patientService.loadLocalPatient(); //refresh patient data in the meantime
+                this.showNotification(notification); //and show the notification with the message from server
             });
 
             PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
@@ -94,4 +97,15 @@ export class PushNotificationService {
 
     }
 
+    async showNotification(notification) {
+        const alert = await this.alertController.create(
+            {
+                header: notification.title,
+                message: notification.body,
+                buttons: ['OK'],
+                backdropDismiss: false
+            }
+        );
+        await alert.present();
+    }
 }
