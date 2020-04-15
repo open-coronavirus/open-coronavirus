@@ -29,7 +29,7 @@
           <p class="result__timeline-item-time">{{leaveRequest.backToHomeTimestamp | date:'dd/MM/yyyy HH:mm'}}</p>
         </div>
 
-        <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status >= 3">
+        <div class="result__timeline-item" *ngIf="!leaveRequest.backToHomeTimestamp && patient?.status === PatientStatus.INFECTED">
           <p class="result__timeline-item-activity result__timeline-item-activity--danger" i18n="@@qrresultexitquarantine">Se ha saltado la cuarentena y está fuera de casa <strong>durante {{hoursOutsideHome(leaveRequest.outOfHomeTimestamp)}}</strong></p>
         </div>
 

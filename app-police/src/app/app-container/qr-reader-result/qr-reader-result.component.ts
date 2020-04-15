@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PatientWithRelations, LeaveRequestWithRelations, LeaveRequestControllerService } from 'src/app/shared/sdk';
 import moment from 'moment';
+import {AppointmentType, PatientStatus} from "../../../../../server/src/common/utils/enums";
 
 
 @Component({
@@ -41,15 +42,15 @@ export class QrReaderResultComponent implements OnInit {
             return;
         }
         switch (this.patient.status) {
-            case 5:
+            case PatientStatus.IMMUNE:
                 return $localize`:@@qrresultimmune:Inmune`;
-            case 4:
+            case PatientStatus.INFECTED:
                 return $localize`:@@qrresultpositive:Positivo`;
 
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 return $localize`:@@qrresultquarantine:Cuarentena obligatoria`;
 
-            case 2:
+            case PatientStatus.UNINFECTED:
                 return $localize`:@@qrresultnegative:Negativo`;
 
             default:
@@ -62,13 +63,13 @@ export class QrReaderResultComponent implements OnInit {
             return;
         }
         switch (this.patient.status) {
-            case 5:
+            case PatientStatus.IMMUNE:
                 return 'result--immune';
-            case 4:
+            case PatientStatus.INFECTED:
                 return 'result--infected';
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 return 'result--quarentine';
-            case 2:
+            case PatientStatus.UNINFECTED:
                 return 'result--ok';
         }
     }
@@ -111,16 +112,17 @@ export class QrReaderResultComponent implements OnInit {
         if (!this.patient) {
             return;
         }
+
         switch (this.patient.status) {
-            case 5:
+            case PatientStatus.IMMUNE:
                 return '#61bc7cff';
-            case 4:
+            case PatientStatus.INFECTED:
                 return '#c80f2eff';
 
-            case 3:
+            case PatientStatus.INFECTION_SUSPECTED:
                 return '#ffca08ff';
 
-            case 2:
+            case PatientStatus.UNINFECTED:
                 return '#61bc7cff';
         }
     }
@@ -140,4 +142,7 @@ export class QrReaderResultComponent implements OnInit {
         this.location.back();
     }
 
+    get PatientStatus(): any {
+        return PatientStatus;
+    }
 }

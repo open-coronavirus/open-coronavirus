@@ -32,7 +32,7 @@ export class QrReaderComponent {
         }).catch(err => {
             console.error('Error scanQR: ', err);
             // Test
-            this.getPatient('5e8e357b26dbb692598adbfc');
+            this.getPatient('5e9782c5fbb2f70b5c9770eb');
         });
     }
 

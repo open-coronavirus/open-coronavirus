@@ -22,16 +22,15 @@ export class MinVersionController {
         description: 'Get MinVersion',
         content: {
           'application/json': {
-            schema: {
-              type: 'array',
-              items: getModelSchemaRef(MinVersion, { includeRelations: true }),
-            },
+            schema: getModelSchemaRef(MinVersion, {
+              title: 'Get MinVersion'
+            }),
           },
         },
       },
     },
   })
-  async find(): Promise<MinVersion | void> {
+  async find(): Promise<MinVersion> {
     return this.minVersionRepository.findOne().then(minVersion => {
       if (minVersion !== null) {
         return minVersion;
