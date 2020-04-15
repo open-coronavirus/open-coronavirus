@@ -53,7 +53,7 @@ export class MainComponent implements OnDestroy {
             }
         }));
 
-        this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
+        this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(loaded => {
             if (loaded) {
                 this.patientName = this.patientService.patient.firstName;
                 this.patientInitials = this.patientName.charAt(0).toUpperCase();
@@ -76,7 +76,7 @@ export class MainComponent implements OnDestroy {
 
         //refresh the patient everytime the app becomes active:
         this.platform.resume.subscribe(() => {
-            this.patientService.loadLocalPatient();
+            this.patientService.refreshPatientData();
         })
 
     }

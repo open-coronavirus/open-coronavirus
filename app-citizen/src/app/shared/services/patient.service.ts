@@ -21,7 +21,14 @@ export class PatientService {
     protected patientToken: string = null;
     private _patient: PatientWithRelations = null;
 
-    public patientLoaded$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
+    //everytime the patient data is being changed
+    public patientDataChanged$ = new BehaviorSubject<boolean>(false);
+
+    //the very first time the patient is loaded
+    public patientLoaded$ = new BehaviorSubject<boolean>(false);
+
+    //everytime the patient is reloaded
+    public patientRefreshed$ = new Subject();
 
     public static PATIENT_TOKEN_KEY = 'patientTokenV3';
 
@@ -38,38 +45,43 @@ export class PatientService {
 
         let returnValue = new Subject<boolean>();
 
-        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(data => {
-            if(data != null) {
-                this.loadPatient(data).subscribe(loaded => {
-                    returnValue.next(loaded);
-                })
+        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(token => {
+            if(token != null) {
+                this.patientController.patientControllerFindById(token).subscribe(existingPatient => {
+                    if (existingPatient != null) {
+                        this._patient = existingPatient;
+                        this.patientToken = token;
+                        this.patientLoaded$.next(true);
+                        this.patientDataChanged$.next(true);
+                        returnValue.next(true);
+                    } else {
+                        returnValue.next(false);
+                    }
+                });
             }
         });
 
         return returnValue;
     }
 
-    protected loadPatient(patientToken) {
+    public refreshPatientData() {
 
         let returnValue = new Subject<boolean>();
-
-        this.patientController.patientControllerFindById(patientToken).subscribe(existingPatient => {
-            if (existingPatient != null) {
-                this._patient = existingPatient;
-                this.patientToken = patientToken;
-                this.patientLoaded$.next(true);
-                returnValue.next(true);
-            } else {
-                returnValue.next(false);
+        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(token => {
+            if(token != null) {
+                this.patientController.patientControllerFindById(token).subscribe(existingPatient => {
+                    if (existingPatient != null) {
+                        this._patient = existingPatient;
+                        this.patientRefreshed$.next(true);
+                        this.patientDataChanged$.next(true);
+                        returnValue.next(true);
+                    }
+                });
             }
         });
-
         return returnValue;
     }
 
-    public changeStatus(newStatus: number) {
-        // todo
-    }
 
     public register(patient: PatientWithRelations): Subscribable<any> {
 
@@ -77,15 +89,16 @@ export class PatientService {
 
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
             this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
-                this.loadPatient(newPatient.id);
-                this.patientLoaded$.subscribe(loaded => {
-                    if (loaded) {
+                this.loadLocalPatient().subscribe(loaded => {
+                    if(loaded) {
                         this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
                             returnValue.next(newPatient);
                         });
                     }
+                    else {
+                        console.error("Error trying to register the patient. The installation has not been registered as well :(");
+                    }
                 });
-
             });
         });
 
