@@ -6,6 +6,7 @@ import {PatientService} from "./patient.service";
 import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
 import {PushNotificationChannel} from "@capacitor/core/dist/esm/core-plugin-definitions";
 import {AlertController} from "@ionic/angular";
+import { PermissionsService } from './permissionsService.service';
 
 const { PushNotifications } = Plugins;
 
@@ -19,7 +20,8 @@ export class PushNotificationService {
                 @Inject('settings') protected settings,
                 public alertController: AlertController,
                 protected installationService: InstallationService,
-                protected installationControllerService: InstallationControllerService) { }
+                protected installationControllerService: InstallationControllerService,
+                protected permissionsService: PermissionsService) { }
 
     public startPushNotifications() {
 
@@ -38,9 +40,11 @@ export class PushNotificationService {
                         console.log('[PushService] We do not have permission to send push notifications');
                     }
 
+                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
                 })
                 .catch(error => {
                     console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
+                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
                 });
 
             //set the init options at this point:

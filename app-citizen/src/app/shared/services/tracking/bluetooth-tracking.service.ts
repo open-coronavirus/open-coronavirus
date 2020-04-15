@@ -5,6 +5,7 @@ import {BehaviorSubject, Subject} from "rxjs";
 import {BLE} from "@ionic-native/ble/ngx";
 import {ContactTrackerService} from "../contacts/contact-tracker.service";
 import {PatientService} from "../patient.service";
+import { PermissionsService } from '../permissionsService.service';
 
 @Injectable()
 export class BluetoothTrackingService {
@@ -27,6 +28,7 @@ export class BluetoothTrackingService {
                 protected ble: BLE,
                 protected platform: Platform,
                 protected patientService: PatientService,
+                protected permissionsService: PermissionsService,
                 @Inject('settings') protected settings,
                 protected contactTrackerService: ContactTrackerService
                 ) {
@@ -91,8 +93,10 @@ export class BluetoothTrackingService {
                     //todo: show the right alert
                     console.debug(res.requestPermission);
                     console.debug("[BluetoothLE] res :" + JSON.stringify(res));
+                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
                 }, (err) => {
                     console.debug("[BluetoothLE] err: " + JSON.stringify(err));
+                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
                 });
             }
         });

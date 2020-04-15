@@ -45,6 +45,7 @@ export class PermissionsModalComponent implements OnInit {
       case 'gps':
         console.debug('Activating geolocation ...');
         this.geolocationtrackingService.startBackgroundGeolocation();
+        this.dismissModal();
         break;
       case 'bluetooth':
         console.debug('Activating bluetooth tracking ...');
@@ -52,7 +53,6 @@ export class PermissionsModalComponent implements OnInit {
         break;
     }
 
-    this.dismissModal();
   }
 
 }

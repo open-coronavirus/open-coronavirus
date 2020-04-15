@@ -23,6 +23,17 @@ export class PermissionsService {
         this.goToNextPermission();
     }
 
+    goToNextPermissionIfPermissionsRequested() {
+        if (this.permissionsRequested) {
+            if (this.requiredPermissions.length === 0) {
+                this.permissionsRequested = false;
+                this.navCtrl.navigateRoot(['app/home']);
+            } else {
+                this.navCtrl.navigateRoot(['permissions', this.requiredPermissions.shift()]);
+            }
+        }
+    }
+
     goToNextPermission() {
         if (this.requiredPermissions.length === 0) {
             this.navCtrl.navigateRoot(['app/home']);
