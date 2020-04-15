@@ -28,6 +28,10 @@ export const settings = {
     uploadAutomaticallyContactsToServerIfUserHasCoronavirus: false,
     // If uploadAutomaticallyContactsToServerIfUserHasCoronavirus is activated, this property is ignored
     requestUserConsentToUploadContactsToServerIfUserHasCoronavirus: true,
+    stores: {
+        urlAppStore: 'https://itunes.apple.com/es/app/coronaapp/idxxxxxx',
+        urlGooglePlay: 'https://play.google.com/store/apps/details?id=xxxx.coronaapp.xxx'
+    }
 
 
 };

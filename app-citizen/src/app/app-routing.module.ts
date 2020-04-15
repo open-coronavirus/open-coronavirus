@@ -45,6 +45,16 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'update',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./update/update.module').then(m => m.UpdateModule)
+            }
+        ]
+    },
+    {
         path: 'app',
         component: MainComponent,
         children: [

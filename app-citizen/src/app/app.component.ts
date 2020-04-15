@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 
-import { Platform, NavController } from '@ionic/angular';
+import { Platform, NavController, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
@@ -9,6 +9,7 @@ import { StorageService } from './shared/services/storage.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { TestQuestionService } from './shared/services/test-question.service';
 import { versionCompare } from '../../../app-health/src/app/shared/utils/utils';
+
 
 @Component({
   selector: 'app-root',
@@ -32,17 +33,15 @@ export class AppComponent {
     @Inject('settings') protected settings,
   ) {
 
-
-
     this.initializeApp();
 
-    this.patientService.loadLocalPatient().subscribe(loaded => {
-      if (loaded) {
-        this.navCtrl.navigateRoot(['app/home']);
-      } else {
-        this.router.navigate(['register']); // move to registration page if user is not loaded
-      }
-    });
+    // this.patientService.loadLocalPatient().subscribe(loaded => {
+    //   if (loaded) {
+    //     this.navCtrl.navigateRoot(['app/home']);
+    //   } else {
+    //     this.router.navigate(['register']); // move to registration page if user is not loaded
+    //   }
+    // });
 
   }
 
@@ -51,8 +50,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.configuration = {};
-      this.checkUpdateApp();
+
+      this.getConfig();
       this.onChangeDetect();
 
     });
@@ -78,27 +77,53 @@ export class AppComponent {
   }
 
 
-  checkUpdateApp() {
-    if ((!this.configuration.app_version_required) || versionCompare(this.settings.version, this.configuration.app_version_required) >= 0) {
-      // if (!this.configuration.app_version_required || versionCompare('7.13.0', '6.400.0') <= 0) {
-      console.log('No se necesita update');
+  async getConfig() {
+    // TEST
+    this.checkUpdateApp();
 
-      // PRUEBAS
-      // TODO: $fake PRUEBAS SALTAR LOGIN
-      // this.nav.setRoot(Main, {});
+    // REAL
+    // this.apiService.getConfiguration().subscribe(
+    //   res => {
+    //     this.configuration = res;
+    //     this.checkUpdateApp();
+    //   },
+    //   err => {
+    //     console.log('error obteniendo configuration: ', err);
+    //   }
+    // );
+  }
+
+  checkUpdateApp() {
+    if (((!this.configuration.app_version_required) || versionCompare(this.settings.version, this.configuration.app_version_required) >= 0)) {
+      console.log('No se necesita update');
       this.checkWelcome();
     } else {
       console.log('Por favor actualice la app');
-      // this.openPopupUpdateApp();
+      this.navCtrl.navigateRoot(['update']);
     }
   }
+
 
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
       if (welcomeVisit) {
-        this.navCtrl.navigateRoot(['register']);
+        // this.navCtrl.navigateRoot(['register']);
+
+        this.loadPatient();
+
       } else {
         this.navCtrl.navigateRoot(['welcome/0']);
+      }
+    });
+  }
+
+
+  loadPatient() {
+    this.patientService.loadLocalPatient().subscribe(loaded => {
+      if (loaded) {
+        this.navCtrl.navigateRoot(['app/home']);
+      } else {
+        this.router.navigate(['register']); // move to registration page if user is not loaded
       }
     });
   }

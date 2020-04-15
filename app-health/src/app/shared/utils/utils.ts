@@ -12,7 +12,6 @@ export function indexOfArrayByKey(key: string, value: any, data: Array<any>): nu
     return -1;
 }
 
-
 export function versionCompare(a, b) {
     let i, diff;
     const regExStrip0 = /(\.0+)+$/;
