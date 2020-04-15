@@ -38,8 +38,6 @@ export class HomeComponent implements OnDestroy {
     public patientName: string;
     public leaveRequest: LeaveRequest;
 
-    public serviceAdvertisementUUID;
-
     public STATUS = PatientStatus;
 
     constructor(
@@ -82,27 +80,27 @@ export class HomeComponent implements OnDestroy {
             }
         }));
 
-        this.subscriptions.push(this.patientService.patientLoaded$.subscribe(patientLoaded => {
+        this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
             if (patientLoaded) {
                 this.patientName = this.patientService.patient.firstName;
-                this.serviceAdvertisementUUID = this.patientService.patient.serviceAdvertisementUUID;
-                this.leaveRequestService.loaded$.subscribe(loaded => {
-                    if (loaded && this.leaveRequestService.leaveRequest != null) {
-                        this.leaveRequest = this.leaveRequestService.leaveRequest;
-                        this.leaveStatus = this.leaveRequestService.leaveRequest.status;
-                        if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
-                            this.leaveRequestService.leaveReasons.forEach(leaveReason => {
-                                if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
-                                    this.leaveReason = leaveReason.label;
-                                }
-                            });
-                        } else {
-                            this.leaveReason = this.leaveRequestService.leaveRequest.additionalInfo;
-                        }
-                    }
-                });
             }
         }));
+
+        this.leaveRequestService.loaded$.subscribe(loaded => {
+            if (loaded && this.leaveRequestService.leaveRequest != null) {
+                this.leaveRequest = this.leaveRequestService.leaveRequest;
+                this.leaveStatus = this.leaveRequestService.leaveRequest.status;
+                if (this.leaveRequestService.leaveRequest.leaveReason < LeaveReasonEnum.otherLeaveReason) {
+                    this.leaveRequestService.leaveReasons.forEach(leaveReason => {
+                        if (leaveReason.id == this.leaveRequestService.leaveRequest.leaveReason) {
+                            this.leaveReason = leaveReason.label;
+                        }
+                    });
+                } else {
+                    this.leaveReason = this.leaveRequestService.leaveRequest.additionalInfo;
+                }
+            }
+        });
 
     }
 
@@ -204,7 +202,7 @@ export class HomeComponent implements OnDestroy {
         }
         switch (this.patientService.patient.status) {
             case PatientStatus.IMMUNE:
-                return '#4CC380ff';
+                return '#00AAE4ff';
             case PatientStatus.INFECTED:
                 return '#c80f2eff';
             case PatientStatus.INFECTION_SUSPECTED:

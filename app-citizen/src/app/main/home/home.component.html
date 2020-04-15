@@ -38,7 +38,7 @@
 
         <div class="main-options">
             <div *ngIf="settings.home.moduleHome && leaveStatus == 2" class="main-options__btn main-options__btn--volver" (click)="setAtHome()">
-                <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                <img class="main-options__image" src="/assets/icons/svg/icon-volver-sm.svg">
                 <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
                 <p class="main-options__btn-salido"><ng-container i18n="@@outto">He salido hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</p>
             </div>

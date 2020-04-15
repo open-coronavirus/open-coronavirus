@@ -41,7 +41,7 @@
     }
 
     &--immune{
-      background-color: #DBF3E4;
+      background-color: #D9F4FD;
       padding: 8px;
       margin-top: 8px;
       margin-bottom: 8px;
@@ -61,7 +61,7 @@
 
       .menu__header-circle{
         color: #ffffff;
-        background-color: #4CC380;  
+        background-color: #00AAE4;  
       }
     }
       
@@ -124,16 +124,11 @@
     }
 
     &--sm{
-      font-size: 14px;
-      line-height: 16px;
-      @media (min-width: 321px) {
-        font-size: 18px;
-        line-height: 22px;
-      }
 
       img {
         @media (min-width: 321px) {
-          width: 25px;
+          width: 24px;
+          margin-left: 3px;
         }
       }
 
@@ -147,8 +142,8 @@
       text-decoration: underline;
       font-size: 14px;
       @media (min-width: 321px) {
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 16px;
+        line-height: 18px;
       }
       img {
         @media (min-width: 321px) {

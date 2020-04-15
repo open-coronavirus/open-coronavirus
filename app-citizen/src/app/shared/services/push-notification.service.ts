@@ -86,7 +86,7 @@ export class PushNotificationService {
             });
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
                 console.log('[PushService] notification ' + JSON.stringify(notification));
-                this.patientService.loadLocalPatient(); //refresh patient data in the meantime
+                this.patientService.refreshPatientData(); //refresh patient data in the meantime
                 this.showNotification(notification); //and show the notification with the message from server
             });
 

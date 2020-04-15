@@ -37,7 +37,7 @@ export class AppointmentAtHomeComponent {
             }
         });
 
-        this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
+        this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(loaded => {
             if(loaded) {
                 this.patientAddress = this.patientService.patient.street + (this.patientService.patient.apartment!=null?(' ' + this.patientService.patient.apartment):'') + ' (' + this.patientService.patient.postalCode + ')';
             }
