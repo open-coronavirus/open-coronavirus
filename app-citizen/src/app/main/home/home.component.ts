@@ -124,7 +124,7 @@ export class HomeComponent implements OnDestroy {
 
     public goToConfirmationRequestLeaveHome() {
         switch (this.patientService.patient.status) {
-            case PatientStatus.UNINFECTED:
+            case PatientStatus.UNKNOWN:
                 this.router.navigate(['/app/request-leave-home-confirmation-no-test']);
                 break;
             case PatientStatus.INFECTION_SUSPECTED:
