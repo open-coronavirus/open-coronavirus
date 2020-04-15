@@ -617,6 +617,7 @@ export class PatientControllerService {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
+        headers = headers.set('apikey', 'test');
 
         // to determine the Content-Type header
         const consumes: string[] = [
