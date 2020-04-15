@@ -17,7 +17,7 @@
 
         <h2 class="send-diagnostic__subtitle" i18n="@@patientStatus">Estado del paciente</h2>
         <ul class="diagnostic-status">
-            <li (click)="setStatus(key)" class="diagnostic-status__item" [ngClass]="{'diagnostic-status__item--selected' : dataForm.status === key, 'diagnostic-status__item--initial' : STATUS.UNKNOWN === key, 'diagnostic-status__item--ok' : STATUS.UNINFECTED === key, 'diagnostic-status__item--quarentine' : STATUS.INFECTION_SUSPECTED === key, 'diagnostic-status__item--infected' : STATUS.INFECTED === key, 'diagnostic-status__item--immune' : STATUS.IMMUNE === key}" *ngFor='let key of [0,1,2,3,10]'>{{ getNameStatus(key) }}</li>
+            <li (click)="setStatus(key)" class="diagnostic-status__item" [ngClass]="{'diagnostic-status__item--selected' : dataForm.status === key, 'diagnostic-status__item--initial' : STATUS.UNKNOWN === key, 'diagnostic-status__item--ok' : STATUS.UNINFECTED === key, 'diagnostic-status__item--quarentine' : STATUS.INFECTION_SUSPECTED === key, 'diagnostic-status__item--infected' : STATUS.INFECTED === key, 'diagnostic-status__item--immune' : STATUS.IMMUNE === key}" *ngFor='let key of statusArr'>{{ getNameStatus(key) }}</li>
         </ul>
     </div>
 </ion-content>
