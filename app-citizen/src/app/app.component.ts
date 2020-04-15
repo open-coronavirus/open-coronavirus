@@ -8,6 +8,7 @@ import { PatientService } from './shared/services/patient.service';
 import { StorageService } from './shared/services/storage.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { TestQuestionService } from './shared/services/test-question.service';
+import { versionCompare } from '../../../app-health/src/app/shared/utils/utils';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ import { TestQuestionService } from './shared/services/test-question.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  configuration: any = {};
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -27,6 +31,8 @@ export class AppComponent {
     private navCtrl: NavController,
     @Inject('settings') protected settings,
   ) {
+
+
 
     this.initializeApp();
 
@@ -45,7 +51,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.checkWelcome();
+      this.configuration = {};
+      this.checkUpdateApp();
       this.onChangeDetect();
 
     });
@@ -56,7 +63,6 @@ export class AppComponent {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
-
       this.setHeaderBgColor();
     });
   }
@@ -68,6 +74,22 @@ export class AppComponent {
     const elements: any = document.querySelectorAll('.header-app');
     for (let i = 0; i < elements.length; i++) {
       elements[i].style.setProperty('--background', this.settings.header.bgcolor);
+    }
+  }
+
+
+  checkUpdateApp() {
+    if ((!this.configuration.app_version_required) || versionCompare(this.settings.version, this.configuration.app_version_required) >= 0) {
+      // if (!this.configuration.app_version_required || versionCompare('7.13.0', '6.400.0') <= 0) {
+      console.log('No se necesita update');
+
+      // PRUEBAS
+      // TODO: $fake PRUEBAS SALTAR LOGIN
+      // this.nav.setRoot(Main, {});
+      this.checkWelcome();
+    } else {
+      console.log('Por favor actualice la app');
+      // this.openPopupUpdateApp();
     }
   }
 
