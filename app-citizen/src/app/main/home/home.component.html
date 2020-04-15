@@ -73,9 +73,9 @@
                 <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
             </div>
         </div>
-        <div *ngIf="false" class="alert-info" (click)="uploadContactsAndShowThanksModal()">
+        <div *ngIf="showSendContactInformationMenu" class="alert-info" (click)="uploadContactsAndShowThanksModal()">
             <img class="alert-info__icon filter-white" src="/assets/icons/svg/icon-bluetooth.svg">
-            <span class="alert-info__badge">1</span>
+            <span class="alert-info__badge">{{contactsCount}}</span>
             <p class="alert-info__text" i18n="@@coronavirusSendInfo">
                 Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
             </p>

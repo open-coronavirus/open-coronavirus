@@ -34,8 +34,8 @@ export class PatientService {
 
     constructor(protected patientController: PatientControllerService,
                 @Inject('environment') protected environment,
-                @Inject('settings') protected settings,
                 protected installationService: InstallationService,
+                @Inject('settings') protected settings,
                 public platform: Platform,
                 protected storageService: StorageService) {
 
@@ -110,8 +110,9 @@ export class PatientService {
         let returnValue = new Subject();
 
         this.patientController.patientControllerUpdateById(patient.id, patient).subscribe(exitingPatient => {
-            this._patient = patient;
-            returnValue.next(true);
+            this.refreshPatientData().subscribe(loaded => {
+                returnValue.next(true);
+            });
         });
 
         return returnValue;

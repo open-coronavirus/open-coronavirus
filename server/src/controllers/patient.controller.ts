@@ -21,10 +21,12 @@ import { authorize } from "@loopback/authorization";
 import {service} from "@loopback/core";
 import {PushNotificationService} from "../services/pushnotification.service";
 import {PatientStatus} from "../common/utils/enums";
+import {PatientService} from "../services/patient.service";
 
 export class PatientController {
   constructor(
     @repository(PatientRepository) public patientRepository: PatientRepository,
+    @service(PatientService) public patientService: PatientService,
     @service(PushNotificationService) public pushNotificationService: PushNotificationService,
   ) { }
 
@@ -55,6 +57,7 @@ export class PatientController {
 
       //generate an unique uuid for each patient
       patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
+      patient.status = PatientStatus.UNKNOWN; //initial status
       patient.created = new Date();
 
       this.patientRepository.create(patient).then(createdPatient => {
@@ -264,50 +267,7 @@ export class PatientController {
       throw new HttpErrors[401]; //unauthorized
     }
 
-    let filter = {
-      "where": {
-        "documentNumber": body.documentNumber
-      }
-    };
-
-    let returnValue: Promise<Patient | null> = new Promise((resolve, reject) => {
-
-      this.patientRepository.findOne(filter).then(patient => {
-        if (patient != null) {
-          patient.status = body.status;
-          this.patientRepository.update(patient);
-          let title = "Atención";
-          let text = null;
-          switch (body.status) {
-            case PatientStatus.INFECTED:
-              text = "Ya tienes los resultados de tu test: POSITIVO. Revísalo aquí";
-              break;
-            case PatientStatus.UNINFECTED:
-              text = "Ya tienes los resultados de tu test: NEGATIVO. Revísalo aquí.";
-              break;
-            case PatientStatus.INFECTION_SUSPECTED:
-              text = "Has estado en contacto activamente con pacientes con riesgo de coronavirus. Ponte en cuarentena!";
-              break;
-            case PatientStatus.IMMUNE:
-              text = "Ya tienes los resultados de tu test: NEGATIVO. Revísalo aquí.";
-              break;
-          }
-          if (text != null) {
-            this.pushNotificationService.sendNotificationToPatient(patient.id, title, text);
-          }
-          resolve(patient);
-        } else {
-          reject(new HttpErrors[404]);
-        }
-      })
-      .catch(error => {
-        console.error("Error trying to locate patient with document number " + body.documentNumber + ": " + JSON.stringify(error));
-        reject(new HttpErrors[404]);
-      });
-
-    });
-
-    return returnValue;
+    return this.patientService.changeStatus(body.documentNumber, body.status);
 
   }
 

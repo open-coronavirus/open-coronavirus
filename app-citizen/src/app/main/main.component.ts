@@ -25,6 +25,9 @@ export class MainComponent implements OnDestroy {
     public leaveStatus: number;
     public patientHasTestAppointment = false;
 
+    public showSendContactInformationMenu=false;
+    public contactsCount = null;
+
     public patientName;
     public patientInitials;
     protected subscriptions: Array<Subscription> = new Array();
@@ -57,6 +60,20 @@ export class MainComponent implements OnDestroy {
             if (loaded) {
                 this.patientName = this.patientService.patient.firstName;
                 this.patientInitials = this.patientName.charAt(0).toUpperCase();
+                if(this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
+                    this.showSendContactInformationMenu = true;
+                }
+            }
+        }));
+
+        this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
+            if(loaded) {
+                this.subscriptions.push(this.contactTrackerService.contactsCount$.subscribe(contactsCount => {
+                    this.contactsCount = contactsCount;
+                    if(contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
+                        this.showSendContactInformationMenu = true;
+                    }
+                }));
             }
         }));
 
@@ -80,6 +97,8 @@ export class MainComponent implements OnDestroy {
         })
 
     }
+
+
 
 
     public startGeoTracking() {

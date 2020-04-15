@@ -213,6 +213,7 @@ export class BluetoothTrackingService {
                                 }
                             }
                         });
+                        this.ble.disconnect(device.id); //disconnect from the device!!! so important
                     },
                     peripheralData => {
                         console.error('[BluetoothLE] error connecting: ' + JSON.stringify(peripheralData));
