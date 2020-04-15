@@ -9,3 +9,4 @@ export * from './test-question.controller';
 export * from './me.controller';
 export * from './contact.controller';
 export * from './installation.controller';
+export * from './min-version.controller';

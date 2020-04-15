@@ -8,3 +8,4 @@ export * from './test-question.repository';
 export * from './document.repository';
 export * from './contact.repository';
 export * from './installation.repository';
+export * from './min-version.repository';
