@@ -23,7 +23,7 @@ export class MinVersionController {
         content: {
           'application/json': {
             schema: getModelSchemaRef(MinVersion, {
-              title: 'Get MinVersion'
+              title: 'GetMinVersion'
             }),
           },
         },
