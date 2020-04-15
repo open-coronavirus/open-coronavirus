@@ -9,6 +9,7 @@ import { HealthCenterControllerService } from './api/healthCenterController.serv
 import { InstallationControllerService } from './api/installationController.service';
 import { LeaveRequestControllerService } from './api/leaveRequestController.service';
 import { MeControllerService } from './api/meController.service';
+import { MinVersionControllerService } from './api/minVersionController.service';
 import { PatientControllerService } from './api/patientController.service';
 import { PingControllerService } from './api/pingController.service';
 import { TestAppointmentControllerService } from './api/testAppointmentController.service';
