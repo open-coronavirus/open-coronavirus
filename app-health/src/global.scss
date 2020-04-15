@@ -74,7 +74,7 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 18px;
     line-height: 22px;
-  }    
+  }
 
   &--secondary{
     background-color: #f5f5f5;
@@ -116,7 +116,7 @@ ion-content, ion-toolbar{
     @media (min-width: 321px) {
       font-size: 24px;
       line-height: 27px;
-    }    
+    }
 
     strong{
       font-weight: 400;
@@ -159,7 +159,7 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 24px;
     line-height: 27px;
-  }    
+  }
 }
 
 .emoji-thinking-face::before  {
@@ -175,7 +175,7 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 28px;
     line-height: 30px;
-  }    
+  }
 }
 .screen-text{
   font-size: 14px;
@@ -200,7 +200,7 @@ ion-content, ion-toolbar{
     @media (min-width: 321px) {
       font-size: 16px;
       line-height: 20px;
-    }    
+    }
   }
   &__text{
     font-size: 14px;
@@ -258,7 +258,7 @@ ion-content, ion-toolbar{
     }
     &--immune{
       &:before{
-        background-color: #61bc7c;
+        background-color: #00AAE4;
       }
     }
   }

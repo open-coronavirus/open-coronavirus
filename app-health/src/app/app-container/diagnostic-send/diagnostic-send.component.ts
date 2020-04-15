@@ -6,6 +6,7 @@ import { LoadingController, NavController, ModalController } from '@ionic/angula
 import { PatientControllerService } from 'src/app/shared/sdk/api/patientController.service';
 import { ConfirmSendDiagnosticComponent } from '../../shared/confirmSendDiagnostic/confirm-send-diagnostic.component';
 import { getNameStatus } from '../../shared/utils/status-utils';
+import { PatientStatus } from '../../../../../server/src/common/utils/enums';
 
 export interface DataFormSendDiagnostic {
     identifier: string;
@@ -17,6 +18,8 @@ export interface DataFormSendDiagnostic {
     intent_send: boolean;
 }
 
+
+
 @Component({
     selector: 'diagnostic-send',
     templateUrl: 'diagnostic-send.component.html',
@@ -27,6 +30,9 @@ export class DiagnosticSendComponent implements OnInit {
 
     dataForm: DataFormSendDiagnostic;
     patientError: boolean;
+
+    public STATUS = PatientStatus;
+
 
     constructor(
         public navCtrl: NavController,

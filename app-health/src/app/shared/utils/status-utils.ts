@@ -1,15 +1,16 @@
+import { PatientStatus } from '../../../../../server/src/common/utils/enums';
 
 export function getNameStatus(status) {
     switch (status) {
-        case 1:
+        case PatientStatus.UNKNOWN:
             return $localize`:@@statusNoData:Anónimo`;
-        case 2:
+        case PatientStatus.UNINFECTED:
             return $localize`:@@statusNoInfected:Negativo`;
-        case 3:
+        case PatientStatus.INFECTION_SUSPECTED:
             return $localize`:@@statusQuarantine:Cuarentena obligatoria`;
-        case 4:
+        case PatientStatus.INFECTED:
             return $localize`:@@statusInfected:Positivo`;
-        case 5:
+        case PatientStatus.IMMUNE:
             return $localize`:@@statusImune:Inmune`;
     }
 }

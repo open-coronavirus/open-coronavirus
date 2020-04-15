@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PatientWithRelations } from 'src/app/shared/sdk';
 import { getNameStatus } from '../../shared/utils/status-utils';
+import { PatientStatus } from '../../../../../server/src/common/utils/enums';
 
 
 @Component({
@@ -15,6 +16,8 @@ import { getNameStatus } from '../../shared/utils/status-utils';
 export class DiagnosticSendResultComponent {
 
     public patient: PatientWithRelations;
+
+    public STATUS = PatientStatus;
 
     constructor(
         private route: ActivatedRoute,

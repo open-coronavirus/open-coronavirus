@@ -62,7 +62,7 @@ ion-content, ion-toolbar{
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
-  color: #fff; 
+  color: #fff;
   text-transform: uppercase;
   text-align: center;
   justify-content: center;
@@ -74,13 +74,13 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 18px;
     line-height: 22px;
-  }    
-  
+  }
+
   &--secondary{
     background-color: #f5f5f5;
     color: #000000;
   }
-  
+
   &--min{
     text-transform: initial;
     font-weight: 400;
@@ -116,7 +116,7 @@ ion-content, ion-toolbar{
     @media (min-width: 321px) {
       font-size: 24px;
       line-height: 27px;
-    }    
+    }
 
     strong{
       font-weight: 400;
@@ -129,7 +129,7 @@ ion-content, ion-toolbar{
         color: #000;
       }
     }
-  }  
+  }
 }
 
 .filter-white {
@@ -159,7 +159,7 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 24px;
     line-height: 27px;
-  }    
+  }
 }
 
 .emoji-thinking-face::before  {
@@ -175,24 +175,24 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 28px;
     line-height: 30px;
-  }    
+  }
 }
 .screen-text{
-  font-size: 14px;  
+  font-size: 14px;
   line-height: 1.43;
   margin: 0 0 10px 0;
   @media (min-width: 321px) {
     font-size: 18px;
     line-height: 22px;
-  }    
+  }
 }
 
-.recuadro-info{  
+.recuadro-info{
   border-radius: 12px;
   background-color: #f5f5f5;
   padding: 16px;
 
-  &__title{  
+  &__title{
     font-size: 12px;
     font-weight: 300;
     line-height: 1.17;
@@ -200,17 +200,17 @@ ion-content, ion-toolbar{
     @media (min-width: 321px) {
       font-size: 14px;
       line-height: 16px;
-    }    
+    }
   }
-  &__text{  
+  &__text{
     font-size: 14px;
     font-weight: 400;
-    line-height: 1;   
-    margin: 0 0 16px 0; 
+    line-height: 1;
+    margin: 0 0 16px 0;
     @media (min-width: 321px) {
       font-size: 18px;
       line-height: 22px;
-    }    
+    }
 
     &:last-child{
       margin-bottom: 0;
@@ -220,17 +220,17 @@ ion-content, ion-toolbar{
     display: flex;
     font-size: 14px;
     line-height: 1;
-    margin: 0 0 16px 0; 
+    margin: 0 0 16px 0;
     @media (min-width: 321px) {
       font-size: 18px;
       line-height: 22px;
-    }    
+    }
 
     &:last-child{
       margin-bottom: 0;
     }
 
-    
+
     &:before{
       content: '';
       display: block;
@@ -240,7 +240,7 @@ ion-content, ion-toolbar{
       background-color: #000000;
       margin: 0 8px 0 0;
     }
-   
+
     &--quarentine{
       &:before{
         background-color: #ffca08;
@@ -258,7 +258,7 @@ ion-content, ion-toolbar{
     }
     &--immune{
       &:before{
-        background-color: #4CC380;
+        background-color: #00AAE4;
       }
     }
   }
@@ -273,10 +273,10 @@ ion-content, ion-toolbar{
   @media (min-width: 321px) {
     font-size: 18px;
     line-height: 22px;
-  }    
+  }
 
-  &--error{    
-    color: #c80f2e;  
+  &--error{
+    color: #c80f2e;
     background-color: #fdeff3;
   }
 

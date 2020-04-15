@@ -4,6 +4,7 @@ import { DataFormSendDiagnostic } from '../../app-container/diagnostic-send/diag
 import { ActivatedRoute } from '@angular/router';
 import { PatientWithRelations } from '../sdk/model/patientWithRelations';
 import { getNameStatus } from '../utils/status-utils';
+import { PatientStatus } from '../../../../../server/src/common/utils/enums';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { getNameStatus } from '../utils/status-utils';
 export class ConfirmSendDiagnosticComponent implements OnInit {
 
     dataForm: DataFormSendDiagnostic;
+
+    public STATUS = PatientStatus;
 
     constructor(
         public modalCtrl: ModalController,
