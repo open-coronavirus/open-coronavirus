@@ -8,6 +8,7 @@ import { TestQuestion, TestQuestionControllerService, TestResultControllerServic
 import { PatientService } from "../../shared/services/patient.service";
 import { TestType } from '../../../../../server/src/common/utils/enums';
 import { TestResultService } from "../../shared/services/test-result.service";
+import { TestQuestionService } from '../../shared/services/test-question.service';
 
 
 @Component({
@@ -34,14 +35,17 @@ export class AutotestComponent implements OnInit, OnDestroy {
 
     protected subscriptions: Array<Subscription> = new Array();
 
-    constructor(protected activatedRoute: ActivatedRoute,
+    constructor(
+        protected activatedRoute: ActivatedRoute,
         protected location: Location,
         protected testResultService: TestResultService,
         protected patientService: PatientService,
         protected testQuestionControllerService: TestQuestionControllerService,
         protected testResultControllerService: TestResultControllerService,
+        private testQuestionService: TestQuestionService,
         protected autotestAnswers: AutotestAnswers,
         protected router: Router) {
+
         this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
             if (params.hasOwnProperty('question_id')) {
                 this.questionId = params['question_id'];
@@ -55,43 +59,46 @@ export class AutotestComponent implements OnInit, OnDestroy {
                 this.questionnaireId = params['questionnaire_id'];
             }
 
-            this.subscriptions.push(this.testQuestionControllerService.testQuestionControllerFindByQuestionId(this.questionId).subscribe(question => {
-                this.currentQuestion = question;
-
-                if (this.currentQuestion.hasOwnProperty('target')) {
-                    this.commonTarget = this.currentQuestion.target;
-                } else {
-                    this.commonTarget = null;
-                }
-
-                if (this.currentQuestion.hasOwnProperty('title')) {
-                    this.title = this.currentQuestion.title;
-                } else {
-                    this.title = null;
-                }
-
-                if (this.currentQuestion.hasOwnProperty('showExitButton')) {
-                    this.showExitButton = this.currentQuestion.showExitButton;
-                } else {
-                    this.showExitButton = false;
-                }
-
-                if (this.currentQuestion.hasOwnProperty('subtitle')) {
-                    this.subtitle = this.currentQuestion.subtitle;
-                } else {
-                    this.subtitle = null;
-                }
-                if (this.currentQuestion.hasOwnProperty('question')) {
-                    this.questionText = this.currentQuestion.question;
-                } else {
-                    this.questionText = null;
-                }
-            }));
-
+            this.getQuestion();
         }));
+
     }
 
     public ngOnInit(): void {
+
+    }
+
+    private getQuestion() {
+        this.currentQuestion = this.testQuestionService.getQuestion(this.questionId);
+
+        if (this.currentQuestion.hasOwnProperty('target')) {
+            this.commonTarget = this.currentQuestion.target;
+        } else {
+            this.commonTarget = null;
+        }
+
+        if (this.currentQuestion.hasOwnProperty('title')) {
+            this.title = this.currentQuestion.title;
+        } else {
+            this.title = null;
+        }
+
+        if (this.currentQuestion.hasOwnProperty('showExitButton')) {
+            this.showExitButton = this.currentQuestion.showExitButton;
+        } else {
+            this.showExitButton = false;
+        }
+
+        if (this.currentQuestion.hasOwnProperty('subtitle')) {
+            this.subtitle = this.currentQuestion.subtitle;
+        } else {
+            this.subtitle = null;
+        }
+        if (this.currentQuestion.hasOwnProperty('question')) {
+            this.questionText = this.currentQuestion.question;
+        } else {
+            this.questionText = null;
+        }
     }
 
     public answer(ev, answer: any) {
@@ -145,30 +152,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
                             break;
                     }
 
-                    setTimeout(() => { this.router.navigate([urlNext]); }, 200);
-
-                    // even if we have send the test, wait until the result is loaded again (to ensure that
-                    // we are working with the server version of the object
-                    // this.subscriptions.push(this.testResultService.testResultLoaded$.subscribe(loaded => {
-                    //     if (loaded) {
-
-                    //         switch (this.testResultService.testResult.action) {
-                    //             case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HEALTH_CENTER:
-                    //                 this.router.navigate(['/app/test-appointment/at-health-center/request']);
-                    //                 break;
-                    //             case TestActionEnum.SCHEDULE_TEST_APPOINTMENT_AT_HOME:
-                    //                 this.router.navigate(['/app/test-appointment/at-home/request']);
-                    //                 break;
-                    //             case TestActionEnum.SHOW_PHONE_INFORMATION:
-                    //             default:
-                    //                 target = "recommendations_and_contact_phones";
-                    //                 const nextLevel = +this.level + 1;
-                    //                 this.router.navigate(['/app/autotest/' + this.questionnaireId + nextLevel + '/' + target]);
-                    //                 break;
-                    //         }
-                    //     }
-                    // }));
-
+                    this.router.navigate([urlNext]);
                 }
 
             }));
@@ -179,9 +163,7 @@ export class AutotestComponent implements OnInit, OnDestroy {
                 window.open(target, "_system");
             } else {
                 const nextLevel = +this.level + 1;
-                setTimeout(() => {
-                    this.router.navigate(['/app/autotest/' + this.questionnaireId + '/' + nextLevel + '/' + target]);
-                }, 200);
+                this.router.navigate(['/app/autotest/' + this.questionnaireId + '/' + nextLevel + '/' + target]);
             }
         }
     }
@@ -193,11 +175,11 @@ export class AutotestComponent implements OnInit, OnDestroy {
     public ngOnDestroy(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe();
-        })
+        });
     }
 
     public backToHome() {
-        this.router.navigate(['/app/home'])
+        this.router.navigate(['/app/home']);
     }
 
 }

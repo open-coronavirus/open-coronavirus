@@ -198,6 +198,11 @@ export class MainComponent implements OnDestroy {
         this.router.navigate(['/app/my-info']);
     }
 
+    public goWelcome() {
+        this.closeMenu();
+        this.router.navigate(['/welcome', 1]);
+    }
+
     public share() {
         this.shareService.share();
     }

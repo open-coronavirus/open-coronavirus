@@ -5,7 +5,7 @@ import {MainComponent} from './main/main.component';
 
 const routes: Routes = [
     {
-        path: 'welcome',
+        path: 'welcome/:goHome',
         children: [
           {
             path: '',
@@ -25,7 +25,7 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'permissions',
+        path: 'permissions/:type',
         children: [
             {
                 path: '',
@@ -41,6 +41,16 @@ const routes: Routes = [
                 path: '',
                 loadChildren: () =>
                     import('./no-access/no-access.module').then(m => m.NoAccessModule)
+            }
+        ]
+    },
+    {
+        path: 'update',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./update/update.module').then(m => m.UpdateModule)
             }
         ]
     },

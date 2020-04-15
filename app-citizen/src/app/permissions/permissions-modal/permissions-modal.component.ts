@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController, NavParams} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 import {PatientService} from '../../shared/services/patient.service';
 import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 import {PushNotificationService} from "../../shared/services/push-notification.service";
+import { PermissionsService } from 'src/app/shared/services/permissionsService.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-permissions-modal',
@@ -15,19 +17,23 @@ export class PermissionsModalComponent implements OnInit {
 
   constructor(
     public modalCtrl: ModalController,
-    public navParams: NavParams,
     protected geolocationtrackingService: GeolocationTrackingService,
     protected pushNotificationService: PushNotificationService,
     protected bluetoothTrackingService: BluetoothTrackingService,
-    public patientService: PatientService
+    public patientService: PatientService,
+    public permissionsService: PermissionsService,
+    protected navCtrl: NavController,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.type = this.navParams.get('type');
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.type = params.get('type');
+    });
   }
 
   dismissModal() {
-    this.modalCtrl.dismiss({});
+    this.permissionsService.goToNextPermission();
   }
 
   activatePermission() {
@@ -39,6 +45,7 @@ export class PermissionsModalComponent implements OnInit {
       case 'gps':
         console.debug('Activating geolocation ...');
         this.geolocationtrackingService.startBackgroundGeolocation();
+        this.dismissModal();
         break;
       case 'bluetooth':
         console.debug('Activating bluetooth tracking ...');
@@ -46,7 +53,6 @@ export class PermissionsModalComponent implements OnInit {
         break;
     }
 
-    this.modalCtrl.dismiss({});
   }
 
 }

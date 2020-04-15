@@ -50,6 +50,10 @@
     </ion-content>
     <ion-toolbar>
         <div>
+            <div class="menu__item" (click)="goWelcome()">
+                <img class="button-icon" src="/assets/icons/svg/icon-movil-app.svg">
+                <ng-container i18n="@@howWorkMenuLabel">Cómo funciona</ng-container>
+            </div>
             <div class="menu__item" (click)="goAbout()">
                 <img class="button-icon" src="/assets/icons/svg/icon-movil-app.svg">
                 <ng-container i18n="@@InfoAppMenuLabel">Sobre la APP</ng-container>
