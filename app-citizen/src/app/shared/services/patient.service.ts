@@ -53,8 +53,10 @@ export class PatientService {
 
         let returnValue = new Subject<boolean>();
 
-        this.setPatientToken(patientToken).subscribe(success => {
-            if (success) {
+        this.patientController.patientControllerFindById(patientToken).subscribe(existingPatient => {
+            if (existingPatient != null) {
+                this._patient = existingPatient;
+                this.patientToken = patientToken;
                 this.patientLoaded$.next(true);
                 returnValue.next(true);
             } else {
@@ -64,27 +66,6 @@ export class PatientService {
 
         return returnValue;
     }
-
-    public setPatientToken(patientToken: string) {
-
-        let returnValue = new Subject();
-
-        this.patientController.patientControllerFindById(patientToken).subscribe(existingPatient => {
-
-            if (existingPatient != null) {
-                this._patient = existingPatient;
-                this.patientToken = patientToken;
-                returnValue.next(true);
-            } else {
-                returnValue.next(false);
-            }
-
-        });
-
-        return returnValue;
-
-    }
-
 
     public changeStatus(newStatus: number) {
         // todo

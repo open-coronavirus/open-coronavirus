@@ -20,7 +20,7 @@ export enum TestType {
 }
 
 export enum PatientStatus {
-    UNKNOWN= 0,
+    UNKNOWN = 0,
     INFECTED = 1,
     UNINFECTED = 2,
     INFECTION_SUSPECTED = 3,

@@ -40,6 +40,8 @@ export class HomeComponent implements OnDestroy {
 
     public serviceAdvertisementUUID;
 
+    public STATUS = PatientStatus;
+
     constructor(
         protected router: Router,
         public patientService: PatientService,
