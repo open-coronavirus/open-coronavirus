@@ -8,7 +8,6 @@ import { PatientService } from './shared/services/patient.service';
 import { StorageService } from './shared/services/storage.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { TestQuestionService } from './shared/services/test-question.service';
-import { versionCompare } from '../../../app-health/src/app/shared/utils/utils';
 import { MinVersionControllerService } from './shared/sdk/api/minVersionController.service';
 import { GetMinVersion } from './shared/sdk/model/getMinVersion';
 
@@ -53,10 +52,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-
-      this.getConfig();
+      this.checkUpdateApp();
       this.onChangeDetect();
-
     });
   }
 
@@ -79,35 +76,24 @@ export class AppComponent {
     }
   }
 
+  async checkUpdateApp() {
+    this.minVersionControllerService.minVersionControllerUpdateNeeded(this.settings.appVersion).subscribe(
+      needUpdate => {
+        if (needUpdate) {
+          console.log('Por favor actualice la app');
+          this.navCtrl.navigateRoot(['update']);
+        } else {
+          console.log('No se necesita update');
+          this.checkWelcome();
+        }
 
-  async getConfig() {
-    // TEST
-    // this.checkUpdateApp();
-
-    // REAL
-    this.minVersionControllerService.minVersionControllerFind().subscribe(
-      res => {
-        this.version = res;
-        console.log("version: ", this.version);
-        this.checkUpdateApp();
       },
       err => {
-        console.log('error obteniendo configuration: ', err);
-        this.checkUpdateApp();
+        console.log('error obteniendo checkUpdateApp: ', err);
+        this.checkWelcome();
       }
     );
   }
-
-  checkUpdateApp() {
-    if (((!this.version || !this.version.minVersion) || versionCompare(this.settings.appVersion, this.version.minVersion) >= 0)) {
-      console.log('No se necesita update');
-      this.checkWelcome();
-    } else {
-      console.log('Por favor actualice la app');
-      this.navCtrl.navigateRoot(['update']);
-    }
-  }
-
 
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {

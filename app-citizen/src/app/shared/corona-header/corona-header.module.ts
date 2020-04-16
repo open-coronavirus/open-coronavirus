@@ -6,8 +6,8 @@ import {CoronaHeaderComponent} from './corona-header.component';
 
 @NgModule({
     imports: [
-        IonicModule,
         CommonModule,
+        IonicModule,
         FormsModule,
         ReactiveFormsModule
     ],

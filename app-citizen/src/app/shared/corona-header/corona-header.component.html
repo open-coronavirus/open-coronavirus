@@ -4,8 +4,8 @@
         <ion-menu-button *ngIf="showMenu" class="menu-icon" (click)="openMenu()" autoHide="false"></ion-menu-button>
     </ion-buttons>
     <div i18n="@@headerTitleLine" class="header-app__title">
-      <ng-container *ngIf="!settings.header.logo"><strong>OPEN</strong> CORONAVIRUS</ng-container>
-      <img *ngIf="settings.header.logo" class="" [src]="settings.logo">
+      <span *ngIf="settings.header.text" [innerHTML]="settings.header.text"></span>
+      <img *ngIf="settings.header.logo" class="" [src]="settings.header.logo">
     </div>
   </ion-toolbar>
 </ion-header>

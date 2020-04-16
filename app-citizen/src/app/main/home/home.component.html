@@ -89,11 +89,16 @@
 
     </ng-container>
 
+    <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
+
 </ion-content>
 
 <!--  INMUNE -->
 <ng-container *ngIf="patientService.patient?.status === STATUS.IMMUNE" >
 <ion-footer class="ion-no-border">
+
+
+
     <ion-toolbar class="footer-app" >
         <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
             <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">

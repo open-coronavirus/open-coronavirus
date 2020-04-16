@@ -13,6 +13,8 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
 
     public patientInfoForm: FormGroup;
 
+    public enabledDateValidation: boolean;
+
     public get isValid(): boolean {
         if (this.patientInfoForm != null) {
             if (this.patientInfoForm.status != 'INVALID') {
@@ -182,6 +184,11 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
 
     public ngAfterViewInit() {
         //  todo
+    }
+
+    public changeDate(ev) {
+        console.log("changeDate: ", ev);
+        this.enabledDateValidation = true;
     }
 
 
