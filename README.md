@@ -9,14 +9,19 @@ The **Open Coronavirus** project offers, for this time interval, a digital solut
 for **monitoring, diagnosing and containing SARS-CoV-2 infection** that allows quarantine measures to be applied in a controlled manner at focal points or hotspots, thus minimizing the general quarantine of the population, reducing the overload of health systems, and at the same time facilitating the progressive resumption of daily activity in the shortest possible time.
 
 The system will have 3 applications:
-- **Citizen App**. Mobile application for citizen collaboration and to control the spread of SARS-CoV-2.
-    From the application **a diagnostic test will be requested, and the results of the test can be seen.**
-All citizen movements will be stored to control possible infection and to delimit the scope of action of SARS-CoV-2 by the health authorities.
-    It will serve as **QR-code based citizen identification.**
-- **Data control software** where health and epidemiological control authorities will be able to consult and detect the movements of SARS-CoV-2.
-    From the software, they will be able to see focal points of infection, compliance of mandatory quarantine for those infected or potentially infected.
-- **Authorities’ App**. Mobile application that enables relevant authorities to read citizens’ QR identification codes in the locations where they have decided to monitor
-their movements in this way.
+- **Citizen App**. Collaborative Mobile app to control spread of SARS-CoV-2.
+
+    The application allows you to **request a test, and receive the ensuing results.** Will be made possible **by a personalised QR code to identify the user.**
+
+    **Anonymous cross paths** of the user (with **Bluetooth Low Energy**) will be logged into his mobile to control possible infections and
+to enable SARS-CoV-2 monitoring by health authorities.
+
+   
+- **Centralised Data Management Software (coming soon)** where health & epidemiologic control authorities will track the spread of SARS-CoV-2.
+
+- **Authorities App.** Mobile app enabling authorities to read the users' QR codes
+where needed, as well as tracking the users' mobility.
+
 
 
 
@@ -48,6 +53,34 @@ The design is flexible enough to add or change functionalities in an easy and fa
 This application aims to help citizens and fight the pandemic.
 Be responsible. Together, we will defeat the virus!
 \#iamstayinghome
+
+## How is the app follow the spread of the virus based on the Bluetooth Low Energy?
+
+The app uses **Bluetooth Low Energy** technology which is able to track possible COVID-19 exposure. Every citizen has the application installed and with bluetooth connected. 
+
+This is how the **Bluetooth LE** system works:
+
+1. When **two citizens are physically close** their phones will exchange **anonymous identification codes** through Bluetooth LE. Each of these encounters will be stored in the phone's memory.
+
+    The proximity of the the two phones is measured based on the intensity of the bluetooth signal. It will also store the amount of time that you were with the individual who is COVID-19 positive to know your level of exposure to the virus.
+
+    **This information will only be stored for a limited period of time** as a protection to citizens' privacy.
+    You can figure the amount of time using the tool but **it is recommended to be set to between 14 and 37 days** which is the amount of time in which a diagnosed carrier would have been able to infect others with COVID-19.
+
+2. **In the case that a citizen is tested positive for COVID-19**, the application would update your QR status to red and perform the analysis to determine which people you could have been in close proximity to.
+
+    The system **will upload to a server all potentially contagious encounters** and would send a push notification to those individuals so that they would be aware of the potential risk and/or to encourage them to have a diagnostic test.
+
+> It is fundamentally important that the official health system of the administration or government be properly integrated with the application.
+
+---
+
+This past **10th of April 2020, Apple and Google** made an [official agreement](insert link here) to implement a native level contract tracing technology on their operating system using Bluetooth Low Energy technology.
+
+Conceptually it is a similar strategy to what is used in _Open Coronavirus_.
+
+> As soon as API SDK is functioning we will work to connect our bluetooth system to the native system to have more inclusive and optimal results. 
+
 ## Legal considerations
 **The project has not been published.** Before publishing, one of the things that must be done is its adaptation to the legislation on the processing of personal data.
 **The project is available to any Ministry of Health, state administration or competent autonomous administration** for implementation. They will be responsible for the dissemination of the app and processing of the data obtained, following the GDPR Law.
@@ -65,6 +98,8 @@ Open-coronavirus is being designed according to the following principles:
 - **Use of an open-source approach** to create an app to fosters trust in the app’s privacy protection capabilities, as independent experts and media can access and evaluate the source code.
 
 The principles outlined above, while being technically compatible with current data privacy regulations are inspired in **Apps Gone Rogue**: <a href="https://arxiv.org/pdf/2003.08567.pdf" target="_blank">Maintaining Personal Privacy in an Epidemic</a>
+
+
 
 
 ## Project Structure
@@ -127,6 +162,12 @@ This allows you to run the app in a browser.
 > Special thanks to **Alex Nogues** for translate to english the wiki
 
 > Special thanks to **Marc Mauri** for translate to catalan the app
+
+> Special thanks to **Yaiza Berenguer** for translate to french the app
+
+> Special thanks to **Laura Gea** for translate to italian the app
+
+> Special thanks to **Ma. Amparo Aymerich** for translate to german the app
 
 ## How you can help
 PRs welcome.

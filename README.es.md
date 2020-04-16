@@ -21,23 +21,22 @@ El sistema contará con 3 aplicativos:
 - **App Ciudadano**. Aplicación mobile para la colaboración ciudadana y control de la propagación del
 SARS-CoV-2.
 
-    Desde la aplicación **se solicitará un test diagnóstico y ver los resultados del mismo.**
-Se almacenará todo movimiento del ciudadano para controlar posibles contagios y
-cercar el ámbito de acción del SARS-CoV-2 desde las autoridades sanitarias.
+    Desde la aplicación **se solicitará un test diagnóstico y ver los resultados del mismo.** Servirá como identificación del ciudadano **mediante códigos QR** que determinará este estado.
 
-    Servirá como **identificación del ciudadano mediante códigos QR.**
+    Se almacenará en el dispositivo de cada ciudadano los **cruces con otros ciudadanos de forma anónima** a partir de la información obtenida por **Bluetooth Low Energy**.
 
-- **Software de control datos** donde las autoridades sanitarias y de control
-epidemiológico podrán consultar y detectar los movimientos del SARS-CoV-2.
+    De esta forma controlar posibles contagios y cercar el ámbito de acción del SARS-CoV-2 desde las autoridades sanitarias.
 
-    Desde el software se podrán ver los focos de contagio, el cumplimiento de la
-cuarentena obligatorio para contagiados o posibles contagiados.
+    La APP está pensada como **INCENTIVO** (te informa, etc.) no como una obligación.
+
+- **Software de control datos (próximamente)** donde las autoridades sanitarias y de control
+epidemiológico podrán consultar y detectar posibles contagios del SARS-CoV-2.
 
 - **App Autoridades.** Aplicación mobile para que las autoridades pertinentes puedan leer los QR de
 identificación del ciudadano en los entornos que se decidan así como monitorizar
 su movilidad.
 
-| ![Apps Open Coronavirus](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/wiki-app-3.jpg) | 
+| | 
 |:--:| 
 | *Ejemplo de las 3 aplicaciones para distintos tipos de usuarios* |
 
@@ -77,6 +76,36 @@ Esta aplicación pretende ser de ayuda a los ciudadanos y poder hacer frente a l
 Sé responsable. Entre todos, ¡venceremos al virus!
 \#yomequedoencasa
 
+## ¿Cómo funciona el sistema de seguimiento de contagios basado en Bluetooth Low Energy?
+
+La APP utiliza la tecnología **Bluetooth Low Energy** mediante la cual se hace seguimiento de posibles contagios de COVID-19.
+Cada ciudadano tiene la aplicación instalada y con el bluetooth conectado.
+
+El funcionamiento del sistema **Bluetooth LE** es el siguiente:
+
+1. Cuando **dos ciudadanos estén cerca físicamente**, sus teléfonos intercambiarán unos **códigos identificadores anónimos** mediante Bluetooth LE.
+Cada móvil guarda en su memoria del teléfono estos cruces entre ciudadanos.
+
+    El nivel de cercanía se calcula a partir de la intensidad de la señal de bluetooth.
+También se almacena el tiempo en el que has estado cerca de ese dispositivo para conocer la exposición al COVID-19 en caso de que el ciudadano padeciera la enfermedad.
+
+    **El almacenamiento de esta información es por tiempo limitado** protegiendo aún más la privacidad del ciudadano.
+    Ese tiempo es configurable en la herramienta pero **se recomienda entre 14 y 37 días** ya que es el tiempo en el que un portador diagnosticado podría haber infectado a otro individuo de COVID-19.
+
+2. **En el caso de que un ciudadano dé positivo por COVID-19**, la aplicación actualizará su estado QR a rojo y analizará los posibles cruces de cercanía con otros ciudadanos.
+
+    El sistema **subirá al servidor estos cruces de ciudadanos en los cuales se haya podido producir un posible contagio** y a estos ciudadanos les notificará vía push para que sean conscientes del riesgo y/o vuelvan ha realizarse un test diagnóstico.
+
+> Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno este correctamente integrado con la aplicación.
+
+
+---
+
+El pasado **10 de Abril de 2020 Apple y Google** hicieron [oficial un acuerdo](https://www.apple.com/newsroom/2020/04/apple-and-google-partner-on-covid-19-contact-tracing-technology/) para implementar de forma nativa a nivel del sistema operativo una tecnología de traceo de contacto mediante Bluetooth Low Energy.
+
+Conceptualmente es similar a la estrategia utilizada en _Open Coronavirus_.
+
+> En cuanto la API SDK este funcionando trabajaremos para conectar nuestro sistema de bluetooth al nativo para tener un resultado incluso más óptimo
 
 ## Consideraciones legales
 
@@ -97,7 +126,7 @@ Así mismo, pese a que esta app solicita al usuario su consentimiento, también 
 
 ## Estrategia de mitigación de riesgos para maximizar la privacidad y la utilidad de los datos
 Open Coronavirus se está diseñando de acuerdo con los siguientes principios:
-- ** Cumplimiento de los derechos de privacidad del usuario: ** Creemos que nadie debería estar obligado a compartir su información personal. Por un lado, los no contagiados (es decir, aquellos que resultaron negativos) no están obligados a compartir información personal con un tercero. Por otro lado, a los diagnosticados con el SARS-CoV-2 se les pedirá que compartan información, sólo con el consentimiento previo del usuario y de manera descentralizada, encriptada y temporal para ayudar a implementar el módulo de rastreo de riesgo geoespacial, incluidas las alertas del usuario, que son necesarias para mantener una vigilancia efectiva.
+- **Cumplimiento de los derechos de privacidad del usuario:** Creemos que nadie debería estar obligado a compartir su información personal. Por un lado, los no contagiados (es decir, aquellos que resultaron negativos) no están obligados a compartir información personal con un tercero. Por otro lado, a los diagnosticados con el SARS-CoV-2 se les pedirá que compartan información, sólo con el consentimiento previo del usuario y de manera descentralizada, encriptada y temporal para ayudar a implementar el módulo de rastreo de riesgo geoespacial, incluidas las alertas del usuario, que son necesarias para mantener una vigilancia efectiva.
 
 - **El almacenamiento por tiempo limitado de los desplazamientos utilizados protege aún más la privacidad de los diagnósticos portadores del virus SARS-CoV-2.** En este sentido, primero sólo se debe almacenar información confidencial anónima y agregada. Además, la cantidad de tiempo adecuada para el almacenamiento de datos debe ser igual y no exceder el tiempo durante el cual un portador diagnosticado podría haber infectado a otro individuo, que para Covid-19 es entre 14 y 37 días.
 - **Uso de una red distribuida** en lugar de un servidor central
@@ -175,6 +204,21 @@ Esto permite ejecutar la app en un browser.
 ## Licencia
 
 [Licencia MIT](license.md)
+
+
+## Agradecimientos especiales
+
+> Agradecimiento especial a **Trayma Traducciones** por las traducciones al inglés
+
+> Agradecimiento especial a **Alex Nogues** por las traducciones al inglés de la wiki
+
+> Agradecimiento especial a **Marc Mauri** por las traducciones al catalán
+
+> Agradecimiento especial a **Yaiza Berenguer** por las traducciones al francés
+
+> Agradecimiento especial a **Laura Gea** por las traducciones al italiano
+
+> Agradecimiento especial a **Ma. Amparo Aymerich** por las traducciones al alemán
 
 
 ## Cómo colaborar
