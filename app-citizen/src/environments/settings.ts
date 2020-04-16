@@ -1,8 +1,8 @@
 export const settings = {
     header: {
         logo: '',
-        text: '<strong>OPEN</strong> CORONAVIRUS',
-        bgcolor: '#c80f2e'
+        text: '<strong>Sacyl</strong> CORONAVIRUS', //'<strong>OPEN</strong> CORONAVIRUS',
+        bgcolor: '#6599CB' //#c80f2e'
     },
     footer: {
         logo: '/assets/images/icon-escudo-castilla-leon.svg',

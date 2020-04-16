@@ -6,24 +6,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="modal-text" fullscreen>
-  <h1 class="screen-title" i18n="@@contactUploadRequestTitle1">Las autoridades solicitan que compartas tus datos</h1>
-  <p class="screen-text">
-    <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
-  </p>
-  <h3 class="screen-subtitle" i18n="@@contactUploadRequestTitle2">Enviar datos adquiridos por bluetooth</h3>
-  <p class="screen-text" i18n="@@contactUploadRequestText1">
-    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades piden que des autorizacióin para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.
-  </p>
-
-  <p class="screen-text" i18n="@@contactUploadRequestText2">
-    De este modo estás ayudando y protegiendo a muchas personas.<br/>
-    ¡A este virus le ganamos entre todos!
-  </p>
+  <h1 class="screen-title" i18n="@@contactUploadRequestTitle1">Resultado de tu test diagnóstico</h1>
+  <p class="recuadro-test recuadro-test--positivo-virus" i18n="@@contactUploadRequestTitle2">Has dado <br><strong>POSITIVO</strong> en COVID-19</p>
+  <h2 class="screen-subtitle" i18n="@@contactUploadRequestSubTitle1">¡NECESITAMOS TU AYUDA!</h2>
+  <p class="screen-text" i18n="@@contactUploadRequestText1">Pulsando <strong>Colaborar</strong> das tu autorización para enviar tus datos y autorizar su uso: podremos avisar a las personas con las que te has cruzado diciéntoles que han estado a una distancia de riesgo de una persona que ha dado positivo en COVID19, pero sin especificar quién.</p>
+  <p class="screen-text" i18n="@@contactUploadRequestText2">Esta colaboración puede ayudar a contener al virus y estarás ayudando y protegiendo a muchas personas.</p>
 
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
-    <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">ENVIAR DATOS Y AUTORIZAR SU USO</button>
-    <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO, QUIZÁS EN OTRO MOMENTO</button>
+    <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO COLABORAR</button>
+    <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">COLABORAR</button>
   </ion-toolbar>
 </ion-footer>

@@ -6,7 +6,7 @@
             <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
         </div>
         <div class="result__col-texts">
-            <p class="result__title" i18n="@@identity">Identificación</p>
+            <p class="result__title" i18n="@@identity" (click)="valeriaDemoConfirmarContact()">Identificación</p>
             <p class="result__name">{{ patientName }}</p>
             <p class="result__title" i18n="@@results">Resultado COVID-19</p>
             <h3 class="result__status">{{ getTextStatus() }}</h3>

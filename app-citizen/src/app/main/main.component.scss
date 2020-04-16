@@ -12,6 +12,13 @@
     @media (min-width: 321px) {
       padding-top: 40px;
     }
+    .ios &{
+      padding-top: 40px;
+
+      @media (min-width: 321px) {
+        padding-top: 80px;
+      }
+    }
     
     &-circle {
       width: 48px;
