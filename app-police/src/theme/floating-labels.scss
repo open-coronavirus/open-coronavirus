@@ -8,8 +8,8 @@
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.5;
   border: 2px solid #e2e2e2 !important;
   border-radius: 4px;
@@ -25,8 +25,8 @@
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.5;
   border: 2px solid #e2e2e2 !important;
   border-radius: 4px;
@@ -47,10 +47,11 @@
 
 .error {
   color: #c80f2e;
+  padding-top: 2px;
   font-size: 14px;  
   line-height: 1.2;
   @media (min-width: 321px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -167,6 +168,10 @@ label {
   pointer-events: none;
   z-index: 2;
   font-weight: 300;
+  font-size: 14px;
+  @media (min-width: 321px) {
+    font-size: 16px;
+  }
 }
 
 .form-label-group input::-webkit-input-placeholder, .form-label-group select::-webkit-input-placeholder{
