@@ -111,7 +111,7 @@ export class AppComponent {
 
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
-      if (welcomeVisit) {
+      if (welcomeVisit && false) {
         // this.navCtrl.navigateRoot(['register']);
         this.loadPatient();
       } else {
