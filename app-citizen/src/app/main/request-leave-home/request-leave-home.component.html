@@ -10,6 +10,6 @@
   <p class="screen-text" i18n="@@requestLeaveHomeDescriptionLine1">Estamos en estado de alerta.</p>
   <p class="screen-text" i18n="@@requestLeaveHomeDescriptionLine2">Selecciona el motivo por el que vas a salir:</p>
 
-  <gray-option *ngFor="let leaveReason of leaveRequestService.leaveReasons;" (click)="requestLeaveHome(leaveReason.id)" [icon]="leaveReason.icon != null?'/assets/icons/svg/' + leaveReason.icon:null" [text]="leaveReason.label"></gray-option>
-          
+  <gray-option *ngFor="let leaveReason of leaveRequestService.leaveReasons;" (click)="requestLeaveHome($event,leaveReason.id)" [icon]="leaveReason.icon != null?'/assets/icons/svg/' + leaveReason.icon:null" [text]="leaveReason.label"></gray-option>
+
 </ion-content>
