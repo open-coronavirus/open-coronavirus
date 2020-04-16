@@ -14,5 +14,6 @@
 export interface InlineObject { 
     documentNumber: string;
     status: number;
+    date?: string;
 }
 
