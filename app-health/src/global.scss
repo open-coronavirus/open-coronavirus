@@ -218,6 +218,7 @@ ion-content, ion-toolbar{
   }
   &__status{
     display: flex;
+    align-items: center;
     font-size: 14px;
     line-height: 1;
     margin: 0 0 16px 0;

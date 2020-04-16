@@ -7,8 +7,8 @@
   &__header{
     display: flex;
     align-items: center;
-    margin: 0 16px;
-    padding: 24px 0 16px 0;
+    background-color: #ffffff;
+    padding: 24px 16px 16px 16px;
     @media (min-width: 321px) {
       padding-top: 40px;
     }
