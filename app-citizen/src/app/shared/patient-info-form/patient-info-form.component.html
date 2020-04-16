@@ -33,7 +33,7 @@
     </div>
     <div class="form-row">
         <div class="form-group form-label-group form-label-group--half">
-            <input type="text" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode" i18n-placeholder placeholder="Código postal">
+            <input type="tel" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode" i18n-placeholder placeholder="Código postal">
             <label for="postalCode" i18n="@@postalCodeLabel">Código postal</label>
             <small class="error" *ngIf="postalCode.invalid && postalCode.touched" i18n="@@postalCodeError">Por favor, introduce un código postal válido</small>
         </div>
