@@ -18,7 +18,10 @@ export class RequestLeaveHomeComponent {
 
     }
 
-    public requestLeaveHome(value) {
+    public requestLeaveHome(ev, value) {
+        if (!ev) {
+            return;
+        }
 
         if (value < 8) {
             if (this.settings.screens.selfDeclarationLeave) {
