@@ -29,6 +29,8 @@ export class HomeComponent implements OnDestroy {
 
     public icon;
 
+    public numItemMenu: number = 4;
+
     public appointmentDescriptionLine1: string;
     public appointmentDescriptionLine2: string;
 

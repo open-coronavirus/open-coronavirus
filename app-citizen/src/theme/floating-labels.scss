@@ -18,6 +18,10 @@
   background-clip: padding-box;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   outline: none;
+
+  @media (min-width: 321px) {
+    font-size: 18px;
+  }
 }
 
 .form-textarea{  
@@ -35,6 +39,10 @@
   background-clip: padding-box;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   height: 230px;
+
+  @media (min-width: 321px) {
+    font-size: 18px;
+  }
 
   &--mb{
     margin-bottom: 16px;
@@ -168,9 +176,9 @@ label {
   pointer-events: none;
   z-index: 2;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
   @media (min-width: 321px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 

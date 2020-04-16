@@ -5,7 +5,7 @@ export const settings = {
         bgcolor: '#c80f2e'
     },
     footer: {
-        logo: '',
+        logo: '/assets/images/icon-escudo-castilla-leon.svg',
     },
     home : {
         moduleHome: true,
