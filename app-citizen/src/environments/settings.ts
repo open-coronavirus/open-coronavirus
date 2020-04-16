@@ -1,7 +1,11 @@
 export const settings = {
     header: {
         logo: '',
+        text: '<strong>OPEN</strong> CORONAVIRUS',
         bgcolor: '#c80f2e'
+    },
+    footer: {
+        logo: '',
     },
     home : {
         moduleHome: true,
