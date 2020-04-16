@@ -1,15 +1,15 @@
-import {Component, Inject, OnDestroy, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {ShareService} from '../../shared/services/share.service';
-import {PatientService} from '../../shared/services/patient.service';
-import {MenuController} from '@ionic/angular';
-import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {TestAppointmentService} from "../../shared/services/test-appointment.service";
-import {Subscription} from "rxjs";
-import {AppointmentType, PatientStatus} from "../../../../../server/src/common/utils/enums";
-import {LeaveRequest} from 'src/app/shared/sdk';
-import {ContactTrackerService} from 'src/app/shared/services/contacts/contact-tracker.service';
+import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { ShareService } from '../../shared/services/share.service';
+import { PatientService } from '../../shared/services/patient.service';
+import { MenuController } from '@ionic/angular';
+import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { TestAppointmentService } from "../../shared/services/test-appointment.service";
+import { Subscription } from "rxjs";
+import { AppointmentType, PatientStatus } from "../../../../../server/src/common/utils/enums";
+import { LeaveRequest } from 'src/app/shared/sdk';
+import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
 
 @Component({
     selector: 'home',
@@ -29,12 +29,12 @@ export class HomeComponent implements OnDestroy {
 
     public icon;
 
-    public numItemMenu: number = 2;
+    public numItemMenu: number;
 
     public appointmentDescriptionLine1: string;
     public appointmentDescriptionLine2: string;
 
-    public showSendContactInformationMenu=false;
+    public showSendContactInformationMenu = false;
     public contactsCount = null;
 
     protected subscriptions: Array<Subscription> = new Array();
@@ -87,7 +87,7 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
             if (patientLoaded) {
                 this.patientName = this.patientService.patient.firstName;
-                if(this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
+                if (this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
                     this.showSendContactInformationMenu = true;
                 }
                 else {
@@ -97,10 +97,10 @@ export class HomeComponent implements OnDestroy {
         }));
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
-            if(loaded) {
+            if (loaded) {
                 this.subscriptions.push(this.contactTrackerService.contactsCount$.subscribe(contactsCount => {
                     this.contactsCount = contactsCount;
-                    if(contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
+                    if (contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
                         this.showSendContactInformationMenu = true;
                     }
                     else {
@@ -127,7 +127,16 @@ export class HomeComponent implements OnDestroy {
         });
 
 
+        this.calculateNumItems();
+    }
 
+    private calculateNumItems() {
+        this.numItemMenu = 0;
+        for (const prop in this.settings.home) {
+            if (prop.substr(0, 6) === 'module' && this.settings.home[prop] === true) {
+                this.numItemMenu++;
+            }
+        }
     }
 
     public goToConfirmationRequestLeaveHome() {
