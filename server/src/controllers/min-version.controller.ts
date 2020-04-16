@@ -6,15 +6,38 @@ import {
   getModelSchemaRef,
   put,
   requestBody,
+  param,
 } from '@loopback/rest';
 import { MinVersion } from '../models';
 import { MinVersionRepository } from '../repositories';
+import { MinVersionService } from "../services/min-version.service";
+import { service } from '@loopback/core';
 
 export class MinVersionController {
   constructor(
-    @repository(MinVersionRepository)
-    public minVersionRepository: MinVersionRepository,
+    @repository(MinVersionRepository) public minVersionRepository: MinVersionRepository,
+    @service(MinVersionService) public minVersionService: MinVersionService
   ) { }
+
+  @get('/min-version/{frontVersion}/update_needed', {
+    responses: {
+      '200': {
+        description: 'CheckUpdateNeeded',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'boolean'
+            }
+          },
+        },
+      },
+    },
+  })
+  async updateNeeded(
+    @param.path.string('frontVersion') frontVersion: string,
+  ): Promise<boolean> {
+    return this.minVersionService.checkNeededUpdate(frontVersion);
+  }
 
   @get('/min-version', {
     responses: {
