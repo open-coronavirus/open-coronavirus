@@ -63,6 +63,9 @@ export class MainComponent implements OnDestroy {
                 if(this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
                     this.showSendContactInformationMenu = true;
                 }
+                else {
+                    this.showSendContactInformationMenu = false;
+                }
             }
         }));
 
@@ -72,6 +75,9 @@ export class MainComponent implements OnDestroy {
                     this.contactsCount = contactsCount;
                     if(contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
                         this.showSendContactInformationMenu = true;
+                    }
+                    else {
+                        this.showSendContactInformationMenu = false;
                     }
                 }));
             }

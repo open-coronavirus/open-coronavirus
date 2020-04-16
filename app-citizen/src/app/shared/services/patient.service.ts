@@ -109,6 +109,8 @@ export class PatientService {
 
         let returnValue = new Subject();
 
+        console.log("Update patient info: " + JSON.stringify(patient));
+
         this.patientController.patientControllerUpdateById(patient.id, patient).subscribe(exitingPatient => {
             this.refreshPatientData().subscribe(loaded => {
                 returnValue.next(true);

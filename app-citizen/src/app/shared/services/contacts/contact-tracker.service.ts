@@ -55,7 +55,7 @@ export class ContactTrackerService {
                                     this.connectedToDb$.next(true);
                                 } else {
                                     console.debug("Table contacts does not exits. Creatint it ...")
-                                    this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from timestamp, timestamp_to timestamp, rssi int);', [])
+                                    this.db.executeSql('CREATE TABLE contacts (id varchar(32), uuid varchar(36), timestamp_from integer, timestamp_to integer, rssi int);', [])
                                         .then(() => {
                                             this.connectedToDb$.next(true);
                                             this.refreshContactsCount();
@@ -82,8 +82,8 @@ export class ContactTrackerService {
         let contact = new Contact();
         contact.id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         contact.uuid = uuid;
-        contact.timestampTo = new Date().getTime();
         contact.timestampFrom = new Date().getTime();
+        contact.timestampTo = new Date().getTime();
         contact.rssi = rssi;
 
         return this._doTrackContact(contact, address);
@@ -236,14 +236,25 @@ export class ContactTrackerService {
                         contactToUpload.rssi = row.rssi;
                         contactToUpload.sourceUuid = this.patientServiceUUID;
                         contactToUpload.targetUuid = row.uuid;
-                        contactToUpload.timestampFrom = row.timestampFrom;
-                        contactToUpload.timestampTo = row.timestampTo;
+                        contactToUpload.timestampFrom = row.timestamp_from;
+                        contactToUpload.timestampTo = row.timestamp_to;
 
                         contactsToUpload.push(contactToUpload);
 
                     }
-                    console.log("[Contact tracker] Upload a total of " + contactsToUpload.length + " contacts to server ...");
-                    await this.contactControllerService.contactControllerCreateAll(contactsToUpload);
+                    console.log("[Contact tracker] Upload a total of " + contactsToUpload.length + " contacts to server: " + JSON.stringify(contactsToUpload));
+                    this.contactControllerService.contactControllerCreateAll(contactsToUpload).subscribe(result => {
+                        console.log("[Contact tracker] Uploaded a total of " + contactsToUpload.length + " contacts to server.");
+                        this.db.executeSql('DELETE FROM contacts', [])
+                            .then(() => {
+                                this.connectedToDb$.next(true);
+                                this.contactsCount$.next(0);
+                            })
+                            .catch(e => console.error(e));
+                    },
+                    error => {
+                        console.error(JSON.stringify(error));
+                    });
                 } else {
                     existsMoreRows = false;
                 }
