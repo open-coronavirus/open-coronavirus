@@ -38,7 +38,7 @@
   height: 25px;
 }
 
-ion-content, ion-toolbar{
+ion-content, ion-toolbar, ion-header{
   --background:	#ffffff;
   --color:	#3d3d3d;
   --padding-bottom: 16px;
@@ -209,6 +209,9 @@ ion-content, ion-toolbar{
   &--mb-md{
     margin-bottom: 24px;
   }
+  &--mt-md{
+    margin-top: 32px!important;
+  }
 }
 .circle-icon{
   margin: 16px 0;
@@ -331,6 +334,7 @@ ion-content, ion-toolbar{
   }
   &__status{
     display: flex;
+    align-items: center;
     font-size: 14px;
     line-height: 1;
     margin: 0 0 16px 0;
@@ -425,7 +429,7 @@ ion-content, ion-toolbar{
     background-color :#FFFBDC;
   }
   &--ok{
-    background-color: #DFF2E5;
+    background-color: #DFEED7;
   }
   p{
     margin: 0 0 16px 0;

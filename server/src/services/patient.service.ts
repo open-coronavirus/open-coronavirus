@@ -23,8 +23,16 @@ export class PatientService {
         });
 
         for (let key of uniqueContactUUIDs.keys()) {
-            let patient = await this.patientRepository.findOne({"where": { "serviceAdvertisementUUID": uniqueContactUUIDs.get(key) }});
-            this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
+            let patient = await this.patientRepository.findOne({"where": { "serviceAdvertisementUUID": key.toLowerCase() }});
+            if(patient != null) {
+                //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
+                if(patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
+                    this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
+                }
+            }
+            else {
+                console.error("No patient found for advertisement uuid: " + key.toLowerCase());
+            }
         }
 
     }

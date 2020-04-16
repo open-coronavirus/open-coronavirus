@@ -253,7 +253,8 @@ export class PatientController {
             additionalProperties: false,
             properties: {
               documentNumber: { type: 'string' },
-              status: { type: 'number' }
+              status: { type: 'number' },
+              date: { type: 'string' }
             },
             required: ['documentNumber', 'status']
           }
