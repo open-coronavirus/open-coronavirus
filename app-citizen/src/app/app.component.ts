@@ -9,6 +9,8 @@ import { StorageService } from './shared/services/storage.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { TestQuestionService } from './shared/services/test-question.service';
 import { versionCompare } from '../../../app-health/src/app/shared/utils/utils';
+import { MinVersionControllerService } from './shared/sdk/api/minVersionController.service';
+import { GetMinVersion } from './shared/sdk/model/getMinVersion';
 
 
 @Component({
@@ -18,7 +20,7 @@ import { versionCompare } from '../../../app-health/src/app/shared/utils/utils';
 })
 export class AppComponent {
 
-  configuration: any = {};
+  version: GetMinVersion;
 
   constructor(
     private platform: Platform,
@@ -29,6 +31,7 @@ export class AppComponent {
     private patientService: PatientService,
     private storageService: StorageService,
     protected testQuestionService: TestQuestionService,
+    private minVersionControllerService: MinVersionControllerService,
     private navCtrl: NavController,
     @Inject('settings') protected settings,
   ) {
@@ -79,22 +82,24 @@ export class AppComponent {
 
   async getConfig() {
     // TEST
-    this.checkUpdateApp();
+    // this.checkUpdateApp();
 
     // REAL
-    // this.apiService.getConfiguration().subscribe(
-    //   res => {
-    //     this.configuration = res;
-    //     this.checkUpdateApp();
-    //   },
-    //   err => {
-    //     console.log('error obteniendo configuration: ', err);
-    //   }
-    // );
+    this.minVersionControllerService.minVersionControllerFind().subscribe(
+      res => {
+        this.version = res;
+        console.log("version: ", this.version);
+        this.checkUpdateApp();
+      },
+      err => {
+        console.log('error obteniendo configuration: ', err);
+        this.checkUpdateApp();
+      }
+    );
   }
 
   checkUpdateApp() {
-    if (((!this.configuration.app_version_required) || versionCompare(this.settings.version, this.configuration.app_version_required) >= 0)) {
+    if (((!this.version || !this.version.minVersion) || versionCompare(this.settings.appVersion, this.version.minVersion) >= 0)) {
       console.log('No se necesita update');
       this.checkWelcome();
     } else {
@@ -108,9 +113,7 @@ export class AppComponent {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
       if (welcomeVisit) {
         // this.navCtrl.navigateRoot(['register']);
-
         this.loadPatient();
-
       } else {
         this.navCtrl.navigateRoot(['welcome/0']);
       }
