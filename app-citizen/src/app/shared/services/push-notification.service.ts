@@ -7,6 +7,8 @@ import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotifica
 import {PushNotificationChannel} from "@capacitor/core/dist/esm/core-plugin-definitions";
 import {AlertController} from "@ionic/angular";
 import { PermissionsService } from './permissionsService.service';
+import {PatientStatus} from "../../../../../server/src/common/utils/enums";
+import {ContactTrackerService} from "./contacts/contact-tracker.service";
 
 const { PushNotifications } = Plugins;
 
@@ -20,6 +22,7 @@ export class PushNotificationService {
                 @Inject('settings') protected settings,
                 public alertController: AlertController,
                 protected installationService: InstallationService,
+                protected contactTrackerService: ContactTrackerService,
                 protected installationControllerService: InstallationControllerService,
                 protected permissionsService: PermissionsService) { }
 
@@ -29,23 +32,17 @@ export class PushNotificationService {
             this.activated = true;
 
             // to check if we have permission
-            this.push.hasPermission()
-                .then((res: any) => {
-
-                    console.log('[PushService] Permission response: ' + JSON.stringify(res));
-
-                    if (res.isEnabled) {
-                        console.log('[PushService] We have permission to send push notifications');
-                    } else {
-                        console.log('[PushService] We do not have permission to send push notifications');
-                    }
-
-                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
-                })
-                .catch(error => {
-                    console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
-                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
-                });
+            this.push.hasPermission().then((res: any) => {
+                console.log('[PushService] Permission response: ' + JSON.stringify(res));
+                if (res.isEnabled) {
+                    console.log('[PushService] We have permission to send push notifications');
+                } else {
+                    console.log('[PushService] We do not have permission to send push notifications');
+                }
+            })
+            .catch(error => {
+                console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
+            });
 
             //set the init options at this point:
             this.push.init({
@@ -62,6 +59,7 @@ export class PushNotificationService {
 
             PushNotifications.register().then(result => {
                 console.log('[PushService] regitration result: ' + JSON.stringify(result));
+                this.permissionsService.goToNextPermissionIfPermissionsRequested();
             });
 
             PushNotifications.addListener('registration', (token: PushNotificationToken) => {
@@ -90,7 +88,12 @@ export class PushNotificationService {
             });
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
                 console.log('[PushService] notification ' + JSON.stringify(notification));
-                this.patientService.refreshPatientData(); //refresh patient data in the meantime
+                let previousStatus = this.patientService.patient.status;
+                this.patientService.refreshPatientData().subscribe(loaded => {
+                    if(previousStatus != this.patientService.patient.status && this.patientService.patient.status == PatientStatus.INFECTED) {
+                        this.contactTrackerService.showUploadContactRequestModal();
+                    }
+                }) //refresh patient data in the meantime
                 this.showNotification(notification); //and show the notification with the message from server
             });
 
