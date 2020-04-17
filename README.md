@@ -140,6 +140,16 @@ Then, to run it use (use configuration parameter to force english version)
 ionic serve --configuration=en
 ```
 This allows you to run the app in a browser. 
+
+In order to test your application in a real device like an iphone or an android phone, execute the following command:
+
+```
+ionic capacitor run ios --livereload --external --host=<server-ip>
+```
+
+Just determine the network ip of the host where ionic is running the http server and replace in the --host parameter.
+
+
 ## Citizen App displays (main element of the project)
 | | | |  
 |:--:|:--:| :--:|  
