@@ -89,12 +89,13 @@ export class PushNotificationService {
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
                 console.log('[PushService] notification ' + JSON.stringify(notification));
                 let previousStatus = this.patientService.patient.status;
+                let showUploadContactRequestModal = false;
                 this.patientService.refreshPatientData().subscribe(loaded => {
                     if(previousStatus != this.patientService.patient.status && this.patientService.patient.status == PatientStatus.INFECTED) {
-                        this.contactTrackerService.showUploadContactRequestModal();
+                        showUploadContactRequestModal = true;
                     }
+                    this.showNotification(notification, showUploadContactRequestModal); //and show the notification with the message from server
                 }) //refresh patient data in the meantime
-                this.showNotification(notification); //and show the notification with the message from server
             });
 
             PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
@@ -104,12 +105,21 @@ export class PushNotificationService {
 
     }
 
-    async showNotification(notification) {
+    async showNotification(notification, showUploadContactRequestModal = false) {
         const alert = await this.alertController.create(
             {
                 header: notification.title,
                 message: notification.body,
-                buttons: ['OK'],
+                buttons: [
+                    {
+                        text: 'OK',
+                        handler: () => {
+                            if(showUploadContactRequestModal) {
+                                this.contactTrackerService.showUploadContactRequestModal();
+                            }
+                        }
+                    }
+                ],
                 backdropDismiss: false
             }
         );
