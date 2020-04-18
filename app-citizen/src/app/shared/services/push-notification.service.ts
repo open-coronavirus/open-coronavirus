@@ -3,10 +3,15 @@ import {Push} from "@ionic-native/push/ngx";
 import {InstallationControllerService} from "../sdk";
 import {InstallationService} from "./installation.service";
 import {PatientService} from "./patient.service";
-import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
-import {PushNotificationChannel} from "@capacitor/core/dist/esm/core-plugin-definitions";
+import {
+    NotificationChannel,
+    Plugins,
+    PushNotification,
+    PushNotificationActionPerformed,
+    PushNotificationToken
+} from "@capacitor/core";
 import {AlertController} from "@ionic/angular";
-import { PermissionsService } from './permissionsService.service';
+import { PermissionsService } from './permissions.service';
 import {PatientStatus} from "../../../../../server/src/common/utils/enums";
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
 
@@ -73,7 +78,7 @@ export class PushNotificationService {
                 });
             });
 
-            PushNotifications.createChannel(<PushNotificationChannel>{
+            PushNotifications.createChannel(<NotificationChannel>{
                 id: 'opencoronavirus',
                 name: 'opencoronavirus',
                 description: 'Open Coronavirus Channel',

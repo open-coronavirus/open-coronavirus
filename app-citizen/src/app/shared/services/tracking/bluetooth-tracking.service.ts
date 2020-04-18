@@ -5,7 +5,7 @@ import {BehaviorSubject, Subject} from "rxjs";
 import {BLE} from "@ionic-native/ble/ngx";
 import {ContactTrackerService} from "../contacts/contact-tracker.service";
 import {PatientService} from "../patient.service";
-import { PermissionsService } from '../permissionsService.service';
+import { PermissionsService } from '../permissions.service';
 
 @Injectable()
 export class BluetoothTrackingService {
@@ -46,8 +46,6 @@ export class BluetoothTrackingService {
 
                     this.patientServiceUUID = this.patientService.patient.serviceAdvertisementUUID;
 
-                    this.checkBLEPermission();
-
                     this.platform.ready().then((readySource) => {
 
                         console.debug("[BluetoothLE] Initialize bluetooth LE ...");
@@ -86,29 +84,7 @@ export class BluetoothTrackingService {
     }
 
 
-    //Check if application having BluetoothLE access permission
-    checkBLEPermission() {
 
-        this.bluetoothle.hasPermission().then(permission => {
-            if(!permission.hasPermission) {
-                this.bluetoothle.requestPermission().then((res) => {
-                    //todo: show the right alert
-                    console.debug(res.requestPermission);
-                    console.debug("[BluetoothLE] res :" + JSON.stringify(res));
-                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
-                }, (err) => {
-                    console.debug("[BluetoothLE] err: " + JSON.stringify(err));
-                    this.permissionsService.goToNextPermissionIfPermissionsRequested();
-                });
-            } else {
-                this.permissionsService.goToNextPermissionIfPermissionsRequested();
-            }
-        }).catch(error => {
-            console.error('[PushService] Error trying to get bluetooth permissions: ' + JSON.stringify(error));
-            this.permissionsService.goToNextPermissionIfPermissionsRequested();
-        });
-
-    }
 
     protected addService() {
 

@@ -25,14 +25,22 @@
     <p class="screen-text" i18n="@@permissionsModalDescription2Geolocation">Compartiendo tu información ayudarás a frenar el COVID-19.</p>
   </ng-container>
   <ng-container *ngSwitchCase="'bluetooth'">
-    <h1 class="screen-title" i18n="@@permissionsModalTitleBluetooth">Las autoridades te solicitan que compartas tus datos</h1>
     <p class="screen-text">
       <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
     </p>
-    <h2 class="screen-subtitle" i18n="@@permissionsModalTitleBluetooth">Enviar datos adquiridos por Bluetooth</h2>
-    <p class="screen-text" i18n="@@permissionsModalDescription1Bluetooth">Ante el positivo de COVID-19  que has dado en el test diagnóstico, las autoridades piden que des autorización para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.</p>
-    <p class="screen-text" i18n="@@permissionsModalDescription2Bluetooth">De este modo estarás ayudando y protegiendo a muchas personas.
-      ¡A este virus lo ganamos entre todos!</p>
+    <h2 class="screen-subtitle" i18n="@@permissionsModalTitleBluetooth">Bluetooth</h2>
+    <p class="screen-text" i18n="@@permissionsModalDescription1Bluetooth">Mediante la tecnología bluetooth podrás compartir con las autoridades sanitarias información sobre con quién has estado a menos de 2 metros.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription2Bluetooth">La protección y prevención de tu salud es lo primero.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription3Bluetooth">Recuerda liberar espacio en tu móvil para que  funcione correctamente esta funcionalidad.</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'coarse-location'">
+    <h1 class="screen-title" i18n="@@permissionsModalTitleCoarseLocation">Activa los permisos necesarios para poder utilizar la aplicación</h1>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-localizacion.svg"></span>
+    </p>
+    <h2 class="screen-subtitle" i18n="@@permissionsModalTitleCoarseLocation">Localización aproximada</h2>
+    <p class="screen-text" i18n="@@permissionsModalDescription1CoarseLocation">Debes activar este permiso para que la tecnología bluetooth de traceo funcione correctamente.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription3CoarseLocation"><strong>En ningún momento vas a compartir tu localización con nadie.</strong></p>
   </ng-container>
 </ion-content>
 <ion-footer class="ion-no-border">

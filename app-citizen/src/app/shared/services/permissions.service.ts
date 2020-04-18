@@ -1,0 +1,215 @@
+import {Inject, Injectable} from '@angular/core';
+import {NavController, Platform} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {Diagnostic} from '@ionic-native/diagnostic/ngx';
+import {BluetoothLE} from "@ionic-native/bluetooth-le/ngx";
+import {Push} from "@ionic-native/push/ngx";
+import {PermissionType, Plugins} from "@capacitor/core";
+import {BLE} from "@ionic-native/ble/ngx";
+import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
+
+const { PushNotifications, Permissions } = Plugins;
+
+@Injectable()
+export class PermissionsService {
+
+    public permissionsRequested = false;
+    public requiredPermissions: Array<string>;
+
+    constructor(
+        @Inject('settings') protected settings,
+        protected router: Router,
+        protected push: Push,
+        protected diagnostic: Diagnostic,
+        protected platform: Platform,
+        protected androidPermissions: AndroidPermissions,
+        protected bluetoothLe: BluetoothLE,
+        protected ble: BLE,
+        protected navCtrl: NavController
+    ) {
+        this.requiredPermissions = [];
+    }
+
+    async requestFirstPermission() {
+        this.permissionsRequested = true;
+        this.requiredPermissions = this.getRequiredPermissions();
+        this.goToNextPermission();
+    }
+
+    goToNextPermissionIfPermissionsRequested() {
+        if (this.permissionsRequested) {
+            console.debug('Go to next permission');
+
+            this.goToNextPermission();
+        }
+    }
+
+    goToNextPermission() {
+        if (this.requiredPermissions.length === 0) {
+            this.permissionsRequested = false;
+            this.navCtrl.navigateRoot(['app/home']);
+        } else {
+            this.navCtrl.navigateRoot(['permissions', this.requiredPermissions.shift()]);
+        }
+    }
+
+    getRequiredPermissions(): Array<string> {
+        const requiredPermissions = [];
+
+        for (const type in this.settings.enabled) {
+            if (this.settings.enabled[type]) {
+                requiredPermissions.push(type);
+            }
+        }
+
+        return requiredPermissions;
+    }
+
+    hasPermission(permission) {
+        console.log('check permission: ' + JSON.stringify(permission));
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            switch (permission) {
+                case 'bluetooth':
+                    this.ble.isEnabled().then(result => {
+                        console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
+                        resolve(true);
+                    })
+                    .catch(error => {
+                        console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
+                    break;
+                case 'push':
+                    Permissions.query({ name: PermissionType.Notifications }).then(result => {
+                        console.log('[PermissionService] has push permission: ' + JSON.stringify(result));
+                        if(result.state == 'granted') {
+                            resolve(true);
+                        }
+                        else {
+                            resolve(false);
+                        }
+                    });
+                    break;
+                case 'gps':
+                    Permissions.query({ name: PermissionType.Geolocation }).then(result => {
+                        console.log('[PermissionService] has geolocation permission: ' + JSON.stringify(result));
+                        if(result.state == 'granted') {
+                            resolve(true);
+                        }
+                        else {
+                            resolve(false);
+                        }
+                    });
+                    break;
+                case 'coarse-location':
+                    if(this.platform.is('android')) {
+                        this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(result => {
+                            console.log('[PermissionService] has geolocation permission: ' + JSON.stringify(result));
+                            if (result.hasPermission) {
+                                resolve(true);
+                            } else {
+                                resolve(false);
+                            }
+                        });
+                    }
+                    else {
+                        resolve(true);
+                    }
+                    break;
+
+            }
+        });
+        return returnValue;
+    }
+
+    requestPermission(permission) {
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            switch (permission) {
+                case 'bluetooth':
+                    this.requestBluetoothPermission().then(result => {
+                        resolve(result);
+                    })
+                    break;
+                case 'push':
+                    this.requestRemotePushPermission().then(result => {
+                        resolve(result);
+                    })
+                    break;
+                case 'gps':
+                    resolve(true);
+                    break;
+                case 'coarse-location':
+                    this.requestCoarseLocationPermission().then(result => {
+                        resolve(result);
+                    });
+                    break;
+
+            }
+        });
+        return returnValue;
+    }
+
+    public requestBluetoothPermission() {
+
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+
+            this.ble.enable().then(result => {
+                console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(result));
+                resolve(true);
+            })
+            .catch(error => {
+                console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                resolve(false);
+            });
+
+        });
+
+        return returnValue;
+
+    }
+
+    public requestRemotePushPermission() {
+
+        let returnValue = new Promise<boolean>(resolve => {
+
+            PushNotifications.requestPermission().then( result => {
+                console.log("[PermissionService] push permission request result: " + JSON.stringify(result));
+                if (result.granted) {
+                    resolve(true);
+                }
+                else {
+                    resolve(false);
+                }
+            })
+
+        });
+
+        return returnValue;
+
+    }
+
+    public requestCoarseLocationPermission() {
+
+        let returnValue = new Promise<boolean>(resolve => {
+
+            if(this.platform.is('android')) {
+                this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(result => {
+                    console.log("[PermissionService] coarse location permission request result: " + JSON.stringify(result));
+                    resolve(true);
+                })
+                .catch(error => {
+                    console.error("[PermissionService] Error trying to request coarse location permission: " + JSON.stringify(error));
+                    resolve(false);
+                });
+            }
+            else {
+                resolve(true);
+            }
+        });
+
+        return returnValue;
+
+    }
+
+
+}

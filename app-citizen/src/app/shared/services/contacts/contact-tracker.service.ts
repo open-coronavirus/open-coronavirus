@@ -111,7 +111,16 @@ export class ContactTrackerService {
                 console.debug("[Contact tracker] Inserted new contact with uuid " + contact.uuid);
                 returnValue.next(true);
                 this.refreshContactsCount();
-                this.nearestDevices.set(contact.id, {uuid: contact.uuid, rssi: contact.rssi});
+                let devicesToRemove = [];
+                for (let value of this.nearestDevices.values()) {
+                    if(value.uuid == contact.uuid && value.id != contact.id) {
+                        devicesToRemove.push(value.id);
+                    }
+                }
+                devicesToRemove.forEach(deviceToRemove => {
+                    this.nearestDevices.delete(deviceToRemove);
+                });
+                this.nearestDevices.set(contact.id, {id: contact.id, uuid: contact.uuid, rssi: contact.rssi, date: new Date()});
                 this.contactAdded$.next(true);
                 this.contactAddedOrUpdated$.next(true);
             }).catch(error => {
@@ -182,7 +191,10 @@ export class ContactTrackerService {
                 [contact.rssi, contact.timestampTo, contact.id]).then(result => {
                 this.knownContacts.set(address, contact); //update the contact
                 console.debug("[Contact tracker] Updated existing contact with uuid " + contact.uuid);
-                this.nearestDevices.get(contact.id)['rssi'] = rssi;
+                if(this.nearestDevices.has(contact.id)) {
+                    this.nearestDevices.get(contact.id)['rssi'] = rssi;
+                    this.nearestDevices.get(contact.id)['date'] = new Date();
+                }
                 this.contactAddedOrUpdated$.next(true);
                 returnValue.next(true);
             }).catch(error => {

@@ -17,7 +17,7 @@ import {MainComponent} from './main/main.component';
 import {ShareService} from './shared/services/share.service';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import {LeaveRequestService} from './shared/services/leave-request.service';
-import {PermissionsService} from './shared/services/permissionsService.service';
+import {PermissionsService} from './shared/services/permissions.service';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {AutotestAnswers} from './shared/services/autotest-answers.service';
 import {TestAppointmentService} from "./shared/services/test-appointment.service";
@@ -38,6 +38,8 @@ import {PushNotificationService} from "./shared/services/push-notification.servi
 import {Push} from "@ionic-native/push/ngx";
 import { Device } from '@ionic-native/device/ngx';
 import { TestQuestionService } from './shared/services/test-question.service';
+import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -57,6 +59,8 @@ import { TestQuestionService } from './shared/services/test-question.service';
         PatientService,
         LeaveRequestService,
         PermissionsService,
+        Diagnostic,
+        AndroidPermissions,
         StorageService,
         NativeStorage,
         PushNotificationService,
