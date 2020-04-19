@@ -26,10 +26,10 @@ import {UserValidatorService} from "../services/user-validator.service";
 
 export class PatientController {
   constructor(
-    @repository(PatientRepository) public patientRepository: PatientRepository,
-    @service(PatientService) public patientService: PatientService,
-    @service('UserValidatorService') public userValidatorService: UserValidatorService,
-    @service(PushNotificationService) public pushNotificationService: PushNotificationService,
+      @repository(PatientRepository) public patientRepository: PatientRepository,
+      @service(PatientService) public patientService: PatientService,
+      @service('UserValidatorService') public userValidatorService: UserValidatorService,
+      @service(PushNotificationService) public pushNotificationService: PushNotificationService,
   ) { }
 
   @post('/patients', {
@@ -42,17 +42,17 @@ export class PatientController {
   })
   //todo securize
   async create(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Patient, {
-            title: 'NewPatient',
-            exclude: ['id'],
-          }),
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Patient, {
+              title: 'NewPatient',
+              exclude: ['id'],
+            }),
+          },
         },
-      },
-    })
-    patient: Omit<Patient, 'id'>,
+      })
+          patient: Omit<Patient, 'id'>,
   ): Promise<Patient | null> {
 
     let returnValue: Promise<Patient | null> = new Promise(resolve => {
@@ -62,7 +62,7 @@ export class PatientController {
       patient.status = PatientStatus.UNKNOWN; //initial status
       patient.created = new Date();
 
-      this.userValidatorService.validateUser(patient).then(validationResult => {
+      this.userValidatorService.validateUser(<Patient>patient).then(validationResult => {
         if(validationResult.isValid) {
           this.patientRepository.create(patient).then(createdPatient => {
             resolve(createdPatient);
@@ -92,7 +92,7 @@ export class PatientController {
   @authenticate(process.env.AUTH_STRATEGY!)
   @authorize({ resource: 'Patient', scopes: ['read'] })
   async count(
-    @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
+      @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
   ): Promise<Count> {
     return this.patientRepository.count(where);
   }
@@ -115,7 +115,7 @@ export class PatientController {
   @authenticate(process.env.AUTH_STRATEGY!)
   @authorize({ resource: 'Patient', scopes: ['read'] })
   async find(
-    @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>,
+      @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>,
   ): Promise<Patient[]> {
     return this.patientRepository.find(filter);
   }
@@ -131,15 +131,15 @@ export class PatientController {
   @authenticate(process.env.AUTH_STRATEGY!)
   @authorize({ resource: 'Patient', scopes: ['write'] })
   async updateAll(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Patient, { partial: true }),
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Patient, { partial: true }),
+          },
         },
-      },
-    })
-    patient: Patient,
-    @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
+      })
+          patient: Patient,
+      @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
   ): Promise<Count> {
     return this.patientRepository.updateAll(patient, where);
   }
@@ -158,7 +158,7 @@ export class PatientController {
   /*@authenticate(process.env.AUTH_STRATEGY!)
   @authorize({ resource: 'Patient', scopes: ['read'] })*/
   async getByQrCode(
-    @param.path.string('qrcode') qrcode: string,
+      @param.path.string('qrcode') qrcode: string,
   ): Promise<Patient> {
     return await this.patientRepository.findById(qrcode).then(patient => {
       if (patient != null) {
@@ -183,8 +183,8 @@ export class PatientController {
   })
   //todo securize
   async findById(
-    @param.path.string('id') id: string,
-    @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>
+      @param.path.string('id') id: string,
+      @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>
   ): Promise<Patient> {
 
     let returnValue: Promise<Patient> = new Promise(resolve => {
@@ -208,15 +208,15 @@ export class PatientController {
   })
   //todo securize
   async updateById(
-    @param.path.string('id') id: string,
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Patient, { partial: true }),
+      @param.path.string('id') id: string,
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Patient, { partial: true }),
+          },
         },
-      },
-    })
-    patient: Patient,
+      })
+          patient: Patient,
   ): Promise<void> {
     await this.patientRepository.updateById(id, patient);
   }
@@ -231,8 +231,8 @@ export class PatientController {
   @authenticate(process.env.AUTH_STRATEGY!)
   @authorize({ resource: 'Patient', scopes: ['write'] })
   async updateStatus(
-    @param.path.string('id') id: string,
-    @requestBody() status: number,
+      @param.path.string('id') id: string,
+      @requestBody() status: number,
   ): Promise<void> {
 
     await this.patientRepository.findById(id).then(patient => {
@@ -255,23 +255,23 @@ export class PatientController {
     },
   })
   async updateStatusByDocumentNumber(
-    @param.header.string('apikey') apiKey: string,
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-              documentNumber: { type: 'string' },
-              status: { type: 'number' },
-              date: { type: 'string' }
-            },
-            required: ['documentNumber', 'status']
+      @param.header.string('apikey') apiKey: string,
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                documentNumber: { type: 'string' },
+                status: { type: 'number' },
+                date: { type: 'string' }
+              },
+              required: ['documentNumber', 'status']
+            }
           }
-        }
-      },
-    }) body: any,
+        },
+      }) body: any,
   ): Promise<Patient | null> {
 
     if(apiKey != "test") {
@@ -293,8 +293,8 @@ export class PatientController {
   @authenticate(process.env.AUTH_STRATEGY!)
   @authorize({ resource: 'Patient', scopes: ['write'] })
   async replaceById(
-    @param.path.string('id') id: string,
-    @requestBody() patient: Patient,
+      @param.path.string('id') id: string,
+      @requestBody() patient: Patient,
   ): Promise<void> {
     await this.patientRepository.replaceById(id, patient);
   }
