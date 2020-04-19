@@ -199,7 +199,12 @@ Esto permite ejecutar la app en un browser.
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen13-es-2.jpg" alt="Pantalla 13" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen14-es-2.jpg" alt="Pantalla 14" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen15-es-2.jpg" alt="Pantalla 15" width="250"/>
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-2.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-2.jpg" alt="Pantalla 17" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen18-es-2.jpg" alt="Pantalla 18" width="250"/>
 
+## Más información
 
+- Conferencia: **Open Coronavirus. Digital Solution for monitoring, diagnosing and containing SARS-COV-2 infection** por Aurelia Bustos en el 1º Congreso Anban de Inteligencia Artificial y Big Data contra el COVID-19
+    https://www.youtube.com/watch?v=qLDpcljJRyM&feature=youtu.b
+    
+- Official slides:
 
 ## Licencia
 
