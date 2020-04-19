@@ -1,6 +1,6 @@
 tasks:
-  - init: cd app-citizen; npm install; cd ../app-health; npm install; cd ../app-police; npm install; cd ../server; npm install;
-    command: mongod
-    command: cd server; npm start
+  - init: cd app-citizen && npm install && cd ../app-health && npm install && cd ../app-police && npm install && cd ../server && npm install
+    command: cd server && npm start
+
 image:
   file: .gitpod.Dockerfile
