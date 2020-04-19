@@ -73,6 +73,13 @@ This is how the **Bluetooth LE** system works:
 
 > It is fundamentally important that the official health system of the administration or government be properly integrated with the application.
 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-1-en.png) | 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-2-en.png) | 
+|:--:| 
+| *How it works* |
+
+
+
 ---
 
 This past **10th of April 2020, Apple and Google** made an [official agreement](insert link here) to implement a native level contract tracing technology on their operating system using Bluetooth Low Energy technology.
