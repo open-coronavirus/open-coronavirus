@@ -8,6 +8,23 @@
 </ion-header>
 <ion-content>
     <h1 class="screen-title" i18n="@@aboutTitle">Información sobre la APP</h1>
-    <p class="screen-text" i18n="@@aboutVersionNumber">Número de versión: {{ getNumberVersionText() }}</p>
+    <!-- Notes in a List -->
+    <ion-list>
+        <ion-item>
+            <ion-label i18n="@@aboutVersionNumber">Versión</ion-label>
+            <ion-note slot="end">{{ getNumberVersionText() }}</ion-note>
+        </ion-item>
+        <ion-item *ngIf="showMyUUID">
+            <ion-label class="ion-text-wrap">{{ traceUUID }}</ion-label>
+        </ion-item>
+    </ion-list>
+    <h2 *ngIf="showNearestDevicesUUID" i18n="@@nearestDevices">Dispositivos Cercanos</h2>
+    <!-- Notes in a List -->
+    <ion-list *ngIf="showNearestDevicesUUID">
+        <ion-item *ngFor="let device of nearestDevices">
+            <ion-label class="ion-text-wrap">{{device.uuid}} ({{device.rssi}}) at {{device.date | date:'mediumTime' }}</ion-label>
+        </ion-item>
+    </ion-list>
+
 </ion-content>
 

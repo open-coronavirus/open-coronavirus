@@ -3,10 +3,15 @@ import {Push} from "@ionic-native/push/ngx";
 import {InstallationControllerService} from "../sdk";
 import {InstallationService} from "./installation.service";
 import {PatientService} from "./patient.service";
-import {Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
-import {PushNotificationChannel} from "@capacitor/core/dist/esm/core-plugin-definitions";
+import {
+    NotificationChannel,
+    Plugins,
+    PushNotification,
+    PushNotificationActionPerformed,
+    PushNotificationToken
+} from "@capacitor/core";
 import {AlertController} from "@ionic/angular";
-import { PermissionsService } from './permissionsService.service';
+import { PermissionsService } from './permissions.service';
 import {PatientStatus} from "../../../../../server/src/common/utils/enums";
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
 
@@ -73,7 +78,7 @@ export class PushNotificationService {
                 });
             });
 
-            PushNotifications.createChannel(<PushNotificationChannel>{
+            PushNotifications.createChannel(<NotificationChannel>{
                 id: 'opencoronavirus',
                 name: 'opencoronavirus',
                 description: 'Open Coronavirus Channel',
@@ -89,12 +94,13 @@ export class PushNotificationService {
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
                 console.log('[PushService] notification ' + JSON.stringify(notification));
                 let previousStatus = this.patientService.patient.status;
+                let showUploadContactRequestModal = false;
                 this.patientService.refreshPatientData().subscribe(loaded => {
                     if(previousStatus != this.patientService.patient.status && this.patientService.patient.status == PatientStatus.INFECTED) {
-                        this.contactTrackerService.showUploadContactRequestModal();
+                        showUploadContactRequestModal = true;
                     }
+                    this.showNotification(notification, showUploadContactRequestModal); //and show the notification with the message from server
                 }) //refresh patient data in the meantime
-                this.showNotification(notification); //and show the notification with the message from server
             });
 
             PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
@@ -104,12 +110,21 @@ export class PushNotificationService {
 
     }
 
-    async showNotification(notification) {
+    async showNotification(notification, showUploadContactRequestModal = false) {
         const alert = await this.alertController.create(
             {
                 header: notification.title,
                 message: notification.body,
-                buttons: ['OK'],
+                buttons: [
+                    {
+                        text: 'OK',
+                        handler: () => {
+                            if(showUploadContactRequestModal) {
+                                this.contactTrackerService.showUploadContactRequestModal();
+                            }
+                        }
+                    }
+                ],
                 backdropDismiss: false
             }
         );

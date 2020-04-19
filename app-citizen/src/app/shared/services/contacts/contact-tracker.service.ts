@@ -18,11 +18,14 @@ export class ContactTrackerService {
 
     private patientServiceUUID: string;
 
+    public nearestDevices = new Map<string, any>();
+
     public contactsCount$ = new BehaviorSubject<number>(0);
 
     public connectedToDb$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    public contactAdded$ = new Subject<any>();
+    public contactAdded$ = new BehaviorSubject<boolean>(false);
+    public contactAddedOrUpdated$ = new BehaviorSubject<boolean>(false);
 
     public constructor(protected sqlite: SQLite,
                        protected contactControllerService: ContactControllerService,
@@ -108,7 +111,18 @@ export class ContactTrackerService {
                 console.debug("[Contact tracker] Inserted new contact with uuid " + contact.uuid);
                 returnValue.next(true);
                 this.refreshContactsCount();
+                let devicesToRemove = [];
+                for (let value of this.nearestDevices.values()) {
+                    if(value.uuid == contact.uuid && value.id != contact.id) {
+                        devicesToRemove.push(value.id);
+                    }
+                }
+                devicesToRemove.forEach(deviceToRemove => {
+                    this.nearestDevices.delete(deviceToRemove);
+                });
+                this.nearestDevices.set(contact.id, {id: contact.id, uuid: contact.uuid, rssi: contact.rssi, date: new Date()});
                 this.contactAdded$.next(true);
+                this.contactAddedOrUpdated$.next(true);
             }).catch(error => {
                 console.error("Error trying to insert a contact: " + contact.uuid);
                 returnValue.next(false);
@@ -177,6 +191,11 @@ export class ContactTrackerService {
                 [contact.rssi, contact.timestampTo, contact.id]).then(result => {
                 this.knownContacts.set(address, contact); //update the contact
                 console.debug("[Contact tracker] Updated existing contact with uuid " + contact.uuid);
+                if(this.nearestDevices.has(contact.id)) {
+                    this.nearestDevices.get(contact.id)['rssi'] = rssi;
+                    this.nearestDevices.get(contact.id)['date'] = new Date();
+                }
+                this.contactAddedOrUpdated$.next(true);
                 returnValue.next(true);
             }).catch(error => {
                 console.error("Error trying to insert a contact: " + contact.uuid);

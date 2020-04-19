@@ -9,10 +9,11 @@ import { TestAppointmentService } from "../shared/services/test-appointment.serv
 import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
 import { GeolocationTrackingService } from "../shared/services/tracking/geolocation-tracking.service";
 import { BluetoothTrackingService } from "../shared/services/tracking/bluetooth-tracking.service";
-import { PermissionsService } from "../shared/services/permissionsService.service";
+import { PermissionsService } from "../shared/services/permissions.service";
 import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
 import { PushNotificationService } from "../shared/services/push-notification.service";
 import {PatientStatus} from "../../../../server/src/common/utils/enums";
+import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 
 @Component({
     selector: 'app-container',
@@ -46,6 +47,7 @@ export class MainComponent implements OnDestroy {
         protected testAppointmentService: TestAppointmentService,
         protected permissionsService: PermissionsService,
         protected platform: Platform,
+        protected diagnostic: Diagnostic,
         private privacityConditionsService: PrivacityConditionsService,
         protected shareService: ShareService,
         protected contactTrackerService: ContactTrackerService) {
@@ -89,12 +91,14 @@ export class MainComponent implements OnDestroy {
             }
         }));
 
-        //start tracking at this point in case the permissions are already granted
-        //and no popups will be shown to the end user
-        if(!permissionsService.permissionsRequested) {
-            this.startGeoTracking();
-            this.startBluetoothTracking();
-            this.startPushNotification();
+        if (this.settings.enabled.gps) {
+            this.geolocationtrackingService.startBackgroundGeolocation();
+        }
+        if (this.settings.enabled.bluetooth) {
+            this.bluetoothTrackingService.startBluetoothTracking();
+        }
+        if (this.settings.enabled.push) {
+            this.pushNotificationService.startPushNotifications();
         }
 
         //refresh the patient everytime the app becomes active:
@@ -102,27 +106,6 @@ export class MainComponent implements OnDestroy {
             this.patientService.refreshPatientData();
         })
 
-    }
-
-
-
-
-    public startGeoTracking() {
-        if (this.settings.enabled.gps) {
-            this.geolocationtrackingService.startBackgroundGeolocation();
-        }
-    }
-
-    public startBluetoothTracking() {
-        if (this.settings.enabled.bluetooth) {
-            this.bluetoothTrackingService.startBluetoothTracking();
-        }
-    }
-
-    public startPushNotification() {
-        if (this.settings.enabled.push) {
-            this.pushNotificationService.startPushNotifications();
-        }
     }
 
     openMenu() {

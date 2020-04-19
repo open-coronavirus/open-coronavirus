@@ -30,6 +30,10 @@ export const settings = {
     screens: {
         selfDeclarationLeave: false
     },
+    debug: {
+        showMyUUID: true,
+        showNearestDevicesUUID: true
+    },
     uploadAutomaticallyContactsToServerIfUserHasCoronavirus: false,
     // If uploadAutomaticallyContactsToServerIfUserHasCoronavirus is activated, this property is ignored
     requestUserConsentToUploadContactsToServerIfUserHasCoronavirus: true,

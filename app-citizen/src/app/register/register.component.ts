@@ -6,7 +6,7 @@ import { Patient, PatientWithRelations } from '../shared/sdk';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, NavController } from '@ionic/angular';
 import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
-import { PermissionsService } from '../shared/services/permissionsService.service';
+import { PermissionsService } from '../shared/services/permissions.service';
 
 @Component({
     selector: 'register',

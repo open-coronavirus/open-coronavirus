@@ -1,58 +1,69 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController, NavController} from '@ionic/angular';
+import {ModalController, NavController, Platform} from '@ionic/angular';
 import {PatientService} from '../../shared/services/patient.service';
 import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 import {PushNotificationService} from "../../shared/services/push-notification.service";
-import { PermissionsService } from 'src/app/shared/services/permissionsService.service';
-import { ActivatedRoute } from '@angular/router';
+import {PermissionsService} from 'src/app/shared/services/permissions.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-permissions-modal',
-  templateUrl: './permissions-modal.component.html',
-  styleUrls: ['./permissions-modal.component.scss'],
+    selector: 'app-permissions-modal',
+    templateUrl: './permissions-modal.component.html',
+    styleUrls: ['./permissions-modal.component.scss'],
 })
 export class PermissionsModalComponent implements OnInit {
-  public type: string;
+    public type: string;
 
-  constructor(
-    public modalCtrl: ModalController,
-    protected geolocationtrackingService: GeolocationTrackingService,
-    protected pushNotificationService: PushNotificationService,
-    protected bluetoothTrackingService: BluetoothTrackingService,
-    public patientService: PatientService,
-    public permissionsService: PermissionsService,
-    protected navCtrl: NavController,
-    private activatedRoute: ActivatedRoute
-  ) { }
-
-  ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(params => {
-      this.type = params.get('type');
-    });
-  }
-
-  dismissModal() {
-    this.permissionsService.goToNextPermission();
-  }
-
-  activatePermission() {
-    switch (this.type) {
-      case 'push':
-        console.debug('Activating push ...');
-        this.pushNotificationService.startPushNotifications();
-        break;
-      case 'gps':
-        console.debug('Activating geolocation ...');
-        this.geolocationtrackingService.startBackgroundGeolocation();
-        this.dismissModal();
-        break;
-      case 'bluetooth':
-        console.debug('Activating bluetooth tracking ...');
-        this.bluetoothTrackingService.startBluetoothTracking();
-        break;
+    constructor(
+        public modalCtrl: ModalController,
+        protected geolocationtrackingService: GeolocationTrackingService,
+        protected pushNotificationService: PushNotificationService,
+        protected bluetoothTrackingService: BluetoothTrackingService,
+        public patientService: PatientService,
+        protected platform: Platform,
+        public permissionsService: PermissionsService,
+        protected navCtrl: NavController,
+        private activatedRoute: ActivatedRoute
+    ) {
     }
 
-  }
+    ngOnInit() {
+        this.activatedRoute.paramMap.subscribe(params => {
+          this.permissionsService.hasPermission(params.get('type')).then(hasPermission => {
+            //ask just for missing permissions
+            console.log(params.get('type'));
+            if(!hasPermission) {
+              this.type = params.get('type');
+            }
+            else {
+              //bluetooth also needs location service:
+              if(params.get('type') == 'bluetooth' && this.platform.is('android')) {
+                  this.permissionsService.hasPermission('coarse-location').then(hasPermission => {
+                      if(!hasPermission) {
+                          this.type = 'coarse-location';
+                      }
+                      else {
+                          this.dismissModal();
+                      }
+                  });
+              }
+              else {
+                  this.dismissModal();
+              }
+            }
+          })
+        });
+    }
+
+    dismissModal() {
+        this.permissionsService.goToNextPermission();
+    }
+
+    activatePermission() {
+      this.permissionsService.requestPermission(this.type).then(result => {
+        this.dismissModal();
+      })
+    }
 
 }
