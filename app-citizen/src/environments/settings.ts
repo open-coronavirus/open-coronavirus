@@ -14,6 +14,7 @@ export const settings = {
         moduleFollowingUp: true,
     },
     moreInfoUrl: 'https://coronavirus.epidemixs.org/#/opening',
+    requestTestUrl: '',
     autoTestUrl: '',
     followingUpUrl: '',
     appVersion: '1.0.0',

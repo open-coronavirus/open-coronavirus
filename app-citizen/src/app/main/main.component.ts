@@ -168,7 +168,11 @@ export class MainComponent implements OnDestroy {
 
     public requestTest() {
         this.closeMenu();
-        this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+        if (this.settings.requestTestUrl) {
+            window.open(this.settings.requestTestUrl, '_system');
+        } else {
+            this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+        }
     }
 
     public goToAutotest() {

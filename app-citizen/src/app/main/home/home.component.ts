@@ -164,7 +164,13 @@ export class HomeComponent implements OnDestroy {
     public requestTest() {
         // this.router.navigate(['/app/test-appointment/appointment/confirm']);
         // this.router.navigate(['/app/test-appointment/at-home/confirm']);
-        this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+        // this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+
+        if (this.settings.requestTestUrl) {
+            window.open(this.settings.requestTestUrl, '_system');
+        } else {
+            this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
+        }
     }
 
     public goToAutotest() {
