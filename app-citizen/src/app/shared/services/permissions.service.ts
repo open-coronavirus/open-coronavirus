@@ -70,14 +70,20 @@ export class PermissionsService {
         let returnValue: Promise<boolean> = new Promise(resolve => {
             switch (permission) {
                 case 'bluetooth':
-                    this.ble.isEnabled().then(result => {
-                        console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
-                        resolve(true);
-                    })
-                    .catch(error => {
-                        console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                    if(this.platform.is('android')) {
+                        this.bluetoothLe.hasPermission().then(result => {
+                            console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
+                            resolve(true);
+                        })
+                        .catch(error => {
+                            console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                            resolve(false);
+                        });
+                    }
+                    else if(this.platform.is('ios')) {
                         resolve(false);
-                    });
+                    }
+
                     break;
                 case 'push':
                     Permissions.query({ name: PermissionType.Notifications }).then(result => {
@@ -153,14 +159,34 @@ export class PermissionsService {
 
         let returnValue: Promise<boolean> = new Promise(resolve => {
 
-            this.ble.enable().then(result => {
-                console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(result));
-                resolve(true);
-            })
-            .catch(error => {
-                console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
-                resolve(false);
-            });
+            if(this.platform.is('android')) {
+                this.bluetoothLe.requestPermission().then(result => {
+                    console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(result));
+                    resolve(true);
+                })
+                .catch(error => {
+                    console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                    resolve(false);
+                });
+            }
+            else if(this.platform.is('ios')) {
+                this.diagnostic.requestBluetoothAuthorization().then(result => {
+                    this.diagnostic.registerBluetoothStateChangeHandler(state => {
+                        if(state === this.diagnostic.bluetoothState.POWERED_ON){
+                            console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(state));
+                            console.log("Bluetooth is able to connect");
+                            resolve(true);
+                        }
+                        else {
+                            console.error('[PermissionService] bluetooth has noty been enabled: ' + JSON.stringify(state));
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                    resolve(false);
+                });
+            }
 
         });
 

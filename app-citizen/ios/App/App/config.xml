@@ -3,7 +3,7 @@
   <access origin="*" />
   
   <feature name="BLE">
-    <param name="ios-package" value="BLECentralPlugin" onload="true"/>
+    <param name="ios-package" value="BLECentralPlugin"/>
   </feature>
 
   <feature name="BluetoothLePlugin">
