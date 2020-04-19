@@ -103,7 +103,7 @@ export class AppComponent {
 
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
-      if (welcomeVisit && false) {
+      if (welcomeVisit) {
         // this.navCtrl.navigateRoot(['register']);
         this.loadPatient();
       } else {
