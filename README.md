@@ -162,7 +162,7 @@ Just determine the network ip of the host where ionic is running the http server
 
 ## More info
 
-- Conference: **Open Coronavirus. Digital Solution for monitoring, diagnosing and containing SARS-COV-2 infection** by Aurelia Bustos in a 1º Anban AI Congress
+- Conference: **Open Coronavirus. Digital Solution for monitoring, diagnosing and containing SARS-COV-2 infection** by Aurelia Bustos in a 1º Anban Congress, IA and Big Data against COVID-19
     https://www.youtube.com/watch?v=qLDpcljJRyM&feature=youtu.b
     
 - Official slides:
