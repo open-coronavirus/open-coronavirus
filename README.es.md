@@ -67,7 +67,7 @@ Para más información puedes consultar la [wiki del proyecto](https://github.co
 
 **No pretendemos publicar esta APP**, puesto que ha de ser el Ministerio u organismo pertinente quien lo haga. Nos consta [que el gobierno está impulsado un desarrollo como éste](https://elpais.com/tecnologia/2020-03-16/el-gobierno-impulsa-una-aplicacion-inspirada-en-el-exito-de-corea-del-sur-para-combatir-el-coronavirus.html) pero dado que la velocidad es clave, ponemos este código a disposición de los organismos relevantes por si les fuera de utilidad.
 
-Dada la urgencia de la situación actual toda ayuda es poco. Por eso hemos diseñado y programado el core básico de un proyecto cons apps 100% funcional que pueda dar respuesta a algunas necesidades del ciudadano durante el periodo de cuarentena.
+Dada la urgencia de la situación actual toda ayuda es poco. Por eso hemos diseñado y programado el core básico de un proyecto con apps 100% funcional que pueda dar respuesta a algunas necesidades del ciudadano durante el periodo de cuarentena.
 
 El diseño es suficientemente flexible para que añadir o modificar funcionalidades sea fácil y rápido, que es lo que ahora necesitamos.
 
@@ -96,8 +96,12 @@ También se almacena el tiempo en el que has estado cerca de ese dispositivo par
 
     El sistema **subirá al servidor estos cruces de ciudadanos en los cuales se haya podido producir un posible contagio** y a estos ciudadanos les notificará vía push para que sean conscientes del riesgo y/o vuelvan ha realizarse un test diagnóstico.
 
-> Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno este correctamente integrado con la aplicación.
+> Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno esté correctamente integrado con la aplicación.
 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-1-es.png) | 
+|:--:| 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-2-es.png) | 
+| *Sistema de seguimiento de contagios basado en Bluetooth Low Energy* |
 
 ---
 
@@ -105,7 +109,7 @@ El pasado **10 de Abril de 2020 Apple y Google** hicieron [oficial un acuerdo](h
 
 Conceptualmente es similar a la estrategia utilizada en _Open Coronavirus_.
 
-> En cuanto la API SDK este funcionando trabajaremos para conectar nuestro sistema de bluetooth al nativo para tener un resultado incluso más óptimo
+> En cuanto la API SDK esté funcionando trabajaremos para conectar nuestro sistema de bluetooth al nativo para tener un resultado incluso más óptimo.
 
 ## Consideraciones legales
 
@@ -113,7 +117,7 @@ Conceptualmente es similar a la estrategia utilizada en _Open Coronavirus_.
 
 **El proyecto se ofrece a cualquier Ministerio de Sanidad, administración estatal o autonómica competente** para su puesta en marcha. Se harán cargo de la difusión de la app y del tratamiento de los datos que se obtengan, el uso de la app sería de acuerdo a la Ley RGPD.
 
-Los datos que se recaben deberán gestionarse de conformidad con la ley en cuanto a la medidas de seguridad de su almacenamiento, plazo máximo de custodia y almacenamiento, e información al usuario de sus derechos (especialmente de finalidad y revocación del consentimiento).
+Los datos que se recaben deberán gestionarse de conformidad con la ley en cuanto a las medidas de seguridad de su almacenamiento, plazo máximo de custodia y almacenamiento, e información al usuario de sus derechos (especialmente de finalidad y revocación del consentimiento).
 
 Así mismo, pese a que esta app solicita al usuario su consentimiento, también el RGPD contiene excepciones a la necesidad de recabar el consentimiento previo al tratamiento de datos, en el caso de epidemia o de protección de la salud de las personas en base al interés general, que es la situación en la que nos encontramos. El escenario en el que se centra este informe es el de que las autoridades sanitarias autonómicas adoptan medidas extraordinarias para la protección de la salud pública, pues es la única legitimada para adoptar este tipo de medidas.
 
@@ -178,13 +182,21 @@ cd app
 npm install
 ```
 
-Luego para ejecutarlo usa
+Luego para ejecutarlo usa (utiliza el parámetro de configuración para forzar la versión en español)
 
 ```
-ionic serve
+ionic serve --configuration=es
 ```
 
-Esto permite ejecutar la app en un browser. 
+Esto permite ejecutar la app en un navegador. 
+
+Para probar la aplicación en un dispositivo real como un iPhone o un teléfono Android, ejecuta el siguiente comando:
+
+```
+ionic capacitor run ios --livereload --external --host=<server-ip>
+```
+
+Simplemente determina la IP de red del host donde ionic está ejecutando el servidor http y reemplázalo en el parámetro --host.
 
 
 ## Pantallas de la App del ciudadano (elemento principal del proyecto)
@@ -192,13 +204,21 @@ Esto permite ejecutar la app en un browser.
 
 | | | |  
 |:--:|:--:| :--:|  
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1-es-2.jpg" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2-es-2.jpg" alt="Pantalla 2" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3-es-2.jpg" alt="Pantalla 3" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4-es-2.jpg" alt="Pantalla 4" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5-es-2.jpg" alt="Pantalla 5" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6-es-2.jpg" alt="Pantalla 6" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7-es-2.jpg" alt="Pantalla 7" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8-es-2.jpg" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen9-es-2.jpg" alt="Pantalla 9" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen10-es-2.jpg" alt="Pantalla 10" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen11-es-2.jpg" alt="Pantalla 11" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen12-es-2.jpg" alt="Pantalla 12" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen13-es-2.jpg" alt="Pantalla 13" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen14-es-2.jpg" alt="Pantalla 14" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen15-es-2.jpg" alt="Pantalla 15" width="250"/>
-| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-2.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-2.jpg" alt="Pantalla 17" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen18-es-2.jpg" alt="Pantalla 18" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen1-es-3.jpg" alt="Pantalla 1" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen2-es-3.jpg" alt="Pantalla 2" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen3-es-3.jpg" alt="Pantalla 3" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen4-es-3.jpg" alt="Pantalla 4" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen5-es-3.jpg" alt="Pantalla 5" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen6-es-3.jpg" alt="Pantalla 6" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen7-es-3.jpg" alt="Pantalla 7" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen8-es-3.jpg" alt="Pantalla 8" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen9-es-3.jpg" alt="Pantalla 9" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen10-es-3.jpg" alt="Pantalla 10" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen11-es-3.jpg" alt="Pantalla 11" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen12-es-3.jpg" alt="Pantalla 12" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen13-es-3.jpg" alt="Pantalla 13" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen14-es-3.jpg" alt="Pantalla 14" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen15-es-3.jpg" alt="Pantalla 15" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-3.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-3.jpg" alt="Pantalla 17" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen18-es-3.jpg" alt="Pantalla 18" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen19-es-3.jpg" alt="Pantalla 19" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen20-es-3.jpg" alt="Pantalla 20" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen21-es-3.jpg" alt="Pantalla 21" width="250"/>
+| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen22-es-3.jpg" alt="Pantalla 22" width="250"/> ||
 
+## Más información
+
+- Conferencia: **Open Coronavirus. Digital Solution for monitoring, diagnosing and containing SARS-COV-2 infection** por Aurelia Bustos en el 1º Congreso Anban de Inteligencia Artificial y Big Data contra el COVID-19
+    https://www.youtube.com/watch?v=qLDpcljJRyM&feature=youtu.b
+    
+- Transparencias oficiales: https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/info/Open-Coronavirus.pdf
 
 
 ## Licencia

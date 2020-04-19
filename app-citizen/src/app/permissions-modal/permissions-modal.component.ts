@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController, NavController, Platform} from '@ionic/angular';
-import {PatientService} from '../../shared/services/patient.service';
-import {GeolocationTrackingService} from "../../shared/services/tracking/geolocation-tracking.service";
-import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
-import {PushNotificationService} from "../../shared/services/push-notification.service";
+import {PatientService} from '../shared/services/patient.service';
+import {GeolocationTrackingService} from "../shared/services/tracking/geolocation-tracking.service";
+import {BluetoothTrackingService} from "../shared/services/tracking/bluetooth-tracking.service";
+import {PushNotificationService} from "../shared/services/push-notification.service";
 import {PermissionsService} from 'src/app/shared/services/permissions.service';
 import {ActivatedRoute} from '@angular/router';
 

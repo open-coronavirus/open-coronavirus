@@ -22,11 +22,13 @@ import {service} from "@loopback/core";
 import {PushNotificationService} from "../services/pushnotification.service";
 import {PatientStatus} from "../common/utils/enums";
 import {PatientService} from "../services/patient.service";
+import {UserValidatorService} from "../services/user-validator.service";
 
 export class PatientController {
   constructor(
     @repository(PatientRepository) public patientRepository: PatientRepository,
     @service(PatientService) public patientService: PatientService,
+    @service('UserValidatorService') public userValidatorService: UserValidatorService,
     @service(PushNotificationService) public pushNotificationService: PushNotificationService,
   ) { }
 
@@ -60,8 +62,17 @@ export class PatientController {
       patient.status = PatientStatus.UNKNOWN; //initial status
       patient.created = new Date();
 
-      this.patientRepository.create(patient).then(createdPatient => {
-        resolve(createdPatient);
+      this.userValidatorService.validateUser(patient).then(validationResult => {
+        if(validationResult.isValid) {
+          this.patientRepository.create(patient).then(createdPatient => {
+            resolve(createdPatient);
+          });
+        }
+        else {
+          let error = new HttpErrors[401]; //unauthorized
+          error.message = validationResult.message;
+          throw error;
+        }
       });
 
     });
