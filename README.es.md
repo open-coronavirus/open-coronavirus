@@ -98,6 +98,10 @@ También se almacena el tiempo en el que has estado cerca de ese dispositivo par
 
 > Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno esté correctamente integrado con la aplicación.
 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-1-es.png) | 
+|:--:| 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-2-es.png) | 
+| *Sistema de seguimiento de contagios basado en Bluetooth Low Energy* |
 
 ---
 
