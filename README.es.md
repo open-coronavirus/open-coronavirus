@@ -206,7 +206,8 @@ Esto permite ejecutar la app en un browser.
 - Conferencia: **Open Coronavirus. Digital Solution for monitoring, diagnosing and containing SARS-COV-2 infection** por Aurelia Bustos en el 1º Congreso Anban de Inteligencia Artificial y Big Data contra el COVID-19
     https://www.youtube.com/watch?v=qLDpcljJRyM&feature=youtu.b
     
-- Official slides:
+- Transparencias oficiales: https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/info/Open-Coronavirus.pdf
+
 
 ## Licencia
 
