@@ -160,6 +160,12 @@ Just determine the network ip of the host where ionic is running the http server
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen13-es-2.jpg" alt="Pantalla 13" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen14-es-2.jpg" alt="Pantalla 14" width="250"/>| <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen15-es-2.jpg" alt="Pantalla 15" width="250"/>
 | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen16-es-2.jpg" alt="Pantalla 16" width="250"/> | <img src="https://raw.githubusercontent.com/aparraga/open-coronavirus/master/screenshots/screen17-es-2.jpg" alt="Pantalla 17" width="250"/>| <img src="https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/screen18-es-2.jpg" alt="Pantalla 18" width="250"/>
 
+## More info
+
+- Conference: **Open Coronavirus. Digital Solution for monitoring, diagnosing and containing SARS-COV-2 infection** by Aurelia Bustos in a 1º Anban AI Congress
+    https://www.youtube.com/watch?v=qLDpcljJRyM&feature=youtu.b
+    
+- Official slides:
 
 
 ## License
