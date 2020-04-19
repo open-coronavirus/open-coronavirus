@@ -1,6 +1,6 @@
 tasks:
   - init: cd app-citizen && npm install && cd ../app-health && npm install && cd ../app-police && npm install && cd ../server && npm install && cd ../sample-government-server && mpm install
     command: cd /workspace/open-coronavirus/server/ && npm start
-    command: mongod
+  - command: mongod
 image:
   file: .gitpod.Dockerfile
