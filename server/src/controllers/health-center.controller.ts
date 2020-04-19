@@ -24,8 +24,7 @@ import {authorize} from "@loopback/authorization";
 
 export class HealthCenterController {
   constructor(
-    @repository(HealthCenterRepository)
-    public healthCenterRepository : HealthCenterRepository,
+    @repository(HealthCenterRepository) public healthCenterRepository : HealthCenterRepository,
   ) {}
 
   @post('/health-centers', {

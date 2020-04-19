@@ -10,6 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { TestQuestionService } from './shared/services/test-question.service';
 import { MinVersionControllerService } from './shared/sdk/api/minVersionController.service';
 import { GetMinVersion } from './shared/sdk/model/getMinVersion';
+import { versionCompare } from '../../../app-health/src/app/shared/utils/utils';
 
 
 @Component({
@@ -77,15 +78,20 @@ export class AppComponent {
   }
 
   async checkUpdateApp() {
-    this.minVersionControllerService.minVersionControllerUpdateNeeded(this.settings.appVersion).subscribe(
-      needUpdate => {
-        if (needUpdate) {
-          console.log('Por favor actualice la app');
+    this.minVersionControllerService.minVersionControllerFind().subscribe(
+      version => {
+        // console.log("version: ", version.minVersion);
+        // console.log("this.settings.appVersion: ", this.settings.appVersion);
+
+        if (!versionCompare(version.minVersion, this.settings.appVersion)) {
+          // console.log('Por favor actualice la app');
           this.navCtrl.navigateRoot(['update']);
         } else {
-          console.log('No se necesita update');
+          //  console.log('No se necesita update');
           this.checkWelcome();
         }
+
+
 
       },
       err => {

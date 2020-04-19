@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { StorageService } from "../shared/services/storage.service";
@@ -22,6 +22,7 @@ export class WelcomeComponent implements OnInit {
     constructor(
         protected router: Router,
         private activatedRoute: ActivatedRoute,
+        @Inject('settings') public settings,
         protected storageService: StorageService) {
 
         this.activatedRoute.paramMap.subscribe(params => {

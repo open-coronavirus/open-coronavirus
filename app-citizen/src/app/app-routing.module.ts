@@ -30,7 +30,7 @@ const routes: Routes = [
             {
                 path: '',
                 loadChildren: () =>
-                    import('./permissions/permissions-modal/permissions-modal.module').then(m => m.PermissionsPushModule)
+                    import('./permissions-modal/permissions-modal.module').then(m => m.PermissionsPushModule)
             },
         ]
     },

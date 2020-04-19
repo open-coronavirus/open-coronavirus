@@ -16,6 +16,7 @@ import { Auth0AuthenticationStrategy, JWTServiceProvider } from "./security";
 import { MyAuthorizationProvider } from "./security/authorizor";
 import { PushNotificationService } from "./services/pushnotification.service";
 import {PatientService} from "./services/patient.service";
+import {UserValidationMockService} from "./services/impl/user-validator-mock.service";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -82,6 +83,7 @@ export class CoronavirusServerApplication extends BootMixin(
     //Define custom services at this point:
     this.service(AppointmentMockService, { interface: 'AppointmentService' });
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
+    this.service(UserValidationMockService, { interface: 'UserValidationService' });
     this.service(LeaveRequestService);
     this.service(PatientService);
     this.service(PushNotificationService, { interface: 'PushNotificationService' });

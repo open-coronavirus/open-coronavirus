@@ -1,6 +1,6 @@
 <ion-content>
   <ion-slides *ngIf="didInit" class="ion-slides" pager="true" [options]="slideOpts" (ionSlideWillChange)="onChangeSlide($event)">
-    <ion-slide class="slide">
+    <ion-slide class="slide" *ngIf="settings.home.moduleRequestTest" >
       <h2 class="slide__title" i18n="@@introSlideTogether">Luchemos juntos<br>contra el <strong class="slide__title-strong">COVID-19</strong></h2>
       <div class="slide__image-container">
         <img class="slide__image" src="/assets/icons/svg/icon-test-bg.svg">
