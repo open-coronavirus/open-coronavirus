@@ -39,8 +39,10 @@ export class PatientInfoComponent {
     async presentToast() {
         const toast = await this.toastController.create({
             // Your changes has been saved
-            message: $localize`:@@changesSavedAlert:Tus cambios se han salvado`,
-            duration: 2000
+            message: $localize`:@@changesSavedAlert:Tus cambios se han guardado`,
+            duration: 2000,
+            position: 'top',
+            cssClass: 'toast-class'
         });
         toast.present();
     }

@@ -431,6 +431,16 @@ ion-content, ion-toolbar, ion-header{
   &--ok{
     background-color: #DFEED7;
   }
+  &--about{
+    background-color: #f5f5f5;
+    font-size: 16px;
+    padding: 20px;
+
+    @media (min-width: 321px) {
+      font-size: 20px;
+      line-height: 22px;
+    }
+  }
   &--positivo-virus{
     background-color: #f5f5f5;
     text-align: center;  
@@ -442,7 +452,6 @@ ion-content, ion-toolbar, ion-header{
       font-size: 28px;
       line-height: 30px;
     } 
-
   }
   p{
     margin: 0 0 16px 0;
@@ -622,4 +631,7 @@ ion-content, ion-toolbar, ion-header{
     height: auto;
     max-width: 400px;
   }
+}
+.toast-class{
+  font-size: 16px;
 }

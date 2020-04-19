@@ -18,6 +18,9 @@
   background-clip: padding-box;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   outline: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   @media (min-width: 321px) {
     font-size: 18px;
@@ -177,6 +180,10 @@ label {
   z-index: 2;
   font-weight: 300;
   font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
   @media (min-width: 321px) {
     font-size: 18px;
   }
