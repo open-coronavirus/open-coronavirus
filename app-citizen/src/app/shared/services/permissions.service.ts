@@ -171,6 +171,7 @@ export class PermissionsService {
             }
             else if(this.platform.is('ios')) {
                 this.diagnostic.requestBluetoothAuthorization().then(result => {
+                    console.log("[PermissionService] request bluetooth result: " + JSON.stringify(result));
                     this.diagnostic.registerBluetoothStateChangeHandler(state => {
                         if(state === this.diagnostic.bluetoothState.POWERED_ON){
                             console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(state));

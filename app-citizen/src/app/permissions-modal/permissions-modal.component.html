@@ -1,0 +1,53 @@
+<ion-header translucent>
+  <ion-toolbar class="modal-header">
+    <ion-buttons slot="end">
+      <ion-icon size="large" (click)="dismissModal()" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="modal-text" fullscreen [ngSwitch]="type">
+
+  <ng-container *ngSwitchCase="'push'">
+    <h1 class="screen-title" i18n="@@permissionsModalTitlePush">Activa los permisos necesarios para poder utilizar la aplicación</h1>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-campana.svg"></span>
+    </p>
+    <h2 class="screen-subtitle" i18n="@@permissionsModalTitlePushNotifications">Notificaciones push</h2>
+    <p class="screen-text" i18n="@@permissionsModalDescriptionPushNotifications">Las utilizaremos para enviarte información relevante, resultados de tu test de COVID-19 y líneas de actuación.</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'gps'">
+    <h1 class="screen-title" i18n="@@permissionsModalTitleGeolocation">Activa los permisos necesarios para poder utilizar la aplicación</h1>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-localizacion.svg"></span>
+    </p>
+    <h2 class="screen-subtitle" i18n="@@permissionsModalTitleGeolocation">Geolocalización</h2>
+    <p class="screen-text" i18n="@@permissionsModalDescription1Geolocation">Necesitamos saber dónde te encuentras para poder ofrecerte las mejores medidas preventivas y médicas.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription2Geolocation">Compartiendo tu información ayudarás a frenar el COVID-19.</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'bluetooth'">
+    <h1 class="screen-title" i18n="@@permissionsModalTitleGeolocation">Activa los permisos necesarios para poder utilizar la aplicación</h1>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
+    </p>
+    <h2 class="screen-subtitle" i18n="@@permissionsModalTitleBluetooth">Bluetooth</h2>
+    <p class="screen-text" i18n="@@permissionsModalDescription1Bluetooth">Mediante la tecnología bluetooth podrás <strong>estar información de si te has cruzado con alguien con COVID-19</strong> y así estar mas seguro.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription2Bluetooth">La protección y prevención de tu salud es lo primero.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription3Bluetooth">Recuerda liberar espacio en tu móvil para que  funcione correctamente esta funcionalidad.</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'coarse-location'">
+    <h1 class="screen-title" i18n="@@permissionsModalTitleCoarseLocation">Activa los permisos necesarios para poder utilizar la aplicación</h1>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-localizacion.svg">&nbsp;&nbsp;<img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
+    </p>
+    <h2 class="screen-subtitle" i18n="@@permissionsModalTitleCoarseLocation">Localización aproximada</h2>
+    <p class="screen-text" i18n="@@permissionsModalDescription1CoarseLocation">Debes activar este permiso para que la tecnología Bluetooth Low Energy funcione correctamente en android.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription2CoarseLocation">Mediante la tecnología bluetooth podrás <strong>estar información de si te has cruzado con alguien con COVID-19</strong> y así estar mas seguro.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription3CoarseLocation">La protección y prevención de tu salud es lo primero.</p>
+    <p class="screen-text" i18n="@@permissionsModalDescription4CoarseLocation"><strong>En ningún momento vas a compartir tu localización con nadie.</strong></p>
+  </ng-container>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="footer-app">
+    <button class="btn" (click)="activatePermission()" i18n="@@activate">ACTIVAR</button>
+  </ion-toolbar>
+</ion-footer>
