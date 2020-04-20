@@ -164,13 +164,14 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
             }));
 
 
-
     }
 
     public validate() {
         for (var i in this.patientInfoForm.controls) {
             this.patientInfoForm.controls[i].markAsTouched();
         }
+
+        this.enabledDateValidation = true;
     }
 
     getMaxDate() {

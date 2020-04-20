@@ -21,9 +21,9 @@
 
     <div class="form-row">
         <div class="form-group form-label-group form-label-group--bday">
-            <ion-datetime class="form-control" displayFormat="DD/MM/YYYY" [max]="getMaxDate()" name="birthday" id="birthday" formControlName="birthday"></ion-datetime>
+            <ion-datetime class="form-control form-datepicker" [ngClass]="{'form-datepicker--error' : enabledDateValidation}" displayFormat="DD/MM/YYYY" [max]="getMaxDate()" name="birthday" id="birthday" formControlName="birthday" (ionBlur)="changeDate($event)"></ion-datetime>
             <label for="birthday" i18n="@@birthdayLabel" *ngIf="!patient.birthday">Fecha de nacimiento</label>
-            <small class="error" *ngIf="birthday.invalid && birthday.touched" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento</small>
+            <small class="error" *ngIf="birthday.invalid && birthday.touched && enabledDateValidation" i18n="@@birthdayError">Por favor, introduce tu fecha de nacimiento</small>
         </div>
     </div>
 
