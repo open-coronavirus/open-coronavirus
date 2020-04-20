@@ -6,6 +6,9 @@ import {BLE} from "@ionic-native/ble/ngx";
 import {ContactTrackerService} from "../contacts/contact-tracker.service";
 import {PatientService} from "../patient.service";
 import { PermissionsService } from '../permissions.service';
+import {Plugins} from "@capacitor/core";
+
+const { App, BackgroundTask } = Plugins;
 
 @Injectable()
 export class BluetoothTrackingService {
@@ -22,6 +25,10 @@ export class BluetoothTrackingService {
 
     protected activated = false;
 
+    protected isScanning = false;
+    protected scanTimeout;
+    protected backgroundMode = false;
+
     protected restoreKey = "Open Coronavirus";
 
     constructor(protected bluetoothle: BluetoothLE,
@@ -36,6 +43,8 @@ export class BluetoothTrackingService {
     }
 
     public startBluetoothTracking() {
+
+        this.prepareBackgroundMode();
 
         if(this.settings.enabled.bluetooth && this.activated == false) {
             this.activated = true;
@@ -83,7 +92,35 @@ export class BluetoothTrackingService {
 
     }
 
+    protected prepareBackgroundMode() {
+        App.addListener('appStateChange', (state) => {
 
+            if (!state.isActive) {
+
+                // The app has become inactive. We should check if we have some work left to do, and, if so,
+                // execute a background task that will allow us to finish that work before the OS
+                // suspends or terminates our app:
+                let taskId = BackgroundTask.beforeExit(async () => {
+
+                    this.startScanningInBackgroundMode();
+
+                    BackgroundTask.finish({
+                        taskId
+                    });
+
+                });
+                this.backgroundMode = true;
+
+            }
+            else {
+                if(this.backgroundMode) {
+                    this.startScanningInForegroundMode();
+                }
+                this.backgroundMode = false;
+            }
+
+        });
+    }
 
 
     protected addService() {
@@ -168,54 +205,81 @@ export class BluetoothTrackingService {
 
     }
 
-    public startScan(continuousScanning = true) {
+    public startScan(backgroundMode = false) {
 
-        console.debug("[BluetoothLE] Start scanning ...");
-        this.ble.startScan([BluetoothTrackingService.serviceUUID]).subscribe(device => {
+        if (!this.isScanning) {
 
-            if (!this.contactTrackerService.isKnownContact(device.id)) {
-                //avoid duplicate calls while processing an item (because this is a subscription callback from ble.scan method
-                console.debug('[BluetoothLE] connecting to ' + device.id + " ...");
-                this.ble.connect(device.id).subscribe(result => {
-                        console.debug('[BluetoothLE] connected result: ' + JSON.stringify(result));
-                        result.characteristics.forEach(characteristic => {
-                            if (characteristic.service.toUpperCase() == BluetoothTrackingService.serviceUUID) {
-                                let targetCharacteristicUUID = characteristic.characteristic;
-                                console.debug("******>>> Open Coronavirus Target UUID detected: " + targetCharacteristicUUID + ", rssi: " + device.rssi);
-                                //now save the device, with the address and so on into local storage
-                                if (!this.addressesBeingTracked.has(device.id)) {
-                                    this.addressesBeingTracked.set(device.id, true);
-                                    this.contactTrackerService.trackContact(targetCharacteristicUUID, device.rssi, device.id);
-                                }
-                            }
-                        });
-                        this.ble.disconnect(device.id); //disconnect from the device!!! so important
-                    },
-                    peripheralData => {
-                        console.error('[BluetoothLE] error connecting: ' + JSON.stringify(peripheralData));
-                    });
+            this.isScanning = true;
+
+            if (backgroundMode) {
+                console.debug("[BluetoothLE] Start scanning in background mode ...");
             } else {
-                this.contactTrackerService.updateTrack(device.id, device.rssi);
+                console.debug("[BluetoothLE] Start scanning ...");
             }
 
-        });
+            this.ble.startScan([BluetoothTrackingService.serviceUUID]).subscribe(device => {
 
-        if (continuousScanning) {
-            setTimeout(() => {
-                this.stopScan(continuousScanning);
-            }, 10000);
+                if (!this.contactTrackerService.isKnownContact(device.id)) {
+                    //avoid duplicate calls while processing an item (because this is a subscription callback from ble.scan method
+                    console.debug('[BluetoothLE] connecting to ' + device.id + " ...");
+                    this.ble.connect(device.id).subscribe(result => {
+                            console.debug('[BluetoothLE] connected result: ' + JSON.stringify(result));
+                            result.characteristics.forEach(characteristic => {
+                                if (characteristic.service.toUpperCase() == BluetoothTrackingService.serviceUUID) {
+                                    let targetCharacteristicUUID = characteristic.characteristic;
+                                    console.debug("******>>> Open Coronavirus Target UUID detected: " + targetCharacteristicUUID + ", rssi: " + device.rssi);
+                                    //now save the device, with the address and so on into local storage
+                                    if (!this.addressesBeingTracked.has(device.id)) {
+                                        this.addressesBeingTracked.set(device.id, true);
+                                        this.contactTrackerService.trackContact(targetCharacteristicUUID, device.rssi, device.id);
+                                    }
+                                }
+                            });
+                            this.ble.disconnect(device.id); //disconnect from the device!!! so important
+                        },
+                        peripheralData => {
+                            console.error('[BluetoothLE] error connecting: ' + JSON.stringify(peripheralData));
+                        });
+                } else {
+                    this.contactTrackerService.updateTrack(device.id, device.rssi);
+                }
+
+            });
+
+            if (!backgroundMode) {
+                this.scanTimeout = setTimeout(() => {
+                    this.stopScan(backgroundMode);
+                }, 10000);
+            }
         }
 
     }
 
-    public stopScan(continuousScanning = true) {
-        this.ble.stopScan().then(result => {
-            if(continuousScanning) {
-                setTimeout(() => {
-                    this.startScan(continuousScanning);
+    public stopScan(backgroundMode = false) {
+        this.isScanning = false;
+        this.bluetoothle.stopScan().then(result => {
+            if(!backgroundMode) {
+                this.scanTimeout = setTimeout(() => {
+                    this.startScan(backgroundMode);
                 }, 10000);
             }
         })
+    }
+
+    public startScanningInBackgroundMode() {
+        if(this.scanTimeout != null) {
+            clearTimeout(this.scanTimeout);
+        }
+        if(!this.isScanning) {
+            this.startScan(true);
+        }
+    }
+
+    public startScanningInForegroundMode() {
+        if(this.isScanning) {
+            this.stopScan(true);
+        }
+        this.startScan();
     }
 
 

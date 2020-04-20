@@ -164,9 +164,9 @@ export class ContactTrackerService {
 
     public updateTrack(address, rssi) {
 
-        //for contacts being registered in the last 5 minutes, just update the signal and the timestamp
+        //for contacts being registered in the last hour, just update the signal and the timestamp
         //otherwise create a new contact
-        if (new Date().getTime() - this.knownContacts.get(address).timestampTo - 300000 > 0) {
+        if (new Date().getTime() - this.knownContacts.get(address).timestampTo - 3600000 > 0) {
             let contact = this.knownContacts.get(address);
             this.trackContact(contact.uuid, rssi, address);
         }
