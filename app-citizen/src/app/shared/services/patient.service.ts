@@ -1,9 +1,9 @@
-import {Inject, Injectable} from '@angular/core';
-import {PatientControllerService, PatientWithRelations} from '../sdk';
-import {BehaviorSubject, Subject, Subscribable} from 'rxjs';
-import {Platform} from '@ionic/angular';
-import {StorageService} from "./storage.service";
-import {InstallationService} from "./installation.service";
+import { Inject, Injectable } from '@angular/core';
+import { PatientControllerService, PatientWithRelations } from '../sdk';
+import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
+import { Platform } from '@ionic/angular';
+import { StorageService } from "./storage.service";
+import { InstallationService } from "./installation.service";
 
 
 @Injectable()
@@ -33,11 +33,11 @@ export class PatientService {
     public static PATIENT_TOKEN_KEY = 'patientTokenV3';
 
     constructor(protected patientController: PatientControllerService,
-                @Inject('environment') protected environment,
-                protected installationService: InstallationService,
-                @Inject('settings') protected settings,
-                public platform: Platform,
-                protected storageService: StorageService) {
+        @Inject('environment') protected environment,
+        protected installationService: InstallationService,
+        @Inject('settings') protected settings,
+        public platform: Platform,
+        protected storageService: StorageService) {
 
     }
 
@@ -46,7 +46,7 @@ export class PatientService {
         let returnValue = new Subject<boolean>();
 
         this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(token => {
-            if(token != null) {
+            if (token != null) {
                 this.patientController.patientControllerFindById(token).subscribe(existingPatient => {
                     if (existingPatient != null) {
                         this._patient = existingPatient;
@@ -58,7 +58,10 @@ export class PatientService {
                         returnValue.next(false);
                     }
                 });
+            } else {
+                returnValue.next(false);
             }
+
         });
 
         return returnValue;
@@ -68,7 +71,7 @@ export class PatientService {
 
         let returnValue = new Subject<boolean>();
         this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(token => {
-            if(token != null) {
+            if (token != null) {
                 this.patientController.patientControllerFindById(token).subscribe(existingPatient => {
                     if (existingPatient != null) {
                         this._patient = existingPatient;
@@ -90,7 +93,7 @@ export class PatientService {
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
             this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
                 this.loadLocalPatient().subscribe(loaded => {
-                    if(loaded) {
+                    if (loaded) {
                         this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
                             returnValue.next(newPatient);
                         });

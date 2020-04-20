@@ -14,5 +14,8 @@
       "SplashScreen": "screen",
       "SplashScreenDelay": "3000"
     }
+  },
+  "SplashScreen": {
+    "androidScaleType": "CENTER_CROP"
   }
 }

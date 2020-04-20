@@ -80,9 +80,6 @@ export class AppComponent {
   async checkUpdateApp() {
     this.minVersionControllerService.minVersionControllerFind().subscribe(
       version => {
-        // console.log("version: ", version.minVersion);
-        // console.log("this.settings.appVersion: ", this.settings.appVersion);
-
         if (!versionCompare(version.minVersion, this.settings.appVersion)) {
           // console.log('Por favor actualice la app');
           this.navCtrl.navigateRoot(['update']);
@@ -90,8 +87,6 @@ export class AppComponent {
           //  console.log('No se necesita update');
           this.checkWelcome();
         }
-
-
 
       },
       err => {
@@ -104,7 +99,6 @@ export class AppComponent {
   checkWelcome() {
     this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
       if (welcomeVisit) {
-        // this.navCtrl.navigateRoot(['register']);
         this.loadPatient();
       } else {
         this.navCtrl.navigateRoot(['welcome/0']);
