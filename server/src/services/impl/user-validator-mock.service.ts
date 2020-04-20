@@ -3,7 +3,7 @@ import {Patient} from "../../models";
 import {ValidationResult} from "../validation-result";
 
 
-export class UserValidationMockService implements UserValidatorService {
+export class UserValidatorMockService implements UserValidatorService {
 
     validateUser(patient: Patient): Promise<ValidationResult> {
 

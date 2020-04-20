@@ -1,4 +1,4 @@
-import {Patient, TestResult} from "../models";
+import {Patient} from "../models";
 import {ValidationResult} from "./validation-result";
 
 
