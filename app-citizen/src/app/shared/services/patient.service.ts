@@ -90,6 +90,11 @@ export class PatientService {
 
         let returnValue = new Subject();
 
+        //set the appId for test environment
+        //in production this value will be ignored, but in test environment we use a
+        //server handling multiple differnet app versions
+        patient.appId = this.settings.appId;
+
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
             this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
                 this.loadLocalPatient().subscribe(loaded => {

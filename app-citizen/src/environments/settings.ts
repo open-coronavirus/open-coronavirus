@@ -1,4 +1,5 @@
 export const settings = {
+    appId: 'com.opencoronavirus',
     header: {
         logo: '',
         text: '<strong>OPEN</strong> CORONAVIRUS',

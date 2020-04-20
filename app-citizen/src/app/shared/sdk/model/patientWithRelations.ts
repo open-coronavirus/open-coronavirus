@@ -34,6 +34,7 @@ export interface PatientWithRelations {
     status?: number;
     phone: string;
     serviceAdvertisementUUID?: string;
+    appId?: string;
     created?: string;
     updated?: string;
     leaveRequests?: Array<LeaveRequestWithRelations>;

@@ -103,6 +103,12 @@ export class Patient extends Entity {
   serviceAdvertisementUUID?: string;
 
   @property({
+    type: 'string',
+    required: false,
+  })
+  appId?: string;
+
+  @property({
     type: 'date',
     required: false,
   })

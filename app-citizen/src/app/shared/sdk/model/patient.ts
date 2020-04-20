@@ -30,6 +30,7 @@ export interface Patient {
     status?: number;
     phone: string;
     serviceAdvertisementUUID?: string;
+    appId?: string;
     created?: string;
     updated?: string;
 }
