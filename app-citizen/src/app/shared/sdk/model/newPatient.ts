@@ -35,5 +35,6 @@ export interface NewPatient {
     appId?: string;
     created?: string;
     updated?: string;
+    autoshare?: boolean;
 }
 
