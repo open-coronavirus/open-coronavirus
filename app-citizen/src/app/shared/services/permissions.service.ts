@@ -62,6 +62,10 @@ export class PermissionsService {
             }
         }
 
+        if (!this.settings.autoshare) {
+            requiredPermissions.push('autoshare');
+        }
+
         return requiredPermissions;
     }
 
@@ -122,7 +126,9 @@ export class PermissionsService {
                         resolve(true);
                     }
                     break;
-
+                case 'autoshare':
+                    resolve(true);
+                    break;
             }
         });
         return returnValue;
@@ -146,6 +152,11 @@ export class PermissionsService {
                     break;
                 case 'coarse-location':
                     this.requestCoarseLocationPermission().then(result => {
+                        resolve(result);
+                    });
+                    break;
+                case 'autoshare':
+                    this.requestAutosharePermission().then(result => {
                         resolve(result);
                     });
                     break;
@@ -236,6 +247,14 @@ export class PermissionsService {
 
         return returnValue;
 
+    }
+
+    public requestAutosharePermission() {
+        const returnValue = new Promise<boolean>(resolve => {
+            resolve(true);
+        });
+
+        return returnValue;
     }
 
 

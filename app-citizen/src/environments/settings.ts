@@ -41,7 +41,7 @@ export const settings = {
     stores: {
         urlAppStore: 'https://itunes.apple.com/es/app/coronaapp/idxxxxxx',
         urlGooglePlay: 'https://play.google.com/store/apps/details?id=xxxx.coronaapp.xxx'
-    }
-
+    },
+    autoshare: false
 
 };

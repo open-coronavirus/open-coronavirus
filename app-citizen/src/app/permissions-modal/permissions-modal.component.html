@@ -45,9 +45,24 @@
     <p class="screen-text" i18n="@@permissionsModalDescription3CoarseLocation">La protección y prevención de tu salud es lo primero.</p>
     <p class="screen-text" i18n="@@permissionsModalDescription4CoarseLocation"><strong>En ningún momento vas a compartir tu localización con nadie.</strong></p>
   </ng-container>
+  <ng-container *ngSwitchCase="'autoshare'">
+    <h1 class="screen-title" i18n="@@permissionsModalTitleAutoshare">Colabora compartiendo información con quién te has cruzado en caso de positivo (de forma anónima)</h1>
+    <p class="screen-text">
+      <span class="circle-icon"><img class="filter-black" src="/assets/icons/svg/icon-localizacion.svg">&nbsp;&nbsp;<img class="filter-black" src="/assets/icons/svg/icon-bluetooth.svg"></span>
+    </p>
+    <p class="screen-text" i18n="@@permissionsModalDescription1Autoshare">Pulsando Colaborar das tu autoridad para enviar tus datos y autorizar su uso en caso de que en algún momento de positivo de COVID-19. Podremos avisar a las personas con las que te has cruzado diciéndoles que han estado a una distancia de riesgo de una persona que ha dado positivo en COVID-19, pero sin especificar quién.
+    </p>
+    <p class="screen-text" i18n="@@permissionsModalDescription2Autoshare">Esta colaboración puede ayudar a contener al virus y estarás ayudando y protegiendo a muchas personas.</p>
+  </ng-container>
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app">
-    <button class="btn" (click)="activatePermission()" i18n="@@activate">ACTIVAR</button>
+    <ng-container *ngIf="type === 'autoshare'; else singleButton">
+      <button class="btn" (click)="dismissModal()" i18n="@@noCollaborate">NO COLABORAR</button>
+      <button class="btn" (click)="activatePermission()" i18n="@@collaborate">COLABORAR</button>
+    </ng-container>
+    <ng-template #singleButton>
+      <button class="btn" (click)="activatePermission()" i18n="@@activate">ACTIVAR1</button>
+    </ng-template>
   </ion-toolbar>
 </ion-footer>
