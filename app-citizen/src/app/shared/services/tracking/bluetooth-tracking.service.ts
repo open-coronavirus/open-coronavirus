@@ -39,7 +39,7 @@ export class BluetoothTrackingService {
                 protected permissionsService: PermissionsService,
                 @Inject('settings') protected settings,
                 protected contactTrackerService: ContactTrackerService
-                ) {
+    ) {
 
     }
 
@@ -157,10 +157,10 @@ export class BluetoothTrackingService {
             console.debug('[BluetoothLE] addService result: ' + JSON.stringify(result));
             returnValue.next(true);
         })
-        .catch(error => {
-            console.error('[BluetoothLE] addService error: ' + JSON.stringify(error));
-            returnValue.next(false);
-        });
+            .catch(error => {
+                console.error('[BluetoothLE] addService error: ' + JSON.stringify(error));
+                returnValue.next(false);
+            });
 
         return returnValue;
     }
@@ -198,9 +198,9 @@ export class BluetoothTrackingService {
                             this.bluetoothle.startAdvertising(params).then(result => {
                                 console.debug("[BluetoothLE] Started advertising: " + JSON.stringify(result));
                             })
-                            .catch(error => {
-                                console.error("[BluetoothLE] Error trying to advertise: " + JSON.stringify(error));
-                            })
+                                .catch(error => {
+                                    console.error("[BluetoothLE] Error trying to advertise: " + JSON.stringify(error));
+                                })
                         }
 
                     });
@@ -234,9 +234,9 @@ export class BluetoothTrackingService {
                             result.characteristics.forEach(characteristic => {
                                 if (characteristic.service.toUpperCase() == BluetoothTrackingService.serviceUUID) {
                                     let targetCharacteristicUUID = characteristic.characteristic;
-                                    console.debug("******************************************************************************************************************");
-                                    console.debug("****** Open Coronavirus Target UUID detected: " + targetCharacteristicUUID + ", rssi: " + device.rssi);
-                                    console.debug("******************************************************************************************************************");
+                                    console.debug("**********************************************************************************************");
+                                    console.debug("    Open Coronavirus Target UUID detected: " + targetCharacteristicUUID + ", rssi: " + device.rssi);
+                                    console.debug("**********************************************************************************************");
                                     //now save the device, with the address and so on into local storage
                                     if (!this.addressesBeingTracked.has(device.id)) {
                                         this.addressesBeingTracked.set(device.id, true);
@@ -265,34 +265,44 @@ export class BluetoothTrackingService {
     }
 
     public stopScan(backgroundMode = false) {
-        this.isScanning = false;
-        if (backgroundMode) {
-            console.debug("[BluetoothLE] Stop scanning in background mode ...");
-        } else {
-            console.debug("[BluetoothLE] Stop scanning ...");
-        }
-        this.ble.stopScan().then(result => {
-            console.log('[BluetoothLE] Stop scanning successfully!');
-        })
-        .catch(error => {
-            console.error('[BluetoothLE] Error trying to stop scanning: ' + JSON.stringify(error));
-        })
-        .finally(() => {
-            if(!backgroundMode) {
-                this.scanTimeout = setTimeout(() => {
-                    this.startScan(backgroundMode);
-                }, 20000);
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+
+            this.isScanning = false;
+            if (backgroundMode) {
+                console.debug("[BluetoothLE] Stop scanning in background mode ...");
+            } else {
+                console.debug("[BluetoothLE] Stop scanning ...");
             }
-        })
+            this.ble.stopScan().then(result => {
+                console.log('[BluetoothLE] Stop scanning successfully!');
+                resolve(true);
+            })
+                .catch(error => {
+                    console.error('[BluetoothLE] Error trying to stop scanning: ' + JSON.stringify(error));
+                    resolve(false);
+                })
+                .finally(() => {
+                    if (!backgroundMode) {
+                        this.scanTimeout = setTimeout(() => {
+                            this.startScan(backgroundMode);
+                        }, 20000);
+                    }
+                })
+        });
+
+        return returnValue;
     }
 
     public startScanningInBackgroundMode() {
         if(this.scanTimeout != null) {
             clearTimeout(this.scanTimeout);
         }
-        if(!this.isScanning) {
-            this.startScan(true);
+        if(this.isScanning) { //always stop if scanning in order to start in background mode
+            this.stopScan(true).then(result => {
+                this.startScan(true);
+            });
         }
+        this.startScan(true);
     }
 
     public startScanningInForegroundMode() {
