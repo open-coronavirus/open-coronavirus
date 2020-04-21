@@ -317,5 +317,12 @@ export class ContactTrackerService {
         });
     }
 
+    async activateAutoShare() {
+        this.patientService.patient.autoshare = true;
+        const patient = this.patientService.patient;
 
+        this.patientService.update(patient).subscribe(success => {
+
+        });
+    }
 }

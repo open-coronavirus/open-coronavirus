@@ -7,6 +7,7 @@ import {Push} from "@ionic-native/push/ngx";
 import {PermissionType, Plugins} from "@capacitor/core";
 import {BLE} from "@ionic-native/ble/ngx";
 import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
+import {ContactTrackerService} from "./contacts/contact-tracker.service";
 
 const { PushNotifications, Permissions } = Plugins;
 
@@ -25,7 +26,8 @@ export class PermissionsService {
         protected androidPermissions: AndroidPermissions,
         protected bluetoothLe: BluetoothLE,
         protected ble: BLE,
-        protected navCtrl: NavController
+        protected navCtrl: NavController,
+        protected contactTrackerService: ContactTrackerService
     ) {
         this.requiredPermissions = [];
     }
@@ -127,7 +129,7 @@ export class PermissionsService {
                     }
                     break;
                 case 'autoshare':
-                    resolve(true);
+                    resolve(false);
                     break;
             }
         });
@@ -251,6 +253,7 @@ export class PermissionsService {
 
     public requestAutosharePermission() {
         const returnValue = new Promise<boolean>(resolve => {
+            this.contactTrackerService.activateAutoShare();
             resolve(true);
         });
 
