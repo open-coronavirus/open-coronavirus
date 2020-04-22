@@ -41,6 +41,7 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
         phone: string;
         postalCode: string;
         street: string;
+        autoshare: boolean;
     };
 
     @Output('onChange')
@@ -93,6 +94,10 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
         return this.patientInfoForm.get('phone');
     }
 
+    get autoshare() {
+        return this.patientInfoForm.get('autoshare');
+    }
+
     protected subscriptions: Subscription[] = new Array<Subscription>();
 
     public constructor(protected formBuilder: FormBuilder) {
@@ -117,6 +122,7 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
                 Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/)]),
             email: new FormControl(this.patient.email, [
                 Validators.pattern(/^\s*[a-zA-Z0-9._-]+@[a-zA-Z0-9\.-]+?\.[a-zA-Z]{2,}\s*$/i)]),
+            autoshare: new FormControl(this.patient.autoshare)
         });
 
         this.subscriptions.push(this.patientInfoForm.get('firstName').valueChanges
@@ -163,7 +169,11 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
                 this.onChange.next(this.patient);
             }));
 
-
+        this.subscriptions.push(this.patientInfoForm.get('autoshare').valueChanges
+            .subscribe((value: boolean) => {
+                this.patient.autoshare = value;
+                this.onChange.next(this.patient);
+            }));
     }
 
     public validate() {

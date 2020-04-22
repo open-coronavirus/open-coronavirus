@@ -49,7 +49,7 @@
 
     <div class="form-row form-row--separa">
         <h2 class="screen-subtitle" i18n="@@contactInfoSectionTitle">Información de contacto</h2>
-        <p class="screen-text" i18n="@@addressSectionSubtitle">Tu información de contacto es ensecial para que en caso de una urgencia podamos ponernos en contacto contigo</p>
+        <p class="screen-text" i18n="@@addressSectionSubtitle">Tu información de contacto es esencial para que en caso de una urgencia podamos ponernos en contacto contigo</p>
     </div>
     <div class="form-row">
         <div class="form-group form-label-group">
@@ -65,4 +65,18 @@
             <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
         </div>
     </div>
+    <div class="form-row">
+        <div class="form-group">
+          <div class="form-check">
+            <input formControlName="autoshare" name="autoshare" class="form-check__input" id="autoshare" type="checkbox">
+            
+            <label for="autoshare">
+              <span class="form-check__check"></span>
+              <span class="form-check__text">
+                <span i18n="@@privacityConditions1">Colabora compartiendo información con quién te has cruzado en caso de qué des positivo de COVID-19 (de forma anónima)</span>.
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
 </form>
