@@ -166,6 +166,10 @@ export class HomeComponent implements OnDestroy {
         // this.router.navigate(['/app/test-appointment/at-home/confirm']);
         // this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
 
+        if (this.patientService.patient.status === PatientStatus.INFECTED) {
+            return;
+        }
+
         if (this.settings.requestTestUrl) {
             window.open(this.settings.requestTestUrl, '_system');
         } else {

@@ -23,7 +23,7 @@
                     <ng-container i18n="@@IWentBackToHomeMenuLabel">He vuelto a casa</ng-container>
                 </div>
 
-                <div *ngIf="settings.home.moduleRequestTest" class="menu__item" (click)="requestTest()">
+                <div *ngIf="settings.home.moduleRequestTest && patientService.patient?.status !== infectedStatus" class="menu__item" (click)="requestTest()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-test-black.svg">
                     <ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container>
                 </div>

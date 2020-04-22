@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
-import {MenuController, Platform} from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ShareService } from '../shared/services/share.service';
 import { PatientService } from '../shared/services/patient.service';
@@ -12,7 +12,7 @@ import { BluetoothTrackingService } from "../shared/services/tracking/bluetooth-
 import { PermissionsService } from "../shared/services/permissions.service";
 import { ContactTrackerService } from '../shared/services/contacts/contact-tracker.service';
 import { PushNotificationService } from "../shared/services/push-notification.service";
-import {PatientStatus} from "../../../../server/src/common/utils/enums";
+import { PatientStatus } from "../../../../server/src/common/utils/enums";
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 
 @Component({
@@ -26,7 +26,7 @@ export class MainComponent implements OnDestroy {
     public leaveStatus: number;
     public patientHasTestAppointment = false;
 
-    public showSendContactInformationMenu=false;
+    public showSendContactInformationMenu = false;
     public contactsCount = null;
 
     public patientName;
@@ -34,6 +34,7 @@ export class MainComponent implements OnDestroy {
     protected subscriptions: Array<Subscription> = new Array();
 
     public immuneStatus = PatientStatus.IMMUNE;
+    public infectedStatus = PatientStatus.INFECTED;
 
     constructor(
         protected menu: MenuController,
@@ -62,7 +63,7 @@ export class MainComponent implements OnDestroy {
             if (loaded) {
                 this.patientName = this.patientService.patient.firstName;
                 this.patientInitials = this.patientName.charAt(0).toUpperCase();
-                if(this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
+                if (this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
                     this.showSendContactInformationMenu = true;
                 }
                 else {
@@ -72,10 +73,10 @@ export class MainComponent implements OnDestroy {
         }));
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
-            if(loaded) {
+            if (loaded) {
                 this.subscriptions.push(this.contactTrackerService.contactsCount$.subscribe(contactsCount => {
                     this.contactsCount = contactsCount;
-                    if(contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
+                    if (contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
                         this.showSendContactInformationMenu = true;
                     }
                     else {
@@ -150,6 +151,10 @@ export class MainComponent implements OnDestroy {
 
 
     public requestTest() {
+        if (this.patientService.patient.status === PatientStatus.INFECTED) {
+            return;
+        }
+
         this.closeMenu();
         if (this.settings.requestTestUrl) {
             window.open(this.settings.requestTestUrl, '_system');

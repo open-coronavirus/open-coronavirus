@@ -46,7 +46,7 @@
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
             </div>
-            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()"  *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED">
+            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED">
                 <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
                 <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
             </div>
@@ -60,7 +60,8 @@
                     <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                 </div>
             </div>
-            <div *ngIf="settings.home.moduleRequestTest" class="main-options__btn" (click)="requestTest()">
+            <!-- && (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED) && !(patientService.patient?.status === STATUS.INFECTED) -->
+            <div *ngIf="settings.home.moduleRequestTest && ((patientService.patient?.status !== STATUS.INFECTED) || (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED))" class="main-options__btn" (click)="requestTest()" [ngClass]="{'main-options__btn--disabled' : patientService.patient?.status === STATUS.INFECTED}">
                 <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
                 <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
             </div>
@@ -89,9 +90,9 @@
             <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
             <p class="logo-home">
                 <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
-            </p> 
+            </p>
         </ng-container>
-        
+
     </ng-container>
 
 
@@ -108,7 +109,7 @@
             <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
             <p class="logo-home">
                 <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
-            </p> 
+            </p>
         </ion-toolbar>
     </ion-footer>
 </ng-container>
