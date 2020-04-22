@@ -18,8 +18,8 @@
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
     <ng-container *ngIf="!autoShareActivated; else okButton">
-      <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO COLABORAR</button>
-      <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">COLABORAR</button>
+      <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noAuthorize">NO AUTORIZO</button>
+      <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@authorize">SI, AUTORIZO</button>
     </ng-container>
     <ng-template #okButton>
       <button class="btn" (click)="dismissModal()" expand="block" i18n="@@okButton">OK</button>
