@@ -15,6 +15,9 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
 
     public enabledDateValidation: boolean;
 
+    @Input('edit')
+    public edit;
+
     public get isValid(): boolean {
         if (this.patientInfoForm != null) {
             if (this.patientInfoForm.status != 'INVALID') {

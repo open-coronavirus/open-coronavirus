@@ -65,7 +65,7 @@
             <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
         </div>
     </div>
-    <div class="form-row">
+    <div class="form-row" *ngIf='edit'>
         <div class="form-group">
           <div class="form-check">
             <input formControlName="autoshare" name="autoshare" class="form-check__input" id="autoshare" type="checkbox">
