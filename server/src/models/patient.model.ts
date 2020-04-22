@@ -120,6 +120,13 @@ export class Patient extends Entity {
   })
   updated?: Date;
 
+  @property({
+    type: 'boolean',
+    required: false,
+    default: false
+  })
+  autoshare?: boolean
+
   @hasMany(() => LeaveRequest)
   leaveRequests: LeaveRequest[];
 

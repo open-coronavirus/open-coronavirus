@@ -33,5 +33,6 @@ export interface Patient {
     appId?: string;
     created?: string;
     updated?: string;
+    autoshare?: boolean;
 }
 

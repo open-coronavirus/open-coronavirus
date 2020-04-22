@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact-upload-request',
@@ -7,12 +7,16 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./contact-upload-request.component.scss'],
 })
 export class ContactUploadRequestComponent implements OnInit {
+  public autoShareActivated: boolean;
 
   constructor(
     public modalCtrl: ModalController,
+    private navParams: NavParams
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.autoShareActivated = this.navParams.get('autoShareActivated');
+  }
 
   dismissModal() {
     this.modalCtrl.dismiss({accepts: false});
