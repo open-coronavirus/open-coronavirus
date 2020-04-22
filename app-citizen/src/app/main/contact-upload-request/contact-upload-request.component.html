@@ -8,14 +8,21 @@
 <ion-content class="modal-text" fullscreen>
   <h1 class="screen-title" i18n="@@contactUploadRequestTitle1">Resultado de tu test diagnóstico</h1>
   <p class="recuadro-test recuadro-test--positivo-virus" i18n="@@contactUploadRequestTitle2">Has dado <br><strong>POSITIVO</strong> en COVID-19</p>
-  <h2 class="screen-subtitle" i18n="@@contactUploadRequestSubTitle1">¡NECESITAMOS TU AYUDA!</h2>
-  <p class="screen-text" i18n="@@contactUploadRequestText1">Pulsando <strong>Colaborar</strong> das tu autorización para enviar tus datos y autorizar su uso: podremos avisar a las personas con las que te has cruzado diciéntoles que han estado a una distancia de riesgo de una persona que ha dado positivo en COVID19, pero sin especificar quién.</p>
-  <p class="screen-text" i18n="@@contactUploadRequestText2">Esta colaboración puede ayudar a contener al virus y estarás ayudando y protegiendo a muchas personas.</p>
+  <ng-container *ngIf="!autoShareActivated">
+    <h2 class="screen-subtitle" i18n="@@contactUploadRequestSubTitle1">¡NECESITAMOS TU AYUDA!</h2>
+    <p class="screen-text" i18n="@@contactUploadRequestText1">Con tu autorización para enviar tus datos y su uso <strong>podremos avisar a las personas con las que te has cruzado</strong> diciéndoles que han estado a una distancia de riesgo de una persona que ha dado positivo en COVID-19, pero <strong>sin especificar quién.</strong></p>
+    <p class="screen-text" i18n="@@contactUploadRequestText2">Esta colaboración puede ayudar a contener al virus y estarás ayudando y protegiendo a muchas personas.</p>
+  </ng-container>
 
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
-    <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO COLABORAR</button>
-    <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">COLABORAR</button>
+    <ng-container *ngIf="!autoShareActivated; else okButton">
+      <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO COLABORAR</button>
+      <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@sendDateAndAuthorice">COLABORAR</button>
+    </ng-container>
+    <ng-template #okButton>
+      <button class="btn" (click)="dismissModal()" expand="block" i18n="@@okButton">OK</button>
+    </ng-template>
   </ion-toolbar>
 </ion-footer>

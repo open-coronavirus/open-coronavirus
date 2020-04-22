@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable, Inject} from "@angular/core";
 import {SQLite, SQLiteObject} from "@ionic-native/sqlite/ngx";
 import {BehaviorSubject, Subject} from "rxjs";
 import {Contact} from "./contact";
@@ -31,7 +31,8 @@ export class ContactTrackerService {
                        protected contactControllerService: ContactControllerService,
                        protected patientService: PatientService,
                        protected platform: Platform,
-                       protected modalController: ModalController) {
+                       protected modalController: ModalController,
+                       @Inject('settings') protected settings) {
 
         this.patientService.patientLoaded$.subscribe(loaded => {
             if(loaded) {
@@ -289,6 +290,9 @@ export class ContactTrackerService {
         const modalUploadContacts = await this.modalController.create(
             {
                 component: ContactUploadRequestComponent,
+                componentProps: {
+                    autoShareActivated: this.autoShareActivated()
+                }
             });
 
         modalUploadContacts.onDidDismiss()
@@ -305,7 +309,7 @@ export class ContactTrackerService {
     async showUploadContactThanksModal() {
         const modalUploadContacts = await this.modalController.create(
             {
-                component: ContactUploadThanksComponent,
+                component: ContactUploadThanksComponent
             });
 
         return await modalUploadContacts.present();
@@ -324,5 +328,9 @@ export class ContactTrackerService {
         this.patientService.update(patient).subscribe(success => {
 
         });
+    }
+
+    autoShareActivated(): boolean {
+        return (this.settings.autoshare || this.patientService.patient.autoshare);
     }
 }

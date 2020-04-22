@@ -58,8 +58,8 @@
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app">
     <ng-container *ngIf="type === 'autoshare'; else singleButton">
-      <button class="btn" (click)="dismissModal()" i18n="@@noCollaborate">NO COLABORAR</button>
-      <button class="btn" (click)="activatePermission()" i18n="@@collaborate">COLABORAR</button>
+      <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noMaybeInANotherTime">NO COLABORAR</button>
+      <button class="btn" (click)="activatePermission()" expand="block" i18n="@@collaborate">COLABORAR</button>
     </ng-container>
     <ng-template #singleButton>
       <button class="btn" (click)="activatePermission()" i18n="@@activate">ACTIVAR</button>

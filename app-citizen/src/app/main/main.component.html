@@ -11,7 +11,7 @@
                 <div *ngIf="showSendContactInformationMenu" class="menu__item menu__item--ble  menu__separator" (click)="uploadContactsAndShowThanksModal()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-bluetooth.svg">
                     <span class="menu__item-badge">{{contactsCount}}</span>
-                    <ng-container i18n="@@ImGoingLeaveHomeMenuLabel">Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso</ng-container>
+                    <ng-container i18n="@@coronavirusSendInfo">Enviar con quién te has cruzado de forma anónima</ng-container>
                 </div>
                 <div *ngIf="settings.home.moduleHome && (leaveStatus == null || leaveStatus == 1)" class="menu__item" (click)="goToConfirmationRequestLeaveHome()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-salir-black.svg">
