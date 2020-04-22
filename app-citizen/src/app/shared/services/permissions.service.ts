@@ -70,57 +70,24 @@ export class PermissionsService {
         let returnValue: Promise<boolean> = new Promise(resolve => {
             switch (permission) {
                 case 'bluetooth':
-                    if(this.platform.is('android')) {
-                        this.bluetoothLe.hasPermission().then(result => {
-                            console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
-                            resolve(true);
-                        })
-                        .catch(error => {
-                            console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
-                            resolve(false);
-                        });
-                    }
-                    else if(this.platform.is('ios')) {
-                        resolve(false);
-                    }
-
+                    this.hasBluetoothPermission().then(result => {
+                       resolve(result);
+                    });
                     break;
                 case 'push':
-                    Permissions.query({ name: PermissionType.Notifications }).then(result => {
-                        console.log('[PermissionService] has push permission: ' + JSON.stringify(result));
-                        if(result.state == 'granted') {
-                            resolve(true);
-                        }
-                        else {
-                            resolve(false);
-                        }
+                    this.hasPushPermission().then(result => {
+                        resolve(result);
                     });
                     break;
                 case 'gps':
-                    Permissions.query({ name: PermissionType.Geolocation }).then(result => {
-                        console.log('[PermissionService] has geolocation permission: ' + JSON.stringify(result));
-                        if(result.state == 'granted') {
-                            resolve(true);
-                        }
-                        else {
-                            resolve(false);
-                        }
-                    });
+                    this.hasGPSPermission().then(result => {
+                        resolve(result);
+                    })
                     break;
                 case 'coarse-location':
-                    if(this.platform.is('android')) {
-                        this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(result => {
-                            console.log('[PermissionService] has geolocation permission: ' + JSON.stringify(result));
-                            if (result.hasPermission) {
-                                resolve(true);
-                            } else {
-                                resolve(false);
-                            }
-                        });
-                    }
-                    else {
-                        resolve(true);
-                    }
+                    this.hasCoarseLocationPermission().then(result => {
+                        resolve(result);
+                    })
                     break;
 
             }
@@ -152,6 +119,77 @@ export class PermissionsService {
 
             }
         });
+        return returnValue;
+    }
+
+    hasBluetoothPermission() {
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            if(this.platform.is('android')) {
+                this.bluetoothLe.hasPermission().then(result => {
+                    console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
+                    resolve(true);
+                })
+                    .catch(error => {
+                        console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
+            }
+            else if(this.platform.is('ios')) {
+                resolve(false);
+            }
+        });
+
+        return returnValue;
+    }
+
+    hasPushPermission() {
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            Permissions.query({name: PermissionType.Notifications}).then(result => {
+                console.log('[PermissionService] has push permission: ' + JSON.stringify(result));
+                if (result.state == 'granted') {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            });
+        });
+
+        return returnValue;
+    }
+
+    hasGPSPermission() {
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            Permissions.query({ name: PermissionType.Geolocation }).then(result => {
+                console.log('[PermissionService] has geolocation permission: ' + JSON.stringify(result));
+                if(result.state == 'granted') {
+                    resolve(true);
+                }
+                else {
+                    resolve(false);
+                }
+            });
+        });
+
+        return returnValue;
+    }
+
+    hasCoarseLocationPermission() {
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            if(this.platform.is('android')) {
+                this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(result => {
+                    console.log('[PermissionService] has geolocation permission: ' + JSON.stringify(result));
+                    if (result.hasPermission) {
+                        resolve(true);
+                    } else {
+                        resolve(false);
+                    }
+                });
+            }
+            else {
+                resolve(true);
+            }
+        });
+
         return returnValue;
     }
 

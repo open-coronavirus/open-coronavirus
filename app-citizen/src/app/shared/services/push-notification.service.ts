@@ -22,6 +22,8 @@ export class PushNotificationService {
 
     protected activated = false;
 
+    protected handledRegistration = false;
+
     constructor(protected push: Push,
                 protected patientService: PatientService,
                 @Inject('settings') protected settings,
@@ -64,18 +66,20 @@ export class PushNotificationService {
 
             PushNotifications.register().then(result => {
                 console.log('[PushService] regitration result: ' + JSON.stringify(result));
-                this.permissionsService.goToNextPermissionIfPermissionsRequested();
             });
 
             PushNotifications.addListener('registration', (token: PushNotificationToken) => {
-                console.log('[PushService] token: ' + token.value);
-                this.installationService.loadedDeviceId$.subscribe(loaded => {
-                    if (loaded) {
-                        this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, token.value).subscribe(installation => {
-                            console.log("[PushService] Registered on the installation");
-                        });
-                    }
-                });
+                if(!this.handledRegistration) {
+                    this.handledRegistration = true;
+                    console.log('[PushService] token: ' + token.value);
+                    this.installationService.loadedDeviceId$.subscribe(loaded => {
+                        if (loaded) {
+                            this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, token.value).subscribe(installation => {
+                                console.log("[PushService] Registered on the installation");
+                            });
+                        }
+                    });
+                }
             });
 
             PushNotifications.createChannel(<NotificationChannel>{

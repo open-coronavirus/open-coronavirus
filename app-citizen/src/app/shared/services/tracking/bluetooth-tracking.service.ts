@@ -20,6 +20,8 @@ export class BluetoothTrackingService {
     protected addressesBeingTracked = new Map<string, boolean>();
 
     public static serviceUUID = "C0C0C0C0-DEE8-B109-8DB0-3DBD690003C0";
+    public static timeScanningInMillis = 15000;
+    public static timeWithoutScanningInMillis = 30000;
 
     protected myAddress;
 
@@ -258,7 +260,7 @@ export class BluetoothTrackingService {
             if (!backgroundMode) {
                 this.scanTimeout = setTimeout(() => {
                     this.stopScan(backgroundMode);
-                }, 20000);
+                }, BluetoothTrackingService.timeScanningInMillis);
             }
         }
 
@@ -285,7 +287,7 @@ export class BluetoothTrackingService {
                     if (!backgroundMode) {
                         this.scanTimeout = setTimeout(() => {
                             this.startScan(backgroundMode);
-                        }, 20000);
+                        }, BluetoothTrackingService.timeWithoutScanningInMillis);
                     }
                 })
         });
