@@ -12,6 +12,9 @@
   "plugins": {
     "PushNotifications": {
       "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "SplashScreen": {
+      "androidScaleType": "CENTER_CROP"
     }
   }
 }
