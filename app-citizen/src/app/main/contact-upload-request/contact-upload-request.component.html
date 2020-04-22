@@ -7,7 +7,9 @@
 </ion-header>
 <ion-content class="modal-text" fullscreen>
   <h1 class="screen-title" i18n="@@contactUploadRequestTitle1">Resultado de tu test diagnóstico</h1>
-  <p class="recuadro-test recuadro-test--positivo-virus" i18n="@@contactUploadRequestTitle2">Has dado <br><strong>POSITIVO</strong> en COVID-19</p>
+  <div class="recuadro-test recuadro-test--positivo-virus" i18n="@@contactUploadRequestTitle2">
+    <p>Has dado <br><strong>POSITIVO</strong> en COVID-19</p>
+  </div>
   <ng-container *ngIf="!autoShareActivated">
     <h2 class="screen-subtitle" i18n="@@contactUploadRequestSubTitle1">¡NECESITAMOS TU AYUDA!</h2>
     <p class="screen-text" i18n="@@contactUploadRequestText1">Con tu autorización para enviar tus datos y su uso <strong>podremos avisar a las personas con las que te has cruzado</strong> diciéndoles que han estado a una distancia de riesgo de una persona que ha dado positivo en COVID-19, pero <strong>sin especificar quién.</strong></p>

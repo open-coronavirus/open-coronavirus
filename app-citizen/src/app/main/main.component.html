@@ -1,8 +1,10 @@
 <ion-menu class="menu" side="start" menuId="menu" contentId="main" *ngIf="patientService.patient" >
     <ion-header>
-        <div class="menu__header menu__separator" [ngClass]="{'menu__header--immune': patientService.patient.status === immuneStatus}" (click)="goToHome()">
-            <div class="menu__header-circle">{{patientInitials}}</div>
-            <div class="menu__header-name">{{patientName}}</div>
+        <div class="menu__header menu__separator" (click)="goToHome()">
+            <div class="menu__header-container" [ngClass]="{'menu__header-container--immune': patientService.patient.status === immuneStatus}">
+                <div class="menu__header-circle">{{patientInitials}}</div>
+                <div class="menu__header-name">{{patientName}}</div>
+            </div>
         </div>
     </ion-header>
     <ion-content>

@@ -162,10 +162,6 @@ export class HomeComponent implements OnDestroy {
     }
 
     public requestTest() {
-        // this.router.navigate(['/app/test-appointment/appointment/confirm']);
-        // this.router.navigate(['/app/test-appointment/at-home/confirm']);
-        // this.router.navigate(['/app/test-appointment/at-health-center/confirm']);
-
         if (this.patientService.patient.status === PatientStatus.INFECTED) {
             return;
         }
@@ -199,9 +195,6 @@ export class HomeComponent implements OnDestroy {
 
     public share() {
         this.shareService.share();
-
-        // this.router.navigate(['/app/test-result/result/5']); // del 1 al 5
-        // this.router.navigate(['/app/following-up-result/result/2']);
     }
 
     public getTextStatus() {

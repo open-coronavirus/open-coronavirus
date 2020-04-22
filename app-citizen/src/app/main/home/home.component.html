@@ -1,115 +1,100 @@
 <corona-header [showMenu]="true"></corona-header>
-<ion-content>
+<ion-content class="home-content">
+    <div class="home-container">
+        <div class="home-top">
+            <div class="result" [ngClass]="getClassStatus()">
+                <div class="result__col-qr">
+                    <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
+                </div>
+                <div class="result__col-texts">
+                    <p class="result__title" i18n="@@identity">Identificación</p>
+                    <p class="result__name">{{ patientName }}</p>
+                    <p class="result__title" i18n="@@results">Resultado COVID-19</p>
+                    <h3 class="result__status">{{ getTextStatus() }}</h3>
+                </div>
+            </div>
 
-    <div class="result" [ngClass]="getClassStatus()">
-        <div class="result__col-qr">
-            <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
+            <!-- NO INMUNE -->
+            <ng-container *ngIf="patientService.patient?.status !== STATUS.IMMUNE" >
+                <div  class="appointment"  *ngIf="false"><!-- este caso es cuando es ambulancia -->
+                    <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
+                    <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
+                </div>
+
+                <div class="appointment" *ngIf="patientHasTestAppointment"><!-- este caso es cuando es cita otorgada -->
+                    <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
+                    <p class="appointment__text">
+                        <ng-container i18n="@@appointment">
+                            <span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span>
+                        </ng-container>
+                    </p>
+                </div>
+
+
+                <!-- PENDIENTE -->
+                <div  class="appointment" *ngIf="false"><!-- este caso es cuando es cita solicitada -->
+                    <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
+                    <p class="appointment__text" i18n="@@appointmentRequested">Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</p>
+                </div>
+
+                <div class="main-options">
+                    <div *ngIf="settings.home.moduleHome && leaveStatus == 2" class="main-options__btn main-options__btn--volver" (click)="setAtHome()">
+                        <img class="main-options__image" src="/assets/icons/svg/icon-volver-sm.svg">
+                        <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
+                        <p class="main-options__btn-salido"><ng-container i18n="@@outto">He salido hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</p>
+                    </div>
+                    <div class="main-options__btn main-options__btn--no-link" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status == STATUS.UNINFECTED">
+                        <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                        <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
+                    </div>
+                    <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED">
+                        <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
+                        <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
+                    </div>
+                    <div class="main-options__btn main-options__btn--con-small" *ngIf="false && settings.home.moduleRequestTest && patientService.patient?.status === STATUS.UNINFECTED">
+                        <div class="main-options__btn main-options__btn--small">
+                            <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
+                            <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
+                        </div>
+                        <div class="main-options__btn main-options__btn--small" (click)="requestTest()">
+                            <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
+                            <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
+                        </div>
+                    </div>
+                    <!-- && (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED) && !(patientService.patient?.status === STATUS.INFECTED) -->
+                    <div *ngIf="settings.home.moduleRequestTest && ((patientService.patient?.status !== STATUS.INFECTED) || (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED))" class="main-options__btn" (click)="requestTest()" [ngClass]="{'main-options__btn--disabled' : patientService.patient?.status === STATUS.INFECTED}">
+                        <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
+                        <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
+                    </div>
+                    <div *ngIf="settings.home.moduleAutoTest" class="main-options__btn" (click)="goToAutotest()" >
+                        <img class="main-options__image" src="/assets/icons/svg/icon-autotest-sm.svg">
+                        <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
+                    </div>
+                    <div  *ngIf="settings.home.moduleFollowingUp" class="main-options__btn" (click)="goToFollowingUp()">
+                        <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
+                        <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
+                    </div>
+                </div>
+                <div *ngIf="showSendContactInformationMenu" class="alert-info" (click)="uploadContactsAndShowThanksModal()">
+                    <img class="alert-info__icon filter-white" src="/assets/icons/svg/icon-bluetooth.svg">
+                    <span class="alert-info__badge">{{contactsCount}}</span>
+                    <p class="alert-info__text" i18n="@@coronavirusSendInfo">
+                        Enviar con quién te has cruzado de forma anónima
+                    </p>
+                </div>
+
+            </ng-container>
         </div>
-        <div class="result__col-texts">
-            <p class="result__title" i18n="@@identity">Identificación</p>
-            <p class="result__name">{{ patientName }}</p>
-            <p class="result__title" i18n="@@results">Resultado COVID-19</p>
-            <h3 class="result__status">{{ getTextStatus() }}</h3>
+        <div class="home-footer">
+            <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
+                <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
+                <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
+            </div>
+            <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
+            <p class="logo-home">
+                <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
+            </p>
         </div>
     </div>
 
-    <!-- NO INMUNE -->
-    <ng-container *ngIf="patientService.patient?.status !== STATUS.IMMUNE" >
-        <div  class="appointment"  *ngIf="false"><!-- este caso es cuando es ambulancia -->
-            <img src="/assets/icons/svg/icon-ambulancia.svg" class="appointment__icon filter-black">
-            <p class="appointment__text" i18n="@@ambulanceontheway">Ambulancia en camino.<br> Llegará en <strong>25 min</strong>. </p>
-        </div>
-
-        <div class="appointment" *ngIf="patientHasTestAppointment"><!-- este caso es cuando es cita otorgada -->
-            <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
-            <p class="appointment__text">
-                <ng-container i18n="@@appointment">
-                    <span [innerHTML]="appointmentDescriptionLine1"></span><span *ngIf="appointmentDescriptionLine2 != null" [innerHTML]="'<br />' + appointmentDescriptionLine2"></span>
-                </ng-container>
-            </p>
-        </div>
-
-
-        <!-- PENDIENTE -->
-        <div  class="appointment" *ngIf="false"><!-- este caso es cuando es cita solicitada -->
-            <img src="/assets/icons/svg/icon-cita.svg" class="appointment__icon filter-black">
-            <p class="appointment__text" i18n="@@appointmentRequested">Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</p>
-        </div>
-
-        <div class="main-options">
-            <div *ngIf="settings.home.moduleHome && leaveStatus == 2" class="main-options__btn main-options__btn--volver" (click)="setAtHome()">
-                <img class="main-options__image" src="/assets/icons/svg/icon-volver-sm.svg">
-                <p class="main-options__text" i18n="@@leaveHome">Volver a casa</p>
-                <p class="main-options__btn-salido"><ng-container i18n="@@outto">He salido hace</ng-container> {{ hoursOutsideHome(leaveRequest?.outOfHomeTimestamp)}}</p>
-            </div>
-            <div class="main-options__btn main-options__btn--no-link" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status == STATUS.UNINFECTED">
-                <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-                <p class="main-options__text" i18n="@@canGoHome">Puedes salir <br>de casa</p>
-            </div>
-            <div class="main-options__btn" (click)="goToConfirmationRequestLeaveHome()" *ngIf="settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED">
-                <img class="main-options__image" src="/assets/icons/svg/icon-salir-sm.svg">
-                <p class="main-options__text" i18n="@@leaveHome">Salir <br>de casa</p>
-            </div>
-            <div class="main-options__btn main-options__btn--con-small" *ngIf="false && settings.home.moduleRequestTest && patientService.patient?.status === STATUS.UNINFECTED">
-                <div class="main-options__btn main-options__btn--small">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-resultado.svg">
-                    <p class="main-options__text" i18n="@@resultsTest">Ver resultado <br>de test COVID-19</p>
-                </div>
-                <div class="main-options__btn main-options__btn--small" (click)="requestTest()">
-                    <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
-                    <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
-                </div>
-            </div>
-            <!-- && (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED) && !(patientService.patient?.status === STATUS.INFECTED) -->
-            <div *ngIf="settings.home.moduleRequestTest && ((patientService.patient?.status !== STATUS.INFECTED) || (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED))" class="main-options__btn" (click)="requestTest()" [ngClass]="{'main-options__btn--disabled' : patientService.patient?.status === STATUS.INFECTED}">
-                <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
-                <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
-            </div>
-            <div *ngIf="settings.home.moduleAutoTest" class="main-options__btn" (click)="goToAutotest()" >
-                <img class="main-options__image" src="/assets/icons/svg/icon-autotest-sm.svg">
-                <p class="main-options__text" i18n="@@autotest">Autoevaluación <br>COVID-19</p>
-            </div>
-            <div  *ngIf="settings.home.moduleFollowingUp" class="main-options__btn" (click)="goToFollowingUp()">
-                <img class="main-options__image" src="/assets/icons/svg/icon-seguimiento-sm.svg">
-                <p class="main-options__text" i18n="@@followingup">Seguimiento <br>de tu salud</p>
-            </div>
-        </div>
-        <div *ngIf="showSendContactInformationMenu" class="alert-info" (click)="uploadContactsAndShowThanksModal()">
-            <img class="alert-info__icon filter-white" src="/assets/icons/svg/icon-bluetooth.svg">
-            <span class="alert-info__badge">{{contactsCount}}</span>
-            <p class="alert-info__text" i18n="@@coronavirusSendInfo">
-                Enviar con quién te has cruzado de forma anónima
-            </p>
-        </div>
-
-        <ng-container *ngIf="numItemMenu > 2" >
-            <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
-                <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
-            </div>
-            <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
-            <p class="logo-home">
-                <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
-            </p>
-        </ng-container>
-
-    </ng-container>
-
-
 </ion-content>
-
-<!--  INMUNE -->
-<ng-container *ngIf="patientService.patient?.status === STATUS.IMMUNE || numItemMenu <= 2" >
-    <ion-footer class="ion-no-border">
-        <ion-toolbar class="footer-app" >
-            <div (click)="goToCoronavirusInfo()" class="info-link" expand="block">
-                <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
-                <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
-            </div>
-            <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
-            <p class="logo-home">
-                <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
-            </p>
-        </ion-toolbar>
-    </ion-footer>
-</ng-container>
