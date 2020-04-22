@@ -1,0 +1,2041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" datatype="plaintext" original="ng2.template" target-language="eu">
+    <body>
+      <trans-unit id="appointmentAtHomeDescription" datatype="html">
+        <source>Le enviaremos una ambulancia para hacerle el test del coronavirus en breve</source>
+        <target state="translated">Anbulantzia bat bidaliko dizugu laster koronabirusaren testa egitera</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointmentAtHealthCenterDescription" datatype="html">
+        <source>Cita para el test del coronavirus [appointmentDate] en [healthCenterName] [healthCenterAddress]</source>
+        <target state="translated">Koronabirusaren testa egiteko zita. Eguna: [appointmentDate] Helbidea: [healthCenterName] [healthCenterAddress]</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="howToGetThereLink" datatype="html">
+        <source>¿Cómo llegar?</source>
+        <target state="translated">Nola iritsi?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterCustomReasonToLeaveTo" datatype="html">
+        <source>Por favor, escriba porque desea salir.</source>
+        <target state="translated">Mesedez, esaiguzu zergatik irten nahi duzun.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changesSavedAlert" datatype="html">
+        <source>Tus cambios se han salvado</source>
+        <target state="translated">Zure aldaketak ondo gorde dira</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pleaseWait" datatype="html">
+        <source>Por favor, espere ...</source>
+        <target state="translated">Itxaron mesedez...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="geolocationNotificationTitle" datatype="html">
+        <source>Tu posición es importante</source>
+        <target state="translated">Zure posizioa garrantzitsua da</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="geolocationNotificationText" datatype="html">
+        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS</source>
+        <target state="translated">Zure posizioa esaten badiguzu koronabirusari aurre egiten asko laguntzen diguzu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="backgroundGeopositionConfigReview" datatype="html">
+        <source>Al informar sobre tu posición ayudas mucho a combatir el CORONAVIRUS. Te gustaría cambiar la configuración de la app?</source>
+        <target state="translated">Zure posizioa esaten badiguzu koronabirusari aurre egiten asko laguntzen diguzu. Aplikazioaren konfigurazioa aldatu nahi duzu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shareText" datatype="html">
+        <source>Estoy usando Open Coronavirus, una APP para combatir la propagación de infecciones</source>
+        <target state="translated">Open Coronavirus aplikazioa erabiltzen ari naiz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="groceryShoppingLeaveReason" datatype="html">
+        <source>Comprar alimento</source>
+        <target state="translated">Jangaiak erosi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="drugstoreShoppingLeaveReason" datatype="html">
+        <source>Comprar productos farmacéuticos y de primera necesidad</source>
+        <target state="translated">Botikak eta beharrezko produktuak erosi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forMedicalAssitanceLeaveReason" datatype="html">
+        <source>Ir al médico o al hospital</source>
+        <target state="translated">Medikuarengana edo ospitalera joan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="goToWorkLeaveReason" datatype="html">
+        <source>Ir al trabajo</source>
+        <target state="translated">Lanera joan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="backToHomeLeaveReason" datatype="html">
+        <source>Volver a casa</source>
+        <target state="translated">Etxera itzuli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="assistElderlyPersonLeaveReason" datatype="html">
+        <source>Asistir a un mayor u otra persona dependiente</source>
+        <target state="translated">Pertsona nagusi bati edo beharra duen pertsona bati lagundu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="goToBankLeaveReason" datatype="html">
+        <source>Ir al banco</source>
+        <target state="translated">Banketxera joan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eventsOfForceMajeureLeaveReason" datatype="html">
+        <source>Por causa de fuerza mayor o situación de necesidad</source>
+        <target state="translated">Ezinbestekoa edo beharrezkoa da</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="otherLeaveReason" datatype="html">
+        <source>Otro motivo</source>
+        <target state="translated">Beste arrazoi bat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="quiestionArriveHome" datatype="html">
+        <source>¿Has llegado a casa?</source>
+        <target state="translated">Etxera iritsi zara?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="responseNo" datatype="html">
+        <source>No</source>
+        <target state="translated">Ez</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="responseYes" datatype="html">
+        <source>Sí</source>
+        <target state="translated">Bai</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacityConditionsTitle" datatype="html">
+        <source>Términos y condiciones del servicio</source>
+        <target state="translated">Zerbitzuaren baldintzak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacityConditionsText" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in varius magna. Quisque eu erat faucibus ex facilisis imperdiet eu et arcu. Duis sit amet metus non risus aliquam accumsan euismod vitae est. Nulla a nisi et augue ultrices eleifend. Phasellus eleifend lacinia augue. Morbi scelerisque quis est sed hendrerit. Ut maximus eros nec purus sodales vulputate. Sed hendrerit nunc a orci tincidunt, et viverra purus faucibus. Mauris id dolor non ante dictum condimentum. Vestibulum diam diam, auctor ut condimentum pulvinar, euismod ac nisl. Vestibulum eu lectus felis. In vel finibus nisl. Nullam hendrerit dapibus metus ut bibendum. Proin vulputate eros eget diam efficitur volutpat nec sit amet quam. Cras vel quam tortor.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2>"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2>"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3>"/>Nivel 3<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Paecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Paecens ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Paec rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>PLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in vaecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+    <x id="CLOSE_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;/ul>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Vestibulum fermentum vitae mauris non lobortis. Cras consectetur tellus non massa efficitur ullamcorper. Phasellus sollicitudin cursus tortor et semper. Pellentesque tristique ultricies massa tincidunt dignissim. Ut venenatis ac dolor vel suscipit. Sed cursus tincidunt lectus, id dignissim magna porta quis. Nunc in commodo augue. Suspendisse potenti.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+  </source>
+        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in varius magna. Quisque eu erat faucibus ex facilisis imperdiet eu et arcu. Duis sit amet metus non risus aliquam accumsan euismod vitae est. Nulla a nisi et augue ultrices eleifend. Phasellus eleifend lacinia augue. Morbi scelerisque quis est sed hendrerit. Ut maximus eros nec purus sodales vulputate. Sed hendrerit nunc a orci tincidunt, et viverra purus faucibus. Mauris id dolor non ante dictum condimentum. Vestibulum diam diam, auctor ut condimentum pulvinar, euismod ac nisl. Vestibulum eu lectus felis. In vel finibus nisl. Nullam hendrerit dapibus metus ut bibendum. Proin vulputate eros eget diam efficitur volutpat nec sit amet quam. Cras vel quam tortor.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2>"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2>"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3>"/>Nivel 3<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Paecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Paecens ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Paec rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>PLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in vaecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="CLOSE_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;/ul>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Vestibulum fermentum vitae mauris non lobortis. Cras consectetur tellus non massa efficitur ullamcorper. Phasellus sollicitudin cursus tortor et semper. Pellentesque tristique ultricies massa tincidunt dignissim. Ut venenatis ac dolor vel suscipit. Sed cursus tincidunt lectus, id dignissim magna porta quis. Nunc in commodo augue. Suspendisse potenti.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="policityConditionsOK" datatype="html">
+        <source>ACEPTAR</source>
+        <target state="translated">ONARTU</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadRequestTitle1" datatype="html">
+        <source>Las autoridades solicitan que compartas tus datos</source>
+        <target state="translated">Agintariek zure datuak partekatzeko eskatzen dizute</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadRequestTitle2" datatype="html">
+        <source>Enviar datos adquiridos por bluetooth</source>
+        <target state="translated">Bluetooth bidez lortutako datuak bidali</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadRequestText1" datatype="html">
+        <source>
+    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades piden que des autorizacióin para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.
+  </source>
+        <target state="translated">Testean COVID-19an positibo eman duzula-eta, agintariek zure baimena eskatzen dizute zure telefonoan bakarrik dauden zure datuak, arrisku distantziara izan dituzun beste pertsonei bidaltzeko</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadRequestText2" datatype="html">
+        <source>
+    De este modo estás ayudando y protegiendo a muchas personas.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+    ¡A este virus le ganamos entre todos!
+  </source>
+        <target state="translated">Horrela pertsona asko babesten eta laguntzen ari zara.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+Birus hau guztion artean garaituko dugu!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sendDateAndAuthorice" datatype="html">
+        <source>ENVIAR DATOS Y AUTORIZAR SU USO</source>
+        <target state="translated">DATUAK BIDALI ETA ERABILTZEA BAIMENDU</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noMaybeInANotherTime" datatype="html">
+        <source>NO, QUIZÁS EN OTRO MOMENTO</source>
+        <target state="translated">EZ, AGIAN BESTE MOMENTU BATEN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadThanksTitle1" datatype="html">
+        <source>Gracias por la colaboración ciudadana</source>
+        <target state="translated">Eskerrik asko laguntzagatik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadThanksTitle2" datatype="html">
+        <source>Has enviado la información de cruces con ciudadanos y autorizado su uso a las autoridades sanitarias.</source>
+        <target state="translated">Beste pertsona batzuekin izandako kontaktuei buruzko informazioa bidali diezu osasun agintariei eta berau erabiltzeko baimena eman diezu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadThanksText1" datatype="html">
+        <source>
+    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades podrán gracias a esta información avisar al resto de ciudadanos que hayan estado en contacto contigo a menos de dos metros de forma anónima.
+  </source>
+        <target state="translated">
+COVID-19aren testean positibo eman duzunez, informazio honi esker osasun agintariek zurekin 2 metro baino gutxiagora kontakturen bat izan duten beste pertsona batzuei era anonimoan abisua bidali diezaiekete.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadThanksText2" datatype="html">
+        <source>
+    De este modo estás ayudando y protegiendo a muchas personas.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+    ¡A este virus le ganamos entre todos!
+  </source>
+        <target state="translated">Horrela pertsona asko babesten eta laguntzen ari zara.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+Birus hau guztion artean garaituko dugu!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="OK" datatype="html">
+        <source>OK</source>
+        <target state="translated">Ados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
+        <source>Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</source>
+        <target state="translated">Beste pertsona batzuekin izandako kontaktuen berri era anonimoan bidali eta bere erabilpena baimendu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="IWentBackToHomeMenuLabel" datatype="html">
+        <source>He vuelto a casa</source>
+        <target state="translated">Etxera itzuli naiz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestMenuLabel" datatype="html">
+        <source>Solicitar test COVID-19</source>
+        <target state="translated">COVID-19 testa eskatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="autotestMenuLabel" datatype="html">
+        <source>Autoevaluación COVID-19</source>
+        <target state="translated">COVID-19 autoebaluazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trckingMenuLabel" datatype="html">
+        <source>Seguimiento de tu salud</source>
+        <target state="translated">Zure osasunaren jarraipena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="InfoMenuLabel" datatype="html">
+        <source>Info sobre COVID-19</source>
+        <target state="translated">COVID-19aren inguruko informazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myInfoMenuLabel" datatype="html">
+        <source>Mis datos</source>
+        <target state="translated">Nire datuak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="howWorkMenuLabel" datatype="html">
+        <source>Cómo funciona</source>
+        <target state="translated">Nola dabil</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="InfoAppMenuLabel" datatype="html">
+        <source>Sobre la APP</source>
+        <target state="translated">Aplikazioari buruz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shareMenuLabel" datatype="html">
+        <source>Compartir APP</source>
+        <target state="translated">Aplikazioa partekatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacityConditions" datatype="html">
+        <source>Condiciones de uso y política de privacidad</source>
+        <target state="translated">Erabilpen baldintzak eta pribatutasun politika</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="introSlideTogether" datatype="html">
+        <source>Luchemos juntos<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>contra el <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></source>
+        <target state="translated">Borroka dezagun elkarrekin<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>aren aurka</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="introSlideTest" datatype="html">
+        <source>Con esta APP podrás <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>solicitar un test de COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>y según su resultado poder<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>salir de casa</source>
+        <target state="translated">Aplikazio honekin<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>COVID-19aren test bat eskatu dezakezu<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> eta bere emaitzaren arabera<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>etxetik irten ahalko duzu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="introSlideHealth" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Evalúa tu situación de salud<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>en función de tus síntomas</source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Jakin zure osasunaren egoera zen den<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>zure sintomen arabera</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="introSlideFollos" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Haz seguimiento de tu estado<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>de salud y evalúate <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>cada cierto tiempo</source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Egin zure osasun egoeraren jarraipena<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>eta berriz ebaluatu<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>noizean behin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ageFootNote" datatype="html">
+        <source>Para utilizar esta aplicación debes ser mayor de edad</source>
+        <target state="translated">Aplikazio hau erabiltzeko adinez nagusia izan behar duzu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="next" datatype="html">
+        <source>
+      SIGUIENTE
+      <x id="START_TAG_ION-ICON" ctype="x-ion-icon" equiv-text="&lt;ion-icon>"/><x id="CLOSE_TAG_ION-ICON" ctype="x-ion-icon" equiv-text="&lt;/ion-icon>"/>
+    </source>
+        <target state="translated"> Hurrengoa <x id="START_TAG_ION-ICON" ctype="x-ion-icon" equiv-text="&lt;ion-icon>"/><x id="CLOSE_TAG_ION-ICON" ctype="x-ion-icon" equiv-text="&lt;/ion-icon>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enter" datatype="html">
+        <source>EMPEZAR</source>
+        <target state="translated">Hasi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="personalInfoSectionTitle" datatype="html">
+        <source>Introduce tus datos personales</source>
+        <target state="translated">Zure datu-pertsonalak dartu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="personalInfoSectionSubtitle" datatype="html">
+        <source>Utilizaremos tus datos únicamente con fines médicos, para ayudarte a evaluar tu situación y ayudar al resto de ciudadanos a frenar al COVID-19</source>
+        <target state="translated">Zure datuak helburu medikuekin bakarrik erabiliko ditugu, zure egoera zein den ebaluatzeko eta gainontzeko pertsonei COVID-19a gelditzen laguntzeko</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dd2a11ebc737589080ed400dacc33a8c8c84728b" datatype="html">
+        <source>Nombre</source>
+        <target state="translated">Izena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstNameLabel" datatype="html">
+        <source>Nombre y apellidos</source>
+        <target state="translated">Izen-abizenak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstNameError" datatype="html">
+        <source>Por favor, introduce tu nombre completo</source>
+        <target state="translated">Mesedez, idatzi zure izen osoa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="13bbbdcf41ff119078c6e74d436ee3233d6bd491" datatype="html">
+        <source>DNI/NIF/Tarjeta residencia</source>
+        <target state="translated">NAN/AIZ/Egoitza baimena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documentNumberLabel" datatype="html">
+        <source>DNI / NIF / Tarjeta sanitaria</source>
+        <target state="translated">NAN/AIZ/Osasun txartela</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documentNumberForm" datatype="html">
+        <source>Por favor, introduce tu número de documento</source>
+        <target state="translated">Mesedez, idatzi zure dokumentu-zenbakia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="birthdayLabel" datatype="html">
+        <source>Fecha de nacimiento</source>
+        <target state="translated">Jaiotza-data</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="birthdayError" datatype="html">
+        <source>Por favor, introduce tu fecha de nacimiento</source>
+        <target state="translated">Mesedez, idatzi zure jaiotza-data</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addressSectionTitle" datatype="html">
+        <source>Dirección actual</source>
+        <target state="translated">Egungo helbidea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addressSectionSubtitle" datatype="html">
+        <source>Tu dirección es importante para poder darte cita en el centro más cercano de test de COVID-19</source>
+        <target state="translated">Zure helbidea oso garrantzitsuena da COVID-19 testa egiteko hurbilen duzun zentroan hitzordua emateako</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="76476bb1c44d0d85777f75c9aad9b841e1b54754" datatype="html">
+        <source>Código postal</source>
+        <target state="translated">Posta-kodea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="postalCodeLabel" datatype="html">
+        <source>Código postal</source>
+        <target state="translated">Posta-kodea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="postalCodeError" datatype="html">
+        <source>Por favor, introduce un código postal válido</source>
+        <target state="translated">Mesedez, idatzi posta-kode zuzen bat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b90cdd2c246f14152b225005dada8c805a8da487" datatype="html">
+        <source>Calle</source>
+        <target state="translated">Kalea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="streetLabel" datatype="html">
+        <source>Dirección domicilio: calle, avd... (opcional)</source>
+        <target state="translated">Helbidea: kalea, etorbidea, ... (hautazkoa)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="streetError" datatype="html">
+        <source>Por favor, introduce tu dirección</source>
+        <target state="translated">Mesedez, idatzi zure helbidea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactInfoSectionTitle" datatype="html">
+        <source>Información de contacto</source>
+        <target state="translated">Kontakturako informazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6934d8edd276d59e050006fe91b695ebad0218f8" datatype="html">
+        <source>Phone</source>
+        <target state="translated">Telefonoa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="phoneLabel" datatype="html">
+        <source>Teléfono</source>
+        <target state="translated">Telefonoa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="phoneError" datatype="html">
+        <source>Por favor, introduce un número de teléfono válido</source>
+        <target state="translated">Mesedez, idatzi zure telefono zenbakia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
+        <source>Email</source>
+        <target state="translated">Posta elektronikoa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="emailLabel" datatype="html">
+        <source>Correo electrónico (opcional)</source>
+        <target state="translated">Posta elektronikoa (hautazkoa)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="emailError" datatype="html">
+        <source>Por favor, introduce un email válido</source>
+        <target state="translated">Mesedez, helbide zuzen bat idatzi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerTitleLine" datatype="html">
+        <source>
+      <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>OPEN<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> CORONAVIRUS<x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/>
+      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+    </source>
+        <target state="translated"><x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>OPEN<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> CORONAVIRUS<x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/><x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/corona-header/corona-header.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacityConditions1" datatype="html">
+        <source>Al enviar mis datos personales recogidos en este formulario estoy confirmando que he leído y acepto las </source>
+        <target state="translated">Formulario honetako nire datu-pertsonalak bidaltzean zera irakurri eta ulertu dudala aitorzten dut: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacityConditions2" datatype="html">
+        <source>condiciones de uso y políticas de privacidad</source>
+        <target state="translated">Erabilpen eta pribatutasun politika</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="accepttermsError" datatype="html">
+        <source>Por favor, debes aceptar las condiciones de uso y la política de privacidad.</source>
+        <target state="translated">Mesedez, erabilpen baldintzak eta pribatutasun politika onartu behar dituzu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="registerSubmitButton" datatype="html">
+        <source>Siguiente</source>
+        <target state="translated">Hurrengoa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalTitle" datatype="html">
+        <source>Activa los permisos necesarios para poder utilizar la aplicación</source>
+        <target state="translated">Aktibatu aplikazioa erabiltzeko behar diren baimenak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalTitlePushNotifications" datatype="html">
+        <source>Notificaciones push</source>
+        <target state="translated">Jakinarazpenak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescriptionPushNotifications" datatype="html">
+        <source>Las utilizaremos para enviarte información relevante, resultados de tu test de COVID-19 y líneas de actuación.</source>
+        <target state="translated">Informazio garrantzitsua bidaltzeko erabiliko ditugu, zure COVID-19 testaren emaitzak eta jarraibideak.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalTitleGeolocation" datatype="html">
+        <source>Geolocalización</source>
+        <target state="translated">Geokokapena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription1Geolocation" datatype="html">
+        <source>Necesitamos saber dónde te encuentras para poder ofrecerte las mejores medidas preventivas y médicas.</source>
+        <target state="translated">Non zauden jakin behar dugu hartu beharreko neurri egokienak zein diren jakiteko</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription2Geolocation" datatype="html">
+        <source>Compartiendo tu información ayudarás a frenar el COVID-19.</source>
+        <target state="translated">Zure informazioa partekatuz COVID-19a gelditzen lagunduko diguzu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalTitleBluetooth" datatype="html">
+        <source>Bluetooth</source>
+        <target state="translated">Bluetooth</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription1Bluetooth" datatype="html">
+        <source>Mediante la tecnología bluetooth podrás compartir con las autoridades sanitarias información sobre con quién has estado a menos de 2 metros.</source>
+        <target state="translated">Bluetooth teknologia erabiliz, 2 metro baino gutxiagora norekin egon zaren osasun agintariekin partekatu dezakezu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription2Bluetooth" datatype="html">
+        <source>La protección y prevención de tu salud es lo primero.</source>
+        <target state="translated">Zure osasuna babestea da lehenengo gauza.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription3Bluetooth" datatype="html">
+        <source>Recuerda liberar espacio en tu móvil para que  funcione correctamente esta funcionalidad.</source>
+        <target state="translated">Kontuan hartu zure telefonoan lekua beharko duzula funtzionalitate honek ondo jarduteko.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="activate" datatype="html">
+        <source>ACTIVAR</source>
+        <target state="translated">Aktibatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccessTitle" datatype="html">
+        <source>No acceso</source>
+        <target state="translated">Baimenik ez</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccessDescriptionLine1" datatype="html">
+        <source>Parece que ya la estás utilizando en otro móvil.</source>
+        <target state="translated">Badirudi beste telefono baten erabiltzen ari zarela.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccessDescriptionLine2" datatype="html">
+        <source>Si no es así o quieres cambiar de terminal póngase en contacto con el servicio técnico</source>
+        <target state="translated">Horrela ez bada edo gailuz aldatu nahi baduzu, jarri harremanetan zerbitzu teknikoarekin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="callTechnicalServiceButtonLabel" datatype="html">
+        <source>Servicio técnico  999 888 777</source>
+        <target state="translated">Zerbitzu teknikoa 999 888 777</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tryAgainButtonLabel" datatype="html">
+        <source>Volver a intentar</source>
+        <target state="translated">Berriz saiatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccessFootNote" datatype="html">
+        <source>Si no puedes entrar y crees que tienes síntomas del coronavirus contacta con la atención médica por el procedimiento habitual.</source>
+        <target state="translated">Ezin bazara sartu eta koronabirusa duzula uste baduzu, jarri kontaktuan zure osasun zentroarekin ohiko bideak erabiliz.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/no-access/no-access.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateTitle" datatype="html">
+        <source>Actualización</source>
+        <target state="translated">Eguneraketa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/update/update.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateText" datatype="html">
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in varius magna. Quisque eu erat faucibus ex facilisis imperdiet eu et arcu. Duis sit amet metus non risus aliquam accumsan euismod vitae est. Nulla a nisi et augue ultrices eleifend. Phasellus eleifend lacinia augue. Morbi scelerisque quis est sed hendrerit. Ut maximus eros nec purus sodales vulputate. Sed hendrerit nunc a orci tincidunt, et viverra purus faucibus. Mauris id dolor non ante dictum condimentum. Vestibulum diam diam, auctor ut condimentum pulvinar, euismod ac nisl. Vestibulum eu lectus felis. In vel finibus nisl. Nullam hendrerit dapibus metus ut bibendum. Proin vulputate eros eget diam efficitur volutpat nec sit amet quam. Cras vel quam tortor.</source>
+        <target state="translated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in varius magna. Quisque eu erat faucibus ex facilisis imperdiet eu et arcu. Duis sit amet metus non risus aliquam accumsan euismod vitae est. Nulla a nisi et augue ultrices eleifend. Phasellus eleifend lacinia augue. Morbi scelerisque quis est sed hendrerit. Ut maximus eros nec purus sodales vulputate. Sed hendrerit nunc a orci tincidunt, et viverra purus faucibus. Mauris id dolor non ante dictum condimentum. Vestibulum diam diam, auctor ut condimentum pulvinar, euismod ac nisl. Vestibulum eu lectus felis. In vel finibus nisl. Nullam hendrerit dapibus metus ut bibendum. Proin vulputate eros eget diam efficitur volutpat nec sit amet quam. Cras vel quam tortor.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/update/update.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateGoUpdate" datatype="html">
+        <source>Actualizar</source>
+        <target state="translated">Eguneratu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/update/update.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateCancel" datatype="html">
+        <source>No, lo hare en otro momento</source>
+        <target state="translated">Ez, beste noizbait egingo dut</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/update/update.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="identity" datatype="html">
+        <source>Identificación</source>
+        <target state="translated">Identifikazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="results" datatype="html">
+        <source>Resultado COVID-19</source>
+        <target state="translated">COVID-19 emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ambulanceontheway" datatype="html">
+        <source>Ambulancia en camino.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> Llegará en <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>25 min<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>. </source>
+        <target state="translated">Anbulantzia bidean.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>25 minutuan<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> iritsiko da.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointment" datatype="html">
+        <source>
+                    <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/><x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>
+                </source>
+        <target state="translated"><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/><x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span>"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointmentRequested" datatype="html">
+        <source>Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</source>
+        <target state="translated">Hitzordu bat eskatu duzu, laster esango dizugu non eta noiz egingo dizuten COVID-19 testa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveHome" datatype="html">
+        <source>Volver a casa</source>
+        <target state="translated">Etxera itzuli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="outto" datatype="html">
+        <source>He salido hace</source>
+        <target state="translated">Noiz irten nahiz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="canGoHome" datatype="html">
+        <source>Puedes salir <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>de casa</source>
+        <target state="translated">Etxetik<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>irten zaitezke</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="resultsTest" datatype="html">
+        <source>Ver resultado <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>de test COVID-19</source>
+        <target state="translated">COVID-19 testaren<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>emaitza ikusi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="resquestNewTest" datatype="html">
+        <source>Solicitar nuevo <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>test COVID-19</source>
+        <target state="translated">COVID-19 test<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>berria eskatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTest" datatype="html">
+        <source>Solicitar <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>test COVID-19</source>
+        <target state="translated">COVID-19<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>testa eskatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="autotest" datatype="html">
+        <source>Autoevaluación <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>COVID-19</source>
+        <target state="translated">COVID-19<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>autoebaluazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followingup" datatype="html">
+        <source>Seguimiento <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>de tu salud</source>
+        <target state="translated">Zure osasunaren<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>jarraipena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="coronavirusSendInfo" datatype="html">
+        <source>
+                Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
+            </source>
+        <target state="translated">
+Beste pertsona batzuekin izandako kontaktuen berri era anonimoan bidali eta bere erabilpena baimendu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="coronavirusInfoButton" datatype="html">
+        <source>Información sobre el coronavirus</source>
+        <target state="translated">Koronabirusaren inguruko informazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shareButton" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{getSettingsText()}}"/></source>
+        <target state="translated"><x id="INTERPOLATION" equiv-text="{{getSettingsText()}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="okButton" datatype="html">
+        <source>OK</source>
+        <target state="translated">Ados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/autotest/autotest.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/self-declaration-leave/self-declaration-leave.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveCustomReasonFormTitle" datatype="html">
+        <source>Autodeclaración de salida</source>
+        <target state="translated">Irteteko aitormena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/self-declaration-leave/self-declaration-leave.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveCustomReasonFormDescription" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Yo, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION" equiv-text="{{patient?.firstName}}"/> <x id="INTERPOLATION_1" equiv-text="{{patient?.lastName}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> nacido el <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION_2" equiv-text="{{patient?.birthday | date:'dd/MM/yyyy'}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> con documento de identificación nº<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION_3" equiv-text="{{patient?.documentNumber}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> y con residencia en calle <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION_4" equiv-text="{{patient?.street}}"/> (<x id="INTERPOLATION_5" equiv-text="{{patient?.postalCode}}"/>)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> consciente de las consecuencias penales previstas en caso de falsedad en documento público oficial (art 392 c.p.)<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2>"/>DECLARA, BAJO SU EXCLUSIVA RESPONSABILIDAD<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>De ser <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>consciente de las medidas de contención del contagio<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> referidas en el artículo 7 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la gestión de la situación de crisis sanitaria ocasionada por el COVID-19 concernientes <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>a la limitación de la libertad de circulación de las personas por las vías de uso público;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>De no estar bajo las medidas de cuarentena por haber resultado<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> positivo al virus COVID-19;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>De ser consciente de las sanciones previstas en el artículo 20 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la   gestión de la situación de crisis sanitaria ocasionada por el COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>, en caso de incumplimiento o resistencia a las órdernes de las autoridades competentes;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Que el traslado tiene la finalidad de:<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+    <x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Adquisición de alimentos, productos farmacéuticos y de primera necesidad.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Asistencia a centros, servicios y establecimientos sanitarios.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Desplazamiento al lugar de trabajo para efecturar su prestación laboral, profesional o empresarial.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Retorno al lugar de residencia habitual.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Asistencia y cuidado a mayores, menores, dependientes, personas con discapacidad o personas expecialmente vulnerables.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Desplazamiento a entidades financieras y seguros.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Por causa de fuerza mayor o situación de necesidad<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/>
+    <x id="CLOSE_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;/ul>"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>El <x id="INTERPOLATION_6" equiv-text="{{now | date:'dd/MM/yyyy'}}"/> a las <x id="INTERPOLATION_7" equiv-text="{{now | date:'HH:mm'}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+  </source>
+        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Nik, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION" equiv-text="{{patient?.firstName}}"/><x id="INTERPOLATION_1" equiv-text="{{patient?.lastName}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION_2" equiv-text="{{patient?.birthday | date:'dd/MM/yyyy'}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> egunean jaioak, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION_3" equiv-text="{{patient?.documentNumber}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> nortasun agiria dudanak eta <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/><x id="INTERPOLATION_4" equiv-text="{{patient?.street}}"/> (<x id="INTERPOLATION_5" equiv-text="{{patient?.postalCode}}"/>)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> helbidean bizi naizen honek, dokumentu publikoaren faltsutzearen ondorioak zein diren jakinaren gainean egonda (zigor kodearen 392 artikulua)<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2>"/>NIRE ARDURAPEAN ZER AITORTZEN DUT<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Alarma egoera ezartzen duen 63/2020 Errege Dekretuaren 7. artikuluan adierazita dauden <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>pertsonen zirkulazioa mugatzeko eskubidearen gainean bide publikoa erabiltzeko orduan kutsatzea ekiditeko neurrien jakitun naizela<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Ez nagoela berrogeialdian<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> COVID-19aren testean positibo eman ostean;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Jakitun naizela zein diren 463/2020 Errege Dekretuaren 20 artikuluan ezarritako zigorrak<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> agintari eskudunen aginduak ez betetzeari dagokionez;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/>Irteera honen helburua zera dela:<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/><x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Jakiak, botikak eta behar-beharrezko elementuak erostea.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Osasun zerbitzuetara joatea.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Lantokira joatea.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Bizilekura itzultzea.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Pertsona nagusi, gazte, beharra dutenei, desgaitasunak dituztenei edo behar larrian aurkitzen direnei laguntzera joatea.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Banketxe edo aseguru-etxetara joatea.<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li>"/>Ezinbesteko eta behar-beharrezko kasuan egotea<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li>"/><x id="CLOSE_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;/ul>"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/> {{now | date:'yyyy/MM/dd'}} egunean <x id="INTERPOLATION_7" equiv-text="{{now | date:'HH:mm'}}"/> direnean.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/self-declaration-leave/self-declaration-leave.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="backButton" datatype="html">
+        <source>Volver</source>
+        <target state="translated">Itzuli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/self-declaration-leave/self-declaration-leave.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeTitle" datatype="html">
+        <source>¿Vas a salir de casa?</source>
+        <target state="translated">Etxetik irten behar duzu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeDescriptionLine1" datatype="html">
+        <source>Estamos en estado de alerta.</source>
+        <target state="translated">Alerta egoeran gaude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeDescriptionLine2" datatype="html">
+        <source>Selecciona el motivo por el que vas a salir:</source>
+        <target state="translated">Aukeratu zein den irteteko arrazoia:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home/request-leave-home.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="952a12ad39e6f1f4db07e66099d9c633f9833579" datatype="html">
+        <source>Escribe el motivo</source>
+        <target state="translated">Idatzi arrazoia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveHeaderTitle" datatype="html">
+        <source>Salir de casa</source>
+        <target state="translated">Etxetik irten</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveRequestSentTitle" datatype="html">
+        <source>Has informado que has salido de casa</source>
+        <target state="translated">Etxetik irten zarela jakinarzi duzu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveRequestSentDescription" datatype="html">
+        <source>El motivo por el que has salido es:</source>
+        <target state="translated">Etxetik arrazoi honegatik irten zara</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="gratitudeMessageLine1" datatype="html">
+        <source>¡Gracias por colaborar!</source>
+        <target state="translated">Eskerrik asko zure laguntzagatik!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="gratitudeMessageLine2" datatype="html">
+        <source>¡Juntos ganaremos al virus!</source>
+        <target state="translated">Elkarrekin garaituko dugu birusa!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationNoTestTitle" datatype="html">
+        <source>¿Vas a salir de casa?</source>
+        <target state="translated">Etxetik irten behar duzu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationNoTestText" datatype="html">
+        <source>
+      Recuerda que puedes salir de casa de forma permanente y sin informar pidiendo el test del COVID-19 y si no tienes la infección podrás volver a la normalidad
+    </source>
+        <target state="translated">
+Gogoratu etxetik irten zaitezkeela COVID-19 testa eskatzen baduzu eta infektatuta ez bazaude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationMandatoryTitle1" datatype="html">
+        <source>¿Vas a salir de casa?</source>
+        <target state="translated">Etxetik irten behar duzu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationMandatoryTitle2" datatype="html">
+        <source>
+      <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Estás en cuarentena obligatoria y no deberías salir.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>
+    </source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Derrigorrezko berrogeialdian zaude eta ez zenuke irten behar.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationMandatoryText1" datatype="html">
+        <source>
+      La responsabilidad y colaboración ciudadana es fundamental para la lucha contra el virus
+    </source>
+        <target state="translated">
+Ardura eta hiritarron laguntza beharrezkoa dira birusaren aurkako borrokan
+ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationMandatoryText2" datatype="html">
+        <source>
+      ¡Quédate en casa!
+    </source>
+        <target state="translated">
+Gelditu etxean!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noStillGoingToLeaveTheHouse" datatype="html">
+        <source>No, aún así voy a salir de casa</source>
+        <target state="translated">Ez, hala ere etxetik irtetera noa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-mandatory-quarentine/request-leave-home-confirmation-mandatory-quarentine.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationInfectedTitle" datatype="html">
+        <source>¿Vas a salir de casa?</source>
+        <target state="translated">Etxetik irten behar duzu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationInfectedText1" datatype="html">
+        <source>No puedes salir de casa al estar positivo en COVID-19</source>
+        <target state="translated">Ezin duzu etxetik irten COVID-19an positibo eman duzu-eta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestLeaveHomeConnfirmationInfectedText2" datatype="html">
+        <source> La responsabilidad y colaboración ciudadana es fundamental para la lucha contra el virus.</source>
+        <target state="translated">Ardura eta hiritarron laguntza beharrezkoa dira birusaren aurkako borrokan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="patientInfoTitle" datatype="html">
+        <source>Mis datos</source>
+        <target state="translated">Nire datuak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/patient-info/patient-info.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="saveButton" datatype="html">
+        <source>Guardar</source>
+        <target state="translated">Gorde</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/patient-info/patient-info.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestConfirmationTitle" datatype="html">
+        <source>¿Estás seguro de pedir el test del coronavirus?</source>
+        <target state="translated">Koronabirusaren testa eskatu nahi duzu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestConfirmationDescription" datatype="html">
+        <source>Te daremos cita para que vayas a realizar el test.</source>
+        <target state="translated">Testa egiteko hitzordua emango dizugu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestButton" datatype="html">
+        <source>Sí, solicitar test</source>
+        <target state="translated">Bai, testa eskatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestTitle" datatype="html">
+        <source>Solicitar test</source>
+        <target state="translated">Testa eskatu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestDescription" datatype="html">
+        <source>Según tus síntomas te recomendamos hacer un test diagnóstico de COVID-19</source>
+        <target state="translated">Zure sintomen arabera COVID-19 testa egitea gomendatzen dizugu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requestTestDescription2" datatype="html">
+        <source>Pide el test médico y te daremos cita o te enviaremos una ambulancia a tu domicilio.</source>
+        <target state="translated">Eskatu testa eta hitzordua emango dizugu edo anbulantzia bidaliko dugu zure bizilekura</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/request-test-appointment/request-test-appointment.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="autoTestMainTitle" datatype="html">
+        <source>Test COVID-19</source>
+        <target state="translated">COVID-19 testa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-1/test-result-1.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultSubtitle1" datatype="html">
+        <source>¡Estamos para ayudarte!</source>
+        <target state="translated">Zu laguntzeko gaude hemen!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultDescription" datatype="html">
+        <source>Próximamente llegará una ambulancia a donde vives</source>
+        <target state="translated">Laster iritsiko da anbulantzia bat zure bizilekura</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultDescription2" datatype="html">
+        <source>y <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>en 24 horas tindrás los resultados del test<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> que te lo enviaremos directamente a tu móvil mediante esta aplicación.</source>
+        <target state="translated">eta <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>24 orduan izango dituzu testaren emaitzak<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>. Emaitzok zure telefonora aplikazio honen bidez bidaliko dizkizugu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentResultSubtitle2" datatype="html">
+        <source>¡Estamos para ayudarte!</source>
+        <target state="translated">Zu laguntzeko gaude hemen!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointmentLocation" datatype="html">
+        <source>Lugar de la cita</source>
+        <target state="translated">Hitzorduaren tokia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentAppointmentResultSubtitle1" datatype="html">
+        <source>Gracias por la solicitud</source>
+        <target state="translated">Eskerrik asko zure eskaeragatik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentAppointmentResultSubtitle2" datatype="html">
+        <source>¡Estamos para ayudarte!</source>
+        <target state="translated">Zu laguntzeko gaude hemen!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentAppointmentResultDescription1" datatype="html">
+        <source>Próximamente te haremos llegar la hora y lugar de tu cita.</source>
+        <target state="translated">Laster jakinaraziko dizugu zure hitzorduaren data eta tokia.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testAppointmentAppointmentResultDescription2" datatype="html">
+        <source>Una vez realizado el test, los resultados los tendrás a las 24 horas de realizar el test y te lo enviaremos directamente a tu móvil mediante esta aplicación.</source>
+        <target state="translated">Behin testa eginda, emaitzak 24 orduan izango dituzu eta zure telefonora bidaliko dizkizugu aplikazio honen bidez.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult1Title" datatype="html">
+        <source>Resultado de la autoevaluación de COVID-19</source>
+        <target state="translated">COVID-19aren autoebaluazioaren emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-1/test-result-1.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult1Text" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Llame al 112<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> o vaya directamente al departamento de emergencias más cercano.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+  </source>
+        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Deitu 112ra<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> edo joan hurbilen larrialdi zerbitzuetara.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-1/test-result-1.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult1BtnOK" datatype="html">
+        <source>OK</source>
+        <target state="translated">Ados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-1/test-result-1.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2Title" datatype="html">
+        <source>Resultado de la autoevaluación de COVID-19</source>
+        <target state="translated">COVID-19aren autoebaluazioaren emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2Text1" datatype="html">
+        <source>No tiene clínica sospechosa de infección.</source>
+        <target state="translated">Ez duzu infekzioaren itxurarik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2Text2" datatype="html">
+        <source>Debe realizar distanciamiento físico o pedir opcionalmente una prueba de diagnóstico drive-through que le permitiría salir en caso de ser negativo</source>
+        <target state="translated">Distantzia fisikoa mantendu behar duzu edo, nahi baduzu, drive-throuh erako testa eskatu dezakezu, eta hau negatibo bada irten ahalko duzu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2RequestTest" datatype="html">
+        <source>
+      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+      Solicitar test covid-19
+    </source>
+        <target state="translated"><x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+     covid-19 testa eskatu
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2Text3" datatype="html">
+        <source>Medidas de distanciamiento físicos</source>
+        <target state="translated">Distantzia fisikoa mantentzeko neurriak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2List1_1" datatype="html">
+        <source>Quédese en casa según lo dictado por la autoridad.</source>
+        <target state="translated">Agintariek esan bezala etxean gelditu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult2Text4" datatype="html">
+        <source>Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</source>
+        <target state="translated">Ebaluazio hau berriz egin sintoma berriak badituzu edo arnas-sintomak dituen pertsona batekin zuzeneko harremana izan baduzu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5BtnOK" datatype="html">
+        <source>OK</source>
+        <target state="translated">Ados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3Text1" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>No tiene clínica sospechosa de infección<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>, pero tiene mayor riesgo que el resto de la población de padecer la enfermedad Covid con neumonía en caso de infectarse.</source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Ez duzu infekzioaren itxurarik<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>, baina gainontzeko pertsonek baino arrisku handiago duzu infektatzen bazara COVID-19 gaixotasuna pneumoniarekin izateko.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3Text2" datatype="html">
+        <source>Debe realizar distanciamiento físico para protegerse y, opcionalmente puede solicitar una prueba de diagnóstico drive-through</source>
+        <target state="translated">Distantzia fisikoa mantendu beharko zenuke babesteko eta nahi baduzu drive-through erako testa eskatu dezakezu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3RequestTest" datatype="html">
+        <source>
+      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+      Solicitar test covid-19
+    </source>
+        <target state="translated"><x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+     covid-19 testa eskatu
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3Text3" datatype="html">
+        <source>Esto significa:</source>
+        <target state="translated">Honek zera esan nahi du:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3List1_1" datatype="html">
+        <source>Quédese en casa lo más posible,</source>
+        <target state="translated">Ahalik eta denbora gehienez etxean geratu,</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3List1_2" datatype="html">
+        <source>Salga a comprar comestibles y otros recados esenciales una vez a la semana,</source>
+        <target state="translated">Jakiak eta behar-beharrezko beste elementuak erostera astean behin joan,</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3List1_3" datatype="html">
+        <source>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</source>
+        <target state="translated">Beste pertsonenganako 2 metroko distantzia mantendu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult3Text4" datatype="html">
+        <source>Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</source>
+        <target state="translated">Ebaluazio hau berriz egin sintoma berriak badituzu edo arnas-sintomak dituen pertsona batekin zuzeneko harremana izan baduzu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4Title" datatype="html">
+        <source>Resultado de la autoevaluación de COVID-19</source>
+        <target state="translated">COVID-19aren autoebaluazioaren emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4Text1" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Tiene clínica sospechosa de infección leve o moderada<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> y tiene mayor riesgo que el resto de la población de padecer la enfermedad Covid. Para más instrucciones, por favor, comuníquese con:</source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Infekzio arina edo ertaina izateko itxura duzu<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> eta  gainontzeko pertsonek baino arrisku handiagoa duzu COVID-19 gaixotasuna izateko. Jarraibide gehiagorako jarri kontaktuan hauekin:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4List1_1" datatype="html">
+        <source>Su proveedor de atención primaria (por ejemplo, médico de familia) para una consulta telefónica o evaluación virtual</source>
+        <target state="translated">Zure lehen arretako medikua telefono bidezko kontsulta egiteko</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4List1_2" datatype="html">
+        <source>Alternativamente contacte con el teleoperador sanitario XXXXXX  para hablar con un profesional sanitario</source>
+        <target state="translated">Jarri kontaktuan mediku-laguntza zerbitzuarekin XXXXXX telefonoan.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4Text2" datatype="html">
+        <source>Volúmenes de llamadas</source>
+        <target state="translated">Dei bolumenak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4Text3" datatype="html">
+        <source>Por favor tenga en cuenta que su teleoperador puede estar experimentando grandes volúmenes de llamadas y atenderá su llamada lo más rápido posible.</source>
+        <target state="translated">Kontuan izan dei asko egon daitekeela eta ahalik eta lasterren artatuko zaituztela</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4Text4" datatype="html">
+        <source>También debe aislarse a sí mismo, lo que significa:</source>
+        <target state="translated">Zure burua isolatu beharko duzu, hau da:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4List2_1" datatype="html">
+        <source>Solo salga de su casa o vea a otras personas por razones críticas (como una emergencia médica)</source>
+        <target state="translated">Zure etxetik ez irten arazo kritikorik ez badago (adibidez emergentzia kasuan)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4List2_2" datatype="html">
+        <source>Utilice proveedores de servicios (compras de diario, etc. .)  por teléfono o en línea o solicite ayuda de amigos, familiares o vecinos</source>
+        <target state="translated">Eguneroko gauzak erosteko erabili telefonoa, internet edo eskatu zure ingurukoen laguntza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4List2_3" datatype="html">
+        <source> No acuda al hospital, o clínica para hacerse una prueba COVID-19 a menos que se lo solicite un profesional sanitario</source>
+        <target state="translated">Ez joan ospitalera COVID-19 testa egitera osasun langile batek eskatzen ez badizu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult4Text5" datatype="html">
+        <source>La mayoría de las enfermedades COVID-19 son leves. Si comienza a experimentar un empeoramiento de los síntomas, visite su departamento de emergencias local. Llame antes de ir y dígales que ha utilizado esta herramienta de autoevaluación.</source>
+        <target state="translated">COVID-19 gaixotasun gehienak arinak izan ohi dira. Zure sintomak okerrera badoaz, joan zugandik gertuen dagoen larrialdi zerbitzura. Joan aurretik deitu ezazu eta esan autoebaluazio tresna erabili duzula.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5Title" datatype="html">
+        <source>Resultado de la autoevaluación de COVID-19</source>
+        <target state="translated">COVID-19aren autoebaluazioaren emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5Text1" datatype="html">
+        <source>Tiene clínica sospechosa de infección leve o moderada de Covid 19 y/o un alto riesgo de haberla contraído.</source>
+        <target state="translated">COVID-19 infekzio arina edo ertaina duzula dirudi edo/eta gaixotasuna izateko arrisku handia.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5Text2" datatype="html">
+        <source>Debe autoaislarse en casa durante 14 días después de que comenzaron los síntomas y se recomienda encarecidamente solicitar una prueba de diagnóstico drive-trough</source>
+        <target state="translated">Zure etxean 14 egunez isolatu behar duzu zeure burua eta drive-through erako test bat eskatzea gomendatzen dizugu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5Text3" datatype="html">
+        <source>Debe realizar auto-aislamiento, lo que significa:</source>
+        <target state="translated">Auto-isolamendua egin behar duzu, hau da:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List1_1" datatype="html">
+        <source>Solo salga de su casa o vea a otras personas por razones críticas (como una emergencia médica)</source>
+        <target state="translated">Zure etxetik ez irten arazo kritikorik ez badago (adibidez emergentzia kasuan)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List1_2" datatype="html">
+        <source>Busque servicios por teléfono o en línea o solicite ayuda de amigos, familiares o vecinos,</source>
+        <target state="translated">Eguneroko gauzak erosteko erabili telefonoa, internet edo eskatu zure ingurukoen laguntza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List1_3" datatype="html">
+        <source>No acuda al hospital, o clínica para hacerse una prueba COVID-19 a menos que se lo solicite un profesional sanitario</source>
+        <target state="translated">Ez joan ospitalera COVID-19 testa egitera osasun langile batek eskatzen ez badizu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5Text4" datatype="html">
+        <source>También debe:</source>
+        <target state="translated">Gainera:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List2_1" datatype="html">
+        <source>Informar a las personas con las que tuvo contacto cercano para aislarse si interactuó en los 2 días anteriores a que sus síntomas comenzaron.</source>
+        <target state="translated">Zurekin harreman zuzena izan duten pertsonak jakinaren gainean jarri itzazu zurekin sintomak hasi baino 2 egun lehenago egon badira.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List2_2" datatype="html">
+        <source>Controlar su salud durante 14 días completos sus síntomas comenzaron.</source>
+        <target state="translated">Zaindu zure osasuna sintomak hasi zirenetik hurrengo 14 egunetan.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5Text5" datatype="html">
+        <source>2 semanas después de que comenzaron sus síntomas, practique el distanciamiento físico:</source>
+        <target state="translated">Zure sintomak hasi zirenetik 14 egun igaro osten, mantendu distantzia fisikoa:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List3_1" datatype="html">
+        <source>Quédese en casa lo más que pueda.</source>
+        <target state="translated">Ahalik eta denbora gehienez etxean geratu,</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List3_2" datatype="html">
+        <source>Salga a comprar comestibles y otras diligencias esenciales una vez por semana.</source>
+        <target state="translated">Jakiak eta behar-beharrezko beste elementuak erostera astean behin joan,</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testResult5List3_3" datatype="html">
+        <source>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga en público.</source>
+        <target state="translated">Beste pertsonenganako 2 metroko distantzia mantendu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUpMainTitle" datatype="html">
+        <source>Seguimiento de tu salud</source>
+        <target state="translated">Zure osasunaren jarraipena</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-1/following-up-result-1.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult1Title" datatype="html">
+        <source>Resultado del seguimiento</source>
+        <target state="translated">Jarraipenaren emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-1/following-up-result-1.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult1Text" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Llame al 112<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> o vaya directamente al departamento de emergencias más cercano.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/>
+  </source>
+        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p>"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Deitu 112ra<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> edo joan hurbilen larrialdi zerbitzuetara.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-1/following-up-result-1.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult1BtnOK" datatype="html">
+        <source>OK</source>
+        <target state="translated">Ados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-1/following-up-result-1.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2Title" datatype="html">
+        <source>Resultado del seguimiento</source>
+        <target state="translated">Jarraipenaren emaitza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2Text1" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Sus síntomas no han empeorado ni tiene síntomas nuevos.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Zure sintomek ez dute okerrera egin eta ez duzu sintoma berririk<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2Text2" datatype="html">
+        <source>Debe seguir haciendo recurrentemente seguimiento de su salud y recomendamos el distanciamiento físico o pedir opcionalmente una prueba de diagnóstico drive-through que le permitiría salir en caso de ser negativo</source>
+        <target state="translated">Zure osasunaren jarraipen zehatza egin behar duzu eta distantzia fisikoa mantentzea gomendatzen dizugu eta, nahi baduzu, drive-through erako testa eskatu dezakezu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2BtnRequestTest" datatype="html">
+        <source>
+      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+      Solicitar test covid-19
+    </source>
+        <target state="translated"><x id="TAG_IMG" ctype="image" equiv-text="&lt;img/>"/>
+     covid-19 testa eskatu
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2Text3" datatype="html">
+        <source>Medidas de distanciamiento físicos</source>
+        <target state="translated">Distantzia fisikoa mantentzeko neurriak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2List1_1" datatype="html">
+        <source>Quédese en casa según lo dictado por la autoridad.</source>
+        <target state="translated">Agintariek esan bezala etxean gelditu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2List1_2" datatype="html">
+        <source>Salga a comprar alimentos y otros mandados esenciales una vez a la semana.</source>
+        <target state="translated">Jakiak eta behar-beharrezko beste elementuak erostera astean behin joan,</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2List1_3" datatype="html">
+        <source>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</source>
+        <target state="translated">Beste pertsonenganako 2 metroko distantzia mantendu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2List1_4" datatype="html">
+        <source>Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</source>
+        <target state="translated">Ebaluazio hau berriz egin sintoma berriak badituzu edo arnas-sintomak dituen pertsona batekin zuzeneko harremana izan baduzu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="followinUResult2BtnOK" datatype="html">
+        <source>OK</source>
+        <target state="translated">Ados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutMainTitle" datatype="html">
+        <source>Sobre la APP</source>
+        <target state="translated">Aplikazioari buruz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/about/about.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutTitle" datatype="html">
+        <source>Información sobre la APP</source>
+        <target state="translated">Aplikazioari buruzko informazioa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/about/about.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutVersionNumber" datatype="html">
+        <source>Número de versión: <x id="INTERPOLATION" equiv-text="{{ getNumberVersionText() }}"/></source>
+        <target state="translated">Bertsio zenbakia: <x id="INTERPOLATION" equiv-text="{{ getNumberVersionText() }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/about/about.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
