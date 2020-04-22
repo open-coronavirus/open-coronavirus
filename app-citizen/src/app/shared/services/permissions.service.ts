@@ -7,6 +7,7 @@ import {Push} from "@ionic-native/push/ngx";
 import {PermissionType, Plugins} from "@capacitor/core";
 import {BLE} from "@ionic-native/ble/ngx";
 import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
+import {ContactTrackerService} from "./contacts/contact-tracker.service";
 
 const { PushNotifications, Permissions } = Plugins;
 
@@ -25,7 +26,8 @@ export class PermissionsService {
         protected androidPermissions: AndroidPermissions,
         protected bluetoothLe: BluetoothLE,
         protected ble: BLE,
-        protected navCtrl: NavController
+        protected navCtrl: NavController,
+        protected contactTrackerService: ContactTrackerService
     ) {
         this.requiredPermissions = [];
     }
@@ -62,6 +64,10 @@ export class PermissionsService {
             }
         }
 
+        if (!this.settings.autoshare) {
+            requiredPermissions.push('autoshare');
+        }
+
         return requiredPermissions;
     }
 
@@ -89,7 +95,9 @@ export class PermissionsService {
                         resolve(result);
                     })
                     break;
-
+                case 'autoshare':
+                    resolve(false);
+                    break;
             }
         });
         return returnValue;
@@ -113,6 +121,11 @@ export class PermissionsService {
                     break;
                 case 'coarse-location':
                     this.requestCoarseLocationPermission().then(result => {
+                        resolve(result);
+                    });
+                    break;
+                case 'autoshare':
+                    this.requestAutosharePermission().then(result => {
                         resolve(result);
                     });
                     break;
@@ -274,6 +287,15 @@ export class PermissionsService {
 
         return returnValue;
 
+    }
+
+    public requestAutosharePermission() {
+        const returnValue = new Promise<boolean>(resolve => {
+            this.contactTrackerService.activateAutoShare();
+            resolve(true);
+        });
+
+        return returnValue;
     }
 
 

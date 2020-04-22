@@ -124,6 +124,11 @@ export class PushNotificationService {
                         text: 'OK',
                         handler: () => {
                             if(showUploadContactRequestModal) {
+                                if (this.contactTrackerService.autoShareActivated) {
+                                    console.debug('Autoshare activated, uploading contacts');
+                                    this.contactTrackerService.uploadContactsToServer();
+                                }
+
                                 this.contactTrackerService.showUploadContactRequestModal();
                             }
                         }

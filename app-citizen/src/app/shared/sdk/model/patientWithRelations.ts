@@ -37,6 +37,7 @@ export interface PatientWithRelations {
     appId?: string;
     created?: string;
     updated?: string;
+    autoshare?: boolean;
     leaveRequests?: Array<LeaveRequestWithRelations>;
 }
 
