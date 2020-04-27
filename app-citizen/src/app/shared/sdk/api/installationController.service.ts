@@ -18,6 +18,8 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { Installation } from '../model/models';
+import { InstallationFilter } from '../model/models';
+import { InstallationFilter1 } from '../model/models';
 import { InstallationWithRelations } from '../model/models';
 import { LoopbackCount } from '../model/models';
 
@@ -234,10 +236,10 @@ export class InstallationControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public installationControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<InstallationWithRelations>>;
-    public installationControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<InstallationWithRelations>>>;
-    public installationControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<InstallationWithRelations>>>;
-    public installationControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public installationControllerFind(filter?: InstallationFilter1, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<InstallationWithRelations>>;
+    public installationControllerFind(filter?: InstallationFilter1, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<InstallationWithRelations>>>;
+    public installationControllerFind(filter?: InstallationFilter1, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<InstallationWithRelations>>>;
+    public installationControllerFind(filter?: InstallationFilter1, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (filter !== undefined && filter !== null) {
@@ -283,10 +285,10 @@ export class InstallationControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public installationControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<InstallationWithRelations>;
-    public installationControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<InstallationWithRelations>>;
-    public installationControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<InstallationWithRelations>>;
-    public installationControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public installationControllerFindById(id: string, filter?: InstallationFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<InstallationWithRelations>;
+    public installationControllerFindById(id: string, filter?: InstallationFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<InstallationWithRelations>>;
+    public installationControllerFindById(id: string, filter?: InstallationFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<InstallationWithRelations>>;
+    public installationControllerFindById(id: string, filter?: InstallationFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling installationControllerFindById.');
         }

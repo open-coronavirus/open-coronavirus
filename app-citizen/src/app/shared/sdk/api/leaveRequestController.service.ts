@@ -18,6 +18,7 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { LeaveRequest } from '../model/models';
+import { LeaveRequestFilter } from '../model/models';
 import { LeaveRequestWithRelations } from '../model/models';
 import { LoopbackCount } from '../model/models';
 
@@ -234,10 +235,10 @@ export class LeaveRequestControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public leaveRequestControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<LeaveRequestWithRelations>>;
-    public leaveRequestControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<LeaveRequestWithRelations>>>;
-    public leaveRequestControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<LeaveRequestWithRelations>>>;
-    public leaveRequestControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public leaveRequestControllerFind(filter?: LeaveRequestFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<LeaveRequestWithRelations>>;
+    public leaveRequestControllerFind(filter?: LeaveRequestFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<LeaveRequestWithRelations>>>;
+    public leaveRequestControllerFind(filter?: LeaveRequestFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<LeaveRequestWithRelations>>>;
+    public leaveRequestControllerFind(filter?: LeaveRequestFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (filter !== undefined && filter !== null) {
@@ -327,10 +328,10 @@ export class LeaveRequestControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public leaveRequestControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LeaveRequestWithRelations>;
-    public leaveRequestControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LeaveRequestWithRelations>>;
-    public leaveRequestControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LeaveRequestWithRelations>>;
-    public leaveRequestControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public leaveRequestControllerFindById(id: string, filter?: LeaveRequestFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LeaveRequestWithRelations>;
+    public leaveRequestControllerFindById(id: string, filter?: LeaveRequestFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LeaveRequestWithRelations>>;
+    public leaveRequestControllerFindById(id: string, filter?: LeaveRequestFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LeaveRequestWithRelations>>;
+    public leaveRequestControllerFindById(id: string, filter?: LeaveRequestFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling leaveRequestControllerFindById.');
         }

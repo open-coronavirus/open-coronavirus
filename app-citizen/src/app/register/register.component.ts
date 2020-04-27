@@ -1,12 +1,12 @@
-import { Component, Inject, LOCALE_ID, ViewChild } from '@angular/core';
-import { PatientInfoFormComponent } from '../shared/patient-info-form/patient-info-form.component';
-import { PatientService } from '../shared/services/patient.service';
-import { Router } from '@angular/router';
-import { Patient, PatientWithRelations } from '../shared/sdk';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, NavController } from '@ionic/angular';
-import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
-import { PermissionsService } from '../shared/services/permissions.service';
+import {Component, Inject, LOCALE_ID, ViewChild} from '@angular/core';
+import {PatientInfoFormComponent} from '../shared/patient-info-form/patient-info-form.component';
+import {PatientService} from '../shared/services/patient.service';
+import {Router} from '@angular/router';
+import {PatientWithRelations} from '../shared/sdk';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {LoadingController, NavController} from '@ionic/angular';
+import {PrivacityConditionsService} from '../shared/services/privacity-conditions.service';
+import {PermissionsService} from '../shared/services/permissions.service';
 
 @Component({
     selector: 'register',

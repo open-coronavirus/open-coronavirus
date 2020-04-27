@@ -19,6 +19,7 @@ import { Observable }                                        from 'rxjs';
 
 import { LoopbackCount } from '../model/models';
 import { TestResult } from '../model/models';
+import { TestResultFilter } from '../model/models';
 import { TestResultWithRelations } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -234,10 +235,10 @@ export class TestResultControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public testResultControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<TestResultWithRelations>>;
-    public testResultControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<TestResultWithRelations>>>;
-    public testResultControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<TestResultWithRelations>>>;
-    public testResultControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public testResultControllerFind(filter?: TestResultFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<TestResultWithRelations>>;
+    public testResultControllerFind(filter?: TestResultFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<TestResultWithRelations>>>;
+    public testResultControllerFind(filter?: TestResultFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<TestResultWithRelations>>>;
+    public testResultControllerFind(filter?: TestResultFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (filter !== undefined && filter !== null) {
@@ -283,10 +284,10 @@ export class TestResultControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public testResultControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<TestResultWithRelations>;
-    public testResultControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<TestResultWithRelations>>;
-    public testResultControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<TestResultWithRelations>>;
-    public testResultControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public testResultControllerFindById(id: string, filter?: TestResultFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<TestResultWithRelations>;
+    public testResultControllerFindById(id: string, filter?: TestResultFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<TestResultWithRelations>>;
+    public testResultControllerFindById(id: string, filter?: TestResultFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<TestResultWithRelations>>;
+    public testResultControllerFindById(id: string, filter?: TestResultFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling testResultControllerFindById.');
         }

@@ -279,7 +279,7 @@ export class PatientController {
       throw new HttpErrors[401]; //unauthorized
     }
 
-    return this.patientService.changeStatus(body.documentNumber, body.status);
+    return this.patientService.changeStatus(body.documentNumber, body.status, body.date);
 
   }
 

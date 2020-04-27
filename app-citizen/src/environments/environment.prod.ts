@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBasePath: 'https://yoursupercoolserver.com'
+  apiBasePath: '${API_BASE_PATH}'
 };

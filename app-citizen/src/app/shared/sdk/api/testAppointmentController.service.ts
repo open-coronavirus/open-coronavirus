@@ -19,6 +19,7 @@ import { Observable }                                        from 'rxjs';
 
 import { LoopbackCount } from '../model/models';
 import { TestAppointment } from '../model/models';
+import { TestAppointmentFilter } from '../model/models';
 import { TestAppointmentWithRelations } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -234,10 +235,10 @@ export class TestAppointmentControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public testAppointmentControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<TestAppointmentWithRelations>>;
-    public testAppointmentControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<TestAppointmentWithRelations>>>;
-    public testAppointmentControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<TestAppointmentWithRelations>>>;
-    public testAppointmentControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public testAppointmentControllerFind(filter?: TestAppointmentFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<TestAppointmentWithRelations>>;
+    public testAppointmentControllerFind(filter?: TestAppointmentFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<TestAppointmentWithRelations>>>;
+    public testAppointmentControllerFind(filter?: TestAppointmentFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<TestAppointmentWithRelations>>>;
+    public testAppointmentControllerFind(filter?: TestAppointmentFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (filter !== undefined && filter !== null) {
@@ -283,10 +284,10 @@ export class TestAppointmentControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public testAppointmentControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<TestAppointmentWithRelations>;
-    public testAppointmentControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<TestAppointmentWithRelations>>;
-    public testAppointmentControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<TestAppointmentWithRelations>>;
-    public testAppointmentControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public testAppointmentControllerFindById(id: string, filter?: TestAppointmentFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<TestAppointmentWithRelations>;
+    public testAppointmentControllerFindById(id: string, filter?: TestAppointmentFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<TestAppointmentWithRelations>>;
+    public testAppointmentControllerFindById(id: string, filter?: TestAppointmentFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<TestAppointmentWithRelations>>;
+    public testAppointmentControllerFindById(id: string, filter?: TestAppointmentFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling testAppointmentControllerFindById.');
         }

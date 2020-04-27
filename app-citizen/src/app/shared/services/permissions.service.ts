@@ -5,9 +5,9 @@ import {Diagnostic} from '@ionic-native/diagnostic/ngx';
 import {BluetoothLE} from "@ionic-native/bluetooth-le/ngx";
 import {Push} from "@ionic-native/push/ngx";
 import {PermissionType, Plugins} from "@capacitor/core";
-import {BLE} from "@ionic-native/ble/ngx";
 import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
+import {TracingService} from "./tracing.service";
 
 const { PushNotifications, Permissions } = Plugins;
 
@@ -23,9 +23,9 @@ export class PermissionsService {
         protected push: Push,
         protected diagnostic: Diagnostic,
         protected platform: Platform,
+        protected tracingService: TracingService,
         protected androidPermissions: AndroidPermissions,
         protected bluetoothLe: BluetoothLE,
-        protected ble: BLE,
         protected navCtrl: NavController,
         protected contactTrackerService: ContactTrackerService
     ) {
@@ -142,10 +142,10 @@ export class PermissionsService {
                     console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
                     resolve(true);
                 })
-                    .catch(error => {
-                        console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
-                        resolve(false);
-                    });
+                .catch(error => {
+                    console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                    resolve(false);
+                });
             }
             else if(this.platform.is('ios')) {
                 resolve(false);
@@ -291,7 +291,7 @@ export class PermissionsService {
 
     public requestAutosharePermission() {
         const returnValue = new Promise<boolean>(resolve => {
-            this.contactTrackerService.activateAutoShare();
+            this.tracingService.activateAutoShare();
             resolve(true);
         });
 

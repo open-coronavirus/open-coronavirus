@@ -25,21 +25,24 @@ import {TestResultService} from "./shared/services/test-result.service";
 import {I18nStringsModule} from "./shared/i18n-strings/i18n-strings.module";
 import {settings} from "../environments/settings";
 import {StorageService} from "./shared/services/storage.service";
-import { PrivacityConditionsService } from './shared/services/privacityConditions.service';
-import { PrivacityConditionsComponent } from './shared/privacity-conditions/privacity-conditions.component';
+import {PrivacityConditionsService} from './shared/services/privacity-conditions.service';
+import {PrivacityConditionsComponent} from './shared/privacity-conditions/privacity-conditions.component';
 import {BluetoothTrackingService} from "./shared/services/tracking/bluetooth-tracking.service";
 import {GeolocationTrackingService} from "./shared/services/tracking/geolocation-tracking.service";
 import {BluetoothLE} from '@ionic-native/bluetooth-le/ngx';
-import {BLE} from "@ionic-native/ble/ngx";
 import {SQLite} from "@ionic-native/sqlite/ngx";
 import {ContactTrackerService} from "./shared/services/contacts/contact-tracker.service";
 import {InstallationService} from "./shared/services/installation.service";
 import {PushNotificationService} from "./shared/services/push-notification.service";
 import {Push} from "@ionic-native/push/ngx";
-import { Device } from '@ionic-native/device/ngx';
-import { TestQuestionService } from './shared/services/test-question.service';
-import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import {Device} from '@ionic-native/device/ngx';
+import {TestQuestionService} from './shared/services/test-question.service';
+import {Diagnostic} from '@ionic-native/diagnostic/ngx';
 import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
+import {KeyManagerService} from "./shared/services/keys/key-manager.service";
+import {InfectedKeysProcessorService} from "./shared/services/keys/infected-keys-processor.service";
+import {BackgroundFetchService} from "./shared/services/background-fetch.service";
+import {TracingService} from "./shared/services/tracing.service";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -67,11 +70,14 @@ import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
         Push,
         SQLite,
         ShareService,
+        KeyManagerService,
+        InfectedKeysProcessorService,
+        BackgroundFetchService,
+        TracingService,
         Device,
         ContactTrackerService,
         BluetoothTrackingService,
         InstallationService,
-        BLE,
         GeolocationTrackingService,
         AutotestAnswers,
         TestAppointmentService,

@@ -18,6 +18,7 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { HealthCenter } from '../model/models';
+import { HealthCenterFilter } from '../model/models';
 import { HealthCenterWithRelations } from '../model/models';
 import { LoopbackCount } from '../model/models';
 
@@ -234,10 +235,10 @@ export class HealthCenterControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public healthCenterControllerFind(filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<HealthCenterWithRelations>>;
-    public healthCenterControllerFind(filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<HealthCenterWithRelations>>>;
-    public healthCenterControllerFind(filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<HealthCenterWithRelations>>>;
-    public healthCenterControllerFind(filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public healthCenterControllerFind(filter?: HealthCenterFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<HealthCenterWithRelations>>;
+    public healthCenterControllerFind(filter?: HealthCenterFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<HealthCenterWithRelations>>>;
+    public healthCenterControllerFind(filter?: HealthCenterFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<HealthCenterWithRelations>>>;
+    public healthCenterControllerFind(filter?: HealthCenterFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (filter !== undefined && filter !== null) {
@@ -283,10 +284,10 @@ export class HealthCenterControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public healthCenterControllerFindById(id: string, filter?: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HealthCenterWithRelations>;
-    public healthCenterControllerFindById(id: string, filter?: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<HealthCenterWithRelations>>;
-    public healthCenterControllerFindById(id: string, filter?: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<HealthCenterWithRelations>>;
-    public healthCenterControllerFindById(id: string, filter?: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public healthCenterControllerFindById(id: string, filter?: HealthCenterFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HealthCenterWithRelations>;
+    public healthCenterControllerFindById(id: string, filter?: HealthCenterFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<HealthCenterWithRelations>>;
+    public healthCenterControllerFindById(id: string, filter?: HealthCenterFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<HealthCenterWithRelations>>;
+    public healthCenterControllerFindById(id: string, filter?: HealthCenterFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling healthCenterControllerFindById.');
         }

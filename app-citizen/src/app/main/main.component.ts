@@ -6,7 +6,7 @@ import { PatientService } from '../shared/services/patient.service';
 import { LeaveRequestService } from '../shared/services/leave-request.service';
 import { Subscription } from "rxjs";
 import { TestAppointmentService } from "../shared/services/test-appointment.service";
-import { PrivacityConditionsService } from '../shared/services/privacityConditions.service';
+import { PrivacityConditionsService } from '../shared/services/privacity-conditions.service';
 import { GeolocationTrackingService } from "../shared/services/tracking/geolocation-tracking.service";
 import { BluetoothTrackingService } from "../shared/services/tracking/bluetooth-tracking.service";
 import { PermissionsService } from "../shared/services/permissions.service";
@@ -14,6 +14,7 @@ import { ContactTrackerService } from '../shared/services/contacts/contact-track
 import { PushNotificationService } from "../shared/services/push-notification.service";
 import { PatientStatus } from "../../../../server/src/common/utils/enums";
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import {TracingService} from "../shared/services/tracing.service";
 
 @Component({
     selector: 'app-container',
@@ -41,6 +42,7 @@ export class MainComponent implements OnDestroy {
         protected router: Router,
         @Inject('settings') public settings,
         public patientService: PatientService,
+        protected tracingService: TracingService,
         protected geolocationtrackingService: GeolocationTrackingService,
         protected bluetoothTrackingService: BluetoothTrackingService,
         protected leaveRequestService: LeaveRequestService,
@@ -149,6 +151,9 @@ export class MainComponent implements OnDestroy {
         this.leaveRequestService.setAtHome();
     }
 
+    public checkNewInfectedKeys() {
+        this.tracingService.checkNewInfectedKeys();
+    }
 
     public requestTest() {
         if (this.patientService.patient.status === PatientStatus.INFECTED) {
@@ -222,6 +227,6 @@ export class MainComponent implements OnDestroy {
 
     public uploadContactsAndShowThanksModal() {
         this.closeMenu();
-        this.contactTrackerService.uploadContactsAndShowThanksModal();
+        this.tracingService.trackInfectionToServer();
     }
 }
