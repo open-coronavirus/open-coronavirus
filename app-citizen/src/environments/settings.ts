@@ -18,8 +18,9 @@ export const settings = {
     requestTestUrl: '',
     autoTestUrl: '',
     followingUpUrl: '',
-    appVersion: '1.0.0',
+    appVersion: '${VERSION_NUMBER}',
     techSupportPhone: '555 555 5555',
+    useDecentralizedProtocol: true,
     shareApp: {
         text: 'Compartir App para luchar juntos'
     },

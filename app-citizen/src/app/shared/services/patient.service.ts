@@ -85,6 +85,10 @@ export class PatientService {
         return returnValue;
     }
 
+    public setAsQuarantine() {
+        //todo ...
+    }
+
 
     public register(patient: PatientWithRelations): Subscribable<any> {
 

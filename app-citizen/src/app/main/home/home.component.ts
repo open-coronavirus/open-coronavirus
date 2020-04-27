@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
 import { AppointmentType, PatientStatus } from "../../../../../server/src/common/utils/enums";
 import { LeaveRequest } from 'src/app/shared/sdk';
 import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
+import {TracingService} from "../../shared/services/tracing.service";
 
 @Component({
     selector: 'home',
@@ -49,6 +50,7 @@ export class HomeComponent implements OnDestroy {
         public patientService: PatientService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
+        protected tracingService: TracingService,
         protected menu: MenuController,
         @Inject('settings') public settings,
         protected inAppBrowser: InAppBrowser,
@@ -279,10 +281,10 @@ export class HomeComponent implements OnDestroy {
     }
 
     public uploadContactsAndShowThanksModal() {
-        this.contactTrackerService.uploadContactsAndShowThanksModal();
+        this.tracingService.trackInfectionToServer();
     }
 
     public valeriaDemoConfirmarContact() {
-        this.contactTrackerService.showUploadContactRequestModal();
+        this.tracingService.trackInfectionToServer();
     }
 }

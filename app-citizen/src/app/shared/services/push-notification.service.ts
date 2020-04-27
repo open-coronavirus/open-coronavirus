@@ -14,6 +14,8 @@ import {AlertController} from "@ionic/angular";
 import { PermissionsService } from './permissions.service';
 import {PatientStatus} from "../../../../../server/src/common/utils/enums";
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
+import {KeyManagerService} from "./keys/key-manager.service";
+import {TracingService} from "./tracing.service";
 
 const { PushNotifications } = Plugins;
 
@@ -28,8 +30,10 @@ export class PushNotificationService {
                 protected patientService: PatientService,
                 @Inject('settings') protected settings,
                 public alertController: AlertController,
+                protected tracingService: TracingService,
                 protected installationService: InstallationService,
                 protected contactTrackerService: ContactTrackerService,
+                protected keyManagerService: KeyManagerService,
                 protected installationControllerService: InstallationControllerService,
                 protected permissionsService: PermissionsService) { }
 
@@ -123,13 +127,14 @@ export class PushNotificationService {
                     {
                         text: 'OK',
                         handler: () => {
-                            if(showUploadContactRequestModal) {
-                                if (this.contactTrackerService.autoShareActivated) {
-                                    console.debug('Autoshare activated, uploading contacts');
-                                    this.contactTrackerService.uploadContactsToServer();
+                            if (this.tracingService.autoShareActivated) {
+                                console.debug('Autoshare activated, uploading contacts');
+                                this.tracingService.trackInfectionToServer();
+                            }
+                            else {
+                                if(showUploadContactRequestModal) {
+                                    this.tracingService.showUploadContactRequestModal();
                                 }
-
-                                this.contactTrackerService.showUploadContactRequestModal();
                             }
                         }
                     }

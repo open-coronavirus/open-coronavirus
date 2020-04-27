@@ -31,6 +31,7 @@ export interface PatientPartial {
     postalCode?: string;
     email?: string;
     status?: number;
+    statusDate?: string;
     phone?: string;
     serviceAdvertisementUUID?: string;
     appId?: string;
