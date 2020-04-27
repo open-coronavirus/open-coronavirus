@@ -98,6 +98,7 @@ export class HomeComponent implements OnDestroy {
             }
         }));
 
+
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if (loaded) {
                 this.subscriptions.push(this.contactTrackerService.contactsCount$.subscribe(contactsCount => {
