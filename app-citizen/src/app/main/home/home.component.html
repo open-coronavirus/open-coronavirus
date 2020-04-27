@@ -11,6 +11,8 @@
                     <p class="result__name">{{ patientName }}</p>
                     <p class="result__title" i18n="@@results">Resultado COVID-19</p>
                     <h3 class="result__status">{{ getTextStatus() }}</h3>
+                    <!-- TODO: @Vale -->
+                    <p class="" i18n="@@note" *ngIf="patientService.patient?.status === STATUS.INFECTION_SUSPECTED">* Protocolo vigente de Salud Pública</p>
                 </div>
             </div>
 
@@ -61,7 +63,6 @@
                             <p class="main-options__text" i18n="@@resquestNewTest">Solicitar nuevo <br>test COVID-19</p>
                         </div>
                     </div>
-                    <!-- && (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED) && !(patientService.patient?.status === STATUS.INFECTED) -->
                     <div *ngIf="settings.home.moduleRequestTest && ((patientService.patient?.status !== STATUS.INFECTED) || (settings.home.moduleHome && leaveStatus !== 2 && patientService.patient?.status !== STATUS.UNINFECTED))" class="main-options__btn" (click)="requestTest()" [ngClass]="{'main-options__btn--disabled' : patientService.patient?.status === STATUS.INFECTED}">
                         <img class="main-options__image" src="/assets/icons/svg/icon-test-sm.svg">
                         <p class="main-options__text" i18n="@@requestTest">Solicitar <br>test COVID-19</p>
@@ -96,6 +97,7 @@
         </div>
 
 
+        <!-- TODO: @vale -->
         <div class="home-footer" [ngClass]="{'--enabled' : enabledBluetooth }" (click)="clickEnabledBluetooth()">
             <p>Bluetooth {{ enabledBluetooth }}</p>
         </div>

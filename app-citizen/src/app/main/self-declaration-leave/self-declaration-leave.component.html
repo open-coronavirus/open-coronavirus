@@ -11,7 +11,7 @@
     <p class="screen-text">Yo, <strong>{{patient?.firstName}} {{patient?.lastName}}</strong> nacido el <strong>{{patient?.birthday | date:'dd/MM/yyyy'}}</strong> con documento de identificación nº<strong>{{patient?.documentNumber}}</strong> y con residencia en calle <strong>{{patient?.street}} ({{patient?.postalCode}})</strong> consciente de las consecuencias penales previstas en caso de falsedad en documento público oficial (art 392 c.p.)</p>
     <h2 class="screen-subtitle">DECLARA, BAJO SU EXCLUSIVA RESPONSABILIDAD</h2>
     <p class="screen-text">De ser <strong>consciente de las medidas de contención del contagio</strong> referidas en el artículo 7 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la gestión de la situación de crisis sanitaria ocasionada por el COVID-19 concernientes <strong>a la limitación de la libertad de circulación de las personas por las vías de uso público;</strong></p>
-    <p class="screen-text"> <strong>De no estar bajo las medidas de cuarentena por haber resultado</strong> positivo al virus COVID-19;</p>
+    <p class="screen-text"> <strong>De no estar bajo las medidas de cuarentena por tenido</strong> infección aguda en virus COVID-19;</p>
     <p class="screen-text"><strong>De ser consciente de las sanciones previstas en el artículo 20 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la   gestión de la situación de crisis sanitaria ocasionada por el COVID-19</strong>, en caso de incumplimiento o resistencia a las órdernes de las autoridades competentes;</p>
     <p class="screen-text">Que el traslado tiene la finalidad de:</p>
     <ul>
@@ -27,5 +27,5 @@
   </ng-container>
   <button class="btn" (click)="requestLeaveHome()" i18n="@@okButton">OK</button>
   <button class="btn btn--secondary" (click)="goBack()" i18n="@@backButton">Volver</button>
-                
+
 </ion-content>

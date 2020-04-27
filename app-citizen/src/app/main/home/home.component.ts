@@ -98,6 +98,8 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
             if (patientLoaded) {
                 this.patientName = this.patientService.patient.firstName;
+                // TODO: @Vale Pruebas
+                // this.patientService.patient.status = PatientStatus.INFECTION_SUSPECTED;
                 if (this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
                     this.showSendContactInformationMenu = true;
                 }
@@ -217,10 +219,10 @@ export class HomeComponent implements OnDestroy {
             case PatientStatus.IMMUNE:
                 return $localize`:@@statusImune:Inmune`;
             case PatientStatus.INFECTED:
-                return $localize`:@@statusInfected:Positivo`;
+                return $localize`:@@statusInfected:Infección Aguda`;
 
             case PatientStatus.INFECTION_SUSPECTED:
-                return $localize`:@@statusQuarantine:Cuarentena obligatoria`;
+                return $localize`:@@statusQuarantine:Cuarentena`;
 
             case PatientStatus.UNINFECTED:
                 return $localize`:@@statusNoInfected:Negativo`;
