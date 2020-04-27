@@ -79,7 +79,7 @@
                     <img class="alert-info__icon filter-white" src="/assets/icons/svg/icon-bluetooth.svg">
                     <span class="alert-info__badge">{{contactsCount}}</span>
                     <p class="alert-info__text" i18n="@@coronavirusSendInfo">
-                        Enviar con quién te has cruzado de forma anónima
+                        AUTORIZA AVISAR DE FORMA ANÓNIMA
                     </p>
                 </div>
 
@@ -90,7 +90,6 @@
                 <img class="button-icon filter-black" src="/assets/icons/svg/icon-info.svg">
                 <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
             </div>
-            <a href="javascrip:void(null);" (click)="share()" class="share-link"><img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg"><ng-container i18n="@@shareButton">{{getSettingsText()}}</ng-container></a>
             <p class="logo-home">
                 <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
             </p>
