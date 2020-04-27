@@ -43,6 +43,11 @@ export const settings = {
         urlAppStore: 'https://itunes.apple.com/es/app/coronaapp/idxxxxxx',
         urlGooglePlay: 'https://play.google.com/store/apps/details?id=xxxx.coronaapp.xxx'
     },
-    autoshare: false
+    autoshare: false,
+    identifierQR: true,
+    register: {
+        moduleHome : true,
+        moduleContact : true
+    }
 
 };

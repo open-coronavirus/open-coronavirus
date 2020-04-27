@@ -3,7 +3,7 @@
     <div class="home-container">
         <div class="home-top">
             <div class="result" [ngClass]="getClassStatus()">
-                <div class="result__col-qr">
+                <div class="result__col-qr" *ngIf="settings.identifierQR">
                     <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
                 </div>
                 <div class="result__col-texts">
@@ -91,8 +91,13 @@
                 <ng-container i18n="@@coronavirusInfoButton">Información sobre el coronavirus</ng-container>
             </div>
             <p class="logo-home">
-                <img *ngIf="settings.footer.logo" class="" [src]="settings.footer.logo">
+                <img *ngIf="settings.footer.logo" [src]="settings.footer.logo">
             </p>
+        </div>
+
+
+        <div class="home-footer" [ngClass]="{'--enabled' : enabledBluetooth }" (click)="clickEnabledBluetooth()">
+            <p>Bluetooth {{ enabledBluetooth }}</p>
         </div>
     </div>
 

@@ -10,7 +10,8 @@ import { Subscription } from "rxjs";
 import { AppointmentType, PatientStatus } from "../../../../../server/src/common/utils/enums";
 import { LeaveRequest } from 'src/app/shared/sdk';
 import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
-import {TracingService} from "../../shared/services/tracing.service";
+import { TracingService } from "../../shared/services/tracing.service";
+import { PermissionsService } from '../../shared/services/permissions.service';
 
 @Component({
     selector: 'home',
@@ -43,6 +44,8 @@ export class HomeComponent implements OnDestroy {
     public patientName: string;
     public leaveRequest: LeaveRequest;
 
+    public enabledBluetooth: boolean;
+
     public STATUS = PatientStatus;
 
     constructor(
@@ -55,7 +58,8 @@ export class HomeComponent implements OnDestroy {
         @Inject('settings') public settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService,
-        protected contactTrackerService: ContactTrackerService
+        protected contactTrackerService: ContactTrackerService,
+        protected permissionsService: PermissionsService
     ) {
         this.subscriptions.push(this.testAppointmentService.testAppointmentLoaded$.subscribe(loaded => {
             if (loaded) {
@@ -85,6 +89,11 @@ export class HomeComponent implements OnDestroy {
                 this.patientHasTestAppointment = true;
             }
         }));
+
+
+        this.permissionsService.requestPermission('bluetooth').then((res) => {
+            this.enabledBluetooth = res;
+        });
 
         this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
             if (patientLoaded) {
@@ -279,6 +288,10 @@ export class HomeComponent implements OnDestroy {
         }
         str += min + ' min';
         return str;
+    }
+
+    public clickEnabledBluetooth() {
+        this.permissionsService.requestBluetoothPermission();
     }
 
     public uploadContactsAndShowThanksModal() {

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, Output, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import { PatientWithRelations } from '../sdk';
@@ -103,7 +103,9 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
 
     protected subscriptions: Subscription[] = new Array<Subscription>();
 
-    public constructor(protected formBuilder: FormBuilder) {
+    public constructor(
+        protected formBuilder: FormBuilder,
+        @Inject('settings') public settings) {
 
     }
 
@@ -117,12 +119,8 @@ export class PatientInfoFormComponent implements OnInit, OnDestroy, AfterViewIni
             documentNumber: new FormControl(this.patient.documentNumber, [Validators.required]),
             birthday: new FormControl(this.patient.birthday, [Validators.required]),
             street: new FormControl(this.patient.street),
-            postalCode: new FormControl(this.patient.postalCode, [
-                Validators.pattern(/^\s*\d{5}\s*$/), Validators.required]),
-            phone: new FormControl(this.patient.phone, [
-                Validators.required,
-                Validators.minLength(9),
-                Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/)]),
+            postalCode: (this.settings.register.moduleHome) ? new FormControl(this.patient.postalCode, [Validators.pattern(/^\s*\d{5}\s*$/), Validators.required]) : new FormControl(this.patient.postalCode, [Validators.pattern(/^\s*\d{5}\s*$/)]),
+            phone: (this.settings.register.moduleContact) ? new FormControl(this.patient.phone, [Validators.required, Validators.minLength(9), Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/)]) : new FormControl(this.patient.phone, [Validators.minLength(9), Validators.pattern(/^\s*[\d\s\(\)\-]+\s*$/)]),
             email: new FormControl(this.patient.email, [
                 Validators.pattern(/^\s*[a-zA-Z0-9._-]+@[a-zA-Z0-9\.-]+?\.[a-zA-Z]{2,}\s*$/i)]),
             autoshare: new FormControl(this.patient.autoshare)

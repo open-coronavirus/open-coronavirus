@@ -27,44 +27,48 @@
         </div>
     </div>
 
-    <div class="form-row form-row--separa">
-        <h2 class="screen-subtitle" i18n="@@addressSectionTitle">Dirección actual</h2>
-        <p class="screen-text" i18n="@@addressSectionSubtitle">Tu dirección es importante para poder darte cita en el centro más cercano de test de COVID-19</p>
-    </div>
-    <div class="form-row">
-        <div class="form-group form-label-group form-label-group--half">
-            <input type="tel" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode" i18n-placeholder placeholder="Código postal">
-            <label for="postalCode" i18n="@@postalCodeLabel">Código postal</label>
-            <small class="error" *ngIf="postalCode.invalid && postalCode.touched" i18n="@@postalCodeError">Por favor, introduce un código postal válido</small>
+    <ng-container *ngIf="settings.register.moduleHome">
+        <div class="form-row form-row--separa">
+            <h2 class="screen-subtitle" i18n="@@addressSectionTitle">Dirección actual</h2>
+            <p class="screen-text" i18n="@@addressSectionSubtitle">Tu dirección es importante para poder darte cita en el centro más cercano de test de COVID-19</p>
         </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group form-label-group">
-            <input type="text" class="form-control" id="street" name="street" formControlName="street" i18n-placeholder placeholder="Calle">
-            <label for="street" i18n="@@streetLabel">Dirección domicilio (opcional)</label>
-            <small class="error" *ngIf="street.invalid && street.touched" i18n="@@streetError">Por favor, introduce tu dirección</small>
+        <div class="form-row">
+            <div class="form-group form-label-group form-label-group--half">
+                <input type="tel" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode" i18n-placeholder placeholder="Código postal">
+                <label for="postalCode" i18n="@@postalCodeLabel">Código postal</label>
+                <small class="error" *ngIf="postalCode.invalid && postalCode.touched" i18n="@@postalCodeError">Por favor, introduce un código postal válido</small>
+            </div>
         </div>
-    </div>
+        <div class="form-row">
+            <div class="form-group form-label-group">
+                <input type="text" class="form-control" id="street" name="street" formControlName="street" i18n-placeholder placeholder="Calle">
+                <label for="street" i18n="@@streetLabel">Dirección domicilio (opcional)</label>
+                <small class="error" *ngIf="street.invalid && street.touched" i18n="@@streetError">Por favor, introduce tu dirección</small>
+            </div>
+        </div>
+    </ng-container>
 
+    <ng-container *ngIf="settings.register.moduleContact">
+        <div class="form-row form-row--separa">
+            <h2 class="screen-subtitle" i18n="@@contactInfoSectionTitle">Información de contacto</h2>
+            <p class="screen-text" i18n="@@addressSectionSubtitle">Tu información de contacto es esencial para que en caso de una urgencia podamos ponernos en contacto contigo</p>
+        </div>
+        <div class="form-row">
+            <div class="form-group form-label-group">
+                <input type="tel" class="form-control" id="phone" name="phone" formControlName="phone" i18n-placeholder placeholder="Phone">
+                <label for="phone" i18n="@@phoneLabel">Teléfono</label>
+                <small class="error" *ngIf="phone.invalid && phone.touched" i18n="@@phoneError">Por favor, introduce un número de teléfono válido</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group form-label-group">
+                <input type="email" class="form-control" id="email" name="email" formControlName="email" i18n-placeholder placeholder="Email">
+                <label for="email" i18n="@@emailLabel">Correo electrónico (opcional)</label>
+                <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
+            </div>
+        </div>
+    </ng-container>
 
-    <div class="form-row form-row--separa">
-        <h2 class="screen-subtitle" i18n="@@contactInfoSectionTitle">Información de contacto</h2>
-        <p class="screen-text" i18n="@@addressSectionSubtitle">Tu información de contacto es esencial para que en caso de una urgencia podamos ponernos en contacto contigo</p>
-    </div>
-    <div class="form-row">
-        <div class="form-group form-label-group">
-            <input type="tel" class="form-control" id="phone" name="phone" formControlName="phone" i18n-placeholder placeholder="Phone">
-            <label for="phone" i18n="@@phoneLabel">Teléfono</label>
-            <small class="error" *ngIf="phone.invalid && phone.touched" i18n="@@phoneError">Por favor, introduce un número de teléfono válido</small>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group form-label-group">
-            <input type="email" class="form-control" id="email" name="email" formControlName="email" i18n-placeholder placeholder="Email">
-            <label for="email" i18n="@@emailLabel">Correo electrónico (opcional)</label>
-            <small class="error" *ngIf="email.invalid && email.touched" i18n="@@emailError">Por favor, introduce un email válido</small>
-        </div>
-    </div>
     <div class="form-row" *ngIf='edit'>
         <div class="form-group">
           <div class="form-check">
@@ -73,7 +77,7 @@
             <label for="autoshare">
               <span class="form-check__check"></span>
               <span class="form-check__text">
-                <span i18n="@@autoshareCheck">Autorizar avisar a las personas con las que has estado cerca en caso de positivo de COVID-19, sin especificar que eres tú.</span>.
+                <span i18n="@@autoshareCheck">Autorizar avisar a las personas con las que has estado cerca en caso de positivo de COVID-19, sin especificar que eres tú.</span>
               </span>
             </label>
           </div>

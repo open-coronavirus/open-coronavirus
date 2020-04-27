@@ -12,7 +12,7 @@ import {
 } from "@capacitor/core";
 import {AlertController} from "@ionic/angular";
 import { PermissionsService } from './permissions.service';
-import {PatientStatus} from "../../../../../server/src/common/utils/enums";
+import { PatientStatus } from '../../../../../server/src/common/utils/enums';
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
 import {KeyManagerService} from "./keys/key-manager.service";
 import {TracingService} from "./tracing.service";
@@ -25,6 +25,8 @@ export class PushNotificationService {
     protected activated = false;
 
     protected handledRegistration = false;
+
+
 
     constructor(protected push: Push,
                 protected patientService: PatientService,

@@ -11,10 +11,15 @@ export class BackgroundFetchService {
         protected tracingService: TracingService,
         protected keyMatcherService: InfectedKeysProcessorService) {
 
-        BackgroundFetch.configure(this.fetchCallback, this.failureCallback, {
-            minimumFetchInterval: 15, // <-- default is 15
-            forceAlarmManager: true
-        });
+        try {
+            BackgroundFetch.configure(this.fetchCallback, this.failureCallback, {
+                minimumFetchInterval: 15, // <-- default is 15
+                forceAlarmManager: true
+            });
+        } catch (error) {
+            console.log("err: ", error);
+        }
+
 
     }
 
