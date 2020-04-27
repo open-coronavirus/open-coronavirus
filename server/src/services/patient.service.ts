@@ -1,6 +1,6 @@
 import {Filter, repository} from "@loopback/repository";
 import {LeaveRequestRepository, PatientRepository} from "../repositories";
-import {Contact, LeaveRequest, Patient} from "../models";
+import {Contact, InfectionExposure, LeaveRequest, Patient} from "../models";
 import {PatientStatus} from "../common/utils/enums";
 import {HttpErrors} from "@loopback/rest";
 import {PushNotificationService} from "./pushnotification.service";
@@ -37,7 +37,27 @@ export class PatientService {
 
     }
 
-    public changeStatus(documentNumber: string, status: number) {
+    async decideToPutInQuarantine(infectionExposures: InfectionExposure[]) {
+        let patientsToPutInQuarantine = new Map<string, boolean>()
+        infectionExposures.forEach(infectionExposure => {
+            patientsToPutInQuarantine.set(infectionExposure.patientId, true);
+        });
+
+        for (let patientId of patientsToPutInQuarantine.keys()) {
+            let patient = await this.patientRepository.findOne({"where": { "id": patientId }}, { strictObjectIDCoercion: true });
+            if(patient != null) {
+                //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
+                if(patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
+                    this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
+                }
+            }
+            else {
+                console.error("No patient found for id: " + patientId);
+            }
+        }
+    }
+
+    public changeStatus(documentNumber: string, status: number, date: string) {
         let filter = {
             "where": {
                 "documentNumber": documentNumber
@@ -48,7 +68,7 @@ export class PatientService {
 
             this.patientRepository.findOne(filter).then(patient => {
                 if (patient != null) {
-                    this.doChangeStatus(patient, status);
+                    this.doChangeStatus(patient, status, date);
                     resolve(patient);
                 }
                 else {
@@ -65,9 +85,10 @@ export class PatientService {
         return returnValue;
     }
 
-    protected doChangeStatus(patient: any, status: number) {
+    protected doChangeStatus(patient: any, status: number, date: string | null = null) {
 
         patient.status = status;
+        patient.statusDate = date;
         patient.updated = new Date();
         this.patientRepository.update(patient);
         let title = "Atención";

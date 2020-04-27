@@ -91,6 +91,12 @@ export class Patient extends Entity {
   status?: number;
 
   @property({
+    type: 'date',
+    required: false,
+  })
+  statusDate?: Date;
+
+  @property({
     type: 'string',
     required: true,
   })
