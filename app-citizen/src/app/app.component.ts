@@ -49,6 +49,8 @@ export class AppComponent {
 
             this.checkUpdateApp();
             this.onChangeDetect();
+            //also start background fetch services:
+            this.backgroundFetchService.startBackgroundFetchServices();
         });
     }
 

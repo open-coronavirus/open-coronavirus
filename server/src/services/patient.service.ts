@@ -44,11 +44,12 @@ export class PatientService {
         });
 
         for (let patientId of patientsToPutInQuarantine.keys()) {
-            let patient = await this.patientRepository.findOne({"where": { "id": patientId }}, { strictObjectIDCoercion: true });
+            let patient = await this.patientRepository.findById(patientId);
             if(patient != null) {
                 //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
                 if(patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
                     this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
+                    return; //do not process any other entry
                 }
             }
             else {

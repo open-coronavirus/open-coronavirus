@@ -57,13 +57,16 @@ export class InfectedKeysProcessorService {
                             contactEntriesMatched.push(row);
                             let infectionExposure: InfectionExposure = {
                                 patientId: this.patientService.patient.id,
-                                rssi: row.rssi,
                                 timestampFrom: row.timestamp_from,
                                 timestampTo: row.timestamp_to,
                                 anonymizedInfectedUuid: anonymizedInfectedUuid
                             };
+                            //do not add if rssi is null
+                            if(row.rssi != null) {
+                                infectionExposure.rssi = row.rssi;
+                            }
 
-                            //contact with infected!!!!
+                            //contact with infection!!!!
                             exposuresMatched.push(infectionExposure);
                         }
 

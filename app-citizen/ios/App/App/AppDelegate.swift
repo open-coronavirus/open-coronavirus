@@ -1,5 +1,6 @@
 import UIKit
 import Capacitor
+import TSBackgroundFetch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,6 +11,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     return true
+  }
+
+  // Added for cordova-plugin-background-fetch
+  func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler:@escaping (UIBackgroundFetchResult) -> Void) {
+    NSLog("AppDelegate received fetch event");
+    TSBackgroundFetch.sharedInstance().perform(completionHandler: completionHandler, applicationState: application.applicationState);
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

@@ -107,7 +107,7 @@ export class MainComponent implements OnDestroy {
         //refresh the patient everytime the app becomes active:
         this.platform.resume.subscribe(() => {
             this.patientService.refreshPatientData();
-        })
+        });
 
     }
 
