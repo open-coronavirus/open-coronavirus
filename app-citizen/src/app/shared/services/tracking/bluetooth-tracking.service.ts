@@ -91,6 +91,9 @@ export class BluetoothTrackingService {
     }
 
     protected prepareBackgroundMode() {
+
+
+
         App.addListener('appStateChange', (state) => {
 
             if (!state.isActive) {
@@ -253,47 +256,27 @@ export class BluetoothTrackingService {
 
     protected sendKey(address: string) {
 
-        let encryptedData = this.keyManager.generateEncryptedKey();
-
-        let jsonEncryptedData = JSON.stringify(encryptedData);
-
-        console.debug('[BluetoothLE] connecting to ' + address + " ...");
-
+        console.debug('[BluetoothLE] Connecting to ' + address + " ...");
         this.bluetoothLE.connect({address: address}).subscribe(connectionResult => {
-
-            console.debug('[BluetoothLE] connected to ' + address + ": " + JSON.stringify(connectionResult));
-
             if (connectionResult.status == 'connected') {
-
+                console.debug('[BluetoothLE] Connected to ' + address + ": " + JSON.stringify(connectionResult));
                 this.changeConnectionPriority(address).then(result => {
-
                     this.bluetoothLE.discover({address: address, clearCache: true}).then(async discoverResult => {
-
-                        console.debug('[BluetoothLE] discover result to ' + address + ": " + JSON.stringify(discoverResult) + " - encrypted: " + jsonEncryptedData);
-
-                        do {
-                            let jsonPart;
-                            if(jsonEncryptedData.length > 12) {
-                                jsonPart = jsonEncryptedData.substring(0, 12);
-                                jsonEncryptedData = jsonEncryptedData.substring(12);
-                            }
-                            else {
-                                jsonPart = jsonEncryptedData;
-                                jsonEncryptedData = "";
-                            }
-                            let value = this.bluetoothLE.bytesToEncodedString(this.bluetoothLE.stringToBytes(jsonPart));
-                            console.debug('[BluetoothLE] will write to ' + address + ' data: [' + jsonPart + "], encoded: [" + value + "]");
-                            await this.write(address, value);
-
-                        } while(jsonEncryptedData.length > 0);
-
+                        let encryptedKey = this.keyManager.generateEncryptedKey();
+                        let value = this.bluetoothLE.bytesToEncodedString(this.bluetoothLE.stringToBytes(JSON.stringify(encryptedKey)));
+                        await this.write(address, value);
+                        console.debug("**************************************************************");
+                        console.debug("    Key sent to " + address + ", key: " + value);
+                        console.debug("**************************************************************");
                         this.keySents.set(address, true);
-                        //finally disconnect from the remote bluetooth address
-                        this.bluetoothLE.disconnect({address: address});
-
                     });
-
                 });
+            }
+            else if (connectionResult.status == 'disconnected') {
+                console.error("[BluetoothLE] Disconnected from " + address + ": " + JSON.stringify(connectionResult));
+            }
+            else {
+                console.error("[BluetoothLE] Can't connect to " + address + ": " + JSON.stringify(connectionResult));
             }
 
         });
@@ -303,30 +286,28 @@ export class BluetoothTrackingService {
     async write(address, value) {
         return new Promise((resolve, reject) => {
 
-            setTimeout(() => {
-                this.bluetoothLE.write({
-                    address: address,
-                    service: BluetoothTrackingService.serviceUUID,
-                    characteristic: BluetoothTrackingService.characteristicUUID,
-                    value: value
-                }).then(result => {
-                    console.debug('[BluetoothLE] key written to ' + address + ": " + JSON.stringify(result));
-                    resolve();
-                })
-                .catch(error => {
-                    reject();
-                    console.debug('[BluetoothLE] error trying to write key to ' + address + ": " + JSON.stringify(error));
-                    this.bluetoothLE.close({address: address}).then(closed => {
+            this.bluetoothLE.writeQ({
+                address: address,
+                service: BluetoothTrackingService.serviceUUID,
+                characteristic: BluetoothTrackingService.characteristicUUID,
+                value: value
+            }).then(result => {
+                console.debug('[BluetoothLE] key written to ' + address + ": " + JSON.stringify(result));
+                resolve();
+            })
+            .catch(error => {
+                reject();
+                console.debug('[BluetoothLE] error trying to write key to ' + address + ": " + JSON.stringify(error));
+                this.bluetoothLE.close({address: address}).then(closed => {
 
-                    })
-                    .finally(() => {
-                        console.debug("[BluetoothLE] trying again in 5 seconds ...")
-                        setTimeout(() => {
-                            this.sendKey(address);
-                        }, 5000);
-                    })
-                });
-            }, 200); //ensure that each call to write is separated at least 200 millis
+                })
+                .finally(() => {
+                    console.debug("[BluetoothLE] trying again in 5 seconds ...")
+                    setTimeout(() => {
+                        this.sendKey(address);
+                    }, 5000);
+                })
+            });
 
         });
 
@@ -370,7 +351,7 @@ export class BluetoothTrackingService {
                     BluetoothTrackingService.serviceUUID,
                 ],
                 "allowDuplicates": false,
-                "scanMode": this.bluetoothLE.SCAN_MODE_BALANCED,
+                "scanMode": this.bluetoothLE.SCAN_MODE_LOW_LATENCY,
                 "matchMode": this.bluetoothLE.MATCH_MODE_AGGRESSIVE,
                 "matchNum": this.bluetoothLE.MATCH_NUM_MAX_ADVERTISEMENT,
                 "callbackType": this.bluetoothLE.CALLBACK_TYPE_ALL_MATCHES,
@@ -385,9 +366,7 @@ export class BluetoothTrackingService {
 
                     if (!this.knownAddress.has(device.address)) {
                         this.knownAddress.set(device.address, true);
-                        console.debug("**************************************************************");
-                        console.debug("    Send Key to " + device.address + ", rssi: " + device.rssi);
-                        console.debug("**************************************************************");
+                        console.debug("[BluetoothLE] ]Send Key to " + device.address + ", rssi: " + device.rssi);
                         this.sendKey(device.address);
                         //wait and check after 30 seconds that the key has been sent,
                         //otherwise remove from knownAddress to force resend the key again.
@@ -499,7 +478,9 @@ class BTLEMessage {
         let returnValue = "";
 
         let keys = [...this.messages.keys()];
-        let sortedKeys = keys.sort();
+        let sortedKeys = keys.sort((a: number, b: number) => {
+            return a - b;
+        });
         sortedKeys.forEach((key)=>{
             returnValue += this.bluetoothLE.bytesToString(this.bluetoothLE.encodedStringToBytes(this.messages.get(key)));
         });
