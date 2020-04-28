@@ -17,7 +17,7 @@ export interface InfectionExposure {
 
     id?: string;
     patientId: string;
-    rssi: number;
+    rssi?: number;
     timestampFrom: number;
     timestampTo: number;
     anonymizedInfectedUuid: string;

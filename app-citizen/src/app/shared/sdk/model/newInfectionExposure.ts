@@ -19,7 +19,7 @@ export interface NewInfectionExposure {
 
 
     patientId: string;
-    rssi: number;
+    rssi?: number;
     timestampFrom: number;
     timestampTo: number;
     anonymizedInfectedUuid: string;

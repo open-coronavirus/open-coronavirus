@@ -49,15 +49,12 @@ export class InfectedKeysProcessorService {
 
                         let anonymizedInfectedUuid = crypto.AES.encrypt(key.key, sessionKey).toString();
 
-                        let dailyKey = this.keyManagerService.generateKey(key.key, new Date(key.keyDate).getTime(), row.encryption_timestamp);
-                        let decryptedTimestamp = this.keyManagerService.decrypt(dailyKey, row.encrypted_data);
-                        console.debug("decrypted timestamp: " + decryptedTimestamp + ", encrypted timestamp: " + row.encrypted_data + ", encryption_timestamp: " + row.encryption_timestamp + ", key used to decrypt: " + dailyKey);
+                        let keyToDecryptTo = this.keyManagerService.generateKey(key.key, new Date(key.keyDate).getTime(), row.encryption_timestamp);
+                        let decryptedTimestamp = this.keyManagerService.decrypt(keyToDecryptTo, row.encrypted_data);
+                        console.debug("decrypted timestamp: " + decryptedTimestamp + ", encrypted timestamp: " + row.encrypted_data + ", encryption_timestamp: " + row.encryption_timestamp + ", key used to decrypt: " + keyToDecryptTo);
                         if(decryptedTimestamp  == row.encryption_timestamp.toString()) {
-
                             console.debug("Detected one contact: " + JSON.stringify(row));
-
                             contactEntriesMatched.push(row);
-
                             let infectionExposure: InfectionExposure = {
                                 patientId: this.patientService.patient.id,
                                 rssi: row.rssi,
@@ -84,7 +81,7 @@ export class InfectedKeysProcessorService {
 
         if(exposuresMatched.length > 0) {
             //upload contacts to server
-            console.debug("Uploading a total of " + exposuresMatched.length + " infection exposures entries... ");
+            console.debug("Uploading a total of " + exposuresMatched.length + " infection exposures entries : " + JSON.stringify(exposuresMatched));
             this.infectionExposureControllerService.infectionExposureControllerCreateAll(exposuresMatched).subscribe(result => {
                 console.debug(exposuresMatched.length + " infection exposures entries uploaded!");
                 this.contactTrackerService.deleteContacts(contactEntriesMatched);

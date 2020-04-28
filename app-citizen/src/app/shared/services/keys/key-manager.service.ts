@@ -82,11 +82,17 @@ export class KeyManagerService {
     }
 
     public decrypt(key: string, encriptedData: string) {
-        let decryptedData = crypto.AES.decrypt(encriptedData, key);
-        if(decryptedData != null) {
-            decryptedData = decryptedData.toString(crypto.enc.Utf8);
+        let returnValue = null;
+        try {
+            let decryptedData = crypto.AES.decrypt(encriptedData, key);
+            if (decryptedData != null) {
+                returnValue = decryptedData.toString(crypto.enc.Utf8);
+            }
         }
-        return decryptedData;
+        catch(error) {
+            console.log("Error trying to decrypt [" + encriptedData + "] with key [" + key + "] : " + JSON.stringify(error));
+        }
+        return returnValue;
     }
 
     public uploadKeyToServer() {

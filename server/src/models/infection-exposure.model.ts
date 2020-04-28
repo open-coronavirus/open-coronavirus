@@ -17,9 +17,9 @@ export class InfectionExposure extends Entity {
 
   @property({
     type: 'number',
-    required: true,
+    required: false,
   })
-  rssi: number;
+  rssi?: number;
 
   @property({
     type: 'number',
