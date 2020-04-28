@@ -450,9 +450,25 @@ ion-content, ion-toolbar, ion-header{
     }
   }
   &--positivo-virus{
-    background-color: #f5f5f5;
+    background-color: #fdeff3;
+    color: #c80f2e;
     text-align: center;  
-    padding: 24px;
+    padding: 36px;
+    p{
+      font-size: 20px;
+      line-height: 22px;
+
+      @media (min-width: 321px) {
+        font-size: 26px;
+        line-height: 30px;
+      } 
+    }
+  }
+  &--negativo-virus{
+    background-color: #DFEED7;
+    text-align: center;  
+    color: #61bc7c;
+    padding: 36px;
     p{
       font-size: 20px;
       line-height: 22px;

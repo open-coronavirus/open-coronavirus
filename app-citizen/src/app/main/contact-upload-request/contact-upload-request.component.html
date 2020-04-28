@@ -8,25 +8,19 @@
 <ion-content class="modal-text" fullscreen>
   <h1 class="screen-title" i18n="@@contactUploadRequestTitle1">Resultado de tu test diagnóstico Covid-19</h1>
 
-  <!-- TODO: @Vale -->
-  <div class="recuadro-test recuadro-test--positivo-virus" i18n="@@contactUploadRequestPositive" *ngIf="isInfected">
-    <p>Infección Aguda</p>
+  <div class="recuadro-test recuadro-test--positivo-virus" *ngIf="isInfected">
+    <p i18n="@@contactUploadRequestPositive">Infección Aguda</p>
   </div>
 
-  <!-- TODO: @Vale -->
-  <div class="recuadro-test recuadro-test--positivo-virus" i18n="@@contactUploadRequestNegative" *ngIf="!isInfected">
-    <p>Negativo</p>
+  <div class="recuadro-test recuadro-test--negativo-virus" *ngIf="!isInfected">
+    <p i18n="@@contactUploadRequestNegative">Negativo</p>
   </div>
-
-
-  <ng-container *ngIf="!autoShareActivated && isInfected">
-    <p class="screen-text" i18n="@@contactUploadRequestText1">Para contribuir a frenar la cadena de contagios en caso de haber contraido COVID-19 <strong>autoriza la notificación anónima</strong> a las personas con las que has estado cerca de acuerdo al protocolo de Salud Pública vigente.</p>
-  </ng-container>
 
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="footer-app" >
     <ng-container *ngIf="!autoShareActivated && isInfected; else okButton">
+      <p class="screen-text" i18n="@@contactUploadRequestText1">Para contribuir a frenar la cadena de contagios en caso de haber contraido COVID-19 <strong>autoriza la notificación anónima</strong> a las personas con las que has estado cerca de acuerdo al protocolo de Salud Pública vigente.</p>
       <button class="btn btn--secondary" (click)="dismissModal()" expand="block" i18n="@@noAuthorize">NO AUTORIZO</button>
       <button class="btn" (click)="acceptUpload()" expand="block" i18n="@@authorize">AUTORIZO</button>
     </ng-container>

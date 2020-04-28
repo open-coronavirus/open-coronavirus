@@ -22,7 +22,7 @@ export class ContactUploadRequestComponent implements OnInit {
 
   ngOnInit() {
     this.isInfected = this.patientService.patient.status === PatientStatus.INFECTED;
-    // TODO: @Vale Test
+  
     this.isInfected = false;
 
     this.autoShareActivated = this.navParams.get('autoShareActivated');
