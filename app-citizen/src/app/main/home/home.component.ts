@@ -205,6 +205,9 @@ export class HomeComponent implements OnDestroy {
 
     public goToCoronavirusInfo() {
         window.open(this.settings.moreInfoUrl, '_system');
+
+        // TODO: @Vale Test
+        this.valeriaDemoUploadContactRequestModal();
     }
 
     public share() {
@@ -302,5 +305,9 @@ export class HomeComponent implements OnDestroy {
 
     public valeriaDemoConfirmarContact() {
         this.tracingService.trackInfectionToServer();
+    }
+
+    public valeriaDemoUploadContactRequestModal() {
+        this.tracingService.showUploadContactRequestModal();
     }
 }
