@@ -49,6 +49,17 @@
       line-height: 22px;
     }   
   }
+  &__vigente{
+    color: #000;
+    margin: 12px 0 0 0 ;
+    line-height: 1;
+    font-size: 11px;
+    line-height: 14px; 
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 20px;
+    }   
+  }
 
   &--quarentine{
     #{ $result }{
@@ -322,4 +333,57 @@
 }
 .home-footer{
   flex: none;
+}
+
+.home-footer-ble{
+  $footer: &;
+
+  padding: 0 10px 0 30px;
+
+  
+  &__title{  
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    line-height: 1;
+    font-size: 14px;
+    line-height: 16px; 
+    @media (min-width: 321px) {
+      font-size: 18px;
+      line-height: 22px;
+    }   
+  }
+  &__text{  
+    margin: 0;
+    line-height: 1;
+    font-size: 11px;
+    line-height: 14px; 
+    @media (min-width: 321px) {
+      font-size: 16px;
+      line-height: 20px;
+    }   
+  }
+
+  &--enabled{
+    background: url(/assets/icons/svg/check-verde.svg) no-repeat 0 0;
+    background-size: 18px 12px;
+
+    #{ $footer }{
+      &__title{
+        color: #61bc7c;
+      }
+    }
+
+  }
+  &--disabled{
+    background-image: url(/assets/icons/svg/bluet-desactivado.svg), url(/assets/icons/svg/flecha.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 18px 20px, 12px 15px;
+    background-position: 0 0, right center;
+
+    #{ $footer }{
+      &__title{
+        color: #c80f2e;
+      }
+    }
+  }
 }

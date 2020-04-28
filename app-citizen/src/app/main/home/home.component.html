@@ -11,8 +11,7 @@
                     <p class="result__name">{{ patientName }}</p>
                     <p class="result__title" i18n="@@results">Resultado COVID-19</p>
                     <h3 class="result__status">{{ getTextStatus() }}</h3>
-                    <!-- TODO: @Vale -->
-                    <p class="" i18n="@@note" *ngIf="patientService.patient?.status === STATUS.INFECTION_SUSPECTED">* Protocolo vigente de Salud Pública</p>
+                    <p class="result__vigente" i18n="@@note" *ngIf="patientService.patient?.status === STATUS.INFECTION_SUSPECTED">* Protocolo vigente de Salud Pública</p>
                 </div>
             </div>
 
@@ -96,11 +95,18 @@
             </p>
         </div>
 
-
-        <!-- TODO: @vale -->
-        <div class="home-footer" [ngClass]="{'--enabled' : enabledBluetooth }" (click)="clickEnabledBluetooth()">
-            <p>Bluetooth {{ enabledBluetooth }}</p>
-        </div>
     </div>
 
 </ion-content>
+<ion-footer class="ion-no-border footer-shadow">
+    <ion-toolbar class="footer-app" >      
+        <div *ngIf="enabledBluetooth" class="home-footer-ble home-footer-ble--enabled">
+            <h2 class="home-footer-ble__title" i18n="@@homeBleEnabledTitle">Traceo de exposición a COVID-19 activado</h2>
+            <p class="home-footer-ble__text" i18n="@@homeBleEnabledText">Tu móvil no compartirá con quién has estado cerca</p>
+        </div>  
+        <div *ngIf="!enabledBluetooth" class="home-footer-ble home-footer-ble--disabled" (click)="clickEnabledBluetooth()">
+            <h2 class="home-footer-ble__title" i18n="@@homeBleDisabledTitle">Bluetooth desactivado</h2>
+            <p class="home-footer-ble__text" i18n="@@homeBleDisabledText">Activa el Bluetooth para frenar la cadena de contagios</p>
+        </div>
+    </ion-toolbar>
+</ion-footer>
