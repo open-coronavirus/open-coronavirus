@@ -25,11 +25,11 @@ export interface Patient {
     gender?: number;
     street?: string;
     apartment?: string;
-    postalCode: string;
+    postalCode?: string;
     email?: string;
     status?: number;
     statusDate?: string;
-    phone: string;
+    phone?: string;
     serviceAdvertisementUUID?: string;
     appId?: string;
     created?: string;

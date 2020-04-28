@@ -67,9 +67,9 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  postalCode: string;
+  postalCode?: string;
 
   @property({
     type: 'string',
@@ -98,9 +98,9 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  phone: string;
+  phone?: string;
 
   @property({
     type: 'string',
