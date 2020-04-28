@@ -165,6 +165,17 @@ export class BluetoothTrackingService {
         return returnValue;
     }
 
+    public restartAdvertising() {
+        if(this.isAdvertising && this.backgroundMode) {
+            this.isAdvertising = false;
+            this.bluetoothLE.stopAdvertising().finally(() => {
+                setTimeout(() => {
+                    this.startAdvertising();
+                })
+            })
+        }
+    }
+
     public startAdvertising() {
 
         if(!this.isAdvertising) {

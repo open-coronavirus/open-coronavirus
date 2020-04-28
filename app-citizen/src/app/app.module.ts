@@ -43,7 +43,6 @@ import {KeyManagerService} from "./shared/services/keys/key-manager.service";
 import {InfectedKeysProcessorService} from "./shared/services/keys/infected-keys-processor.service";
 import {BackgroundFetchService} from "./shared/services/background-fetch.service";
 import {TracingService} from "./shared/services/tracing.service";
-import {BackgroundFetch} from "@ionic-native/background-fetch/ngx";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -75,7 +74,6 @@ import {BackgroundFetch} from "@ionic-native/background-fetch/ngx";
         InfectedKeysProcessorService,
         BackgroundFetchService,
         TracingService,
-        BackgroundFetch,
         Device,
         ContactTrackerService,
         BluetoothTrackingService,

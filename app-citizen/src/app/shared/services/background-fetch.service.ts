@@ -1,40 +1,39 @@
 import {Injectable} from "@angular/core";
-import { BackgroundFetch, BackgroundFetchConfig } from '@ionic-native/background-fetch/ngx';
 import {InfectedKeysProcessorService} from "./keys/infected-keys-processor.service";
 import {TracingService} from "./tracing.service";
+import BackgroundFetch from "cordova-plugin-background-fetch";
+import {BluetoothTrackingService} from "./tracking/bluetooth-tracking.service";
 
 @Injectable()
 export class BackgroundFetchService {
 
     public constructor(
-        protected backgroundFetch: BackgroundFetch,
         protected tracingService: TracingService,
+        protected bluetoothTrackingService: BluetoothTrackingService,
         protected keyMatcherService: InfectedKeysProcessorService) {
 
     }
 
     public startBackgroundFetchServices() {
-        try {
 
-            const config: BackgroundFetchConfig = {
-                stopOnTerminate: true, // Set true to cease background-fetch from operating after user "closes" the app. Defaults to true.
-            };
-            this.backgroundFetch.configure(config).then((taskId) => {
-                console.error("[BackgroundFetchService] Background fetch task starts: " + taskId);
-                this.tracingService.checkNewInfectedKeys().then(() => {
-                    this.backgroundFetch.finish();
-                    console.error("[BackgroundFetchService] Background fetch task ends.");
-                });
-            })
-            .catch(error => {
-                console.error("[BackgroundFetchService] error trying to execute background fetch task: " + JSON.stringify(error));
+        // Your background-fetch handler.
+        let fetchCallback = (taskId) => {
+            console.error("[BackgroundFetchService] Background fetch task starts: " + taskId);
+            this.bluetoothTrackingService.restartAdvertising();
+            this.tracingService.checkNewInfectedKeys().then(() => {
+                BackgroundFetch.finish(taskId);
+                console.error("[BackgroundFetchService] Background fetch task ends.");
             });
+        };
 
-            this.backgroundFetch.start();
+        let failureCallback = (error) => {
+            console.error("[BackgroundFetchService] error trying to execute background fetch task: " + JSON.stringify(error));
+        };
 
-        } catch (error) {
-            console.error("[BackgroundFetchService] err: ", error);
-        }
+        BackgroundFetch.configure(fetchCallback, failureCallback, {
+            minimumFetchInterval: 15 // <-- default is 15
+        });
+
     }
 
 
