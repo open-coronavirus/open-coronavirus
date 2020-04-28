@@ -17,6 +17,7 @@ dependencies {
     implementation "me.leolin:ShortcutBadger:1.1.17@aar"
     implementation "com.google.firebase:firebase-messaging:17.0.+"
 }
+apply from: "../../node_modules/cordova-plugin-background-fetch/src/android/build.gradle"
 apply from: "../../node_modules/cordova-support-google-services/build.gradle"
 apply from: "../../node_modules/phonegap-plugin-multidex/multidex.gradle"
 

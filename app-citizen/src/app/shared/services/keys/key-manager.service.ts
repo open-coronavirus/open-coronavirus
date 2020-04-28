@@ -82,7 +82,11 @@ export class KeyManagerService {
     }
 
     public decrypt(key: string, encriptedData: string) {
-        return crypto.AES.decrypt(encriptedData, key).toString(crypto.enc.Utf8);
+        let decryptedData = crypto.AES.decrypt(encriptedData, key);
+        if(decryptedData != null) {
+            decryptedData = decryptedData.toString(crypto.enc.Utf8);
+        }
+        return decryptedData;
     }
 
     public uploadKeyToServer() {
