@@ -106,7 +106,7 @@ export class PushNotificationService {
                 let previousStatus = this.patientService.patient.status;
                 let showUploadContactRequestModal = false;
                 this.patientService.refreshPatientData().subscribe(loaded => {
-                    if(previousStatus != this.patientService.patient.status && this.patientService.patient.status == PatientStatus.INFECTED) {
+                    if(previousStatus != this.patientService.patient.status) {
                         showUploadContactRequestModal = true;
                     }
                     this.showNotification(notification, showUploadContactRequestModal); //and show the notification with the message from server
