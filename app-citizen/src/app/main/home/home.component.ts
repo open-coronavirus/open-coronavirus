@@ -12,6 +12,7 @@ import { LeaveRequest } from 'src/app/shared/sdk';
 import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
 import { TracingService } from "../../shared/services/tracing.service";
 import { PermissionsService } from '../../shared/services/permissions.service';
+import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 
 @Component({
     selector: 'home',
@@ -53,6 +54,7 @@ export class HomeComponent implements OnDestroy {
         public patientService: PatientService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
+        protected bluetoothTrackingService: BluetoothTrackingService,
         protected tracingService: TracingService,
         protected menu: MenuController,
         @Inject('settings') public settings,
@@ -90,8 +92,7 @@ export class HomeComponent implements OnDestroy {
             }
         }));
 
-
-        this.permissionsService.requestPermission('bluetooth').then((res) => {
+        this.permissionsService.hasBluetoothPermission().then((res) => {
             this.enabledBluetooth = res;
         });
 

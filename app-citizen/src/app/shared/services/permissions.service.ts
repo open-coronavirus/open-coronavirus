@@ -16,6 +16,7 @@ export class PermissionsService {
 
     public permissionsRequested = false;
     public requiredPermissions: Array<string>;
+    public bluetoothPoweredOn = false;
 
     constructor(
         @Inject('settings') protected settings,
@@ -30,6 +31,19 @@ export class PermissionsService {
         protected contactTrackerService: ContactTrackerService
     ) {
         this.requiredPermissions = [];
+
+        this.diagnostic.registerBluetoothStateChangeHandler(stateChange => {
+            if(stateChange != null) {
+                if(stateChange == this.diagnostic.bluetoothState.POWERED_ON) {
+                    this.bluetoothPoweredOn = true;
+                }
+                else {
+                    this.bluetoothPoweredOn = false;
+                }
+            }
+            console.log("[PermissionService] Bluetooth state change: " + JSON.stringify(stateChange));
+        });
+
     }
 
     async requestFirstPermission() {
@@ -148,7 +162,7 @@ export class PermissionsService {
                 });
             }
             else if(this.platform.is('ios')) {
-                resolve(false);
+                resolve(this.bluetoothPoweredOn);
             }
         });
 
@@ -223,16 +237,12 @@ export class PermissionsService {
             else if(this.platform.is('ios')) {
                 this.diagnostic.requestBluetoothAuthorization().then(result => {
                     console.log("[PermissionService] request bluetooth result: " + JSON.stringify(result));
-                    this.diagnostic.registerBluetoothStateChangeHandler(state => {
-                        if(state === this.diagnostic.bluetoothState.POWERED_ON){
-                            console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(state));
-                            console.log("Bluetooth is able to connect");
-                            resolve(true);
-                        }
-                        else {
-                            console.error('[PermissionService] bluetooth has noty been enabled: ' + JSON.stringify(state));
-                        }
-                    });
+                    if(this.bluetoothPoweredOn) {
+                        resolve(true);
+                    }
+                    else {
+                        resolve(false);
+                    }
                 })
                 .catch(error => {
                     console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
