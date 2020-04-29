@@ -99,14 +99,14 @@
 
 </ion-content>
 <ion-footer class="ion-no-border footer-shadow">
-    <ion-toolbar class="footer-app" >      
+    <ion-toolbar class="footer-app" >
         <div *ngIf="enabledBluetooth" class="home-footer-ble home-footer-ble--enabled">
             <h2 class="home-footer-ble__title" i18n="@@homeBleEnabledTitle">Traceo de exposición a COVID-19 activado</h2>
             <p class="home-footer-ble__text" i18n="@@homeBleEnabledText">Tu móvil no compartirá con quién has estado cerca</p>
-        </div>  
+        </div>
         <div *ngIf="!enabledBluetooth" class="home-footer-ble home-footer-ble--disabled" (click)="clickEnabledBluetooth()">
             <h2 class="home-footer-ble__title" i18n="@@homeBleDisabledTitle">Bluetooth desactivado</h2>
-            <p class="home-footer-ble__text" i18n="@@homeBleDisabledText">Activa el Bluetooth para frenar la cadena de contagios</p>
+            <p class="home-footer-ble__text" i18n="@@homeBleDisabledText">Actívalo para que funcione el traceo anónimo</p>
         </div>
     </ion-toolbar>
 </ion-footer>

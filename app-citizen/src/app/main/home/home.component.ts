@@ -292,7 +292,7 @@ export class HomeComponent implements OnDestroy {
     }
 
     public clickEnabledBluetooth() {
-        this.permissionsService.requestBluetoothPermission();
+        this.router.navigate(['/permissions/bluetooth']);
     }
 
     public uploadContactsAndShowThanksModal() {
