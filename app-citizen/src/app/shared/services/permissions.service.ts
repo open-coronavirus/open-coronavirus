@@ -154,12 +154,11 @@ export class PermissionsService {
             if(this.platform.is('android')) {
                 this.bluetoothLe.hasPermission().then(result => {
                     console.log('[PermissionService] has bluetooth permission: ' + JSON.stringify(result));
-                    if(JSON.stringify(result) == 'powering_off') {
-                        resolve(false);
-                    } else {
+                    if (result.hasPermission) {
                         resolve(true);
+                    } else {
+                        resolve(false);
                     }
-
                 })
                 .catch(error => {
                     console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
