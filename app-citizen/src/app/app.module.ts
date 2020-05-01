@@ -43,6 +43,7 @@ import {KeyManagerService} from "./shared/services/keys/key-manager.service";
 import {InfectedKeysProcessorService} from "./shared/services/keys/infected-keys-processor.service";
 import {BackgroundFetchService} from "./shared/services/background-fetch.service";
 import {TracingService} from "./shared/services/tracing.service";
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -67,6 +68,7 @@ import {TracingService} from "./shared/services/tracing.service";
         StorageService,
         NativeStorage,
         PushNotificationService,
+        OpenNativeSettings,
         Push,
         SQLite,
         ShareService,

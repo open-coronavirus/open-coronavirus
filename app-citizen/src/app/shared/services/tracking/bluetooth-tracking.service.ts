@@ -53,6 +53,7 @@ export class BluetoothTrackingService {
     public startBluetoothTracking() {
 
         this.prepareBackgroundMode();
+        this.permissionsService.registerBluetoothStateChange();
 
         this.platform.ready().then((readySource) => {
             if (this.settings.enabled.bluetooth && this.activated == false) {

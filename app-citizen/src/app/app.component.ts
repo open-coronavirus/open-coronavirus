@@ -76,7 +76,8 @@ export class AppComponent {
     async checkUpdateApp() {
         this.minVersionControllerService.minVersionControllerFind().subscribe(
             version => {
-                if (!versionCompare(version.minVersion, this.settings.appVersion)) {
+                let versionRegExp = new RegExp('^\d+\.\d+\.\d+$');
+                if (versionRegExp.test(this.settings.appVersion) && !versionCompare(version.minVersion, this.settings.appVersion)) {
                     // console.log('Por favor actualice la app');
                     this.navCtrl.navigateRoot(['update']);
                 } else {

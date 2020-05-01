@@ -1,8 +1,8 @@
-import { Component, Inject, OnDestroy, ViewEncapsulation } from '@angular/core';
+import {ApplicationRef, Component, ElementRef, Inject, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 import { ShareService } from '../../shared/services/share.service';
 import { PatientService } from '../../shared/services/patient.service';
-import { MenuController } from '@ionic/angular';
+import {AlertController, MenuController, NavController, Platform} from '@ionic/angular';
 import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { TestAppointmentService } from "../../shared/services/test-appointment.service";
@@ -13,6 +13,8 @@ import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-
 import { TracingService } from "../../shared/services/tracing.service";
 import { PermissionsService } from '../../shared/services/permissions.service';
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
+import {Content} from "@angular/compiler/src/render3/r3_ast";
 
 @Component({
     selector: 'home',
@@ -47,6 +49,8 @@ export class HomeComponent implements OnDestroy {
 
     public enabledBluetooth: boolean;
 
+    @ViewChild('footer') footer: ElementRef;
+
     public STATUS = PatientStatus;
 
     constructor(
@@ -55,8 +59,12 @@ export class HomeComponent implements OnDestroy {
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
         protected bluetoothTrackingService: BluetoothTrackingService,
+        protected alertController: AlertController,
         protected tracingService: TracingService,
+        protected openNativeSettings: OpenNativeSettings,
         protected menu: MenuController,
+        private appRef: ApplicationRef,
+        protected platform: Platform,
         @Inject('settings') public settings,
         protected inAppBrowser: InAppBrowser,
         protected shareService: ShareService,
@@ -92,8 +100,10 @@ export class HomeComponent implements OnDestroy {
             }
         }));
 
-        this.permissionsService.hasBluetoothPermission().then((res) => {
-            this.enabledBluetooth = res;
+        this.permissionsService.bluetoothPoweredOn$.subscribe(poweredOn => {
+            this.enabledBluetooth = poweredOn;
+            console.log("[HomeComponent] Changed enabledBluetooth value to " + poweredOn);
+            this.appRef.tick();
         });
 
         this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
@@ -139,8 +149,11 @@ export class HomeComponent implements OnDestroy {
             }
         });
 
-
         this.calculateNumItems();
+
+        this.platform.resume.subscribe(() => {
+            this.appRef.tick();
+        });
     }
 
     private calculateNumItems() {
@@ -291,8 +304,29 @@ export class HomeComponent implements OnDestroy {
         return str;
     }
 
-    public clickEnabledBluetooth() {
-        this.router.navigate(['/permissions/bluetooth']);
+    async clickEnabledBluetooth() {
+
+        let alert = await this.alertController.create({
+            header: 'El Bluetooth está desactivado',
+            message: 'Para ayudar en la lucha contra el COVID-19 es necesario que active el bluetooth y que la APP tenga permisos para usarlo. Desea revisar la configuración de la APP?',
+            buttons: [
+                {
+                    text: 'No',
+                    role: 'cancel',
+                    handler: () => {
+                        //nothing to do...
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: () => {
+                        this.openNativeSettings.open("application_details");
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
     }
 
     public uploadContactsAndShowThanksModal() {

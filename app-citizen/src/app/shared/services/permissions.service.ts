@@ -8,6 +8,7 @@ import {PermissionType, Plugins} from "@capacitor/core";
 import {AndroidPermissions} from "@ionic-native/android-permissions/ngx";
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
 import {TracingService} from "./tracing.service";
+import {BehaviorSubject, Subject} from "rxjs";
 
 const { PushNotifications, Permissions } = Plugins;
 
@@ -17,6 +18,8 @@ export class PermissionsService {
     public permissionsRequested = false;
     public requiredPermissions: Array<string>;
     public bluetoothPoweredOn = false;
+    public bluetoothPoweredOn$ = new BehaviorSubject<boolean|null>(null);
+    public registeredBluetoothStateChange = false;
 
     constructor(
         @Inject('settings') protected settings,
@@ -31,19 +34,30 @@ export class PermissionsService {
         protected contactTrackerService: ContactTrackerService
     ) {
         this.requiredPermissions = [];
+    }
 
-        this.diagnostic.registerBluetoothStateChangeHandler(stateChange => {
-            if(stateChange != null) {
-                if(stateChange == this.diagnostic.bluetoothState.POWERED_ON) {
-                    this.bluetoothPoweredOn = true;
-                }
-                else {
-                    this.bluetoothPoweredOn = false;
-                }
+    registerBluetoothStateChange() {
+        let returnValue: Promise<boolean> = new Promise(resolve => {
+            if (!this.registeredBluetoothStateChange) {
+                this.registeredBluetoothStateChange = true;
+                this.diagnostic.registerBluetoothStateChangeHandler(stateChange => {
+                    if (stateChange != null) {
+                        if (stateChange == this.diagnostic.bluetoothState.POWERED_ON) {
+                            this.bluetoothPoweredOn = true;
+                            this.bluetoothPoweredOn$.next(true);
+                            resolve(true);
+                        } else {
+                            this.bluetoothPoweredOn = false;
+                            this.bluetoothPoweredOn$.next(false);
+                            resolve(false);
+                        }
+                    }
+                    console.log("[PermissionService] Bluetooth state change: " + JSON.stringify(stateChange));
+                });
             }
-            console.log("[PermissionService] Bluetooth state change: " + JSON.stringify(stateChange));
         });
 
+        return returnValue;
     }
 
     async requestFirstPermission() {
@@ -91,7 +105,7 @@ export class PermissionsService {
             switch (permission) {
                 case 'bluetooth':
                     this.hasBluetoothPermission().then(result => {
-                       resolve(result);
+                        resolve(result);
                     });
                     break;
                 case 'push':
@@ -160,10 +174,10 @@ export class PermissionsService {
                         resolve(false);
                     }
                 })
-                .catch(error => {
-                    console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
             else if(this.platform.is('ios')) {
                 resolve(this.bluetoothPoweredOn);
@@ -233,25 +247,22 @@ export class PermissionsService {
                     console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(result));
                     resolve(true);
                 })
-                .catch(error => {
-                    console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
             else if(this.platform.is('ios')) {
                 this.diagnostic.requestBluetoothAuthorization().then(result => {
-                    console.log("[PermissionService] request bluetooth result: " + JSON.stringify(result));
-                    if(this.bluetoothPoweredOn) {
-                        resolve(true);
-                    }
-                    else {
-                        resolve(false);
-                    }
+                    this.registerBluetoothStateChange().then(result => {
+                        resolve(result);
+                        console.log("[PermissionService] request bluetooth result: " + JSON.stringify(result));
+                    })
                 })
-                .catch(error => {
-                    console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
 
         });
@@ -289,10 +300,10 @@ export class PermissionsService {
                     console.log("[PermissionService] coarse location permission request result: " + JSON.stringify(result));
                     resolve(true);
                 })
-                .catch(error => {
-                    console.error("[PermissionService] Error trying to request coarse location permission: " + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error("[PermissionService] Error trying to request coarse location permission: " + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
             else {
                 resolve(true);

@@ -51,7 +51,7 @@ export class MainComponent implements OnDestroy {
         protected permissionsService: PermissionsService,
         protected platform: Platform,
         protected diagnostic: Diagnostic,
-        private privacityConditionsService: PrivacityConditionsService,
+        protected privacityConditionsService: PrivacityConditionsService,
         protected shareService: ShareService,
         protected contactTrackerService: ContactTrackerService) {
 
