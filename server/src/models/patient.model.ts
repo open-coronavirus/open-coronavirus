@@ -21,7 +21,7 @@ export class Patient extends Entity {
     type: 'string',
     required: false,
   })
-  lastName: string;
+  lastName?: string;
 
   @property({
     type: 'string',
@@ -33,7 +33,7 @@ export class Patient extends Entity {
     type: 'string',
     required: false,
   })
-  healthInsuranceCardNumber: string;
+  healthInsuranceCardNumber?: string;
 
   @property({
     type: 'date',
@@ -45,13 +45,13 @@ export class Patient extends Entity {
     type: 'number',
     required: false,
   })
-  age: number;
+  age?: number;
 
   @property({
     type: 'number',
     required: false,
   })
-  gender: number;
+  gender?: number;
 
   @property({
     type: 'string',
@@ -63,7 +63,7 @@ export class Patient extends Entity {
     type: 'string',
     required: false,
   })
-  apartment: string;
+  apartment?: string;
 
   @property({
     type: 'string',
@@ -75,7 +75,7 @@ export class Patient extends Entity {
     type: 'string',
     required: false,
   })
-  email: string;
+  email?: string;
 
   /**
    * 1: INITIAL
