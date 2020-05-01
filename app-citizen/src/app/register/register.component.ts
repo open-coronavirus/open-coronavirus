@@ -77,4 +77,9 @@ export class RegisterComponent {
         this.privacityConditionsService.showPrivacityConditions();
     }
 
+    showTermsAndConditions(ev) {
+        ev.preventDefault();
+        this.privacityConditionsService.showTermsAndConditions();
+    }
+
 }

@@ -2,7 +2,7 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {PrivacityConditionsComponent} from './privacity-conditions.component';
+import {TermsAndConditionsComponent} from './terms-and-conditions.component';
 
 @NgModule({
     imports: [
@@ -11,7 +11,7 @@ import {PrivacityConditionsComponent} from './privacity-conditions.component';
         FormsModule,
         ReactiveFormsModule,
     ],
-    declarations: [PrivacityConditionsComponent],
-    exports: [PrivacityConditionsComponent]
+    declarations: [TermsAndConditionsComponent],
+    exports: [TermsAndConditionsComponent]
 })
-export class PrivacityConditionsModule {}
+export class TermsAndConditionsModule {}

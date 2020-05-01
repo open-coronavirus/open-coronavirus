@@ -215,6 +215,11 @@ export class MainComponent implements OnDestroy {
         this.privacityConditionsService.showPrivacityConditions();
     }
 
+    public showTermsAndConditions(ev) {
+        ev.preventDefault();
+        this.privacityConditionsService.showTermsAndConditions();
+    }
+
     public ngOnDestroy(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe();

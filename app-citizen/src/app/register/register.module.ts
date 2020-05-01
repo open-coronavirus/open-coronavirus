@@ -8,6 +8,7 @@ import {PatientInfoFormModule} from '../shared/patient-info-form/patient-info-fo
 import { CoronaHeaderModule } from '../shared/corona-header/corona-header.module';
 import { PrivacityConditionsComponent } from '../shared/privacity-conditions/privacity-conditions.component';
 import { PrivacityConditionsModule } from '../shared/privacity-conditions/privacity-conditions.module';
+import {TermsAndConditionsModule} from "../shared/terms-and-conditions/terms-and-conditions.module";
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { PrivacityConditionsModule } from '../shared/privacity-conditions/privac
         ReactiveFormsModule,
         CoronaHeaderModule,
         PrivacityConditionsModule,
+        TermsAndConditionsModule,
         RouterModule.forChild([{ path: '', component: RegisterComponent }])
     ],
     declarations: [RegisterComponent],

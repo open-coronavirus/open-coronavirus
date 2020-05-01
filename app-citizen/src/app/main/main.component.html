@@ -69,8 +69,11 @@
                 <img class="button-icon filter-green" src="/assets/icons/svg/whatsapp.svg">
                 <ng-container i18n="@@shareMenuLabel">Compartir APP</ng-container>
             </div>
-            <div class="menu__item menu__item--xs" (click)="showPrivacityConditions($event)">
-                <ng-container i18n="@@privacityConditions">Condiciones de uso y política de privacidad</ng-container>
+            <div class="menu__item menu__item--xs">
+                <a i18n="@@termsAndConditions" href="javascript:void(null);" (click)="showTermsAndConditions($event)">Condiciones de uso</a>
+            </div>
+            <div class="menu__item menu__item--xs">
+                <a i18n="@@privacityConditions" href="javascript:void(null);" (click)="showPrivacityConditions($event)">Política de privacidad</a>
             </div>
         </div>
     </ion-toolbar>
