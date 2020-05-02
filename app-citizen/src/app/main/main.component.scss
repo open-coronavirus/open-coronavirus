@@ -137,7 +137,14 @@
     &--sin{
       padding-left: 40px;
     }
-    &--xs{
+    &--xs {
+
+      a, a:hover, a:active {
+        color: #9b9b9b;
+        text-decoration: underline;
+        font-size: 14px;
+      }
+
       color: #9b9b9b;
       padding-left: 40px;
       text-decoration: underline;

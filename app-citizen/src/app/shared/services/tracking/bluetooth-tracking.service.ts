@@ -23,6 +23,9 @@ export class BluetoothTrackingService {
     public static timeScanningInMillis = 10000;
     public static timeWithoutScanningInMillis = 30000;
 
+    public keysSent = new Map<string, any>();
+    public keysSent$ = new BehaviorSubject<boolean>(false);
+
     protected myAddress;
 
     protected activated = false;
@@ -305,6 +308,11 @@ export class BluetoothTrackingService {
                                         console.debug("**************************************************************");
                                         console.debug("    Key sent to " + address + ", key: " + value);
                                         console.debug("**************************************************************");
+                                        this.keysSent.set(value, {
+                                            encryptedData: encryptedKey.encryptedData,
+                                            date: new Date()
+                                        });
+                                        this.keysSent$.next(true);
                                         resolve(true);
                                     } else {
                                         await this.bluetoothLE.close({address: address});

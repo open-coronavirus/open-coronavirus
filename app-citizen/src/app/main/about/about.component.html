@@ -15,11 +15,18 @@
         </p>
         <p><strong i18n="@@aboutby">By Open Coronavirus</strong><br><a href="https://github.com/open-coronavirus" target="_blank">https://github.com/open-coronavirus</a></p>
     </div>
-  
-    
-    <h2 *ngIf="showNearestDevicesUUID" i18n="@@nearestDevices">Dispositivos Cercanos</h2>
+
+    <h2 *ngIf="showNearestDevicesUUID && keysSent.length > 0" i18n="@@keysSent">Mis claves enviadas</h2>
     <!-- Notes in a List -->
-    <ion-list *ngIf="showNearestDevicesUUID">
+    <ion-list *ngIf="showNearestDevicesUUID && keysSent.length > 0">
+        <ion-item *ngFor="let keys of keysSent">
+            <ion-label class="ion-text-wrap">{{keys.encryptedData}} at {{keys.date | date:'mediumTime' }}</ion-label>
+        </ion-item>
+    </ion-list>
+    
+    <h2 *ngIf="showNearestDevicesUUID && nearestDevices.length > 0" i18n="@@nearestDevices">Dispositivos Cercanos</h2>
+    <!-- Notes in a List -->
+    <ion-list *ngIf="showNearestDevicesUUID && nearestDevices.length > 0">
         <ion-item *ngFor="let device of nearestDevices">
             <ion-label class="ion-text-wrap">{{device.encryptedData}} <span *ngIf="device.rssi != null">({{device.rssi}})</span> at {{device.date | date:'mediumTime' }}</ion-label>
         </ion-item>

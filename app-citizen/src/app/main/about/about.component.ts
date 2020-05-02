@@ -2,6 +2,7 @@ import {Component, ViewEncapsulation, Inject, ApplicationRef} from '@angular/cor
 import { Location } from '@angular/common';
 import {PatientService} from "../../shared/services/patient.service";
 import {ContactTrackerService} from "../../shared/services/contacts/contact-tracker.service";
+import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 
 
 
@@ -15,7 +16,8 @@ export class AboutComponent {
 
     public version;
     public traceUUID;
-    public nearestDevices;
+    public nearestDevices = [];
+    public keysSent = [];
     public showMyUUID;
     public showNearestDevicesUUID;
 
@@ -23,6 +25,7 @@ export class AboutComponent {
         protected location: Location,
         protected patientService: PatientService,
         private appRef: ApplicationRef,
+        protected bluetoothTrackingService: BluetoothTrackingService,
         public contactTrackerService: ContactTrackerService,
         @Inject('settings') protected settings
     ) {
@@ -43,7 +46,18 @@ export class AboutComponent {
                 this.nearestDevices = nearestDevices;
                 this.appRef.tick(); //ensure refresh
             }
-        })
+        });
+
+        this.bluetoothTrackingService.keysSent$.subscribe(event => {
+            if(event) {
+                let keysSent = [];
+                for (let value of this.bluetoothTrackingService.keysSent.values()) {
+                    keysSent.push(value);
+                }
+                this.keysSent = keysSent;
+                this.appRef.tick(); //ensure refresh
+            }
+        });
 
 
     }
