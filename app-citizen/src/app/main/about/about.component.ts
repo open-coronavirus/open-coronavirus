@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Inject } from '@angular/core';
+import {Component, ViewEncapsulation, Inject, ApplicationRef} from '@angular/core';
 import { Location } from '@angular/common';
 import {PatientService} from "../../shared/services/patient.service";
 import {ContactTrackerService} from "../../shared/services/contacts/contact-tracker.service";
@@ -22,6 +22,7 @@ export class AboutComponent {
     constructor(
         protected location: Location,
         protected patientService: PatientService,
+        private appRef: ApplicationRef,
         public contactTrackerService: ContactTrackerService,
         @Inject('settings') protected settings
     ) {
@@ -32,11 +33,6 @@ export class AboutComponent {
         }
 
         this.version = this.settings.appVersion;
-        this.patientService.patientLoaded$.subscribe(loaded => {
-            if(loaded) {
-                this.traceUUID = this.patientService.patient.serviceAdvertisementUUID;
-            }
-        });
 
         this.contactTrackerService.contactAddedOrUpdated$.subscribe(event => {
             if(event) {
@@ -45,6 +41,7 @@ export class AboutComponent {
                     nearestDevices.push(value);
                 }
                 this.nearestDevices = nearestDevices;
+                this.appRef.tick(); //ensure refresh
             }
         })
 

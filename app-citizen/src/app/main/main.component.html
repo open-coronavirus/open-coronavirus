@@ -30,11 +30,6 @@
                     <ng-container i18n="@@requestTestMenuLabel">Solicitar test COVID-19</ng-container>
                 </div>
 
-                <div *ngIf="contactsCount > 0" class="menu__item" (click)="checkNewInfectedKeys()">
-                    <img class="button-icon filter-black" src="/assets/icons/svg/icon-ble-bg.svg">
-                    <ng-container i18n="@@checkInfectedLabel">He tenido contacto con algún infectado?</ng-container>
-                </div>
-
                 <div *ngIf="settings.home.moduleAutoTest" class="menu__item" (click)="goToAutotest()">
                     <img class="button-icon filter-black" src="/assets/icons/svg/icon-autotest-black.svg">
                     <ng-container i18n="@@autotestMenuLabel">Autoevaluación COVID-19</ng-container>

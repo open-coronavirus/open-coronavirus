@@ -154,6 +154,7 @@ export class HomeComponent implements OnDestroy {
         this.platform.resume.subscribe(() => {
             this.appRef.tick();
         });
+
     }
 
     private calculateNumItems() {

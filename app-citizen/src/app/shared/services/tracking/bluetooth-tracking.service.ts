@@ -17,7 +17,6 @@ export class BluetoothTrackingService {
     public btEnabled$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     protected addressesBeingTracked = new Map<string, boolean>();
-    protected keySents = new Map<string, boolean>();
 
     public static serviceUUID = "C0C0C0C0-DEE8-B109-8DB0-3DBD690003C0";
     public static characteristicUUID = "CACACACA-DEE8-B109-8DB0-3DBD690003C0";
@@ -253,6 +252,9 @@ export class BluetoothTrackingService {
                             this.contactTrackerService.trackContact(result.address, encryptedKey, rssi);
                             //don't forget to remove the message structure
                             this.bluetoothMessages.delete(result.address);
+
+                            //---> send key to known address if not already sent to accelerate the process ...
+                            this.sendKey(result.address);
                         }
 
                     }
@@ -266,31 +268,71 @@ export class BluetoothTrackingService {
 
     }
 
-    protected sendKey(address: string) {
-
-        console.debug('[BluetoothLE] Connecting to ' + address + " ...");
-        this.bluetoothLE.connect({address: address}).subscribe(connectionResult => {
-            if (connectionResult.status == 'connected') {
-                console.debug('[BluetoothLE] Connected to ' + address + ": " + JSON.stringify(connectionResult));
-                this.changeConnectionPriority(address).then(result => {
-                    this.bluetoothLE.discover({address: address, clearCache: true}).then(async discoverResult => {
-                        let encryptedKey = this.keyManager.generateEncryptedKey();
-                        let value = this.bluetoothLE.bytesToEncodedString(this.bluetoothLE.stringToBytes(JSON.stringify(encryptedKey)));
-                        await this.write(address, value);
-                        console.debug("**************************************************************");
-                        console.debug("    Key sent to " + address + ", key: " + value);
-                        console.debug("**************************************************************");
-                        this.keySents.set(address, true);
+    public sendKey(address) {
+        if (!this.knownAddress.has(address)) {
+            this.knownAddress.set(address, true);
+            console.debug("[BluetoothLE] Send Key to " + address);
+            this.doSendKey(address).then(sent => {
+                if(!sent) {
+                    this.bluetoothLE.close({address: address}).finally(() => {
+                        this.knownAddress.delete(address);
                     });
+                }
+            });
+        };
+    }
+
+    protected doSendKey(address: string, maxRetries = 3) {
+
+        return new Promise((resolve, reject) => {
+
+            if(maxRetries > 0) {
+
+                console.debug('[BluetoothLE] Connecting to ' + address + " ...");
+                // Do not subscribe, convert it to promise,
+                let connectionSubscription = this.bluetoothLE.connect({address: address}).subscribe(connectionResult => {
+                    if (connectionResult.status == 'connected') {
+                        console.debug('[BluetoothLE] Connected to ' + address + ": " + JSON.stringify(connectionResult));
+                        this.changeConnectionPriority(address).then(result => {
+                            this.bluetoothLE.discover({
+                                address: address,
+                                clearCache: true
+                            }).then(async discoverResult => {
+                                let encryptedKey = this.keyManager.generateEncryptedKey();
+                                let value = this.bluetoothLE.bytesToEncodedString(this.bluetoothLE.stringToBytes(JSON.stringify(encryptedKey)));
+                                this.write(address, value).then(async written => {
+                                    if (written) {
+                                        console.debug("**************************************************************");
+                                        console.debug("    Key sent to " + address + ", key: " + value);
+                                        console.debug("**************************************************************");
+                                        resolve(true);
+                                    } else {
+                                        await this.bluetoothLE.close({address: address});
+                                        console.debug("[BluetoothLE] trying again in 5 seconds ...");
+                                        setTimeout(() => {
+                                            this.doSendKey(address, maxRetries - 1).then(result => {
+                                                resolve(result);
+                                            });
+                                        }, 5000);
+                                    }
+
+                                });
+                            });
+                        });
+                    }
+                    else {
+                        console.error("[BluetoothLE] Can't connect to " + address + ": " + JSON.stringify(connectionResult));
+                        resolve(false);
+                    }
+                    //ensure we do not get any other otherwise we're going to receive more callbacks
+                    // for each connection status change
+                    connectionSubscription.unsubscribe();
                 });
             }
-            else if (connectionResult.status == 'disconnected') {
-                console.error("[BluetoothLE] Disconnected from " + address + ": " + JSON.stringify(connectionResult));
-            }
             else {
-                console.error("[BluetoothLE] Can't connect to " + address + ": " + JSON.stringify(connectionResult));
+                console.error("[BluetoothLE] Max retries to connect to " + address + " achieved!");
+                resolve(false);
             }
-
         });
 
     }
@@ -305,20 +347,11 @@ export class BluetoothTrackingService {
                 value: value
             }).then(result => {
                 console.debug('[BluetoothLE] key written to ' + address + ": " + JSON.stringify(result));
-                resolve();
+                resolve(true);
             })
             .catch(error => {
-                reject();
-                console.debug('[BluetoothLE] error trying to write key to ' + address + ": " + JSON.stringify(error));
-                this.bluetoothLE.close({address: address}).then(closed => {
-
-                })
-                .finally(() => {
-                    console.debug("[BluetoothLE] trying again in 5 seconds ...")
-                    setTimeout(() => {
-                        this.sendKey(address);
-                    }, 5000);
-                })
+                console.error('[BluetoothLE] Error trying to write key to ' + address + ": " + JSON.stringify(error));
+                resolve(false);
             });
 
         });
@@ -363,7 +396,7 @@ export class BluetoothTrackingService {
                     BluetoothTrackingService.serviceUUID,
                 ],
                 "allowDuplicates": false,
-                "scanMode": this.bluetoothLE.SCAN_MODE_LOW_LATENCY,
+                "scanMode": this.bluetoothLE.SCAN_MODE_BALANCED,
                 "matchMode": this.bluetoothLE.MATCH_MODE_AGGRESSIVE,
                 "matchNum": this.bluetoothLE.MATCH_NUM_MAX_ADVERTISEMENT,
                 "callbackType": this.bluetoothLE.CALLBACK_TYPE_ALL_MATCHES,
@@ -374,24 +407,9 @@ export class BluetoothTrackingService {
                 console.debug("[BluetoothLE] Scan callback received: " + JSON.stringify(device));
 
                 if(device.address != null) {
+                    this.sendKey(device.address);
                     this.bluetoothRSSIs.set(device.address, device.rssi);
-
-                    if (!this.knownAddress.has(device.address)) {
-                        this.knownAddress.set(device.address, true);
-                        console.debug("[BluetoothLE] ]Send Key to " + device.address + ", rssi: " + device.rssi);
-                        this.sendKey(device.address);
-                        //wait and check after 30 seconds that the key has been sent,
-                        //otherwise remove from knownAddress to force resend the key again.
-                        setTimeout(() => {
-                            if(!this.keySents.has(device.address)) {
-                                this.bluetoothLE.close({address: device.address}).finally(() => {
-                                    this.knownAddress.delete(device.address);
-                                });
-                            }
-                        }, 30000);
-                    } else {
-                        this.contactTrackerService.updateTrack(device.address, device.rssi);
-                    }
+                    this.contactTrackerService.updateTrack(device.address, device.rssi);
                 }
 
             });

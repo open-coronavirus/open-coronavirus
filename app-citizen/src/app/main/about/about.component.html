@@ -21,7 +21,7 @@
     <!-- Notes in a List -->
     <ion-list *ngIf="showNearestDevicesUUID">
         <ion-item *ngFor="let device of nearestDevices">
-            <ion-label class="ion-text-wrap">{{device.uuid}} ({{device.rssi}}) at {{device.date | date:'mediumTime' }}</ion-label>
+            <ion-label class="ion-text-wrap">{{device.encryptedData}} <span *ngIf="device.rssi != null">({{device.rssi}})</span> at {{device.date | date:'mediumTime' }}</ion-label>
         </ion-item>
     </ion-list>
 
