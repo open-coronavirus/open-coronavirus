@@ -112,24 +112,40 @@ Conceptualmente es similar a la estrategia utilizada en _Open Coronavirus_.
 
 ## Consideraciones legales
 
-**El proyecto no está publicado** y una de las cosas que habría que hacer antes de publicarla es adecuarla a la regulación de tratamiento de datos personales.
+### Protección de datos
 
-**El proyecto se ofrece a cualquier Ministerio de Sanidad, administración estatal o autonómica competente** para su puesta en marcha. Se harán cargo de la difusión de la app y del tratamiento de los datos que se obtengan, el uso de la app sería de acuerdo a la Ley RGPD.
+**El proyecto no está implementado** pero su elaboración se lleva a cabo teniendo en cuenta desde el inicio la privacidd: pivacidd desde el diseño y por defecto, como exige el [artículo 25 del RGPD](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32016R0679#025), aseguradno pese a ser un proyecto altruista la participación de un Delegado de Protección de Datos como experto que asesora y supervisa las decisiones técnicas desde un punto de vista legal. Eso facilitará posteriormente la puesta en producción con plenas garantías.
+
+Será **responsable del tratamiento** de los datos personales respecto de cada instancia de este proyecto, la Administración Pública que lo ponga en marcha.
+
+La **finalidad del tratamiento** es facilitar la colaboración entre ciudadanos y equipos de trazabilidad de la infección de COVID19. El tratamiento es legítimo la tener como finalidades la protección de intereses vitales del interesado y de otras personas, así como por realizarse para el cumplimiento de una misión realizada en interés público y en el ejercicio de poderes públicos conferidos al responsable del tratamiento, [letras d) y e) del ordinal 1 del artículo 6 RGPD](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32016R0679#006);
+
+**minimización de datos** El único dato tratado es la identificación aleatoria y cambiante respecto del dispositivo del usuario. Se cumple con ello el principio de minimización de datos del [artículo 5.1.c del RGPD](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32016R0679#005).
+
+**Obtención de datos:** Los datos son obtenidos a través del dispositivo bluetooth del móvil del usuario, desde el momento en que instala la aplicación. El usuario podrá impedir la cesión de dichos datos mediente la desinstalación de la aplicación.
+
+**Almacenamiento de datos:** Los datos se almacenan cifrados en los dispositivos de los usuarios. En cada dispositivo se almacena con la clave de cifrado de la autoridad, de tal manera que los usuarios que reciben los datos de otros no tienen acceso a los mismos. Tampoco tiene acceso la autoridad, en tanto ǎrece de acceso físico a los dispotivos de los usuarios. Adicionalmente, y dado que cada usuario va cambiando aleatoriamente su identificador en el tiempo, no es posible identificar a un usuario con la lectura de dichos datos.
+
+**Medidas de seguridad:** Además del **cifrado** de datos, el contenido de éstos no revela la identidad de ningún usuario, gracias al continuo cambio de su identificador. Con ello se permite la **disociación de los datos en origen**, de tal manera que es necesario el dispositivo móvil del interesado para acreditar ser la persona referida por cada uno de los identificadores. No hay manera de conocer la identidad de la persona sin dicho identificador. Se ha tenido en cuenta que la recepción de los datos de nuevos contagiados y, por consiguiente, de sus listas de contactos, se haga con get mejor que con push (para evitar el uso de plataformas de empresas de minería de datos, que pueden además monitorizar las reaccciones frente a determinadas informaciones), y en cualquier caso impidiendo que los operadores conozcan los identificadores de ningún usuario, ni si quiera después de revelarlos a las Autoridades en caso de resultar contagiado. El tratamiento, realizado en ls teléfonos de lo usuarios es auditable al ser código abierto, y se implementan redes distriuidas, no dependiendo de ningún nodo central. 
+
+**Cesiones de datos:** Los únicos datos que se tienen del usuario son los identificadores que su móvil ha generado. Estos se almacenan en los dispositivos de los otros usuarios que hayan estado suficientemente cerca y por el tiempo necesario para ser considerado como una situación de riesgo de contagio. Los otros no tienen acceso a dichos datos, al estar cifrados para la autoridad. Esos datos pdr´an ser revelados exclusivamente al responsable de tratamiento, que los divulgará a los efectos de que la aplicación instalada en el móvil del titular pueda conocer su situación de riesgo (aparecen listados los códigos usados por ella) y, a partir de ahí, iniciar las acciones recomendadas para verificar o descartar el posible contagio.
+
+En la implementación futura deberá tenerse en cuenta las siguientes cuestiones, que garanticen, en un entorno altamente controlado por grandes empresas que hacen uso intenso de la minería de datos y del perfilado de usuarios, que sólo el titular tenga acceso a la información:
+- Distribución de la App: puede colocarse en los _stores_ de las distintas plataformas, pero también ser distribuída directamente desde la web de la Administración u otros repositorios alternativos.
+- Que los servicios de distribución de las listas de situaciones de riesgo se realice por canales seguros, dsde servidores controlados por elresponsable del tratamiento, y sin hacer uso de medios de tracking o estadística que supongan cesiones de datos a terceros, salvo cuando éstos sean exclusivamente  
+
+#### Derechos de los usuarios en lo relativo a la protección de sus datos de carácter personal:
+
+El RGPD otorga al titular los derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad. Dado que los datos identifican al titular sólo mientras conserve la instalación de la aplicación en su dispositivo, para su sjercicio basta con eliminar la misma. El usuario puede exportar la lista de sus identificadores en texto separado por comas, lo que le posibilita importarlos en otra aplicación de análogas funcionalidades.
+
+No obstante puede ponerse en contacto con el Delegado de Protección de Datos de la aplicación en desarrolo en el correo luis.fajardo@fajardolopez.com (puede cifrar el ensaje con GPG/PGP. Id de clave: 5EDEC427 Huella digital: 234C BC21 B774 8D39 833B 9CB2 77EC 086F 5EDE C42).Esta cláusula deberá adaptarse en caso de puesta en producción, para sustituirla o añadir la del DPD del responsable del tratamiento.
+
+También puede acudir directamente ante ante la Autoridad de Protección de Datos de su país [[Europa](https://edpb.europa.eu/about-edpb/board/members_es) - [Iberoamérica](https://www.redipd.org/es)].
+
+### Reutilización del softare
+**El proyecto se ofrece a cualquier Administración Pública** para su puesta en marcha. Se harán cargo de la difusión de la app y del tratamiento de los datos que se obtengan al menos con las garantías de privacidar referidas en este documento, y en todo caso de acuerdo al RGPD, aún si no resultare de aplicación.
 
 Los datos que se recaben deberán gestionarse de conformidad con la ley en cuanto a las medidas de seguridad de su almacenamiento, plazo máximo de custodia y almacenamiento, e información al usuario de sus derechos (especialmente de finalidad y revocación del consentimiento).
-
-Así mismo, pese a que esta app solicita al usuario su consentimiento, también el RGPD contiene excepciones a la necesidad de recabar el consentimiento previo al tratamiento de datos, en el caso de epidemia o de protección de la salud de las personas en base al interés general, que es la situación en la que nos encontramos. El escenario en el que se centra este informe es el de que las autoridades sanitarias autonómicas adoptan medidas extraordinarias para la protección de la salud pública, pues es la única legitimada para adoptar este tipo de medidas.
-
-
-> **Según la AEPD** Para cumplir las decisiones sobre la pandemia de coronavirus que adopten las autoridades competentes, en particular las sanitarias, la normativa de protección de datos no debería utilizarse para obstaculizar o limitar la efectividad de las medidas que adopten dichas autoridades, en la lucha contra la pandemia.
-> La normativa de protección de datos permite adoptar las medidas que sean necesarias para salvaguardar los intereses vitales de las personas físicas, el interés público esencial en el ámbito de la salud, la realización de diagnósticos médicos, o el cumplimiento de obligaciones legales en el ámbito laboral, incluido el tratamiento de datos de salud sin necesidad de contar con el consentimiento explícito el afectado.
-> En todo caso, el tratamiento de estos datos debe observar los principios establecidos en el RGPD, en particular los de minimización, limitación de la finalidad y minimización de la conservación.
-
-
-
-## Estrategia de mitigación de riesgos para maximizar la privacidad y la utilidad de los datos
-Open Coronavirus se está diseñando de acuerdo con los siguientes principios:
-- **Cumplimiento de los derechos de privacidad del usuario:** Creemos que nadie debería estar obligado a compartir su información personal. Por un lado, los no contagiados (es decir, aquellos que resultaron negativos) no están obligados a compartir información personal con un tercero. Por otro lado, a los diagnosticados con el SARS-CoV-2 se les pedirá que compartan información, sólo con el consentimiento previo del usuario y de manera descentralizada, encriptada y temporal para ayudar a implementar el módulo de rastreo de riesgo geoespacial, incluidas las alertas del usuario, que son necesarias para mantener una vigilancia efectiva.
 
 - **El almacenamiento por tiempo limitado de los desplazamientos utilizados protege aún más la privacidad de los diagnósticos portadores del virus SARS-CoV-2.** En este sentido, primero sólo se debe almacenar información confidencial anónima y agregada. Además, la cantidad de tiempo adecuada para el almacenamiento de datos debe ser igual y no exceder el tiempo durante el cual un portador diagnosticado podría haber infectado a otro individuo, que para Covid-19 es entre 14 y 37 días.
 - **Uso de una red distribuida** en lugar de un servidor central
