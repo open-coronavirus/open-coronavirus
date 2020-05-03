@@ -160,105 +160,99 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="privacityConditionsTitle" datatype="html">
-        <source>Términos y condiciones del servicio</source>
+      <trans-unit id="responseAccept" datatype="html">
+        <source>Aceptar</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="privacityConditionsText" datatype="html">
-        <source>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in varius magna. Quisque eu erat faucibus ex facilisis imperdiet eu et arcu. Duis sit amet metus non risus aliquam accumsan euismod vitae est. Nulla a nisi et augue ultrices eleifend. Phasellus eleifend lacinia augue. Morbi scelerisque quis est sed hendrerit. Ut maximus eros nec purus sodales vulputate. Sed hendrerit nunc a orci tincidunt, et viverra purus faucibus. Mauris id dolor non ante dictum condimentum. Vestibulum diam diam, auctor ut condimentum pulvinar, euismod ac nisl. Vestibulum eu lectus felis. In vel finibus nisl. Nullam hendrerit dapibus metus ut bibendum. Proin vulputate eros eget diam efficitur volutpat nec sit amet quam. Cras vel quam tortor.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2&gt;"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2&gt;"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Nivel 3<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul&gt;"/>
-      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>Paecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>Paecens ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>Paec rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>PLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in vaecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-    <x id="CLOSE_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;/ul&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Vestibulum fermentum vitae mauris non lobortis. Cras consectetur tellus non massa efficitur ullamcorper. Phasellus sollicitudin cursus tortor et semper. Pellentesque tristique ultricies massa tincidunt dignissim. Ut venenatis ac dolor vel suscipit. Sed cursus tincidunt lectus, id dignissim magna porta quis. Nunc in commodo augue. Suspendisse potenti.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-  </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="policityConditionsOK" datatype="html">
-        <source>ACEPTAR</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="sourcefile">src/app/shared/i18n-strings/i18n-strings.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactUploadRequestTitle1" datatype="html">
-        <source>Las autoridades solicitan que compartas tus datos</source>
+        <source>Resultado de tu test diagnóstico Covid-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="contactUploadRequestTitle2" datatype="html">
-        <source>Enviar datos adquiridos por bluetooth</source>
+      <trans-unit id="contactUploadRequestPositive" datatype="html">
+        <source>Infección Aguda</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUploadRequestNegative" datatype="html">
+        <source>Negativo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactUploadRequestText1" datatype="html">
-        <source>
-    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades piden que des autorizacióin para enviar los datos de las personas con las que te has cruzado en una distancia de posible riesgo que actualmente están sólo en tu móvil.
-  </source>
+        <source>Para contribuir a frenar la cadena de contagios en caso de haber contraido COVID-19 <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>autoriza la notificación anónima<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> a las personas con las que has estado cerca de acuerdo al protocolo de Salud Pública vigente.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="contactUploadRequestText2" datatype="html">
-        <source>
-    De este modo estás ayudando y protegiendo a muchas personas.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
-    ¡A este virus le ganamos entre todos!
-  </source>
+      <trans-unit id="noAuthorize" datatype="html">
+        <source>NO AUTORIZO</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="authorize" datatype="html">
+        <source>AUTORIZO</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="okButton" datatype="html">
+        <source>OK</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/autotest/autotest.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/self-declaration-leave/self-declaration-leave.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="sendDateAndAuthorice" datatype="html">
-        <source>ENVIAR DATOS Y AUTORIZAR SU USO</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="noMaybeInANotherTime" datatype="html">
-        <source>NO, QUIZÁS EN OTRO MOMENTO</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/contact-upload-request/contact-upload-request.component.html</context>
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
           <context context-type="linenumber">27</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactUploadThanksTitle1" datatype="html">
-        <source>Gracias por la colaboración ciudadana</source>
+        <source>¡Gracias!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactUploadThanksTitle2" datatype="html">
-        <source>Has enviado la información de cruces con ciudadanos y autorizado su uso a las autoridades sanitarias.</source>
+        <source>Tu información ha sido trasnmitida de forma anónima.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
           <context context-type="linenumber">10</context>
@@ -266,7 +260,7 @@
       </trans-unit>
       <trans-unit id="contactUploadThanksText1" datatype="html">
         <source>
-    Ante el positivo de COVID-19 que has dado en el test diagnóstico, las autoridades podrán gracias a esta información avisar al resto de ciudadanos que hayan estado en contacto contigo a menos de dos metros de forma anónima.
+    Estás ayudando y protegiendo a muchas personas.
   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/contact-upload-thanks/contact-upload-thanks.component.html</context>
@@ -298,89 +292,157 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
-        <source>Enviar información de forma anónoma de cruces con ciudadanos y autorizar su uso</source>
+      <trans-unit id="privacityConditionsTitle" datatype="html">
+        <source>Política de privacidad</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacityConditionsText" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in varius magna. Quisque eu erat faucibus ex facilisis imperdiet eu et arcu. Duis sit amet metus non risus aliquam accumsan euismod vitae est. Nulla a nisi et augue ultrices eleifend. Phasellus eleifend lacinia augue. Morbi scelerisque quis est sed hendrerit. Ut maximus eros nec purus sodales vulputate. Sed hendrerit nunc a orci tincidunt, et viverra purus faucibus. Mauris id dolor non ante dictum condimentum. Vestibulum diam diam, auctor ut condimentum pulvinar, euismod ac nisl. Vestibulum eu lectus felis. In vel finibus nisl. Nullam hendrerit dapibus metus ut bibendum. Proin vulputate eros eget diam efficitur volutpat nec sit amet quam. Cras vel quam tortor.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2&gt;"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2&gt;"/>Subtítulo<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Nivel 3<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul&gt;"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>Paecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>Paecens ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>Paec rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
+      <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>PLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dui vitae risus cursus ornare. Aliquam in vaecenas rhoncus purus ac nunc rhoncus ultrices<x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
+    <x id="CLOSE_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;/ul&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Aliquam ac dui in metus sodales cursus ut ac nisl. Maecenas rhoncus purus ac nunc rhoncus ultrices. Donec non sollicitudin nisi. Proin quis nulla varius, blandit lectus quis, scelerisque dui. Aliquam vitae metus ipsum. Quisque rutrum dui id nunc feugiat condimentum. Ut nisl dui, commodo eu orci sed, scelerisque dapibus nisi.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Vestibulum fermentum vitae mauris non lobortis. Cras consectetur tellus non massa efficitur ullamcorper. Phasellus sollicitudin cursus tortor et semper. Pellentesque tristique ultricies massa tincidunt dignissim. Ut venenatis ac dolor vel suscipit. Sed cursus tincidunt lectus, id dignissim magna porta quis. Nunc in commodo augue. Suspendisse potenti.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/terms-and-conditions/terms-and-conditions.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="policityConditionsOK" datatype="html">
+        <source>ACEPTAR</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/privacity-conditions/privacity-conditions.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/terms-and-conditions/terms-and-conditions.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="termsAndConditionsTitle" datatype="html">
+        <source>Términos y condiciones del servicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/terms-and-conditions/terms-and-conditions.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="coronavirusSendInfo" datatype="html">
+        <source>Autoriza avisar de forma anónima</source>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ImGoingLeaveHomeMenuLabel" datatype="html">
+        <source>Voy a salir de casa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="IWentBackToHomeMenuLabel" datatype="html">
         <source>He vuelto a casa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestTestMenuLabel" datatype="html">
         <source>Solicitar test COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autotestMenuLabel" datatype="html">
         <source>Autoevaluación COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trckingMenuLabel" datatype="html">
         <source>Seguimiento de tu salud</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="InfoMenuLabel" datatype="html">
         <source>Info sobre COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="myInfoMenuLabel" datatype="html">
         <source>Mis datos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="howWorkMenuLabel" datatype="html">
-        <source>Cómo funciona</source>
+        <source>¿Cómo funciona?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="InfoAppMenuLabel" datatype="html">
         <source>Sobre la APP</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shareMenuLabel" datatype="html">
         <source>Compartir APP</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="termsAndConditions" datatype="html">
+        <source>Condiciones de uso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/main.component.html</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacityConditions" datatype="html">
-        <source>Condiciones de uso y política de privacidad</source>
+        <source>Política de privacidad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="introSlideTogether" datatype="html">
@@ -397,6 +459,10 @@
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="introSlideTest" datatype="html">
         <source>Con esta APP podrás <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>solicitar un test de COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>y según su resultado poder<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>salir de casa</source>
@@ -404,26 +470,30 @@
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="introSlideHealth" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Evalúa tu situación de salud<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>en función de tus síntomas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="introSlideFollos" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Haz seguimiento de tu estado<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>de salud y evalúate <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>cada cierto tiempo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ageFootNote" datatype="html">
         <source>Para utilizar esta aplicación debes ser mayor de edad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="next" datatype="html">
@@ -433,18 +503,18 @@
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="enter" datatype="html">
         <source>EMPEZAR</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">40</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="personalInfoSectionTitle" datatype="html">
@@ -521,114 +591,121 @@
         <source>Dirección actual</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addressSectionSubtitle" datatype="html">
         <source>Tu dirección es importante para poder darte cita en el centro más cercano de test de COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="76476bb1c44d0d85777f75c9aad9b841e1b54754" datatype="html">
         <source>Código postal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="postalCodeLabel" datatype="html">
         <source>Código postal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="postalCodeError" datatype="html">
         <source>Por favor, introduce un código postal válido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="b90cdd2c246f14152b225005dada8c805a8da487" datatype="html">
         <source>Calle</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="streetLabel" datatype="html">
-        <source>Dirección domicilio: calle, avd... (opcional)</source>
+        <source>Dirección domicilio (opcional)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="streetError" datatype="html">
         <source>Por favor, introduce tu dirección</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactInfoSectionTitle" datatype="html">
         <source>Información de contacto</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6934d8edd276d59e050006fe91b695ebad0218f8" datatype="html">
         <source>Phone</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="phoneLabel" datatype="html">
         <source>Teléfono</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="phoneError" datatype="html">
         <source>Por favor, introduce un número de teléfono válido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
         <source>Email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="emailLabel" datatype="html">
         <source>Correo electrónico (opcional)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="emailError" datatype="html">
         <source>Por favor, introduce un email válido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="autoshareCheck" datatype="html">
+        <source>Autorizar avisar a las personas con las que has estado cerca en caso de positivo de COVID-19, sin especificar que eres tú.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/patient-info-form/patient-info-form.component.html</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="headerTitleLine" datatype="html">
         <source>
-      <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container&gt;"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>OPEN<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> CORONAVIRUS<x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container&gt;"/>
+      <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
       <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/>
     </source>
         <context-group purpose="location">
@@ -643,8 +720,15 @@
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="termsAndConditions2" datatype="html">
+        <source>condiciones de uso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="privacityConditions2" datatype="html">
-        <source>condiciones de uso y políticas de privacidad</source>
+        <source>políticas de privacidad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">13</context>
@@ -664,81 +748,153 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="permissionsModalTitle" datatype="html">
+      <trans-unit id="permissionsModalTitlePush" datatype="html">
         <source>Activa los permisos necesarios para poder utilizar la aplicación</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalTitlePushNotifications" datatype="html">
         <source>Notificaciones push</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalDescriptionPushNotifications" datatype="html">
         <source>Las utilizaremos para enviarte información relevante, resultados de tu test de COVID-19 y líneas de actuación.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalTitleGeolocation" datatype="html">
-        <source>Geolocalización</source>
+        <source>Activa los permisos necesarios para poder utilizar la aplicación</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalDescription1Geolocation" datatype="html">
         <source>Necesitamos saber dónde te encuentras para poder ofrecerte las mejores medidas preventivas y médicas.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalDescription2Geolocation" datatype="html">
         <source>Compartiendo tu información ayudarás a frenar el COVID-19.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalTitleBluetooth" datatype="html">
         <source>Bluetooth</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalDescription1Bluetooth" datatype="html">
-        <source>Mediante la tecnología bluetooth podrás compartir con las autoridades sanitarias información sobre con quién has estado a menos de 2 metros.</source>
+        <source>Mediante la tecnología bluetooth podrás <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>estar informado de si has estado cerca de alguien con COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> y así estar mas seguro.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="permissionsModalDescription2Bluetooth" datatype="html">
         <source>La protección y prevención de tu salud es lo primero.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="permissionsModalDescription3Bluetooth" datatype="html">
-        <source>Recuerda liberar espacio en tu móvil para que  funcione correctamente esta funcionalidad.</source>
+      <trans-unit id="permissionsModalTitleCoarseLocation" datatype="html">
+        <source>Activa los permisos necesarios para poder utilizar la aplicación</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription1CoarseLocation" datatype="html">
+        <source>Debes activar este permiso para que la tecnología Bluetooth Low Energy funcione correctamente en Android.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription2CoarseLocation" datatype="html">
+        <source>Mediante la tecnología bluetooth podrás <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>estar informado de si has estado cerca de alguien con COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> y así estar mas seguro.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription3CoarseLocation" datatype="html">
+        <source>La protección y prevención de tu salud es lo primero.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription4CoarseLocation" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>En ningún momento vas a compartir tu localización con nadie ni va a ser guardada.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalTitleAutoshare" datatype="html">
+        <source>Autoriza avisar de forma anónima en caso de contraer OVID-19</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionsModalDescription1Autoshare" datatype="html">
+        <source>Para contribuir a frenar la cadena de contagios en en caso de haber contraido COVID-19 <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>autoriza la notificación anónima<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> a las personas con las que has estado cerca de acuerdo al protocolo de Salud Pública vigente.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noMaybeInANotherTime" datatype="html">
+        <source>NO AUTORIZO</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="collaborate" datatype="html">
+        <source>AUTORIZO</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="activate" datatype="html">
         <source>ACTIVAR</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/permissions/permissions-modal/permissions-modal.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="sourcefile">src/app/permissions-modal/permissions-modal.component.html</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="noAccessTitle" datatype="html">
@@ -805,7 +961,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="updateCancel" datatype="html">
-        <source>No, lo hare en otro momento</source>
+        <source>No, lo haré en otro momento</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/update/update.component.html</context>
           <context context-type="linenumber">9</context>
@@ -815,159 +971,139 @@
         <source>Identificación</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="results" datatype="html">
         <source>Resultado COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="note" datatype="html">
+        <source>* Protocolo vigente de Salud Pública</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ambulanceontheway" datatype="html">
         <source>Ambulancia en camino.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> Llegará en <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>25 min<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="appointment" datatype="html">
         <source>
-                    <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
-                </source>
+                            <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="appointmentRequested" datatype="html">
         <source>Has solicitado una cita, próximamente te haremos llegar el horario y lugar de tu cita para el test COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveHome" datatype="html">
         <source>Volver a casa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">44</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="outto" datatype="html">
         <source>He salido hace</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="canGoHome" datatype="html">
         <source>Puedes salir <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>de casa</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="resultsTest" datatype="html">
         <source>Ver resultado <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>de test COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="resquestNewTest" datatype="html">
         <source>Solicitar nuevo <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>test COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="requestTest" datatype="html">
         <source>Solicitar <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>test COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="autotest" datatype="html">
         <source>Autoevaluación <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followingup" datatype="html">
         <source>Seguimiento <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>de tu salud</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">73</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="coronavirusSendInfo" datatype="html">
-        <source>
-                Enviar información de forma anónima de cruces con ciudadanos y autorizar su uso
-            </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="coronavirusInfoButton" datatype="html">
         <source>Información sobre el coronavirus</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">86</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="shareButton" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{getSettingsText()}}"/></source>
+      <trans-unit id="homeBleEnabledTitle" datatype="html">
+        <source>Traceo de exposición a COVID-19 activado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">88</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
-          <context context-type="linenumber">102</context>
+          <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="okButton" datatype="html">
-        <source>OK</source>
+      <trans-unit id="homeBleEnabledText" datatype="html">
+        <source>Tu móvil no compartirá con quién has estado cerca</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/autotest/autotest.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">105</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="homeBleDisabledTitle" datatype="html">
+        <source>Bluetooth desactivado</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/self-declaration-leave/self-declaration-leave.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">108</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="homeBleDisabledText" datatype="html">
+        <source>Actívalo para que funcione el traceo anónimo</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/leave-custom-reason-form/leave-custom-reason-form.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/leave-requet-result/leave-request-result.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/test-appointment/appointment-at-home/appointment-at-home.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/test-appointment/appointment-health-center/appointment-health-center.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/test-appointment/appointment-appointment/appointment-appointment.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/main/home/home.component.html</context>
+          <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="leaveCustomReasonFormTitle" datatype="html">
@@ -986,7 +1122,7 @@
     <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Yo, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{patient?.firstName}}"/> <x id="INTERPOLATION_1" equiv-text="{{patient?.lastName}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> nacido el <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION_2" equiv-text="{{patient?.birthday | date:&apos;dd/MM/yyyy&apos;}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> con documento de identificación nº<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION_3" equiv-text="{{patient?.documentNumber}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> y con residencia en calle <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION_4" equiv-text="{{patient?.street}}"/> (<x id="INTERPOLATION_5" equiv-text="{{patient?.postalCode}}"/>)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> consciente de las consecuencias penales previstas en caso de falsedad en documento público oficial (art 392 c.p.)<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
     <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2&gt;"/>DECLARA, BAJO SU EXCLUSIVA RESPONSABILIDAD<x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
     <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>De ser <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>consciente de las medidas de contención del contagio<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> referidas en el artículo 7 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la gestión de la situación de crisis sanitaria ocasionada por el COVID-19 concernientes <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>a la limitación de la libertad de circulación de las personas por las vías de uso público;<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>De no estar bajo las medidas de cuarentena por haber resultado<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> positivo al virus COVID-19;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>De no estar bajo las medidas de cuarentena por tenido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> infección aguda en virus COVID-19;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
     <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>De ser consciente de las sanciones previstas en el artículo 20 del Real Decreto 463/2020, de 14 de marzo, por el que se declara el estado de alarma para la   gestión de la situación de crisis sanitaria ocasionada por el COVID-19<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, en caso de incumplimiento o resistencia a las órdernes de las autoridades competentes;<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
     <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Que el traslado tiene la finalidad de:<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
     <x id="START_UNORDERED_LIST" ctype="x-ul" equiv-text="&lt;ul&gt;"/>
@@ -1104,7 +1240,7 @@
       </trans-unit>
       <trans-unit id="requestLeaveHomeConnfirmationNoTestText" datatype="html">
         <source>
-      Recuerda que puedes salir de casa de forma permanente y sin informar pidiendo el test del COVID-19 y si no tienes la infección podrás volver a la normalidad
+      Recuerda que puedes salir de casa de forma permanente y sin informar pidiendo el test del COVID-19 y si no tienes la infección podrás volver a la normalidad.
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-no-test/request-leave-home-confirmation-no-test.component.html</context>
@@ -1160,7 +1296,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="requestLeaveHomeConnfirmationInfectedText1" datatype="html">
-        <source>No puedes salir de casa al estar positivo en COVID-19</source>
+        <source>No puedes salir de casa al tener infección aguda en COVID-19</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/request-leave-home-confirmation-infected/request-leave-home-confirmation-infected.component.html</context>
           <context context-type="linenumber">12</context>
@@ -1202,7 +1338,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="requestTestButton" datatype="html">
-        <source>Sí, solicitar test</source>
+        <source>SÍ, SOLICITAR TEST</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-appointment/confirm-test-appointment/confirm-test-appointment.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1385,7 +1521,6 @@
       </trans-unit>
       <trans-unit id="testResult2RequestTest" datatype="html">
         <source>
-      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/>
       Solicitar test covid-19
     </source>
         <context-group purpose="location">
@@ -1397,11 +1532,15 @@
         <source>Medidas de distanciamiento físicos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult2List1_1" datatype="html">
         <source>Quédese en casa según lo dictado por la autoridad.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
           <context context-type="linenumber">23</context>
@@ -1410,27 +1549,23 @@
           <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="testResult2Text4" datatype="html">
         <source>Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5BtnOK" datatype="html">
         <source>OK</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-2/test-result-2.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-4/test-result-4.component.html</context>
@@ -1453,7 +1588,6 @@
       </trans-unit>
       <trans-unit id="testResult3RequestTest" datatype="html">
         <source>
-      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/>
       Solicitar test covid-19
     </source>
         <context-group purpose="location">
@@ -1465,35 +1599,35 @@
         <source>Esto significa:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult3List1_1" datatype="html">
         <source>Quédese en casa lo más posible,</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult3List1_2" datatype="html">
         <source>Salga a comprar comestibles y otros recados esenciales una vez a la semana,</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult3List1_3" datatype="html">
         <source>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult3Text4" datatype="html">
         <source>Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-3/test-result-3.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult4Title" datatype="html">
@@ -1598,77 +1732,77 @@
         <source>Debe realizar auto-aislamiento, lo que significa:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List1_1" datatype="html">
         <source>Solo salga de su casa o vea a otras personas por razones críticas (como una emergencia médica)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List1_2" datatype="html">
         <source>Busque servicios por teléfono o en línea o solicite ayuda de amigos, familiares o vecinos,</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List1_3" datatype="html">
         <source>No acuda al hospital, o clínica para hacerse una prueba COVID-19 a menos que se lo solicite un profesional sanitario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5Text4" datatype="html">
         <source>También debe:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List2_1" datatype="html">
         <source>Informar a las personas con las que tuvo contacto cercano para aislarse si interactuó en los 2 días anteriores a que sus síntomas comenzaron.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List2_2" datatype="html">
         <source>Controlar su salud durante 14 días completos sus síntomas comenzaron.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5Text5" datatype="html">
         <source>2 semanas después de que comenzaron sus síntomas, practique el distanciamiento físico:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List3_1" datatype="html">
         <source>Quédese en casa lo más que pueda.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List3_2" datatype="html">
         <source>Salga a comprar comestibles y otras diligencias esenciales una vez por semana.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="testResult5List3_3" datatype="html">
         <source>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga en público.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/test-result/test-result-5/test-result-5.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followinUpMainTitle" datatype="html">
@@ -1728,7 +1862,6 @@
       </trans-unit>
       <trans-unit id="followinUResult2BtnRequestTest" datatype="html">
         <source>
-      <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/>
       Solicitar test covid-19
     </source>
         <context-group purpose="location">
@@ -1740,42 +1873,42 @@
         <source>Medidas de distanciamiento físicos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followinUResult2List1_1" datatype="html">
         <source>Quédese en casa según lo dictado por la autoridad.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followinUResult2List1_2" datatype="html">
         <source>Salga a comprar alimentos y otros mandados esenciales una vez a la semana.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followinUResult2List1_3" datatype="html">
         <source>Mantenga una distancia de 6 pies (2 metros) de otras personas cuando salga al público.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followinUResult2List1_4" datatype="html">
         <source>Vuelva a realizar esta evaluación si desarrolla nuevos síntomas o entra en contacto cercano con una persona con síntomas respiratorios.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="followinUResult2BtnOK" datatype="html">
         <source>OK</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/following-up-result/following-up-result-2/following-up-result-2.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aboutMainTitle" datatype="html">
@@ -1793,10 +1926,31 @@
         </context-group>
       </trans-unit>
       <trans-unit id="aboutVersionNumber" datatype="html">
-        <source>Número de versión: <x id="INTERPOLATION" equiv-text="{{ getNumberVersionText() }}"/></source>
+        <source>Versión</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/about/about.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutby" datatype="html">
+        <source>By Open Coronavirus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/about/about.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="keysSent" datatype="html">
+        <source>Mis claves enviadas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/about/about.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nearestDevices" datatype="html">
+        <source>Dispositivos Cercanos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/about/about.component.html</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
     </body>
