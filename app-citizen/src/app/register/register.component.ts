@@ -4,7 +4,7 @@ import {PatientService} from '../shared/services/patient.service';
 import {Router} from '@angular/router';
 import {PatientWithRelations} from '../shared/sdk';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {LoadingController, NavController} from '@ionic/angular';
+import {AlertController, LoadingController, NavController} from '@ionic/angular';
 import {PrivacityConditionsService} from '../shared/services/privacity-conditions.service';
 import {PermissionsService} from '../shared/services/permissions.service';
 
@@ -30,6 +30,7 @@ export class RegisterComponent {
         protected formBuilder: FormBuilder,
         protected patientService: PatientService,
         @Inject(LOCALE_ID) protected locale: string,
+        protected alertController: AlertController,
         public loadingController: LoadingController,
         private privacityConditionsService: PrivacityConditionsService,
         protected router: Router,
@@ -66,10 +67,27 @@ export class RegisterComponent {
                 }
             }, err => {
                 loading.dismiss();
-                console.error("error register: ", err);
+                this.showError(err.error.error.message);
             });
 
         }
+    }
+
+    async showError(message) {
+
+        let alert = await this.alertController.create({
+            header: 'Error',
+            message: message,
+            buttons: [
+                {
+                    text: 'Ok',
+                    handler: () => {
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
     }
 
     showPrivacityConditions(ev) {

@@ -30,7 +30,7 @@ export class PatientService {
     //everytime the patient is reloaded
     public patientRefreshed$ = new Subject();
 
-    public static PATIENT_TOKEN_KEY = 'patientTokenV3';
+    public static PATIENT_TOKEN_KEY = 'patientTokenV4';
 
     constructor(protected patientController: PatientControllerService,
         @Inject('environment') protected environment,
@@ -98,16 +98,17 @@ export class PatientService {
         //in production this value will be ignored, but in test environment we use a
         //server handling multiple differnet app versions
         patient.appId = this.settings.appId;
+        console.log("Registering...");
 
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
+            console.log("received patient: " + newPatient);
             this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
                 this.loadLocalPatient().subscribe(loaded => {
                     if (loaded) {
                         this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
                             returnValue.next(newPatient);
                         });
-                    }
-                    else {
+                    } else {
                         console.error("Error trying to register the patient. The installation has not been registered as well :(");
                     }
                 });

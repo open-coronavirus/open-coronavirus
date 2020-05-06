@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBasePath: 'https://coronavirus.yubbuy.com' // 'https://coronavirus.yubbuy.com' // 'http://localhost:3000'
+  apiBasePath: 'http://localhost:3000'
 };
 
 /*

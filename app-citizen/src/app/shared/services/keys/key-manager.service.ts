@@ -13,7 +13,7 @@ export class KeyManagerService {
     protected currentKey = null;
     protected currentDate: Date = null;
 
-    public static SK_KEY = 'sk-key';
+    public static SK_KEY = 'sk-key-V4';
 
     public constructor(protected storageService: StorageService,
                        protected patientService: PatientService,

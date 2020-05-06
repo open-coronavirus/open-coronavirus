@@ -55,30 +55,20 @@ export class PatientController {
           patient: Omit<Patient, 'id'>,
   ): Promise<Patient | null> {
 
-    let returnValue: Promise<Patient | null> = new Promise(resolve => {
-
       //generate an unique uuid for each patient
       patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
       patient.status = PatientStatus.UNKNOWN; //initial status
       patient.created = new Date();
 
-      this.userValidatorService.validateUser(<Patient>patient).then(validationResult => {
-        if(validationResult.isValid) {
-          patient = validationResult.patient; //recover the patient from the validation result before creating it:
-          this.patientRepository.create(patient).then(createdPatient => {
-            resolve(createdPatient);
-          });
-        }
-        else {
-          let error = new HttpErrors[401]; //unauthorized
-          error.message = validationResult.message;
-          throw error;
-        }
-      });
+      let validationResult = await this.userValidatorService.validateUser(<Patient>patient);
 
-    });
-
-    return returnValue;
+      if(validationResult.isValid) {
+        patient = validationResult.patient; //recover the patient from the validation result before creating it:
+        return this.patientRepository.create(patient);
+      }
+      else {
+        throw new HttpErrors.UnprocessableEntity(validationResult.message);
+      }
 
   }
 
