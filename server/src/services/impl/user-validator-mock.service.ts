@@ -11,6 +11,7 @@ export class UserValidatorMockService implements UserValidatorService {
 
             let validationResult = new ValidationResult();
             validationResult.isValid = true;
+            validationResult.patient = patient;
 
             resolve(validationResult);
 

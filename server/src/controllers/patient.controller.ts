@@ -64,6 +64,7 @@ export class PatientController {
 
       this.userValidatorService.validateUser(<Patient>patient).then(validationResult => {
         if(validationResult.isValid) {
+          patient = validationResult.patient; //recover the patient from the validation result before creating it:
           this.patientRepository.create(patient).then(createdPatient => {
             resolve(createdPatient);
           });

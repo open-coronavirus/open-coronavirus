@@ -112,6 +112,10 @@ export class PatientService {
                     }
                 });
             });
+        },
+        error => {
+            console.error("Error trying to register: " + JSON.stringify(error));
+            returnValue.error(error);
         });
 
         return returnValue;
