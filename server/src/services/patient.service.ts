@@ -1,17 +1,19 @@
-import {Filter, repository} from "@loopback/repository";
-import {LeaveRequestRepository, PatientRepository} from "../repositories";
-import {Contact, InfectionExposure, LeaveRequest, Patient} from "../models";
+import {repository} from "@loopback/repository";
+import {PatientRepository} from "../repositories";
+import {Contact, InfectionExposure, Patient} from "../models";
 import {PatientStatus} from "../common/utils/enums";
 import {HttpErrors} from "@loopback/rest";
 import {PushNotificationService} from "./pushnotification.service";
 import {service} from "@loopback/core";
+import {ExposureRisk, ExposureRiskDecisor} from "./exposure-risk-decisor";
 
 
 export class PatientService {
 
     constructor(
         @repository(PatientRepository) public patientRepository : PatientRepository,
-        @service(PushNotificationService) public pushNotificationService: PushNotificationService
+        @service(PushNotificationService) public pushNotificationService: PushNotificationService,
+        @service('ExposureRiskDecisor') public exposureRiskDecisor: ExposureRiskDecisor,
     ) {}
 
     async putInQuarantine(contacts: Contact[]) {
@@ -38,22 +40,34 @@ export class PatientService {
     }
 
     async decideToPutInQuarantine(infectionExposures: InfectionExposure[]) {
-        let patientsToPutInQuarantine = new Map<string, boolean>()
+        let patientsToPutInQuarantine = new Map<string, InfectionExposure[]>()
         infectionExposures.forEach(infectionExposure => {
-            patientsToPutInQuarantine.set(infectionExposure.patientId, true);
+            if(!patientsToPutInQuarantine.has(infectionExposure.patientId)) {
+                patientsToPutInQuarantine.set(infectionExposure.patientId, []);
+            }
+            patientsToPutInQuarantine.get(infectionExposure.patientId)?.push(infectionExposure);
         });
 
         for (let patientId of patientsToPutInQuarantine.keys()) {
-            let patient = await this.patientRepository.findById(patientId);
-            if(patient != null) {
-                //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
-                if(patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
-                    this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
-                    return; //do not process any other entry
+
+            let patientInfectionExposures = patientsToPutInQuarantine.get(patientId);
+            if(patientInfectionExposures != undefined) {
+
+                let risk = this.exposureRiskDecisor.decideRisk(patientInfectionExposures);
+
+                //if recommendation is to put in quarantine, let change the patient status:
+                if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') || risk == ExposureRisk.LOW) {
+                    let patient = await this.patientRepository.findById(patientId);
+                    if (patient != null) {
+                        //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
+                        if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
+                            this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
+                            return; //do not process any other entry
+                        }
+                    } else {
+                        console.error("No patient found for id: " + patientId);
+                    }
                 }
-            }
-            else {
-                console.error("No patient found for id: " + patientId);
             }
         }
     }

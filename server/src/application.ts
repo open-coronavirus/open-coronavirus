@@ -17,6 +17,7 @@ import {PushNotificationService} from "./services/pushnotification.service";
 import {PatientService} from "./services/patient.service";
 import {UserValidatorMockService} from "./services/impl/user-validator-mock.service";
 import KEY = ContextTags.KEY;
+import {EcdcExposureRiskDecisor} from "./services/impl/ecdc-exposure-risk-decisor";
 
 const fs = require('fs');
 const dotenv = require('dotenv');
@@ -84,6 +85,7 @@ export class CoronavirusServerApplication extends BootMixin(
     this.service(AppointmentMockService, { interface: 'AppointmentService' });
     this.service(HealthCenterMockService, { interface: 'HealthCenterService' });
     this.service(UserValidatorMockService, { interface: 'UserValidatorService' });
+    this.service(EcdcExposureRiskDecisor, { interface: 'ExposureRiskDecisor' });
     this.service(LeaveRequestService);
     this.service(PatientService);
     this.service(PushNotificationService, { interface: 'PushNotificationService' });
