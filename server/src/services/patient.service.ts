@@ -65,18 +65,22 @@ export class PatientService {
 
                 let risk = this.exposureRiskDecisor.decideRisk(patientInfectionExposures);
 
-                //if recommendation is to put in quarantine, let change the patient status:
-                if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') || risk == ExposureRisk.LOW) {
-                    let patient = await this.patientRepository.findById(patientId);
-                    if (patient != null) {
+                let patient = await this.patientRepository.findById(patientId);
+                if (patient != null) {
+                    if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') || risk == ExposureRisk.LOW) {
                         //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
                         if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
                             this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
-                            return; //do not process any other entry
                         }
                     } else {
-                        console.error("No patient found for id: " + patientId);
+                        //back to need to make a test (but not quarantine) since the exposure exists but with no risk
+                        if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED && patient.status != PatientStatus.UNKNOWN) {
+                            this.doChangeStatus(patient, PatientStatus.UNKNOWN);
+                        }
                     }
+                }
+                else {
+                    console.error("No patient found for id: " + patientId);
                 }
             }
         }
