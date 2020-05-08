@@ -87,7 +87,7 @@ export class EcdcExposureRiskDecisor implements ExposureRiskDecisor {
 
         let measuredPower = -69;
         let N = 2;
-        let distance = 10 ^ ((measuredPower - rssi)/(10 * N));
+        let distance = 10 ** ((measuredPower - rssi)/(10 * N));
 
         return distance;
 
