@@ -16,6 +16,11 @@ export class PatientService {
         @service('ExposureRiskDecisor') public exposureRiskDecisor: ExposureRiskDecisor,
     ) {}
 
+    /**
+     * Centralized model to decide to put in quarantine
+     *
+     * @param contacts
+     */
     async putInQuarantine(contacts: Contact[]) {
 
         //resolve:
@@ -39,6 +44,11 @@ export class PatientService {
 
     }
 
+    /**
+     * Decentralized model to decide to put in quarantine
+     *
+     * @param contacts
+     */
     async decideToPutInQuarantine(infectionExposures: InfectionExposure[]) {
         let patientsToPutInQuarantine = new Map<string, InfectionExposure[]>()
         infectionExposures.forEach(infectionExposure => {
