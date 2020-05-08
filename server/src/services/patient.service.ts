@@ -63,10 +63,9 @@ export class PatientService {
             let patientInfectionExposures = patientsToPutInQuarantine.get(patientId);
             if(patientInfectionExposures != undefined) {
 
-                let risk = this.exposureRiskDecisor.decideRisk(patientInfectionExposures);
-
                 let patient = await this.patientRepository.findById(patientId);
                 if (patient != null) {
+                    let risk = this.exposureRiskDecisor.decideRisk(patientInfectionExposures);
                     if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') || risk == ExposureRisk.LOW) {
                         //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
                         if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
