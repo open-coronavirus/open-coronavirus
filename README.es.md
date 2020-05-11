@@ -23,7 +23,7 @@ SARS-CoV-2.
 
     Desde la aplicación **se solicitará un test diagnóstico y ver los resultados del mismo.** Servirá como identificación del ciudadano **mediante códigos QR** que determinará este estado.
 
-    Se almacenará en el dispositivo de cada ciudadano los **cruces con otros ciudadanos de forma anónima** a partir de la información obtenida por **Bluetooth Low Energy**.
+    Se almacenará en el dispositivo de cada ciudadano (sistema descentralizado) con **quién has estado cerca de forma anónima** a partir de la información obtenida por **Bluetooth Low Energy**.
 
     De esta forma controlar posibles contagios y cercar el ámbito de acción del SARS-CoV-2 desde las autoridades sanitarias.
 
@@ -32,13 +32,16 @@ SARS-CoV-2.
 - **Software de control datos (próximamente)** donde las autoridades sanitarias y de control
 epidemiológico podrán consultar y detectar posibles contagios del SARS-CoV-2.
 
-- **App Autoridades.** Aplicación mobile para que las autoridades pertinentes puedan leer los QR de
+- **App Autoridades (beta).** Aplicación mobile para que las autoridades pertinentes puedan leer los QR de
 identificación del ciudadano en los entornos que se decidan así como monitorizar
 su movilidad.
 
-| | 
-|:--:| 
-| *Ejemplo de las 3 aplicaciones para distintos tipos de usuarios* |
+   _Aplicación secundaria, no imprescindible para el control de la propagación del SARS-CoV-2._ 
+
+
+- **App Sanitarios (beta).** Aplicación mobile para que los sanitarios puedan introducir los resultados de los tests diagnósticos.
+
+   _Aplicación secundaria, no imprescindible para el control de la propagación del SARS-CoV-2._
 
 
 > **Importante** Un equipo de expertos en investigación médica y bioética de la **Universidad de Oxford** explica la necesidad de tener una app de estas características:
@@ -79,24 +82,40 @@ Sé responsable. Entre todos, ¡venceremos al virus!
 ## ¿Cómo funciona el sistema de seguimiento de contagios basado en Bluetooth Low Energy?
 
 La APP utiliza la tecnología **Bluetooth Low Energy** mediante la cual se hace seguimiento de posibles contagios de COVID-19.
+
 Cada ciudadano tiene la aplicación instalada y con el bluetooth conectado.
 
 El funcionamiento del sistema **Bluetooth LE** es el siguiente:
 
-1. Cuando **dos ciudadanos estén cerca físicamente**, sus teléfonos intercambiarán unos **códigos identificadores anónimos** mediante Bluetooth LE.
-Cada móvil guarda en su memoria del teléfono estos cruces entre ciudadanos.
+1. Cuando **dos personas estén cerca físicamente**, sus teléfonos intercambiarán unos **códigos identificadores anónimos** mediante Bluetooth LE.
 
-    El nivel de cercanía se calcula a partir de la intensidad de la señal de bluetooth.
-También se almacena el tiempo en el que has estado cerca de ese dispositivo para conocer la exposición al COVID-19 en caso de que el ciudadano padeciera la enfermedad.
+   Cada móvil guarda en su memoria del teléfono estos cruces entre ciudadanos.
+
+   El nivel de cercanía se calcula a partir de la intensidad de la señal de bluetooth.
+
+    También se almacena el tiempo en el que has estado cerca de ese dispositivo para conocer la exposición al COVID-19 en caso de que el ciudadano padeciera la enfermedad.
 
     **El almacenamiento de esta información es por tiempo limitado** protegiendo aún más la privacidad del ciudadano.
     Ese tiempo es configurable en la herramienta pero **se recomienda entre 14 y 37 días** ya que es el tiempo en el que un portador diagnosticado podría haber infectado a otro individuo de COVID-19.
 
-2. **En el caso de que un ciudadano dé positivo por COVID-19**, la aplicación actualizará su estado QR a rojo y analizará los posibles cruces de cercanía con otros ciudadanos.
+2. **En el caso de que una persona dé positivo por COVID-19**, la aplicación actualizará su estado QR a rojo y analizará con quién ha estado cerca.
 
-    El sistema **subirá al servidor estos cruces de ciudadanos en los cuales se haya podido producir un posible contagio** y a estos ciudadanos les notificará vía push para que sean conscientes del riesgo y/o vuelvan ha realizarse un test diagnóstico.
+   La persona puede decidir si **autoriza a notificar de forma anónima** a las personas con las que has estado cerca.
 
-> Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno esté correctamente integrado con la aplicación.
+   El sistema subirá al servidor de forma anónima (en caso de ser autorizado) su clave y será enviada a las demás personas.
+
+3. La app del **resto de personas descarga constantemente las claves autorizadas** que han dado positivo de COVID-19 para comprobar si han estado expuestos al virus. Este proceso se hace de **forma anónima en su mismo móvil**.
+
+   La evaluación del riesgo se realiza según el tiempo y cercanía de exposición al COVID-19 según la recomendación europea.
+
+   El servidor **sólo guarda claves anónimas** que han dado positivo de COVID-19 **sin ninguna relación** con las personas que han dado positivo de COVID-19.
+
+   El servidor permite guardar los cambios de estado de una persona que se encuentra en riesgo alto.
+
+   El **servidor nunca sabe nada**: ni la ubicación de las personas ni con quien han estado cerca.
+   
+  
+> Para ello es fundamental que el sistema sanitario oficial de la administración o gobierno esté correctamente integrado con la aplicación. Permite la **optimización de a quién se le debe hacer test diagnóstico y control de la pandemia.**
 
 | ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-1-es.png) | 
 |:--:| 
