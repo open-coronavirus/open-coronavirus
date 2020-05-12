@@ -55,7 +55,7 @@ export class PatientController {
           patient: Omit<Patient, 'id'>,
   ): Promise<Patient | null> {
 
-    let completePatient: Patient = patient.toJSON();
+    let completePatient: Patient = JSON.parse(JSON.stringify(patient));
 
     return this.patientService.signUpPatient(completePatient);
 
