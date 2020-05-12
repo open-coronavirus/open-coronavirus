@@ -145,6 +145,18 @@ export class Patient extends Entity {
   constructor(data?: Partial<Patient>) {
     super(data);
   }
+
+  public copy(patient: Patient) {
+    this.firstName = patient.firstName;
+    this.lastName = patient.lastName;
+    this.documentNumber = patient.documentNumber;
+    this.healthInsuranceCardNumber = patient.healthInsuranceCardNumber;
+    this.street = patient.street;
+    this.postalCode = patient.postalCode;
+    this.email = patient.email;
+    this.phone = patient.phone;
+  }
+
 }
 
 export interface PatientRelations {

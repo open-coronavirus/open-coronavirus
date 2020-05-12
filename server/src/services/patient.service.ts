@@ -6,15 +6,60 @@ import {HttpErrors} from "@loopback/rest";
 import {PushNotificationService} from "./pushnotification.service";
 import {service} from "@loopback/core";
 import {ExposureRisk, ExposureRiskDecisor} from "./exposure-risk-decisor";
+import {BluetoothUuidGenerator} from "../common/utils/bluetooth-uuid-generator";
+import {UserValidatorService} from "./user-validator.service";
 
 
 export class PatientService {
 
     constructor(
         @repository(PatientRepository) public patientRepository : PatientRepository,
+        @service('UserValidatorService') public userValidatorService: UserValidatorService,
         @service(PushNotificationService) public pushNotificationService: PushNotificationService,
         @service('ExposureRiskDecisor') public exposureRiskDecisor: ExposureRiskDecisor,
     ) {}
+
+
+    async signUpPatient(patient: Patient): Promise<Patient | null> {
+
+        if(patient != null) {
+            //generate an unique uuid for each patient (it will be used on centralized model only)
+            patient.serviceAdvertisementUUID = BluetoothUuidGenerator.generateUUID();
+            patient.status = PatientStatus.UNKNOWN; //initial status
+            patient.created = new Date();
+
+            let existingPatinet = await this.patientRepository.findOne({where: {documentNumber: patient.documentNumber}});
+            if (existingPatinet != null) {
+                //ovewrite everything with the given patient data (to avoid issues with validateUsers because the
+                //user has been loaded from database, so it was previously validated
+                existingPatinet.copy(patient);
+                //and now set the existing patient to the current patient variable
+                patient = existingPatinet;
+            }
+
+            //very important: validation not just validate the user information against the
+            //correspondent health department or authority, but also alter the patient with
+            //info from them
+            let validationResult = await this.userValidatorService.validateUser(<Patient>patient);
+
+            if (validationResult.isValid) {
+                patient = validationResult.patient; //recover the patient from the validation result before creating it:
+                if(existingPatinet != null) {
+                    await this.patientRepository.update(patient);
+                    return new Promise<Patient>(resolve => resolve(patient));
+                }
+                else {
+                    return this.patientRepository.create(patient);
+                }
+            } else {
+                throw new HttpErrors.UnprocessableEntity(validationResult.message);
+            }
+        }
+        else {
+            throw new HttpErrors.BadRequest("Internal Server Error");
+        }
+
+    }
 
     /**
      * Centralized model to decide to put in quarantine
@@ -66,12 +111,13 @@ export class PatientService {
                 let patient = await this.patientRepository.findById(patientId);
                 if (patient != null) {
                     let risk = this.exposureRiskDecisor.decideRisk(patientInfectionExposures);
-                    if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') || risk == ExposureRisk.LOW) {
+                    if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') ||
+                        (risk == ExposureRisk.LOW && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'LOW')) {
                         //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
                         if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
                             this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
                         }
-                    } else {
+                    } else if(risk == ExposureRisk.LOW) {
                         //back to need to make a test (but not quarantine) since the exposure exists but with no risk
                         if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED && patient.status != PatientStatus.UNKNOWN) {
                             this.doChangeStatus(patient, PatientStatus.UNKNOWN);
