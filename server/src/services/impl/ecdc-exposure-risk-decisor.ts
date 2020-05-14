@@ -18,7 +18,10 @@ export class EcdcExposureRiskDecisor implements ExposureRiskDecisor {
             if(!infectionExposuresPerContact.has(infectionExposure.anonymizedInfectedUuid)) {
                 infectionExposuresPerContact.set(infectionExposure.anonymizedInfectedUuid, []);
             }
+            infectionExposuresPerContact.get(infectionExposure.anonymizedInfectedUuid)?.push(infectionExposure);
         });
+
+        console.log(infectionExposuresPerContact);
 
         for(let anonymizedInfectedUuuid of infectionExposuresPerContact.keys()) {
 
@@ -55,9 +58,11 @@ export class EcdcExposureRiskDecisor implements ExposureRiskDecisor {
                     previousInfectionExposure = infectionExposure;
 
                 });
+
                 if(totalSignalMeasurements > 0) {
                     let avgSignal = rssiSignalsAddition / totalSignalMeasurements;
                     let distance = this.calculateDistance(avgSignal);
+                    console.log(totalSignalMeasurements + ", " + avgSignal + ", " + distance + ", " + totalTime);
                     if(distance <= 2 && totalTime >= 15 * 60 * 1000) {
                         risk = ExposureRisk.HIGH;
                     }

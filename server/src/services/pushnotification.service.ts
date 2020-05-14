@@ -1,6 +1,5 @@
 import PushNotifications from 'node-pushnotifications';
 import {join} from "path";
-import * as fs from "fs";
 import {repository} from "@loopback/repository";
 import {InstallationRepository} from "../repositories";
 
@@ -61,11 +60,11 @@ export class PushNotificationService {
                     this.sendNotification([installation.pushRegistrationId], title, body);
                 }
                 else {
-                    console.error("No push registration info found for patient " + patientId + ", installation: " + installation.id);
+                    console.error("No push registration info found for patient " + patientId + ", installation: " + installation.id + ". No push will be sent");
                 }
             }
             else {
-                console.error("No installation info found for patient " + patientId);
+                console.error("No installation info found for patient " + patientId + ". No push will be sent");
             }
 
         });

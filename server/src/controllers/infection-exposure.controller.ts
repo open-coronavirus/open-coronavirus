@@ -77,12 +77,12 @@ export class InfectionExposureController {
       })
       infectionExposures: InfectionExposure[],
   ): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise(async resolve => {
       console.log("Received " + infectionExposures.length + " infection exposures to save to ...");
-      this.infectionExposureRepository.createAll(infectionExposures);
+      await this.infectionExposureRepository.createAll(infectionExposures);
       console.log("Added " + infectionExposures.length + " infection exposures ...");
       //also put in quarantine all of them
-      this.patientService.decideToPutInQuarantine(infectionExposures);
+      await this.patientService.decideToPutInQuarantine(infectionExposures);
       console.log("Put " + infectionExposures.length + " infection exposures in quarantine ...");
       resolve();
     });

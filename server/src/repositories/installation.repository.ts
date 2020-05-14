@@ -2,6 +2,7 @@ import {DefaultCrudRepository} from '@loopback/repository';
 import {Installation, InstallationRelations} from '../models';
 import {MongoDataSource} from '../datasources';
 import {inject} from '@loopback/core';
+import {DataSource} from "loopback-datasource-juggler";
 
 export class InstallationRepository extends DefaultCrudRepository<
     Installation,
@@ -9,7 +10,7 @@ export class InstallationRepository extends DefaultCrudRepository<
     InstallationRelations
     > {
     constructor(
-        @inject('datasources.mongo') dataSource: MongoDataSource,
+        @inject('datasources.mongo') dataSource: DataSource,
     ) {
         super(Installation, dataSource);
     }

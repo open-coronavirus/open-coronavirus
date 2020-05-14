@@ -33,6 +33,7 @@ export class PatientService {
                 //ovewrite everything with the given patient data (to avoid issues with validateUsers because the
                 //user has been loaded from database, so it was previously validated
                 existingPatinet.copy(patient);
+                existingPatinet.updated = new Date();
                 //and now set the existing patient to the current patient variable
                 patient = existingPatinet;
             }
@@ -111,16 +112,29 @@ export class PatientService {
                 let patient = await this.patientRepository.findById(patientId);
                 if (patient != null) {
                     let risk = this.exposureRiskDecisor.decideRisk(patientInfectionExposures);
+
+                    switch(risk) {
+                        case ExposureRisk.HIGH:
+                            console.log('HIGH RISK DETECTED on patient: ' + patientId);
+                            break;
+                        case ExposureRisk.LOW:
+                            console.log('LOW RISK DETECTED on patient: ' + patientId);
+                            break;
+                        case ExposureRisk.NONE:
+                            console.log('NO RISK DETECTED on patient: ' + patientId);
+                            break;
+                    }
+
                     if ((risk == ExposureRisk.HIGH && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'HIGH') ||
                         (risk == ExposureRisk.LOW && process.env.EXPOSURE_RISK_LEVEL_TO_QUARANTINE == 'LOW')) {
                         //update status of unknown users or uninfected users (that may be now infected). Also do not change the status if it's already infection suspected!
                         if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED) {
-                            this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
+                            await this.doChangeStatus(patient, PatientStatus.INFECTION_SUSPECTED);
                         }
                     } else if(risk == ExposureRisk.LOW) {
                         //back to need to make a test (but not quarantine) since the exposure exists but with no risk
                         if (patient.status != PatientStatus.IMMUNE && patient.status != PatientStatus.INFECTED && patient.status != PatientStatus.INFECTION_SUSPECTED && patient.status != PatientStatus.UNKNOWN) {
-                            this.doChangeStatus(patient, PatientStatus.UNKNOWN);
+                            await this.doChangeStatus(patient, PatientStatus.UNKNOWN);
                         }
                     }
                 }
@@ -159,12 +173,12 @@ export class PatientService {
         return returnValue;
     }
 
-    protected doChangeStatus(patient: any, status: number, date: string | null = null) {
+    protected async doChangeStatus(patient: any, status: number, date: string | null = null) {
 
         patient.status = status;
         patient.statusDate = date;
         patient.updated = new Date();
-        this.patientRepository.update(patient);
+        await this.patientRepository.update(patient);
         let title = "Atención";
         let text = null;
         switch (status) {
