@@ -1,6 +1,7 @@
 <img src="https://github.com/open-coronavirus/open-coronavirus/blob/master/screenshots/logo-opencoronavirus.png?raw=true" width="600" />
 
 
+
 # ¿Qué es Open Coronavirus?
 
 La disponibilidad de una vacuna eficaz pueda demorarse de manera indefinida hasta
@@ -16,7 +17,7 @@ calientes, minimizando así la cuarentena general de la población, reduciendo l
 sobrecarga de los sistemas sanitarios y facilitando al mismo tiempo la reanudación
 progresiva de la actividad cotidiana en el menor tiempo posible.
 
-El sistema contará con 3 aplicativos:
+El sistema contará con varios aplicativos:
 
 - **App Ciudadano**. Aplicación mobile para la colaboración ciudadana y control de la propagación del
 SARS-CoV-2.
@@ -48,6 +49,7 @@ su movilidad.
 http://www.ox.ac.uk/news/2020-03-17-infectious-disease-experts-provide-evidence-coronavirus-mobile-app-instant-contact
 
 
+Web oficial: [https://opencoronavirus.app/](https://opencoronavirus.app/)
 
 Para más información puedes consultar la [wiki del proyecto](https://github.com/open-coronavirus/open-coronavirus/wiki):
 
@@ -140,6 +142,9 @@ Los datos que se recaben deberán gestionarse de conformidad con la ley en cuant
 Así mismo, pese a que esta app solicita al usuario su consentimiento, también el RGPD contiene excepciones a la necesidad de recabar el consentimiento previo al tratamiento de datos, en el caso de epidemia o de protección de la salud de las personas en base al interés general, que es la situación en la que nos encontramos. El escenario en el que se centra este informe es el de que las autoridades sanitarias autonómicas adoptan medidas extraordinarias para la protección de la salud pública, pues es la única legitimada para adoptar este tipo de medidas.
 
 
+> El proyecto sigue las **recomendaciones de la Comisión Europea** # [Mobile applications to support contact tracing in the EU’s fight against COVID-19
+Common EU Toolbox for Member States](https://ec.europa.eu/health/sites/health/files/ehealth/docs/covid-19_apps_en.pdf). Puedes ver un resumen en el pundo de la wiki que tratamos sobre: [02.-Consideraciones-legales](https://github.com/open-coronavirus/open-coronavirus/wiki/02.-Consideraciones-legales).
+
 > **Según la AEPD** Para cumplir las decisiones sobre la pandemia de coronavirus que adopten las autoridades competentes, en particular las sanitarias, la normativa de protección de datos no debería utilizarse para obstaculizar o limitar la efectividad de las medidas que adopten dichas autoridades, en la lucha contra la pandemia.
 > La normativa de protección de datos permite adoptar las medidas que sean necesarias para salvaguardar los intereses vitales de las personas físicas, el interés público esencial en el ámbito de la salud, la realización de diagnósticos médicos, o el cumplimiento de obligaciones legales en el ámbito laboral, incluido el tratamiento de datos de salud sin necesidad de contar con el consentimiento explícito el afectado.
 > En todo caso, el tratamiento de estos datos debe observar los principios establecidos en el RGPD, en particular los de minimización, limitación de la finalidad y minimización de la conservación.
@@ -155,6 +160,8 @@ Open Coronavirus se está diseñando de acuerdo con los siguientes principios:
 - **Uso de un enfoque de código abierto** para crear una aplicación que fomente la confianza en las capacidades de protección de la privacidad de la aplicación, ya que los expertos y los medios independientes pueden acceder y evaluar el código fuente.
 
 Los principios descritos anteriormente, aunque son técnicamente compatibles con las regulaciones actuales de privacidad de datos, están inspirados en Apps Gone Rogue: <a href="https://arxiv.org/pdf/2003.08567.pdf" target="_blank">Mantener la privacidad personal en una epidemia </a>
+
+
 
 
 ## Estructura del Proyecto
