@@ -26,7 +26,7 @@ export class Auth0AuthenticationStrategy implements AuthenticationStrategy {
 
     async authenticate(request: Request): Promise<UserProfile | undefined> {
         return new Promise<UserProfile | undefined>((resolve, reject) => {
-            this.jwtCheck(request, this.response, (err?: Error) => {
+            this.jwtCheck(request, this.response, (err?: any) => {
                 if (err) {
                     console.error(err);
                     reject(err);
@@ -37,7 +37,7 @@ export class Auth0AuthenticationStrategy implements AuthenticationStrategy {
                     jwtAuthz(this.metadata.options!.scopes, {failWithError: true})(
                         request,
                         this.response,
-                        (err2?: Error) => {
+                        (err2?: any) => {
                             if (err2) {
                                 console.error(err2);
                                 reject(err2);
