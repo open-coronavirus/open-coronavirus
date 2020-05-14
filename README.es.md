@@ -122,7 +122,7 @@ El funcionamiento del sistema **Bluetooth LE** es el siguiente:
 | ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-1-es.png) | 
 |:--:| 
 | *Sistema de seguimiento de contagios basado en Bluetooth Low Energy* |
-| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-2b-es.png) | 
+| ![Bluetooth LE flow](https://raw.githubusercontent.com/open-coronavirus/open-coronavirus/master/screenshots/bluetooth-description-2c-es.png) | 
 
 
 ---
