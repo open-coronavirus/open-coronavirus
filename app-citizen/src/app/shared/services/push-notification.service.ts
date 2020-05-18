@@ -54,9 +54,9 @@ export class PushNotificationService {
                     this.loggingService.log('[PushService] We do not have permission to send push notifications');
                 }
             })
-            .catch(error => {
-                this.loggingService.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
-            });
+                .catch(error => {
+                    this.loggingService.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
+                });
 
             //set the init options at this point:
             this.push.init({
@@ -104,14 +104,7 @@ export class PushNotificationService {
             });
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
                 this.loggingService.log('[PushService] notification ' + JSON.stringify(notification));
-                let previousStatus = this.patientService.patient.status;
-                let showUploadContactRequestModal = false;
-                this.patientService.refreshPatientData().subscribe(loaded => {
-                    if(previousStatus != this.patientService.patient.status) {
-                        showUploadContactRequestModal = true;
-                    }
-                    this.showNotification(notification, showUploadContactRequestModal); //and show the notification with the message from server
-                }) //refresh patient data in the meantime
+                this.showNotification(notification); //and show the notification with the message from server
             });
 
             PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
@@ -121,7 +114,7 @@ export class PushNotificationService {
 
     }
 
-    async showNotification(notification, showUploadContactRequestModal = false) {
+    async showNotification(notification) {
         const alert = await this.alertController.create(
             {
                 header: notification.title,
@@ -130,15 +123,7 @@ export class PushNotificationService {
                     {
                         text: 'OK',
                         handler: () => {
-                            if (this.tracingService.autoShareActivated) {
-                                this.loggingService.debug('Autoshare activated, uploading contacts');
-                                this.tracingService.trackInfectionToServer();
-                            }
-                            else {
-                                if(showUploadContactRequestModal) {
-                                    this.tracingService.showUploadContactRequestModal();
-                                }
-                            }
+                            this.patientService.refreshPatientData();
                         }
                     }
                 ],

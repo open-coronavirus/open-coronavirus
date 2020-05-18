@@ -1,20 +1,19 @@
 import {ApplicationRef, Component, ElementRef, Inject, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
-import { Router } from '@angular/router';
-import { ShareService } from '../../shared/services/share.service';
-import { PatientService } from '../../shared/services/patient.service';
-import {AlertController, MenuController, NavController, Platform} from '@ionic/angular';
-import { LeaveReasonEnum, LeaveRequestService } from '../../shared/services/leave-request.service';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { TestAppointmentService } from "../../shared/services/test-appointment.service";
-import { Subscription } from "rxjs";
-import { AppointmentType, PatientStatus } from "../../../../../server/src/common/utils/enums";
-import { LeaveRequest } from 'src/app/shared/sdk';
-import { ContactTrackerService } from 'src/app/shared/services/contacts/contact-tracker.service';
-import { TracingService } from "../../shared/services/tracing.service";
-import { PermissionsService } from '../../shared/services/permissions.service';
+import {Router} from '@angular/router';
+import {ShareService} from '../../shared/services/share.service';
+import {PatientService} from '../../shared/services/patient.service';
+import {AlertController, MenuController, Platform} from '@ionic/angular';
+import {LeaveReasonEnum, LeaveRequestService} from '../../shared/services/leave-request.service';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {TestAppointmentService} from "../../shared/services/test-appointment.service";
+import {Subscription} from "rxjs";
+import {AppointmentType, PatientStatus} from "../../../../../server/src/common/utils/enums";
+import {LeaveRequest} from 'src/app/shared/sdk';
+import {ContactTrackerService} from 'src/app/shared/services/contacts/contact-tracker.service';
+import {TracingService} from "../../shared/services/tracing.service";
+import {PermissionsService} from '../../shared/services/permissions.service';
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
-import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
-import {Content} from "@angular/compiler/src/render3/r3_ast";
+import {OpenNativeSettings} from '@ionic-native/open-native-settings/ngx';
 
 @Component({
     selector: 'home',
@@ -331,10 +330,6 @@ export class HomeComponent implements OnDestroy {
     }
 
     public uploadContactsAndShowThanksModal() {
-        this.tracingService.trackInfectionToServer();
-    }
-
-    public valeriaDemoConfirmarContact() {
         this.tracingService.trackInfectionToServer();
     }
 
