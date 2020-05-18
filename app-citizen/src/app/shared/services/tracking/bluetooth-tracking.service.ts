@@ -414,9 +414,10 @@ export class BluetoothTrackingService {
 
             this.bluetoothLE.startScan(params).subscribe(device => {
 
-                this.loggingService.debug("[BluetoothLE] Scan callback received: " + JSON.stringify(device));
-
                 if(device.address != null) {
+                    if (!this.knownAddress.has(device.address)) {
+                        this.loggingService.debug("[BluetoothLE] Scan callback received: " + JSON.stringify(device));
+                    }
                     this.sendKey(device.address);
                     this.bluetoothRSSIs.set(device.address, device.rssi);
                     this.contactTrackerService.updateTrack(device.address, device.rssi);

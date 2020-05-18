@@ -15,9 +15,11 @@ import {StorageService} from "./storage.service";
 @Injectable()
 export class TracingService {
 
-    public static UPLOADED_KEY_TO_SERVER = 'uploadedKeyToServer';
+    public static UPLOADED_KEY_TO_SERVER = 'uploadedKeyToServerV2';
 
     protected uploadedKeyToServer = false;
+
+    protected patientStatus = null;
 
     constructor(protected contactTrackerService: ContactTrackerService,
                 protected platform: Platform,
@@ -30,22 +32,33 @@ export class TracingService {
                 protected modalController: ModalController,
                 @Inject('settings') protected settings) {
 
-        this.storageService.getItem(TracingService.UPLOADED_KEY_TO_SERVER).subscribe(uploaded => {
-            if (uploaded == null) {
-                this.storageService.setItem(TracingService.UPLOADED_KEY_TO_SERVER, false);
+        this.patientService.patientLoaded$.subscribe(loaded => {
+            if(loaded) {
+                this.patientStatus = this.patientService.patient.status;
             }
-            else {
-                this.uploadedKeyToServer = uploaded;
+        });
+
+        this.storageService.getItem(TracingService.UPLOADED_KEY_TO_SERVER).subscribe(uploaded => {
+            if(uploaded == "yes") { //just in case uploaded is "yes"
+                this.uploadedKeyToServer = true;
+            }
+            else { //can be null or no
+                this.uploadedKeyToServer = false;
             }
 
             this.patientService.patientDataChanged$.subscribe(changed => {
-                if(this.patientService.patient.status == PatientStatus.INFECTED && !this.uploadedKeyToServer) {
-                    if (this.autoShareActivated) {
-                        this.loggingService.debug('Autoshare activated, uploading contacts ...');
-                        this.trackInfectionToServer();
-                    }
-                    else {
-                        this.showUploadContactRequestModal();
+                if(changed) {
+                    if (this.patientService.patient.status == PatientStatus.INFECTED &&
+                        //track infection to server in both cases:
+                        // * if status never uploaded OR
+                        // * the status has been changed to INFECTED
+                        ((this.patientStatus != null && this.patientStatus != this.patientService.patient.status) || !this.uploadedKeyToServer)) {
+                        if (this.autoShareActivated) {
+                            this.loggingService.debug('Autoshare activated, uploading contacts ...');
+                            this.trackInfectionToServer();
+                        } else {
+                            this.showUploadContactRequestModal();
+                        }
                     }
                 }
             });
@@ -62,12 +75,12 @@ export class TracingService {
             if (this.settings.useDecentralizedProtocol) {
                 this.keyManagerService.uploadKeyToServer();
                 this.uploadedKeyToServer = true;
-                this.storageService.setItem(TracingService.UPLOADED_KEY_TO_SERVER, this.uploadedKeyToServer);
+                this.storageService.setItem(TracingService.UPLOADED_KEY_TO_SERVER, "yes");
                 resolve();
             } else {
                 this.uploadContactsAndShowThanksModal().then(() => {
                     this.uploadedKeyToServer = true;
-                    this.storageService.setItem(TracingService.UPLOADED_KEY_TO_SERVER, this.uploadedKeyToServer);
+                    this.storageService.setItem(TracingService.UPLOADED_KEY_TO_SERVER, "yes");
                     resolve() ;
                 })
             }

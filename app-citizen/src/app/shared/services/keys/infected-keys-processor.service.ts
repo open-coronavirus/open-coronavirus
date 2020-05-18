@@ -57,6 +57,7 @@ export class InfectedKeysProcessorService {
                         if(decryptedTimestamp  == row.encryption_timestamp.toString()) {
                             this.loggingService.debug("Detected one contact: " + JSON.stringify(row));
                             contactEntriesMatched.push(row);
+                            this.loggingService.debug("Key was: " + key.key + " and sessionKey was: " + sessionKey + ". anonymizedInfectedUuid was" + anonymizedInfectedUuid);
                             let infectionExposure: InfectionExposure = {
                                 patientId: this.patientService.patient.id,
                                 timestampFrom: row.timestamp_from,
@@ -67,7 +68,6 @@ export class InfectedKeysProcessorService {
                             if(row.rssi != null) {
                                 infectionExposure.rssi = row.rssi;
                             }
-
                             //contact with infection!!!!
                             exposuresMatched.push(infectionExposure);
                         }
