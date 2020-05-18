@@ -33,7 +33,7 @@ export class InfectedKeysProcessorService {
 
         let exposuresMatched = [];
 
-        let timestamp = new Date().getTime(); //this is going to be returned in plain text and encrypted as well
+        let sessionGuid = Guid.create().toString();
         let contactEntriesMatched = [];
 
         let existsMoreRows = true;
@@ -49,7 +49,7 @@ export class InfectedKeysProcessorService {
 
                         this.loggingService.debug("Checking key " + key.key + " ...");
 
-                        let anonymizedInfectedUuid = crypto.AES.encrypt(timestamp.toString(), key.key).toString();
+                        let anonymizedInfectedUuid = crypto.MD5(sessionGuid + ":" + key.key).toString();
 
                         let keyToDecryptTo = this.keyManagerService.generateKey(key.key, new Date(key.keyDate).getTime(), row.encryption_timestamp);
                         let decryptedTimestamp = this.keyManagerService.decrypt(keyToDecryptTo, row.encrypted_data);
@@ -57,7 +57,7 @@ export class InfectedKeysProcessorService {
                         if(decryptedTimestamp  == row.encryption_timestamp.toString()) {
                             this.loggingService.debug("Detected one contact: " + JSON.stringify(row));
                             contactEntriesMatched.push(row);
-                            this.loggingService.debug("Key was: " + key.key + " and timestamp was: " + timestamp + ". anonymizedInfectedUuid was" + anonymizedInfectedUuid);
+                            this.loggingService.debug("Key was: " + key.key + " and sessionKey was: " + sessionGuid + ". anonymizedInfectedUuid was" + anonymizedInfectedUuid);
                             let infectionExposure: InfectionExposure = {
                                 patientId: this.patientService.patient.id,
                                 timestampFrom: row.timestamp_from,
