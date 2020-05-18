@@ -45,25 +45,6 @@ import {BackgroundFetchService} from "./shared/services/background-fetch.service
 import {TracingService} from "./shared/services/tracing.service";
 import {OpenNativeSettings} from '@ionic-native/open-native-settings/ngx';
 import {LoggingService} from "./shared/services/logging.service";
-import {Bugfender} from "@bugfender/sdk";
-
-/*
-
-UNCOMMENT IF YOU ARE GOING TO USE BUGFENDER
-AND SET THE PROPER APP KEY:
-
-Bugfender.init({
-    appKey: '<YOUR_APP_KEY_HERE>',
-    // apiURL: 'https://api.bugfender.com',
-    // baseURL: 'https://dashboard.bugfender.com',
-    // overrideConsoleMethods: true,
-    // printToConsole: true,
-    // registerErrorHandler: true,
-    version: environment.version,
-    build: '123',
-});
-
- */
 
 @NgModule({
     declarations: [AppComponent, MainComponent],

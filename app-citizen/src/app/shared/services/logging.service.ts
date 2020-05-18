@@ -10,11 +10,10 @@ export class LoggingService {
     protected logger: Logger = null;
 
     constructor(@Inject('settings') protected settings,
-                protected patientService: PatientService
-                ) {
+                protected patientService: PatientService) {
         switch(this.settings.logger) {
             case 'bugfender':
-                this.logger = new BugFenderLogger(patientService);
+                this.logger = new BugFenderLogger(this.settings, patientService);
                 break;
             case 'console':
             default:

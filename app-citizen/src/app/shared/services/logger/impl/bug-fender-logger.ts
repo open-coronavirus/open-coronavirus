@@ -4,12 +4,18 @@ import {PatientService} from "../../patient.service";
 
 export class BugFenderLogger implements Logger {
 
-    constructor(protected patientService: PatientService) {
+    constructor(protected settings,
+                protected patientService: PatientService) {
 
-        this.patientService.patientLoaded$.subscribe(loaded => {
-            if(loaded) {
-                Bugfender.setDeviceKey('patient_dni', this.patientService.patient.documentNumber);
-            }
+        Bugfender.init({
+            appKey: settings.bugFenderAPPKey,
+            version: settings.appVersion
+        }).then(() => {
+            this.patientService.patientLoaded$.subscribe(loaded => {
+                if(loaded) {
+                    Bugfender.setDeviceKey('patient_dni', this.patientService.patient.documentNumber);
+                }
+            });
         });
 
     }
