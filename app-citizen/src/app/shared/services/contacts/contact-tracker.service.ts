@@ -185,26 +185,34 @@ export class ContactTrackerService {
 
         if(this.db != null) {
 
+            let updateContact = false;
+
             let contact = this.knownContacts.get(address);
             if (contact.rssi < rssi) {
                 contact.rssi = rssi;
+                updateContact = true;
             }
-            contact.timestampTo = new Date().getTime();
+            else if(new Date().getTime() - contact.timestampTo - 60000 > 0) {
+                updateContact = true;
+            }
 
-            this.db.executeSql("UPDATE contacts set rssi = ?, timestamp_to = ? where id = ?",
-                [contact.rssi, contact.timestampTo, contact.id]).then(result => {
-                this.knownContacts.set(address, contact); //update the contact
-                this.loggingService.debug("[Contact tracker] Updated existing contact from address " + contact.address);
-                if(this.nearestDevices.has(contact.id)) {
-                    this.nearestDevices.get(contact.id)['rssi'] = rssi;
-                    this.nearestDevices.get(contact.id)['date'] = new Date();
-                }
-                this.contactAddedOrUpdated$.next(true);
-                returnValue.next(true);
-            }).catch(error => {
-                this.loggingService.error("Error trying to insert a contact from address " + contact.address + ": " + JSON.stringify(error));
-                returnValue.next(false);
-            });
+            if(updateContact) {
+                contact.timestampTo = new Date().getTime();
+                this.db.executeSql("UPDATE contacts set rssi = ?, timestamp_to = ? where id = ?",
+                    [contact.rssi, contact.timestampTo, contact.id]).then(result => {
+                    this.knownContacts.set(address, contact); //update the contact
+                    this.loggingService.debug("[Contact tracker] Updated existing contact from address " + contact.address);
+                    if (this.nearestDevices.has(contact.id)) {
+                        this.nearestDevices.get(contact.id)['rssi'] = rssi;
+                        this.nearestDevices.get(contact.id)['date'] = new Date();
+                    }
+                    this.contactAddedOrUpdated$.next(true);
+                    returnValue.next(true);
+                }).catch(error => {
+                    this.loggingService.error("Error trying to insert a contact from address " + contact.address + ": " + JSON.stringify(error));
+                    returnValue.next(false);
+                });
+            }
         }
         else {
             returnValue.next(false);
