@@ -14,7 +14,7 @@ export class LoggingService {
                 ) {
         switch(this.settings.logger) {
             case 'bugfender':
-                this.logger = new BugFenderLogger(settings, patientService);
+                this.logger = new BugFenderLogger(patientService);
                 break;
             case 'console':
             default:
