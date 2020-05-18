@@ -28,6 +28,7 @@
     "@angular/platform-browser": "9.1.0",
     "@angular/platform-browser-dynamic": "9.1.0",
     "@angular/router": "9.1.0",
+    "@bugfender/sdk": "^0.8.0",
     "@capacitor/android": "^2.0.1",
     "@capacitor/core": "^2.0.1",
     "@capacitor/ios": "^2.0.1",

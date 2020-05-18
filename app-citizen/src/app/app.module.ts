@@ -44,6 +44,9 @@ import {InfectedKeysProcessorService} from "./shared/services/keys/infected-keys
 import {BackgroundFetchService} from "./shared/services/background-fetch.service";
 import {TracingService} from "./shared/services/tracing.service";
 import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
+import {LoggingService} from "./shared/services/logging.service";
+import {ConsoleLogger} from "./shared/services/logger/impl/console-logger";
+import {BugFenderLogger} from "./shared/services/logger/impl/bug-fender-logger";
 
 @NgModule({
     declarations: [AppComponent, MainComponent],
@@ -73,6 +76,7 @@ import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
         SQLite,
         ShareService,
         KeyManagerService,
+        LoggingService,
         InfectedKeysProcessorService,
         BackgroundFetchService,
         TracingService,

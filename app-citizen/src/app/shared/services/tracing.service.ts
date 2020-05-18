@@ -5,9 +5,9 @@ import {ContactTrackerService} from "./contacts/contact-tracker.service";
 import {ContactUploadRequestComponent} from "../../main/contact-upload-request/contact-upload-request.component";
 import {ContactUploadThanksComponent} from "../../main/contact-upload-thanks/contact-upload-thanks.component";
 import {PatientService} from "./patient.service";
-import BackgroundFetch from "cordova-plugin-background-fetch";
 import {InfectedKeyControllerService} from "../sdk";
 import {InfectedKeysProcessorService} from "./keys/infected-keys-processor.service";
+import {LoggingService} from "./logging.service";
 
 
 @Injectable()
@@ -16,6 +16,7 @@ export class TracingService {
     constructor(protected contactTrackerService: ContactTrackerService,
                 protected platform: Platform,
                 protected patientService: PatientService,
+                protected loggingService: LoggingService,
                 protected infectedKeysProcessorService: InfectedKeysProcessorService,
                 protected infectedKeyControllerService: InfectedKeyControllerService,
                 protected keyManagerService: KeyManagerService,
@@ -45,7 +46,7 @@ export class TracingService {
                 try {
                     await this.infectedKeysProcessorService.matchInfectedKeys(infectedKeys);
                 } catch (error) {
-                    console.error("Error trying to match infected keys: " + JSON.stringify(error));
+                    this.loggingService.error("Error trying to match infected keys: " + JSON.stringify(error));
                 }
                 resolve();
             });

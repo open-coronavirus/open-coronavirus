@@ -5,9 +5,8 @@ import {Contact} from "./contact";
 import {ModalController, Platform} from "@ionic/angular";
 import {ContactControllerService, ContactWithRelations} from "../../sdk";
 import {PatientService} from "../patient.service";
-import {ContactUploadRequestComponent} from 'src/app/main/contact-upload-request/contact-upload-request.component';
-import {ContactUploadThanksComponent} from 'src/app/main/contact-upload-thanks/contact-upload-thanks.component';
 import {EncryptedKey} from "../keys/key-manager.service";
+import {LoggingService} from "../logging.service";
 
 
 @Injectable()
@@ -31,6 +30,7 @@ export class ContactTrackerService {
     public constructor(protected sqlite: SQLite,
                        protected contactControllerService: ContactControllerService,
                        protected patientService: PatientService,
+                       protected loggingService: LoggingService,
                        protected platform: Platform,
                        protected modalController: ModalController,
                        @Inject('settings') protected settings) {
@@ -53,23 +53,23 @@ export class ContactTrackerService {
                     if(promise != null) {
                         promise.then((db: SQLiteObject) => {
                             this.db = db;
-                            console.log("Connected: " + JSON.stringify(db));
+                            this.loggingService.log("Connected: " + JSON.stringify(db));
                             this.db.executeSql("SELECT * FROM sqlite_master WHERE type='table' AND name='contacts'", []).then(result => {
                                 if (result.rows.length > 0) {
-                                    console.debug("Table contacts already exists!")
+                                    this.loggingService.debug("Table contacts already exists!")
                                     this.connectedToDb$.next(true);
                                     this.refreshContactsCount();
                                 } else {
-                                    console.debug("Table contacts does not exits. Creatint it ...")
+                                    this.loggingService.debug("Table contacts does not exits. Creatint it ...")
                                     this.db.executeSql('CREATE TABLE contacts (id VARCHAR(32), address VARCHAR(256), encrypted_data TEXT, encryption_timestamp INTEGER, timestamp_from INTEGER, timestamp_to INTEGER, rssi INT);', [])
                                         .then(() => {
                                             this.connectedToDb$.next(true);
                                         })
-                                        .catch(e => console.error(e));
+                                        .catch(e => this.loggingService.error(e));
                                 }
                             })
                                 .catch(noResults => {
-                                    console.error("Error checking database status at the very beginning: " + JSON.stringify(noResults));
+                                    this.loggingService.error("Error checking database status at the very beginning: " + JSON.stringify(noResults));
                                 });
                         });
                     }
@@ -111,7 +111,7 @@ export class ContactTrackerService {
             this.db.executeSql("INSERT INTO contacts(id, address, encrypted_data, encryption_timestamp, timestamp_from, timestamp_to, rssi) values (?, ?, ?, ?, ?, ?, ?)",
                 [contact.id, contact.address, contact.encryptedData, contact.encryptionTimestamp, contact.timestampFrom, contact.timestampTo, contact.rssi]).then(result => {
                 this.knownContacts.set(contact.address, contact); //update the contact
-                console.debug("[Contact tracker] Inserted new contact from address " + contact.address);
+                this.loggingService.debug("[Contact tracker] Inserted new contact from address " + contact.address);
                 returnValue.next(true);
                 this.refreshContactsCount();
                 let devicesToRemove = [];
@@ -127,7 +127,7 @@ export class ContactTrackerService {
                 this.contactAdded$.next(true);
                 this.contactAddedOrUpdated$.next(true);
             }).catch(error => {
-                console.error("Error trying to insert a contact from address " + contact.address + ": " + JSON.stringify(error));
+                this.loggingService.error("Error trying to insert a contact from address " + contact.address + ": " + JSON.stringify(error));
                 returnValue.next(false);
             });
         }
@@ -151,10 +151,10 @@ export class ContactTrackerService {
         return new Promise((resolve, reject) => {
             if(this.db != null) {
                 this.db.executeSql('SELECT count(distinct(address)) AS TOTAL FROM contacts', []).then(result => {
-                    console.log('[Contact tracker] contacts count: ' + JSON.stringify(result.rows.item(0).TOTAL));
+                    this.loggingService.log('[Contact tracker] contacts count: ' + JSON.stringify(result.rows.item(0).TOTAL));
                     resolve(result.rows.item(0).TOTAL);
                 }).catch(error => {
-                    console.error("Error trying to retrieve contacts: " + JSON.stringify(error));
+                    this.loggingService.error("Error trying to retrieve contacts: " + JSON.stringify(error));
                     reject(error);
                 });
             }
@@ -194,7 +194,7 @@ export class ContactTrackerService {
             this.db.executeSql("UPDATE contacts set rssi = ?, timestamp_to = ? where id = ?",
                 [contact.rssi, contact.timestampTo, contact.id]).then(result => {
                 this.knownContacts.set(address, contact); //update the contact
-                console.debug("[Contact tracker] Updated existing contact from address " + contact.address);
+                this.loggingService.debug("[Contact tracker] Updated existing contact from address " + contact.address);
                 if(this.nearestDevices.has(contact.id)) {
                     this.nearestDevices.get(contact.id)['rssi'] = rssi;
                     this.nearestDevices.get(contact.id)['date'] = new Date();
@@ -202,7 +202,7 @@ export class ContactTrackerService {
                 this.contactAddedOrUpdated$.next(true);
                 returnValue.next(true);
             }).catch(error => {
-                console.error("Error trying to insert a contact from address " + contact.address + ": " + JSON.stringify(error));
+                this.loggingService.error("Error trying to insert a contact from address " + contact.address + ": " + JSON.stringify(error));
                 returnValue.next(false);
             });
         }
@@ -220,7 +220,7 @@ export class ContactTrackerService {
                 this.db.executeSql(`SELECT * FROM contacts order by timestamp_from desc limit ${limit} offset ${offset}`, []).then(result => {
                     resolve(result);
                 }).catch(error => {
-                    console.error("Error trying to retrieve contacts: " + JSON.stringify(error));
+                    this.loggingService.error("Error trying to retrieve contacts: " + JSON.stringify(error));
                     reject(error);
                 });
             }
@@ -265,18 +265,18 @@ export class ContactTrackerService {
                         contactsToUpload.push(contactToUpload);
 
                     }
-                    console.log("[Contact tracker] Upload a total of " + contactsToUpload.length + " contacts to server: " + JSON.stringify(contactsToUpload));
+                    this.loggingService.log("[Contact tracker] Upload a total of " + contactsToUpload.length + " contacts to server: " + JSON.stringify(contactsToUpload));
                     this.contactControllerService.contactControllerCreateAll(contactsToUpload).subscribe(result => {
-                        console.log("[Contact tracker] Uploaded a total of " + contactsToUpload.length + " contacts to server.");
+                        this.loggingService.log("[Contact tracker] Uploaded a total of " + contactsToUpload.length + " contacts to server.");
                         this.db.executeSql('DELETE FROM contacts', [])
                             .then(() => {
                                 this.connectedToDb$.next(true);
                                 this.contactsCount$.next(0);
                             })
-                            .catch(e => console.error(e));
+                            .catch(e => this.loggingService.error(e));
                     },
                     error => {
-                        console.error(JSON.stringify(error));
+                        this.loggingService.error(JSON.stringify(error));
                     });
                 } else {
                     existsMoreRows = false;

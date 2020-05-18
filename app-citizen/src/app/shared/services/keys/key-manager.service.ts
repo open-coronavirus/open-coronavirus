@@ -4,6 +4,7 @@ import {StorageService} from "../storage.service";
 import {Guid} from "guid-typescript";
 import {InfectedKey, InfectedKeyControllerService} from "../../sdk";
 import {PatientService} from "../patient.service";
+import {LoggingService} from "../logging.service";
 
 @Injectable()
 export class KeyManagerService {
@@ -17,6 +18,7 @@ export class KeyManagerService {
 
     public constructor(protected storageService: StorageService,
                        protected patientService: PatientService,
+                       protected loggingService: LoggingService,
                        protected infectedKeyControllerService: InfectedKeyControllerService) {
 
         this.storageService.getItem(KeyManagerService.SK_KEY).subscribe(data => {
@@ -63,7 +65,7 @@ export class KeyManagerService {
         currentDate.setHours(0, 0, 0, 0); //trim the time
 
         const diffDays = this.getDiffDays(initialTimestamp, currentDate.getTime());
-        console.log("Difference in days is: " + diffDays);
+        this.loggingService.log("Difference in days is: " + diffDays);
         let returnValue = initialKey.toString();
         for (let i = 0; i < diffDays; i++) {
             returnValue = this.generateNewKey(returnValue);
@@ -90,7 +92,7 @@ export class KeyManagerService {
             }
         }
         catch(error) {
-            console.log("Error trying to decrypt [" + encriptedData + "] with key [" + key + "] : " + JSON.stringify(error));
+            this.loggingService.log("Error trying to decrypt [" + encriptedData + "] with key [" + key + "] : " + JSON.stringify(error));
         }
         return returnValue;
     }

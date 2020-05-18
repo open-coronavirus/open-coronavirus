@@ -11,11 +11,11 @@ import {
     PushNotificationToken
 } from "@capacitor/core";
 import {AlertController} from "@ionic/angular";
-import { PermissionsService } from './permissions.service';
-import { PatientStatus } from '../../../../../server/src/common/utils/enums';
+import {PermissionsService} from './permissions.service';
 import {ContactTrackerService} from "./contacts/contact-tracker.service";
 import {KeyManagerService} from "./keys/key-manager.service";
 import {TracingService} from "./tracing.service";
+import {LoggingService} from "./logging.service";
 
 const { PushNotifications } = Plugins;
 
@@ -34,6 +34,7 @@ export class PushNotificationService {
                 public alertController: AlertController,
                 protected tracingService: TracingService,
                 protected installationService: InstallationService,
+                protected loggingService: LoggingService,
                 protected contactTrackerService: ContactTrackerService,
                 protected keyManagerService: KeyManagerService,
                 protected installationControllerService: InstallationControllerService,
@@ -46,15 +47,15 @@ export class PushNotificationService {
 
             // to check if we have permission
             this.push.hasPermission().then((res: any) => {
-                console.log('[PushService] Permission response: ' + JSON.stringify(res));
+                this.loggingService.log('[PushService] Permission response: ' + JSON.stringify(res));
                 if (res.isEnabled) {
-                    console.log('[PushService] We have permission to send push notifications');
+                    this.loggingService.log('[PushService] We have permission to send push notifications');
                 } else {
-                    console.log('[PushService] We do not have permission to send push notifications');
+                    this.loggingService.log('[PushService] We do not have permission to send push notifications');
                 }
             })
             .catch(error => {
-                console.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
+                this.loggingService.error('[PushService] Error trying to get push permissions: ' + JSON.stringify(error));
             });
 
             //set the init options at this point:
@@ -71,17 +72,17 @@ export class PushNotificationService {
             });
 
             PushNotifications.register().then(result => {
-                console.log('[PushService] regitration result: ' + JSON.stringify(result));
+                this.loggingService.log('[PushService] regitration result: ' + JSON.stringify(result));
             });
 
             PushNotifications.addListener('registration', (token: PushNotificationToken) => {
                 if(!this.handledRegistration) {
                     this.handledRegistration = true;
-                    console.log('[PushService] token: ' + token.value);
+                    this.loggingService.log('[PushService] token: ' + token.value);
                     this.installationService.loadedDeviceId$.subscribe(loaded => {
                         if (loaded) {
                             this.installationControllerService.installationControllerUpdatePushRegistrationIdByDeviceId(this.installationService.deviceId, token.value).subscribe(installation => {
-                                console.log("[PushService] Registered on the installation");
+                                this.loggingService.log("[PushService] Registered on the installation");
                             });
                         }
                     });
@@ -99,10 +100,10 @@ export class PushNotificationService {
             });
 
             PushNotifications.addListener('registrationError', (error: any) => {
-                console.log('[PushService] error on register ' + JSON.stringify(error));
+                this.loggingService.log('[PushService] error on register ' + JSON.stringify(error));
             });
             PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
-                console.log('[PushService] notification ' + JSON.stringify(notification));
+                this.loggingService.log('[PushService] notification ' + JSON.stringify(notification));
                 let previousStatus = this.patientService.patient.status;
                 let showUploadContactRequestModal = false;
                 this.patientService.refreshPatientData().subscribe(loaded => {
@@ -114,7 +115,7 @@ export class PushNotificationService {
             });
 
             PushNotifications.addListener('pushNotificationActionPerformed', (notification: PushNotificationActionPerformed) => {
-                console.log('[PushService] notification ' + JSON.stringify(notification));
+                this.loggingService.log('[PushService] notification ' + JSON.stringify(notification));
             });
         }
 
@@ -130,7 +131,7 @@ export class PushNotificationService {
                         text: 'OK',
                         handler: () => {
                             if (this.tracingService.autoShareActivated) {
-                                console.debug('Autoshare activated, uploading contacts');
+                                this.loggingService.debug('Autoshare activated, uploading contacts');
                                 this.tracingService.trackInfectionToServer();
                             }
                             else {

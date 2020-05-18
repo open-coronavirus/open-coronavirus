@@ -10,12 +10,14 @@ import {KeyManagerService} from "./key-manager.service";
 import {PatientService} from "../patient.service";
 import {Guid} from "guid-typescript";
 import * as crypto from "crypto-js";
+import {LoggingService} from "../logging.service";
 
 @Injectable()
 export class InfectedKeysProcessorService {
 
     public constructor(protected contactTrackerService: ContactTrackerService,
                        protected patientService: PatientService,
+                       protected loggingService: LoggingService,
                        protected infectionExposureControllerService: InfectionExposureControllerService,
                        protected infectedKeyControllerService: InfectedKeyControllerService,
                        protected keyManagerService: KeyManagerService) {
@@ -27,7 +29,7 @@ export class InfectedKeysProcessorService {
         let limit = 100;
         let offset = 0;
 
-        console.debug("Start matching infected keys ...");
+        this.loggingService.debug("Start matching infected keys ...");
 
         let exposuresMatched = [];
 
@@ -45,15 +47,15 @@ export class InfectedKeysProcessorService {
 
                     for(let key of infectedKeys) {
 
-                        console.debug("Checking key " + key.key + " ...");
+                        this.loggingService.debug("Checking key " + key.key + " ...");
 
                         let anonymizedInfectedUuid = crypto.AES.encrypt(key.key, sessionKey).toString();
 
                         let keyToDecryptTo = this.keyManagerService.generateKey(key.key, new Date(key.keyDate).getTime(), row.encryption_timestamp);
                         let decryptedTimestamp = this.keyManagerService.decrypt(keyToDecryptTo, row.encrypted_data);
-                        console.debug("decrypted timestamp: " + decryptedTimestamp + ", encrypted timestamp: " + row.encrypted_data + ", encryption_timestamp: " + row.encryption_timestamp + ", key used to decrypt: " + keyToDecryptTo);
+                        this.loggingService.debug("decrypted timestamp: " + decryptedTimestamp + ", encrypted timestamp: " + row.encrypted_data + ", encryption_timestamp: " + row.encryption_timestamp + ", key used to decrypt: " + keyToDecryptTo);
                         if(decryptedTimestamp  == row.encryption_timestamp.toString()) {
-                            console.debug("Detected one contact: " + JSON.stringify(row));
+                            this.loggingService.debug("Detected one contact: " + JSON.stringify(row));
                             contactEntriesMatched.push(row);
                             let infectionExposure: InfectionExposure = {
                                 patientId: this.patientService.patient.id,
@@ -84,14 +86,14 @@ export class InfectedKeysProcessorService {
 
         if(exposuresMatched.length > 0) {
             //upload contacts to server
-            console.debug("Uploading a total of " + exposuresMatched.length + " infection exposures entries : " + JSON.stringify(exposuresMatched));
+            this.loggingService.debug("Uploading a total of " + exposuresMatched.length + " infection exposures entries : " + JSON.stringify(exposuresMatched));
             this.infectionExposureControllerService.infectionExposureControllerCreateAll(exposuresMatched).subscribe(result => {
-                console.debug(exposuresMatched.length + " infection exposures entries uploaded!");
+                this.loggingService.debug(exposuresMatched.length + " infection exposures entries uploaded!");
                 this.contactTrackerService.deleteContacts(contactEntriesMatched);
             })
         }
         else {
-            console.debug("No infection exposures entries to upload to.");
+            this.loggingService.debug("No infection exposures entries to upload to.");
         }
 
     }
