@@ -54,7 +54,7 @@
     "cordova-open-native-settings": "^1.5.2",
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-background-fetch": "^6.0.6",
-    "cordova-plugin-bluetoothle": "^4.5.9",
+    "cordova-plugin-bluetoothle": "^4.5.10",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.2.0",
