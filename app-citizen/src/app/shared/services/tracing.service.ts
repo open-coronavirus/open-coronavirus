@@ -48,22 +48,25 @@ export class TracingService {
 
             this.patientService.patientDataChanged$.subscribe(changed => {
                 if(changed) {
+                    this.loggingService.debug("[TracingService] Patient status: " + this.patientService.patient.status);
                     if (this.patientService.patient.status == PatientStatus.INFECTED &&
                         //track infection to server in both cases:
                         // * if status never uploaded OR
                         // * the status has been changed to INFECTED
                         ((this.patientStatus != null && this.patientStatus != this.patientService.patient.status) || !this.uploadedKeyToServer)) {
+                        this.loggingService.debug("[TracingService] Need to upload infectad status to server ...");
                         if (this.autoShareActivated) {
-                            this.loggingService.debug('Autoshare activated, uploading contacts ...');
+                            this.loggingService.debug("[TracingService] Autoshare activated, uploading contacts ...");
                             this.trackInfectionToServer();
                         } else {
+                            this.loggingService.debug("[TracingService] Autoshare deactivaed, asking the user ...");
                             this.showUploadContactRequestModal();
                         }
                     }
                 }
             });
 
-        })
+        });
 
     }
 
