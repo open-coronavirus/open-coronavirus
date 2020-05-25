@@ -20,11 +20,11 @@ export interface PatientWithRelations {
 
 
     id?: string;
-    firstName: string;
+    firstName?: string;
     lastName?: string;
-    documentNumber: string;
+    documentNumber?: string;
     healthInsuranceCardNumber?: string;
-    birthday: string;
+    birthday?: string;
     age?: number;
     gender?: number;
     street?: string;

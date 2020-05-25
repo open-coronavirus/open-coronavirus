@@ -18,11 +18,11 @@ export interface NewPatient {
   [key: string]: object | any;
 
 
-    firstName: string;
+    firstName?: string;
     lastName?: string;
-    documentNumber: string;
+    documentNumber?: string;
     healthInsuranceCardNumber?: string;
-    birthday: string;
+    birthday?: string;
     age?: number;
     gender?: number;
     street?: string;

@@ -13,9 +13,9 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  firstName: string;
+  firstName?: string;
 
   @property({
     type: 'string',
@@ -25,9 +25,9 @@ export class Patient extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  documentNumber: string;
+  documentNumber?: string;
 
   @property({
     type: 'string',
@@ -37,9 +37,9 @@ export class Patient extends Entity {
 
   @property({
     type: 'date',
-    required: true,
+    required: false,
   })
-  birthday: Date;
+  birthday?: Date;
 
   @property({
     type: 'number',
