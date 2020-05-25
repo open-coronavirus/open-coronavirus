@@ -1,9 +1,10 @@
-import { Inject, Injectable } from '@angular/core';
+import {ApplicationRef, Inject, Injectable} from '@angular/core';
 import { PatientControllerService, PatientWithRelations } from '../sdk';
 import { BehaviorSubject, Subject, Subscribable } from 'rxjs';
-import { Platform } from '@ionic/angular';
+import {AlertController, Platform} from '@ionic/angular';
 import { StorageService } from "./storage.service";
 import { InstallationService } from "./installation.service";
+import {PatientStatus} from "../../../../../server/src/common/utils/enums";
 
 
 @Injectable()
@@ -31,13 +32,16 @@ export class PatientService {
     public patientRefreshed$ = new Subject();
 
     public static PATIENT_TOKEN_KEY = 'patientTokenV4';
+    public static PATIENT_LAST_STATUS_KEY = 'patientLastStatusV4';
 
     constructor(protected patientController: PatientControllerService,
-        @Inject('environment') protected environment,
-        protected installationService: InstallationService,
-        @Inject('settings') protected settings,
-        public platform: Platform,
-        protected storageService: StorageService) {
+                @Inject('environment') protected environment,
+                protected installationService: InstallationService,
+                @Inject('settings') protected settings,
+                private appRef: ApplicationRef,
+                public alertController: AlertController,
+                public platform: Platform,
+                protected storageService: StorageService) {
 
     }
 
@@ -45,19 +49,23 @@ export class PatientService {
 
         let returnValue = new Subject<boolean>();
 
-        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(token => {
+        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).then(token => {
             if (token != null) {
                 this.patientController.patientControllerFindById(token).subscribe(existingPatient => {
                     if (existingPatient != null) {
                         this._patient = existingPatient;
                         this.patientToken = token;
-                        this.patientLoaded$.next(true);
-                        this.patientDataChanged$.next(true);
-                        returnValue.next(true);
+                        this.checkIfPatientStatusHasChanged(this._patient).then(() => {
+                            this.patientLoaded$.next(true);
+                            this.patientDataChanged$.next(true);
+                            returnValue.next(true);
+                            this.appRef.tick(); //ensure refresh
+                        });
                     } else {
                         returnValue.next(false);
                     }
                 });
+
             } else {
                 returnValue.next(false);
             }
@@ -67,17 +75,46 @@ export class PatientService {
         return returnValue;
     }
 
+    public checkIfPatientStatusHasChanged(patient) {
+        return new Promise<void>((resolve, reject) => {
+            this.storageService.getItem(PatientService.PATIENT_LAST_STATUS_KEY).then(async lastStatus => {
+                if (lastStatus != null && patient.status != lastStatus) {
+                    let text;
+                    switch(patient.status) {
+                        case PatientStatus.INFECTED:
+                            text = "Has dado POSITIVO en COVID-19. Por favor, quédate en casa y contacta con tu médico o centro de salud.";
+                            break;
+                        case PatientStatus.UNINFECTED:
+                        case PatientStatus.IMMUNE:
+                            text = "Has dado NEGATIVO en COVID-19. Enhorabuena!";
+                            break;
+                        case PatientStatus.INFECTION_SUSPECTED:
+                            text = "Has estado en contacto activamente con pacientes con riesgo de coronavirus en los últimos días. Por favor, quédate en casa y contacta con tu médico o centro de salud.";
+                            break;
+                    }
+                    await this.showNotification("Atención", text);
+                }
+                this.storageService.setItem(PatientService.PATIENT_LAST_STATUS_KEY, patient.status).then(() => {
+                    resolve();
+                });
+            });
+        });
+    }
+
     public refreshPatientData() {
 
         let returnValue = new Subject<boolean>();
-        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).subscribe(token => {
+        this.storageService.getItem(PatientService.PATIENT_TOKEN_KEY).then(token => {
             if (token != null) {
                 this.patientController.patientControllerFindById(token).subscribe(existingPatient => {
                     if (existingPatient != null) {
                         this._patient = existingPatient;
-                        this.patientRefreshed$.next(true);
-                        this.patientDataChanged$.next(true);
-                        returnValue.next(true);
+                        this.checkIfPatientStatusHasChanged(this._patient).then(() => {
+                            this.patientRefreshed$.next(true);
+                            this.patientDataChanged$.next(true);
+                            this.appRef.tick(); //ensure refresh
+                            returnValue.next(true);
+                        });
                     }
                 });
             }
@@ -101,23 +138,23 @@ export class PatientService {
         console.log("Registering...");
 
         this.patientController.patientControllerCreate(patient).subscribe(newPatient => {
-            console.log("received patient: " + newPatient);
-            this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).subscribe(result => {
-                this.loadLocalPatient().subscribe(loaded => {
-                    if (loaded) {
-                        this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
-                            returnValue.next(newPatient);
-                        });
-                    } else {
-                        console.error("Error trying to register the patient. The installation has not been registered as well :(");
-                    }
+                console.log("received patient: " + newPatient);
+                this.storageService.setItem(PatientService.PATIENT_TOKEN_KEY, newPatient.id).then(result => {
+                    this.loadLocalPatient().subscribe(loaded => {
+                        if (loaded) {
+                            this.installationService.registerInstallation(this.patient.id).subscribe(installed => {
+                                returnValue.next(newPatient);
+                            });
+                        } else {
+                            console.error("Error trying to register the patient. The installation has not been registered as well :(");
+                        }
+                    });
                 });
+            },
+            error => {
+                console.error("Error trying to register: " + JSON.stringify(error));
+                returnValue.error(error);
             });
-        },
-        error => {
-            console.error("Error trying to register: " + JSON.stringify(error));
-            returnValue.error(error);
-        });
 
         return returnValue;
     }
@@ -137,7 +174,17 @@ export class PatientService {
         return returnValue;
     }
 
-
+    async showNotification(title: string, message: string) {
+        const alert = await this.alertController.create(
+            {
+                header: title,
+                message: message,
+                buttons: [{ text: 'OK' }],
+                backdropDismiss: false
+            }
+        );
+        await alert.present();
+    }
 
 
 }

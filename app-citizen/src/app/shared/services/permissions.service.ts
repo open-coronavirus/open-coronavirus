@@ -196,10 +196,10 @@ export class PermissionsService {
                         resolve(false);
                     }
                 })
-                .catch(error => {
-                    console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error('[PermissionService] has bluetooth permission: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
             else if(this.platform.is('ios')) {
                 resolve(this.bluetoothPoweredOn);
@@ -211,14 +211,22 @@ export class PermissionsService {
 
     hasPushPermission() {
         let returnValue: Promise<boolean> = new Promise(resolve => {
-            Permissions.query({name: PermissionType.Notifications}).then(result => {
-                console.log('[PermissionService] has push permission: ' + JSON.stringify(result));
-                if (result.state == 'granted') {
-                    resolve(true);
-                } else {
-                    resolve(false);
-                }
-            });
+            if(this.platform.is('android')) {
+                this.diagnostic.isRemoteNotificationsEnabled().then(result => {
+                    console.log("[PermissionService] has push permission: " + JSON.stringify(result));
+                    resolve(result);
+                })
+            }
+            else {
+                Permissions.query({name: PermissionType.Notifications}).then(result => {
+                    console.log('[PermissionService] has push permission: ' + JSON.stringify(result));
+                    if (result.state == 'granted') {
+                        resolve(true);
+                    } else {
+                        resolve(false);
+                    }
+                });
+            }
         });
 
         return returnValue;
@@ -269,10 +277,10 @@ export class PermissionsService {
                     console.log('[PermissionService] bluetooth has been enabled: ' + JSON.stringify(result));
                     resolve(true);
                 })
-                .catch(error => {
-                    console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
             else if(this.platform.is('ios')) {
                 this.diagnostic.requestBluetoothAuthorization().then(result => {
@@ -281,10 +289,10 @@ export class PermissionsService {
                         console.log("[PermissionService] request bluetooth result: " + JSON.stringify(result));
                     })
                 })
-                .catch(error => {
-                    console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error('[PermissionService] error trying to enable bluetooth: ' + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
 
         });
@@ -322,10 +330,10 @@ export class PermissionsService {
                     console.log("[PermissionService] coarse location permission request result: " + JSON.stringify(result));
                     resolve(true);
                 })
-                .catch(error => {
-                    console.error("[PermissionService] Error trying to request coarse location permission: " + JSON.stringify(error));
-                    resolve(false);
-                });
+                    .catch(error => {
+                        console.error("[PermissionService] Error trying to request coarse location permission: " + JSON.stringify(error));
+                        resolve(false);
+                    });
             }
             else {
                 resolve(true);

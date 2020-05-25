@@ -94,7 +94,7 @@ export class AppComponent {
     }
 
     checkWelcome() {
-        this.storageService.getItem('WELCOME_VISIT').subscribe(welcomeVisit => {
+        this.storageService.getItem('WELCOME_VISIT').then(welcomeVisit => {
             if (welcomeVisit) {
                 this.loadPatient();
             } else {

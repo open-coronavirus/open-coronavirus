@@ -21,7 +21,7 @@ export class KeyManagerService {
                        protected loggingService: LoggingService,
                        protected infectedKeyControllerService: InfectedKeyControllerService) {
 
-        this.storageService.getItem(KeyManagerService.SK_KEY).subscribe(data => {
+        this.storageService.getItem(KeyManagerService.SK_KEY).then(data => {
             if (data != null) {
                 this.initialDate = new Date(data.initialDateTimestamp);
                 this.initialSK = data.initialSK;

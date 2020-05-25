@@ -163,10 +163,10 @@ export class PatientService {
                     reject(new HttpErrors[404]);
                 }
             })
-            .catch(error => {
-                console.error("Error trying to locate patient with document number " + documentNumber + ": " + JSON.stringify(error));
-                reject(new HttpErrors[404]);
-            });
+                .catch(error => {
+                    console.error("Error trying to locate patient with document number " + documentNumber + ": " + JSON.stringify(error));
+                    reject(new HttpErrors[404]);
+                });
 
         });
 
@@ -183,16 +183,16 @@ export class PatientService {
         let text = null;
         switch (status) {
             case PatientStatus.INFECTED:
-                text = "Ya tienes los resultados de tu test: POSITIVO. Revísalo aquí";
+                text = "Ya tienes los resultados de tu test: POSITIVO. Ponte en cuarentena y contacta con tu centro de salud.";
                 break;
             case PatientStatus.UNINFECTED:
-                text = "Ya tienes los resultados de tu test: NEGATIVO. Revísalo aquí.";
+                text = "Ya tienes los resultados de tu test: NEGATIVO. Enhorabuena!";
                 break;
             case PatientStatus.INFECTION_SUSPECTED:
-                text = "Has estado en contacto activamente con pacientes con riesgo de coronavirus. Ponte en cuarentena!";
+                text = "Has estado en contacto activamente con pacientes con riesgo de coronavirus en los últimos días. Por favor, ponte en cuarentena y contacta con tu centro de salud.";
                 break;
             case PatientStatus.IMMUNE:
-                text = "Ya tienes los resultados de tu test: NEGATIVO. Revísalo aquí.";
+                text = "Ya tienes los resultados de tu test: NEGATIVO. Enhorabuena!";
                 break;
         }
         if (text != null) {

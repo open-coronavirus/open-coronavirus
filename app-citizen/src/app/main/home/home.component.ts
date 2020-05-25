@@ -108,7 +108,7 @@ export class HomeComponent implements OnDestroy {
         this.subscriptions.push(this.patientService.patientDataChanged$.subscribe(patientLoaded => {
             if (patientLoaded) {
                 this.patientName = this.patientService.patient.firstName;
-                if (this.patientService.patient.status == PatientStatus.INFECTED && this.contactsCount > 0) {
+                if (this.patientService.patient.status == PatientStatus.INFECTED && !this.tracingService.autoShareActivated()) {
                     this.showSendContactInformationMenu = true;
                 }
                 else {
@@ -122,7 +122,7 @@ export class HomeComponent implements OnDestroy {
             if (loaded) {
                 this.subscriptions.push(this.contactTrackerService.contactsCount$.subscribe(contactsCount => {
                     this.contactsCount = contactsCount;
-                    if (contactsCount > 0 && this.patientService.patient.status == PatientStatus.INFECTED) {
+                    if (this.patientService.patient.status == PatientStatus.INFECTED && !this.tracingService.autoShareActivated()) {
                         this.showSendContactInformationMenu = true;
                     }
                     else {

@@ -38,7 +38,7 @@ export class TracingService {
             }
         });
 
-        this.storageService.getItem(TracingService.UPLOADED_KEY_TO_SERVER).subscribe(uploaded => {
+        this.storageService.getItem(TracingService.UPLOADED_KEY_TO_SERVER).then(uploaded => {
             if(uploaded == "yes") { //just in case uploaded is "yes"
                 this.uploadedKeyToServer = true;
             }

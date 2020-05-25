@@ -11,31 +11,30 @@ export class StorageService {
     }
 
     public getItem(key: string) {
-        let returnValue: Subject<any> = new Subject();
-        this.platform.ready().then(() => {
-            this.nativeStorage.getItem(key).then(data => {
-                returnValue.next(JSON.parse(data));
-            })
-            .catch(reason => {
-                //try with web local storage
-                returnValue.next(JSON.parse(localStorage.getItem(key)));
+        return new Promise<any>((resolve, reject) => {
+            this.platform.ready().then(() => {
+                this.nativeStorage.getItem(key).then(data => {
+                    resolve(JSON.parse(data));
+                })
+                    .catch(reason => {
+                        //try with web local storage
+                        resolve(JSON.parse(localStorage.getItem(key)));
+                    });
             });
         });
-        return returnValue;
     }
 
     public setItem(key: string, value: any) {
-        value = JSON.stringify(value);
-        let returnValue: Subject<any> = new Subject();
-        this.nativeStorage.setItem(key, value).then(result => {
-            returnValue.next(result);
-        })
-        .catch(reason => {
-            //try with web local storage
-            returnValue.next(localStorage.setItem(key, value));
+        return new Promise<any>((resolve, reject) => {
+            value = JSON.stringify(value);
+            this.nativeStorage.setItem(key, value).then(result => {
+                resolve(result);
+            })
+                .catch(reason => {
+                    //try with web local storage
+                    resolve(localStorage.setItem(key, value));
+                });
         });
-
-        return returnValue;
     }
 
 }

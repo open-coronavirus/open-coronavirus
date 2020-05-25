@@ -15,6 +15,7 @@
             android:name="com.opencoronavirus.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:networkSecurityConfig="@xml/network_security_config"
             android:launchMode="singleTask">
 
             <intent-filter>
@@ -42,8 +43,9 @@
         </provider>
     </application>
 
-    <!-- Permissions -->
+    <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_launcher_round" />
 
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Camera, Photos, input file -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
