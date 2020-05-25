@@ -28,7 +28,15 @@ export class PatientService {
             patient.status = PatientStatus.UNKNOWN; //initial status
             patient.created = new Date();
 
-            let existingPatinet = await this.patientRepository.findOne({where: {documentNumber: patient.documentNumber}});
+            let existingPatinet = null;
+            //try to find the patient by the health insurance card number
+            if (patient.healthInsuranceCardNumber != null && patient.healthInsuranceCardNumber.length > 0) {
+                existingPatinet = await this.patientRepository.findOne({where: {healthInsuranceCardNumber: patient.healthInsuranceCardNumber}});
+            }
+            //if no existing patient, try with the document number (need to refactor this piece to be configurable)
+            if (existingPatinet == null && patient.documentNumber != null && patient.documentNumber.length > 0) {
+                existingPatinet = await this.patientRepository.findOne({where: {documentNumber: patient.documentNumber}});
+            }
             if (existingPatinet != null) {
                 //ovewrite everything with the given patient data (to avoid issues with validateUsers because the
                 //user has been loaded from database, so it was previously validated
