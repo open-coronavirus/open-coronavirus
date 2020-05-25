@@ -79,7 +79,7 @@ export class PatientService {
         return new Promise<void>((resolve, reject) => {
             this.storageService.getItem(PatientService.PATIENT_LAST_STATUS_KEY).then(async lastStatus => {
                 if (lastStatus != null && patient.status != lastStatus) {
-                    let text;
+                    let text = null;
                     switch(patient.status) {
                         case PatientStatus.INFECTED:
                             text = "Has dado POSITIVO en COVID-19. Por favor, quédate en casa y contacta con tu médico o centro de salud.";
@@ -92,7 +92,9 @@ export class PatientService {
                             text = "Has estado en contacto activamente con pacientes con riesgo de coronavirus en los últimos días. Por favor, quédate en casa y contacta con tu médico o centro de salud.";
                             break;
                     }
-                    await this.showNotification("Atención", text);
+                    if(text != null) {
+                        await this.showNotification("Atención", text);
+                    }
                 }
                 this.storageService.setItem(PatientService.PATIENT_LAST_STATUS_KEY, patient.status).then(() => {
                     resolve();
