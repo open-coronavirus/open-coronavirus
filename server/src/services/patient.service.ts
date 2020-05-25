@@ -145,26 +145,33 @@ export class PatientService {
         }
     }
 
-    public changeStatus(documentNumber: string, status: number, date: string) {
-        let filter = {
-            "where": {
-                "documentNumber": documentNumber
-            }
-        };
+    public changeStatus(documentNumber: string, healthInsuranceCardNumber: string, status: number, date: string) {
+
+        let where: any = {};
+        if(documentNumber != null && documentNumber.length > 0) {
+            where['documentNumber'] = documentNumber;
+        }
+        if(healthInsuranceCardNumber != null && healthInsuranceCardNumber.length > 0) {
+            where['healthInsuranceCardNumber'] = healthInsuranceCardNumber;
+        }
+
+        let filter = {'where': where};
 
         let returnValue: Promise<Patient | null> = new Promise((resolve, reject) => {
 
-            this.patientRepository.findOne(filter).then(patient => {
-                if (patient != null) {
-                    this.doChangeStatus(patient, status, date);
-                    resolve(patient);
+            this.patientRepository.find(filter).then(patients => {
+                if (patients != null && patients.length > 0) {
+                    patients.forEach(async patient => {
+                        await this.doChangeStatus(patient, status, date);
+                    });
+                    resolve(patients[0]); //for legacy compatibility
                 }
                 else {
                     reject(new HttpErrors[404]);
                 }
             })
                 .catch(error => {
-                    console.error("Error trying to locate patient with document number " + documentNumber + ": " + JSON.stringify(error));
+                    console.error("Error trying to locate patient with document number " + documentNumber + ", healthInsuranceCardNumber " + healthInsuranceCardNumber + ": " + JSON.stringify(error));
                     reject(new HttpErrors[404]);
                 });
 

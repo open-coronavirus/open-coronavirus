@@ -1,4 +1,4 @@
-import { Count, CountSchema, Filter, repository, Where, } from '@loopback/repository';
+import {Count, CountSchema, Filter, repository, Where,} from '@loopback/repository';
 import {
   del,
   get,
@@ -13,14 +13,13 @@ import {
   requestBody,
 } from '@loopback/rest';
 
-import { Patient } from '../models';
-import { PatientRepository } from '../repositories';
-import { BluetoothUuidGenerator } from "../common/utils/bluetooth-uuid-generator";
-import { authenticate } from "@loopback/authentication";
-import { authorize } from "@loopback/authorization";
+import {Patient} from '../models';
+import {PatientRepository} from '../repositories';
+import {BluetoothUuidGenerator} from "../common/utils/bluetooth-uuid-generator";
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 import {service} from "@loopback/core";
 import {PushNotificationService} from "../services/pushnotification.service";
-import {PatientStatus} from "../common/utils/enums";
 import {PatientService} from "../services/patient.service";
 import {UserValidatorService} from "../services/user-validator.service";
 
@@ -244,10 +243,11 @@ export class PatientController {
               additionalProperties: false,
               properties: {
                 documentNumber: { type: 'string' },
+                healthInsuranceCardNumber: { type: 'string' },
                 status: { type: 'number' },
                 date: { type: 'string' }
               },
-              required: ['documentNumber', 'status']
+              required: ['status']
             }
           }
         },
@@ -259,7 +259,8 @@ export class PatientController {
       throw new HttpErrors[401]; //unauthorized
     }
 
-    return this.patientService.changeStatus(body.documentNumber, body.status, body.date);
+    //identifier can be document number of health card number
+    return this.patientService.changeStatus(body.documentNumber, body.healthInsuranceCardNumber, body.status, body.date);
 
   }
 
