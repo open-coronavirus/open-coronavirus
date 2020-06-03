@@ -31,10 +31,12 @@ export class PatientService {
             let existingPatinet = null;
             //try to find the patient by the health insurance card number
             if (patient.healthInsuranceCardNumber != null && patient.healthInsuranceCardNumber.length > 0) {
+                patient.healthInsuranceCardNumber = this.normalizeDocumentId(patient.healthInsuranceCardNumber);
                 existingPatinet = await this.patientRepository.findOne({where: {healthInsuranceCardNumber: patient.healthInsuranceCardNumber}});
             }
             //if no existing patient, try with the document number (need to refactor this piece to be configurable)
             if (existingPatinet == null && patient.documentNumber != null && patient.documentNumber.length > 0) {
+                patient.documentNumber = this.normalizeDocumentId(patient.documentNumber);
                 existingPatinet = await this.patientRepository.findOne({where: {documentNumber: patient.documentNumber}});
             }
             if (existingPatinet != null) {
@@ -67,6 +69,16 @@ export class PatientService {
         else {
             throw new HttpErrors.BadRequest("Internal Server Error");
         }
+
+    }
+
+    public normalizeDocumentId(documentId: string) {
+
+        let returnValue = documentId;
+        if(documentId != null && documentId.length > 0) {
+            returnValue = documentId.replace(/\s+/gi, "").toUpperCase();
+        }
+        return returnValue;
 
     }
 
@@ -157,10 +169,10 @@ export class PatientService {
 
         let where: any = {};
         if(documentNumber != null && documentNumber.length > 0) {
-            where['documentNumber'] = documentNumber;
+            where['documentNumber'] = this.normalizeDocumentId(documentNumber);
         }
         if(healthInsuranceCardNumber != null && healthInsuranceCardNumber.length > 0) {
-            where['healthInsuranceCardNumber'] = healthInsuranceCardNumber;
+            where['healthInsuranceCardNumber'] = this.normalizeDocumentId(healthInsuranceCardNumber);
         }
 
         let filter = {'where': where};
