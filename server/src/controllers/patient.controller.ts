@@ -254,7 +254,7 @@ export class PatientController {
       }) body: any,
   ): Promise<Patient | null> {
 
-    if(apiKey != "test") {
+    if(apiKey != process.env.API_KEY) {
       console.log("Wrong API key used: " + apiKey);
       throw new HttpErrors[401]; //unauthorized
     }
