@@ -223,7 +223,7 @@ export class PatientController {
 
   }
 
-  @put('/patients/status', {
+  @put('/patients/status/change', {
     responses: {
       '200': {
         description: 'Update patient status success',
@@ -242,8 +242,8 @@ export class PatientController {
               type: 'object',
               additionalProperties: false,
               properties: {
-                documentNumber: { type: 'string' },
-                healthInsuranceCardNumber: { type: 'string' },
+                documentNumber: { type: 'string', nullable: true },
+                healthInsuranceCardNumber: { type: 'string', nullable: true },
                 status: { type: 'number' },
                 date: { type: 'string' }
               },
