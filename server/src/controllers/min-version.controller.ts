@@ -12,6 +12,8 @@ import { MinVersion } from '../models';
 import { MinVersionRepository } from '../repositories';
 import { MinVersionService } from "../services/min-version.service";
 import { service } from '@loopback/core';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class MinVersionController {
   constructor(
@@ -75,6 +77,8 @@ export class MinVersionController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'MinVersion', scopes: ['write']})
   async replaceById(
     @requestBody({
       content: {

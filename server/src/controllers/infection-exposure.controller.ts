@@ -20,6 +20,8 @@ import {Contact, InfectionExposure} from '../models';
 import {ContactRepository, InfectionExposureRepository} from '../repositories';
 import {service} from "@loopback/core";
 import {PatientService} from "../services/patient.service";
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 const schemaWithArrayOfInfectionExposures = {
   type: 'array',
@@ -97,6 +99,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['read']})
   async count(
     @param.where(InfectionExposure) where?: Where<InfectionExposure>,
   ): Promise<Count> {
@@ -118,6 +122,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['read']})
   async find(
     @param.filter(InfectionExposure) filter?: Filter<InfectionExposure>,
   ): Promise<InfectionExposure[]> {
@@ -132,6 +138,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -158,6 +166,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['read']})
   async findById(
     @param.path.string('id') id: string,
     @param.filter(InfectionExposure, {exclude: 'where'}) filter?: FilterExcludingWhere<InfectionExposure>
@@ -172,6 +182,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -193,6 +205,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() infectionExposure: InfectionExposure,
@@ -207,6 +221,8 @@ export class InfectionExposureController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectionExposure', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.infectionExposureRepository.deleteById(id);
   }

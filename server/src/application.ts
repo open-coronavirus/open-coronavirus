@@ -76,10 +76,11 @@ export class CoronavirusServerApplication extends BootMixin(
     this.sequence(AuthenticationSequence);
 
     // Customize @loopback/rest-explorer configuration here
-    this.bind(RestExplorerBindings.CONFIG).to({
-      path: '/explorer'
-    });
-    this.component(RestExplorerComponent);
+    // todo: uncomment to enjoy the rest explorer (don't do that in production)
+    //this.bind(RestExplorerBindings.CONFIG).to({
+    //  path: '/explorer'
+    //});
+    //this.component(RestExplorerComponent);
 
     //Define custom services at this point:
     this.service(AppointmentMockService, { interface: 'AppointmentService' });

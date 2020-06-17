@@ -20,6 +20,8 @@ import {
 } from '@loopback/rest';
 import {InfectedKey, Installation} from '../models';
 import {InfectedKeyRepository} from '../repositories';
+import {authenticate} from "@loopback/authentication";
+import {authorize} from "@loopback/authorization";
 
 export class InfectedKeyController {
   constructor(
@@ -114,6 +116,8 @@ export class InfectedKeyController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectedKey', scopes: ['write']})
   async updateAll(
     @requestBody({
       content: {
@@ -154,6 +158,8 @@ export class InfectedKeyController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectedKey', scopes: ['write']})
   async updateById(
     @param.path.string('id') id: string,
     @requestBody({
@@ -175,6 +181,8 @@ export class InfectedKeyController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectedKey', scopes: ['write']})
   async replaceById(
     @param.path.string('id') id: string,
     @requestBody() infectedKey: InfectedKey,
@@ -189,6 +197,8 @@ export class InfectedKeyController {
       },
     },
   })
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'InfectedKey', scopes: ['write']})
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.infectedKeyRepository.deleteById(id);
   }

@@ -134,8 +134,8 @@ export class PatientController {
     },
   })
   //todo securize
-  /*@authenticate(process.env.AUTH_STRATEGY!)
-  @authorize({ resource: 'Patient', scopes: ['read'] })*/
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({ resource: 'Patient', scopes: ['read'] })
   async getByQrCode(
       @param.path.string('qrcode') qrcode: string,
   ): Promise<Patient> {

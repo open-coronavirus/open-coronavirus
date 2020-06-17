@@ -77,7 +77,8 @@ export class ContactController {
       },
     },
   })
-  //todo securize (now is unsecurized for debug reasons)
+  @authenticate(process.env.AUTH_STRATEGY!)
+  @authorize({resource: 'Contact', scopes: ['read']})
   async find(
     @param.filter(Contact) filter?: Filter<Contact>,
   ): Promise<Contact[]> {
