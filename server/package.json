@@ -65,7 +65,7 @@
     "@types/express-jwt": "0.0.42",
     "@types/node-pushnotifications": "^1.0.3",
     "dotenv": "^8.2.0",
-    "express-jwt": "^5.3.3",
+    "express-jwt": "^6.0.0",
     "express-jwt-authz": "^2.3.1",
     "guid-typescript": "^1.0.9",
     "jsonwebtoken": "^8.5.1",
