@@ -1,0 +1,203 @@
+[
+  {
+    "id": "5e75112f7c36a55f5c6efe3a",
+    "questionId": "question0",
+    "title": "Autotest",
+    "subtitle": "<p><ul><li>Dificultad severa para respirar (por ejemplo, sensación de asfixia, hablar en palabras entrecortadas, falta de aire en reposo o con mínimos movimientos)</li><li>Dolor severo en el pecho al respirar</li><li>Confusión (por ejemplo, inseguro de dónde se encuentra) o ha sufrido pérdida del conocimiento</li><li>Fiebre > 38º durante más de 1 día</li></ul></p>",
+    "multicheck": false,
+    "question": "¿Tiene alguno de los siguientes síntomas?",
+    "children": [
+      {
+        "option": "SI",
+        "value": 100,
+        "target": "testresult"
+      },
+      {
+        "option": "NO",
+        "target": "question1_1"
+      }
+    ]
+  },
+  {
+    "id": "5e7512767c36a55f5c6efeff",
+    "questionId": "question1_1",
+    "title": "Autotest",
+    "subtitle": "<p><ul><li>Fiebre o febrícula</li><li>Tos de reciente aparición</li><li>Dificultad para respirar con actividad física moderada o grande.</li><li>Alteración repentina del olfato o del gusto.</li></ul></p>",
+    "multicheck": false,
+    "question": "¿Tiene alguno de los siguientes síntomas (o una combinación de estos síntomas)?",
+    "target": "question1_2",
+    "children": [
+      {
+        "option": "SI",
+        "value": 10
+      },
+      {
+        "option": "NO"
+      }
+    ]
+  },
+  {
+    "id": "5e75129a7c36a55f5c6eff1c",
+    "questionId": "question1_2",
+    "title": "Autotest",
+    "subtitle": "<p><ul><li>Dolores musculares</li><li>Fatiga</li><li>Dolor de cabeza</li><li>Dolor de garganta</li><li>Secreción nasal</li></ul> Los síntomas en niños pequeños también pueden ser inespecíficos (por ejemplo, letargo, mala alimentación).</p>",
+    "multicheck": false,
+    "question": "¿Está experimentando 2 o más de los siguientes síntomas?",
+    "target": "question1_3",
+    "children": [
+      {
+        "option": "SI",
+        "value": 10
+      },
+      {
+        "option": "NO",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "id": "5e751ca87c36a55f5c6f023d",
+    "questionId": "question1_3",
+    "title": "Autotest",
+    "subtitle": "<p><ul><li>Tengo más de 70 años</li><li>Tengo una afección que afecta mi sistema inmunitario (por ejemplo, VIH / SIDA).</li><li>Estoy recibiendo tratamiento que afecta mi sistema inmunológico (por ejemplo, quimioterapia)</li></p>",
+    "multicheck": true,
+    "question": "¿Se le aplica a usted alguno de los siguientes?",
+    "target": "question1_4",
+    "children": [
+      {
+        "option": "SI",
+        "value": 50
+      },
+      {
+        "option": "NO",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "id": "5e751cdf7c36a55f5c6f0252",
+    "questionId": "question1_4",
+    "title": "Autotest",
+    "subtitle": "<p>Por ejemplo, alguien en su hogar o lugar de trabajo?</p>",
+    "multicheck": false,
+    "question": "¿Alguien con quien está en contacto cercano dió positivo por COVID-19?",
+    "target": "question1_5",
+    "children": [
+      {
+        "option": "SI",
+        "value": 10
+      },
+      {
+        "option": "NO",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "id": "5e751cf97c36a55f5c6f0262",
+    "questionId": "question1_5",
+    "title": "Autotest",
+    "subtitle": "<p>Los síntomas respiratorios pueden incluir fiebre, tos o dificultad para respirar.</p>",
+    "multicheck": false,
+    "question": "¿Está en contacto cercano con una persona enferma con nuevos síntomas respiratorios o que viajó recientemente?",
+    "target": "testresult",
+    "children": [
+      {
+        "option": "SI",
+        "value": 10
+      },
+      {
+        "option": "NO",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "id": "5e751d1a7c36a55f5c6f026c",
+    "questionId": "seguimiento1_1",
+    "title": "Seguimiento de tu salud",
+    "subtitle": "<p><ul><li>Dificultad severa para respirar (por ejemplo, sensación de asfixia, hablar en palabras entrecortadas)</li><li>Dolor severo en el pecho</li><li>Confusión (por ejemplo, inseguro de dónde se encuentra)</li><li>Pérdida del conocimiento</li><li>Fiebre> 38º durante más de 1 día</li></ul></p>",
+    "multicheck": false,
+    "question": "¿Sus síntomas empeoraron y ha iniciado alguno de los siguientes síntomas?",
+    "target": "testresult",
+    "children": [
+      {
+        "option": "SI",
+        "value": 100
+      },
+      {
+        "option": "NO",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "id": "5e751d447c36a55f5c6f027f",
+    "questionId": "question3_1",
+    "title": "Positivo en coronavirus",
+    "subtitle": "",
+    "multicheck": false,
+    "question": "He dado positivo por coronavirus y:",
+    "children": [
+      {
+        "option": "¿Qué tengo que hacer durante el aislamiento?",
+        "target": "isolation_place_recommendations"
+      },
+      {
+        "option": "Ha empeorado mi clínica desde que estoy en casa confinado",
+        "target": "recommendations_and_contact_phones"
+      }
+    ]
+  },
+  {
+    "id": "5e751d757c36a55f5c6f0292",
+    "questionId": "recommendations_and_contact_phones",
+    "title": "Teléfono de contacto",
+    "subtitle": "<p>Si durante el confinamiento en casa se encuentra en cualquiera de la siguientes situaciones, llame al teléfono de contacto habilitado en tu Comunidad</p><p><ul><li>Presento dificultad respiratoria marcada</li><li>La fiebre permanece por encima de 39º y los antitérmicos que estoy tomando (paracetamol y similares) no están consiguiendo disminuirla</li><li>Cualquier signo de gravedad de otra índole (alteración de la consciencia…)</li></ul></p><h1>Teléfonos de contacto</h1><h2>Andalucía</h2><p>La Consejería de Salud de Jesús Aguirre ha habilitado un teléfono especial para consultas, denominado Salud Responde y que es el <a href=\"tel:955545060\"><strong>955 54 50 60</strong></a>.</p><h2>Aragón</h2><p>El Gobierno aragonés ha habilitado el número <a href=\"tel:976696382\"><strong>976 696 382</strong></a> para dudas y solicitudes de información<br>Mantiene el teléfono <a href=\"tel:061\"><strong>061</strong></a> para gente que cumpla los criterios comentados en esta página.</p><h2>Canarias</h2><p>El teléfono para consultas generales en las Islas Canarias, donde cientos de personas han permanecido en cuarentena en un hotel de Adeje, es el <a href=\"tel:900112061\"><strong>900 112 061</strong></a>.</p><h2>Cantabria</h2><p>La consejería de Sanidad ha habilitado el número <a href=\"tel:900612112\"><strong>900 612 112</strong></a> para atender a aquellas personas que en Cantabria creen que pueden tener el coronavirus.<br>Se limita la llamada al <a href=\"tel:112\"><strong>112</strong></a> y <a href=\"tel:061\"><strong>061</strong></a> sólo si es imprescindible.</p><h2>Castilla la Mancha</h2><p>l departmento de Jesús Fernández ha habilitado el <a href=\"tel:900122112\"><strong>900 122 112</strong></a> para el coronavirus.</p><h2>Castilla León</h2><p>Al igual que el resto de comunidades, reitera el llamamiento ante una posible sospecha de infección a no acudir a centros médicos ni hospitales, permanecer en casa y llamar al <a href=\"tel:900222000\"><strong>900 222 000</strong></a>. </p><h2>Cataluña</h2><p>Cataluña también opta por un número telefónico habitual para atender las consultas sobre esta patología: el <a href=\"tel:061\"><strong>061</strong></a>.<br>Debido al desbordamiento sufrido por la avalancha de llamadas la Generalitat ha habilitado un test online para descartar casos: Test online</p><h2>Comunidad de Madrid</h2><p>La Consejería de Sanidad de Enrique Ruiz Escudero ha habilitado el <a href=\"tel:900102112\"><strong>900 102 112</strong></a> para derivar las llamadas de posibles casos a la Mesa de Coordinación del SUMMA <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>Comunidad Foral de Navarra</h2><p>Centralizan en el <a href=\"tel:112\"><strong>112</strong></a> las consultas sobre posibles casos al tener síntomas y haber venido de las zonas afectadas (o haber tenido un contacto estrecho con casos positivos) mientras que el teléfono de consejo sanitario es el <a href=\"tel:948290290\"><strong>948 290 290</strong></a>.</p><h2>Comunidad Valenciana</h2><p>El <a href=\"tel:900300555\"><strong>900 300 555</strong></a> es el número para que cualquier persona de la Comunidad Valenciana con síntomas pueda ponerse en contacto con los servicios sanitarios.</p><h2>Extremadura</h2><p>En caso de que algún extremeño presente síntomas o quiera resolver alguna cuestión, deberá llamar al <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>Galicia</h2><p>En Galicia los usuarios que presenten síntomas deberán llamar al <a href=\"tel:061\"><strong>061</strong></a> y, en el caso de buscar información general, el <a href=\"tel:900400116\"><strong>900 400 116</strong></a>.</p><h2>Islas Baleares</h2><p>En las Islas Baleares se canalizarán todas las consultas a través del <a href=\"tel:061\"><strong>061</strong></a>.</p><h2>La Rioja</h2><p>En La Rioja está disponible el teléfono <a href=\"tel:941298333\"><strong>941 298 333</strong></a>, que se suma al <a href=\"tel:112\"><strong>112</strong></a>, para que los usuarios puedan hacer las consultas que necesiten.</p><h2>Región de Murcia</h2><p>Salud habilita el teléfono de información del coronavirus <a href=\"tel:900121212\"><strong>900 121 212</strong></a>, aunque también se puede llamar al <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>País Vasco</h2><p>Osakidetza ha abierto la línea telefónica del <a href=\"tel:900203050\"><strong>900 203 050</strong></a> para “consejos sanitarios” sobre coronavirus. </p><h2>Principado de Asturias</h2><p>Asturias mantendrá el número de emergencias, el <a href=\"tel:112\"><strong>112</strong></a>, como medio de comunicación.</p>",
+    "multicheck": false,
+    "children": []
+  },
+  {
+    "id": "5e751d9a7c36a55f5c6f029e",
+    "questionId": "wait_to_be_contacted_and_contact_phones",
+    "title": "Contacto",
+    "subtitle": "<p>Tras la indicación de quedarse en casa, el primer contacto puede tardar de <strong>12 a 24 horas</strong>. Si han pasado más de 24 horas y aún no se han puesto en contacto con usted, llame al teléfono de contacto habilitado en tu Comunidad</p><h1>Teléfonos de contacto</h1><h2>Andalucía</h2><p>La Consejería de Salud de Jesús Aguirre ha habilitado un teléfono especial para consultas, denominado Salud Responde y que es el <a href=\"tel:955545060\"><strong>955 54 50 60</strong></a>.</p><h2>Aragón</h2><p>El Gobierno aragonés ha habilitado el número <a href=\"tel:976696382\"><strong>976 696 382</strong></a> para dudas y solicitudes de información<br>Mantiene el teléfono <a href=\"tel:061\"><strong>061</strong></a> para gente que cumpla los criterios comentados en esta página.</p><h2>Canarias</h2><p>El teléfono para consultas generales en las Islas Canarias, donde cientos de personas han permanecido en cuarentena en un hotel de Adeje, es el <a href=\"tel:900112061\"><strong>900 112 061</strong></a>.</p><h2>Cantabria</h2><p>La consejería de Sanidad ha habilitado el número <a href=\"tel:900612112\"><strong>900 612 112</strong></a> para atender a aquellas personas que en Cantabria creen que pueden tener el coronavirus.<br>Se limita la llamada al <a href=\"tel:112\"><strong>112</strong></a> y <a href=\"tel:061\"><strong>061</strong></a> sólo si es imprescindible.</p><h2>Castilla la Mancha</h2><p>l departmento de Jesús Fernández ha habilitado el <a href=\"tel:900122112\"><strong>900 122 112</strong></a> para el coronavirus.</p><h2>Castilla León</h2><p>Al igual que el resto de comunidades, reitera el llamamiento ante una posible sospecha de infección a no acudir a centros médicos ni hospitales, permanecer en casa y llamar al <a href=\"tel:900222000\"><strong>900 222 000</strong></a>. </p><h2>Cataluña</h2><p>Cataluña también opta por un número telefónico habitual para atender las consultas sobre esta patología: el <a href=\"tel:061\"><strong>061</strong></a>.<br>Debido al desbordamiento sufrido por la avalancha de llamadas la Generalitat ha habilitado un test online para descartar casos: Test online</p><h2>Comunidad de Madrid</h2><p>La Consejería de Sanidad de Enrique Ruiz Escudero ha habilitado el <a href=\"tel:900102112\"><strong>900 102 112</strong></a> para derivar las llamadas de posibles casos a la Mesa de Coordinación del SUMMA <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>Comunidad Foral de Navarra</h2><p>Centralizan en el <a href=\"tel:112\"><strong>112</strong></a> las consultas sobre posibles casos al tener síntomas y haber venido de las zonas afectadas (o haber tenido un contacto estrecho con casos positivos) mientras que el teléfono de consejo sanitario es el <a href=\"tel:948290290\"><strong>948 290 290</strong></a>.</p><h2>Comunidad Valenciana</h2><p>El <a href=\"tel:900300555\"><strong>900 300 555</strong></a> es el número para que cualquier persona de la Comunidad Valenciana con síntomas pueda ponerse en contacto con los servicios sanitarios.</p><h2>Extremadura</h2><p>En caso de que algún extremeño presente síntomas o quiera resolver alguna cuestión, deberá llamar al <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>Galicia</h2><p>En Galicia los usuarios que presenten síntomas deberán llamar al <a href=\"tel:061\"><strong>061</strong></a> y, en el caso de buscar información general, el <a href=\"tel:900400116\"><strong>900 400 116</strong></a>.</p><h2>Islas Baleares</h2><p>En las Islas Baleares se canalizarán todas las consultas a través del <a href=\"tel:061\"><strong>061</strong></a>.</p><h2>La Rioja</h2><p>En La Rioja está disponible el teléfono <a href=\"tel:941298333\"><strong>941 298 333</strong></a>, que se suma al <a href=\"tel:112\"><strong>112</strong></a>, para que los usuarios puedan hacer las consultas que necesiten.</p><h2>Región de Murcia</h2><p>Salud habilita el teléfono de información del coronavirus <a href=\"tel:900121212\"><strong>900 121 212</strong></a>, aunque también se puede llamar al <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>País Vasco</h2><p>Osakidetza ha abierto la línea telefónica del <a href=\"tel:900203050\"><strong>900 203 050</strong></a> para “consejos sanitarios” sobre coronavirus. </p><h2>Principado de Asturias</h2><p>Asturias mantendrá el número de emergencias, el <a href=\"tel:112\"><strong>112</strong></a>, como medio de comunicación.</p>",
+    "multicheck": false,
+    "children": []
+  },
+  {
+    "id": "5e751dfa7c36a55f5c6f02c1",
+    "questionId": "wait_to_results_and_contact_phones",
+    "title": "Contacto",
+    "subtitle": "<p>Los resultados de las muestras pueden tardar en ser comunicados al paciente de <strong>12 a 24 horas</strong>. Si han pasado más de 24 horas y aún no se han puesto en contacto con usted, llame al teléfono de contacto habilitado en tu Comunidad</p><h1>Teléfonos de contacto</h1><h2>Andalucía</h2><p>La Consejería de Salud de Jesús Aguirre ha habilitado un teléfono especial para consultas, denominado Salud Responde y que es el <a href=\"tel:955545060\"><strong>955 54 50 60</strong></a>.</p><h2>Aragón</h2><p>El Gobierno aragonés ha habilitado el número <a href=\"tel:976696382\"><strong>976 696 382</strong></a> para dudas y solicitudes de información<br>Mantiene el teléfono <a href=\"tel:061\"><strong>061</strong></a> para gente que cumpla los criterios comentados en esta página.</p><h2>Canarias</h2><p>El teléfono para consultas generales en las Islas Canarias, donde cientos de personas han permanecido en cuarentena en un hotel de Adeje, es el <a href=\"tel:900112061\"><strong>900 112 061</strong></a>.</p><h2>Cantabria</h2><p>La consejería de Sanidad ha habilitado el número <a href=\"tel:900612112\"><strong>900 612 112</strong></a> para atender a aquellas personas que en Cantabria creen que pueden tener el coronavirus.<br>Se limita la llamada al <a href=\"tel:112\"><strong>112</strong></a> y <a href=\"tel:061\"><strong>061</strong></a> sólo si es imprescindible.</p><h2>Castilla la Mancha</h2><p>l departmento de Jesús Fernández ha habilitado el <a href=\"tel:900122112\"><strong>900 122 112</strong></a> para el coronavirus.</p><h2>Castilla León</h2><p>Al igual que el resto de comunidades, reitera el llamamiento ante una posible sospecha de infección a no acudir a centros médicos ni hospitales, permanecer en casa y llamar al <a href=\"tel:900222000\"><strong>900 222 000</strong></a>. </p><h2>Cataluña</h2><p>Cataluña también opta por un número telefónico habitual para atender las consultas sobre esta patología: el <a href=\"tel:061\"><strong>061</strong></a>.<br>Debido al desbordamiento sufrido por la avalancha de llamadas la Generalitat ha habilitado un test online para descartar casos: Test online</p><h2>Comunidad de Madrid</h2><p>La Consejería de Sanidad de Enrique Ruiz Escudero ha habilitado el <a href=\"tel:900102112\"><strong>900 102 112</strong></a> para derivar las llamadas de posibles casos a la Mesa de Coordinación del SUMMA <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>Comunidad Foral de Navarra</h2><p>Centralizan en el <a href=\"tel:112\"><strong>112</strong></a> las consultas sobre posibles casos al tener síntomas y haber venido de las zonas afectadas (o haber tenido un contacto estrecho con casos positivos) mientras que el teléfono de consejo sanitario es el <a href=\"tel:948290290\"><strong>948 290 290</strong></a>.</p><h2>Comunidad Valenciana</h2><p>El <a href=\"tel:900300555\"><strong>900 300 555</strong></a> es el número para que cualquier persona de la Comunidad Valenciana con síntomas pueda ponerse en contacto con los servicios sanitarios.</p><h2>Extremadura</h2><p>En caso de que algún extremeño presente síntomas o quiera resolver alguna cuestión, deberá llamar al <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>Galicia</h2><p>En Galicia los usuarios que presenten síntomas deberán llamar al <a href=\"tel:061\"><strong>061</strong></a> y, en el caso de buscar información general, el <a href=\"tel:900400116\"><strong>900 400 116</strong></a>.</p><h2>Islas Baleares</h2><p>En las Islas Baleares se canalizarán todas las consultas a través del <a href=\"tel:061\"><strong>061</strong></a>.</p><h2>La Rioja</h2><p>En La Rioja está disponible el teléfono <a href=\"tel:941298333\"><strong>941 298 333</strong></a>, que se suma al <a href=\"tel:112\"><strong>112</strong></a>, para que los usuarios puedan hacer las consultas que necesiten.</p><h2>Región de Murcia</h2><p>Salud habilita el teléfono de información del coronavirus <a href=\"tel:900121212\"><strong>900 121 212</strong></a>, aunque también se puede llamar al <a href=\"tel:112\"><strong>112</strong></a>.</p><h2>País Vasco</h2><p>Osakidetza ha abierto la línea telefónica del <a href=\"tel:900203050\"><strong>900 203 050</strong></a> para “consejos sanitarios” sobre coronavirus. </p><h2>Principado de Asturias</h2><p>Asturias mantendrá el número de emergencias, el <a href=\"tel:112\"><strong>112</strong></a>, como medio de comunicación.</p>",
+    "multicheck": false,
+    "children": []
+  },
+  {
+    "id": "5e751e207c36a55f5c6f02d0",
+    "questionId": "isolation_place_recommendations",
+    "title": "Lugar de aislamiento",
+    "subtitle": "<p>La vivienda debe disponer de una estancia con buena ventilación y que pueda ser dedicada de forma específica para el aislamiento del caso, con posibilidad de designar un baño para uso exclusivo del paciente.</p><p>La persona aislada debe disponer de teléfono para garantizar la comunicación permanente con el personal sanitario hasta la resolución de los síntomas.</p><p>El paciente no debe convivir con personas con condiciones de salud que supongan una vulnerabilidad: personas de edad avanzada, diversidad funcional, enfermedades crónicas, inmunodeprimidas, embarazadas... Tanto el paciente como sus convivientes deben ser capaces de comprender y aplicar de forma correcta y consistente las medidas básicas de higiene, prevención y control de la infección.</p><p>El paciente deberá permanecer preferiblemente en una estancia o habitación de uso individual o, en caso de que esto no sea posible, en un lugar en el que se pueda garantizar una distancia mínima de 2 metros con el resto de los convivientes. La puerta de la habitación deberá permanecer cerrada. En caso de que sea imprescindible ir a las zonas comunes del domicilio deberá utilizar mascarilla quirúrgica y realizar higiene de manos al salir de la habitación. Se mantendrán bien ventiladas las zonas comunes.</p><p>La estancia o habitación deberá tener una ventilación adecuada directa a la calle. No deben existir corrientes forzadas de aire provenientes de sistemas de calor o refrigeración.</p><p>Deberá disponer de un baño para uso exclusivo del paciente, o en su defecto, deberá ser limpiado con lejía doméstica tras cada uso que haga el paciente.</p><p>Sería importante que pudiese disponer de un intercomunicador (como los utilizados para la vigilancia de los bebés) para comunicarse con los familiares, sin necesidad de salir de la habitación. También se puede hacer a través del móvil.</p><p>En el interior de la estancia o habitación deberá colocarse un cubo de basura con tapa de apertura de pedal y en su interior una bolsa de plástico que cierre herméticamente para los residuos.</p><p>Se recomienda disponer utensilios de aseo de uso individual y de productos para la higiene de manos como jabón o solución hidroalcohólica.</p><p>Las toallas deberán cambiarse periódicamente siempre que se encuentren húmedas.</p><p>La persona enferma deberá seguir en todo momento las medidas de higiene respiratoria: cubrirse la boca y la nariz al toser o estornudar con pañuelos desechables o el codo flexionado, y lavarse las manos inmediatamente después.</p><p>La persona enferma no deberá recibir visitas durante el periodo de aislamiento.</p>",
+    "multicheck": false,
+    "question": "Características del lugar de aislamiento (si es posible)",
+    "children": []
+  },
+  {
+    "id": "5e751e427c36a55f5c6f02dd",
+    "questionId": "result_ok",
+    "title": "No hay urgencia",
+    "subtitle": "<p>Por el momento no te preocupes, pero no salgas de casa excepto por necesidad:</p><h1>parece que NO tienes el coronavirus - Covid-19</h1><p>Aunque no hayas estado en ninguna zona con evidencia de transmisión comunitaria ni hayas estado en contacto con ningún caso sospechoso o confirmado, <strong>si presentaras algún síntoma, llama a tu centro de atención primaria (CAP) para su valoración</strong>: recuerda evitar desplazarte al mismo salvo indicación contraria.</p><p>Sigue siempre los siguientes <strong>consejos de prevención</strong>:<ul><li><strong>Lávate las manos frecuentemente</strong> (con agua y jabon o soluciones alcoholicas 70%), especialmente después del contacto directo con personas enfermas o su entorno.</li><li><strong>En el momento de toser o estornudar</strong>, tápate la boca y la nariz con pañuelos de un solo uso y deséchalos en la papelera. En su defecto usa la cara interna del codo. Acto seguido lávate las manos rápidamente con agua y jabón, o con soluciones alcohólicas 70%.</li><li><strong>Evita el contacto cercano</strong> (al menos una distancia de dos metros) con personas que padecen infecciones respiratoria agudas y presenten tos, estornudos y expectoraciones y no compartas las pertenencias personales.</li><li><strong>Evita compartir comida y utensilios</strong> (cubiertos, vasos, servilletas, pañuelos, etc.) y otros objetos sin limpiarlos debidamente.</li></ul></p>",
+    "multicheck": false,
+    "question": "De momento no parece que tenga el coronavirus",
+    "children": []
+  },
+  {
+    "id": "29837482374982374",
+    "questionId": "isolation_place",
+    "title": "Aislado en casa",
+    "subtitle": "<p>Tras quedar aislado en casa, siguiendo las recomendaciones de ¿Qué tengo que hacer durante el aislamiento?, en el plazo de 24 horas máximo recibirá una llamada de un profesional de su centro de salud.</p><p>Si en pasadas esas 24 horas no ha recibido la llamada de nadie, pueden suceder dos cosas:<ul><li>El teléfono que aparece en sus datos oficiales no es el correcto.</li><li>Hay una demora grande para la atención telefónica en su centro de salud.</li></ul></p><p>En cualquiera de los dos casos, si se produce esa demora mayor a 24 horas, llame al teléfono 900300555 que registrará su reclamación y profesionales sanitarios (médicos o enfermeros) podrán valorar su situación. A partir de ese momento recibirá llamadas periódicas de su Centro de Salud.</p> <p>Desde el momento en que reciba llamadas del profesional sanitario de su centro de salud, se valorará periódicamente, de forma telefónica, su estado clínico. Podrá recibir consejo médico para tratamiento o cuidados.</p><p>En el momento en que los síntomas desaparezcan y al menos hayan pasado 14 días desde el inicio de los mismos, según los protocolos actuales, se le considerará superada la infección por coronavirus. En este momento el profesional sanitario del Centro de Salud confirmará esta situación y le dará el alta.</p><p>Si a lo largo del aislamiento, su estado clínico empeorará, debe llamar al 112 para recibir asistencia. Las condiciones clínicas de empeoramiento que se pueden dar son:<ul><li>Dificultad respiratoria marcada.</li><li>La fiebre permanece por encima de 39º y los antitérmicos toma (paracetamol y similares) no están consiguiendo disminuirla.</li><li>Cualquier signo de gravedad de otra índole (alteración de la consciencia…).</li></ul></p>",
+    "multicheck": false,
+    "question": "¿Qué es lo que va a suceder desde que quede aislado en casa?",
+    "children": []
+  }
+]
