@@ -4,7 +4,7 @@
         <div class="home-top">
             <div class="result" [ngClass]="getClassStatus()">
                 <div class="result__col-qr" *ngIf="settings.identifierQR">
-                    <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="'patientService.patient?.id'"></qrcode>
+                    <qrcode class="result__qr" [colorDark]="getColorStatus()" [elementType]="'img'" [qrdata]="qrCodeId"></qrcode>
                 </div>
                 <div class="result__col-texts">
                     <p class="result__title" i18n="@@identity">Identificación</p>

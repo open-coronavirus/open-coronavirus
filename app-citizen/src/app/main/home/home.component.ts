@@ -14,6 +14,7 @@ import {TracingService} from "../../shared/services/tracing.service";
 import {PermissionsService} from '../../shared/services/permissions.service';
 import {BluetoothTrackingService} from "../../shared/services/tracking/bluetooth-tracking.service";
 import {OpenNativeSettings} from '@ionic-native/open-native-settings/ngx';
+import {KeyManagerService} from "../../shared/services/keys/key-manager.service";
 
 @Component({
     selector: 'home',
@@ -38,6 +39,8 @@ export class HomeComponent implements OnDestroy {
     public appointmentDescriptionLine1: string;
     public appointmentDescriptionLine2: string;
 
+    public qrCodeId: string;
+
     public showSendContactInformationMenu = false;
     public contactsCount = null;
 
@@ -55,6 +58,7 @@ export class HomeComponent implements OnDestroy {
     constructor(
         protected router: Router,
         public patientService: PatientService,
+        protected keyManager: KeyManagerService,
         protected leaveRequestService: LeaveRequestService,
         protected testAppointmentService: TestAppointmentService,
         protected bluetoothTrackingService: BluetoothTrackingService,
@@ -117,6 +121,7 @@ export class HomeComponent implements OnDestroy {
             }
         }));
 
+        this.refreshQrCode();
 
         this.subscriptions.push(this.patientService.patientLoaded$.subscribe(loaded => {
             if (loaded) {
@@ -152,8 +157,22 @@ export class HomeComponent implements OnDestroy {
 
         this.platform.resume.subscribe(() => {
             this.appRef.tick();
+            this.qrCodeId = this.keyManager.generateEncryptedKey().encryptedData;
         });
 
+    }
+
+    /**
+     * This method refresh the QR code every 5 seconds.
+     * It get a new ephiID from the keyManager and set it to
+     * the QR code
+     *
+     */
+    public refreshQrCode() {
+        this.qrCodeId = this.keyManager.generateEncryptedKey().encryptedData;
+        setTimeout(() => {
+            this.refreshQrCode();
+        }, 5000);
     }
 
     private calculateNumItems() {
