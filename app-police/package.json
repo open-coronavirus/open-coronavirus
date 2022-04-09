@@ -42,7 +42,7 @@
     "cordova-plugin-x-socialsharing": "^5.6.4",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-qrcode2": "0.0.9",
     "phonegap-plugin-barcodescanner": "^7.0.4",
     "rxjs": "~6.5.1",
