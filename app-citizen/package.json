@@ -70,7 +70,7 @@
     "guid-typescript": "^1.0.9",
     "jetifier": "^1.6.5",
     "leaflet": "^1.6.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "phonegap-plugin-multidex": "^1.0.0",
     "phonegap-plugin-push": "^2.3.0",
     "rxjs": "^6.5.5",
