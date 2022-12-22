@@ -68,7 +68,7 @@
     "express-jwt": "^5.3.3",
     "express-jwt-authz": "^2.3.1",
     "guid-typescript": "^1.0.9",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwks-rsa": "^1.7.0",
     "loopback-connector-mongodb": "^4.2.0",
     "loopback-connector-rest": "^3.6.0",
